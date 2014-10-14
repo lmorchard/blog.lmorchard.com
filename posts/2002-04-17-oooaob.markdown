@@ -1,0 +1,75 @@
+---
+comments_archived: true
+date: '2002-04-17T20:58:41-04:00'
+layout: post
+title: REST.  What is it good for?
+wordpress_id: 82
+wordpress_slug: oooaob
+wordpress_url: http://www.decafbad.com/blog/?p=82
+---
+<p>I don't get <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a>, specifically in the context of it being the <a href="http://www.decafbad.com/twiki/bin/view/Main/RightThing">RightThing</a> to do web services.  I see many vagueries about how it's "more scalable" and more "right" and better in theory and there's a big dissertation on it and everything.  Eventually I will get down to reading it.  On the surface, it seems like a big dud to me.  But, it looks like a lot of smart people are into it, so I assume there's <i>something</i> to it since I don't know much yet.</p>
+<p>This is why I love <a href="http://www.google.com/search?hl=en&amp;q=busy+developer+guide">Busy Developer Guides</a>, by the way.  They're for busy developers.  Like me.</p>
+<p>I don't suppose anyone could point me to something that lays it out for me?  Like...  why is <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a> <a href="http://www.google.com/search?q=considered+harmful&amp;sourceid=mozilla-search">considered harmful</a> by <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a> fans?  And what's an example app I could use <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a> for that will just so obviously convince me that I need to drop my XML-RPC ways?</p>
+<!--more-->
+shortname=oooaob
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221083641">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.cabezal.com/blog/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=bb524c061054ff777e6677288faa1ead&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.cabezal.com/blog/">Hugh</a>
+                </div>
+                <a href="#comment-221083641" class="permalink"><time datetime="2002-04-18T07:21:10">2002-04-18T07:21:10</time></a>
+            </div>
+            <div class="content">XMLRPC is "considered harmful" just because it's RPC, and the assumption is that you wait for the return value of a remote call.  SOAP is very often used synchronously, too.
+
+http://www.fawcette.com/xmlmag/2002_04/magazine/departments/endtag/</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221083644">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=743ec87899694a206abd6bdca8fed5fc&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="">Ken MacLeod</a>
+                </div>
+                <a href="#comment-221083644" class="permalink"><time datetime="2002-04-18T15:34:05">2002-04-18T15:34:05</time></a>
+            </div>
+            <div class="content">RPC is not considered harmful because it is synchronous (you make the call and wait for the return value before proceeding).
+
+I outlined two reasons why Internet-scale RPCs are harmful in, unsurprisingly, Web RPCs Considered Harmful[1] before REST became a common term.
+
+1) Security.
+
+ RPCs encourage unique, new code to be developed to answer every API call.  Even security concious people often have bugs in their code.  There are very few Web RPC resources that discuss programming techniques for security, but they are similar to security issues in CGI (and that's an important similarity to note).
+
+REST encourages database-like storage servers, with declarative access controls and filters; WebDAV for data, if you will.  Like HTTP servers themselves, REST application servers are likely to be widely deployed, mature server code bases.  Outside of static HTTP servers and, arguably, Linda-style systems, I'm still waiting for these RESTful servers to appear.
+
+Using a Linda-style REST server also allows one to decouple what application code is necessary from being directly accessible through the public internet.  With a REST server in-between, the public clients access the REST server from outside, and the RESTful application accesses the REST server from some safely sequestered system "almost inside."
+
+2) Monopolization, lock-in, or fragmentation.
+
+With RPCs, you have two levels of interface definition: the data model and the procedure API.  A data model can be made flexible (Sam Ruby's Coping with Change[2]), but APIs describe behavior, and behavior can be very inflexible.  Intentional or otherwise, APIs more easily lock one into the API author's way of doing things.
+
+REST encourages applications to focus almost entirely on the data model and limit the behavior as much as possible.  In REST, the "main" behaviors of GET, PUT, TAKE, LOCK (depending on the RESTful server being used, there are more then just HTTP) are kept to a minimum.  The application grows primarily by providing new data models, not by new methods to access them.
+
+----
+
+[1] http://monkeyfist.com/articles/514
+[2] http://radio.weblogs.com/0101679/stories/2002/03/15/copingWithChange.html</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

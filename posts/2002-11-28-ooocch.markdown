@@ -1,0 +1,156 @@
+---
+comments_archived: true
+date: '2002-11-28T03:54:32-05:00'
+layout: post
+title: Baking, funky caching, and tarballs for weblog cryo storage
+wordpress_id: 312
+wordpress_slug: ooocch
+wordpress_url: http://www.decafbad.com/blog/?p=312
+---
+So, while I was catching up on T Bryce Yehl's blog since missing <a href="http://www.ntwizards.net/blog/2002/11/04/so_long_radio.html">his transition</a> to <a href="http://www.decafbad.com/twiki/bin/view/Main/MovableType">MovableType</a>, I caught an <a href="http://www.ntwizards.net/blog/2002/11/18/dynamic_vs_static.html">interesting blurb he wrote</a> with regards to <a href="http://philringnalda.com/archives/002388.php">Phil Ringnalda's ponderings</a> on <a href="http://www.decafbad.com/twiki/bin/view/Main/FriedPages">FriedPages</a> and <a href="http://www.decafbad.com/twiki/bin/view/Main/BakedPages">BakedPages</a> in weblogs:<blockquote><i>"Funky caching" could be useful for a static publishing system as well. Weblog archives can consume a great deal of space, yet those pages are infrequently requested. Why not GZip entries from previous months and use a 404 handler to extract pages as-needed?</i></blockquote>The funky caching to which he refers involves implementing a 404 (page not found) handler that, instead of just supplying condolences for a missing page, actually digs the page up out of cold storage if it can.  I think I need to look into this for my site - throw all the old blog entries away into gzipped files, or maybe a tarball per month, and have a funky 404 handler dig them out when needed.
+<br /><br />
+There are issues with this - such as what happens if I want to edit old content, or I change templates, or what not - but I think there could be decent solutions for those.  Hell, maybe this is an easier way to blog locally and publish globally - don't rsync directories of files, just publish locally and upload a new tarball.  Then, on the remote site, delete the index, <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> files, and other affected files and watch happy updates ensue.  If a massive site change is made, rebuild locally, re-tarball every thing, upload the new tarballs, and delete all remote content to trigger revivification.  Scary but possibly nifty.
+<!--more-->
+shortname=ooocch
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221087562">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.pure-logic.org"><img src="http://www.gravatar.com/avatar.php?gravatar_id=6fe1897f8ae50371b3d00b04549acaad&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.pure-logic.org">nmk</a>
+                </div>
+                <a href="#comment-221087562" class="permalink"><time datetime="2002-11-28T04:34:22">2002-11-28T04:34:22</time></a>
+            </div>
+            <div class="content">How about sendidng the pages to the browser gzipped? Most all browsers will handle it internaly and the user won't notice any difference except for the tremendous speed increase (compression doesn't get any better than gzip compression of text files)...
+
+You still will want to gzip a every page individually though... no big packs. But scince you want to do it for a monthly archive, which is I beleive the default of movable type, it is the same.
+
+//Let me know how it goes!
+
+nmk</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221087565">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://kasei.evilfunhouse.com/blog/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=9a6a476613956174863983da804d084a&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://kasei.evilfunhouse.com/blog/">kasei</a>
+                </div>
+                <a href="#comment-221087565" class="permalink"><time datetime="2002-11-28T20:04:10">2002-11-28T20:04:10</time></a>
+            </div>
+            <div class="content">This seems like a bad idea. By sending a 404, you're telling the user-agent that "the server has not found anything matching the Request-URI," when you mean to say "the server found the page matching the Request-URI (despite it being stored locally in a compressed archive)." In general, the user-agent doesn't need to, and shouldn't, know how the data is stored on the server. So the fact that it is compressed on the server is irrelevant to a user-agent requesting the data.
+
+Therefore, hijacking a webserver's 404 mechanism to provide this functionality is sub-optimal. A better (although less lazy) approach would be to write a content handler (perhaps using mod_perl) that would locate, unpack, and return the data with an appropriate response code (200 and 201 seem like good choices).</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221087568">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://markpasc.org/weblog/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=7e91c7ddf6c6db73665d8df9bb55d0d9&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://markpasc.org/weblog/">Mark Paschal</a>
+                </div>
+                <a href="#comment-221087568" class="permalink"><time datetime="2002-11-28T23:43:06">2002-11-28T23:43:06</time></a>
+            </div>
+            <div class="content">Yeah, I don't think anyone means actually sending a 404 to the browser with the real content. I take it to mean responding to the server's internal "I can't find that file" event by doing some work. (I would call it a 404 too, just for convenience.)
+
+Presumably that handler would be written in Perl or some such, sure. Either way, it's like a cache miss. It's a novel application of an old idea: old enough to not be dangerous and new enough to be interesting. =)
+
+If the page had the template baked on before gzipping, you could just send it if the client wanted it gzipped, but I would probably look at gzipping just the content with no templating (in a format like, oh, RSS), and applying the template when unarchiving.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221087569">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.decafbad.com">l.m.orchard</a>
+                </div>
+                <a href="#comment-221087569" class="permalink"><time datetime="2002-11-29T02:04:32">2002-11-29T02:04:32</time></a>
+            </div>
+            <div class="content">Mark's got the idea.  Another way I think it could be looked at is like virtual memory systems - swap long unused content out to a tarball, use a potential 404 as a sort of page fault to swap content back in and server the content to the client as if it's always been there, not just swapped in from storage.
+
+Kinda funky, probably gratuitous.  Might be useful in cases of very low hosting space.  I have a feeling it might be useful for other reasons too, but I can't say exactly what yet.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221087571">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.decafbad.com">l.m.orchard</a>
+                </div>
+                <a href="#comment-221087571" class="permalink"><time datetime="2002-11-29T02:06:27">2002-11-29T02:06:27</time></a>
+            </div>
+            <div class="content">Oh yeah, and that's a good idea too - storing just the content, free of the surrounding template.  Had thought a bit about that last night and meant to write some more, but forgot about it.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221087573">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://IAwiki.net/EricScheid"><img src="http://www.gravatar.com/avatar.php?gravatar_id=92ffcf37d534a7e60938bc270f750979&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://IAwiki.net/EricScheid">Eric Scheid</a>
+                </div>
+                <a href="#comment-221087573" class="permalink"><time datetime="2002-11-29T08:07:10">2002-11-29T08:07:10</time></a>
+            </div>
+            <div class="content">I once implemented the technique for a catalog site. Thousands of products, few of which actually get looked at in detail. The database server was slow so first we tried just baking ... except that produced umpteen zillions of little files. Then we simply inserted a server rule that checked for wanted page and if missing (and matching a pattern) the request was re-written to extract from the database (and simultaneously write to disk). Worked great.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221087575">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://sastools.com/b2"><img src="http://www.gravatar.com/avatar.php?gravatar_id=f235fcbab1039ec92c8381426e120aaa&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://sastools.com/b2">Sanjay</a>
+                </div>
+                <a href="#comment-221087575" class="permalink"><time datetime="2002-12-02T05:47:02">2002-12-02T05:47:02</time></a>
+            </div>
+            <div class="content">Wouldn't the easiest way be to just store the actual posting in the database (or on disk) in a compressed format and then decompress whenever it is requested by other functions? 
+
+Just put the compress/decompress functionality in the retrieve posting and edit/save posting functions which are invoked by all the rest of the weblog app and very little has to be actually changed since it will be nearly transparent (except requiring some more time than usual).</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221087577">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.decafbad.com">l.m.orchard</a>
+                </div>
+                <a href="#comment-221087577" class="permalink"><time datetime="2002-12-02T10:56:27">2002-12-02T10:56:27</time></a>
+            </div>
+            <div class="content">Well, part of the appeal of a system like this is that the weblog app doesn't need to be on the server itself - just the 404 handler that retrieves from archives.
+
+You could run Movable Type on a desktop at home, bake all the pages (or at least this month's pages), tarball the whole mess and ship it out to your server.  Then, delete some key known changed pages, and updates happen upon visitor demand.
+
+This might be easier to manage with some web hosting accounts that allow 404 handler CGIs, but not databases or other software installation.  Then again, it could just all be more work than ever necessary, but it sounds like a nifty idea.</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    
