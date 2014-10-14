@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    <meta name="author" content="{{ site.author.fullname }}" />
+
+    <link rel="openid2.provider" href="https://www.google.com/accounts/o8/ud?source=profiles" />
+    <link rel="openid2.local_id" href="http://www.google.com/profiles/l.m.orchard" />
+    <link rel="openid.server" href="https://www.google.com/accounts/o8/ud?source=profiles" />
+    <link rel="openid.delegate" href="http://www.google.com/profiles/l.m.orchard" />
+
+    {% if page.tag %}
+      <link href="{{ site.baseurl }}/tag/{{page.tag}}/atom.xml"
+        rel="alternate" title="{{ page.title }} - {{ site.title }} (Atom)"
+        type="application/atom+xml" />
+    {% else %}
+      <link href="{{ site.baseurl }}/atom.xml" rel="alternate"
+        title="{{ site.title }} (Atom)" type="application/atom+xml" />
+      <link href="{{ site.baseurl }}/rss.xml" rel="alternate"
+        title="{{ site.title }} (RSS)" type="application/rss+xml" />
+    {% endif %}
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/screen.css"
+      type="text/css" media="screen, projection" />
+
+  </head>
+  <body>
+
+    <section class="site">
+
+      <header>
+        <h1><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
+        <h2>{{ site.subtitle }}</h2>
+        <nav>
+        </nav>
+      </header>
+
+      <section class="content">{% block content %}{% endblock %}</section>
+
+      <footer>
+        <img src="http://decafbad.com/images/growup2.jpg" width="440" height="138"
+          alt="When I grow up, I want to be a computer scientist" />
+      </footer>
+
+      <aside class="sidebar">
+        {% include "./includes/about-me.html" %}
+        {% include "./includes/see-also.html" %}
+        {% include "./includes/donate.html" %}
+        {% include "./includes/buy-my-books.html" %}
+      </aside>
+
+    </section>
+
+    <section id="javascript">
+
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+
+      <script type="text/javascript">
+
+       var _gaq = _gaq || [];
+       _gaq.push(['_setAccount', 'UA-1519392-1']);
+       _gaq.push(['_setDomainName', '.decafbad.com']);
+       _gaq.push(['_trackPageview']);
+
+       (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+       })();
+
+      </script>
+
+    </section>
+
+  </body>
+</html>
