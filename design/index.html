@@ -2,14 +2,16 @@
 {% block content %}
   <article id="index">
     <ul class="posts">
-      {% for post in allPostsMeta|limit(15) %}
+      {% for post in allPostsMeta | limit(25) %}
         <li>
           <span class="date">{{ post.date | date('Y M d') }}</span> &raquo;
           <a href="{{ site.baseurl }}{{ post.path }}">{{ post.title | safe | default('untitled') }}</a>
-          {% if post.summary %}
+          {% if post.summary and loop.index <= 3 %}
             <div class="summary">
               {{ post.summary | safe }}
-              (<a href="{{ site.baseurl }}{{ post.path }}">Read more...</a>)
+              {% if post.title %}
+                (<a href="{{ site.baseurl }}{{ post.path }}">Read more...</a>)
+              {% endif %}
             </div>
           {% endif %}
         </li>
