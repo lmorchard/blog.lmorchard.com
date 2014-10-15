@@ -1,81 +1,48 @@
 var gulp = require('gulp');
-var frontMatter = require('gulp-front-matter');
 var marked = require('gulp-marked');
 var rename = require('gulp-rename');
 var clean = require('gulp-clean');
 var gutil = require('gulp-util');
 var path = require('path');
-var swig = require('swig');
-var through = require('through2');
-var connect = require('connect');
-var http = require('http');
+var connect = require('gulp-connect');
 var filelog = require("gulp-filelog");
+var changed = require('gulp-changed');
 
-var site = require('./site.json');
-site.time = new Date();
+var taskUtils = require('./lib/task-utils');
 
-swig.setDefaults({
-  loader: swig.loaders.fs(__dirname + '/design'),
-  cache: false
-});
+var config = require('./config');
 
-var rePostName = /(\d{4})-(\d{1,2})-(\d{1,2})-(.*)/;
+var requireDir = require('require-dir');
+requireDir('./tasks', { recurse: true });
+
+var frontMatter = require('./lib/front-matter');
 
 gulp.task('build:posts', function () {
   return gulp.src('posts/**/*')
+    // .pipe(filelog('build:posts'))
+    .pipe(rename(taskUtils.postNameToDatePath))
+    .pipe(changed('build'))
     .pipe(filelog('build:posts'))
     .pipe(frontMatter({property: 'page', remove: true}))
+    .pipe(taskUtils.filename2date())
     .pipe(marked())
-    .pipe(applyTemplate('design/post.html'))
-    .pipe(rename(function (path) {
-      path.extname = ".html";
-      var match = rePostName.exec(path.basename);
-      if (match) {
-        var year = match[1];
-        var month = match[2];
-        var day = match[3];
-
-        path.dirname = year + '/' + month + '/' + day;
-        path.basename = match[4];
-      }
-    }))
+    .pipe(taskUtils.applyTemplate('design/post.html'))
     .pipe(gulp.dest('build'));
 });
 
-gulp.task('build', ['build:posts']);
+gulp.task('build', ['design', 'build:posts']);
 
-gulp.task('design:css', function () {
-    return gulp.src('design/css/*.css')
-      .pipe(gulp.dest('build/css'));
+gulp.task('connect', function () {
+  connect.server({ root: 'build' });
 });
 
-// use cndjs where possible
-gulp.task('design:js', function () {
-    return gulp.src('design/js/*.js')
-      .pipe(gulp.dest('build/js'));
-});
-
-gulp.task('design:favico', function () {
-    return gulp.src('design/favicon.ico')
-      .pipe(gulp.dest('build'));
-});
-
-gulp.task('design', ['design:css', 'design:js'/*, 'design:favico'*/]);
+gulp.task('server', ['build', 'watch', 'connect']);
 
 gulp.task('watch', function () {
-  gulp.watch('posts/**/*', ['build']);
+  gulp.watch('./config.js', ['build']);
+  gulp.watch('./design/**/default.html', ['build']);
+  gulp.watch('./posts/**/*', ['build:posts']);
+  gulp.watch('./design/post.html', ['build:posts']);
+  gulp.watch('./design/css/**/*', ['design:css']);
+  gulp.watch('./design/js/**/*', ['design:js']);
 });
-
-function applyTemplate(templateFile) {
-  var tpl = swig.compileFile(path.join(__dirname, templateFile));
-  return through.obj(function (file, enc, cb) {
-    var data = {
-      site: site,
-      page: file.page,
-      content: file.contents.toString()
-    };
-    file.contents = new Buffer(tpl(data), 'utf8');
-    this.push(file);
-    cb();
-  });
-}
