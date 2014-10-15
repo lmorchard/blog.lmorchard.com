@@ -9,7 +9,7 @@ var config = require('./config');
 var requireDir = require('require-dir');
 requireDir('./tasks', { recurse: true });
 
-gulp.task('build', ['indexes', 'static', 'content']);
+gulp.task('build', ['static', 'content']);
 
 gulp.task('watch', ['static:watch', 'content:watch']);
 

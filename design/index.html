@@ -1,15 +1,20 @@
-{% extends 'default.html' %}
+{% extends 'layouts/default.html' %}
 {% block content %}
   <article id="index">
-    {{ content|safe }}
-    <h2>Recent Blog Posts</h2>
     <ul class="posts">
-      {% for post in recentPosts %}
+      {% for post in allPostsMeta|limit(15) %}
         <li>
-          <span class="date">{{ post.date }}</span> &raquo;
+          <span class="date">{{ post.date | date('Y M d') }}</span> &raquo;
           <a href="{{ site.baseurl }}{{ post.path }}">{{ post.title | safe | default('untitled') }}</a>
+          {% if post.summary %}
+            <div class="summary">
+              {{ post.summary | safe }}
+              (<a href="{{ site.baseurl }}{{ post.path }}">Read more...</a>)
+            </div>
+          {% endif %}
         </li>
       {% endfor %}
     </ul>
+    <a href="{{ site.baseurl }}/archives.html">Full archive</a>
   </article>
 {% endblock %}

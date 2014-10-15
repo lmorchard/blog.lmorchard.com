@@ -5,6 +5,7 @@ var util = require('util');
 var through = require('through2');
 var path = require('path');
 var rename = require('gulp-rename');
+var marked = require('gulp-marked');
 
 var gutil = require('gulp-util');
 var PluginError = gutil.PluginError;
@@ -19,6 +20,9 @@ gulp.task('indexes:posts', function () {
   return gulp.src('posts/**/*.{markdown,md}')
     .pipe(frontMatter({property: 'page', remove: true}))
     .pipe(taskUtils.filename2date())
+    .pipe(rename({extname: '.md'})) // HACK: Because marked doesn't catch .markdown
+    .pipe(marked())
+    .pipe(taskUtils.summarize('<!--more-->'))
     .pipe(rename(taskUtils.postNameToDatePath))
     .pipe(indexPosts())
     .pipe(gulp.dest('indexes'));
