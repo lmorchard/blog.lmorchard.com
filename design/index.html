@@ -1,0 +1,15 @@
+{% extends 'default.html' %}
+{% block content %}
+  <article id="index">
+    {{ content|safe }}
+    <h2>Recent Blog Posts</h2>
+    <ul class="posts">
+      {% for post in recentPosts %}
+        <li>
+          <span class="date">{{ post.date }}</span> &raquo;
+          <a href="{{ site.baseurl }}{{ post.path }}">{{ post.title | safe | default('untitled') }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </article>
+{% endblock %}
