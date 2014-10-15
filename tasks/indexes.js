@@ -20,44 +20,51 @@ gulp.task('indexes:posts', function () {
   return gulp.src('posts/**/*.{markdown,md}')
     .pipe(frontMatter({property: 'page', remove: true}))
     .pipe(taskUtils.filename2date())
-    .pipe(rename({extname: '.md'})) // HACK: Because marked doesn't catch .markdown
-    .pipe(marked())
-    .pipe(taskUtils.summarize('<!--more-->'))
+    //.pipe(rename({extname: '.md'})) // HACK: Because marked doesn't catch .markdown
+    //.pipe(marked())
+    //.pipe(taskUtils.summarize('<!--more-->'))
     .pipe(rename(taskUtils.postNameToDatePath))
-    .pipe(indexPosts())
+    .pipe(indexPosts(true))
     .pipe(gulp.dest('indexes'));
 });
 
 gulp.task('indexes', ['indexes:posts']);
 
-function indexPosts () {
-  var indexes = config.indexes = {
-    posts: {},
-    date: {},
-    tag: {}
-  };
+function indexPosts (clear) {
+
+  if (clear || !config.indexes) { config.indexes = {}; }
+  var indexes = config.indexes;
+
+  function pushIndex (name, key, val) {
+    if (!indexes[name]) { indexes[name] = {}; }
+    if (!indexes[name][key]) { indexes[name][key] = []; }
+    indexes[name][key].push(val);
+  }
 
   return through.obj(function (file, enc, cb) {
     var basename = path.relative('./posts', file.path);
 
     file.page.path = basename;
+    if (!indexes.posts) { indexes.posts = {}; }
     indexes.posts[basename] = file.page;
 
     if (file.page.date) {
       var dateiso = file.page.date.toISOString();
-      var bydate = indexes.date[dateiso] = indexes.date[dateiso] || [];
-      bydate.push(basename);
+      pushIndex('date', dateiso, basename);
+      pushIndex('year', dateiso.substr(0,4), basename);
+      pushIndex('month', dateiso.substr(0,7).replace('-','/'), basename);
     }
 
     if (file.page.tags) {
       file.page.tags.forEach(function (tag) {
-        var bytag = indexes.tag[tag] = indexes.tag[tag] || [];
-        bytag.push(basename);
+        pushIndex('tag', tag, basename);
       });
     }
 
     return cb();
+
   }, function (cb) {
+
     for (var name in config.indexes) {
       var file = new File();
       file.path = name + '.json';
@@ -65,6 +72,8 @@ function indexPosts () {
       file.contents = new Buffer(out);
       this.push(file);
     }
+
     return cb();
+
   });
 }
