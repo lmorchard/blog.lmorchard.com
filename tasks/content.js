@@ -1,5 +1,9 @@
 var gulp = require('gulp');
+var _ = require('lodash');
+var util = require('util');
 var path = require('path');
+var through = require('through2');
+var gutil = require('gulp-util');
 var marked = require('gulp-marked');
 var rename = require('gulp-rename');
 var filelog = require("gulp-filelog");
@@ -12,6 +16,12 @@ var config = require('../config');
 
 gulp.task('content:templated', ['indexes'], function () {
   return gulp.src('design/*.html')
+    .pipe(taskUtils.setTemplateLocals(function () {
+      return {
+        posts: _.chain(config.indexes.posts).values()
+          .sortBy('date').reverse().value()
+      };
+    }))
     .pipe(taskUtils.applyTemplate())
     .pipe(gulp.dest('build'))
 });
@@ -49,3 +59,4 @@ gulp.task('content:watch', function () {
   gulp.watch('./posts/*.{markdown,md}', ['content:posts-recent']);
   gulp.watch('./design/layouts/post.html', ['content:posts-recent']);
 });
+
