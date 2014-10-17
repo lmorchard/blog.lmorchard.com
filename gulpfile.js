@@ -1,10 +1,5 @@
 var gulp = require('gulp');
-var util = require('util');
-var clean = require('gulp-clean');
-var gutil = require('gulp-util');
 var connect = require('gulp-connect');
-
-var config = require('./config');
 
 var requireDir = require('require-dir');
 requireDir('./lib/tasks', { recurse: true });
