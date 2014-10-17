@@ -1,6 +1,14 @@
 var gulp = require('gulp');
 var connect = require('gulp-connect');
 
+var config = require('./config');
+var requireDir = require('require-dir');
+try {
+  config.indexes = requireDir('./indexes', { recurse: true });
+} catch (e) {
+  /* no-op */
+}
+
 var requireDir = require('require-dir');
 requireDir('./lib/tasks', { recurse: true });
 
