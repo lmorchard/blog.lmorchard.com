@@ -16,7 +16,7 @@ var frontMatter = require('../lib/front-matter');
 
 var config = require('../config');
 
-gulp.task('indexes:posts', function () {
+gulp.task('indexes', function () {
   return gulp.src('posts/**/*.{markdown,md}')
     .pipe(frontMatter({property: 'page', remove: true}))
     .pipe(taskUtils.filename2date())
@@ -27,8 +27,6 @@ gulp.task('indexes:posts', function () {
     .pipe(indexPosts(true))
     .pipe(gulp.dest('indexes'));
 });
-
-gulp.task('indexes', ['indexes:posts']);
 
 function indexPosts (clear) {
 

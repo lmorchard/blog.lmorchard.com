@@ -9,9 +9,9 @@ var config = require('./config');
 var requireDir = require('require-dir');
 requireDir('./tasks', { recurse: true });
 
-gulp.task('build', ['static', 'content', 'archives']);
+gulp.task('build', ['static', 'posts', 'pages', 'archives']);
 
-gulp.task('watch', ['static:watch', 'content:watch']);
+gulp.task('watch', ['static:watch', 'posts:watch', 'pages:watch', 'archives:watch']);
 
 gulp.task('server', ['build', 'watch'], function () {
   connect.server({ port: 4001, root: 'build' });
