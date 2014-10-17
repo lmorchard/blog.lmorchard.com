@@ -33,16 +33,13 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-size: 100%;
+    font-size: 110%;
     font-family: tahoma;
     font-weight: normal;
 }
 
-h1 {
-    margin-bottom: 1em;
-}
-
-h2 { font-size: 135%; margin-bottom: 0.5em; }
+h1 { font-size: 200%; margin-bottom: 0.5em; }
+h2 { font-size: 155%; margin-bottom: 0.5em; }
 h3 { font-size: 130%; margin-bottom: 0.5em; }
 
 p {
@@ -169,6 +166,7 @@ section.site > section.content > article > pre {
 
 article.post > time {
     display: block;
+    margin-bottom: 0.5em;
 }
 article.post #toc_container {
     float: right;
@@ -178,15 +176,32 @@ article.post #toc_container {
 }
 
 
-section.site > section.content article  ul.tags:before {
-    content: "Tags: ";
+section.site > section.content article > ul.tags:before {
+  content: "";
+
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  font-size-adjust: none;
+  font-stretch: normal;
+  -moz-font-feature-settings: normal;
+  -moz-font-language-override: normal;
+  font-size: inherit;
+  text-rendering: auto;
+  -moz-osx-font-smoothing: grayscale;
 }
-section.site > section.content article  ul.tags {
+section.site > section.content article > h1 {
+  line-height: 1.2em;
+}
+section.site > section.content article > ul.tags {
     display: block;
-    margin: 0.25em 0 0.25em 0;
+    margin: -0.5em 0 0.25em 0;
     font-size: 0.85em;
 }
-section.site > section.content article  ul.tags li {
+section.site > section.content article > ul.tags li {
     list-style: none;
     display: inline;
 }

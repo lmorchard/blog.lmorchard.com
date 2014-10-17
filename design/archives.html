@@ -3,13 +3,6 @@
   <article id="archives">
   <h2>Archives</h2>
     <p>Didn't find what you were looking for? It might be here:</p>
-    <ul class="posts">
-      {% for post in posts %}
-        <li>
-          <span class="date">{{ post.date | date('Y M d') }}</span> &raquo;
-          <a href="{{ site.baseurl }}{{ post.path }}">{{ post.title | safe | default('untitled') }}</a>
-        </li>
-      {% endfor %}
-    </ul>
+    {% include "./includes/post-list.html" %}
   </article>
 {% endblock %}

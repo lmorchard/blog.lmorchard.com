@@ -2,13 +2,16 @@
 {% block content %}
 <article class="post">
     <time title="{{ page.date | date('c') }}" pubdate="{{ page.date | date('c') }}">
+      <a href="{{ site.baseurl }}/archives.html"><i class="fa fa-home"></i></a>
+      &raquo;
       <a href="{{ site.baseurl }}/{{ page.date | date('Y') }}">{{ page.date | date('Y') }}</a>
       &raquo;
       <a href="{{ site.baseurl }}/{{ page.date | date('Y/m') }}">{{ page.date | date('F') }}</a>
       &raquo;
       <span>{{ page.date | date('d') }}</span>
+      &raquo;
     </time>
-    <h2 class="title">{{ page.title | safe }}</h2>
+    <h1 class="title">{{ page.title | safe }}</h1>
     {% if page.tags %}
       <ul class="tags">
           {% for tag in page.tags %}
