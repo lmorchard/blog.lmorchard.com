@@ -2,11 +2,11 @@
 {% block content %}
   <article id="index">
     <ul class="posts">
-      {% for post in posts | limit(15) %}
+      {% for post in posts | limit(5) %}
         <li>
           <span class="date">{{ post.date | date('Y M d') }}</span> &raquo;
           <a href="{{ site.baseurl }}{{ post.path }}">{{ post.title | safe | default('untitled') }}</a>
-          {% if post.summary and loop.index <= 3 %}
+          {% if post.summary %}
             <div class="summary">
               {{ post.summary | safe }}
               {% if post.title %}
