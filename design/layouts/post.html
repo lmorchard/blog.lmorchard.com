@@ -1,16 +1,12 @@
 {% extends 'layouts/default.html' %}
 {% block content %}
 <article class="post">
-    <time title="{{ page.date }}" pubdate="{{ page.date }}">
+    <time title="{{ page.date | date('c') }}" pubdate="{{ page.date | date('c') }}">
       <a href="{{ site.baseurl }}/{{ page.date | date('Y') }}">{{ page.date | date('Y') }}</a>
       &raquo;
       <a href="{{ site.baseurl }}/{{ page.date | date('Y/m') }}">{{ page.date | date('F') }}</a>
       &raquo;
       <span>{{ page.date | date('d') }}</span>
-      {% if false %}
-      &raquo;
-      <span>{{ page.date | date('H:i') }}</span>
-      {% endif %}
     </time>
     <h2 class="title">{{ page.title | safe }}</h2>
     {% if page.tags %}
