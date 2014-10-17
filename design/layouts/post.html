@@ -1,12 +1,22 @@
 {% extends 'layouts/default.html' %}
 {% block content %}
 <article class="post">
+    <time title="{{ page.date }}" pubdate="{{ page.date }}">
+      <a href="{{ site.baseurl }}/{{ page.date | date('Y') }}">{{ page.date | date('Y') }}</a>
+      &raquo;
+      <a href="{{ site.baseurl }}/{{ page.date | date('Y/m') }}">{{ page.date | date('F') }}</a>
+      &raquo;
+      <span>{{ page.date | date('d') }}</span>
+      {% if false %}
+      &raquo;
+      <span>{{ page.date | date('H:i') }}</span>
+      {% endif %}
+    </time>
     <h2 class="title">{{ page.title | safe }}</h2>
-    <time title="{{ page.date }}" pubdate="{{ page.date }}">{{ page.date|date('r') }}</time>
     {% if page.tags %}
       <ul class="tags">
           {% for tag in page.tags %}
-              <li><a href="{{ site.baseurl }}/tag/{{tag}}">{{ tag }}</a>{% if loop.last == false %}, {%endif %}</li>
+              <li><a href="{{ site.baseurl }}/tag/{{tag}}">{{ tag }}</a>{% if loop.last == false %}, {% endif %}</li>
           {% endfor %}
       </ul>
     {% endif %}
