@@ -7,7 +7,7 @@ var connect = require('gulp-connect');
 var config = require('./config');
 
 var requireDir = require('require-dir');
-requireDir('./tasks', { recurse: true });
+requireDir('./lib/tasks', { recurse: true });
 
 gulp.task('build', ['static', 'posts', 'pages', 'archives']);
 
