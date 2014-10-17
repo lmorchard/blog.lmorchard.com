@@ -1,0 +1,14 @@
+{% extends 'layouts/default.html' %}
+{% block content %}
+  <article id="archives">
+    <h2>Year: {{ page.title }}</h2>
+    <ul class="posts">
+      {% for post in posts %}
+        <li>
+          <span class="date">{{ post.date | date('Y M d') }}</span> &raquo;
+          <a href="{{ site.baseurl }}/{{ post.path }}">{{ post.title | safe | default('untitled') }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </article>
+{% endblock %}

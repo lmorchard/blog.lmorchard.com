@@ -2,7 +2,7 @@
 {% block content %}
   <article id="index">
     <ul class="posts">
-      {% for post in posts | limit(25) %}
+      {% for post in posts | limit(15) %}
         <li>
           <span class="date">{{ post.date | date('Y M d') }}</span> &raquo;
           <a href="{{ site.baseurl }}{{ post.path }}">{{ post.title | safe | default('untitled') }}</a>

@@ -22,36 +22,25 @@ gulp.task('tags', ['indexes'], function () {
 });
 
 function tags() {
-
-  var stream = through.obj(function(file, enc, cb) {
-    this.push(file); cb();
-  });
-
+  var stream = taskUtils.emptyStream();
   var tags = config.indexes.tag;
   var posts = config.indexes.posts;
-
   if (tags && posts) {
     for (var tag in tags) {
-
       var file = new gutil.File({
         path: tag + '/index.html',
         contents: new Buffer('')
       });
-
       file.locals = {
         page: { title: tag, tag: tag },
         posts: _.chain(tags[tag]).map(function (basename) {
           return posts[basename];
         }).sortBy('date').reverse().value()
       };
-
       stream.write(file);
-
     }
   }
-
   stream.end();
   stream.emit("end");
-
   return stream;
 }
