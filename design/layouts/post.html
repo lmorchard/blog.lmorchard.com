@@ -22,19 +22,13 @@
     {{ content|safe }}
 </article>
 
-{% if true or page.comments_archived %}
+{% if page.comments_archived %}
 {% else %}
 <section class="comments" id="comments">
     <div id="disqus_thread"></div>
     <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'decafbad'; // required: replace example with your forum shortname
-
-        // The following are highly recommended additional parameters. Remove the slashes in front to use.
-        // var disqus_identifier = 'unique_dynamic_id_1234';
-        var disqus_url = '{{ site.meta.absolute_baseurl }}{{ page.url }}';
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
+        var disqus_shortname = 'bloglmorchardcom';
+        var disqus_url = '{{ site.absolute_baseurl }}{{ page.url }}';
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';

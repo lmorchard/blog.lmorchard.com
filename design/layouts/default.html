@@ -5,20 +5,13 @@
     <title>{% if page.title %}{{ page.title | safe }} - {% endif %}{{ site.title }}</title>
     <meta name="author" content="{{ site.author.fullname }}" />
 
-    <link rel="openid2.provider" href="https://www.google.com/accounts/o8/ud?source=profiles" />
-    <link rel="openid2.local_id" href="http://www.google.com/profiles/l.m.orchard" />
-    <link rel="openid.server" href="https://www.google.com/accounts/o8/ud?source=profiles" />
-    <link rel="openid.delegate" href="http://www.google.com/profiles/l.m.orchard" />
-
     {% if page.tag %}
-      <link href="{{ site.baseurl }}/tag/{{page.tag}}/atom.xml"
-        rel="alternate" title="{{ page.title }} - {{ site.title }} (Atom)"
-        type="application/atom+xml" />
+    <link href="{{ site.baseurl }}/tag/{{page.tag}}.rss"
+        rel="alternate" title="Tag: {{ page.tag }} - {{ site.title }}"
+        type="application/rss+xml" />
     {% else %}
-      <link href="{{ site.baseurl }}/atom.xml" rel="alternate"
-        title="{{ site.title }} (Atom)" type="application/atom+xml" />
-      <link href="{{ site.baseurl }}/rss.xml" rel="alternate"
-        title="{{ site.title }} (RSS)" type="application/rss+xml" />
+      <link href="{{ site.baseurl }}/index.rss" rel="alternate"
+        title="{{ site.title }}" type="application/rss+xml" />
     {% endif %}
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -29,7 +22,6 @@
 
     <link rel="stylesheet" href="{{ site.baseurl }}/css/screen.css"
       type="text/css" media="screen, projection" />
-
   </head>
   <body>
 

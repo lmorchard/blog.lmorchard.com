@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>{% if page.tag %}Tag: {{ page.tag }} - {% endif %}{{ site.title }}</title>
+    <description>{{ site.subtitle }}</description>
+    <link>{{ site.absolute_baseurl }}</link>
+    {% for post in posts | limit(15) %}
+      <item>
+        <title>{{ post.title | default('untitled') }}</title>
+        {% if post.summary %}
+          <description>{{ post.summary }}</description>
+        {% endif %}
+        <pubDate>{{ post.date | date("r") }}</pubDate>
+        <link>{{ site.absolute_baseurl }}/{{ post.path }}</link>
+        <guid isPermaLink="true">{{ site.absolute_baseurl }}/{{ post.path }}</guid>
+      </item>
+    {% endfor %}
+  </channel>
+</rss>
