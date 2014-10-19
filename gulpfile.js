@@ -21,8 +21,12 @@ gulp.task('watch', [
   'static:watch', 'posts:watch', 'pages:watch', 'archives:watch'
 ]);
 
-gulp.task('server', ['build', 'watch'], function () {
-  connect.server({ port: 4001, root: 'build' });
+gulp.task('server', ['watch'], function () {
+  connect.server({
+    port: 4001,
+    root: ['build', 'build-drafts'],
+    livereload: true
+  });
 });
 
 gulp.task('deploy', function () {
