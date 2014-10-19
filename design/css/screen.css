@@ -58,6 +58,12 @@ a:hover {
 }
 a:visited { }
 
+h1 > a, h1 > a:hover {
+  text-decoration: none;
+  color: inherit;
+  border: none;
+}
+
 table {
     font-size: inherit;
     font: 100%;
@@ -136,6 +142,14 @@ section.site > section.content nav.page-navigation ul li a {
     padding: 0.25em;
 }
 
+article#index .post {
+  margin: 0 0 2.5em 0;
+}
+section.site > section.content .post > h1,
+section.site > section.content article > h1 {
+  line-height: 1.2em;
+}
+
 section.site > section.content article {
     padding: 1.5em 2em;
     background-color: #f8f8f8;
@@ -164,9 +178,10 @@ section.site > section.content > article > pre {
     padding: 1em 1em;
 }
 
+section.post > time,
 article.post > time {
     display: block;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.75em;
 }
 article.post #toc_container {
     float: right;
@@ -176,6 +191,7 @@ article.post #toc_container {
 }
 
 
+section.site > section.content .post > ul.tags:before,
 section.site > section.content article > ul.tags:before {
   content: "";
 
@@ -193,14 +209,13 @@ section.site > section.content article > ul.tags:before {
   text-rendering: auto;
   -moz-osx-font-smoothing: grayscale;
 }
-section.site > section.content article > h1 {
-  line-height: 1.2em;
-}
+section.site > section.content .post > ul.tags,
 section.site > section.content article > ul.tags {
     display: block;
-    margin: -0.5em 0 0.25em 0;
+    margin: -0.75em 0 0.25em 0;
     font-size: 0.85em;
 }
+section.site > section.content .post > ul.tags li,
 section.site > section.content article > ul.tags li {
     list-style: none;
     display: inline;

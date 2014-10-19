@@ -1,11 +1,24 @@
 {% extends 'layouts/default.html' %}
 {% block content %}
   <article id="index">
-    <ul class="posts">
       {% for post in posts | limit(5) %}
-        <li>
-          <span class="date">{{ post.date | date('Y M d') }}</span> &raquo;
-          <a href="{{ site.baseurl }}{{ post.path }}">{{ post.title | safe | default('untitled') }}</a>
+        <section class="post">
+          <time title="{{ post.date | date('c') }}" pubdate="{{ post.date | date('c') }}">
+            <a href="{{ site.baseurl }}/{{ post.date | date('Y') }}">{{ post.date | date('Y') }}</a>
+            &raquo;
+            <a href="{{ site.baseurl }}/{{ post.date | date('Y/m') }}">{{ post.date | date('F') }}</a>
+            &raquo;
+            <span>{{ post.date | date('d') }}</span>
+            &raquo;
+          </time>
+          <h1 class="title"><a href="{{ site.baseurl }}{{ post.path }}">{{ post.title | safe | default('untitled') }}</a></h1>
+          {% if post.tags %}
+            <ul class="tags">
+                {% for tag in post.tags %}
+                    <li><a href="{{ site.baseurl }}/tag/{{tag}}">{{ tag }}</a>{% if loop.last == false %}, {% endif %}</li>
+                {% endfor %}
+            </ul>
+          {% endif %}
           {% if post.summary %}
             <div class="summary">
               {{ post.summary | safe }}
@@ -14,9 +27,8 @@
               {% endif %}
             </div>
           {% endif %}
-        </li>
+        </section>
       {% endfor %}
-    </ul>
     <a href="{{ site.baseurl }}/archives.html">Full archive</a>
   </article>
 {% endblock %}
