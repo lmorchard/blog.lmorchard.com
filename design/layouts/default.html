@@ -22,6 +22,8 @@
 
     <link rel="stylesheet" href="{{ site.baseurl }}/css/screen.css"
       type="text/css" media="screen, projection" />
+
+    {% block head %}{% endblock %}
   </head>
   <body>
 
@@ -36,39 +38,39 @@
 
       <section class="content">{% block content %}{% endblock %}</section>
 
-      <footer>
-        <img src="http://decafbad.com/images/growup2.jpg" width="440" height="138"
-          alt="When I grow up, I want to be a computer scientist" />
-      </footer>
+      {% block footer %}
+        <footer>
+          <img src="http://decafbad.com/images/growup2.jpg" width="440" height="138"
+            alt="When I grow up, I want to be a computer scientist" />
+        </footer>
+      {% endblock %}
 
-      <aside class="sidebar">
-        {% include "./includes/about-me.html" %}
-        {% include "./includes/see-also.html" %}
-        {% include "./includes/donate.html" %}
-        {% include "./includes/buy-my-books.html" %}
-      </aside>
+      {% block sidebar %}
+        <aside class="sidebar">
+          {% include "./includes/about-me.html" %}
+          {% include "./includes/see-also.html" %}
+          {% include "./includes/donate.html" %}
+          {% include "./includes/buy-my-books.html" %}
+        </aside>
+      {% endblock %}
 
     </section>
 
     <section id="javascript">
-
-      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-
       <script type="text/javascript">
-
        var _gaq = _gaq || [];
        _gaq.push(['_setAccount', 'UA-1519392-1']);
        _gaq.push(['_setDomainName', '.decafbad.com']);
        _gaq.push(['_trackPageview']);
-
        (function() {
         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
        })();
-
       </script>
-
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script src="{{ site.baseurl }}/js/main.js"></script>
+      {% block js %}{% endblock %}
     </section>
 
   </body>
