@@ -30,7 +30,7 @@ far with scratching my own itches on Jekyll.
 On the other hand, WordPress has a nicer writing experience. But, it's clunky
 in other ways. I'm always worried about all that PHP code sitting around
 frying up page views, hoping no one figures out how to get at the publishing
-machinery. I'm also less interested in hacking on PHP, these days.
+machinery. I'm also less interested in hacking on PHP for fun, these days.
 
 ## Gulp is great
 
@@ -40,11 +40,8 @@ my blog again, I started looking into node.js-based Jekyll clones.
 
 But then, it occurred to me that [Gulp][] would be a fine tool for the job. In
 a nutshell, like unix tools pipe character streams between tools, Gulp pipes
-streams of files between small utility functions. And, even though Gulp is
-usually used for combining & compressing lots of JS & CSS files into fewer,
-smaller resources - there's no reason why it couldn't build a whole site!  All
-I had to do was build up a small collection of file processing functions and
-glue them together. 
+streams of files between small utility functions. All I had to do was build up
+a small collection of file processing functions and glue them together. 
 
 ## Copying Rioki's homework
 
@@ -64,28 +61,31 @@ function posts (path) {
 }
 ```
 
+Pretty clean & straightforward, at least to my eyes.
+
 Starting from [Rioki's gulpfile.js][rioki2], I hacked and iterated until I had
 a [gulpfile.js][] of my own, split into [a directory of small task
 modules][tasks].  At this point, I've got a bunch of in-memory post indexes,
 date & tag based archive pages, RSS feeds, and a handful of other templated
-pages. Oh, and I can push all the content to an Amazon S3 bucket [with one
-command][deploy]
+pages. I can push all the content to an Amazon S3 bucket [with one
+command][deploy]. 
 
 [deploy]: https://github.com/lmorchard/blog.lmorchard.com/blob/master/gulpfile.js#L32
 [tasks]: https://github.com/lmorchard/blog.lmorchard.com/blob/master/lib/tasks/posts.js#L34
 [gulpfile.js]: https://github.com/lmorchard/blog.lmorchard.com/blob/master/gulpfile.js
 
-It's also been really easy to break things up so [new & draft posts lead to
-quick rebuilds when their files
-change](https://github.com/lmorchard/blog.lmorchard.com/blob/master/lib/tasks/posts.js#L13) - and I can even [trigger a LiveReload
+Oh, and building the whole site only takes around 30 seconds. Still, that's
+not fast enough for running previews while writing. So, I've broken things up so 
+[new & draft posts lead to quick rebuilds when their files change](https://github.com/lmorchard/blog.lmorchard.com/blob/master/lib/tasks/posts.js#L13) - and I even [trigger a LiveReload
 service](https://github.com/lmorchard/blog.lmorchard.com/blob/master/lib/tasks/posts.js#L29)
 that keeps a browser tab updated as I make changes in Vim.
 
-And, best of all, the whole thing feels nicely maintainable and fun to expand
-in the future as a [saw-sharpening][sharpen] / yak-shaving opportunity. I
-might even take a shot at spinning off all the code from the content and
-release it as a standalone module installable from [NPM](http://npmjs.org) in
-case anyone else wants to try it out.
+And, best of all, I understand how the whole thing works. This stuff feels
+nicely maintainable and fun to expand in the future as a
+[saw-sharpening][sharpen] / yak-shaving opportunity. I might even take a shot
+at spinning off all the code from the content and release it as a standalone
+module installable from [NPM](http://npmjs.org) in case anyone else wants to
+try it out.
 
 ## From WordPress and Jekyll to Gulp
 
@@ -101,29 +101,35 @@ new, and set up a handful of redirects to unify the whole mess.
 
 ## Amazon S3 deployment
 
-Oh yeah, and did I mention I can push the whole blog out to Amazon S3? A
-module called [gulp-awspublish][] can handle that [really easily][deploy].
-Turns out I generate around 4750 files, between all the posts and tags and
-dates. 
+[Hosting a static website on Amazon S3][static] is cheap and fast and low
+maintenance. And, a module called [gulp-awspublish][] can handle pushing this
+whole site to S3 [really easily][deploy].
 
-That takes about 30 minutes to upload the first time. But, [gulp-awspublish][]
-keeps track of MD5 hashes. Next time I generate and upload, it skips all the
-pages that haven't changed. That's nearly all but a small handful of files, if
+[static]: http://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html
+
+Turns out I generate around 4750 files, between all the posts and tags and dates. 
+It takes about 30 minutes to upload the first time. But, [gulp-awspublish][]
+keeps track of MD5 hashes. So, next time I generate and upload, it skips all the
+pages that haven't changed. That's just a handful of files, if
 all I'm doing is publishing one new post.
+
+It also seems like this module uploads one file at a time. I wonder if I might
+hack it to queue up a few dozen or so in parallel to speed things up? I doubt
+that uploading thousands of files was the original use case, so it might do
+with some tweaking.
 
 [gulp-awspublish]: https://github.com/pgherveou/gulp-awspublish
 
 ## Page sections loaded via AJAX
 
 I've got a simple template for this new blog, and I hope to keep it that way.
-However, I crammed in a lot of stuff in the sidebar on every page and I will
-want to change it from time to time. Well, I decided to tweak a few things.
-Suddenly, I had 4750 files to upload to S3.
+But, there's a lot of stuff in that sidebar. Well, I decided to tweak a few
+things and suddenly I had 4750 files to upload to S3.
 
-But, just because the site is statically published doesn't mean some parts
+Just because the site is statically published doesn't mean some parts
 can't be dynamic with the help of the client. Rather than put up wth
 regenerating & uploading all the things in the future, I yanked the sidebar
-out of almost every page and generate it as [a separate resource][sidebar].
+out of almost every page and generated it as [a separate resource][sidebar].
 
 Then, with [a tiny bit of jQuery magic][sidebarajax], I load that sidebar into
 the page via AJAX. That shrank the size of the site overall, and it's so fast
@@ -151,8 +157,18 @@ over to node.js.
 
 ## Next steps
 
-* Write more, write more consistently
-* Switch to Nunjucks
+I've got some more I'd like to do with this stuff, but the main next steps are
+these:
+
+* Write more often
+* Write more consistently
+
+Of course, having skimmed through my posts over the years on this blog, I'd
+estimate about 25% of the whole thing is me grousing out loud about the long
+stretches I spend neglecting this place. 
+
+So, who knows? Maybe you'll see my
+next post show up sometime next June!
 
 [bake]: http://www.aaronsw.com/weblog/000404
 [rioki]: http://www.rioki.org/2014/06/09/jekyll-to-gulp.html
