@@ -1,7 +1,6 @@
 ---
 title: Static blog generation with Gulp and S3
 tags: [metablogging, webdev, js, gulp, jekyll, wordpress]
-draft: true
 ---
 
 I've long agreed that many sites, like blogs, are better [baked than
