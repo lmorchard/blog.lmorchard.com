@@ -22,6 +22,7 @@ $('*[data-content-href]').each(function () {
 
 function sidebarReady () {
   $('article.post').each(buildRelatedPosts);
+  $('article.post').each(buildRelatedLinks);
 }
 
 function buildRelatedPosts () {
@@ -53,9 +54,9 @@ function buildRelatedPosts () {
     // Find a random unique list of posts from the tag union.
     var relateds = _.chain(posts)
       .uniq().shuffle()
-      .slice(0, MAX_RELATED_POSTS)
       // FIXME: Sort order of relateds gets munged by network timing.
       // .sort().reverse()
+      .slice(0, MAX_RELATED_POSTS)
       .value();
 
     // Load up the JSON metadata for each post to build the list.
@@ -82,6 +83,62 @@ function buildRelatedPosts () {
       // Insert the "Related Posts" section after "About me"
       $('.sidebar > section:eq(1)').before(section);
 
+    });
+
+  });
+}
+
+function buildRelatedLinks () {
+
+  var section = $(
+      '<section class="related-links">' +
+      '<h3>Related Links</h3>' +
+      '<ul></ul>' +
+      '</section>'
+  );
+  var list = section.find('ul');
+
+  // Scrape the tags from the post
+  var tags = $('.post > .tags > li > a').map(function () {
+    return $(this).text();
+  }).toArray();
+
+  // First, load up tag indexes to accumulate a list of posts.
+  var links = [];
+  async.each(tags, function (tag, next) {
+
+    var url = 'https://feeds.pinboard.in/json/u:deusx/t:' + tag + '?count=5';
+    $.ajax({
+      url: url,
+      jsonp: "cb",
+      dataType: 'jsonp',
+      success: function(data) { links = links.concat(data); },
+      complete: function () { next(); }
+    });
+
+  }, function (err) {
+
+    if (!links.length) { return; }
+
+    // Find a random unique list of posts from the tag union.
+    var toInsert = _.chain(links)
+      //.sortBy('dt').reverse()
+      .uniq().shuffle()
+      .slice(0, MAX_RELATED_POSTS);
+
+    // Insert the "Related Posts" section after "About me"
+    $('.sidebar > section:eq(1)').before(section);
+
+    toInsert.each(function (data) {
+      list.append($(
+        '<li>' +
+        moment(data.dt).format('YYYY MMM DD') +
+        ' &raquo; ' +
+        '<img class="favicon" style="vertical-align: middle" width="16" height="16" src="http://g.etfv.co/' + encodeURIComponent(data.u) + '"> ' +
+        '<a href="' + data.u + '">' +
+        (data.d || 'untitled' ) +
+        '</a></li>'
+      ));
     });
 
   });

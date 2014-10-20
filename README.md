@@ -26,3 +26,4 @@ gulp server
 * Hack gulp-awspublish to upload many files in parallel
 * Switch from Swig to [Nunjucks](http://mozilla.github.io/nunjucks/) because it's a Mozilla project hooray
 * Add some TOC generation in JS
+* Prev / next nav links for posts?
