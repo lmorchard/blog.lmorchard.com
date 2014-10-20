@@ -26,14 +26,20 @@ function sidebarReady () {
 
 function buildRelatedPosts () {
 
-  var sidebar = $('.sidebar');
-  var section = $('<section class="related-posts"><h3>Related Posts</h3><ul></ul></section>');
+  var section = $(
+      '<section class="related-posts">' +
+      '<h3>Related Posts</h3>' +
+      '<ul></ul>' +
+      '</section>'
+  );
   var list = section.find('ul');
 
+  // Scrape the tags from the post
   var tags = $('.post > .tags > li > a').map(function () {
     return $(this).text();
   }).toArray();
 
+  // First, load up tag indexes to accumulate a list of posts.
   var posts = [];
   async.each(tags, function (tag, next) {
     $.getJSON('/tag/' + tag + '.json', function (data) {
@@ -44,15 +50,19 @@ function buildRelatedPosts () {
 
     if (!posts.length) { return; }
 
+    // Find a random unique list of posts from the tag union.
     var relateds = _.chain(posts)
-      .uniq().sort().reverse()
+      .uniq().shuffle()
       .slice(0, MAX_RELATED_POSTS)
+      // FIXME: Sort order of relateds gets munged by network timing.
+      // .sort().reverse()
       .value();
 
+    // Load up the JSON metadata for each post to build the list.
     async.each(relateds, function (related, next) {
-      console.log("URL " + '/' + related + '.json');
+
       $.getJSON('/' + related + '.json', function (data) {
-        var date = new Date(data.date);
+
         list.append($(
           '<li>' +
           moment(data.date).format('YYYY MMM DD') +
@@ -61,12 +71,17 @@ function buildRelatedPosts () {
           (data.title || 'untitled' ) +
           '</a></li>'
         ));
+
         next();
       });
+
     }, function (err) {
-      if (!err) {
-        sidebar.find('>section:eq(1)').before(section);
-      }
+
+      if (err) { return; }
+
+      // Insert the "Related Posts" section after "About me"
+      $('.sidebar > section:eq(1)').before(section);
+
     });
 
   });
