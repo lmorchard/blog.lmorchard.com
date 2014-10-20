@@ -6,6 +6,6 @@ also mine.
 ## TODO
 
 * Hack gulp-awspublish to upload many files in parallel
-* Switch from Swig to Nunjucks because it's a Mozilla project hooray
+* Switch from Swig to [Nunjucks](http://mozilla.github.io/nunjucks/) because it's a Mozilla project hooray
 * Add [NYT emphasis.js](https://github.com/NYTimes/Emphasis) to post pages
 * Add some TOC generation in JS
