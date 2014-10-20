@@ -20,12 +20,14 @@ approach that works for me.
 platforms for putting stuff from my brain on the web. But, the last time I
 switched away from WordPress to Jekyll, I ended up switching right back again.
 
-Jekyll took *way* too long to generate my site and its 1150 posts, and I
+Jekyll [took *way* too long][jekyllslow] to generate my site and its 1150 posts, and I
 couldn't figure out how to speed that up for previewing drafts without moving
 files around.  I tried a few different external tools like
 [Mou](http://25.io/mou/) and [Marked](http://marked2app.com/), but the process
 never clicked. I've also never quite gotten along with Ruby, so I didn't go
 far with scratching my own itches on Jekyll.
+
+[jekyllslow]: http://blog.lmorchard.com/2012/06/16/blogging-like-a-blogger/
 
 On the other hand, WordPress has a nicer writing experience. But, it's clunky
 in other ways. I'm always worried about all that PHP code sitting around
