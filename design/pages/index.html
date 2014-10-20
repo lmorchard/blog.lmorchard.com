@@ -11,7 +11,7 @@
             <span>{{ post.date | date('d') }}</span>
             &raquo;
           </time>
-          <h1 class="title"><a href="{{ site.baseurl }}{{ post.path }}">{{ post.title | safe | default('untitled') }}</a></h1>
+          <h1 class="title"><a href="{{ site.baseurl }}{{ post.path.replace('index.html', '') }}">{{ post.title | safe | default('untitled') }}</a></h1>
           {% if post.tags %}
             <ul class="tags">
                 {% for tag in post.tags %}

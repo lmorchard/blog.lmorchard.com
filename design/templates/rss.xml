@@ -11,7 +11,7 @@
           <description>{{ post.summary }}</description>
         {% endif %}
         <pubDate>{{ post.date | date("r") }}</pubDate>
-        <link>{{ site.absolute_baseurl }}/{{ post.path }}</link>
+        <link>{{ site.absolute_baseurl }}/{{ post.path.replace('/index.html', '') }}</link>
         <guid isPermaLink="true">{{ site.absolute_baseurl }}/{{ post.path }}</guid>
       </item>
     {% endfor %}

@@ -2,7 +2,7 @@
   {% for post in posts %}
     <li>
       <span class="date">{{ post.date | date('Y M d') }}</span> &raquo;
-      <a href="{{ site.baseurl }}/{{ post.path.replace('index.html', '') }}">{{ post.title | safe | default('untitled') }}</a>
+      <a href="{{ site.baseurl }}/{{ post.path.replace('/index.html', '') }}">{{ post.title | safe | default('untitled') }}</a>
     </li>
   {% endfor %}
 </ul>
