@@ -5,7 +5,7 @@ var awspublish = require('gulp-awspublish');
 var config = require('./config');
 var requireDir = require('require-dir');
 try {
-  config.indexes = requireDir('./indexes', { recurse: true });
+  config.indexes = requireDir('./build/index', { recurse: true });
 } catch (e) {
   /* no-op */
 }

@@ -12,11 +12,11 @@ share to Google+. But, the changes seem to have removed most of the
 value from the service for me, so I'm moving on as I was invited to
 do.</em>
 
-<span style="display: block; float: right; text-decoration: none; border: none; margin: 0 0 1em 1em"><img src="{{ site.baseurl }}/images/2011/11/Newspaper_Feed_256x256.png" style="width: 256px" /></span>
+<span style="display: block; float: right; text-decoration: none; border: none; margin: 0 0 1em 1em"><img src="http://decafbad.com/blog/images/2011/11/Newspaper_Feed_256x256.png" style="width: 256px" /></span>
 
 ## What happened?
 
-Almost a year ago, I wrote about how my habits had gotten 
+Almost a year ago, I wrote about how my habits had gotten
 [less del.icio.us][]. One of the main culprits that stole my sharing
 flow was [Google Reader][]: I went from using a quick bookmarklet to an
 even quicker icon-click in my feed reader. That meant I left most
@@ -136,7 +136,7 @@ But, things that Circles don't do include:
   interested in your ideas and would like to subscribe to your
   newsletter". RSS doesn't work that way and it's better for it.
 
-* Letting me and others filter for what gets sent to specific Circles - 
+* Letting me and others filter for what gets sent to specific Circles -
   eg. I'm in both your "scifi" and "politics" circles, but just show
   me what you sent to your "scifi" circle.
 
@@ -149,7 +149,7 @@ I'm happy to tag my shares with topics; that's beneficial to me for
 search later, and helps interested people besides. But, the last thing
 I want to do is manage subscriber lists. That doesn't scale. There's
 no way for you to even know I have "scifi" or "politics" Circles, and
-you have no way to join either of them without asking for an add. 
+you have no way to join either of them without asking for an add.
 
 Too much coordination, not enough benefit. I just can't see the value
 in people-centric Circles here.
@@ -177,7 +177,7 @@ have broken for me now too:
 
 The remaining value of Google Reader is as just a plain old hosted
 feed reader—one of the last of them out there, in fact. The problem
-here is that I'm a weirdo who wrote [a book on feeds and feed readers][], 
+here is that I'm a weirdo who wrote [a book on feeds and feed readers][],
 and so I'm perfectly capable of providing the remaining
 value for myself.
 
