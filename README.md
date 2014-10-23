@@ -20,6 +20,8 @@ gulp server
 
 ## TODO
 
+* Github hooks + my server to auto-build and publish
+  * Maybe try setting this up on heroku?
 * Quick gulp task to produce a new boilerplated post
 * Dynamig "related links" feature using tags and pinboard.in API
 * Better archives page with calendars and not just a big list of everything
