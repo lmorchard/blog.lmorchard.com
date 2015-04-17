@@ -1,6 +1,6 @@
 ---
 title: "Random thoughts for 2014 Oct 23"
-tags: [daybook, thoughts]
+tags: [thoughts]
 ---
 
 
