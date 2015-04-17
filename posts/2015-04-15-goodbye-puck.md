@@ -95,15 +95,19 @@ down comfortably, and passed away. I feel terrible. I don’t think there’s
 anything more we could have done for him, but I wish I’d been with him in the
 end.
 
-<a style="position: block; float: right; margin: 1em 0 1em 1em;" href="https://www.flickr.com/photos/deusx/60975477" title="kitty-020 by Les Orchard, on Flickr"><img src="/uploads/2015/puck/60975477_435d4be811_m.jpg" width="240" height="180" alt="kitty-020"></a>
+<a style="position: block; float: left; margin: 1em 1em 1em 0em;" href="https://www.flickr.com/photos/deusx/60975477" title="kitty-020 by Les Orchard, on Flickr"><img src="/uploads/2015/puck/60975477_435d4be811_m.jpg" width="240" height="180" alt="kitty-020"></a>
+
+<a style="position: block; float: right; margin: 1em 0 1em 1em;" href="https://www.flickr.com/photos/deusx/8353514611" title="puck in a tub by Les Orchard, on Flickr"><img src="/uploads/2015/puck/8353514611_64e0c6cd56_m.jpg" width="240" height="180" alt="puck in a tub"></a>
 
 And now he’s gone. One last car trip, the first he didn’t howl all the way
 through.
 
-All in all, I think (I hope) Puck had a good life. He played an oversized part
+All in all, I think (I hope) Puck had a good life. 
+
+<div style="clear:both">He played an oversized part
 in my life, pampered and never wanting for much. I know he was a cat, and
 there were a lot of things he couldn’t understand, but he really seemed to
-know when you needed him close. 
+know when you needed him close.</div> 
 
 He was my best friend and a big piece of me goes with him.
 
