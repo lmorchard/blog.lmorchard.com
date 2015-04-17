@@ -74,7 +74,7 @@ looking at each other like we would when I woke up with him on better days.
 Yesterday, he spent most of the day at the vet’s. They ran tests, got some new
 meds into him. It was bad, but it seemed like he was responding to treatment.
 
-<a style="position: block; float: left; margin: 1em 1em 1em 0;" href="https://www.flickr.com/photos/deusx/16381799867" title="IMG_20150218_012400 by Les Orchard, on Flickr"><img src="/uploads/2015/puck/16381799867_0891a21c52_m.jpg" width="240" height="180" alt="IMG_20150218_012400"></a>
+<a style="position: block; float: left; margin: 1em 1em 1em 0;" href="https://www.flickr.com/photos/deusx/16381807917" title="IMG_20150218_012414 by Les Orchard, on Flickr"><img src="/uploads/2015/puck/16381807917_d56aa3c0ee_m.jpg" width="240" height="180" alt="IMG_20150218_012414"></a>
 
 We got him home and he spent the rest of the evening curled up in his favorite
 spot on the couch. Cheddars and Catsby, our other two cats, came by and
