@@ -1,3 +1,16 @@
+/*----------------------------------------------------------------------*/
+/* main.css */
+/*----------------------------------------------------------------------*/
+
+html, body { width: 100%; height: 100%; }
+
+body {
+  margin: 0; padding: 0;
+  font: 13px sans-serif;
+  background-color: #222;
+}
+
+/* --------------------------------- */
 /* HTML5 bits and bobs */
 article, aside, canvas, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section, summary,
@@ -15,191 +28,241 @@ footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
+#templates { display: none; }
 
-/* Global Reset */
+section.main {
+  height: 100%;
+  margin: 0 auto;
 
-* {
-    margin: 0;
-    padding: 0;
 }
 
-html, body {
-    height: 100%;
+section.main header {
+  display: block;
+  position: relative;
+  background-color: #222;
+  z-index: 50;
 }
 
-body {
-    background-color: #111111;
-    font: 15px/1.85em georgia, serif;
+section.main header h1 {
+  color: #eee;
+  font-family: monospace;
+  font-size: 28px;
+  line-height: 28px;
+  font-weight: bold;
+  padding: 0;
+  margin: 0.25em 0 0.125em 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-size: 110%;
-    font-family: tahoma;
-    font-weight: normal;
-}
-
-h1 { font-size: 200%; margin-bottom: 0.5em; }
-h2 { font-size: 155%; margin-bottom: 0.5em; }
-h3 { font-size: 130%; margin-bottom: 0.5em; }
-
-p {
-    margin: 1em 0;
-}
-
-hr {
-  margin: 1.75em 0.5em;
-  border: 0;
-  border-bottom: 1px solid #999;
-}
-
-a {
-    color: #44a;
-    text-decoration: none;
-    border-bottom: 2px solid #ccc;
-}
-a:link { }
-a:hover {
-    color: #33f;
-    border-bottom: 2px solid #66a;
-}
-a:visited { }
-
-h1 > a, h1 > a:hover {
+section.main header h1 a {
   text-decoration: none;
-  color: inherit;
-  border: none;
+  color: #eee;
 }
 
-table {
-    font-size: inherit;
-    font: 100%;
+section.main header h2 {
+  font-size: 0.9em;
+  font-family: monospace;
+  color: #999;
+  margin: 0 0 1.25em 0;
+  display: block;
 }
 
-/**
- * Basic sections
- */
-
-section.site {
-    position: relative;
-    width: 71.5em;
-    margin: 0 auto 0 auto;
+section.main section.archive h2 {
+  color: #eee;
+  font-family: monospace;
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 0;
+  margin: 0.25em 0 0.125em 0;
+}
+section.main section.archive p {
+  color: #eee;
+  font-family: monospace;
 }
 
-section.site > header {
-    width: 50em;
-    padding: 0.25em;
-    margin: 1.5em 0 0 0;
+section.main header nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em 1em 0 0;
 }
 
-section.site > section.content {
-    width: 50em;
-    margin: 1em 0 1em 0;
+section.main header nav ul {
+  list-style-type: none;
+  margin: 0; padding: 0;
 }
 
-section.site > footer {
-    width: 50em;
-    margin: 1em 0 1em 0;
+section.main header nav ul li {
+  float: left;
 }
 
-section.site > header h1 {
-    font-family: monospace;
-    font-size: 28px;
-    font-weight: bold;
-    float: left;
-    margin: 0 0.5em 0 0;
-}
-section.site > header h1 a {
-    color: #ddd;
-    text-decoration: none;
-    border: none;
-}
-section.site > header h2 {
-    font-size: 11px;
-    color: #999;
-    margin: 0;
+section.main header nav ul li a {
+  font-family: monospace;
+  font-size: 1.125em;
+  color: #eee;
+  margin: 0 0 0.25em 1.5em;
 }
 
-section.site > section.content nav.page-navigation {
-    background-color: #333;
-    position: relative;
-    min-height: 2.0em;
-    padding: 0.25em;
-    margin: 1em 0 1em 0;
-}
-section.site > section.content nav.page-navigation ul {
-}
-section.site > section.content nav.page-navigation ul li {
-    position: absolute;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 60%;
-}
-section.site > section.content nav.page-navigation ul li.left {
-    left: 0.75em;
-}
-section.site > section.content nav.page-navigation ul li.right {
-    right: 0.75em;
-}
-section.site > section.content nav.page-navigation ul li a {
-    border-color: #666666;
-    color: #DDDDDD;
-    font: 12px tahoma;
-    padding: 0.25em;
+section.main .post-list .posts {
+  clear: both;
+  list-style-type: none;
+  margin: 0; padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+
 }
 
-article#index .post {
-  margin: 0 0 2.5em 0;
-}
-section.site > section.content .post > h1,
-section.site > section.content article > h1 {
-  line-height: 1.2em;
+section.main .post-list .posts .post {
+  flex-grow: 1;
+  float: left;
+  position: relative;
+  min-width: 150px; min-height: 150px;
+  margin: 0;
+  overflow: hidden;
+  background-color: rgba(17, 17, 17, 1);
+  margin: 0.125em;
+  color: #fff;
 }
 
-section.site > section.content article {
+section.main .post-list .posts .post .icon {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: #ccc;
+  padding-top: 0.5em;
+  font-size: 5em;
+  text-align: center;
+  opacity: 0.6;
+  transition: opacity 0.5s;
+}
+
+section.main .post-list .posts .post .link {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+section.main .post-list .posts .post .infoContainer {
+  display: block;
+  width: 100%;
+  background: rgba(17, 17, 17, 0.6);
+  position: absolute;
+  bottom: 0px;
+}
+
+section.main .post-list .posts .post .date {
+  display: block;
+  position: absolute;
+  background: rgba(17, 17, 17, 0.6);
+  top: 0; left: 0;
+  width: 100%;
+  z-index: 5;
+  font-size: 0.85em;
+  font-family: monospace;
+  padding: 0.7em 0;
+  text-align: center;
+}
+
+section.main .post-list .posts .post .title {
+  display: block;
+  margin: 0 0.5em 0.5em 0.5em;
+  line-height: 1.25em;
+  text-align: center;
+  color: #fff;
+}
+
+section.main .post-list .posts .post .thumb {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  opacity: 0.6;
+  transition: opacity 0.5s;
+}
+section.main .post-list .posts .post:hover .icon {
+  opacity: 1.0;
+  transition: opacity 0.5s;
+}
+section.main .post-list .posts .post:hover .thumb {
+  opacity: 1.0;
+  transition: opacity 0.5s;
+}
+
+section.main .post-list .posts .post .thumb {
+  display: none;
+}
+section.main .post-list .posts .post.has-thumb .thumb {
+  display: block;
+}
+section.main .post-list .posts .post.has-thumb .icon {
+  display: none;
+}
+
+section.content article {
     padding: 1.5em 2em;
     background-color: #f8f8f8;
+    font: 15px Georgia;
+    line-height: 1.5em;
 }
-
-section.site > section.content > article ul, section.content > article ol {
-    margin: 0 0 0 2em;
+article h1.title {
+  font-size: 1.85em;
+  line-height: 1em;
+  margin: 0; padding: 0;
 }
-section.site > section.content > article ul > li, section.content > article ol > li {
-    margin: 0.5em 0 0.5em 0;
+section.content > article ul,
+section.content > article ol {
+  margin: 0;
+  padding: 0 1.5em;
 }
-section.site > section.content > article  ul > li {
+section.content > article .post-content > li {
+  margin: 0.25em 1.5em;
+}
+section.content > article ul > li,
+section.content > article ol > li {
+    margin: 0.25em 0 0.25em 0;
+}
+section.content > article  ul > li {
     list-style: square;
 }
-section.site > section.content > article  blockquote {
+section.content > article  blockquote {
     font-style: italic;
     margin: 1em 1.5em 1em 1.5em;
     padding: 0 0 0 1em;
     border-left: 4px solid #999;
 }
 
-section.site > section.content > article > pre {
+section.content > article > pre {
     background-color: #333;
     color: #eee;
     font-size: 0.85em;
     margin: 0.25em 2em;
     padding: 1em 1em;
 }
+article.post #toc_container {
+    float: right;
+    margin: 0em 0em 1em 1em;
+    padding: 1em;
+    background-color: #eee;
+}
+article.post #toc_container .toc_title {
+  padding: 0; margin: 0;
+}
 
 section.post > time,
 article.post > time {
     display: block;
-    margin-bottom: 0.75em;
-}
-article.post #toc_container {
-    float: right;
-    margin: 1.5em 0.5em 0.5em 1.5em;
-    padding: 0.5em 1em 1em 1em;
-    background-color: #eee;
+    margin-bottom: 0.5em;
 }
 
 
-section.site > section.content .post > ul.tags:before,
-section.site > section.content article > ul.tags:before {
+section.content .post > ul.tags:before,
+section.content article > ul.tags:before {
   content: "";
 
   display: inline-block;
@@ -216,14 +279,15 @@ section.site > section.content article > ul.tags:before {
   text-rendering: auto;
   -moz-osx-font-smoothing: grayscale;
 }
-section.site > section.content .post > ul.tags,
-section.site > section.content article > ul.tags {
+section.content .post > ul.tags,
+section.content article > ul.tags {
     display: block;
-    margin: -0.75em 0 0.25em 0;
+    padding: 0;
+    margin: 0.75em 0 0.25em 0;
     font-size: 0.85em;
 }
-section.site > section.content .post > ul.tags li,
-section.site > section.content article > ul.tags li {
+section.content .post > ul.tags li,
+section.content article > ul.tags li {
     list-style: none;
     display: inline;
 }
@@ -231,101 +295,6 @@ section.site > section.content article > ul.tags li {
 section.comments {
     padding: 1.5em 2em;
     background-color: #f8f8f8;
-}
-
-section.site > footer {
-}
-
-section.site > footer > img {
-    display: block;
-    margin: 1em auto 1em auto;
-}
-
-aside.sidebar {
-    width: 20em;
-    position: absolute;
-    color: #eee;
-    background-color: #333;
-    right: 0px;
-    top: 3em;
-    padding: 0 0.25em;
-    margin: 0.25em 0 0 0;
-}
-aside.sidebar section {
-    font-size: 0.85em;
-    margin: 1em 1.5em 2em 1.5em;
-}
-aside.sidebar section h3 {
-    border-bottom: 1px solid #666666;
-    font-family: arial;
-    font-size: 1.325em;
-    padding-bottom: 0.25em;
-}
-aside.sidebar section a {
-    border-color: #666;
-    color: #DDD;
-}
-aside.sidebar section a:hover {
-    border-color: #66A;
-    color: #DDF;
-}
-aside.sidebar section img.block {
-    display: block;
-    width: 100%;
-    margin: 1em auto 1em auto;
-    border: 1px solid #666666;
-}
-aside.sidebar section ul.columns {
-    margin: 1em 0 0;
-    padding: 0;
-}
-aside.sidebar section ul.columns li {
-    float: left;
-    list-style-type: none;
-    padding: 0 1.25em 1.5em;
-    text-align: center;
-}
-aside.sidebar section ul {
-    margin: 0 0 0 2em;
-}
-aside.sidebar section ul > li {
-    margin: 0 0 0 0;
-}
-
-aside.sidebar section.related-links ul,
-aside.sidebar section.related-posts ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-aside.sidebar section.related-links ul > li,
-aside.sidebar section.related-posts ul > li {
-  text-indent: -1.25em;
-  padding-left: 1.25em;
-}
-aside.sidebar section.related-links ul > li > a,
-aside.sidebar section.related-posts ul > li > a {
-  /*
-  display: block;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  */
-}
-
-ul.posts {
-    list-style-type: none;
-    margin-bottom: 2em;
-}
-
-ul.posts li {
-    line-height: 1.75em;
-}
-
-ul.posts span {
-  color: #aaa;
-  font-family: Monaco, "Courier New", monospace;
-  font-size: 80%;
 }
 
 #comments.archived-comments {
@@ -371,25 +340,25 @@ ul.posts span {
 }
 
 /* Super special espresso cups for thought posts */
-section.site > section.content > article.tag-thoughts > ul {
+section.content > article.tag-thoughts > .post-content > ul {
   margin-left: 0;
 }
-section.site > section.content > article.tag-thoughts > ul > li {
+section.content > article.tag-thoughts > .post-content > ul > li {
   list-style-type: none;
   padding-left: 2.125em;
   background: url('../img/bullet-espresso.gif') no-repeat scroll left 0.25em transparent
 }
-section.site > section.content > article.tag-thoughts > ul.tags > li {
+section.content > article.tag-thoughts > .post-content > ul.tags > li {
   background: none;
   padding-left: 0;
 }
-section.site > section.content > article.tag-thoughts > ul > li > ul {
+section.content > article.tag-thoughts > .post-content > ul > li > ul {
   margin: 0 0 0 1.5em;
 }
-section.site > section.content > article.tag-thoughts > ul > li > ul > li {
+section.content > article.tag-thoughts > .post-content > ul > li > ul > li {
   list-style-type: none;
 }
-section.site > section.content > article.tag-thoughts > ul > li > ul > li:before {
+section.content > article.tag-thoughts > .post-content > ul > li > ul > li:before {
   content: "\00bb";
   font-weight: bold;
   font-size: 1.25em;
@@ -399,3 +368,83 @@ section.site > section.content > article.tag-thoughts > ul > li > ul > li:before
 
 /* emphasis tweaks */
 a.emAnchor { font-size: 1.75em; margin-left: -0.25em }
+
+@media (min-width: 800px) {
+  section.main {
+    padding-top: 2em;
+    width: 800px;
+  }
+  .post-list .posts .post {
+  }
+}
+@media (max-width: 800px) {
+  .post-list .posts .post .icon {
+    opacity: 1.0;
+  }
+  .post-list .posts .post .thumb {
+    opacity: 1.0;
+  }
+  section.main header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  section.main header h1 {
+    padding: 0.125em 0.25em;
+  }
+  section.main header h2 {
+    padding: 0em 0.75em;
+  }
+  section.content {
+    margin-top: 5.5em;
+  }
+}
+@media (max-width: 700px) {
+  section.main header nav {
+    display: none;
+  }
+  article h1.title {
+    font-size: 1.5em;
+  }
+}
+@media (max-width: 550px) {
+  section.main header {
+    padding: 0;
+    margin: 0;
+  }
+  section.main header h1 {
+    padding: 0;
+    margin: 0;
+    font-size: 1.5em;
+    text-align: center;
+  }
+  section.main header h2 {
+    display: none;
+  }
+  section.content {
+    margin-top: 2.5em;
+  }
+  article h1.title,
+  article h2 {
+    font-size: 1.25em;
+  }
+  article.post #toc_container {
+    float: inherit;
+    margin: 0.5em 0;
+  }
+}
+@media (max-width: 250px) {
+  section.main header h1 {
+    font-size: 1em;
+  }
+}
+
+.post .icon:before { content:"\f15c" }
+.post.tag-webdev .icon:before { content: ""; }
+.post.tag-pets .icon:before { content: ""; }
+.post.tag-metablogging .icon:before { content: ""; }
+.post.tag-social .icon:before { content: ""; }
+.post.tag-thoughts .icon:before { content: ""; }
+.post.tag-asides .icon:before { content: ""; }
+

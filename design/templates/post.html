@@ -1,11 +1,8 @@
 {% extends 'layouts/default.html' %}
-{% block sidebar %}
-  <aside class="sidebar" data-content-href="{{ site.baseurl }}/sidebar.html"></aside>
-{% endblock %}
 {% block content %}
 <article class="post {% if page.tags %}{% for tag in page.tags %}tag-{{ tag }} {% endfor %}{% endif %}">
     <time title="{{ page.date | date('c') }}" pubdate="{{ page.date | date('c') }}">
-      <a href="{{ site.baseurl }}/archives.html"><i class="fa fa-home"></i></a>
+      <a href="{{ site.baseurl }}/"><i class="fa fa-home"></i></a>
       &raquo;
       <a href="{{ site.baseurl }}/{{ page.date | date('Y') }}">{{ page.date | date('Y') }}</a>
       &raquo;
@@ -22,7 +19,7 @@
           {% endfor %}
       </ul>
     {% endif %}
-    {{ content|safe }}
+    <section class="post-content">{{ content|safe }}</section>
 </article>
 
 {% if page.comments_archived or page.draft %}

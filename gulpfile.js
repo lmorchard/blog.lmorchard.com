@@ -13,6 +13,8 @@ try {
 var requireDir = require('require-dir');
 requireDir('./lib/tasks', { recurse: true });
 
+gulp.task('default', [ 'server' ]);
+
 gulp.task('build', [
   'static', 'posts', 'pages', 'archives', 'feeds'
 ]);
