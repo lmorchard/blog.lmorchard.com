@@ -1,8 +1,63 @@
 {% extends 'layouts/default.html' %}
 {% block content %}
   <section class="archive">
-  <h2>Archives</h2>
-    <p>Didn't find what you were looking for? It might be here:</p>
-    {% include "./includes/post-list.html" %}
+
+    <h2>Archives</h2>
+    <p>Looking for something from the back catalog?</p>
+    <p>
+      Feel free to peruse this <a href="/all.html">huge list of all my posts</a>.
+      Someday, I might build a local search engine.
+    </p>
+
+    <h3>Tags</h3>
+    <p>Here are some of the topics I've written about:</p>
+
+    <ul class="tags">
+      {% for item in tagsWithCounts | limit(50) %}
+        {# TODO: Find a way to support a hidden tag list? #}
+        {% if item.count >= 3 and item.tag != 'asides' and item.tag != 'entries' and item.tag != 'Header' %}
+          <li class="tag">
+            <a href="{{ site.baseurl }}/tag/{{ item.tag }}">
+              <i class="fa fa-tag"></i>
+              <span class="name">{{ item.tag }}</span>
+              <span class="count">({{ item.count }})</span>
+            </a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+
+    <h3>Time</h3>
+    <p>Here's how my writing here stacks up over time:</p>
+
+    <ul class="years">
+      {% for year in postYears %}
+        <li class="year">
+          <a href="{{ site.baseUrl }}/{{ year }}/">
+            <span class="year-label">{{ year }}</span>
+          </a>
+          <ul class="months">
+            {% for pair in months %}
+              {% if postsByDate[year][pair[0]].length > 0 %}
+                <li class="month">
+                  <a class="month-container" href="{{ site.baseUrl }}/{{ year }}/{{ pair[0] }}/">
+                    <span class="month-label">{{ pair[1] }}</span>
+                    <span class="month-count">({{ postsByDate[year][pair[0]].length }})</span>
+                  </a>
+                </li>
+              {% else %}
+                <li class="month no-posts">
+                  <span class="month-container">
+                    <span class="month-label">{{ pair[1] }}</span>
+                    <span class="month-count">(0)</span>
+                  </span>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </li>
+      {% endfor %}
+    </ul>
+
   </section>
 {% endblock %}

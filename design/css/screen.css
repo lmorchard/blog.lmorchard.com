@@ -1,3 +1,4 @@
+
 /*----------------------------------------------------------------------*/
 /* main.css */
 /*----------------------------------------------------------------------*/
@@ -67,6 +68,7 @@ section.main header h2 {
 }
 
 section.main section.archive h2 {
+  clear: both;
   color: #eee;
   font-family: monospace;
   font-size: 1.5em;
@@ -74,9 +76,23 @@ section.main section.archive h2 {
   padding: 0;
   margin: 0.25em 0 0.125em 0;
 }
+
+section.main section.archive h3 {
+  color: #eee;
+  font-family: monospace;
+  font-size: 1.25em;
+  font-weight: bold;
+  padding: 0;
+  margin: 0.25em 0 0.125em 0;
+}
+
 section.main section.archive p {
   color: #eee;
   font-family: monospace;
+}
+
+section.main section.archive p a {
+  color: #ccc;
 }
 
 section.main header nav {
@@ -112,7 +128,6 @@ section.main .post-list .posts {
   justify-content: flex-start;
   align-items: stretch;
   align-content: stretch;
-
 }
 
 section.main .post-list .posts .post {
@@ -369,6 +384,101 @@ section.content > article.tag-thoughts > .post-content > ul > li > ul > li:befor
 /* emphasis tweaks */
 a.emAnchor { font-size: 1.75em; margin-left: -0.25em }
 
+
+.post .icon:before { content:"\f15c" }
+.post.tag-webdev .icon:before { content: ""; }
+.post.tag-pets .icon:before { content: ""; }
+.post.tag-metablogging .icon:before { content: ""; }
+.post.tag-social .icon:before { content: ""; }
+.post.tag-thoughts .icon:before { content: ""; }
+.post.tag-asides .icon:before { content: ""; }
+
+section.archive { }
+section.archive ul.tags {
+  list-style-type: none;
+  margin: 1em 0; padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+section.archive ul.tags li.tag {
+  display: block;
+  float: left;
+  min-width: 10em;
+  margin: 0.25em; padding: 0.5em;
+  border: 1px solid #999;
+  border-radius: 4px;
+  background-color: #ddd;
+  color: #111;
+}
+section.archive ul.tags li.tag a {
+  color: #111;
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+section.archive ul.tags li.tag .count {
+  font-size: 0.75em;
+}
+
+section.archive ul.years {
+  color: #fff;
+  list-style-type: none;
+  padding: 0;
+  margin: 1.5em 0 1.5em 0;
+}
+section.archive ul.years li.year {
+  clear: both;
+  padding: 0 0 1.125em 0;
+}
+section.archive ul.years li.year > a {
+  color: #111;
+  background-color: #eee;
+  border-radius: 4px;
+  display: block;
+  float: left;
+  margin: 0 0.5em 0 0;
+  padding: 0.5em;
+  text-align: right;
+  width: 5em;
+  text-decoration: none;
+}
+section.archive ul.years li.year ul.months {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 0.75em 6.5em;
+}
+section.archive ul.years li.year ul.months li.month {
+  float: left;
+  color: #111;
+  width: 16%;
+}
+section.archive ul.years li.year ul.months li.month .month-container {
+  color: #fff;
+  text-decoration: none;
+  background-color: #666;
+  border-radius: 4px;
+  display: block;
+  margin: 0em 0.25em 0.5em 0.25em;
+  padding: 0.5em;
+  text-align: center;
+  text-decoration: none;
+}
+section.archive ul.years li.year ul.months li.month .month-label {
+  font-size: 1em;
+}
+section.archive ul.years li.year ul.months li.month .month-count {
+  font-size: 0.8em;
+  color: #ccc;
+}
+section.archive ul.years li.year ul.months li.month.no-posts .month-container,
+section.archive ul.years li.year ul.months li.month.no-posts .month-container .month-count {
+  color: #777;
+}
+
 @media (min-width: 800px) {
   section.main {
     padding-top: 2em;
@@ -376,7 +486,16 @@ a.emAnchor { font-size: 1.75em; margin-left: -0.25em }
   }
   .post-list .posts .post {
   }
+  section.archive ul.years li.year ul.months li.month {
+    float: left;
+    color: #111;
+    width: 4.25em;
+  }
+  section.archive ul.years li.year ul.months li.month .month-count {
+   display: block;
+  }
 }
+
 @media (max-width: 800px) {
   .post-list .posts .post .icon {
     opacity: 1.0;
@@ -400,6 +519,7 @@ a.emAnchor { font-size: 1.75em; margin-left: -0.25em }
     margin-top: 5.5em;
   }
 }
+
 @media (max-width: 700px) {
   section.main header nav {
     display: none;
@@ -408,6 +528,7 @@ a.emAnchor { font-size: 1.75em; margin-left: -0.25em }
     font-size: 1.5em;
   }
 }
+
 @media (max-width: 550px) {
   section.main header {
     padding: 0;
@@ -433,18 +554,20 @@ a.emAnchor { font-size: 1.75em; margin-left: -0.25em }
     float: inherit;
     margin: 0.5em 0;
   }
+  section.archive ul.years li.year ul.months li.month .month-count {
+   display: block;
+  }
+
 }
+
 @media (max-width: 250px) {
   section.main header h1 {
     font-size: 1em;
   }
+  section.archive ul.years li.year ul.months li.month .month-count {
+   display: none;
+  }
 }
 
-.post .icon:before { content:"\f15c" }
-.post.tag-webdev .icon:before { content: ""; }
-.post.tag-pets .icon:before { content: ""; }
-.post.tag-metablogging .icon:before { content: ""; }
-.post.tag-social .icon:before { content: ""; }
-.post.tag-thoughts .icon:before { content: ""; }
-.post.tag-asides .icon:before { content: ""; }
+
 
