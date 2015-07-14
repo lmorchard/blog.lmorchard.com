@@ -22,9 +22,8 @@ gulp server
 
 * Github hooks + my server to auto-build and publish
   * Maybe try setting this up on heroku?
+  * Travis-CI with a cached set of file hashes to make the S3 push faster?
 * Quick gulp task to produce a new boilerplated post
-* Dynamig "related links" feature using tags and pinboard.in API
-* Better archives page with calendars and not just a big list of everything
 * Hack gulp-awspublish to upload many files in parallel
 * Switch from Swig to [Nunjucks](http://mozilla.github.io/nunjucks/) because it's a Mozilla project hooray
 * Add some TOC generation in JS
