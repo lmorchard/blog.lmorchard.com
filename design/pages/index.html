@@ -2,8 +2,8 @@
 {% block content %}
   <section class="post-list">
     <ul class="posts">
-    {% for post in posts | limit(30) %}
-    <li class="post nothumb {% for tag in post.tags %}tag-{{ tag }} {% endfor %}">
+    {% for post in posts | limit(20) %}
+    <li class="post {% if post.thumbnail %}has-thumb {% endif %}{% for tag in post.tags %}tag-{{ tag }} {% endfor %}">
         <time class="date" datetime="{{ post.date | date('c') }}">
           {{ post.date | date('Y') }} {{ post.date | date('F') }} {{ post.date | date('d') }}
         </time>
@@ -13,9 +13,12 @@
             <span class="title">{{ post.title | safe | default('untitled') }}</span>
           </span>
         </a>
-        <img class="thumb" src="" />
+        {% if post.thumbnail %}
+          <img class="thumb" src="{{ post.thumbnail }}" />
+        {% endif %}
       </li>
     {% endfor %}
     </ul>
+    <p>Looking for more? <a href="/archives.html">Try the archives.</a></p>
   </section>
 {% endblock %}

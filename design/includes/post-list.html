@@ -1,7 +1,7 @@
   <section class="post-list">
     <ul class="posts">
     {% for post in posts %}
-    <li class="post nothumb {% for tag in post.tags %}tag-{{ tag }} {% endfor %}">
+    <li class="post {% if post.thumbnail %}has-thumb {% endif %}{% for tag in post.tags %}tag-{{ tag }} {% endfor %}">
         <time class="date" datetime="{{ post.date | date('c') }}">
           {{ post.date | date('Y') }} {{ post.date | date('F') }} {{ post.date | date('d') }}
         </time>
@@ -11,7 +11,9 @@
             <span class="title">{{ post.title | safe | default('untitled') }}</span>
           </span>
         </a>
-        <img class="thumb" src="" />
+        {% if post.thumbnail %}
+          <img class="thumb" src="{{ post.thumbnail }}" />
+        {% endif %}
       </li>
     {% endfor %}
     </ul>
