@@ -23,8 +23,19 @@ gulp server
 * Github hooks + my server to auto-build and publish
   * Maybe try setting this up on heroku?
   * Travis-CI with a cached set of file hashes to make the S3 push faster?
+
+* Switch to Browserify & Babel if/when I want some JS enhancements again
+
+* Bundle Font Awesome back into local files rather than using CDN
+
+* Revive the comments archiver to preserve closed Disqus threads
+
 * Quick gulp task to produce a new boilerplated post
+
 * Hack gulp-awspublish to upload many files in parallel
+
 * Switch from Swig to [Nunjucks](http://mozilla.github.io/nunjucks/) because it's a Mozilla project hooray
+
 * Add some TOC generation in JS
+
 * Prev / next nav links for posts?
