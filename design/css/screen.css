@@ -511,6 +511,9 @@ section.archive ul.years li.year ul.months li.month.no-posts .month-container .m
   color: #777;
 }
 
+header nav .nav-trigger { display: none; }
+header nav label[for="nav-trigger"] { display: none; }
+
 @media (min-width: 800px) {
   section.main {
     padding-top: 2em;
@@ -554,12 +557,68 @@ section.archive ul.years li.year ul.months li.month.no-posts .month-container .m
   section.content {
     margin-top: 3.75em;
   }
+
+  section.main header nav {
+    width: 100%;
+  }
+
+  /* Inspired by: http://www.sitepoint.com/pure-css-off-screen-navigation-menu/ */
+
+  section.main header nav .nav-trigger {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  section.main header nav label[for="nav-trigger"] {
+    display: block;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    z-index: 20;
+    width: 2.75em;
+    height: 2.75em;
+    margin: 0.5em;
+    cursor: pointer;
+    background-image: url("/img/menu.svg");
+    background-size: contain;
+  }
+
+  section.main header nav ul {
+    display: block;
+    background: rgba(32, 32, 32, 0.9);
+    padding: 0;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 18em;
+    padding-right: 3.75em;
+    right: -21.75em;
+    transition: right 0.2s;
+  }
+
+  section.main header nav ul li {
+    display: block;
+    float: none;
+    text-align: right;
+    font-size: 1.25em;
+    border: 1px solid #666;
+    line-height: 2.5em;
+    padding: 0.25em 0.75em;
+  }
+
+  section.main header nav ul li a {
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  section.main header nav .nav-trigger:checked + ul {
+    right: 0em;
+    transition: right 0.2s;
+  }
+
 }
 
 @media (max-width: 700px) {
-  section.main header nav {
-    display: none;
-  }
   article h1.title {
     font-size: 1.5em;
   }
@@ -607,4 +666,3 @@ section.archive ul.years li.year ul.months li.month.no-posts .month-container .m
    display: none;
   }
 }
-
