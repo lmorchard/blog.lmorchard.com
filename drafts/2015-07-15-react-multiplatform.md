@@ -3,85 +3,41 @@ title: Experimenting with a multi-platform app using React
 tags: [webdev, native, react, reactnative, ios, mobile, mozilla]
 ---
 
-<nav rolw="navigation" class="table-of-contents"></nav>
+<nav role="navigation" class="table-of-contents"></nav>
 
-TL;DR: [I built an app using React.][react-multiplatform]
-
-[React][] is a JavaScript library for building UI components - that is, just the V in MVC. If you're a webdev, [you might've heard of it][heard-of-it]. If so, you can skip over the next few paragraphs and get to the meat of this post.
-
-[react-multiplatform]: https://github.com/lmorchard/react-multiplatform/
-[heard-of-it]: https://twitter.com/bitchwhocodes/status/598698237579685888
-[react]: https://facebook.github.io/react/
+TL;DR: I built [a toy app using React for web and native][react-multiplatform] to get a feel for whether this hybrid approach is worth using. I think the answer is "yes" - but mainly for apps whose business logic & data models are more complex than their views.
 
 <!--more-->
 
 ## Write slightly more than once, run manywhere
 
-At Mozilla, we're cheerleaders for the web. And, one of the things we try to champion is the efficiency of writing one web app versus building many separate native apps. In practice, your mileage varies based on goals, priorities, platform capabilities, and a dozen other factors.
+At Mozilla, one of the things we try to champion is the efficiency of writing one web app versus building many separate native apps. In practice, your mileage varies based on goals, priorities, platform capabilities, and a dozen other factors.
 
-[React][] and [React Native][] seem to offer a middle ground, though: Given the shared conventions and patterns and language, it should be possible to share a lot of code between platforms while still taking advantage of native capabilities. So, I figured I'd give it a shot.
+[React][] and [React Native][] seem to offer a middle ground: Given the shared conventions and patterns and language, it should be possible to share a lot of code between platforms while still taking advantage of native capabilities.
+
+So, I figured I'd give it a shot and try measuring the common lines of code as a rough success metric.
 
 ## Great, another Todo app
 
 I decided to build a Todo app, with lots of inspiration and a little code borrowed from [TodoMVC][].
 
-It's nothing particularly exciting. But, a basic Todo app demands just enough user interface and data management to get an initial feel for most app frameworks. Commit to something much bigger and you may end up wasting your time. Build something much smaller and you won't have explored deep enough into the framework's solution space.
+A basic Todo app demands just enough user interface and data management to get an initial feel for most app frameworks. Commit to something bigger and you may end up wasting your time. Build something smaller and you won't have explored deep enough into the framework's solution space.
 
-[TodoMVC]: http://todomvc.com/
+I think I've erred on the shallow side, but that just gives me room to improve.
 
-## I heard React was good?
+## What about Flux vs MVC?
 
-Much [has][vdom-performance] [been][vdom-performance-2] [written][vdom-performance-3] about React's virtual DOM and performance characteristics. But, the really interesting part is how React encourages developers to encapsulate everything in JS - markup, style, behavior, the works.
+It's said that React provides just the V in MVC (Model-View-Controller). But, there's also [this Flux notion][flux]. It's billed as an alternative to MVC, and React is intended to be a part of it. That said, I haven't quite yet wrapped my head around Flux. Luckily, React is focused and useful in isolation. So, I can defer buying into the rest of the conceptual package as I learn.
 
-And then there's [React Native][] - "a framework for building native apps using React". It supports iOS, [with Android hopefully coming soon][rn-android]. React Native apps use JavaScript and a workflow [that feels a lot like React on the web][feels-like-web]. You get cheap live reloads instead of compiler rebuilds, [Chrome dev tools instead of Xcode][rn-devtools], and [the same basic React component patterns][react-api] carry over.
+In fact, I didn't even really end up building a proper MVC app. The Controller role got distributed between Views & Models: UI event handlers in Views modify Models directly. Views subscribe to change events from Models to update their own state.
 
-Apropos of that, React [is not free of controversy][react-bad-idea]: I mean, what's the deal with this [JSX garbage][jsx-garbage]? Inline styles *in **my** JavaScript*? [Madness][css-in-js-bad]! But, it can be said that [JSX offers some benefits comparable and complementary to Web Components][react-and-web-components]. And, [expressing styles in JS lends some advantages][css-in-js].
+I expect that when I grok Flux better, it's this reciprocal Model/View relationship that will get broken up & mediated by a Dispatcher. But, in the spirit of iterative hacking, I forged ahead with my terrible code & design.
 
-If nothing else, there are nice ergonomics to be found when piling everything related to a single conceptual view component in the same source file.
+## Building shared Models
 
-For what it's worth, I'm not entirely convinced. As a curmudgeon, [I cast a wary gaze upon the hippest of frameworks][wary-frameworks]. But, mindless dismissal of everything new leads to stagnation, so [I'll try to engage with a beginner's mind][beginner-mind] - [shoshin][] and all that. (Who knows? [I could end up liking it][opposites].)
+For the Model layer, I took a look at [Ampersand.js][]. Based originally on [Backbone.js][] - a library of which I'm a big fan - [Ampersand.js][] breaks things up into a collection of small modules that work well together. But, like [React][], most of the modules are handy in isolation or alongside substitutions from outside of the [Ampersand.js][] family.
 
-[rn-android]: http://facebook.github.io/react/blog/2015/03/30/community-roundup-26.html#when-is-react-native-android-coming
-[feels-like-web]: https://code.facebook.com/posts/1014532261909640/react-native-bringing-modern-web-techniques-to-mobile/
-[rn-devtools]: https://facebook.github.io/react-native/docs/debugging.html#content
-[react-api]: https://facebook.github.io/react/docs/top-level-api.html
-[opposites]: http://blog.lmorchard.com/2003/10/16/seeing-out-opposites/
-[React Native]: https://facebook.github.io/react-native/
-[wary-frameworks]: https://twitter.com/MozLDNOH/status/620966483867377664
-[react-and-web-components]: http://webcomponents.org/presentations/complementarity-of-react-and-web-components-at-reactjs-conf/
-[Shoshin]: https://en.wikipedia.org/wiki/Shoshin
-[beginner-mind]: http://blog.lmorchard.com/2002/06/13/oooaih/
-[css-in-js-bad]: http://keithjgrant.com/posts/against-css-in-js.html
-[vdom-performance]: http://calendar.perfplanet.com/2013/diff/
-[vdom-performance-2]: http://stackoverflow.com/questions/21109361/why-is-reacts-concept-of-virtual-dom-said-to-be-more-performant-than-dirty-mode
-[vdom-performance-3]: http://vdom-benchmark.github.io/vdom-benchmark/
-[css-in-js]: http://blog.vjeux.com/2014/javascript/react-css-in-js-nationjs.html
-[jsx-garbage]: https://twitter.com/mikeal/status/611624061496504320
-[jsx-abomination]: https://medium.com/javascript-scene/jsx-looks-like-an-abomination-1c1ec351a918
-[react-bad-idea]: https://www.pandastrike.com/posts/20150311-react-bad-idea
-
-## Forget MVC - what about Flux?
-
-There's also [this Flux notion][flux]. It's a way of doing things that's *different* than traditional MVC, and React is intended to be a part of it. But, I haven't quite wrapped my head around it yet. Luckily, since React is focused on views, I don't have to buy into the whole package right away.
-
-The compulsion to commit with most opinionated frameworks tends to turn me off. I'm a [small pieces, loosely joined][splj] kind of guy, usually.
-
-## What about the Controller?
-
-I didn't really end up building a controller or router. Instead, my React views manipulate models directly, starting from [a root `App` view component][app-common-view] that initializes [an overall `App` model state object][app-common-model].
-
-[app-common-view]: https://github.com/lmorchard/react-multiplatform/blob/master/lib/views/web/App.js
-[app-common-model]: https://github.com/lmorchard/react-multiplatform/blob/master/lib/models/App.js
-
-So, I guess this app ends up following neither Flux *nor* MVC conventions. That's probably a mistake that would reveal it's awfulness in a more complex app, but it kept things simple here.
-
-## Building the Model
-
-So, that leaves me with the data model. In this app, I want to manage todo items. Each item consists of some text and whether its completed yet. And, of course, I want to collect these items into lists. It would also be nice to filter my list of Todo items by completion status.
-
-For managing a single todo item, I liked the looks of [ampersand-state][]. With it, you can build JavaScript objects with properties that can be watched for changes. It also offers conveniences such as calculating derived properties from other data properties.
-
-This is what [my todo item model][todo-model] looks like, using [TodoMVC code][todo-model-ampersand] as a starting point:
+For managing a single todo item, I liked the looks of [ampersand-state][]. With it, you can build JavaScript objects with properties that can be watched for changes. This is what [my todo item model][todo-model] looks like, using [TodoMVC code][todo-model-ampersand] as a starting point:
 
 ```javascript
 var State = require('ampersand-state');
@@ -103,32 +59,203 @@ module.exports = State.extend({
 });
 ```
 
-This model works on both the web and native sides of my React app. So far, so good.
+## Forking the Views by platform
 
-## Forking collections by platform
+This Model code works on both the web and native sides of my app. So far, so good - and pretty straightforward.
 
-For managing lists of todo items, [ampersand-collection][] is handy. Not surprisingly, it lets you build collections of objects - but, it also collects the events fired by property changes on individual objects. And, [ampersand-subcollection][] is nice for supporting filtered subsets of a collection of data objects.
+However, getting down to actually rendering this data across platforms reveals where things start to vary. For example, [the JSX in the `render()` method of my web view][item-web-render] looks like this:
+
+```javascript
+return (
+  <li style={itemStyles.container}>
+    <input type="checkbox"
+      style={itemStyles.completed}
+      onChange={(event) => this.handleCompletedChange(event.target.checked)}
+      checked={this.state.item.completed} />
+    {title}
+  </li>
+);
+```
+
+Meanwhile, [the JSX in the `render()` method of my iOS view][item-ios-render] looks like this:
+
+```javascript
+return (
+  <View style={styles.todoItem}>
+    <SwitchIOS
+      style={styles.todoCompleted}
+      onValueChange={this.handleCompletedChange}
+      value={this.state.item.completed} />
+    {title}
+  </View>
+);
+```
+
+[item-web-render]: https://github.com/lmorchard/react-multiplatform/blob/3fd16fe31473f249d8a54020ef252f524dd17d70/lib/views/web/TodoItem.js#L34
+[item-ios-render]: https://github.com/lmorchard/react-multiplatform/blob/3fd16fe31473f249d8a54020ef252f524dd17d70/lib/views/ios/TodoItem.js#L42
+
+And, if you take a longer peek at those views, you'll see some slightly more complex JSX devoted to the `{title}` placeholders where rendering changes based on whether the item is being edited.
+
+It's not radically different; it's just enough to make things interesting.
+
+## Code sharing with React mixins
+
+What you might notice about these two divergent views, though, is they both start like this:
+
+```javascript
+var TodoItem = module.exports = React.createClass({
+  mixins: [Views.TodoItemCommonMixin],
+  // ...
+```
+
+It turns out that, thanks to [React mixins][], I can write [the bulk of the View logic][item-shared-view] in a shared module. Since both sides use Models based on [ampersand-state][], this includes subscribing to Model changes:
+
+[React mixins]: https://facebook.github.io/react/docs/reusable-components.html#mixins
+
+```javascript
+getInitialState() {
+  return { editing: false, item: this.props.item };
+},
+componentDidMount() {
+  this.state.item.on('change', () => this.forceUpdate(), this);
+},
+componentWillUnmount() {
+  this.state.item.off(null, null, this);
+},
+componentWillReceiveProps(props) {
+  this.setState({ item: props.item });
+},
+componentDidUpdate(prevProps, prevState) {
+  if (prevState.item !== this.state.item) {
+    prevState.item.off(null, null, this);
+    this.state.item.on('change', () => this.forceUpdate(), this);
+  }
+}
+```
+
+[item-shared-view]: https://github.com/lmorchard/react-multiplatform/blob/3fd16fe31473f249d8a54020ef252f524dd17d70/lib/views/index.js#L35
+
+And, since both sides use Views based on [React][], many UI event handlers can also be shared despite the difference in platform specific JSX and view elements.
+
+(Of course, I recently learned that [React mixins are dead][dead-mixins], so I'm already behind the times. But, this code works for now. I'll get around to burning that bridge when I learn more about Flux.)
+
+[dead-mixins]: https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750
+
+## Forking & sharing Model code for persistence
+
+For multiple todo items, [ampersand-collection][] is handy. It manages arrays of [ampersand-state][] objects and emits events when the set changes. This is useful for keeping [list][list-web-view] [views][list-ios-view] updated.
+
+[list-web-view]: https://github.com/lmorchard/react-multiplatform/blob/3fd16fe31473f249d8a54020ef252f524dd17d70/lib/views/web/TodoList.js
+[list-ios-view]: https://github.com/lmorchard/react-multiplatform/blob/3fd16fe31473f249d8a54020ef252f524dd17d70/lib/views/ios/TodoList.js
+
+[ampersand-collection][] also offers methods for serializing & deserializing the models it contains. This is handy, because I'd like to make my todo list items persistent between sessions with the app.
 
 [todo-model]: https://github.com/lmorchard/react-multiplatform/blob/master/lib/models/Todo.js
 [todo-model-ampersand]: https://github.com/tastejs/todomvc/blob/master/examples/ampersand/js/models/todo.js
 
-I'd also like the todo items to stick around between sessions with the app. So, I need to store them somewhere.
+Apropos of that, we have some storage capabilities on each platform: [localStorage][] for modern browsers, and [AsyncStorage][] for React Native. Both allow you to store small amounts of persistent data on a device. For the purposes of this toy app, these data stores are just about right.
 
-[localStorage][] is a thing in modern browsers. [AsyncStorage][] is a thing in React Native. Both allow you to store small amounts of persistent data on a device. For the purposes of this toy app, these data stores are just about right.
+But, these storage APIs differ. [Using localStorage][using-localstorage] looks like this:
 
-But, the usage of each differs just enough to start complicating code sharing between React web and native platforms.
+```javascript
+readFromStorage: function () {
+  var existingData = localStorage[STORAGE_KEY];
+  if (existingData) {
+    this.set(JSON.parse(existingData));
+  }
+},
+writeToStorage: function () {
+  localStorage[STORAGE_KEY] = JSON.stringify(this);
+}
+```
 
-localStorage is a synchronous API, meaning that everything stops during store & fetch operations and results are immediately available to your code.
+Meanwhile, [using AsyncStorage][using-asyncstorage] looks like this:
 
+```javascript
+readFromStorage() {
+  AsyncStorage.getItem(STORAGE_KEY).then((existingData) => {
+    this.set(JSON.parse(existingData));
+  });
+},
+writeToStorage() {
+  AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(this));
+}
+```
 
+If you peek at those last two links, though, you might notice they both define classes that start like this:
 
-AsyncStorage requires the use of callback functions, because store & fetch operations are deferred.
+```javascript
+var TodoCollection = module.exports = BaseCollection.extend({
+```
 
+Since [ampersand-collection][] supports class inheritance, the bulk of the logic for these collections can be housed in [a shared superclass][basecollection]. The subclasses just need to implement the platform-specific storage methods. A different mechanism than [React mixins][], but for basically the same purpose.
 
-
+[using-localstorage]: https://github.com/lmorchard/react-multiplatform/blob/3fd16fe31473f249d8a54020ef252f524dd17d70/lib/models/web/TodoCollection.js#L14
+[using-asyncstorage]: https://github.com/lmorchard/react-multiplatform/blob/3fd16fe31473f249d8a54020ef252f524dd17d70/lib/models/ios/TodoCollection.js#L9
+[basecollection]: https://github.com/lmorchard/react-multiplatform/blob/3fd16fe31473f249d8a54020ef252f524dd17d70/lib/models/TodoCollection.js#L8
 
 [AsyncStorage]: https://facebook.github.io/react-native/docs/asyncstorage.html
 [localstorage]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API
+
+## Sharing by the numbers
+
+The main goal of this experiment is to get a feel as to whether a hybrid React approach is worth considering versus building totally separate apps for native and web platforms. The metric I decided to use for this is counting lines of code (LoC), and this is what I found:
+
+* Overall, ~30% shared LoC (226 / 748).
+
+* For Models, ~74% shared LoC (159 / 215).
+
+* For Views, ~12% shared LoC (67 / 533).
+
+Because I like showing my work, here's how I came up with those numbers:
+
+```bash
+# Total LoC for models = 215
+$ cat lib/models/**/*.js | wc -l
+     215
+
+# ~74% common model code
+$ cat lib/models/*js | wc -l
+     159
+
+# ~12% iOS specific model code
+$ cat lib/models/ios/*js | wc -l
+      25
+
+# ~14% web specific model code
+$ cat lib/models/web/*js | wc -l
+      31
+
+# Total LoC for views = 533
+$ cat lib/views/**/*.js | wc -l
+     533
+
+# ~12% common view code
+$ cat lib/views/*js | wc -l
+      67
+
+# ~44% iOS specific view code
+$ cat lib/views/ios/*js | wc -l
+     235
+
+# ~43% web specific view code
+$ cat lib/views/web/*js | wc -l
+     231
+```
+
+## Conclusion
+
+Using React for both web & native looks promising. However, the toy app I've built is too simple to present an overwhemingly compelling case.
+
+What I tried to do here was get a quick feel for the shape of things and where the code multipliers can be found. Your mileage will vary on app features and code refactoring ability.
+
+In particular, this toy app's models are very simple. So, even though there's a lot of sharing, it doesn't make a big impact on the bottom line. In an app with more complex business logic, that could change favorably.
+
+On the other hand, Views between platforms will have a greater impact as they get more complex in dealing with divergent UI elements. You could paper over many platform differences with reusable components that normalize APIs & usage patterns - hopefully while not squashing unique advantages of each platform. So far, this app is too simple to really expose those opportunities.
+
+And, of course, all bets are off once you've left React for straight native development. My hunch is that there are qualitative & quantitative benefits to reducing context switching. You can focus development & testing efforts on JavaScript & React as opposed to multiple native & web toolkits (e.g. Objective-C & Swift & Java - oh my!). But, measuring that hunch is beyond the scope of what I tried doing here.
+
+Hopefully, I've raised some interesting features of the terrain. But, I know this is a very shallow look at things and I'm learning as I go along. Feel free to poke holes in this stuff and throw some suggestions at me!
 
 [ampersand-subcollection]: https://github.com/AmpersandJS/ampersand-subcollection
 [ampersand-collection]: https://github.com/AmpersandJS/ampersand-collection
@@ -136,5 +263,11 @@ AsyncStorage requires the use of callback functions, because store & fetch opera
 [ampersand-view]: https://github.com/AmpersandJS/ampersand-view
 [Backbone.js]: http://backbonejs.org/
 [ampersand.js]: http://ampersandjs.com/
-[splj]: http://www.smallpieces.com/index.php
 [flux]: https://facebook.github.io/flux/docs/overview.html
+[TodoMVC]: http://todomvc.com/
+[react-multiplatform]: https://github.com/lmorchard/react-multiplatform/
+[react]: https://facebook.github.io/react/
+[feels-like-web]: https://code.facebook.com/posts/1014532261909640/react-native-bringing-modern-web-techniques-to-mobile/
+[rn-devtools]: https://facebook.github.io/react-native/docs/debugging.html#content
+[react-api]: https://facebook.github.io/react/docs/top-level-api.html
+[React Native]: https://facebook.github.io/react-native/
