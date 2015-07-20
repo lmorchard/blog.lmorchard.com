@@ -148,7 +148,7 @@ For multiple todo items, [ampersand-collection][] is handy. It manages arrays of
 [list-web-view]: https://github.com/lmorchard/react-multiplatform/blob/3fd16fe31473f249d8a54020ef252f524dd17d70/lib/views/web/TodoList.js
 [list-ios-view]: https://github.com/lmorchard/react-multiplatform/blob/3fd16fe31473f249d8a54020ef252f524dd17d70/lib/views/ios/TodoList.js
 
-[ampersand-collection][] also offers methods for serializing & deserializing the models it contains. This is handy, because I'd like to make my todo list items persistent between sessions with the app.
+[ampersand-collection][] also offers methods for serializing & deserializing the models it contains. That's just what I need, because I'd like to make my todo list items persistent between sessions with the app.
 
 [todo-model]: https://github.com/lmorchard/react-multiplatform/blob/master/lib/models/Todo.js
 [todo-model-ampersand]: https://github.com/tastejs/todomvc/blob/master/examples/ampersand/js/models/todo.js
