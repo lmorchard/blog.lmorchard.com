@@ -43,13 +43,15 @@ Holy crap. It took over 30 seconds for my browser to stop spinning, and in the e
 <img src="/uploads/2015/the-verge-web-sucks/resource-breakdown.png"
   class="fullwidth" alt="It finally stopped loading" />
 
-Wow. On a second reload of the page - this time to get an overall performance analysis in devtools - I got 12MB downloaded. And a little over 7MB of that is JavaScript! This isn't one of the cool longform articles on The Verge with interactive features and whatnot - it's just a ~1600 word rant. So, why all this executable code?
+Wow. On a second reload of the page - this time to get an overall performance analysis in devtools - I got 12MB downloaded. And a little over 7MB of that is JavaScript!
+
+This isn't one of the cool longform articles on The Verge with interactive features and whatnot - it's just a ~1600 word rant. Opening up the detailed list of resources fetched was like an episode of Hoarders - what do you need all this stuff for?
 
 Hmm, I think I [Nilay Patel tweeted something about this](https://twitter.com/reckless/status/623234268152598528):
 
 <blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/satefan">@satefan</a> <a href="https://twitter.com/verge">@verge</a> part of the content we deliver is advertising! :)</p>&mdash; nilay patel (@reckless) <a href="https://twitter.com/reckless/status/623234268152598528">July 20, 2015</a></blockquote>
 
-Not to be a jerk, but buddy I'd guess *most* of what you just delivered was advertising - that, and spyware. See, I work for Mozilla, and in one of the public Monday company meetings I heard about this project called [Lightbeam][lightbeam]:
+Buddy, not to be a jerk, but I'd guess *most* of what you just delivered was advertising - that, and spyware. See, I work for Mozilla, and in one of the public Monday company meetings I heard about this project called [Lightbeam][lightbeam]:
 
 <blockquote>Lightbeam is a Firefox add-on that uses interactive visualizations to show you the first and third party sites you interact with on the Web.</blockquote>
 
@@ -58,7 +60,7 @@ So, I figured I'd install it and let it take a look at The Verge. This is what i
 <img src="/uploads/2015/the-verge-web-sucks/im-surrounded.png"
   class="fullwidth" alt="I'm surrounded" />
 
-The Verge is the big circle in the middle. All the triangles dancing around it are each distinct third-party sites that got involved in the delivery of this article I read. Lightbeam has a list view, so I switched to get a closer look:
+The Verge is the big circle in the middle. All the triangles dancing around it are each distinct third-party sites that got involved in the delivery of this article. Lightbeam has a list view, so I switched to get a closer look:
 
 <img src="/uploads/2015/the-verge-web-sucks/lightbeam-listview.png"
   class="fullwidth" alt="Lightbeam list view" />
@@ -97,13 +99,11 @@ Now, to be fair, scrolling through the report I could see that some of these dis
 <li>retargeter.com</li>
 </ul>
 
-As a webdev at Mozilla, I've been in half-hour meetings where we've agonized over whether it's kosher to include *just one single single Google Analytics tracking snippet* without notifying users and updating the privacy policy. But, I know we're crazy in some very special ways.
+As a webdev at Mozilla, I've been in half-hour meetings where we've agonized over whether it's kosher to include *just one single Google Analytics snippet* without notifying users and updating the privacy policy. But, I know we're crazy in some very special ways.
 
-Still, in former lives, I've worked at a variety of ad agencies and digital marketing companies. I'm not a stranger to conversations that revolve around partners & bizdev & analytics & media buys.
+Maybe I'm out of touch these days, but in former lives I worked at a variety of ad agencies and digital marketing companies. I'm no stranger to conversations that revolve around partners & bizdev & analytics & media buys.
 
-Maybe I'm out of touch these days, but I can't imagine a sane conversation that resulted in The Verge extending an invitation to over 25 companies to set up shop on my computer with every page visit.
-
-I can only imagine this is as a steady drip-drop of bizdev decisions and emails to internal webdevs:
+Still, I can't imagine a sane conversation that resulted in The Verge extending an invitation to over 25 companies to set up shop on my computer with every page visit. I can only imagine this is as a steady drip-drop of bizdev decisions and emails to internal webdevs:
 
 *"Hey, can you add this tracking pixel? We just signed on this awesome analytics partner."*
 
