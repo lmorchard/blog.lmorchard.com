@@ -297,6 +297,24 @@ section.content > article > pre {
 section.content article pre[class*="language-"] {
   font-size: 0.7em;
 }
+
+section.content article img.fullwidth {
+  max-width: 100%;
+  clear: both;
+}
+
+section.content article ul.columns {
+  margin: 1em; padding: 1em;
+  clear: both;
+  border: 1px solid #ccc;
+}
+section.content article ul.columns li {
+  list-style-type: none;
+  display: inline;
+  float: left;
+  width: 25%;
+}
+
 article.post nav.table-of-contents,
 article.post #toc_container {
     float: right;
@@ -675,3 +693,12 @@ header nav label[for="nav-trigger"] { display: none; }
    display: none;
   }
 }
+
+/* See: http://nicolasgallagher.com/micro-clearfix-hack/ */
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+.clearfix:after { clear: both; }
+.clearfix { *zoom: 1; }
