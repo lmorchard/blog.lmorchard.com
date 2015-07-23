@@ -4,6 +4,8 @@
   <meta property="og:title" content="{{ page.title }}" />
   <meta property="og:url" content="{{ site.absolute_baseurl }}{{ page.url }}" />
   {% if page.thumbnail %}<meta property="og:image" content="{% if page.thumbnail.indexOf('/') === 0 %}{{ site.absolute_baseurl }}{% endif %}{{ page.thumbnail }}" />{% endif %}
+  {% if page.summary %}<meta property="og:description" content="{{ page.summary | striptags | replace("\n", " ", "gm") }}" />{% endif %}
+
 {% endblock %}
 
 {% block content %}

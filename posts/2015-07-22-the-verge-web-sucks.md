@@ -5,6 +5,8 @@ tags: [webdev, advertising, internet, privacy, tracking]
 
 TL;DR: Did you know that The Verge delivers you to around 20 companies for advertising & tracking purposes? I didn't. That might foul up your mobile web experience a little bit. Maybe we should try something different.
 
+<!--more-->
+
 <nav role="navigation" class="table-of-contents"></nav>
 
 ## I love The Verge, but man...
