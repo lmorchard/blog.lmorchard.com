@@ -1,4 +1,11 @@
 {% extends 'layouts/default.html' %}
+
+{% block head %}
+  <meta property="og:title" content="{{ page.title }}" />
+  <meta property="og:url" content="{{ site.absolute_baseurl }}{{ page.url }}" />
+  {% if page.thumbnail %}<meta property="og:image" content="{% if page.thumbnail.indexOf('/') === 0 %}{{ site.absolute_baseurl }}{% endif %}{{ page.thumbnail }}" />{% endif %}
+{% endblock %}
+
 {% block content %}
 <article class="post {% if page.tags %}{% for tag in page.tags %}tag-{{ tag }} {% endfor %}{% endif %}">
     <time title="{{ page.date | date('c') }}" pubdate="{{ page.date | date('c') }}">
