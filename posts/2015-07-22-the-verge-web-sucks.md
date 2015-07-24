@@ -231,7 +231,7 @@ But, I can't help thinking if everyone shrank those tracking & advertising icebe
 [s2w]: https://air.mozilla.org/subscribe2web/
 [flattr]: https://flattr.com/
 [dtns]: http://www.dailytechnewsshow.com/
-[dtns-patreon]: http://www.dailytechnewsshow.com/subscribe/
+[dtns-patreon]: https://www.patreon.com/acedtect
 [tiles-flow]: https://ffp4g1ylyit3jdyti1hqcvtb-wpengine.netdna-ssl.com/advancingcontent/files/2015/05/How-data-is-protected-Infographic1.pdf
 [content-services]: https://wiki.mozilla.org/Content_services
 [tiles]: https://blog.mozilla.org/advancingcontent/2015/05/21/providing-a-valuable-platform-for-advertisers-content-publishers-and-users/
