@@ -196,7 +196,7 @@ Oh, and admittedly I don't visit the Mozilla home page as a "daily read", though
 
 ## What are browsers for, anyway?
 
-Nilay Patel says "what we really need is a more powerful, more robust web." Personally, I think the web we have right now can pretty damn powerful & robust. [Stop trying to make a sedan tow a house.][tiny-house-tow]
+Nilay Patel says "what we really need is a more powerful, more robust web." Personally, I think the web we have right now can be pretty damn powerful & robust. [Stop trying to make a sedan tow a house.][tiny-house-tow]
 
 [tiny-house-tow]: http://tinyrevolution.us/2014/05/09/choosing-a-tow-vehicle-for-your-tiny-house/
 
