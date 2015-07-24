@@ -1,5 +1,6 @@
 (function () {
 
+  // Quick and dirty table of contents generator
   var tocRoot = document.querySelector('article.post nav.table-of-contents');
   if (tocRoot) {
 
@@ -27,5 +28,16 @@
     }
 
   }
+
+  var HEADER_CHANGE_DISTANCE = 30;
+
+  window.addEventListener('scroll', function (e) {
+    var distanceY = window.pageYOffset || document.documentElement.scrollTop;
+    if (distanceY > HEADER_CHANGE_DISTANCE) {
+      document.body.classList.add('scrolled');
+    } else {
+      document.body.classList.remove('scrolled');
+    }
+  })
 
 }());
