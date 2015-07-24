@@ -130,7 +130,7 @@ Now, to be fair, scrolling through the report I could see that some of these dis
 
 I feel like someone just set up the entire vendor hall from an awful tech conference in my living room. Seriously, could you folks just not pick one or two or ten? Did you hit every booth and say "Yeah, cool, sign us up!" I feel thoroughly spindled & folded & researched, here.
 
-As a webdev at Mozilla, I've been in hour-long meetings where we've agonized over whether it's copacetic to include *just one little Google Analytics snippet* without notifying users and updating the privacy policy. But, I know we're crazy in our very special ways.
+As a webdev at Mozilla, I've been in hour-long meetings where we've agonized over whether it's copacetic to include *just one little Google Analytics snippet* without notifying users and updating the privacy policy. But, I know we're crazy in our own very special ways.
 
 In former lives, I've worked at ad agencies and digital marketing companies. I'm no stranger to conversations that revolve around partners & bizdev & analytics & media buys. I can only imagine things have intensified & evolved since I've been out of those trenches.
 
@@ -167,7 +167,7 @@ Wait, where was I?
 
 ## Everybody's (not) doing it!
 
-I've seen that the argument that this is how the web gets funded. Everybody's doing it. This is the current state of the art. Browsers just need to suck it up & make it happen.
+I've seen the argument that this is how the web gets funded. Everybody's doing it. This is the current state of the art. Browsers just need to suck it up & make it happen.
 
 Some sites are (much) better than others, though, and it doesn't seem to be directly related to the content. Here's what I saw when I did a quick check of some daily reads:
 
@@ -216,13 +216,13 @@ Meanwhile, there are people pondering how to improve funding for the web. Believ
 
 Here's another idea: Almost a year ago, [I heard the notion of "Subscribe 2 Web" at Mozilla][s2w]. The gist is that you're worth about $6.20 per month across publishers via advertising revenues. What if you paid that much into an account yourself every month and used a mechanism built into your browser to distribute that money? Yeah, it's micropayments, but I find it interesting that these folks came up with a specific dollar amount that doesn't sound terrible.
 
-But, if you don't like that, we have other options. I'm a listener of Tom Merritt's [Daily Tech News Show][dtns] - and [I support him via Patreon][dtns-patreon]. We've also got things like [Flattr][]. We've got a pile of other ideas out there - but, none of them are as convenient as web spyware because users don't complain or impose a cost. If browsers started getting tough on web spyware, necessity might force some of these options to grow.
+But, if you don't like that, we have other options. I'm a listener of Tom Merritt's [Daily Tech News Show][dtns] - and [I support him via Patreon][dtns-patreon]. We've also got things like [Flattr][]. We've got a pile of other ideas out there - but, none of them are as convenient as web spyware when users don't complain or impose a cost. If browsers started getting tough on web spyware, necessity might force some of these options to grow.
 
 ## Wrapping up
 
-Yeah, so I'm out of steam. Sorry ([not sorry](http://blog.lmorchard.com/2013/02/25/too-long-read-anyway/)) for the wall of text, and the complete lack of pictures toward the end.
+So, I'm out of steam. Sorry ([not sorry](http://blog.lmorchard.com/2013/02/25/too-long-read-anyway/)) for the wall of text, and the complete lack of pictures toward the end.
 
-Anyway, there are many things that make the mobile web suck. Bad CSS layout, heavy UI frameworks, you name it. And, yeah, browsers can get better. They *are* getting better. There are interesting capabilities on the horizon.
+Anyway, yeah, there are many things that can make the mobile web suck. Bad CSS layout, heavy UI frameworks, you name it. And, yeah, browsers can get better. They *are* getting better. There are interesting capabilities on the horizon.
 
 But, I can't help thinking if everyone shrank those tracking & advertising icebergs down to some sane magnitude relative to the actual content, that this web might be a better place overall.
 
