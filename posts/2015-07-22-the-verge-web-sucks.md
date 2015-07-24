@@ -41,7 +41,7 @@ That's fine - 75kb of HTML for the article. But, I also expect there'll be a fon
 <img src="/uploads/2015/the-verge-web-sucks/more-resources.png" class="fullwidth"
   alt="Loading more resources..." />
 
-We're up to 20 requests and 1.4MB over ~7 seconds. That's on the upper end of what I'd advise, but it's not terrible. I said that The Verge is a gorgeous site - that takes some resources. Hell, this very blog post is going to be bigger than I'd like, and it's no visual delight.
+We're up to 20 requests and 1.4MB over ~7 seconds. That's on the upper end of what I'd advise, but it's not terrible. I said that The Verge is a gorgeous site - that takes some resources. Hell, this very blog post is going to be bigger than I'd like thanks to the Twitters & Googles & Disqus, and it's no visual delight either.
 
 Oh, but wait, it's not done loading yet. I'm starting to read & scroll, but my browser's still spinning. I wonder what the final stats will be?
 
