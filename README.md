@@ -22,6 +22,14 @@ gulp server
 
 * Genericize this stuff into a reusable package?
 
+* Auto-generate scaled images from thumbnails identified in posts
+
+* Consider versioning & long-expiring CSS & JS
+  * https://github.com/sindresorhus/gulp-rev
+
+* Use awspublish-router for more per-file-type handling?
+  * https://www.npmjs.com/package/gulp-awspublish-router
+
 * Replace Font Awesome with SVG icons for top tags
 
 * Github hooks + my server to auto-build and publish
@@ -32,14 +40,10 @@ gulp server
 
 * Switch to Browserify & Babel if/when I want some JS enhancements again
 
-* Bundle Font Awesome back into local files rather than using CDN
-
 * Revive the comments archiver to preserve closed Disqus threads
 
 * Quick gulp task to produce a new boilerplated post
 
 * Switch from Swig to [Nunjucks](http://mozilla.github.io/nunjucks/) because it's a Mozilla project hooray
-
-* Add some TOC generation in JS
 
 * Prev / next nav links for posts?
