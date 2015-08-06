@@ -5,10 +5,11 @@ tags: [webdev, advertising, internet, privacy, tracking]
 
 <nav role="navigation" class="table-of-contents"></nav>
 
-TL;DR: The open web fills me with a sense of wonder. It's a beautiful thing that empowers makers while offering users leverage. There's nothing else like it. It's constantly improving. It's up to you what you do with it.
+TL;DR: The open web is a beautiful thing that empowers makers while offering users leverage. There's nothing else like it. It's constantly improving. It's up to you what you do with it.
 
 <!--more-->
 
+<!--
 ## Sensawunda
 
 I was [newly digital in 1983][newlydigital]. I missed the eras of punch cards and kit computers. But, I *was* around for 8-bit, floppy disks, [magazine type-ins][typeins], and screechy 300 baud modems.
@@ -46,6 +47,7 @@ I think I annoyed everyone I knew.
 [gopher]: https://en.wikipedia.org/wiki/Gopher_(protocol)
 [amigabrowser]: https://amigafun.wordpress.com/2014/02/04/amiga-web-browsers-part-1/
 [mosaicx11]: http://info.eps.surrey.ac.uk/SCS/manuals/WWW-Guide/mosaics.gif
+-->
 
 ## The beauty of the open web
 
@@ -68,11 +70,11 @@ Chew on *that* awhile: Not satisfied to be just a networked document viewer with
 
 [toolchain]: https://en.wikipedia.org/wiki/Toolchain
 
-And again, thanks to the Internet, these resources can each come literally from anywhere ([even Sweden][cern]!), hosted by any person or company or organization. Your browser chases URL references and collects all these disparate resources automatically. It assembles them into what is basically a zero-installation software application that's temporarily resident on your computer.
+And again, thanks to the Internet, these resources can each come literally from anywhere<!-- ([even Sweden][cern]!) -->, hosted by any person or company or organization. Your browser chases URL references and collects all these disparate resources automatically. It assembles them into what is basically a zero-installation software application that's temporarily resident on your computer.
 
 [cern]: http://home.web.cern.ch/
 
-We call these insane things "web pages". The intended ephemerality of their negotiated hold on our computers is why we say we only "visit" them. In fact, it might be more accurate to say web pages are guests we host on our computers for a short time.
+We call these insane things "web pages". Their negotiated & ephemeral hold on our computers is why we say we only "visit" them. In fact, it might be more accurate to say web pages are guests we host on our computers for a short time.
 
 <!--
 So, yeah, I'm crazy about the web. Crazy enough to work for Mozilla and turn down every other job offer over the years because the mission aligns so well with so many of my favorite things.
@@ -85,11 +87,11 @@ So, yeah, I'm crazy about the web. Crazy enough to work for Mozilla and turn dow
 
 ## Makers have power
 
-There is no other successful system like this on the planet. No other system for delivering content and software that is this open and free of gatekeepers deciding what we can publish. No other system where you are free to choose from many agents to operate on your behalf, independent of the publishers whose creations you visit.
+There is no other successful system like this on the planet. No other system for delivering content and software that is this open and free of gatekeepers deciding what we can publish. There's no app store, no review process, no adult supervision. You can make the most amazing or terrible things. Short of legal action or government intervention, no one can really stop you as long as you're paying the hosting bill.
 
-There's no app store, no review process, no adult supervision. You can make the most amazing or terrible things. Short of legal action or government intervention, no one can really stop you as long as you're paying the hosting bill.
+### Build your own whatever
 
-In fact, even though I wrote that browsers are agents acting on their users' behalf - they're historically weak advocates by default. In general, browsers do what web pages ask, with a few exceptions for safety and security. So, today's open web offers the balance of control largely to publishers.
+In fact, even though I wrote that browsers are agents acting on their users' behalf - they're historically weak advocates by default. In other words, browsers do what web pages ask, with a few exceptions for safety and security. Today's open web offers the balance of control largely to publishers.
 
 No one will stop you from [building a magazine site loaded with spyware and ads][theverge].
 
@@ -110,9 +112,9 @@ Or you can write [a blog that lands you in an Iranian jail][iranjail] for politi
 [theverge]: blog.lmorchard.com/2015/07/22/the-verge-web-sucks/
 [ue4]: https://blog.mozilla.org/blog/2014/03/12/mozilla-and-epic-preview-unreal-engine-4-running-in-firefox/
 
-And, it's never been cheaper to put something on the web. For example, [this blog lives mostly on Amazon S3][s3blog]. My [last post][theverge] got around 55,000 unique views so far - the most attention I've gotten in years. It looks like that's going to cost me about $6 by the end of the month. I could have probably cut that in half if I'd been smarter about things.
+### DIY for cheap
 
-Even if I keep turning out blockbuster posts, I still won't come near my budget for burritos. (Of course, I really like burritos - maybe more than the web. So, this might be an unfair comparison.)
+And, it's never been cheaper to put something on the web. For example, [this blog lives mostly on Amazon S3][s3blog]. My [last post][theverge] got around 55,000 unique views so far - the most attention I've gotten in years. It looks like that's going to cost me about $6 by the end of the month. I could have probably cut that in half if I'd been smarter about things.
 
 [s3blog]: http://blog.lmorchard.com/2014/10/20/static-blog-generation-with-gulp/
 
@@ -122,16 +124,20 @@ To put this in my old-person perspective: Someone once told me it was $1 or $5 t
 
 ## Users have leverage
 
-I know I just wrote that the balance of control on the web leans mainly toward the publishers. But, users on the web have leverage when they care to assert themselves.
+I know I just wrote that the balance of control on the web leans mainly toward the publishers. But, users on the web *do* have leverage when they care to assert themselves.
 
-First, you have a choice in browsers. The browser market is pretty healthy & competitive right now. Once upon a time, [Microsoft Internet Explorer held 96% of the market][msie96]. Today, we've got [at least half-a-dozen browsers][browserstoday] with almost as many rendering engines under their hoods.
+### Browser choice
 
-This diversity in browsers is important, because it helps discourage any single browser from annoying users too much. Switching cost is low on a web with shared common standards. You can vote with your feet and pick up another browser at any time. This also hinders any single company from injecting their own proprietary features into the web and setting up tollbooths.
+First off, you have a choice in browsers. The browser market is pretty healthy right now. Once upon a time, [Microsoft Internet Explorer held 96% of the market][msie96]. Today, we've got [at least half-a-dozen browsers][browserstoday] with almost as many rendering engines under their hoods.
+
+This diversity in browsers is important, and switching cost is low on a web with shared standards. You can vote with your feet and try another browser at any time. This also hinders any single company from injecting their own proprietary features into the web and setting up tollbooths.
 
 [msie96]: https://en.wikipedia.org/wiki/Browser_wars#First_browser_war
 [browserstoday]: https://en.wikipedia.org/wiki/Browser_wars#Second_browser_war
 
-Second, once you've chosen a browser, is that many are heavily customizable with [add-ons][] and [extensions][]. This is where a browser can really shine as a personalized [User Agent][].
+### Add-ons and extensions
+
+Your choice in browsers includes some that can be customized with [add-ons][] and [extensions][]. This is where a browser can really shine as a personalized [User Agent][].
 
 Install [Adblock Plus][], and you can deflect most attempts to track you & display ads.
 
@@ -143,7 +149,9 @@ You can even craft your own tweaks, if you're so inclined. In a spirit similar t
 
 Publishers on the web sometimes deride these tweaks. It's understandable: The most popular ones have long been centered around refusing to accept many of the annoyances that also happen to fund the web.
 
-But, with this choice in personalized user agents, the relationship between reader and publisher must be *negotiated*. Mostly, it's a quiet negotiation by defaults: Publishers can do as much as readers accept. But, when readers introduce resistance in the form of using ad-blockers, they can impose a cost to publishers who get carried away.
+### The web is a negotiation
+
+With this choice in personalized user agents, the relationship between reader and publisher must be *negotiated*. Mostly, it's a quiet negotiation by defaults: Publishers can do as much as readers accept. But, when readers introduce resistance in the form of using ad-blockers, they can impose a cost to publishers who get carried away.
 
 As I wrote before, web pages are *guests* on our computers. Most users have been very tolerant of these guests' behavior. Tolerant to the point where a publisher could take for granted or even feel entitled to the bandwidth and hardware we pay for. But, it's entirely possible for this negotiation to turn sour, [forcing the industry to come up with a new deal][savingtheinternet].
 
@@ -165,15 +173,21 @@ This is one of the things the narrator says:
 
 This is obviously true, and the iPhone is a great product. You can curate a smooth and "magical" experience, when you own a platform from bottom to top. But, the cost is that makers have less power and users have less leverage.
 
+### There's only one App Store
+
 As gatekeepers running the one and only App Store, Apple can demand a cut of all money that flows to makers. [Apple also lists a lot of requirements][appguidelines]. Some are great ideas for users, while some serve to reinforce Apple's control over its platform.
 
 <!-- more to say about makers? -->
 
-As a user, you can somewhat customize your iPhone by the apps you install. As of iOS 8, there are also [App Extensions][appextensions] that allow you to add selected bits of new functionality to existing apps. Of course, all of this must pass through Apple's editorial filter. For instance, did you know that despite there being many apps that let you browse the web, [there's really only one web engine][onebrowser] on iOS? ("[2.17 Apps that browse the web must use the iOS WebKit framework and WebKit Javascript][appguidelines]")
+As a user, you can somewhat customize your iPhone by the apps you install. As of iOS 8, there are also [App Extensions][appextensions] that allow you to add selected bits of new functionality to existing apps.
+
+But, there are limits: For instance, did you know that despite there being many apps that let you browse the web, [there's really only one web engine][onebrowser] on iOS? ("[2.17 Apps that browse the web must use the iOS WebKit framework and WebKit Javascript][appguidelines]")
+
+### Leverage constrained
 
 Luckily, users of iOS 9 will soon benefit from [Content Blocker App Extensions][contentblocksafari] in Safari. These an improvement on filter lists for [AdBlock Plus][]: The extensions consist of JSON files containing patterns & rules used to block requests and selectively remove content from pages.
 
-Outside of Safari and the constrained world of App Extensions, though, users don't have much leverage over what apps makers do. If you don't like it, don't install it. But, there's no view source or built-in developer tools, so even power users mainly rely on Apple to monitor apps.
+Outside of Safari and the constrained world of App Extensions, though, users don't have much leverage over what apps makers do. If you don't like it, don't install it. There's no view source or built-in developer tools, so even power users mainly rely on Apple to monitor apps.
 
 [appextensions]: http://arstechnica.com/apple/2014/06/explaining-ios-8s-extensions-opening-the-platform-while-keeping-it-secure/
 
@@ -182,33 +196,29 @@ Outside of Safari and the constrained world of App Extensions, though, users don
 [appguidelines]: https://developer.apple.com/app-store/review/guidelines/
 [iphonead]: https://www.apple.com/iphone/why-theres-iphone/
 
-There's also the matter of apps being their own mini-silos. They don't have the spontaneous linkability of the web. Sure, [some efforts have been made][applinks] with regard to that, but it's kind of an awkward bolt-on rather than something inherent to the fabric of it all. The ecosystem is like a hierarchy of closed bubbles.
+### Black boxes all the way down
+
+There's also the matter of apps being their own mini-silos. They don't have the spontaneous linkability of the web. Sure, [some efforts have been made][applinks] with regard to that, but it's kind of an awkward bolt-on rather than something inherent to the fabric of it all.
+
+On top of linkability, the web also offers *composability*. That is, you can embed resources and scripts from other sites - the Disqus-driven comment section at the end of this post offers a good example of this.
+
+### You can't take it with you
+
+As something that affects a normal busy person, this is the strongest argument I have against apps in Apple's ecosystem: If you don't like any part of it, your only move is not to play.
+
+Like the ad says, the hardware part and the software part are inseparable. But, if you ever decide to leave once you've been inside, you leave behind what you bought while you were there. This is why I've owned iPods, but never an iPhone.
 
 [applinks]: http://applinks.org/
 
-## Apps are hard to beat, though
-
-Even after writing that last section, though, I'm hard pressed to make a case against apps. They tend to offer great experiences and simplify things. Most folks don't have time in their lives to care deeply about what's going on in their devices. Sometimes we cook, sometimes we head to a restaurant. Sometimes it's better to pay someone to take care of some things so you can get on with other things.
-
-There are worse user advocates than Apple. After all, [we are Apple's customers and not their product][nottheproduct]. The results are satisfying for a large number of people who enjoy the decisions Apple makes on their behalf.
-
-[nottheproduct]: http://venturebeat.com/2014/09/16/tim-cook-on-why-apple-is-better-at-protecting-privacy-youre-not-our-product/
-
-As something that affects a normal busy person, this is the strongest argument I have against apps in Apple's ecosystem: If you don't like any part of it, your only move is not to play. Like the ad says, the hardware part and the software part are inseparable. But, if you ever decide to leave once you've been inside, you leave behind what you bought while you were there. This is why I've owned iPods, but never an iPhone.
-
-I have owned Android phones, though. At least in Google's ecosystem, I can hop between competing phone manufacturers and all my apps follow me. I am vaguely uncomfortable at the customer / product relationship split there, though. And, still, you can't take an Android app with you to an iPhone.
-
-But man, apps solve a lot of problems we've had on the web. Installation versus a temporary visit can make things work faster. User interfaces tend to be simpler & more focused - something which Apple in particular is inclined to enforce & curate. Monetization is better - there aren't as many trackers & ads plastered all over.
-
 ## The web is learning from apps
+
+Even after writing that last section, though, I'm hard pressed to make a case against apps. Apps solve a lot of problems we've had on the web. Installation versus a temporary visit can make things work faster. User interfaces tend to be simpler & more focused - something which Apple in particular is inclined to enforce & curate. Monetization is better - there aren't as many trackers & ads plastered all over.
 
 Most of the problems apps solve *can* be solved on the web. Some of them are technological, but some of them are more a matter of perspective and assumptions.
 
 ### Permanence & Integration
 
-We often visit the same web page over and over. So, browsers have optimized for this with caches that retain data so that the next visit is more efficient. Still, we treat this stuff as disposable and give it a limited space that can be wiped out at any time. Unfortunately, that doesn't recognize the implicit relationship of habit you've established.
-
-If this page was an app, you might choose to install it and keep it around more permanently. But, that's an explicit commitment you have to make up front. And you have to remember to uninstall it later. What if web pages could do that implicitly and [maybe even ask nicely - *after a few visits* - if you'd like to make the relationship more explicit by pinning it to your home screen][progressiveapps]?
+If this page was an app, you might install it. But, that's an explicit up front commitment. And you have to remember to uninstall it later. What if web pages could do that implicitly and [maybe even ask nicely - *after a few visits* - if you'd like to make the relationship more explicit by pinning it to your home screen][progressiveapps]?
 
 We have technologies on the horizon like [Service Workers][] and [WebAssembly][] that can make web pages more persistent and efficient by downloading optimized content & code and making it available offline. Web pages can ask for expanded access to your device through [WebAPIs][]. This includes things like [an icon on your home screen][installbanners], running in the background, and [displaying notifications][notifications].
 
@@ -221,9 +231,9 @@ In other words, we're very close to a state where web pages can have benefits of
 [service workers]: http://www.html5rocks.com/en/tutorials/service-worker/introduction/
 [progressiveapps]: https://infrequently.org/2015/06/progressive-apps-escaping-tabs-without-losing-our-soul/
 
-### The web deserves a clean slate
+### The web deserves a cleaner slate
 
-Lots of developers are after a [jank free][], [60 frames-per-second][60fps] experience. That's something the iPhone really emphasizes and it's great. I think the mobile web is entirely capable of it. We've got [hardware-accelerated CSS transitions][csstransitions] and [flexbox][] to help with fast, flexible user interfaces. We've got [Web Workers][] to shove work off onto separate threads to help keep things smooth.
+Lots of developers are after a [jank free][], [60 frames-per-second][60fps] experience. That's where many native apps can shine and it's great. I think the mobile web is entirely capable of it. We've got [hardware-accelerated CSS transitions][csstransitions] and [flexbox][] to help with fast, flexible user interfaces. We've got [Web Workers][] to shove work off onto separate threads to help keep things smooth.
 
 [Web Workers]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers
 [flexbox]: https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes
@@ -234,6 +244,12 @@ I think a helpful thing is start with a [clean mobile-first slate][mobilefirst].
 [mobilefirst]: https://codemyviews.com/blog/mobilefirst
 [jank free]: http://jankfree.org/
 [60fps]: http://engineering.flipboard.com/2015/02/mobile-web/
+
+Hell, [make a fresh effort to see what's out there][mdnjs]. Skip the crowd of JS frameworks and just take a look at [Vanilla JS][vanilla]. You might be surprised at how much you can get done these days without even jQuery onboard. Accept cutting off or (ideally) shipping a reduced experience to older browsers, and you might be surprised what you can make happen on modern browsers. Even better, get your [progressive enhancement][] game on.
+
+[progressive enhancement]: http://www.w3.org/wiki/Graceful_degradation_versus_progressive_enhancement
+[mdnjs]: https://developer.mozilla.org/en-US/docs/JavaScript
+[vanilla]: http://vanilla-js.com/
 
 ### Monetization is hard without a gatekeeper
 
@@ -251,3 +267,9 @@ Without an App Store as a gateway, though, the same old revenue problems persist
 [xanadu-fun]: http://decafbad.com/blog/2002/11/11/ooocba/
 [micro-liberation]: http://transcopyright.org/hcoinRemarks-D28.html
 [free-info]: http://www.niemanlab.org/2013/05/jaron-lanier-wants-to-build-a-new-middle-class-on-micropayments/
+
+I don't really have great ideas, here. I pay for some stuff, I don't pay for some other stuff. I'm honestly not 100% against ads, though I think we could use fewer of them.
+
+## Wrapping up
+
+Yeah.
