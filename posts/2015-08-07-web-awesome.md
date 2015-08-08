@@ -1,6 +1,6 @@
 ---
 title: The web is awesome
-tags: [webdev, advertising, internet, privacy, tracking]
+tags: [webdev, web, advertising, internet, privacy, tracking]
 ---
 
 <nav role="navigation" class="table-of-contents"></nav>
@@ -62,11 +62,15 @@ It's easy to take this thing for granted, but take a step back and consider it: 
 [style sheets]: https://en.wikipedia.org/wiki/Style_sheet_(web_development)
 [multimedia]: https://en.wikipedia.org/wiki/Multimedia
 
+<div class="pullquote">
+So, here I am again, channelling my easily excited self from 1993: **Man, I love the web.**
+</div>
+
 Your browser comes with code that knows what to do with common types of content. But, browsers can't anticipate every invention. So, one of the supported resource content types is [JavaScript][]. This is a *meta content type*. That is, it offers the ability to augment existing content types and support completely new ones.
 
 [javascript]: https://en.wikipedia.org/wiki/JavaScript
 
-Chew on *that* awhile: Not satisfied to be just a networked document viewer with a frozen set of features, browsers ship with a rich [toolchain][] for running code from the outside world on demand. Kind of scary, but it works way better than any reasonable person should expect.
+Chew on *that* awhile: Not satisfied to be just a networked document viewer with a frozen set of features, browsers ship with a [toolchain][] for running code on demand. Kind of scary, but it works way better than any reasonable person should expect.
 
 [toolchain]: https://en.wikipedia.org/wiki/Toolchain
 
@@ -93,9 +97,19 @@ There is no other successful system like this on the planet. No other system for
 
 In fact, even though I wrote that browsers are agents acting on their users' behalf - they're historically weak advocates by default. In other words, browsers do what web pages ask, with a few exceptions for safety and security. Today's open web offers the balance of control largely to publishers.
 
+<div class="image-group">
+[<img class="inset left" src="/uploads/2015/the-verge-web-sucks/im-surrounded.png">][theverge]
+[<img class="inset right" src="/uploads/2015/web-awesome/oregon-trail.png">][jsmess]
+</div>
+
 No one will stop you from [building a magazine site loaded with spyware and ads][theverge].
 
 Of course, you can also [emulate old computers to make running classic software linkable and embeddable][jsmess].
+
+<div class="image-group">
+[<img class="inset left" id="thumbnail" src="/uploads/2015/web-awesome/troxel.png">][troxel]
+[<img class="inset right" src="/uploads/2015/web-awesome/blogger.jpeg">][iranjail]
+</div>
 
 Or you can craft [a gorgeous existential narrative about luminous beings][enough].
 
@@ -109,10 +123,10 @@ Or you can write [a blog that lands you in an Iranian jail][iranjail] for politi
 [jsmess]: https://archive.org/details/softwarelibrary
 [sharkcat]: https://www.youtube.com/watch?v=tLt5rBfNucc
 [enough]: http://cabbi.bo/enough/
-[theverge]: blog.lmorchard.com/2015/07/22/the-verge-web-sucks/
+[theverge]: http://blog.lmorchard.com/2015/07/22/the-verge-web-sucks/
 [ue4]: https://blog.mozilla.org/blog/2014/03/12/mozilla-and-epic-preview-unreal-engine-4-running-in-firefox/
 
-### DIY for cheap
+<h3 style="clear: both">DIY for cheap</h3>
 
 And, it's never been cheaper to put something on the web. For example, [this blog lives mostly on Amazon S3][s3blog]. My [last post][theverge] got around 55,000 unique views so far - the most attention I've gotten in years. It looks like that's going to cost me about $6 by the end of the month. I could have probably cut that in half if I'd been smarter about things.
 
@@ -126,6 +140,10 @@ To put this in my old-person perspective: Someone once told me it was $1 or $5 t
 
 I know I just wrote that the balance of control on the web leans mainly toward the publishers. But, users on the web *do* have leverage when they care to assert themselves.
 
+<div class="pullquote right">
+With this choice in personalized user agents, **the relationship between reader and publisher must be negotiated**.
+</div>
+
 ### Browser choice
 
 First off, you have a choice in browsers. The browser market is pretty healthy right now. Once upon a time, [Microsoft Internet Explorer held 96% of the market][msie96]. Today, we've got [at least half-a-dozen browsers][browserstoday] with almost as many rendering engines under their hoods.
@@ -138,6 +156,10 @@ This diversity in browsers is important, and switching cost is low on a web with
 ### Add-ons and extensions
 
 Your choice in browsers includes some that can be customized with [add-ons][] and [extensions][]. This is where a browser can really shine as a personalized [User Agent][].
+
+[<img class="inset left wide" src="/uploads/2015/web-awesome/adblock.png">][about-adblock]
+
+[about-adblock]: https://adblockplus.org/en/about
 
 Install [Adblock Plus][], and you can deflect most attempts to track you & display ads.
 
@@ -167,6 +189,8 @@ As I wrote before, web pages are *guests* on our computers. Most users have been
 
 There's a new iPhone ad out there - "[If it's not an iPhone, it's not an iPhone][iphonead]".
 
+<div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/wl3PlrPq8sw" frameborder="0" allowfullscreen></iframe></div>
+
 This is one of the things the narrator says:
 
 > The hardware part makes the most of the software part, and the software part makes the most of the hardware part. When you design the whole phone, all the parts work together as one amazing part.
@@ -174,6 +198,10 @@ This is one of the things the narrator says:
 This is obviously true, and the iPhone is a great product. You can curate a smooth and "magical" experience, when you own a platform from bottom to top. But, the cost is that makers have less power and users have less leverage.
 
 ### There's only one App Store
+
+[<img class="inset right" src="/uploads/2015/web-awesome/connor-macleod.jpg">][connor-macleod]
+
+[connor-macleod]: http://www.comicvine.com/connor-macleod/4005-47561/
 
 As gatekeepers running the one and only App Store, Apple can demand a cut of all money that flows to makers. [Apple also lists a lot of requirements][appguidelines]. Some are great ideas for users, while some serve to reinforce Apple's control over its platform.
 
@@ -200,7 +228,13 @@ Outside of Safari and the constrained world of App Extensions, though, users don
 
 There's also the matter of apps being their own mini-silos. They don't have the spontaneous linkability of the web. Sure, [some efforts have been made][applinks] with regard to that, but it's kind of an awkward bolt-on rather than something inherent to the fabric of it all.
 
-On top of linkability, the web also offers *composability*. That is, you can embed resources and scripts from other sites - the Disqus-driven comment section at the end of this post offers a good example of this.
+On top of linkability, the web also offers *composability*. That is, you can embed resources and scripts from other sites. For example, there was a YouTube video just a few paragraphs ago and there's a Disqus-driven comment section at the end of this post.
+
+Or, hey, check out this tweet:
+
+<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">Current cat status: Cheddars and Catsby Cheddarsson <a href="http://t.co/9y9Q2uDwxb">pic.twitter.com/9y9Q2uDwxb</a></p>&mdash; Les Orchard (@lmorchard) <a href="https://twitter.com/lmorchard/status/628683951629029376">August 4, 2015</a></blockquote>
+
+In an app, it's hard to mix three totally separate services together in one place like this.
 
 ### You can't take it with you
 
@@ -212,9 +246,13 @@ Like the ad says, the hardware part and the software part are inseparable. But, 
 
 ## The web is learning from apps
 
-Even after writing that last section, though, I'm hard pressed to make a case against apps. Apps solve a lot of problems we've had on the web. Installation versus a temporary visit can make things work faster. User interfaces tend to be simpler & more focused - something which Apple in particular is inclined to enforce & curate. Monetization is better - there aren't as many trackers & ads plastered all over.
+Even after writing that last section, though, I'm hard pressed to make a case against apps. Apps solve a lot of problems we've had on the web. Installation versus a temporary visit can make things work better. User interfaces tend to be simpler & more focused - something which Apple in particular is inclined to enforce & curate. Monetization is better - there aren't as many trackers & ads.
 
 Most of the problems apps solve *can* be solved on the web. Some of them are technological, but some of them are more a matter of perspective and assumptions.
+
+<div class="pullquote right">
+Most of the problems apps solve **can be solved on the web**.
+</div>
 
 ### Permanence & Integration
 
@@ -239,13 +277,21 @@ Lots of developers are after a [jank free][], [60 frames-per-second][60fps] expe
 [flexbox]: https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes
 [csstransitions]: https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Using_CSS_transitions
 
-I think a helpful thing is start with a [clean mobile-first slate][mobilefirst]. Maybe more important than the *mobile* is the **clean slate**: It's easy to start with your years' old web site and just slap a few extra styles & scripts on. When you're making an app, most of the time you're *forced* to start fresh and work within app constraints. I think that's a huge advantage for the experience that I haven't seen a lot of folks talk about.
+<div class="pullquote">
+When you're making an app, most of the time you're forced to **start fresh and work within app constraints**.
+</div>
+
+I think a helpful thing is start with a [clean mobile-first slate][mobilefirst]. Maybe more important than the *mobile* is the **clean slate**:
+
+It's easy to start with a years' old web site and just slap a few extra styles & scripts on. When you're making an app, most of the time you're *forced* to start fresh and work within app constraints. I think that's a huge advantage for the experience that I haven't seen a lot of folks talk about.
 
 [mobilefirst]: https://codemyviews.com/blog/mobilefirst
 [jank free]: http://jankfree.org/
 [60fps]: http://engineering.flipboard.com/2015/02/mobile-web/
 
-Hell, [make a fresh effort to see what's out there][mdnjs]. Skip the crowd of JS frameworks and just take a look at [Vanilla JS][vanilla]. You might be surprised at how much you can get done these days without even jQuery onboard. Accept cutting off or (ideally) shipping a reduced experience to older browsers, and you might be surprised what you can make happen on modern browsers. Even better, get your [progressive enhancement][] game on.
+Hell, [make a fresh effort to see what's out there][mdnjs]. Skip the crowd of JS frameworks for a bit. Take a look at [Vanilla JS][vanilla]. You might be surprised at how much you can get done these days without even jQuery onboard.
+
+Accept cutting off or (ideally) shipping a reduced experience to older browsers, and you might be surprised what you can make happen on modern browsers. Even better, get your [progressive enhancement][] game on.
 
 [progressive enhancement]: http://www.w3.org/wiki/Graceful_degradation_versus_progressive_enhancement
 [mdnjs]: https://developer.mozilla.org/en-US/docs/JavaScript
@@ -253,23 +299,37 @@ Hell, [make a fresh effort to see what's out there][mdnjs]. Skip the crowd of JS
 
 ### Monetization is hard without a gatekeeper
 
-As for monetization, well, that's a can of worms. More persistent web pages *will* help solve [the problem of the continually re-downloaded 7MB of JavaScript tracking you and showing ads][theverge]. If that stuff causes less of a drag, will we really care quite as much?
+As for monetization, well, that's a can of worms. More persistent web pages *will* help solve [the problem of the continually re-downloaded 7MB of JavaScript tracking you and showing ads][theverge]. But, if that stuff causes less of a drag, will we really care quite as much?
 
-Maybe not. If performance & surveillance concerns are decoupled, we might not notice a problem. I mean, native apps [track][track1] [us][track2] [too][track3], and we don't seem to care. Though, I suppose the lack of linkability in apps might make it a little harder to follow you everywhere you go. (I wouldn't count on that, though.)
+[<img class="inset right" src="/uploads/2015/web-awesome/who-owns-the-future.jpg">][who-owns-the-future]
+
+[who-owns-the-future]: http://amzn.to/1MTayLa
+
+Maybe not. If performance & surveillance concerns are decoupled, we might not notice a problem. I mean, native apps [track][track1] [us][track2] [too][track3], and we don't seem to care. Though, I suppose the siloed nature of apps might make it a little harder to follow you everywhere you go. (I wouldn't count on that, though.)
+
+I don't really have great ideas, here. I pay for some stuff, I don't pay for some other stuff. I'm honestly not 100% against ads, though I think we could use fewer of them.
 
 [track1]: http://www.google.com/analytics/mobile/
 [track2]: https://developer.apple.com/app-store/app-analytics/
 [track3]: https://developers.facebook.com/products/analytics/
 
-Without an App Store as a gateway, though, the same old revenue problems persist. And still, [there ain't no such thing as a free lunch][tanstaafl]. In fact, folks like [Ted Nelson][micro-liberation] and [Jaron Lanier][free-info] have been saying for years (and decades) that the free-of-charge web is failing itself and all of us. (For what it's worth, [I made fun of Ted Nelson & Xanadu][xanadu-fun] once upon a time. But, since then I've read more about his work and realize how off base I was.)
+Without an App Store as a gateway, though, the same old revenue problems persist. And still, [there ain't no such thing as a free lunch][tanstaafl]. In fact, folks like [Ted Nelson][micro-liberation] and [Jaron Lanier][free-info] have been saying for years (and decades) that the free-of-charge web is failing itself and all of us. Maybe we need a web with more robust two-way links that track provenance and distribute wealth.
+
+(For what it's worth, [I made fun of Ted Nelson & Xanadu][xanadu-fun] once upon a time. But, since then I've read more about his work and realize how off base I was.)
 
 [tanstaafl]: https://en.wikipedia.org/wiki/There_ain't_no_such_thing_as_a_free_lunch
 [xanadu-fun]: http://decafbad.com/blog/2002/11/11/ooocba/
 [micro-liberation]: http://transcopyright.org/hcoinRemarks-D28.html
 [free-info]: http://www.niemanlab.org/2013/05/jaron-lanier-wants-to-build-a-new-middle-class-on-micropayments/
 
-I don't really have great ideas, here. I pay for some stuff, I don't pay for some other stuff. I'm honestly not 100% against ads, though I think we could use fewer of them.
-
 ## Wrapping up
 
-Yeah.
+Mostly, what I meant to do here was to write a love letter to the web. To try to capture what about it has captured me for the bulk of my career so far. Oh, and maybe to say a few things about now and future challenges. I've got a few ideas, but certainly not all the answers.
+
+I think things look bright, despite [many](http://www.wired.com/2010/08/ff_webrip/) [exaggerated](http://www.wired.com/insights/2014/02/web-dead/) [attempts](http://www.wsj.com/articles/the-web-is-dying-apps-are-killing-it-1416169934) [to declare](http://www.businessinsider.com/the-mobile-web-is-dead-its-all-about-apps-2014-4) [the web's demise](http://christianheilmann.com/2014/05/10/tedx-thessaloniki-the-web-is-dead/). Most of the issues with the web stem from what we do with it, not necessarily from what it can (or can't) do. The creative constraints and curation of app ecosystems have forced us to build better mobile experiences, and we've expanded the capabilities of the web in response.
+
+My hope is that we can take fresh looks at the web and revisit its unique capabilities. There's a ton of value in the [secure, linkable, indexable, composable, and ephemeral][slice] facets of the open web that closed app silos just can't match.
+
+[slice]: https://paul.kinlan.me/slice-the-web/
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>

@@ -258,12 +258,18 @@ section.content article {
     line-height: 1.5em;
 }
 article h1.title {
+  clear: both;
   font-size: 1.85em;
   line-height: 1em;
   margin: 0; padding: 0;
+  text-shadow: #aaa 4px 4px 8px;
 }
 section.content article h2 {
-  line-height: 1.25em;
+	text-shadow: #aaa 4px 4px 8px;
+	line-height:1.25em;
+}
+section.content article h3 {
+	text-shadow: #aaa 4px 4px 8px;
 }
 section.content > article ul,
 section.content > article ol {
@@ -338,6 +344,7 @@ article.post nav.table-of-contents p.title,
 article.post #toc_container .toc_title {
   font-weight: bold;
   padding: 0; margin: 0;
+  text-shadow: #999 4px 4px 8px;
 }
 
 section.post > time,
@@ -548,6 +555,90 @@ section.archive ul.years li.year ul.months li.month .month-count {
 section.archive ul.years li.year ul.months li.month.no-posts .month-container,
 section.archive ul.years li.year ul.months li.month.no-posts .month-container .month-count {
   color: #777;
+}
+
+section.content>article .post-content img.inset.left {
+	float:left;
+	clear:left;
+	padding:0 1em 1em 0;
+	width:25%
+}
+section.content>article .post-content img.inset.left.wide {
+	width:50%;
+  padding: 0 2em 2em 0;
+}
+section.content>article .post-content img.inset.right {
+	float:right;
+	clear:right;
+	padding:0 0 1em 1em;
+	width:25%
+}
+@media (max-width:800px) {
+	.image-group {
+		display:flex;
+		flex-direction:row;
+		justify-content:stretch;
+		align-items: center;
+		align-content: center;
+	}
+	section.content>article .post-content img.inset.left,
+	section.content>article .post-content img.inset.left.wide,
+  section.content>article .post-content img.inset.right {
+		display: block;
+		float: none;
+		margin: auto;
+		width: 100%;
+	}
+}
+
+section.content>article .post-content .pullquote {
+	float:left;
+	width:33%;
+	font-size:1.5em;
+	line-height:1.5em;
+	padding:1.5em 1.5em;
+	font-style:italic;
+	border-top:1px solid #aaa;
+	border-bottom:1px solid #aaa;
+	margin:1.5em 1.5em;
+	color:#333;
+	text-shadow:#888 2px 2px 8px
+}
+
+section.content>article .post-content .pullquote.left {
+	float:left
+}
+section.content>article .post-content .pullquote.right {
+	float:right
+}
+@media (max-width:800px) {
+  section.content>article .post-content .pullquote {
+		width:inherit;
+		float:none;
+		margin: 1.5em 1.5em;
+		padding: 1em;
+		font-size: 1.25em;
+	}
+	section.content>article .post-content .pullquote.left,section.content>article .post-content .pullquote.right {
+		float:none
+	}
+}
+
+article .video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+}
+
+/* See: http://avexdesigns.com/responsive-youtube-embed/ */
+article .video-container iframe,
+article .video-container object,
+article .video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 header nav .nav-trigger { display: none; }
