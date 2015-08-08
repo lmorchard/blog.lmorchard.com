@@ -1,47 +1,30 @@
-var _paq = _paq || [];
-_paq.push(['trackPageView']);
-_paq.push(['enableLinkTracking']);
-(function() {
-  var u="//analytics.lmorchard.com/";
-  _paq.push(['setTrackerUrl', u+'piwik.php']);
-  _paq.push(['setSiteId', 1]);
-  var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-  g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-})();
+var disqus_shortname = 'bloglmorchardcom';
+
+(function () {
+  var commentsSection = document.getElementById('comments');
+  if (!commentsSection) { return; }
+
+  var loadDisqus = function () {
+    disqus_needs_loading = false;
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  };
+
+  window.addEventListener('scroll', function (e) {
+    if (!disqus_needs_loading) { return; }
+    var rect = commentsSection.getBoundingClientRect();
+    if (window.scrollY >= rect.top) {
+      loadDisqus();
+    }
+  });
+
+}());
 
 (function () {
 
-  // Quick and dirty table of contents generator
-  var tocRoot = document.querySelector('article.post nav.table-of-contents');
-  if (tocRoot) {
-
-    var h2s = tocRoot.parentNode.querySelectorAll('h2');
-    if (h2s.length) {
-
-      var title = document.createElement('p');
-      title.classList.add('title');
-      title.innerHTML = 'Contents';
-      tocRoot.appendChild(title);
-
-      var list = document.createElement('ol');
-      tocRoot.appendChild(list);
-
-      for (var idx = 0; idx < h2s.length; idx++) {
-        var h2 = h2s[idx];
-        var item = document.createElement('li');
-        var link = document.createElement('a');
-        link.href = '#' + h2.id;
-        link.innerHTML = h2.innerHTML;
-        item.appendChild(link);
-        list.appendChild(item);
-      }
-
-    }
-
-  }
-
+  // Set up the magical header that changes on scroll.
   var HEADER_CHANGE_DISTANCE = 30;
-
   window.addEventListener('scroll', function (e) {
     var distanceY = window.pageYOffset || document.documentElement.scrollTop;
     if (distanceY > HEADER_CHANGE_DISTANCE) {
@@ -49,6 +32,12 @@ _paq.push(['enableLinkTracking']);
     } else {
       document.body.classList.remove('scrolled');
     }
-  })
+  });
+
+  // Activate lazyloading on needful elements
+  var toLazyLoad = document.querySelectorAll('.lazyload');
+  for (var idx = 0; idx < toLazyLoad.length; idx++) {
+    lzld(toLazyLoad[idx]);
+  }
 
 }());

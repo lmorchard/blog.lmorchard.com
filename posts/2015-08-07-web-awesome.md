@@ -98,8 +98,8 @@ There is no other successful system like this on the planet. No other system for
 In fact, even though I wrote that browsers are agents acting on their users' behalf - they're historically weak advocates by default. In other words, browsers do what web pages ask, with a few exceptions for safety and security. Today's open web offers the balance of control largely to publishers.
 
 <div class="image-group">
-[<img class="inset left" src="/uploads/2015/the-verge-web-sucks/im-surrounded.png">][theverge]
-[<img class="inset right" src="/uploads/2015/web-awesome/oregon-trail.png">][jsmess]
+[<img class="lazyload inset left" data-src="/uploads/2015/the-verge-web-sucks/im-surrounded.png">][theverge]
+[<img class="lazyload inset right" data-src="/uploads/2015/web-awesome/oregon-trail.png">][jsmess]
 </div>
 
 No one will stop you from [building a magazine site loaded with spyware and ads][theverge].
@@ -108,7 +108,7 @@ Of course, you can also [emulate old computers to make running classic software 
 
 <div class="image-group">
 [<img class="inset left" id="thumbnail" src="/uploads/2015/web-awesome/troxel.png">][troxel]
-[<img class="inset right" src="/uploads/2015/web-awesome/blogger.jpeg">][iranjail]
+[<img class="lazyload inset right" data-src="/uploads/2015/web-awesome/blogger.jpeg">][iranjail]
 </div>
 
 Or you can [create new hats and weapons for an MMO][trovecreations], sharing your work [as a link to a live 3D modeling tool][troxel].
@@ -117,7 +117,7 @@ Or you can write [a blog that lands you in an Iranian jail][iranjail] for politi
 
 Or you can craft [a gorgeous existential narrative about luminous beings][enough].
 
-[<img src="/uploads/2015/web-awesome/enough.png" style="display: block; margin: auto; width: 66%; clear: both">][enough]
+[<img class="lazyload" data-src="/uploads/2015/web-awesome/enough.png" style="display: block; margin: auto; width: 66%; clear: both">][enough]
 
 [troxel]: https://chrmoritz.github.io/Troxel/#m=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
 [trovecreations]: https://www.reddit.com/r/TroveCreations/
@@ -159,7 +159,7 @@ This diversity in browsers is important, and switching cost is low on a web with
 
 Your choice in browsers includes some that can be customized with [add-ons][] and [extensions][]. This is where a browser can really shine as a personalized [User Agent][].
 
-[<img class="inset left wide" src="/uploads/2015/web-awesome/adblock.png">][about-adblock]
+[<img class="lazyload inset left wide" data-src="/uploads/2015/web-awesome/adblock.png">][about-adblock]
 
 [about-adblock]: https://adblockplus.org/en/about
 
@@ -191,7 +191,7 @@ As I wrote before, web pages are *guests* on our computers. Most users have been
 
 There's a new iPhone ad out there - "[If it's not an iPhone, it's not an iPhone][iphonead]".
 
-<div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/wl3PlrPq8sw" frameborder="0" allowfullscreen></iframe></div>
+<div class="video-container"><iframe class="lazyload" width="560" height="315" src="" data-src="https://www.youtube.com/embed/wl3PlrPq8sw" frameborder="0" allowfullscreen></iframe></div>
 
 This is one of the things the narrator says:
 
@@ -201,7 +201,7 @@ This is obviously true, and the iPhone is a great product. You can curate a smoo
 
 ### There's only one App Store
 
-[<img class="inset right" src="/uploads/2015/web-awesome/connor-macleod.jpg">][connor-macleod]
+[<img class="lazyload inset right" data-src="/uploads/2015/web-awesome/connor-macleod.jpg">][connor-macleod]
 
 [connor-macleod]: http://www.comicvine.com/connor-macleod/4005-47561/
 
@@ -234,7 +234,10 @@ On top of linkability, the web also offers *composability*. That is, you can emb
 
 Or, hey, check out this tweet:
 
+<!--
 <blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">Current cat status: Cheddars and Catsby Cheddarsson <a href="http://t.co/9y9Q2uDwxb">pic.twitter.com/9y9Q2uDwxb</a></p>&mdash; Les Orchard (@lmorchard) <a href="https://twitter.com/lmorchard/status/628683951629029376">August 4, 2015</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+-->
 
 In an app, it's hard to mix three totally separate services together in one place like this.
 
@@ -303,7 +306,7 @@ Accept cutting off or (ideally) shipping a reduced experience to older browsers,
 
 As for monetization, well, that's a can of worms. More persistent web pages *will* help solve [the problem of the continually re-downloaded 7MB of JavaScript tracking you and showing ads][theverge]. But, if that stuff causes less of a drag, will we really care quite as much?
 
-[<img class="inset right" src="/uploads/2015/web-awesome/who-owns-the-future.jpg">][who-owns-the-future]
+[<img class="lazyload inset right" data-src="/uploads/2015/web-awesome/who-owns-the-future.jpg">][who-owns-the-future]
 
 [who-owns-the-future]: http://amzn.to/1MTayLa
 
@@ -333,5 +336,3 @@ I think things look bright, despite [many](http://www.wired.com/2010/08/ff_webri
 My hope is that we can take fresh looks at the web and revisit its unique capabilities. There's a ton of value in the [secure, linkable, indexable, composable, and ephemeral][slice] facets of the open web that closed app silos just can't match.
 
 [slice]: https://paul.kinlan.me/slice-the-web/
-
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
