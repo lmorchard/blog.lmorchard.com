@@ -232,14 +232,16 @@ There's also the matter of apps being their own mini-silos. They don't have the 
 
 On top of linkability, the web also offers *composability*. That is, you can embed resources and scripts from other sites. For example, there was a YouTube video just a few paragraphs ago and there's a Disqus-driven comment section at the end of this post.
 
-Or, hey, check out this tweet:
+Or, check out this tweet:
 
-<!--
 <blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">Current cat status: Cheddars and Catsby Cheddarsson <a href="http://t.co/9y9Q2uDwxb">pic.twitter.com/9y9Q2uDwxb</a></p>&mdash; Les Orchard (@lmorchard) <a href="https://twitter.com/lmorchard/status/628683951629029376">August 4, 2015</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
--->
 
-In an app, it's hard to mix three totally separate services together in one place like this.
+Or, hey, want to try a game of Oregon Trail?
+
+<iframe class="lazyload" data-src="https://archive.org/embed/msdos_Oregon_Trail_Deluxe_The_1992" width="560" height="384" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+
+In an app, it's hard to mix content from totally different sites together like this. At least, not without a lot of preparation at the top or just punting off to an embedded web browser. Me, I didn't write any of the code to make a tweet or an MS-DOS emulator work on this page.
 
 ### You can't take it with you
 
