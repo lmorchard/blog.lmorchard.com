@@ -1,6 +1,6 @@
 ---
 title: The web is awesome
-tags: [webdev, web, advertising, internet, privacy, tracking]
+tags: [webdev, web, adtech, advertising, internet, privacy, tracking]
 ---
 
 <nav role="navigation" class="table-of-contents"></nav>
@@ -8,46 +8,6 @@ tags: [webdev, web, advertising, internet, privacy, tracking]
 TL;DR: The open web is a beautiful thing that empowers makers while offering users leverage. There's nothing else like it. It's constantly improving. It's up to you what you do with it.
 
 <!--more-->
-
-<!--
-## Sensawunda
-
-I was [newly digital in 1983][newlydigital]. I missed the eras of punch cards and kit computers. But, I *was* around for 8-bit, floppy disks, [magazine type-ins][typeins], and screechy 300 baud modems.
-
-Eight years later, my networked reach was still limited by [area codes][] to about as far as I was allowed to drive. That said, driving to a [copyparty][] organized on the local BBS was the [high bandwidth option][carbandwidth].
-
-[area codes]: https://en.wikipedia.org/wiki/Telephone_numbering_plan#Area_code_and_call_pricing
-[copyparty]: https://en.wiktionary.org/wiki/copyparty
-[typeins]: https://en.wikipedia.org/wiki/Type-in_program
-[carbandwidth]: https://www.google.com/search?q=never+underestimate+the+bandwidth+of+a+station+wagon+full+of+tapes&ie=utf-8&oe=utf-8
-
-In late high school, I read [Zen and the Art of the Internet][zen]. By college, I had mastered email and Usenet and FTP and Archie. I was downloading Commodore Amiga software [from Sweden][aminet]. Holy crap.
-
-[aminet]: http://wiki.aminet.net/Mirrors
-
-And then, sometime in 1993, I heard about this World Wide Web thing. It was **way** better than [Gopher][]!
-
-We had [terminals][3270] in the libraries with access to a [mainframe][3090], and I figured out how to access a text-only browser. Occasionally I could get on a Sun X11 terminal or [NeXT machine][nextmachine] in the comp sci lab with [this new Mosaic browser][mosaicx11]. I was blown away. ([NeXT was the precursor to Mac OS X][nextosx], by the way.)
-
-Toward the end of my Freshman year, I got dial-up internet on my Amiga and I had [a browser][amigabrowser] working *in my dorm room*. By Sophomore year, the lab machines with Windows got [Netscape Navigator][]. (That was great, because I mostly lived in the computer lab anyway.)
-
-[nextosx]: http://arstechnica.com/apple/2012/12/the-legacy-of-next-lives-on-in-os-x/
-[nextmachine]: http://simson.net/ref/NeXT/screenshots.htm
-[3090]: https://www.google.com/search?q=ibm+3090&espv=2&biw=1920&bih=989&source=lnms&tbm=isch&sa=X&ved=0CAcQ_AUoAmoVChMIg7f7h5OCxwIVijg-Ch21Agk2
-[3270]: https://www.google.com/search?q=3270+terminal&espv=2&biw=1920&bih=989&source=lnms&tbm=isch&sa=X&ved=0CAcQ_AUoAmoVChMIkbqV8JKCxwIVgho-Ch1aGQIA&dpr=1
-[Netscape Navigator]: https://en.wikipedia.org/wiki/Netscape_Navigator
-
-This thing was going to be a big deal - and that was before JavaScript or CSS. Or, hell, [even before the `<img>` tag][imgtag]! The web unified what used to be many separate network services - each with their own clients & quirks & required expertise - into a single point-and-click hypertext interface where you can quickly jump from thing to thing to thing across the whole global Internet.
-
-I started telling everyone I knew.
-
-I think I annoyed everyone I knew.
-
-[imgtag]: http://1997.webhistory.org/www.lists/www-talk.1993q1/0182.html
-[gopher]: https://en.wikipedia.org/wiki/Gopher_(protocol)
-[amigabrowser]: https://amigafun.wordpress.com/2014/02/04/amiga-web-browsers-part-1/
-[mosaicx11]: http://info.eps.surrey.ac.uk/SCS/manuals/WWW-Guide/mosaics.gif
--->
 
 ## The beauty of the open web
 
