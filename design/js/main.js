@@ -14,7 +14,7 @@ var disqus_shortname = 'bloglmorchardcom';
   window.addEventListener('scroll', function (e) {
     if (!disqus_needs_loading) { return; }
     var rect = commentsSection.getBoundingClientRect();
-    if (window.scrollY >= rect.top) {
+    if (window.scrollY + document.body.offsetHeight >= rect.top) {
       loadDisqus();
     }
   });
