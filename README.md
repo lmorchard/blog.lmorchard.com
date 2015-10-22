@@ -8,8 +8,9 @@ also mine.
 ## Setup
 ```
 npm install
-cp config.js-dist config.js
-vim config.js
+cp aws.js-dist aws.js
+# Edit aws.js to reflect your AWS credentials for S3 publishing
+# Alternatively, set AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY env vars
 gulp indexes
 gulp build
 gulp deploy
