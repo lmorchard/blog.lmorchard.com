@@ -1,5 +1,7 @@
 # blog.lmorchard.com
 
+[![Build Status](https://travis-ci.org/lmorchard/blog.lmorchard.com.svg?branch=master)](https://travis-ci.org/lmorchard/blog.lmorchard.com)
+
 This is my blog. There are many others like it, some of them mine. This one is
 also mine.
 
@@ -31,12 +33,6 @@ gulp server
   * https://www.npmjs.com/package/gulp-awspublish-router
 
 * Replace Font Awesome with SVG icons for top tags
-
-* Github hooks + my server to auto-build and publish
-  * Maybe try setting this up on heroku?
-  * Travis-CI with a cached set of file hashes to make the S3 push faster?
-
-* Limit tag page generation to tags with 3? 5? or more posts?
 
 * Switch to Browserify & Babel if/when I want some JS enhancements again
 
