@@ -12,7 +12,7 @@ needed me. That left me largely free to sit in on the rest of the conference.
 
 [alterconf-detroit]: http://www.alterconf.com/conferences/detroit-mi
 
-It was nice. In fact, the whole afternoon *all about* being nice. I don't want
+It was nice. In fact, the whole afternoon was *all about* being nice. I don't want
 to trivialize it, but the core themes had a lot to
 say about empathy and inclusion and kindness - all things I file under "being
 nice" in my head.
