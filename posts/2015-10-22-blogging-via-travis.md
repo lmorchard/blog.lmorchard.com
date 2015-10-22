@@ -24,5 +24,5 @@ And, if you're reading this post, then that means everything worked when I hit t
 [hash-stash]: https://github.com/lmorchard/blog.lmorchard.com/commit/4b525710760ad70c0d83d910585e7bd9ddd80583
 [travis-yml]: https://github.com/lmorchard/blog.lmorchard.com/blob/master/.travis.yml
 [travis-secure]: http://docs.travis-ci.com/user/environment-variables/#Encrypted-Variables
-[recent-commits]: https://github.com/lmorchard/blog.lmorchard.com/compare/5992311ade7acc0e9dbeb0352ac4097c687be1a5...master
+[recent-commits]: https://github.com/lmorchard/blog.lmorchard.com/compare/5992311ade7acc0e9dbeb0352ac4097c687be1a5...10149c0e520f7e75536535ff563dfe42aa30b960
 [gulp-blog]: http://blog.lmorchard.com/2014/10/20/static-blog-generation-with-gulp/
