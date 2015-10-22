@@ -11,14 +11,18 @@ var disqus_shortname = 'bloglmorchardcom';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   };
 
-  window.addEventListener('scroll', function (e) {
+  var disqusScrollHandler = function (e) {
     if (!disqus_needs_loading) { return; }
     var rect = commentsSection.getBoundingClientRect();
     if (window.scrollY + document.body.offsetHeight >= rect.top) {
       loadDisqus();
     }
-  });
+  };
 
+  disqusScrollHandler();
+  if (disqus_needs_loading) {
+    window.addEventListener('scroll', disqusScrollHandler);
+  }
 }());
 
 (function () {
