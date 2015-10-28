@@ -1,6 +1,6 @@
 ---
-title: Foxcoin, a web science fiction story
-tags: [foxcoin, adblock, advertising, internet, tracking, privacy, adtech, scifi, fiction]
+title: Catbearcoin, a web science fiction story
+tags: [catbearcoin, adblock, advertising, internet, tracking, privacy, adtech, scifi, fiction]
 ---
 
 TL;DR: Wherein I write a web sci-fi story about how I imagine micropayments
@@ -10,23 +10,17 @@ could work.
 
 <a data-flickr-embed="true"  href="https://www.flickr.com/photos/bods/6559882595" title="Hoard Fox"><img id="thumbnail" class="fullwidth" src="https://farm8.staticflickr.com/7022/6559882595_08a1cfdbee_z.jpg" alt="Hoard Fox"></a>
 <script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
-<!--
-<a href="https://www.flickr.com/photos/bods/6559882595" title="Hoard Fox"><img id="thumbnail" class="fullwidth" src="https://farm8.staticflickr.com/7022/6559882595_08a1cfdbee_z.jpg" alt="Hoard Fox"></a>
--->
 
 <nav role="navigation" class="table-of-contents"></nav>
 
-*<b>DISCLAIMER DISCLAIMER DISCLAIMER</b>: I think about the web a lot. I've
-been thinking about it for 20 years or so.  In fact, I work for Mozilla because
-I've love the web and can't stop thinking about it.*
-
-*That said, I'm not in any
-position to speak for or make major decisions at Mozilla. What I'm going to
-write here is completely web science fiction. I imagined it after having one too many
-espressos.*
-
 *For more context, this is kind of a response to [David Humphrey's "402:
-Payment Required"][humphd] and [Joel Dueck's "Payment Required"][joel]*
+Payment Required"][humphd] and [Joel Dueck's "Payment Required"][joel].*
+
+*Thanks to [@alexandrarchivy](https://twitter.com/alexandrarchivy),
+[@jm3](https://twitter.com/jm3), [@humphd](https://twitter.com/humphd),
+[@joeld](https://twitter.com/joeld) for taking early peeks at this.*
+
+*If anything still sounds dumb, it's totally my fault.*
 
 [humphd]: https://medium.com/@humphd/402-payment-required-95bc72f06fcd#.dfdv0t2yb
 [joel]: http://thelocalyarn.com/article/payment-required
@@ -40,102 +34,96 @@ The fallout has been brutal: Every "one weird trick" and
 "you'll never believe" viral headline site has evaporated. Nine out of ten
 daily news sites across all topics & interests have gone under or consolidated.
 A few favorites have gotten by on a surprise surge of "premium" memberships,
-but it's a lot quieter out there in general.
+but it's a lot quieter on what's left of the web.
 
 <div class="pullquote left">
-Firefox... The browser so great, we're going
+Catbear... The browser so great, we're going
 to let you pay for it!
 </div>
 
-A new campaign begins at Mozilla: "*Firefox... The browser so great, we're going
-to let you pay for it!*"
+Out of nowhere, a new startup bursts onto the scene:
+"*Catbear... The browser so great, we're going to let you pay for
+it!*"
 
-Firefox becomes a subscription service. Five bucks a month in the US - $50 for
-a year and save! It comes with a wallet you can fill with Foxcoins. A $5
-subscription gives you 1000 Foxcoins every month and you can buy more from the
-Foxstore.
-
-"Wow," you say, "I thought Mozilla was a non-profit. Good luck with that."
-
-A month later, more & more of the links you follow lead to an
-ad for Firefox along with the message "*This page costs 1 Foxcoin to
-view.*" You shake your head. The web really is dying off.
+Catbear launches as a subscription service. Five bucks a month in the US - $50 for
+a year and save! It comes with a wallet you can fill with Catbearcoins. A $5
+subscription gives you 1000 Catbearcoins each month.
 
 ## At least it's not socks
 
 At Christmas, you get a card from a relative you haven't seen in a few years. A
-gift card falls out - it's worth 2500 Foxcoins. "What's this crap?" you think.
-Curious, you head to the URL on the card to redeem it. It turns out you can get
-a month of Firefox for 2000 Foxcoins. You shrug, sign up, and install Firefox.
+gift card falls out - it's worth 2500 Catbearcoins.
+
+"What's this crap?" you think.
+Curious, you go on the web to redeem it. It turns out you can get
+a month of Catbear for 2000 Catbearcoins. You shrug & sign up.
 
 <div class="pullquote right">
-This page costs 1 Foxcoin to view.
+This page costs 1 Catbearcoin to view.
 </div>
 
-The new Firefox is nice. It's fast. It has clever features. After a night of
-poking around blogs & games & cat pictures, you notice the Foxcoin balance in
-the corner of the screen has ticked down to 450. You realize you haven't seen
-an ad all night - not even one of those Mozilla ads. 
+Catbear is nice. It's fast. It has clever features. After a night of
+poking around blogs & games & baby animal pictures, you notice the Catbearcoin balance in
+the corner of the screen has ticked down to 450.
 
-You follow another link
-and the balance drops to 449.
+You follow another link and the balance drops to 449.
 
-After a couple of weeks, your Foxcoin balance runs out. The next link shows
-that old annoying warning: "*This page costs 1 Foxcoin to view*," along with a
-link to top up your wallet at the Foxstore. 
+After a couple of weeks, your balance runs out. The next link shows
+an annoying warning: "*This page costs 1 Catbearcoin to view*," along with a
+link to top up your wallet at the Catbearstore. 
 
 You ignore it and keep browsing on
 to other free sites - those are getting harder to find.
 
-By the end of the month, Firefox just stops working. It shows a form to
+By the end of the month, Catbear just stops working. It shows a form to
 reactivate your subscription. 
 
-Annoyed, you go back to your old copy of
-Chrome. But, every site wants Foxcoin now. You bite the bullet: You pull out a
-credit card and start a Firefox subscription.
+You go back to your old copy of Lodestone Navigator. But, every site
+wants Catbearcoin now. You bite the bullet: You pull out a credit card and
+start a Catbear subscription.
 
 ## Information wants to be expensive
 
-Things are good again. The monthly allowance of 1000 Foxcoins seems to feed
-your usual habits. But, you've noticed a few places have started asking for
+Things are good again. The monthly allowance of 1000 Catbearcoins feeds
+your habits. But, you've noticed a few places have started asking for
 more.
 
 <div class="pullquote">
-Soon, you find your Foxcoins running out in the middle of the month.
+Soon, you find your Catbearcoins running out in the middle of the month.
 </div>
 
-Your favorite beer homebrewing forum asks you to bump up to 2 Foxcoins per
+Your favorite beer homebrewing forum asks you to bump up to 2 Catbearcoins per
 view. In exchange, you get a gold border around on your avatar and you can use
 some fun emoticons in posts. Feeling magnanimous, you agree.
 
-An arcade site asks 50 Foxcoins to unlock every game for a few hours. The place
+An arcade site asks 50 Catbearcoins to unlock every game for a few hours. The place
 is pretty fun, so you splurge some nights.
 
-You find a weekly podcast that's 150 Foxcoins per episode - or 500 per month to
+You find a weekly podcast that's 150 Catbearcoins per episode - or 500 per month to
 subscribe. After listening to some free samples from the archives, you're
 hooked.
 
-Soon, you find your Foxcoins running out in the middle of the month. You bump
-your subscription up to $10 and get 2500 Foxcoins every month. But, with so
+Soon, you find your wallet running out early. You bump
+your subscription up to $10 and get 2500 Catbearcoins every month. But, with so
 much good stuff out there, you start using up even that allowance. There are
 still higher subscription levels, but you decide something's got to give.
 
 ## Audience participation
 
 The easiest thing to do is just deal with it - when the wallet's empty, you
-just do without the web. You make an effort to budget your web use. But, that's
+do without the web. You make an effort to budget. But, that's
 no fun after a few weeks. So, you look into more options.
 
 <div class="pullquote right">
-You can opt into ads to earn Foxcoin
+You can opt into ads to earn Catbearcoin
 </div>
 
-Turns out you can opt into ads to earn Foxcoin. You don't really like
-the sound of that, but you give it a try - you can always turn it back off
+Turns out you can opt into ads to earn Catbearcoin. You don't like
+the sound of that, but you give it a try - you can always turn it off
 whenever you want. 
 
 It's not like the old days, though: Ads aren't plastered all over. Instead,
-Firefox shows you something every now and then between links. Usually it's a
+Catbear shows you something every now and then between links. Usually it's a
 quick interstitial image with some text. Occasionally it's a video.  Sometimes
 it's a survey or even a puzzle. 
 
@@ -143,33 +131,32 @@ You're surprised at how little you're annoyed -
 and how often you actually engage. There are other ad services to
 try: They offer higher payouts, but they feel too intrusive for your tastes.
 
-By the end of the month, you've gotten an extra 750 Foxcoins. Not terrible, but
+By the end of the month, you've gotten an extra 750 Catbearcoins. Not terrible, but
 you keep looking around.
 
 <div class="pullquote left">
-You can earn Foxcoin for moderating discussions.
+You can earn Catbearcoin for moderating forums.
 </div>
 
 Lots of your usual haunts have started offering some kind of payback scheme for
 taking on odd jobs. On the homebrewing forum, you notice folks pitching in to
-help run the place. You can earn Foxcoin for moderating discussions and weeding
+help run the place. You can earn Catbearcoin for moderating discussions and weeding
 out spam.
 
 You apply & get approved - you now have an even more special border around your
 avatar and you help douse flame wars in a few topics. This nets you about 200
-Foxcoins the first month - plenty to offset your use of that particular site.
+Catbearcoins - plenty to offset your use of this particular site.
 
 ## Your information wants to be expensive, too
 
-You find yourself writing some particularly long reviews & how-tos on the
+You find yourself writing long reviews & how-tos on the
 forums. One day, someone snarks that you should start a blog if you're going to
-keep posting walls of text like that.
+keep posting walls of text.
 
-It gets you thinking. You had a Tumblr, like 10 years ago. You just used it for
+It gets you thinking. You had a TumblJournal, like 10 years ago. You just used it for
 random GIFs and general life complaints. After a bit of research, you find
-Amazon's web services: They support blogs and just started accepting Foxcoin to
-pay for hosting. What's even more interesting is that they let *you* accept
-Foxcoin from visitors to your site!
+NileMart's web services: They support blogs and just started accepting Catbearcoin to
+pay for hosting. What's even more interesting is that they let *you* accept Catbearcoin!
 
 <div class="pullquote right">
 Come to find out, you like writing.
@@ -181,25 +168,25 @@ with a TL;DR summary. Come to find out, you really like writing.
 
 Even better, folks from the forums - and beyond - like reading what you've got
 to say about weird & exotic beers and how to brew them. Word spreads. While
-Amazon takes a cut of the Foxcoin flowing your way, you're surprised to find
+NileMart takes a cut of the Catbearcoin flowing your way, you're surprised to find
 that your balance grows every month. 
 
-By the end of summer, you stop paying cash for your Firefox subscription.
+By the end of summer, you stop paying cash for your Catbear subscription.
 
 You've even totally covered your web habits with plenty left over.
 
-## Foxcoin gets real
+## Catbearcoin gets real
 
 Someone on the forums snarks that you must be rolling in it now, thanks to all
 your fans. 
 
 You'd read about it awhile back, but totally forgot until just now:
-Foxcoin can be redeemed for cash. In fact, as kind of a reverse subscription,
+Catbearcoin can be redeemed for cash. In fact, as kind of a reverse subscription,
 you can have an amount deducted every month and deposited directly into your
 bank account. So, you set that up.
 
 <div class="pullquote">
-Foxcoin can be redeemed for cash.
+Catbearcoin can be redeemed for cash.
 </div>
 
 By the end of the year, your earnings get to a point where you actually have to
@@ -219,7 +206,7 @@ investors realized ad money was drying up.
 A few stars are making a living from their fans
 </div>
 
-But, with the advent of Foxcoin,
+But, with the advent of Catbearcoin,
 someone comes up with the idea to share revenues with folks posting
 little quips & videos. For most users, it's like any old chat site. 
 
@@ -233,11 +220,11 @@ your blog.
 
 ## Competition grows
 
-And of course, Foxcoin isn't the only game in town for long: Google revives the
-Chrome team and unveils their own subscription-free currency. Apple and
-Microsoft both unveil their own browser refreshes & currency offerings. The
-browser wars start all over again - this time with even banks & credit card
-networks jumping into the game.
+And of course, Catbearcoin isn't the only game in town for long: Gahoo revives
+the Lodestone Navigator team and unveils their own subscription-free currency.  Allen &
+Gates and Pomegranate both unveil their own browser refreshes & currency
+offerings. The browser wars start all over again - this time with even banks &
+credit card networks jumping into the game.
 
 <div class="pullquote left">
 The browser wars start all over again
@@ -248,12 +235,11 @@ support all these browsers. But, she's never been so in demand.
 
 Exchange services pop up to trade currency between browser wallets. You make
 a small profit by playing the markets, but you decide it's not really your thing.
-Some folks really make it big.
 
-Fraud & scams grow - you get bitten more than once. But, Firefox & Chrome &
-Safari & Edge are all in a race for user protections and offer generous
+Fraud & scams grow - you get bitten more than once. But, Catbear & Lodestone &
+Sojourn & Trident are all in a race for user protections and offer generous
 refunds, so it's never really a big problem for you. It's a little annoying to
-keep up to date with the tech on your site, but Amazon mostly just takes care
+keep up to date with the tech on your site, but NileMart mostly just takes care
 of it as part of the hosting package.
 
 ## Good times
@@ -277,6 +263,6 @@ You find yourself traveling a bit for exclusive interviews with up-and-coming
 microbrewers & restaurateurs.
 
 You adopt a cat with huge ears and name her Foxy. She's cute and has her own
-microblog - ghostwritten by you. It pays for her kibble. 
+hilarious microblog - ghostwritten by you. It pays for her kibble. 
 
 Life is pretty good on the paid web, even for pets.
