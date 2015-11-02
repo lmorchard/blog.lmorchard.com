@@ -27,6 +27,8 @@ gulp server
 
 * Auto-generate scaled images from thumbnails identified in posts
 
+* Build a page to author posts [by logging into the Github API](https://github.com/vrypan/jekyll-post-via-web)
+
 * Consider versioning & long-expiring CSS & JS
   * https://github.com/sindresorhus/gulp-rev
 
