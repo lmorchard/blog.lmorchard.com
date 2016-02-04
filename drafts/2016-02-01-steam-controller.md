@@ -183,7 +183,7 @@ ready-made configuration as a starting point.
 In a nutshell, if it accepts mouse, keyboard, joystick, or gamepad - the Steam
 Controller is compatible with it. I haven't found a game that doesn't work
 with it, yet. The more pressing issue is whether the Controller is compatible
-with *me* as an interface to my games.
+with *me* as an interface to *the games I like*.
 
 I've had the most luck in mouse-and-keyboard games like the ponderously-paced
 [Sunless Sea][] and even in the more frenetic [Diablo III][]. Of course, at
@@ -192,20 +192,25 @@ thumb and flinging it around between targets and running away to kite things.
 That seems to get better as I turn down acceleration and play with
 sensitivity.
 
+[Rocket League][] worked out pretty well, in that I was equally terrible both
+with the Steam Controller and the Xbox 360 controller. But, I had a lot of fun
+and never felt like I could blame the controller.
+
 I didn't have as much luck with [Laserlife][], a surreal twin-stick rhythm
 game in the tradition of Rez. Ideally, I should be able to use the two
-trackpads as analog sticks, but I did a lot better going back to the physical
-sticks on my Xbox 360 controller. I would like to see if I can figure out
-workable settings here, though, because I like a lot of twin-stick shooters.
+trackpads as analog sticks. But, I did a lot better going back to the physical
+sticks on my Xbox 360 controller. The feel of the joystick resistance helped
+cue me into its position. I think it's similar to how I never get along with
+on-screen joysticks in many smartphone games. I would like to see if I can
+figure out workable settings here, though, because I like a lot of twin-stick
+shooters.
 
-[Rocket League][] worked out pretty well, in that I was equally terrible both
-with the Steam Controller and the Xbox 360 controller. But, I had a lot of fun.
-
-[Elite Dangerous][], offers a kind of bottomless pit of customization.
-it's a work in progress translating my mouse-and-keyboard controls to a
-comfortable scheme on the Controller. For example, it was kind of fun tying
-throttle and roll to the motion sensors. I can't see this replacing a
-super-immersive HOTAS setup, but I think I can get it to an enjoyable point.
+[Elite Dangerous][] offers a kind of bottomless pit of customization.  It's a
+work in progress translating my mouse-and-keyboard controls to a comfortable
+scheme on the Controller. For example, it was kind of fun tying pitch and roll
+to the motion sensors and flying the controller around like a spaceship. I
+can't see this replacing a super-immersive HOTAS setup, but I think I can get
+it to an enjoyable point.
 
 [Sunless Sea]: http://www.failbettergames.com/sunless/
 [Diablo III]: http://us.battle.net/d3/en/
@@ -249,6 +254,11 @@ publicly stated early on that "the Steam Controller was designed from the
 ground up to be hackable"
 
 
+
+http://behind.flatspot.pictures/2015/12/16/steam-controller-perspective-of-a-computer-science-student/
+
+" The Steam Controller was designed from the ground up to be hackable … We plan to make tools available that will enable users to participate in all aspects of the experience, from industrial design to electrical engineering."
+http://hackaday.com/2013/10/01/steam-controller-open-and-hackable/
 
 [teensylc]: https://www.pjrc.com/store/teensylc.html
 [teensy]: https://www.pjrc.com/teensy/
