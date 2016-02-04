@@ -32,7 +32,7 @@ trying one of these things.
 
 I've long been a fan of unusual input devices, the more fiddly the better. 
 
-<img class="inset  right" src="/uploads/2016/steam-controller/hhkb.jpg">
+[<img class="inset right" src="/uploads/2016/steam-controller/hhkb.jpg">](https://www.flickr.com/photos/deusx/24726637531/in/dateposted/)
 
 It's been a little over 15 years since I last used a standard 104-key keyboard
 on a PC, having been a [Happy Hacking Keyboard][hhkb] enthusiast ever since I
@@ -76,7 +76,9 @@ for my traditional end-of-year holiday gaming binge. <br style="clear: both">
 [<img class="inset right" src="/uploads/2016/steam-controller/all-3-controllers.jpg">](https://www.flickr.com/photos/deusx/24524584120)
 
 The Steam Controller makes my Xbox 360 controller feel tiny: It's wider and
-significantly thicker in parts. It reminds me of the original Xbox controller,
+significantly thicker in parts. 
+
+It reminds me of the original Xbox controller,
 though it's really unfair to take that comparison too far - I mean, that
 controller was bigger than some actual game consoles.
 
@@ -158,11 +160,18 @@ included a USB dongle and a pair of AA batteries. You can use rechargeable AA
 batteries, but the controller itself does not charge them while plugged in. I
 kind of hope Valve comes up with a rechargeable pack for this thing at some
 point, but I haven't yet used up the first pair of batteries out of the box.
+
+If you want to see what's inside this thing, the folks at iFixit did [a great
+job of documenting their Steam Controller teardown][teardown], thus saving me from
+feeling like I should open mine up for the sake of this post. They noted quite
+a few interesting things, a few of which I mention in another section.
 <br style="clear: both">
+
+[teardown]: https://www.ifixit.com/Teardown/Steam+Controller+Teardown/52578
 
 ## Software
 
-The laundry list of sensors is vaguely interesting. But, what really makes
+The physical design and laundry list of sensors is vaguely interesting. But, what really makes
 the Steam Controller shine - and sometimes stink - is the software.
 
 @@ screenshot closeup of big picture mode button
