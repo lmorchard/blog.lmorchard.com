@@ -11,10 +11,12 @@ TL;DR: Steam Controller wheee.
 
 ## Intro
 
-@@ picture of my couch PC setup
+<img class="inset left" id="thumbnail" src="/uploads/2016/steam-controller/couch-pc.jpg">
 
-At my couch PC, these days I use an Xbox 360 controller whenever I can. I don't
+At [my couch PC][couchpc], these days I use an Xbox 360 controller whenever I can. I don't
 want to clutter the living room with big weird joysticks & suchlike.
+
+[couchpc]: http://blog.lmorchard.com/2013/01/21/gaming-from-the-orchard-house-couch/
 
 Additionally, having my hands in a neutral position in my lap seems to
 help quite a lot with keeping wrist pain at bay after a day in my office
@@ -28,38 +30,55 @@ trying one of these things.
 
 ## Novelty
 
-I've long been a fan of unusual input devices, the more fiddly the better. It's
-been a little over 15 years since I last used a standard 104-key keyboard on a
-PC, having been a Happy Hacking Keyboard enthusiast ever since I first read
-about them on Slashdot. And now, the notion of building my own keyboard -
-possibly even smaller than the HHKB - has really taken root in my brain.
- 
+I've long been a fan of unusual input devices, the more fiddly the better. 
+
+<img class="inset  right" src="/uploads/2016/steam-controller/hhkb.jpg">
+
+It's been a little over 15 years since I last used a standard 104-key keyboard
+on a PC, having been a [Happy Hacking Keyboard][hhkb] enthusiast ever since I
+first [read about them in Linux Journal][hhkb-review]. 
+
+[hhkb-review]: http://www.linuxjournal.com/article/3147
+
+And lately, the notion of [building my own
+keyboard][diy-kb] - possibly even smaller than the [HHKB][] - has really taken
+root in my brain.
+
+[hhkb]: http://amzn.to/1nQbo26
+[diy-kb]: http://cubiq.org/build-your-very-own-pc-keyboard
+
+
 And, as the gaming world has invested in increasingly complex gaming mice over
 the years, I've been solidly in the trackball camp ever since the days of Quake
-2 and Unreal Tournament. The [Mad Catz Panther XL][pantherxl] trackball-and-joystick combo
-was my favorite for flight & space sims like Freespace. I used a Microsoft
-Sidewinder Strategic Commander to play Everquest almost one-handed.
+2 and Unreal Tournament. 
+
+[<img class="inset left" src="/uploads/2016/steam-controller/panther-xl.jpg">](http://vgjunk.tumblr.com/post/63391681929/john-romero-wants-you-to-buy-a-mad-catz-panther-xl)
+
+The [Mad Catz Panther XL][pantherxl] trackball-and-joystick combo
+was my favorite for flight & space sims like Freespace. I used a [Microsoft
+Sidewinder Strategic Commander][msssc] to play Everquest almost one-handed.
 
 More recently, when I was playing a space trucker in EVE Online, I would often
-ride a recumbent exercise bike and use a [One Finger Mouse][ofm] (actually a
-thumb-trackball) on my laptop to align and warp between stations.
+ride a recumbent exercise bike and use a [One Finger Mouse][ofm] with my
+laptop to align and warp between stations.
 
+[msssc]: http://amzn.to/1nQby9D:
 [pantherxl]: http://assassin3d.squarespace.com/history-panther-xl/ 
 [ofm]: http://amzn.to/1NKn0bq
 
 Given all the above, the Steam Controller looked completely relevant to my
 interests. I managed to wait a month or so after it was released, watching for
 any red flags in early reviews. But, of course, I gave in and had it in time
-for my traditional end-of-year holiday gaming binge.
+for my traditional end-of-year holiday gaming binge. <br style="clear: both">
 
 ## Ergonomics
+
+[<img class="inset right" src="/uploads/2016/steam-controller/all-3-controllers.jpg">](https://www.flickr.com/photos/deusx/24524584120)
 
 The Steam Controller makes my Xbox 360 controller feel tiny: It's wider and
 significantly thicker in parts. It reminds me of the original Xbox controller,
 though it's really unfair to take that comparison too far - I mean, that
 controller was bigger than some actual game consoles.
-
-@@ comparison photos of xbox, steam, and 360 controllers
 
 The Xbox 360 "handles" taper down into rounded points that cover a third of my
 palm. But, the Steam Controller bulges out and covers about half of my palm.
@@ -67,19 +86,27 @@ It's a bit like the difference between a medium chicken egg and a jumbo.
 (Sorry, I've been cooking today.) And where my fingers curl inward toward my
 palm with the 360 controller, the Steam Controller has them pointing toward my
 chest.
+<br style="clear: both">
 
-@@ picture of fingers wrapped around handles of each controller
+[<img class="inset left" src="/uploads/2016/steam-controller/360-hands.jpg">](https://www.flickr.com/photos/deusx/24793856326)
+[<img class="inset left" src="/uploads/2016/steam-controller/sc-hands.jpg">](https://www.flickr.com/photos/deusx/24793858166)
+
+And, this is where I realize I was never destined to find a career as a hand
+model.
 
 The Xbox 360 controller tends to feel like handlebars gripped between my palms
 and the last three fingers, leaving my index fingers and thumbs free. It feels
-like it just naturally falls into my relaxed hands. With the Steam Controller,
+like it just naturally falls into my relaxed hands. 
+
+With the Steam Controller,
 though, the grip feels like it involves more participation from my arms to
 wedge it between the upper edges of my hands from first knuckles to the bases of
 my thumbs, with a bit of stabilization from my pinkies. That makes sense,
 considering my first three fingers fall on triggers and buttons found on the
-back of the device - this grip leaves more fingers free to move.
+back of the device - this grip leaves more fingers free to move.  <br style="clear: both">
 
-@@ picture of thumb positions for each controller
+[<img class="inset right" src="/uploads/2016/steam-controller/sides.jpg">](https://www.flickr.com/photos/deusx/24726646081/in/dateposted-public/)
+[<img class="inset right" src="/uploads/2016/steam-controller/backs.jpg">](https://www.flickr.com/photos/deusx/24702264542/in/dateposted-public/)
 
 The face of the Xbox 360 controller follows a convex curve. The pads of my
 extended thumbs rest on the left stick and right button cluster. The face of
@@ -101,14 +128,7 @@ hopefully explain before I'm done here.
 It's fair to say that, in terms of input hardware, the Steam Controller
 offers a few interesting improvements over my trusty old Xbox 360 controller.
 
-On the back, there are shoulder buttons and two analog triggers that bottom out
-in clicks. Along the handgrips, there are two more wide buttons under the
-middle & ring fingers.
-
-On the inside, there are gyroscopic and accelerometer sensors to detect motion
-and orientation of the controller as a whole. I haven't used these much, yet,
-but I've read that they're handy for vehicle controls or fine tuning aim in an
-FPS.
+[<img class="inset wide left" src="/uploads/2016/steam-controller/sc-top.jpg">](https://www.flickr.com/photos/deusx/24525157630/in/photostream/)
 
 On the front, there's the "Valve" button flanked by a back & start buttons.
 There's also an analog clicky joystick and an X/Y/A/B button cluster. But,
@@ -120,11 +140,25 @@ feedback: In the past, "rumble" motors in controllers used motors spinning
 off-center weights to affect vibration. Linear resonant actuators are more like
 speakers, and offer more precise control over the exact feel.
 
+[<img class="inset wide left" src="/uploads/2016/steam-controller/sc-back.jpg">](https://www.flickr.com/photos/deusx/24820691505/in/dateposted/)
+
+On the inside, there are gyroscopic and accelerometer sensors to detect motion
+and orientation of the controller as a whole. 
+
+On the back, there are shoulder
+buttons and two analog triggers that bottom out in clicks. Along the
+handgrips, there are two more wide buttons under the middle & ring fingers.
+The plate for those buttons doubles as the battery door, and one AA battery
+hides inside each of the handgrips.
+
+[<img class="inset wide left" src="/uploads/2016/steam-controller/sc-back-open.jpg">](https://www.flickr.com/photos/deusx/24727371301/in/dateposted/)
+
 The controller can run tethered via a micro-USB cable, or wirelessly using an
 included a USB dongle and a pair of AA batteries. You can use rechargeable AA
 batteries, but the controller itself does not charge them while plugged in. I
 kind of hope Valve comes up with a rechargeable pack for this thing at some
 point, but I haven't yet used up the first pair of batteries out of the box.
+<br style="clear: both">
 
 ## Software
 
