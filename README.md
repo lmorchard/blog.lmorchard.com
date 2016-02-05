@@ -18,7 +18,7 @@ gulp deploy
 
 ## Writing and previews
 ```
-gulp server
+gulp
 ```
 
 ## TODO
