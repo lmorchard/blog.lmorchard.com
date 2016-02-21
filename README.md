@@ -23,9 +23,13 @@ gulp
 
 ## TODO
 
-* Genericize this stuff into a reusable package?
+* Auto-convert Flickr photo links to downloaded images with scaled thumbnails
 
 * Auto-generate scaled images from thumbnails identified in posts
+
+* Revive the comments archiver to preserve closed Disqus threads
+
+* Genericize this stuff into a reusable package?
 
 * Build a page to author posts [by logging into the Github API](https://github.com/vrypan/jekyll-post-via-web)
 
@@ -38,8 +42,6 @@ gulp
 * Replace Font Awesome with SVG icons for top tags
 
 * Switch to Browserify & Babel if/when I want some JS enhancements again
-
-* Revive the comments archiver to preserve closed Disqus threads
 
 * Quick gulp task to produce a new boilerplated post
 
