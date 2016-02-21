@@ -31,7 +31,7 @@ pretty simple:
 
 [connector]: http://www.mouser.com/ProductDetail/TE-Connectivity/6-520315-6/?qs=sGAEpiMZZMvYKGyZxp8jxkA16bSpREuh
 
-<a data-flickr-embed="true" data-footer="true"  href="https://www.flickr.com/photos/deusx/24987051026/in/photolist-E52aJA-E1nBs8-DGrCJf-Dd9aTh-E2C6uB-DBgzUX-E7Yy31-EaiCZz-Dzg18k" title="Original prototype for replacement IBM Model M keyboard controller"><img class="fullwidth" src="https://farm2.staticflickr.com/1671/24987051026_0d0b1ac2a9_z.jpg" alt="Original prototype for replacement IBM Model M keyboard controller"></a>
+<a data-flickr-embed="true" data-footer="true"  href="https://www.flickr.com/photos/deusx/24987051026/in/photolist-E52aJA-E1nBs8-DGrCJf-Dd9aTh-E2C6uB-DBgzUX-E7Yy31-EaiCZz-Dzg18k" title="Original prototype for replacement IBM Model M keyboard controller"><img class="fullwidth" src="/uploads/2016/modelm-controller/24987051026_0d0b1ac2a9_z.jpg" alt="Original prototype for replacement IBM Model M keyboard controller"></a>
 
 The [Teensy 2.0++][teensy-plus] has 20 pins per side, and I needed 16 for the
 first ribbon. So, it was convenient to just plonk both onto the breadboard and
@@ -43,7 +43,7 @@ and ran the connections over.
 [tmk]: https://geekhack.org/index.php?topic=41989.0
 [hookup]: http://amzn.to/1oCuCJ1
 
-<a data-flickr-embed="true" data-footer="true"  href="https://www.flickr.com/photos/deusx/24684318539/in/photolist-E1nBs8-DGrCJf-Dd9aTh-E2C6uB-DBgzUX-E7Yy31-EaiCZz/" title="5.5mm nut driver needed for opening IBM Model M keyboards"><img class="inset wide right" src="https://farm2.staticflickr.com/1643/24684318539_4dde739235_n.jpg" alt="5.5mm nut driver needed for opening IBM Model M keyboards"></a>
+<a data-flickr-embed="true" data-footer="true"  href="https://www.flickr.com/photos/deusx/24684318539/in/photolist-E1nBs8-DGrCJf-Dd9aTh-E2C6uB-DBgzUX-E7Yy31-EaiCZz/" title="5.5mm nut driver needed for opening IBM Model M keyboards"><img class="inset wide right" src="/uploads/2016/modelm-controller/24684318539_4dde739235_n.jpg" alt="5.5mm nut driver needed for opening IBM Model M keyboards"></a>
 
 ## Driving Me Nuts
 
@@ -71,7 +71,7 @@ time to play with it.
 
 And, once open, this is the board I found inside:
 
-<a data-flickr-embed="true" data-footer="true"  href="https://www.flickr.com/photos/deusx/25046846995/in/photolist-E1nBs8-DGrCJf-Dd9aTh-E2C6uB-DBgzUX-E7Yy31-EaiCZz/" title="IBM Model M original controller board"><img class="fullwidth" src="https://farm2.staticflickr.com/1490/25046846995_c8dab2484c_z.jpg" alt="IBM Model M original controller board"></a>
+<a data-flickr-embed="true" data-footer="true"  href="https://www.flickr.com/photos/deusx/25046846995/in/photolist-E1nBs8-DGrCJf-Dd9aTh-E2C6uB-DBgzUX-E7Yy31-EaiCZz/" title="IBM Model M original controller board"><img class="fullwidth" src="/uploads/2016/modelm-controller/25046846995_c8dab2484c_z.jpg" alt="IBM Model M original controller board"></a>
 
 I should have taken a picture of it in place, but oh well. The board has a
 grounding strap that was screwed down to the steel plate under the keys.
@@ -156,14 +156,14 @@ into the case. Everything fit physically, but the parts were all in the wrong
 place. With a sigh, I pulled everything out of the board, rewired it, and
 reassigned all the pins:
 
-<a data-flickr-embed="true" data-footer="true"  href="https://www.flickr.com/photos/deusx/24742861610/in/dateposted-public/" title="Teensy 2.0++ USB replacement controller for IBM Model M keyboard"><img class="fullwidth" src="https://farm2.staticflickr.com/1506/24742861610_8c3c931768_z.jpg" alt="Teensy 2.0++ USB replacement controller for IBM Model M keyboard"></a>
+<a data-flickr-embed="true" data-footer="true"  href="https://www.flickr.com/photos/deusx/24742861610/in/dateposted-public/" title="Teensy 2.0++ USB replacement controller for IBM Model M keyboard"><img class="fullwidth" src="/uploads/2016/modelm-controller/24742861610_8c3c931768_z.jpg" alt="Teensy 2.0++ USB replacement controller for IBM Model M keyboard"></a>
 
 That put the ribbon connectors in the right spots for the keyboard membranes
 to connect, as well as room a USB connector I bought to loop around without
 too much bend. Oh, and I slightly rewired things again, because I discovered
 I'd connected all the LEDs backward:
 
-<a data-flickr-embed="true" data-footer="true"  href="https://www.flickr.com/photos/deusx/24945773791/in/photolist-E52aJA-E1nBs8-DGrCJf-Dd9aTh-E2C6uB-DBgzUX-E7Yy31-EaiCZz-Dzg18k/" title="Teensy 2.0++ USB replacement controller for IBM Model M keyboard"><img class="fullwidth" src="https://farm2.staticflickr.com/1663/24945773791_b208614dd7_z.jpg" alt="Teensy 2.0++ USB replacement controller for IBM Model M keyboard"></a>
+<a data-flickr-embed="true" data-footer="true"  href="https://www.flickr.com/photos/deusx/24945773791/in/photolist-E52aJA-E1nBs8-DGrCJf-Dd9aTh-E2C6uB-DBgzUX-E7Yy31-EaiCZz-Dzg18k/" title="Teensy 2.0++ USB replacement controller for IBM Model M keyboard"><img class="fullwidth" src="/uploads/2016/modelm-controller/24945773791_b208614dd7_z.jpg" alt="Teensy 2.0++ USB replacement controller for IBM Model M keyboard"></a>
 
 ## My Keyboard is Haunted
 
@@ -233,7 +233,7 @@ words than for controlling games, the tradeoff makes sense.
 
 ## The Result
 
-<a data-flickr-embed="true" data-header="false" data-footer="true"  href="https://www.flickr.com/photos/deusx/24422592514/in/photolist-E1nBs8-DGrCJf-Dd9aTh-E2C6uB-DBgzUX-E7Yy31-EaiCZz" title="IBM Model M keyboard with USB controller"><img class="inset wide right" id="thumbnail" src="https://farm2.staticflickr.com/1479/24422592514_d79da1882a_z.jpg" alt="IBM Model M keyboard with USB controller"></a>
+<a data-flickr-embed="true" data-header="false" data-footer="true"  href="https://www.flickr.com/photos/deusx/24422592514/in/photolist-E1nBs8-DGrCJf-Dd9aTh-E2C6uB-DBgzUX-E7Yy31-EaiCZz" title="IBM Model M keyboard with USB controller"><img class="inset wide right" id="thumbnail" src="/uploads/2016/modelm-controller/24422592514_d79da1882a_z.jpg" alt="IBM Model M keyboard with USB controller"></a>
 
 So, after all the above and a few more random adventures in C programming,
 this IBM Model M keyboard is now sitting on my desk with a USB cable plugged
@@ -249,7 +249,7 @@ configure my previous project really came in handy.
 
 [unicomp]: http://www.pckeyboard.com/page/category/Buttons
 
-<a data-flickr-embed="true" data-footer="true"  href="https://www.flickr.com/photos/deusx/24959916191/in/photolist-E1nBs8-DGrCJf-Dd9aTh-E2C6uB-DBgzUX-E7Yy31-EaiCZz/" title="IBM Model M with USB controller upgrade"><img class="inset wide left" src="https://farm2.staticflickr.com/1525/24959916191_bfe3246ded_z.jpg" alt="IBM Model M with USB controller upgrade"></a>
+<a data-flickr-embed="true" data-footer="true"  href="https://www.flickr.com/photos/deusx/24959916191/in/photolist-E1nBs8-DGrCJf-Dd9aTh-E2C6uB-DBgzUX-E7Yy31-EaiCZz/" title="IBM Model M with USB controller upgrade"><img class="inset wide left" src="/uploads/2016/modelm-controller/24959916191_bfe3246ded_z.jpg" alt="IBM Model M with USB controller upgrade"></a>
 
 The one part that could be considered irreversible with this project is that I
 ended up drilling two small holes in the back to secure the USB port. I'm just
@@ -321,7 +321,7 @@ On the topic of destructive changes: [hasu][], the author of the [TMK][]
 firmware, [literally carved up][hbkb2] an IBM Model M keyboard and [reduced it
 to a 60% layout][hbkb] more comparable to a Happy Hacking Keyboard.
 
-<img class="fullwidth" src="http://i.imgur.com/yROEN.jpg">
+<img class="fullwidth" src="/uploads/2016/modelm-controller/yROEN.jpg">
 
 [hasu]: https://geekhack.org/index.php?action=profile;u=3412
 [hbkb]: https://geekhack.org/index.php?topic=29483.0
