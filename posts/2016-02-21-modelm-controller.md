@@ -233,7 +233,7 @@ words than for controlling games, the tradeoff makes sense.
 
 ## The Result
 
-<a data-flickr-embed="true" data-header="false" data-footer="true"  href="https://www.flickr.com/photos/deusx/24422592514/in/photolist-E1nBs8-DGrCJf-Dd9aTh-E2C6uB-DBgzUX-E7Yy31-EaiCZz" title="IBM Model M keyboard with USB controller"><img class="inset wide right" id="thumbnail" src="https://farm2.staticflickr.com/1479/24422592514_d79da1882a_n.jpg" alt="IBM Model M keyboard with USB controller"></a>
+<a data-flickr-embed="true" data-header="false" data-footer="true"  href="https://www.flickr.com/photos/deusx/24422592514/in/photolist-E1nBs8-DGrCJf-Dd9aTh-E2C6uB-DBgzUX-E7Yy31-EaiCZz" title="IBM Model M keyboard with USB controller"><img class="inset wide right" id="thumbnail" src="https://farm2.staticflickr.com/1479/24422592514_d79da1882a_z.jpg" alt="IBM Model M keyboard with USB controller"></a>
 
 So, after all the above and a few more random adventures in C programming,
 this IBM Model M keyboard is now sitting on my desk with a USB cable plugged
@@ -249,7 +249,7 @@ configure my previous project really came in handy.
 
 [unicomp]: http://www.pckeyboard.com/page/category/Buttons
 
-<a data-flickr-embed="true" data-footer="true"  href="https://www.flickr.com/photos/deusx/24959916191/in/photolist-E1nBs8-DGrCJf-Dd9aTh-E2C6uB-DBgzUX-E7Yy31-EaiCZz/" title="IBM Model M with USB controller upgrade"><img class="inset wide left" src="https://farm2.staticflickr.com/1525/24959916191_bfe3246ded_n.jpg" alt="IBM Model M with USB controller upgrade"></a>
+<a data-flickr-embed="true" data-footer="true"  href="https://www.flickr.com/photos/deusx/24959916191/in/photolist-E1nBs8-DGrCJf-Dd9aTh-E2C6uB-DBgzUX-E7Yy31-EaiCZz/" title="IBM Model M with USB controller upgrade"><img class="inset wide left" src="https://farm2.staticflickr.com/1525/24959916191_bfe3246ded_z.jpg" alt="IBM Model M with USB controller upgrade"></a>
 
 The one part that could be considered irreversible with this project is that I
 ended up drilling two small holes in the back to secure the USB port. I'm just
