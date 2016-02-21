@@ -113,8 +113,8 @@ membranes with row & column numbers in marker:
 [idollar]: https://deskthority.net/idollar-u6930/
 [matrix-map]: https://deskthority.net/workshop-f7/universal-model-m-controller-t9820.html#p207736
 
-<img class="fullwidth" src="https://deskthority.net/resources/image/18347">
-<img class="fullwidth" src="https://deskthority.net/resources/image/18349">
+<img class="fullwidth" src="/uploads/2016/modelm-controller/DSC_9298.jpg">
+<img class="fullwidth" src="/uploads/2016/modelm-controller/DSC_9300.jpg">
 
 Just to be clear: These two are not my photos. I stand on the shoulders of
 [forum giants][idollar]. But, after awhile, I couldn't really read the
