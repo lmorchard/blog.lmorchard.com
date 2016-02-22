@@ -189,7 +189,7 @@ disconnect it from the breadboard. Then, I ran a jumper over to D1 and
 [switched the pin assignments in the firmware][d0-pin]. No more spontaneous
 keypresses.
 
-[photodiode]: https://github.com/lmorchard/tmk_keyboard/blob/bdde5f9413ce5c3ea627f201b04f04fe371806ce/keyboard/modelm/keymap.c#L54
+[photodiode]: http://www.analog.com/library/analogdialogue/archives/48-08/raq_108.html
 [d0-pin]: https://github.com/lmorchard/tmk_keyboard/commit/f5b31e9d320d494a4d3fc75db614883b7225d332
 
 ## Secrets of 2KRO Matrices
