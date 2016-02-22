@@ -159,7 +159,7 @@ reassigned all the pins:
 <a data-flickr-embed="true" data-footer="true"  href="https://www.flickr.com/photos/deusx/24742861610/in/dateposted-public/" title="Teensy 2.0++ USB replacement controller for IBM Model M keyboard"><img class="fullwidth" src="/uploads/2016/modelm-controller/24742861610_8c3c931768_z.jpg" alt="Teensy 2.0++ USB replacement controller for IBM Model M keyboard"></a>
 
 That put the ribbon connectors in the right spots for the keyboard membranes
-to connect, as well as room a USB connector I bought to loop around without
+to connect, as well as room for a USB connector I bought to loop around without
 too much bend. Oh, and I slightly rewired things again, because I discovered
 I'd connected all the LEDs backward:
 
