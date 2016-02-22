@@ -336,7 +336,7 @@ attempt it once I get tired of just how huge this keyboard is on my desk.
 ## Conclusion
 
 This was a pretty fun project, and a bit of a step up from the PS/2 converter
-I just built. I learned a bit about the innards of this keybard, and I've got
+I just built. I learned a bit about the innards of this keyboard, and I've got
 some decent next steps to pursue in the future. All of this feels like it's
 giving me some good foundational know-how for when I finally get all the parts
 together to try building my own DIY keyboard from the ground up.
