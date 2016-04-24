@@ -1,6 +1,6 @@
 ---
 title: How I learned to love spreadsheets in space
-tags: [gaming, python, jupyter, eveonline, eve]
+tags: [gaming, node, apis, eveonline, eve]
 thumbnail: /uploads/2016/spreadsheets-in-space/wallet.PNG
 ---
 
