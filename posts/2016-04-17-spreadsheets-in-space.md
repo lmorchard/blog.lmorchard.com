@@ -80,7 +80,7 @@ One evening, I tried getting into station trading entirely off-the-cuff:
 ## This looks like a job for a machine
 
 As with most space jobs, there is a generous helping of tedium in trading.  It
-immediately occured to me that this would be better done by a computer. Why
+immediately occurred to me that this would be better done by a computer. Why
 click through all these items one-by-one, when an algorithm could zip through
 and serve up a list of high-margin items in seconds?
 
