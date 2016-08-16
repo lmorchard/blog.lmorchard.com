@@ -1,10 +1,7 @@
 ---
 title: 'Developing Open Web Apps: First, get it onto the web'
 author: lmorchard
-excerpt: |
-  I've been interested in developing [open web apps][1] (aka the [single-page app][2]) for years. But, it feels like the space is really on fire now, since the advent of HTML5 tech and the recent moves by Mozilla and Google toward truly "appifying" these things to compete with offerings from iOS and Android. Lots of pieces have come into alignment, and [great things are coming together][3]—[never mind what the folks at Facebook say][4].
-  
-  So, I think I'm going to build a simple app and blog about it. And, these days, the first thing I think about when starting a web app is: How do I get it onto the web?
+excerpt: These days, the first thing I think about when starting a web app is: How do I get it onto the web?
 layout: post
 permalink: /2012/09/18/first-get-it-onto-the-web
 dsq_thread_id:
