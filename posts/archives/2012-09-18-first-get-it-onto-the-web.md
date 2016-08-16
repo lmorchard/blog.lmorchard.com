@@ -1,7 +1,7 @@
 ---
 title: 'Developing Open Web Apps: First, get it onto the web'
 author: lmorchard
-excerpt: These days, the first thing I think about when starting a web app is: How do I get it onto the web?
+excerpt: "These days, the first thing I think about when starting a web app is: How do I get it onto the web?"
 layout: post
 permalink: /2012/09/18/first-get-it-onto-the-web
 dsq_thread_id:
