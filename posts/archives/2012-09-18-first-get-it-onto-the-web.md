@@ -143,22 +143,21 @@ Apropos of that, I have a small trick on OS X that makes Amazon S3 as convenient
     What this does is start `kicker` to monitor your files. Whenever anything changes, `s3cmd` uploads the changes to Amazon S3. After the first run, my content shows up at an URL like:
     
         http://my-project.lmorchard.com/README.md
-        
-    
-    So, again, my hacking cycle with Amazon S3 looks like this:
-    
-    1.  Save changes
-    2.  Switch to browser
-    3.  Refresh
-    4.  Repeat
-    
-    Again, this turns out to be nearly indistinguishable from working on `localhost` or with `file://` URLs, because the kicker-s3cmd team has generally already shipped off my changes before I can get to the browser. I&#8217;m sure something similar to the above can be cobbled together on Linux or Windows, but I don&#8217;t work there so I&#8217;ve not bothered to figure it out.
-    
-    ## <span id="In_conclusion">In conclusion</span>
-    
-    Developing open <a target="_blank" title="web apps" href="https://developer.mozilla.org/docs/Apps?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">web apps</a> on the open web can be fun, fast, cheap, and convenient. I&#8217;ve got more posts forthcoming, at least in my head, but hopefully this one gives some starting points.
-    
-    I may also revise and further develop this post, since I left quite a bit of reading to the reader with links to follow. There are also even more cheap and easy web hosts, so maybe I&#8217;ll explore those as well. In the meantime, feel free to leave some comments!</li> </ul> </li> </ul>
+
+So, again, my hacking cycle with Amazon S3 looks like this:
+
+1.  Save changes
+2.  Switch to browser
+3.  Refresh
+4.  Repeat
+
+Again, this turns out to be nearly indistinguishable from working on `localhost` or with `file://` URLs, because the kicker-s3cmd team has generally already shipped off my changes before I can get to the browser. I&#8217;m sure something similar to the above can be cobbled together on Linux or Windows, but I don&#8217;t work there so I&#8217;ve not bothered to figure it out.
+
+## <span id="In_conclusion">In conclusion</span>
+
+Developing open <a target="_blank" title="web apps" href="https://developer.mozilla.org/docs/Apps?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">web apps</a> on the open web can be fun, fast, cheap, and convenient. I&#8217;ve got more posts forthcoming, at least in my head, but hopefully this one gives some starting points.
+
+I may also revise and further develop this post, since I left quite a bit of reading to the reader with links to follow. There are also even more cheap and easy web hosts, so maybe I&#8217;ll explore those as well. In the meantime, feel free to leave some comments!
 
  [1]: https://developer.mozilla.org/en-US/apps
  [2]: http://en.wikipedia.org/wiki/Single-page_application
