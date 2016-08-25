@@ -41,9 +41,9 @@ tags:
 
 The **Entity**, **Component**, & **System** design pattern is old hat for many game developers. But, keep in mind that I&#8217;m a web developer, and mostly on the server side of things for the past decade or so. One of my last big revelations was discovering the Model, View, & Controller way of doing things. Apropos of that, this ECS thing seems to be a Big Deal of similar proportions.
 
-<!--more-->When I first started working on 
+<!--more-->
 
-[Parsec Patrol][1], I started sketching out a plain vanilla class hierarchy. You know, the kind I saw when I first started learning about Object Oriented Programming.
+When I first started working on [Parsec Patrol][1], I started sketching out a plain vanilla class hierarchy. You know, the kind I saw when I first started learning about Object Oriented Programming.
 
 I started with an `Entity`, which begat a `RenderableEntity`, which begat things like a `SpaceShipWithThrustersRenderableEntity`. I built a game loop that iterated through all the objects in the universe, calling a `tick()` method on each in turn. Simple, just like things I&#8217;d seen in textbooks.
 
@@ -131,7 +131,7 @@ Consider a [**SeekerSystem**][23]:
 *   Also find **Motion** & **Position** for the **Entity** identified as the `target_entity_id`.
 *   Calculate the angle between seeker & target, update **Motion** to steer toward the target.
 
-Notice that each system deals only with data directly relevant to the job at hand. Rather than loading up a full representation of an **Entity**, each **System** only touches the specific **Components** needed. For instance, **MotionSystem** and **SeekerSystem** touch **Motion** and **Position** ****- but never **Shape** **Components**.
+Notice that each system deals only with data directly relevant to the job at hand. Rather than loading up a full representation of an **Entity**, each **System** only touches the specific **Components** needed. For instance, **MotionSystem** and **SeekerSystem** touch **Motion** and **Position** - but never **Shape Components**.
 
 This adds some efficiencies for data stored entirely in memory. But, I expect this will have *huge* implications for data that might someday come from a database or over a network. I&#8217;m also thinking that this pattern lends well to shuffling certain systems off onto background threads or Web Workers &#8211; the need for data coordination is limited to just the relevant **Components** when needed.
 
@@ -143,11 +143,11 @@ This adds some efficiencies for data stored entirely in memory. But, I expect th
   </p>
 </div>
 
-****These **Systems** feel a lot like [particle systems][24]: Tight, focused code working close to the metal with data, skipping a lot of overhead and object juggling. **Components** get modified in place and are rarely discarded &#8211; that seems to save me from a lot of [garbage collection issues][25]. And, if a particular **Component** is not actually used by any existing **Entity**, the **System** looking for it just won&#8217;t perform any work.
+These **Systems** feel a lot like [particle systems][24]: Tight, focused code working close to the metal with data, skipping a lot of overhead and object juggling. **Components** get modified in place and are rarely discarded &#8211; that seems to save me from a lot of [garbage collection issues][25]. And, if a particular **Component** is not actually used by any existing **Entity**, the **System** looking for it just won&#8217;t perform any work.
 
-For the most part, **Systems** act independently & are very loosely coupled. They can cooperate through shared **Component** data &#8211; consider how the **SeekerSystem** modifies the **Motion** **Component**, and the **MotionSystem** uses that data to move the **Position** **Component**. I&#8217;m also playing with [a crude pub/sub messaging system][26] for things like [transmitting damage][27] from one **Entity** to another.
+For the most part, **Systems** act independently & are very loosely coupled. They can cooperate through shared **Component** data &#8211; consider how the **SeekerSystem** modifies the **Motion** **Component**, and the **MotionSystem** uses that data to move the **Position** **Component**. I&#8217;m also playing with [a crude pub/sub messaging system][26] for things like [transmitting damage][27] from one **Entity** to another, but I suspect that might be the wrong approach.
 
-And, once I was freed from my tangled class hierarchy, things started to get fun. The mental cost for adding a new layer to the system dropped fast: Add a new **Component** or two, add a new **System &#8211; **and suddenly **Entities** can do new things!
+And, once I was freed from my tangled class hierarchy, things started to get fun. The mental cost for adding a new layer to the system dropped fast: Add a new **Component** or two, add a new **System** &#8211; and suddenly **Entities** can do new things!
 
 ## <span id="Having_fun_with_it">Having fun with it</span>
 
