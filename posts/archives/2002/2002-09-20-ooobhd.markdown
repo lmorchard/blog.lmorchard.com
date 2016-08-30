@@ -1,0 +1,89 @@
+---
+comments_archived: true
+date: '2002-09-20T17:17:25-04:00'
+layout: post
+title: I'm finally timeshifting radio again
+wordpress_id: 260
+wordpress_slug: ooobhd
+wordpress_url: http://www.decafbad.com/blog/?p=260
+---
+Today's bundle of little discoveries:
+<br /><br />
+<ul>
+<li> <a href="http://www.pth.com/DSBRTuner/">DSBRTuner</a> has been updated to support <a href="http://www.decafbad.com/twiki/bin/view/Main/AppleScript">AppleScript</a> since last I downloaded it.
+</li>
+<li> <a href="http://www.pth.com/DSBRTuner/">DSBRTuner</a> has been updated to record to MP3 on disk.
+</li>
+<li> <a href="http://www.decafbad.com/twiki/bin/view/Main/MacOSX">MacOSX</a> has a command called <code>osascript</code> with which you can launch <a href="http://www.decafbad.com/twiki/bin/view/Main/AppleScript">AppleScripts</a> (among other things) from a shell.
+</li>
+<li> Like <code>perl</code>, <code>osascript</code> has an option <code>-e</code> to run a one-liner from the shell.
+</li>
+</ul>
+<br /><br />
+Given these discoveries, I was able to cobble together a quick pair of scripts with which to schedule recording radio broadcasts to MP3 via cron.
+<br /><br />
+Wow.  Another little project that became, all of a sudden, so much easier than I thought.  I love Unix and OS X.  Before this, I'd been looking high and low for all the parts:  a scheduler, a sound recorder, an app controller, etc &amp; so forth.  Given the source code to DSBRTuner, I was almost about to hack some solutions into it, but I'd never gotten the time.
+<br /><br />
+Now, I can happily record and listen to my favorite late Sunday night radio show during the week again!
+<br /><br />
+Oh yeah, and the ugly scripts:
+<br /><br />
+1) dsbr_start_recording
+<pre>#!/bin/sh
+FREQ=$1
+MP3_FN="$2-`date "+%Y%m%dT%H%M%S"`.mp3"
+OSA=/usr/bin/osascript
+TELL='tell application "DSBRTUNER" to'
+
+open /Applications/DSBRTuner.app
+$OSA -e "$TELL set frequency to $FREQ"
+$OSA -e "$TELL record to file "$MP3_FN""</pre>
+<br /><br />
+2) dsbr_stop_recording
+<pre>#!/bin/sh
+OSA=/usr/bin/osascript
+TELL='tell application "DSBRTUNER" to'
+
+open /Applications/DSBRTuner.app
+$OSA -e "$TELL stop recording"
+$OSA -e "$TELL quit"</pre>
+<!--more-->
+shortname=ooobhd
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221089849">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://shawnyeager.com/monolog/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=546b2f1947278db93fa8f7c734876111&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://shawnyeager.com/monolog/">Shawn</a>
+                </div>
+                <a href="#comment-221089849" class="permalink"><time datetime="2002-09-20T19:33:08">2002-09-20T19:33:08</time></a>
+            </div>
+            <div class="content">Damnation, that's cool as all hell.  As you said, UNIX and OS X rock.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221089851">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.redmonk.net"><img src="http://www.gravatar.com/avatar.php?gravatar_id=f5d280e17d5f7340d7d1dc6728c5a335&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.redmonk.net">Steve Ivy</a>
+                </div>
+                <a href="#comment-221089851" class="permalink"><time datetime="2002-09-20T19:52:25">2002-09-20T19:52:25</time></a>
+            </div>
+            <div class="content">Heh, One more example of poking our computers into everyday life again. This is awesome.</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

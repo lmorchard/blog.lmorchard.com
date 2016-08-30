@@ -1,0 +1,100 @@
+---
+comments_archived: true
+date: '2003-01-08T04:06:39-05:00'
+layout: post
+title: More code toward the personal web proxy
+wordpress_id: 349
+wordpress_slug: ooocgf
+wordpress_url: http://www.decafbad.com/blog/?p=349
+---
+In case anyone's interested, I've been hacking like mad on my toy proxy since New Years'.  Check out <a href="http://www.decafbad.com/twiki/bin/view/Main/PersonalWebProxy">PersonalWebProxy</a> for current downloads.  It's got primitive forms of proxy filters, browser-based UI, <a href="http://www.decafbad.com/twiki/bin/view/Main/RDF">RDF</a>-based metadata management, logging, config, plugins, and some other goodies.  So far, the major plugins include:
+<br /><br />
+<ul>
+<li> a noisy logger;
+</li>
+<li> a content archiver that captures and saves all response headers and content in a directory structure loosely based on the requested URL;
+</li>
+<li> an initial metadata harvester that fills up the <a href="http://www.decafbad.com/twiki/bin/view/Main/RDF">RDF</a> database with triples based on headers and details encountered during browsing
+</li>
+</ul>
+<br /><br />
+It works, and does stuff, but I'm sure it demonstrates a complete lack of understanding of large portions of the <a href="http://www.decafbad.com/twiki/bin/view/Main/Twisted">Twisted</a> framework, <a href="http://www.decafbad.com/twiki/bin/view/Main/Python">Python</a> itself, and likely causes forest fires.  So, I hope many people will download it, snicker at it, and maybe set me straight on a few things and contribute a few patches and plugins.
+<br /><br />
+<a href="http://www.decafbad.com/twiki/bin/view/Main/ShareAndEnjoy">ShareAndEnjoy</a>!
+<!--more-->
+shortname=ooocgf
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221083153">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=9583aa697a53d1b9878a975d539701bf&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="">Anon</a>
+                </div>
+                <a href="#comment-221083153" class="permalink"><time datetime="2003-01-08T12:33:11">2003-01-08T12:33:11</time></a>
+            </div>
+            <div class="content">A noisy logger: "Oh, I'm a lumberjack and I'm okay.  I work all night and I sleep all day."</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221083157">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.a1e1blog.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=e1dd9659ab197d276c87cc80116f73e0&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.a1e1blog.com">Ewan Grantham</a>
+                </div>
+                <a href="#comment-221083157" class="permalink"><time datetime="2003-01-09T12:42:42">2003-01-09T12:42:42</time></a>
+            </div>
+            <div class="content">As one of those horrid Windows users who still exists (mainly because of corporate and client policy), if I DL all the supporting tools and your latest tarball, will I be able to run this under XP? Or would I be wasting my time and your bandwidth?</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221083161">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.decafbad.com">l.m.orchard</a>
+                </div>
+                <a href="#comment-221083161" class="permalink"><time datetime="2003-01-09T12:48:15">2003-01-09T12:48:15</time></a>
+            </div>
+            <div class="content">Ewan: Hmm, good question.  :)  So far I've only tries this thing on OS X.  In theory, if you had all  the prerequisites, you should be able to run it.  I think the only binary package is the ZODB, for which I think there's a Windows binary.
+
+I hadn't yet given much thought to actually making it convenient to run yet  :)  Heh, heh.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221083163">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.a1e1blog.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=e1dd9659ab197d276c87cc80116f73e0&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.a1e1blog.com">Ewan Grantham</a>
+                </div>
+                <a href="#comment-221083163" class="permalink"><time datetime="2003-01-09T15:47:46">2003-01-09T15:47:46</time></a>
+            </div>
+            <div class="content">Convenient to run can wait until you want the world beating down your door. On the other hand, my interest in nightmares trying to get betas to run only to find out that I have the wrong OS or the author assumed a certain graphics/sound/network card or the company assumed you would upgrade rather than install new...
+
+Well, I'm just old enough that I want to limit my head banging to getting things to work that "should" work rather than trying to figure out if they can work. Probably a sign of old age.
+
+Anyway, I'll keep my eyes on the project, and when it appears you're ready for the semi-literate to start playing - or when I have free time to code and can convince myself I want this bad enough - then I'll grab it.
+
+Thanks for listening,
+Ewan</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    
