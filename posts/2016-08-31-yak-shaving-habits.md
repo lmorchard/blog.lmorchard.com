@@ -50,7 +50,7 @@ So, umm, yeah. Did you notice that I never used the tablet, the MacBook, or the 
 
 <a data-flickr-embed="true"  href="https://www.flickr.com/photos/deusx/28511732042/in/datetaken-public/" title="20160728_200320"><img src="https://c3.staticflickr.com/9/8782/28511732042_815448af85.jpg" alt="20160728_200320" class="inset wide right"></a>
 
-Recently, [I built worktables out of 2x4s and plywood][worktables]. It was my first time really working with wood. But, I did it: Found plans. Found a lumberyard. Got lumber & tools. Picked a weekend and got super sweaty in the garage making lots of mistakes with wood. I produced a pair of crude but solid worktables.
+Recently, [I built worktables out of 2x4s and plywood][worktables]. It was my first time really working with wood since shop class in High School. But, I did it: Found plans. Found a lumberyard. Got lumber & tools. Picked a weekend and got super sweaty in the garage making lots of mistakes with wood. I produced a pair of crude but solid worktables.
 
 [worktables]: https://www.flickr.com/photos/deusx/28511732042/in/datetaken-public/
 
@@ -64,7 +64,7 @@ If I don't make another table or keyboard, that's cool: I've never considered my
 
 ## How to get past this?
 
-The funny thing is that I *have* written a bunch. I really like words. I've been told I'm good at it. A book publisher even paid me for it, more than once!
+The funny thing is that I *have* written a bunch. I really like words. I've been told I'm good at it. [A book publisher even paid me for it, more than once!](http://amzn.to/2bW4moK)
 
 I also know I produce some terrible stuff. But, writers I admire have admitted the same. The key is to just keep writing and get better. Clean up the junk in editing.
 
