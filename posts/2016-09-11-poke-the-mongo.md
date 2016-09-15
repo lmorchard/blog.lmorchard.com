@@ -67,7 +67,7 @@ Pico-8 is game making as a social activity, and the system has all the batteries
 
 As I tinkered, it occurred to me that Pico-8 is less a serious game development system and more a game about making games. Through intentional constraints & platform quirks, it offers offer creative hooks & puzzles.
 
-The constraints mean it's not as easy to get lost in options or feel overwhelmed. It's hard to build anything huge, so there's less of a compulsion to go beyond doodles or a few specific game mechanics. I can make something derpy but good enough and move on without stressing about my artistic skills.
+The constraints mean it's not as easy to get lost in options or feel overwhelmed. For example, [here's a Pico-8 API cheatsheet](https://neko250.github.io/pico8-api/) - it's pretty much all I've needed! It's also hard to build anything huge, so there's less of a compulsion to go beyond doodles or a few specific game mechanics. I can make something derpy but good enough and move on without stressing about my artistic skills.
 
 But also, some folks have found ways to really push the boundaries of the system - and that is a puzzle in itself. It's great to get a fresh dose of that old school awe from seeing a clever hack make the machine do something it wasn't meant to do. It's akin to seeing someone pull off some nasty moves in game streams where I know just enough to realize what's happening.
 
