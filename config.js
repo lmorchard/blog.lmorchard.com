@@ -27,7 +27,7 @@ try {
     region: "us-east-1",
     cloudfront: {
       distribution: process.env.CLOUDFRONT_DISTRIBUTION,
-      wait: true,
+      wait: false,  // this takes a long while
       indexRootPaths: true
     }
   };
