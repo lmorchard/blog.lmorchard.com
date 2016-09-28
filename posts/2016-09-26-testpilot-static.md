@@ -32,9 +32,7 @@ A year later, these assumptions didn't quite pan out:
 
 * We found it's best to stay out of the way of teams building Test Pilot experiments - let them manage their own services as necessary, rather than be tied to the delivery cadence of the core project.
 
-* The sign-in requirement turned away many potential users. But, we didn't need accounts to facilitate experiment participation anyway. Our metrics are anonymous and a Firefox add-on manages opt-in. 
-
-  Accounts ended up being private data we had to keep secure, but only used for email notifications. We have better ways to manage email subscriptions across Mozilla - so one less wheel to reinvent!
+* The sign-in requirement turned away many potential users. But, we didn't need accounts to facilitate experiment participation anyway. Our metrics are anonymous and a Firefox add-on manages opt-in. Accounts ended up being private data we had to keep secure, but only used for email notifications. We have better ways to manage email subscriptions across Mozilla - so one less wheel to reinvent!
 
 ## Didn't need that server anyway
 
