@@ -3,7 +3,7 @@ exports.site = {
   "subtitle": "It's all spinning wheels and self-doubt until the first pot of coffee.",
   "language": "en",
   "baseurl": "",
-  "absolute_baseurl": "http://blog.lmorchard.com",
+  "absolute_baseurl": "https://blog.lmorchard.com",
   "domain": "blog.lmorchard.com",
   "author": {
     "full_name": "Les Orchard",
