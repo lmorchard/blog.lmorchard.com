@@ -24,6 +24,11 @@ try {
     key: process.env.AWS_ACCESS_KEY_ID,
     secret: process.env.AWS_SECRET_ACCESS_KEY,
     bucket: "blog.lmorchard.com",
-    region: "us-east-1"
+    region: "us-east-1",
+    cloudfront: {
+      distribution: process.env.CLOUDFRONT_DISTRIBUTION,
+      wait: true,
+      indexRootPaths: true
+    }
   };
 }
