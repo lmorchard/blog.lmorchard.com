@@ -27,7 +27,7 @@ Since then, I’ve been thinking about why I post anything anywhere. This popped
 
 > Is it kind?
 
-I don’t remember where that came from - probably attributed to whomever sounded wisest at the time the meme was slapped together. Whatever the source, I’ve asked myself those three questions each time I’ve been tempted to break my social media fast over the past few days.
+I don’t remember where I picked that up - probably attributed to whomever sounded wisest at the time the meme was slapped together. Whatever the source, I’ve asked myself those three questions each time I’ve been tempted to break my social media fast over the past few days.
 
 And, so far, I haven’t liked the answers.
 
@@ -35,7 +35,7 @@ And, so far, I haven’t liked the answers.
 
 **Is it necessary?** It’s cathartic to hop madly and jab a finger at something infuriating or unfair. Is that sufficient? I can’t say if I’ve swayed anyone or fixed anything with tweet storms or sharing streaks. I get likes & shares & nodding heads, but that’s just bonding with folks who already agree.
 
-**Is it kind?** I’d like to think that helping expose new information & perspectives is kind. I’d like to think that shining a light on things going wrong is kind. But, maybe it’s not always kind. Maybe sometimes it’s received as a bewildering assault of meanness.
+**Is it kind?** I’d like to think that helping expose new information & perspectives is kind. I’d like to think that shining a light on things going wrong is kind. But, maybe it’s not always kind. Maybe sometimes it’s received as a bewildering assault of meanness. You know, I'm having particular trouble with the kindness question just now.
 
 I’ve been alternating between numb and feeling all the things. I’ve been trying to work. I’ve been crying a lot. I talk with my amazing wife, but I don’t want to turn the firehose on her.
 
