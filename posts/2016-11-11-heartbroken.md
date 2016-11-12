@@ -49,6 +49,10 @@ I should work on changing that in my life. Again, if I had that social anxiety p
 
 If I actually post this, it’s because I decided it had good-enough answers to those three questions. I don’t have a conclusion to write. I’m not sure what to do next. Less shitposting. More thinking. Hopefully something more productive soon.
 
+In the meantime, I made a mixtape while I was fasting. Maybe you'll like it:
+
+<iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Almorchard%3Aplaylist%3A6VAci6bT2I9fnE2sZLYJA3" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <!-- vim: set wrap linebreak nolist wrapmargin=0 textwidth=0 syntax=markdown formatoptions-=t: -->
