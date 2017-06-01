@@ -17,7 +17,7 @@ TL;DR, Here's the thing about a pond in your backyard: It's a responsibility. Wa
 
 Thinking about this reminded me of something else: A few weeks ago, I was tinkering with setting up Mastodon instances. I bought some cheap domain names, set up some virtual hosts on my hobby server. They're all working - but I stopped short of opening up account registration. 
 
-I was suddenly aware of a feeling of anticipated responsibility. Each of these Mastodon instances would be backyard ponds. I'd have to keep the pumps running, make sure to skim debris. I'd have to monitor for wildlife setting up homes in and around them. I'd have to work to keep these things from becoming hazards to myself and my neighbors.
+I was suddenly aware of a feeling of anticipated responsibility. Each of these Mastodon instances would be backyard ponds. I'd have to keep the pumps running, make sure to skim debris. I'd have to monitor for wildlife setting up homes in and around them. I'd have to work to keep these things from becoming hazards to myself and my neighbors. Hell, I could even be exposing myself to legal peril through what I might inadvertantly enable through neglect.
 
 And, for what? The pond in our backyard has been a nice feature. I've spent a few hours by it with my laptop. My wife seems to like it fine. Maybe some friends & neighbors will enjoy gathering around it this summer. In contrast, the prospect of hosting social media watering holes for internet randos - let alone acquaintances and friends - fills me with dread.
 
