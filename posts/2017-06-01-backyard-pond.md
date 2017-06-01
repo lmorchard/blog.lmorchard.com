@@ -7,7 +7,7 @@ Last fall, we bought a house with a pond in back. At first, I didn't really want
 
 It's not a large pond - 6' x 7' x 2' and roughly butterfly-shaped. It's got a little turtle that spits water pumped up from a filter box on the bottom. The pond liner is hard plastic, like a kiddie pool, covered in gravel and rocks to add a more natural look. The whole arrangement is probably 10 years old.
 
-In March, I drained it, cleaned it, and started the fountain again. As I got busy over the next weeks, I discovered the liner had leaks - mainly cracks from the aforementioned rocks over many seasons' freezes & thaws. I had to keep adding water to maintain the level: if it dropped below the fountain's filter box, the pump made horrible noises as it ran dry.
+In March, I drained it, cleaned it, refilled it, started the fountain again. As I got busy over the next weeks, I discovered the liner had leaks - mainly cracks from the aforementioned rocks over many seasons' freezes & thaws. I had to keep adding water to maintain the level: if it dropped below the fountain's filter box, the pump made horrible noises as it ran dry.
 
 I got tired of adding - and wasting - water. So, I turned off the pump and let things go while I researched next steps. It was about a week before I acquired a new rubber liner - and then another few days of rain before I had a sunny day to work on it over the weekend.
 
