@@ -13,7 +13,7 @@ I got tired of adding - and wasting - water. So, I turned off the pump and let t
 
 As it turns out, that's just enough time in May for a not-quite-empty backyard pond to transform into a murky swamp teeming with wriggling life. Mostly mosquito larvae, but there were plenty of other things I didn't quite recognize. So, I cleaned the whole thing out again, starting over with the new liner. It's back in business again - the water's stayed put and been clear for a week so far.
 
-TL;DR, Here's the thing about a pond in your backyard: It's a responsibility. Water and debris collect. It attracts wildlife - some kinds less desirable than others. Left unchecked, it becomes a smelly, stagnant soup that can presents a hazard to yourself and your neighbors.
+TL;DR, Here's the thing about a pond in your backyard: It's a responsibility. Water and debris collect. It attracts wildlife - some kinds less desirable than others. Left unchecked, it becomes a smelly, stagnant soup that can present hazards to yourself and your neighbors.
 
 Thinking about this reminded me of something else: A few weeks ago, I was tinkering with setting up Mastodon instances. I bought some cheap domain names, set up some virtual hosts on my hobby server. They're all working - but I stopped short of opening up account registration. 
 
