@@ -29,7 +29,16 @@ Consider the generous admins who run instances of Mastodon & GNU Social & PostAc
   
 But, what about Twitter and Facebook and Reddit? Hell, what about game companies running servers for multiplayer games?
 
-These ponds smell swampy. Their filtration pumps are nowhere near big enough to keep the water from stagnating. Their owners have decided that there's value to be extracted from entertaining whatever wildlife arrives - even if that results in sizeable pockets of wriggling things that hatch into neighborhood hazards. I think these pond owners leave things unchecked because the attention would eat into (or completely wipe out) the value extracted from monetized attention.
+These ponds smell swampy. Their filtration pumps are nowhere near big enough to keep the water from stagnating. Their owners have decided that there's value to be extracted from entertaining whatever wildlife arrives - even if that results in sizeable pockets of wriggling things that hatch into neighborhood hazards. 
 
-The usual excuse is expense and difficulty, with an occasional handwave at "free speech" as a rationalization. But, could I get away with that if I left the pond in my backyard as a Petri dish? Maybe, but I think the neighbors - and maybe the local authorities (including my wife) - would have something to say about it.
+I think these pond owners leave things unchecked because treating the water would eat into (or completely wipe out) the value extracted from monetized attention. The usual excuse is expense and difficulty, with an occasional lazy handwave at "radical free speech" as a rationalization. But, could I get away with that if I left the pond in my backyard as a Petri dish? I suspect the neighbors - and maybe the local authorities (including my wife) - would have something to say about it.
 
+If they're mainly incentivized by the value they extract from the sludge, what could possibly motivate them to clean things up spontaneously? That said, I'm not sure who could effectively nudge these pond owners into cleaning up their water. Maybe there'll be some law - doubtful at best, disastrous at worse. Maybe all the valuable wildlife needs to migrate away - hard to predict and probably just dooms the ponds before they decide to change things.
+
+But, you know what? I don't care about their ponds or their value extraction. I care about hanging out with the wildlife and the water.
+
+Maybe where we need to get to is more ponds run by people who care and get rewarded for the effort. It feels like we need more cooperatives and more volunteer efforts. Each on smaller scales, because people can only take care of so much water. But, I don't really have great ideas on how to make this happen. I guess that's what inspired me to tinker with Mastodon instances. I'd like to see cleaner ponds. I just fall short of actually wanting to take on the responsibilty. Or feeling like I'm the right guy to do it.
+
+Anyway, I guess that's a fuzzy realization I've had: In more traditional other social gatherings, there's so much emotional labor and organizational effort that chews up value. In trying to mechanize things, the whole ad-supported social media industry seems powered by as little care as possible to extract as much value as possible - in a way, the value is skimmed from monetized neglect, not monetized eyeballs. It kind of feels to me like the whole structure will fall over if we ever really figure that out or decide this sort of thing is no longer acceptable in a society.
+
+Is that a good conclusion? Not sure. Still thinking.
