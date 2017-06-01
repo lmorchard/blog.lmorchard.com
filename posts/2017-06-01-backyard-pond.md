@@ -3,7 +3,7 @@ title: "Backyard Pond"
 tags: [social, socialmedia, gaming, abuse, harassment]
 ---
 
-Last fall, we bought a house with a pond in back. At first, I didn't even really want it. I had a notion to fill it in, maybe replace it with a fire pit. By spring, we decided to keep it.
+Last fall, we bought a house with a pond in back. At first, I didn't really want it. I had a notion to fill it in, maybe replace it with a fire pit. By spring, we decided to keep it.
 
 It's not a large pond - 6' x 7' x 2' and roughly butterfly-shaped. It's got a little turtle that spits water pumped up from a filter box on the bottom. The pond liner is hard plastic, like a kiddie pool, covered in gravel and rocks to add a more natural look. The whole arrangement is probably 10 years old.
 
