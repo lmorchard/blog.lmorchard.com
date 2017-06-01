@@ -19,7 +19,7 @@ Thinking about this reminded me of something else: A few weeks ago, I was tinker
 
 I was suddenly aware of a feeling of anticipated responsibility. Each of these Mastodon instances would be backyard ponds. I'd have to keep the pumps running, make sure to skim debris. I'd have to monitor for wildlife setting up homes in and around them. I'd have to work to keep these things from becoming hazards to myself and my neighbors.
 
-And, for what? The pond in our backyard has been a nice feature. I've spent a few hours by it with my laptop. Maybe some friends & neighbors will enjoy gathering around it this summer. In contrast, the prospect of hosting social media watering holes for internet randos - let alone acquaintances and friends - fills me with dread.
+And, for what? The pond in our backyard has been a nice feature. I've spent a few hours by it with my laptop. My wife seems to like it fine. Maybe some friends & neighbors will enjoy gathering around it this summer. In contrast, the prospect of hosting social media watering holes for internet randos - let alone acquaintances and friends - fills me with dread.
 
 So, that's me. I'm not going to stand up a public Mastodon instance unless I convince myself that taking on the responsibility will pay off. I haven't imagined a good scenario yet.
 
@@ -27,15 +27,13 @@ But, what about other folks?
 
 Consider the generous admins who run instances of Mastodon & GNU Social & PostActiv & everything else that participates in the OStatus federation. Those folks all have their reasons and I think they've accepted the responsibility to keep their ponds running clear. At least, with consideration for varied local definitions of "clear" in codes of conduct and whatnot.
   
-But, what about Twitter and Facebook and Reddit? Hell, what about game companies running servers for multiplayer games?
+But, what about Twitter and Facebook and Reddit? Hell, what about companies running servers for multiplayer games?
 
-Do these folks not feel any of the dread I felt even considering setting up my own social media ponds? Their ponds smell swampy. Their filtration pumps are not great. I think they leave things unchecked because treating the water would eat into (or completely wipe out) the value extracted from the wildlife. The usual excuse is expense and difficulty, with an occasional lazy handwave at "radical free speech" as a rationalization. 
+Do these folks not feel any of the dread & responsibility I felt even considering setting up my own ponds online? Their ponds smell swampy. Their filtration pumps are not great. They leave things unchecked, because treating the water would eat into (or completely wipe out) the value extracted from the wildlife. The usual excuse is expense and difficulty, with an occasional lazy handwave at "radical free speech" as a rationalization.
 
-But, could I get away with that if I left the pond in my backyard as a Petri dish? I suspect the neighbors - and maybe the local authorities (including my wife) - would have something to say about it. That said, I'm not sure who or what could nudge these pond owners into cleaning up their water. Maybe there'll be some laws - most likely ineffective or disastrous. Maybe all the valuable wildlife needs to migrate away - hard to predict and just dooms the ponds before they decide to change things.
+But, could I get away leaving my pond as a Petri dish? I suspect the neighbors - and maybe the local authorities (including my wife) - would have something to say about it. That said, I'm not sure who or what could nudge these pond owners into cleaning up their water. Maybe there'll be some laws - most likely ineffective or disastrous. Maybe all the valuable wildlife needs to migrate away - but we all seem not to mind the stinky water enough to leave yet.
 
-But, you know what? I don't care about their ponds or their value extraction. I care about hanging out with the wildlife and the water.
-
-Maybe where we need to get to is more ponds run by people who care and get rewarded for the effort. More cooperatives and more volunteer efforts. Maybe some actually for pay. Each on smaller scales, because people can only take care of so much water & wildlife. But, I don't have great ideas on how to make this happen. I guess that's what inspired me to tinker with Mastodon instances - I'd like to see cleaner ponds. I just fall short of actually wanting to take on the responsibilty. Or feeling like I'm the right guy to do it.
+Maybe we need more ponds run by people who care - and get rewarded for the effort. More cooperatives and more volunteer efforts. Maybe some actually for pay! Each on smaller scales, because people can only take care of so much water & wildlife. But, I don't have great ideas on how to make this happen. I guess that's what inspired me to tinker with Mastodon instances - I'd like to see cleaner ponds. I just fall short of actually wanting to take on the responsibilty. Or feeling like I'm the right guy to do it.
 
 Anyway, I guess that's a fuzzy realization I've had: In more traditional other social gatherings, there's so much emotional labor and organizational effort that chews up value. In trying to mechanize things, the whole ad-supported social media industry seems powered by as little care as possible to extract as much value as possible - in a way, the value is skimmed from monetized neglect, not monetized eyeballs. It kind of feels to me like the whole structure will fall over if we ever really figure that out or decide this sort of thing is no longer acceptable in a society.
 
