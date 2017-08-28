@@ -1,6 +1,6 @@
 ---
 title: "Backyard Pond"
-tags: [social, socialmedia, gaming, abuse, harassment]
+tags: [social, socialmedia, gaming, abuse, harassment, mastodon, ostatus]
 thumbnail: https://farm5.staticflickr.com/4250/34786107212_d5bfb6088a_q_d.jpg
 ---
 
