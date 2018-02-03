@@ -2,15 +2,17 @@ var gulp = require('gulp');
 var connect = require('gulp-connect');
 
 var config = require('./config');
-var requireDir = require('require-dir');
 try {
-  config.indexes = requireDir('./build/index', { recurse: true });
+  config.indexes = {};
+  ['date', 'month', 'posts', 'tag', 'year'].forEach(name => {
+    config.indexes[name] = require(`./build/index/${name}.json`);
+  });
 } catch (e) {
   /* no-op */
 }
 
-var requireDir = require('require-dir');
-requireDir('./lib/tasks', { recurse: true });
+['archives', 'deploy', 'feeds', 'indexes', 'pages', 'posts', 'static']
+  .forEach(name => require(`./lib/tasks/${name}`));
 
 gulp.task('default', [ 'server' ]);
 
