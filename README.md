@@ -20,35 +20,3 @@ gulp deploy
 ```
 gulp
 ```
-
-## TODO
-
-- [ ] Group images & assets alongside posts
-
-- [ ] Rework some things into npm scripts run with npm-run-all --parallel
-
-- [ ] Auto-convert Flickr photo links to downloaded images with scaled thumbnails
-
-- [ ] Auto-generate scaled images from thumbnails identified in posts
-
-- [ ] Revive the comments archiver to preserve closed Disqus threads
-
-- [ ] Genericize this stuff into a reusable package?
-
-- [ ] Build a page to author posts [by logging into the Github API](https://github.com/vrypan/jekyll-post-via-web)
-
-- [ ] Consider versioning & long-expiring CSS & JS
-  * https://github.com/sindresorhus/gulp-rev
-
-- [ ] Use awspublish-router for more per-file-type handling?
-  * https://www.npmjs.com/package/gulp-awspublish-router
-
-- [ ] Replace Font Awesome with SVG icons for top tags
-
-- [ ] Switch to Webpack for JS bundling
-
-- [ ] Quick gulp task to produce a new boilerplated post
-
-- [ ] Switch from Swig to [Nunjucks](http://mozilla.github.io/nunjucks/) because it's a Mozilla project hooray
-
-- [ ] Prev / next nav links for posts?
