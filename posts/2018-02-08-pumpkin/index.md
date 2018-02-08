@@ -222,7 +222,9 @@ I’ve mused about maybe building some sort of voice assistant into it: talk to 
 
 I could upgrade from LED matrices to [full-blown OLED screens][oled]. Though, if I did that, I've got a notion to build myself a replica of 790 from Lexx. I'd probably regret it, but he seems more my kind of personal assistant than current offerings like Alexa or Siri:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/s8d1mfLa5Vk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<div style="position: relative; padding-bottom: 56.25%;">
+  <iframe class="lazyload" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="" data-src="https://www.youtube.com/embed/s8d1mfLa5Vk" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+</div>
 
 [oled]: https://learn.adafruit.com/animated-electronic-eyes-using-teensy-3-1/overview
 
