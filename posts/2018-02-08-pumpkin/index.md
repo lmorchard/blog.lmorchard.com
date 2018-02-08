@@ -1,5 +1,5 @@
 ---
-title: I made an internet pumpkin
+title: I Made a WiFi Pumpkin
 tags:
   - diy
   - hardware
