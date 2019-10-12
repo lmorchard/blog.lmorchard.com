@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name="microtip" content="1Ad1VPQBBk7WhyJPfB6cAgZoBs3gUngurN" data-currency="btc">
+    <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen, projection" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>More autodiscovery for bots: Finding weblogs via RSS referers - blog.lmorchard.com</title>
+    <meta name="author" content="" />
+
+    
+      <link href="/index.rss" rel="alternate"
+        title="blog.lmorchard.com" type="application/rss+xml" />
+    
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="blog.lmorchard.com"/>
+
+    
+  <meta property="og:title" content="More autodiscovery for bots: Finding weblogs via RSS referers" />
+  <meta property="og:url" content="https://blog.lmorchard.com/2002/06/07/oooahe//" />
+  
+  <meta property="og:description" content="Okay, so now we&amp;apos;ve got a bit further toward our News Aggregators leaving vapor trails.  Thanks, Morbus.  Thanks, Dave.  There&amp;apos;s still some more work that needs to be done, though.  In specific, how do I get to you via your trail?  Or, to be even more specific- how to my agents get to you? Sure, I can look in my referers now, and filter on my RSS feed to see a footprints.  And for Radio users, I can pluck out the userWeblog=... param added to Radio aggregator referers.  For others, like the page I set up, or Adam set up, or Jeff set up, I can try to assume that the URL leads... somewhere. But, in thinking about this further, none of this actually fulfills my wish.  I originally wanted to see these referers lead directly to a reader&amp;apos;s blog.  They don&amp;apos;t.  But, that&amp;apos;s fine: I kind of like the idea of the thank you / hello / I&amp;apos;m reading your page.  However, I still want to find you. Or, rather, as I alluded to in the first paragraph, I want my agents to find you.  And my agents are only semi-intelligent.  So how about we set a standard by which bots can autodiscover your weblog, home page, whatever:If you don&amp;apos;t care to put up a special page to point to as your referer when aggregating news, then point a URL somewhere, anywhere, but include a URL to your weblog in a query parameter named &quot;userWeblog&quot;.  This covers an already de facto standard set by Radio.If you do care to set up an acknowledgement page for your readers, include a LINK tag in the page&amp;apos;s HEAD pointing to the home page of your site as the table of contents: In this way, rock bangers cobbling together their own blog spiders can tell them where to go and for what to look.  Get this meme spread, and we&amp;apos;ll be seeing more community crawling bots very soon now. In fact, I like this LINK tag now.  I think it should be put on all of your weblog pages.  Especially as I start thinking more about revisiting referers: A LINK back to your weblog home as the table of contents would allow me to maybe enrich my backlinks, especially knowing where your site root is.  (If my eyes do not deceive, it looks like backlinks on Mark Pilgrim&amp;apos;s blog do some RSS autodiscovery right now.) Anyway, let me know what you think. " />
+
+
+
+  </head>
+  <body>
+
+    <section class="main">
+
+      <header>
+        <h1><a href="/">blog.lmorchard.com</a></h1>
+        <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+        <nav>
+
+          <label for="nav-trigger"></label>
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+          <ul>
+            <li><a href="http://lmorchard.com/">about me</a></li>
+            <li><a href="/archives.html">archives</a></li>
+          </ul>
+
+        </nav>
+      </header>
+
+      <section class="content">
+<article class="post ">
+    <time title="2002-06-07T00:00:00.000Z" pubdate="2002-06-07T00:00:00.000Z">
+      <a href="/"><i class="fa fa-home"></i></a>
+      &raquo;
+      <a href="/2002">2002</a>
+      &raquo;
+      <a href="/2002/06">June</a>
+      &raquo;
+      <span>07</span>
+      &raquo;
+    </time>
+    <h1 class="title">More autodiscovery for bots: Finding weblogs via RSS referers</h1>
+    
+    <section class="post-content"><p><p>Okay, so now we&#39;ve got a bit further toward our News Aggregators leaving vapor trails.  Thanks, <a href="http://www.disobey.com/amphetadesk">Morbus</a>.  Thanks, <a href="http://radio.userland.com">Dave</a>.  There&#39;s still some more work that needs to be done, though.  In specific, how do I get to <i>you</i> via your trail?  Or, to be even more specific- how to my <i>agents</i> get to you?</p></p>
+<p><p>Sure, I can look in my referers now, and filter on my <a href="http://www.decafbad.com/newslog.xml">RSS feed</a> to see a footprints.  And for Radio users, I can pluck out the userWeblog=... param added to Radio aggregator referers.  For others, like the page <a href="http://www.decafbad.com/thanks-for-feeding-me.phtml">I set up</a>, or <a href="http://ipwebdev.com/radio/ImReadingYourRSSFeed.php">Adam set up</a>, or <a href="http://radio.weblogs.com/0001018/xml.aggregator.html">Jeff set up</a>, I can try to assume that the URL leads... somewhere.</p></p>
+<p><p>But, in thinking about this further, none of this <i>actually</i> fulfills <a href="http://www.decafbad.com/news_archives/000124.phtml">my wish</a>.  I originally wanted to see these referers lead directly to a reader&#39;s blog.  They don&#39;t.  But, that&#39;s fine: I kind of like the idea of the thank you / hello / I&#39;m reading your page.  However, I still want to find you.</p></p>
+<p><p>Or, rather, as I alluded to in the first paragraph, I want my <i>agents</i> to find you.  And my agents are only semi-intelligent.  So how about we set a standard by which bots can autodiscover your weblog, home page, whatever:<ol><li>If you don&#39;t care to put up a special page to point to as your referer when aggregating news, then point a URL somewhere, anywhere, but include a URL to your weblog in a query parameter named &quot;userWeblog&quot;.  This covers an already de facto standard set by Radio.</li><li>If you <i>do</i> care to set up an acknowledgement page for your readers, include a LINK tag in the page&#39;s HEAD pointing to the home page of your site as the table of contents: <code><LINK HREF="http://www.decafbad.com" REL="contents"></code></li></ol>In this way, rock bangers cobbling together their own blog spiders can tell them where to go and for what to look.  Get this meme spread, and we&#39;ll be seeing <a href="http://diveintomark.org/archives/2002/06/02.html#social_networks_by_referrer">more community crawling bots</a> very soon now.</p></p>
+<p><p>In fact, I like this LINK tag now.  I think it should be put on <i>all</i> of your weblog pages.  Especially as I start thinking more about revisiting referers: A LINK back to your weblog home as the table of contents would allow me to maybe enrich my backlinks, especially knowing where your site root is.  (If my eyes do not deceive, it looks like backlinks on <a href="http://www.diveintomark.org/">Mark Pilgrim&#39;s blog</a> do some <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> autodiscovery right now.)</p></p>
+<p><p>Anyway, let me know what you think.</p>
+<!--more-->
+shortname=oooahe</p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221083051">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.10500bc.org"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2a158ec6895b9af4ce255febfe69ffee&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.10500bc.org">Josh Cooper</a>
+</div>
+<a href="#comment-221083051" class="permalink"><time datetime="2002-06-07T14:35:16">2002-06-07T14:35:16</time></a>
+</div>
+<div class="content">I like the userWeblog idea. If all the toolkits out there
+would use it that would be good for us rock bangers.
+I agree on the LINK tag being on every page also. I&#39;m gonna
+go ahead and add it to all my templates as well.
+Of course if a site is already using a LINK tag, then your
+agent could always pull the feed, then get the site link
+directly from that. This of course is only good for those
+sites that do use the LINK tag and have it on all there
+pages.
+Over all I think its a great idea enriching the weblog community.</div>
+</li>
+<li class="comment" id="comment-221083052">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.10500bc.org"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2a158ec6895b9af4ce255febfe69ffee&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.10500bc.org">Josh Cooper</a>
+</div>
+<a href="#comment-221083052" class="permalink"><time datetime="2002-06-07T14:42:02">2002-06-07T14:42:02</time></a>
+</div>
+<div class="content">doh! I was in a dreamland when i made the 3 statement. That has nothing todo with what your trying to solve just another problem, you still have to know where the referer is coming from. first. Anyway I better go find a Red Bull and wake up some more.</div>
+</li>
+</ul>
+</div>
+</section>
+</article>
+
+
+
+</section>
+
+      <footer>
+        <img id="growup" src="/uploads/growup.jpg">
+      </footer>
+
+    </section>
+
+    <section id="javascript">
+      <script src="/js/main.js"></script>
+      
+    </section>
+
+  </body>
+</html>

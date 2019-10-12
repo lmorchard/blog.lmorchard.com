@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name="microtip" content="1Ad1VPQBBk7WhyJPfB6cAgZoBs3gUngurN" data-currency="btc">
+    <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen, projection" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>I'm finally timeshifting radio again - blog.lmorchard.com</title>
+    <meta name="author" content="" />
+
+    
+      <link href="/index.rss" rel="alternate"
+        title="blog.lmorchard.com" type="application/rss+xml" />
+    
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="blog.lmorchard.com"/>
+
+    
+  <meta property="og:title" content="I&#39;m finally timeshifting radio again" />
+  <meta property="og:url" content="https://blog.lmorchard.com/2002/09/20/ooobhd//" />
+  
+  <meta property="og:description" content="Today&amp;apos;s bundle of little discoveries:    DSBRTuner has been updated to support AppleScript since last I downloaded it.   DSBRTuner has been updated to record to MP3 on disk.   MacOSX has a command called osascript with which you can launch AppleScripts (among other things) from a shell.   Like perl, osascript has an option -e to run a one-liner from the shell.    Given these discoveries, I was able to cobble together a quick pair of scripts with which to schedule recording radio broadcasts to MP3 via cron.  Wow.  Another little project that became, all of a sudden, so much easier than I thought.  I love Unix and OS X.  Before this, I&amp;apos;d been looking high and low for all the parts:  a scheduler, a sound recorder, an app controller, etc &amp; so forth.  Given the source code to DSBRTuner, I was almost about to hack some solutions into it, but I&amp;apos;d never gotten the time.  Now, I can happily record and listen to my favorite late Sunday night radio show during the week again!  Oh yeah, and the ugly scripts:  1) dsbr_start_recording #!/bin/sh FREQ=$1 MP3_FN=&quot;$2-date &quot;+%Y%m%dT%H%M%S&quot;.mp3&quot; OSA=/usr/bin/osascript TELL=&amp;apos;tell application &quot;DSBRTUNER&quot; to&amp;apos; open /Applications/DSBRTuner.app $OSA -e &quot;$TELL set frequency to $FREQ&quot; $OSA -e &quot;$TELL record to file &quot;$MP3_FN&quot;&quot;  2) dsbr_stop_recording #!/bin/sh OSA=/usr/bin/osascript TELL=&amp;apos;tell application &quot;DSBRTUNER&quot; to&amp;apos; open /Applications/DSBRTuner.app $OSA -e &quot;$TELL stop recording&quot; $OSA -e &quot;$TELL quit&quot; " />
+
+
+
+  </head>
+  <body>
+
+    <section class="main">
+
+      <header>
+        <h1><a href="/">blog.lmorchard.com</a></h1>
+        <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+        <nav>
+
+          <label for="nav-trigger"></label>
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+          <ul>
+            <li><a href="http://lmorchard.com/">about me</a></li>
+            <li><a href="/archives.html">archives</a></li>
+          </ul>
+
+        </nav>
+      </header>
+
+      <section class="content">
+<article class="post ">
+    <time title="2002-09-20T00:00:00.000Z" pubdate="2002-09-20T00:00:00.000Z">
+      <a href="/"><i class="fa fa-home"></i></a>
+      &raquo;
+      <a href="/2002">2002</a>
+      &raquo;
+      <a href="/2002/09">September</a>
+      &raquo;
+      <span>20</span>
+      &raquo;
+    </time>
+    <h1 class="title">I'm finally timeshifting radio again</h1>
+    
+    <section class="post-content"><p>Today&#39;s bundle of little discoveries:
+<br /><br /></p>
+<p><ul></p>
+<p><li> <a href="http://www.pth.com/DSBRTuner/">DSBRTuner</a> has been updated to support <a href="http://www.decafbad.com/twiki/bin/view/Main/AppleScript">AppleScript</a> since last I downloaded it.
+</li></p>
+<p><li> <a href="http://www.pth.com/DSBRTuner/">DSBRTuner</a> has been updated to record to MP3 on disk.
+</li></p>
+<p><li> <a href="http://www.decafbad.com/twiki/bin/view/Main/MacOSX">MacOSX</a> has a command called <code>osascript</code> with which you can launch <a href="http://www.decafbad.com/twiki/bin/view/Main/AppleScript">AppleScripts</a> (among other things) from a shell.
+</li></p>
+<p><li> Like <code>perl</code>, <code>osascript</code> has an option <code>-e</code> to run a one-liner from the shell.
+</li>
+</ul>
+<br /><br />
+Given these discoveries, I was able to cobble together a quick pair of scripts with which to schedule recording radio broadcasts to MP3 via cron.
+<br /><br />
+Wow.  Another little project that became, all of a sudden, so much easier than I thought.  I love Unix and OS X.  Before this, I&#39;d been looking high and low for all the parts:  a scheduler, a sound recorder, an app controller, etc &amp; so forth.  Given the source code to DSBRTuner, I was almost about to hack some solutions into it, but I&#39;d never gotten the time.
+<br /><br />
+Now, I can happily record and listen to my favorite late Sunday night radio show during the week again!
+<br /><br />
+Oh yeah, and the ugly scripts:
+<br /><br />
+1) dsbr_start_recording</p>
+<p><pre>#!/bin/sh
+FREQ=$1
+MP3_FN=&quot;$2-<code>date &quot;+%Y%m%dT%H%M%S&quot;</code>.mp3&quot;
+OSA=/usr/bin/osascript
+TELL=&#39;tell application &quot;DSBRTUNER&quot; to&#39;</p>
+<p>open /Applications/DSBRTuner.app
+$OSA -e &quot;$TELL set frequency to $FREQ&quot;
+$OSA -e &quot;$TELL record to file &quot;$MP3_FN&quot;&quot;</pre>
+<br /><br />
+2) dsbr_stop_recording</p>
+<p><pre>#!/bin/sh
+OSA=/usr/bin/osascript
+TELL=&#39;tell application &quot;DSBRTUNER&quot; to&#39;</p>
+<p>open /Applications/DSBRTuner.app
+$OSA -e &quot;$TELL stop recording&quot;
+$OSA -e &quot;$TELL quit&quot;</pre>
+<!--more-->
+shortname=ooobhd</p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221089849">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://shawnyeager.com/monolog/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=546b2f1947278db93fa8f7c734876111&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://shawnyeager.com/monolog/">Shawn</a>
+</div>
+<a href="#comment-221089849" class="permalink"><time datetime="2002-09-20T19:33:08">2002-09-20T19:33:08</time></a>
+</div>
+<div class="content">Damnation, that&#39;s cool as all hell.  As you said, UNIX and OS X rock.</div>
+</li>
+<li class="comment" id="comment-221089851">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.redmonk.net"><img src="http://www.gravatar.com/avatar.php?gravatar_id=f5d280e17d5f7340d7d1dc6728c5a335&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.redmonk.net">Steve Ivy</a>
+</div>
+<a href="#comment-221089851" class="permalink"><time datetime="2002-09-20T19:52:25">2002-09-20T19:52:25</time></a>
+</div>
+<div class="content">Heh, One more example of poking our computers into everyday life again. This is awesome.</div>
+</li>
+</ul>
+</div>
+</section>
+</article>
+
+
+
+</section>
+
+      <footer>
+        <img id="growup" src="/uploads/growup.jpg">
+      </footer>
+
+    </section>
+
+    <section id="javascript">
+      <script src="/js/main.js"></script>
+      
+    </section>
+
+  </body>
+</html>

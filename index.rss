@@ -1,0 +1,1574 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>blog.lmorchard.com</title>
+    <description>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</description>
+    <link>https://blog.lmorchard.com</link>
+    
+      <item>
+        <title>SIO2Pi = Atari 800 + Raspberry Pi</title>
+        
+          <description>&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;: The first computer I programmed was an Atari 800. I&#39;m using a Raspberry Pi Zero W and a simple serial voltage conversion circuit to load disk images from the internet onto my Atari 800.&lt;/p&gt;
+&lt;!--more--&gt;
+&lt;nav role=&quot;navigation&quot; class=&quot;table-of-contents&quot;&gt;&lt;/nav&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://blog.lmorchard.com/2003/06/13/newly-digital/&quot;&gt;I’ve written before about my first contact with computers&lt;/a&gt;. But, man, I wrote that back in 2003. Long enough to make the itself post a retro artifact. The passage of time is weird.&lt;/p&gt;
+&lt;p&gt;If you don&#39;t care to follow me down memory lane so much, go ahead and &lt;a href=&quot;#hacking-the-sio-port&quot;&gt;skip on down to where I start building the gadget&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;atari-was-my-first-love&quot;&gt;Atari was my first love&lt;/h2&gt;
+&lt;p&gt;To recap: I was a problematic kid - hyperactive and easily bored. I recall literally climbing the walls by way of the classroom curtains. At some point, the principal decided I needed a challenge. He plonked me down in front of an Atari 800 and a stack of books.&lt;/p&gt;
+&lt;p&gt;I burned through those books and fell in love with computers. Typed in programs &amp; games. Found out how old I’d be in The Year 2000 - which, back then, was The Future. I learned how programming worked. Computers expanded to fill my head, gave outlet to my spastic energy. &lt;/p&gt;
+&lt;p&gt;The problem was that I only had one hour per day with the machine at school. We didn’t have a computer at home. That didn’t keep me from picking up every computer book I could get my hands on at &lt;a href=&quot;http://www.scholastic.com/bookfairs/&quot;&gt;the book fair&lt;/a&gt; when it came through, though. I’d read through the programs and try to figure out how they worked while I waited until I could get some time at a keyboard to type them in.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;image_0.jpg&quot; alt=&quot;Some of the programming books I still have from when I was a kid&quot;&gt;&lt;/p&gt;
+&lt;p&gt;I even remember playing with a &lt;a href=&quot;https://en.wikipedia.org/wiki/Lite-Brite&quot;&gt;Lite Brite&lt;/a&gt; and trying to work out how to translate those pictures to Atari graphics. That frustrated me, of course, because &lt;a href=&quot;https://jenn.glitch.me/a-post-of-utmost-hexellence/&quot;&gt;those old-school Lite Brites had a hexagonal layout of pegs rather than a square grid&lt;/a&gt; that could directly translate to pixels.&lt;/p&gt;
+&lt;h2 id=&quot;but-then-commodore&quot;&gt;But, then, Commodore&lt;/h2&gt;
+&lt;p&gt;That Christmas - or maybe the next - I got a Commodore 64 under the tree. My story with computers accelerated, because I had the thing all to myself in my bedroom. I left Atari behind, learned about the &lt;a href=&quot;https://en.wikipedia.org/wiki/MOS_Technology_SID&quot;&gt;SID&lt;/a&gt; chip but never explored the &lt;a href=&quot;https://en.wikipedia.org/wiki/POKEY&quot;&gt;POKEY&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;image_1.jpg&quot; alt=&quot;Here&#39;s me opening a C64 for Christmas&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;the-computer-lab-in-my-office&quot;&gt;The computer lab in my office&lt;/h2&gt;
+&lt;p&gt;Decades later, I hit up eBay for an Atari 800. I found one at a decent price - complete with an &lt;a href=&quot;http://www.atarimuseum.com/computers/8bits/xl/xlperipherals/atari1050.html&quot;&gt;Atari 1050&lt;/a&gt; floppy, &lt;a href=&quot;http://www.atarimuseum.com/computers/8BITS/XL/xlperipherals/1010.html&quot;&gt;1010 cassette drive&lt;/a&gt;, and a pile of disks and tapes and cartridges. I played with it a little, but mostly it sat as &lt;a href=&quot;https://www.flickr.com/photos/deusx/8445963080/&quot;&gt;an office decoration&lt;/a&gt; for a few years.&lt;/p&gt;
+&lt;p&gt;This year, I decided to do something with all my old machines. I’ve got a small collection in my home office: Commodore 64, Amiga 1200, Apple IIe, and Atari 800 - all personal touchstones. But, as it happens, floppies and cassettes and rubber belts decay. I discovered that some of this stuff stopped working over the years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;image_2.jpg&quot; alt=&quot;I have a table in my office set up with C64, Atari 800, and Apple IIe&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;hacking-the-sio-port&quot;&gt;Hacking the SIO port&lt;/h2&gt;
+&lt;p&gt;The core machines still work, though. And, thanks to the internet and folks generous with their time &amp; efforts, enormous archives of software for these systems can be accessed in seconds. But, how do you get this software into these archaic systems?&lt;/p&gt;
+&lt;p&gt;I thought bridging the gap would be hard. But, a bit of cheap modern kit can twiddle the signals on an old-school input/output port such that an antique thinks it’s talking to something of its own vintage. Single-board computers and microcontrollers are capable enough to pretend to be almost anything to these old machines.&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;inset wide right&quot; alt=&quot;Pinout of Atari AIO port with legend&quot; src=&quot;image_3.gif&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;That brings me to the &lt;a href=&quot;https://en.wikipedia.org/wiki/Atari_SIO&quot;&gt;SIO port&lt;/a&gt; on the Atari 800. Where most 80s computers had a handful of parallel &amp; serial ports of proprietary &amp; standard flavors - the Atari 8-bit computers had just this one port for talking to disks, cassettes, printers, modems, or whatever.  If that sounds familiar, the &lt;a href=&quot;https://en.wikipedia.org/wiki/Atari_SIO&quot;&gt;SIO port&lt;/a&gt; could be considered a predecessor to our modern USB port. Oddly enough, &lt;a href=&quot;https://en.wikipedia.org/wiki/Joseph_C._Decuir&quot;&gt;Joseph C. Decuir&lt;/a&gt; worked on both technologies, so I think the similarity is more than coincidental.&lt;/p&gt;
+&lt;p&gt;In my idle googling on how to get new data piped into my old Atari, I found this 2013 post on AtariAge entitled &quot;&lt;a href=&quot;http://atariage.com/forums/topic/209010-sio2pi-raspberry-pi-as-a-floppy/&quot;&gt;SIO2PI -&gt; Raspberry Pi as a floppy&lt;/a&gt;&quot; by &lt;a href=&quot;http://atariage.com/forums/user/29824-themontezuma/&quot;&gt;TheMontezuma&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;In that post is a simple circuit: It used a logic level voltage converter, a diode, a Raspberry Pi, and some wires. I didn’t &lt;em&gt;really&lt;/em&gt; know all that much about voltage levels and serial ports before this, but this seems handy for all kinds of things and well within my ability to build.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;image_4.jpg&quot; alt=&quot;Rough schematic of connecting a Raspberry Pi to the SIO port&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Of course, there’s something ludicrous about using a Raspberry Pi for this. &lt;a href=&quot;https://github.com/retropie/retropie-setup/wiki/Atari-800-and-5200&quot;&gt;That little thing can emulate an entire Atari 800 on its own&lt;/a&gt;. You could hollow out the guts of the old computer, drop in the Pi, and with some clever wiring you’d probably never know the difference from the outside. &lt;a href=&quot;https://makezine.com/2013/03/18/raspberry-pi-gives-amiga-a-new-life/&quot;&gt;Some people actually do that with classic computers like the Amiga&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;But, I really wanted to get this particular machine up and running. And, overpowered as it might be for the task, a Raspberry Pi Zero W is also hilariously inexpensive.&lt;/p&gt;
+&lt;h2 id=&quot;building-the-sio2pi&quot;&gt;Building the SIO2Pi&lt;/h2&gt;
+&lt;p&gt;So, I went shopping and picked up some parts:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://a.co/j79Bk4z&quot;&gt;CanaKit Raspberry Pi Zero W (Wireless) Starter Kit with Official Case&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://a.co/0Uo3bnl&quot;&gt;Logic Level Converter Bi-directional Shifter Module for Arduino&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://a.co/4arTjGe&quot;&gt;Rectifier Diode Assorted Kit&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://a.co/70wjtGE&quot;&gt;Breadboard jumpers in ribbon cable form&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://a.co/70wjtGE&quot;&gt;Mini breadboards&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I had a spare SIO cable that I cut in half for the project. I could have tried getting &lt;a href=&quot;https://www.thingiverse.com/thing:1831769&quot;&gt;a new SIO connector 3D printed&lt;/a&gt; - and I still might - but I knew this cable already worked. And, I was impatient. My first prototype came together on a little breadboard.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;image_5.jpg&quot; alt=&quot;First SIO2Pi prototype on a breadboard&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;image_6.jpg&quot; alt=&quot;The prototype connected to my Atari 800&quot;&gt;&lt;/p&gt;
+&lt;p&gt;My first attempt at using the thing was a failure. But, I did more reading into &lt;a href=&quot;https://www.raspberrypi.org/documentation/configuration/uart.md&quot;&gt;how to configure the Raspberry Pi’s serial UART&lt;/a&gt;. Two needful things came up:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Disabling the out-of-box Bluetooth module&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Disabling the service running a console on the serial port&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So, heads up if you try this - make sure to properly set up the Pi&#39;s UART for use with the circuit. Things will either not work at all - or have strange corruption issues as a Linux login console tries to output along with floppy disk data.&lt;/p&gt;
+&lt;h2 id=&quot;loading-disks-with-the-sio2pi&quot;&gt;Loading disks with the SIO2Pi&lt;/h2&gt;
+&lt;p&gt;After that, &lt;a href=&quot;https://github.com/TheMontezuma/SIO2BSD&quot;&gt;sio2bsd&lt;/a&gt; started working and my little rig piped images of Atari floppy disks downloaded from &lt;a href=&quot;http://ftp.pigwa.net/&quot;&gt;ftp.pigwa.net&lt;/a&gt; into my old computer as if they were the real thing.&lt;/p&gt;
+&lt;iframe class=&quot;lazyload&quot; width=&quot;560&quot; height=&quot;315&quot; data-src=&quot;https://www.youtube.com/embed/9j6Yy0ZjAK4?rel=0&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;img src=&quot;image_7.jpg&quot; alt=&quot;Voice of Silence music disk loaded up&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Oh and since we&#39;re living in The Future &lt;a href=&quot;https://archive.org/details/a8b_Voice_of_Silence_1996_Taquart_pl&quot;&gt;and the Internet Archive is an awesome place&lt;/a&gt; - you can try emulating what I loaded for real, right in your browser. I&#39;ve had these songs stuck in my head for like a week.&lt;/p&gt;
+&lt;iframe class=&quot;lazyload&quot; data-src=&quot;https://archive.org/embed/a8b_Voice_of_Silence_1996_Taquart_pl&quot; width=&quot;560&quot; height=&quot;384&quot; frameborder=&quot;0&quot; webkitallowfullscreen=&quot;true&quot; mozallowfullscreen=&quot;true&quot; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;I’ve only spent a couple of hours with this stuff so far, so I’d totally welcome some suggestions for more things to check out. I knew there were games, but I was never aware of a demoscene or music packs on the Atari 8-bit computers. I’m also starting to learn a bit about the differences between members of the old Atari 8-bit family - insofar as not everything runs on the Atari 800.&lt;/p&gt;
+&lt;p&gt;But, I&#39;ve also got an &lt;a href=&quot;http://www.atarimuseum.com/computers/8bits/1200xl/1200xl.html&quot;&gt;Atari 1200XL&lt;/a&gt; and an &lt;a href=&quot;http://www.atarimuseum.com/computers/8bits/xe/65xe/65xe.html&quot;&gt;Atari 65XE&lt;/a&gt; in the basement that I might try playing with next. I did lay hands on a 1200XL as a kid, but I was already onto Commodore by the time the 65XE arrived. It&#39;ll be interesting to see what runs on those things.&lt;/p&gt;
+&lt;h2 id=&quot;the-sio2pi-is-a-modem-too-&quot;&gt;The SIO2Pi is a &quot;modem&quot; too!&lt;/h2&gt;
+&lt;p&gt;Then, I discovered that I could run &lt;a href=&quot;https://github.com/FozzTexx/tcpser&quot;&gt;tcpser&lt;/a&gt; on the Raspberry PI - and suddenly my pretend disk drive was a pretend modem. I could &quot;dial out&quot; to the internet and explore &lt;a href=&quot;http://bbs.retrobattlestations.com/&quot;&gt;a neo-retro world of BBSes&lt;/a&gt; I’d never had a chance to experience back in the day on an Atari.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;image_8.jpg&quot; alt=&quot;Loading BOB Term&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;image_9.jpg&quot; alt=&quot;&quot;Calling&quot; Level 29 BBS from my Atari 800&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;kitten-proofing-the-sio2pi&quot;&gt;Kitten-proofing the SIO2Pi&lt;/h2&gt;
+&lt;p&gt;The little breadboard rig worked pretty well. But, the next morning, I found most of the wires pulled free thanks to a curious kitten. So, I decided to clean things up and make them more permanent with a &lt;a href=&quot;https://www.adafruit.com/product/3203&quot;&gt;Perma Proto Bonnet Mini Kit&lt;/a&gt;, a &lt;a href=&quot;https://www.adafruit.com/product/2104&quot;&gt;16-pin IDC breakout helper&lt;/a&gt;, and &lt;a href=&quot;http://a.co/4IZlqkb&quot;&gt;some 30AWG wire&lt;/a&gt; from Adafruit.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;image_10.jpg&quot; alt=&quot;Next prototype of SIO2Pi soldered together on a Perma Proto Bonnet&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Even though there are only 5 pins needed between the Pi and the SIO port, soldering up all the pins to headers means I never have to remember what gets plugged into where. It&#39;s also good soldering practice. There are also 3 unused pins on the header - because SIO is 13 pins but the IDC breakout was convenient enough to use as-is and just ignore the extra connections.&lt;/p&gt;
+&lt;p&gt;I managed to solder all the SIO cable wires onto header pins as a makeshift male connector to the SIO2Pi Bonnet. It ended up being a mess, often melting the plastic frame of the header, and I had to redo it at least once. But, it works. I’m also considering adding a female header to the other end of the SIO cable I chopped in half, if only to make it easier to join the two halves back into a working cable if I ever need it.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;image_11.jpg&quot; alt=&quot;Amateurish job of soldering cable wires to header pins&quot;&gt;&lt;/p&gt;
+&lt;p&gt;The finished product sits nicely on top of the Atari 800.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;image_12.jpg&quot; alt=&quot;The SIO2Pi sitting atop the Atari 800&quot;&gt;&lt;/p&gt;
+&lt;p&gt;The wires might be too thick, but I’m considering some &lt;a href=&quot;http://a.co/4ptrVtJ&quot;&gt;IEC ribbon cable connectors&lt;/a&gt; to crimp one onto the end of these wires and replace my rough soldering job. That might be cleaner and fit more naturally into how this sits on my desk, without bending all the wires awkwardly.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;The whole Atari 800 and SIO2Pi setup sitting on my table&quot; src=&quot;image_13.jpg&quot; id=&quot;thumbnail&quot; /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;next-steps&quot;&gt;Next steps&lt;/h2&gt;
+&lt;p&gt;This setup works well enough. The main drawback is that I have to ssh into the Raspberry Pi and run sio2bsd manually to make it available for loading. And, if I want to switch to using it as a modem from a term program, I have to kill sio2bsd and start up tcpser.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Adding a display or web interface:&lt;/strong&gt; The Raspberry Pi isn’t hooked up to a monitor - and I don’t really want to devote one to it. I could add some kind of small touchscreen or text display. It would also be nice to have a web interface I could hit from my phone. Maybe use that to select disk images and switch into terminal mode, do all the process management of sio2bsd and tcpser in the background with node.js. So, there’s a project for the future.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Using an ESP8266:&lt;/strong&gt; I&#39;m toying with the idea of exploring whether an ESP8266 - or some other small board - would be up to snuff for this project. &lt;a href=&quot;https://blog.lmorchard.com/2018/02/08/pumpkin/&quot;&gt;I had fun using one to build my wifi pumpkin&lt;/a&gt;, so it could be fun for this too. That would take me learning a lot more about the SIO data protocols, though. Luckily, I have &lt;a href=&quot;https://github.com/TheMontezuma/SIO2BSD&quot;&gt;the source code for sio2bsd&lt;/a&gt;, so I have a starting point. But, the key to this SIO2Pi project was that I basically just glued things together and they worked without me entirely understanding the parts.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Calling more BBSes &amp; writing my own stuff:&lt;/strong&gt; Beyond just digging into old software, I’m not sure where I’m going with this stuff next. I’ll probably keep calling some BBSes. I’ve also got a kind of masochistic notion to fetch some old computer magazines and try some of the type-in programs for old time’s sake. Maybe I’ll poke around with exploring the hardware and writing my own games. I haven&#39;t tried it, but it seems like this rig should be able to &lt;em&gt;save&lt;/em&gt; to disk images, too.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;A better case:&lt;/strong&gt; I could also explore 3D printing a case that combines all this stuff into a tidy little module with an SIO socket (or two for daisy chaining) rather than using a butchered old cable. I&#39;ve also read about folks embedding this kind of hardware directly into the old computer - but I like this stuff to be easily reversible &amp; non-destructive, so I probably won&#39;t try that.&lt;/p&gt;
+&lt;p&gt;Or, you know, maybe I’ll move on from this &lt;a href=&quot;https://blog.lmorchard.com/2006/05/26/confessions-of-a-serial-enthusiast/&quot;&gt;serial enthusiasm&lt;/a&gt; and let it hang out in my office for a few more years. Either way, it’s been a quick &amp; fun project to revive this old machine and get a look a some new-to-me software that I never had a chance to see back in the day.&lt;/p&gt;
+</description>
+        
+        <pubDate>Thu, 01 Mar 2018 00:00:00 GMT</pubDate>
+        <link>https://blog.lmorchard.com/2018/03/01/sio2pi</link>
+        <guid isPermaLink="true">https://blog.lmorchard.com/2018/03/01/sio2pi</guid>
+      </item>
+    
+      <item>
+        <title>Fun with Themes in Firefox</title>
+        
+          <description>&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;: Last year, I started work on a new Test Pilot experiment playing with themes in Firefox. &lt;/p&gt;
+&lt;!--more--&gt;
+&lt;nav role=&quot;navigation&quot; class=&quot;table-of-contents&quot;&gt;&lt;/nav&gt;
+
+&lt;h2 id=&quot;new-theme-apis-are-fun&quot;&gt;New theme APIs are fun&lt;/h2&gt;
+&lt;p&gt;At the core of this experiment are &lt;a href=&quot;https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/theme&quot;&gt;new theme APIs for add-ons&lt;/a&gt; shipping with Firefox. &lt;/p&gt;
+&lt;p&gt;These APIs take inspiration &lt;a href=&quot;https://developer.chrome.com/apps/themes&quot;&gt;from static themes in Google Chrome&lt;/a&gt;, building from there to enable the creation of dynamic themes. &lt;/p&gt;
+&lt;p&gt;For example, &lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/quantum-lights-dynamic/&quot;&gt;Quantum Lights&lt;/a&gt; changes based on the time of day.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/quantum-lights-dynamic/&quot;&gt;&lt;img src=&quot;quantum-lights.png&quot; alt=&quot;Quantum Lights dynamic theme&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/vivaldifox/&quot;&gt;VivaldiFox&lt;/a&gt; reflects the sites you’re visiting.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/vivaldifox/&quot;&gt;&lt;img src=&quot;image_0.png&quot; alt=&quot;VivaldiFox dynamic theme&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You could even build themes that use data from external HTTP services - e.g. to change based on the weather.&lt;/p&gt;
+&lt;p&gt;To explore these new APIs, Firefox Themer consists of a website and a companion add-on for Firefox. The website offers a theme editor with a paper doll preview - you can click on parts of a simulated browser interface and dress it up however you like. The add-on grants special powers to the website, applying changes from the theme in the editor onto the browser itself.&lt;/p&gt;
+&lt;h2 id=&quot;editing-themes-on-the-web&quot;&gt;Editing themes on the web&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/mozilla/Themer/tree/5cdcb7e15d64934f0e71521512c74337dc58fa05/src/web&quot;&gt;The site&lt;/a&gt; is built &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/webpack.web.js&quot;&gt;using Webpack&lt;/a&gt;, React, and Redux. React offers a solid foundation for composing the editor. Personally, I really like working with &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/src/web/lib/components/SavedThemeSelector/index.js&quot;&gt;stateless functional components&lt;/a&gt; - they’re kind of what tipped me over into becoming a React convert a few years ago. I’m also a terrible visual designer with weak CSS-fu - but &lt;a href=&quot;https://simonsmith.io/using-webpack-to-build-react-components-and-their-assets/&quot;&gt;using Webpack to bundle assets from per-component directories&lt;/a&gt; makes it easier for teammates to step in where I fall short.&lt;/p&gt;
+&lt;p&gt;&lt;img id=&quot;thumbnail&quot; title=&quot;An early snapshot of Themer in development&quot; alt=&quot;An early snapshot of Themer in development&quot; src=&quot;image_1.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Further under the hood, Redux offers a clean way to &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/src/lib/store.js&quot;&gt;manage theme data and UI state&lt;/a&gt;. Adding &lt;a href=&quot;https://github.com/mozilla/Themer/tree/5cdcb7e15d64934f0e71521512c74337dc58fa05/src/web/lib/components/UndoRedoButtons&quot;&gt;undo &amp; redo buttons&lt;/a&gt; is easy, thanks to &lt;a href=&quot;https://github.com/omnidan/redux-undo/&quot;&gt;redux-undo&lt;/a&gt;. And, by way of some &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/src/web/index.js#L52&quot;&gt;simple Redux middleware&lt;/a&gt;, I was able to easily add a hook to push every theme changes into the browser via the add-on.&lt;/p&gt;
+&lt;p&gt;The website is just a static page - there’s no real server-side application. When you save a theme, &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/src/web/lib/storage.js&quot;&gt;it ends up in your browser’s localStorage&lt;/a&gt;. Though we plan to move to a Mozilla-owned production server on launch, I’ve been &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/package.json#L29&quot;&gt;deploying&lt;/a&gt; builds to &lt;a href=&quot;https://mozilla.github.io/Themer/&quot;&gt;GitHub Pages&lt;/a&gt; during development.&lt;/p&gt;
+&lt;p&gt;Another interesting feature of the website is that we encode themes as a parameter in the URL. Rather than come up with a bespoke scheme, I use &lt;a href=&quot;https://github.com/masotime/json-url&quot;&gt;this json-url module&lt;/a&gt; to compress JSON and encode it as Base64, which makes for a long URL but not unreasonably so. This approach enables folks to simply copy &amp; paste a URL to share a theme they’ve made. You &lt;a href=&quot;https://mozilla.github.io/Themer/?theme=XQAAAAK6AAAAAAAAAABBKYhm849SCiaxqiaEGccwS-xNVABND6bPaWX82IACoyBXlMz-ogPQMZx8jZw0gi6ZqepxjZiNq3qtC6ReDugh0DJEIcc-6Ekd4BML5haoPqlXvTBKbEuN12ZBm-SJaWyB2b9GzX0tU6b_u9yjWO4ukTDkntTK440uf__ug8AA&quot;&gt;can&lt;/a&gt; &lt;a href=&quot;https://mozilla.github.io/Themer/?theme=XQAAAAK5AAAAAAAAAABBKYhm849SCiaxqiaEGccwS-xNVABNBRtj-x-Szc1kMeuEtwJYdDlHdJFchkY8sMP4iOzSOnr2vDVLFHcDTGfvoD2F-saWB-4Q-0HlUiMST82W8NTW8EedwTOfbOY_8T30w0e4gC9vlGFCU9f6FVIWiWSteBgU_b2G6fBR_7tUIAA&quot;&gt;even&lt;/a&gt; &lt;a href=&quot;https://mozilla.github.io/Themer/?theme=XQAAAAK8AAAAAAAAAABBKYhm849SCiaxqiaEGccwS-xNVABNKtQKc4Qr-u-HdLUSjaBjcrH658wB_k4I1-yfpFsfTFeutvkNHhJd47c-oR5Cmx-mMJXZ4Lq7R98D2PE8etCHIG-B5_8oTyfPCjY6DxXN-uebtBycPe1q5OYxejC4KXCppxfkfniiH__gvZgA&quot;&gt;link&lt;/a&gt; &lt;a href=&quot;https://mozilla.github.io/Themer/?theme=XQAAAAK7AAAAAAAAAABBKYhm849SCiaxqiaEGccwS-xNVABNC6bT6OtXpulKBw4DX1CffRksp6558s0k0DnUhq_LUMnHsWC8m0Ch34ivMZQ9sgV8nw4smjNTF6KwTBLBWoGene--BIiLoZeK7cfULCJbaoBYqyuNgz2tcB6oGDKcpyWUdMoffLb2h__-XfwA&quot;&gt;to&lt;/a&gt; &lt;a href=&quot;https://mozilla.github.io/Themer/?theme=XQAAAAK2AAAAAAAAAABBKYhm849SCiaxqiaEGccwS-xNVAAfaPFobPrtxqh09bZ0dFlllNZAoZN2KxC18prV-JbJ_OWRSXO_BkFys9aW3y-ZXvULv_v6dWy1x1lwnCABmI9hLlcXkVKtiPaJ2TBI4QUpuGXbvJ__-RkwAA&quot;&gt;themes&lt;/a&gt; from a blog post, if you wanted to!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;image_2.png&quot; alt=&quot;Copy themes as URLs&quot;&gt;&lt;/p&gt;
+&lt;p&gt;When the page loads and sees the ?theme URL, &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/src/web/index.js#L201&quot;&gt;it unpacks the data&lt;/a&gt; and &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/src/web/index.js#L204&quot;&gt;loads it into editor’s Redux store&lt;/a&gt;. I’ve also been able to work this into the location bar with the HTML5 History API and &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/src/web/index.js#L61&quot;&gt;Redux middleware&lt;/a&gt;. The browser location represents the current theme, while back &amp; forward buttons double as undo &amp; redo.&lt;/p&gt;
+&lt;h2 id=&quot;add-ons-can-be-expansion-cartridges&quot;&gt;Add-ons can be expansion cartridges&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.syntiac.com/chameleon.html&quot;&gt;&lt;img title=&quot;The Turbo Chameleon 64 cartridge adds many new capabilities to a Commodore 64&quot; class=&quot;inset wide right&quot; src=&quot;chameleon_housing_small.jpg&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/mozilla/Themer/tree/5cdcb7e15d64934f0e71521512c74337dc58fa05/src/extension&quot;&gt;The companion add-on&lt;/a&gt; is also built &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/webpack.extension.js&quot;&gt;using Webpack&lt;/a&gt; and acts as an &lt;a href=&quot;https://www.c64-wiki.com/wiki/Simons%27_BASIC&quot;&gt;expansion cartridge&lt;/a&gt; for the theme editor on the website. (Can you tell &lt;a href=&quot;https://blog.lmorchard.com/2018/03/01/sio2pi/&quot;&gt;I’ve had retro computers on the mind&lt;/a&gt;, lately?)&lt;/p&gt;
+&lt;p&gt;Add-ons in Firefox can install &lt;a href=&quot;https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Content_scripts&quot;&gt;content scripts&lt;/a&gt; that access content and data on web pages. Content scripts can communicate with the parent add-on &lt;a href=&quot;https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Content_scripts#Communicating_with_background_scripts&quot;&gt;by way of a message port&lt;/a&gt;. They can also communicate with a web page &lt;a href=&quot;https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Content_scripts#Communicating_with_the_web_page&quot;&gt;by way of synthetic events&lt;/a&gt;. Put the two together, and you’ve got &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/src/extension/contentScript.js&quot;&gt;a messaging channel&lt;/a&gt; between a web page and an add-on in Firefox.&lt;/p&gt;
+&lt;p&gt;Here&#39;s the heart of &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/src/extension/contentScript.js&quot;&gt;that messaging bridge&lt;/a&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;import { CHANNEL_NAME } from &quot;../lib/constants&quot;;
+
+// Relay backend port messages to content
+let port;
+
+function connect() {
+  port = browser.runtime.connect({ name: CHANNEL_NAME });
+  port.onDisconnect.addListener(() =&gt; {
+    port = null;
+    reconnect();
+  });
+  port.onMessage.addListener(message =&gt; {
+    window.postMessage({ ...message, channel: `${CHANNEL_NAME}-web` }, &quot;*&quot;);
+  });
+}
+
+// Relay content messages to backend port if the channel name matches
+// (Not a security feature so much as a noise filter)
+window.addEventListener(&quot;message&quot;, event =&gt; {
+  if (
+    port &amp;&amp;
+    event.source === window &amp;&amp;
+    event.data &amp;&amp;
+    event.data.channel === `${CHANNEL_NAME}-extension`
+  ) {
+    port.postMessage({ ...event.data, location: window.location.href });
+  }
+});
+
+connect();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;With this approach, the web page doesn’t actually gain access to any Firefox APIs. &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/src/extension/background.js#L23&quot;&gt;The add-on can decide what to do with with messages it receives&lt;/a&gt;. If the page sends invalid data or asks to do something not supported - nothing happens. Here&#39;s a snippet of that logic from the extension:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;const messageListener = port =&gt; message =&gt; {
+  let theme;
+  switch (message.type) {
+    case &quot;fetchTheme&quot;:
+      log(&quot;fetchTheme&quot;);
+      fetchTheme().then(({ theme: currentTheme }) =&gt;
+        port.postMessage({ type: &quot;fetchedTheme&quot;, theme: currentTheme })
+      );
+      break;
+    case &quot;setTheme&quot;:
+      theme = normalizeTheme(message.theme);
+      log(&quot;setTheme&quot;, theme);
+      storeTheme({ theme });
+      applyTheme({ theme });
+      break;
+    case &quot;ping&quot;:
+      port.postMessage({ type: &quot;pong&quot; });
+      break;
+    default:
+      log(&quot;unexpected message&quot;, message);
+  }
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And here&#39;s a peek at &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/src/web/index.js#L52&quot;&gt;that Redux middleware I mentioned earlier&lt;/a&gt; which updates the add-on from the web:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;const postMessage = (type, data = {}) =&gt;
+  window.postMessage(
+    { ...data, type, channel: `${CHANNEL_NAME}-extension` },
+    &quot;*&quot;
+  );
+
+const updateExtensionThemeMiddleware = ({ getState }) =&gt; next =&gt; action =&gt; {
+  const returnValue = next(action);
+  const meta = action.meta || {};
+  if (!meta.skipAddon &amp;&amp; themeChangeActions.includes(action.type)) {
+    postMessage(&quot;setTheme&quot;, { theme: selectors.theme(getState()) });
+  }
+  return returnValue;
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The add-on can also restrict the set of pages from which it will accept messages: We &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/webpack.extension.js#L55&quot;&gt;hardcode the URL for the theme editor&lt;/a&gt; into the add-on’s content script configuration at build time, which means no other web page should be able to ask the add-on to alter the theme in Firefox.&lt;/p&gt;
+&lt;h2 id=&quot;add-on-detection-is-hard&quot;&gt;Add-on detection is hard&lt;/h2&gt;
+&lt;p&gt;&lt;img class=&quot;inset wide right&quot; src=&quot;loader.png&quot; title=&quot;The loading overlay that appears until the editor is visually stable&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;There is a wrinkle to the relationship between website and add-on, though: A normal web page cannot detect whether or not a particular add-on has been installed. All the page can do is send a message. If the add-on responds, then we know the add-on is available.&lt;/p&gt;
+&lt;p&gt;Proving a negative, however, is impossible: the web page can’t know for sure that the addon is &lt;em&gt;not &lt;/em&gt;available. Responses to asynchronous messages take time - not necessarily a long time, but more than zero time. &lt;/p&gt;
+&lt;p&gt;If the page sends a message and doesn’t get a response, that doesn’t mean the add-on is missing. It could just mean that the add-on is taking awhile to respond. So, we have to render the theme editor such that it starts off by assuming the add-on is not installed. If the add-on shows up, minutes or milliseconds later, the page can update itself to reflect the new state of things.&lt;/p&gt;
+&lt;p&gt;Left as-is, you’d see several flashes of color and elements on the page move as things settle. That seems unpleasant and possibly confusing, so we came up with a loading spinner: When the page loads, it displays the spinner and a timer starts. If that timer expires, we consider things ready and reveal the editor. But, if there’s any change to the Redux store while that timer is running, we restart the clock.&lt;/p&gt;
+&lt;p&gt;This is the gist of what that code does:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;const unsubscribeLoader = store.subscribe(() =&gt; {
+  if (selectors.loaderDelayExpired(store.getState())) {
+    // State settled down long enough for timer to expire - stop listening.
+    unsubscribeLoader();
+  } else {
+    // Reset the timer again.
+    startLoaderDelay();
+  }
+});
+
+// Utility to (re)start up a timer to dismiss the loading indicator
+let loaderTimer = null;
+function startLoaderDelay() {
+  if (loaderTimer) {
+    clearTimeout(loaderTimer);
+  }
+  loaderTimer = setTimeout(
+    () =&gt; store.dispatch(actions.ui.setLoaderDelayExpired(true)),
+    LOADER_DELAY_PERIOD
+  );
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Early changes to the store are driven by things like decoding a shared theme and responses from the add-on. Again, these are asynchronous and unpredictable. The timer duration is an arbitrary guess I made that seems to feel right. It’s a dirty hack, but it seems like a good enough effort for now.&lt;/p&gt;
+&lt;h2 id=&quot;using-npm-scripts-and-multiple-webpack-configs&quot;&gt;Using npm scripts and multiple Webpack configs&lt;/h2&gt;
+&lt;p&gt;One of the things that has worked nicely on this project is building everything in parallel with a single npm command. You can &lt;a href=&quot;https://github.com/mozilla/Themer/tree/5cdcb7e15d64934f0e71521512c74337dc58fa05#get-started&quot;&gt;clone the repo and kick things off for development&lt;/a&gt; with a simple &lt;code&gt;npm install &amp;&amp; npm start&lt;/code&gt; dance.&lt;/p&gt;
+&lt;p&gt;The add-on and the site both use Webpack. There’s &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/webpack.common.js&quot;&gt;a shared config&lt;/a&gt; as a base and then specific configurations with tweaks for &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/webpack.web.js&quot;&gt;the site&lt;/a&gt; and &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/webpack.extension.js&quot;&gt;the add-on&lt;/a&gt;. So, we want to run two separate instances of Webpack to build everything, watch files, and host the dev server.&lt;/p&gt;
+&lt;p&gt;This is where &lt;a href=&quot;https://www.npmjs.com/package/npm-run-all&quot;&gt;npm-run-all&lt;/a&gt; comes in: It’s a CLI tool that lets you run multiple npm scripts. I used to use gulp to orchestrate this sort of thing, but &lt;a href=&quot;https://www.npmjs.com/package/npm-run-all&quot;&gt;npm-run-all&lt;/a&gt; lets me arrange it all &lt;a href=&quot;https://docs.npmjs.com/misc/scripts&quot;&gt;in &lt;code&gt;package.json&lt;/code&gt;&lt;/a&gt;. It would be fine if this just enabled running scripts in series. But, npm-run-all also lets you run scripts&lt;em&gt; in parallel&lt;/em&gt;. The cherry on top is that &lt;a href=&quot;https://www.npmjs.com/package/npm-run-all#%EF%B8%8F-motivation&quot;&gt;this parallelization works on Linux, OS X, &lt;em&gt;and Windows&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-json&quot;&gt;&quot;scripts&quot;: {
+  &quot;start&quot;: &quot;npm-run-all --parallel server watch:extension watch:lint&quot;,
+  &quot;server&quot;: &quot;cross-env NODE_ENV=development webpack-dev-server --config webpack.web.js&quot;,
+  &quot;watch&quot;: &quot;npm-run-all --parallel watch:*&quot;,
+  &quot;watch:web&quot;: &quot;cross-env NODE_ENV=development webpack --watch --progress --colors --config webpack.web.js&quot;,
+  &quot;watch:extension&quot;: &quot;cross-env NODE_ENV=development webpack --watch --progress --colors --config webpack.extension.js&quot;,
+  &quot;watch:lint&quot;: &quot;onchange -p -v \&quot;src/**/*.js\&quot; -- npm run lint&quot;,
+  &quot;lint&quot;: &quot;eslint --color .&quot;,
+},
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In past years, Windows support might have been an abstract novelty for me. But, in recent months, I’ve switched from Apple hardware to a PC laptop. I’ve found the new &lt;a href=&quot;https://docs.microsoft.com/en-us/windows/wsl/install-win10&quot;&gt;Windows Subsystem for Linux&lt;/a&gt; to be essential to that switch. But, sometimes it’s nice to just fire up a Node.js dev environment directly in PowerShell - &lt;a href=&quot;https://www.npmjs.com/package/npm-run-all&quot;&gt;npm-run-all&lt;/a&gt; lets me (and you) do that!&lt;/p&gt;
+&lt;p&gt;So, &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/package.json#L12&quot;&gt;the start script in our package.json&lt;/a&gt; is able to fire up both Webpack processes for the site and add-on. It can also &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/package.json#L17&quot;&gt;start a file watcher to run linting&lt;/a&gt; and tests (when we have them) alongside. That simplifies using everything in a single shell window across platforms. &lt;a href=&quot;https://decafbad.com/2011/06/os-webdev-vm/slides.html#1&quot;&gt;I used to lean on Vagrant or Docker to offer something &quot;simple&quot; to folks interested in contributing to a project&lt;/a&gt;. But, though virtual machines and containers can hide apparent complexity in development, it’s hard to beat just running things in node on the native OS.&lt;/p&gt;
+&lt;h2 id=&quot;help-us-make-themes-more-fun-&quot;&gt;Help us make themes more fun!&lt;/h2&gt;
+&lt;p&gt;We’re launching this experiment soon. And, though it only makes limited use of the new theme APIs for now, we’re hoping that the web-based editor and ease of sharing makes it fun &amp; worth playing with. We’ve got some ideas on what to add over the course of the experiment and hope to get more from the community. &lt;/p&gt;
+&lt;p&gt;Whether you can offer code, give feedback, participate in discussions, or just let us watch how you use something - everyone has something valuable to offer. In fact, one of &lt;a href=&quot;https://wiki.mozilla.org/Test_Pilot/mission&quot;&gt;the overarching goals of Test Pilot&lt;/a&gt; is to expand channels of contribution for folks interested in helping us build Firefox.&lt;/p&gt;
+&lt;p&gt;As with all Test Pilot experiments, we’ll be watching how folks use this stuff as input for what happens next. We also encourage participation in our &lt;a href=&quot;https://discourse.mozilla.org/c/test-pilot&quot;&gt;Discourse forums&lt;/a&gt;. And finally, the project itself is &lt;a href=&quot;https://github.com/mozilla/Themer&quot;&gt;open source on Github&lt;/a&gt; and open to pull requests. &lt;/p&gt;
+&lt;p&gt;In the meantime, start collecting color swatches for your own theme. Personally, I might try my hand at &lt;a href=&quot;https://draculatheme.com/&quot;&gt;a Dracula theme&lt;/a&gt; or maybe raid my Vim config directory for some inspiration.&lt;/p&gt;
+</description>
+        
+        <pubDate>Thu, 01 Mar 2018 00:00:00 GMT</pubDate>
+        <link>https://blog.lmorchard.com/2018/03/01/themesrfun</link>
+        <guid isPermaLink="true">https://blog.lmorchard.com/2018/03/01/themesrfun</guid>
+      </item>
+    
+      <item>
+        <title>I Made a WiFi Pumpkin</title>
+        
+          <description>&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;: I made a wifi pumpkin using an ESP8266 with LED matrix eyes and mouth.
+I added a web-based remote control for my phone using websockets. It was fun!&lt;/p&gt;
+&lt;!--more--&gt;
+&lt;nav role=&quot;navigation&quot; class=&quot;table-of-contents&quot;&gt;&lt;/nav&gt;
+
+&lt;p&gt;A few years ago, &lt;a href=&quot;https://twitter.com/lmorchard/status/651958618800177152&quot;&gt;I decided&lt;/a&gt; to use some LED matrices to make animated
+eyes for a jack-o&#39;-lantern. Not terribly original, but it sounded fun.&lt;/p&gt;
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Considering getting some LED matrices to make animated eyes &amp; mouth for a jack-o-lantern. Seems like it could be a fun project or a disaster&lt;/p&gt;&amp;mdash; Les Orchard (@lmorchard) &lt;a href=&quot;https://twitter.com/lmorchard/status/651958618800177152?ref_src=twsrc%5Etfw&quot;&gt;October 8, 2015&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;v1-0-2015-&quot;&gt;v1.0 (2015)&lt;/h2&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/21954391310/in/datetaken/&quot; title=&quot;LED matrix on a Raspberry PI&quot;&gt;&lt;img class=&quot;inset wide left&quot; src=&quot;raspi.jpg&quot; alt=&quot;LED matrix on a Raspberry PI&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;My first thought was to use a Raspberry Pi.  It was easy to get an LED matrix
+working in Python. And, I had a notion to build some kind of remote control
+over wifi. But, it felt like overkill to stuff a whole Linux computer
+into a gourd. (&lt;a href=&quot;http://strangehorizons.com/non-fiction/articles/installing-linux-on-a-dead-badger-users-notes/&quot;&gt;A dead badger might work&lt;/a&gt;, but this was not that kind
+of project.)&lt;/p&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/21994112010/in/datetaken/&quot; title=&quot;LED eyes for Pumpkin&quot;&gt;&lt;img class=&quot;inset wide left&quot; src=&quot;arduino.jpg&quot; alt=&quot;LED eyes for Pumpkin&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;That&#39;s when I remembered the Arduino Uno I had stashed in a drawer.  I found
+&lt;a href=&quot;https://mjanyst.weebly.com/arduino-pumpkin-eyes.html&quot;&gt;this guy&#39;s project&lt;/a&gt;, which confirmed I wasn&#39;t the first to try
+this. But it was nice to start from &lt;a href=&quot;https://github.com/michaltj/LedEyes/blob/master/LedEyes.ino&quot;&gt;someone else&#39;s code&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;I had a brief go at scripting some animations, which resulted
+in an &lt;a href=&quot;https://github.com/lmorchard/arduino-sketches/blob/master/googly_eyes/googly_eyes.ino&quot;&gt;over-engineered little sketch&lt;/a&gt; that helped me 
+exercise my rusty C skills.&lt;/p&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/22453913015/in/datetaken/&quot; title=&quot;NES pad eyes for Pumpkin&quot;&gt;&lt;img class=&quot;inset wide left&quot; src=&quot;nespad1.jpg&quot; alt=&quot;NES pad eyes for Pumpkin&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;From there, I discovered an &lt;a href=&quot;https://github.com/joshmarinacci/nespad-arduino&quot;&gt;NESPad library&lt;/a&gt; that made &lt;a href=&quot;https://github.com/lmorchard/arduino-sketches/blob/master/nespad_eyes/nespad_eyes.ino&quot;&gt;hooking up a
+controller&lt;/a&gt; simple. It&#39;s just &lt;a href=&quot;https://www.allaboutcircuits.com/projects/nes-controller-interface-with-an-arduino-uno/&quot;&gt;a serial interface
+powered by a shift register&lt;/a&gt; - pre-teen me would have been impressed that I
+finally learned how so many buttons worked with so few pins.&lt;/p&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/22463866250/in/datetaken/&quot; title=&quot;Pumpkin, candy, NES pad&quot;&gt;&lt;img class=&quot;inset wide left&quot; src=&quot;orig-real-pumpkin-3.jpg&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;When Halloween arrived, I hustled to get it done before dusk: I carved some
+quick square holes for eyes, nose, and mouth - let&#39;s say it&#39;s an 8-bit thing. &lt;/p&gt;
+&lt;p&gt;I bundled up the electronics with plastic wrap and crammed the mess into
+the pumpkin. I strapped the LED matrices in with picture
+wire. The results weren&#39;t too bad in the dark. 
+Trick-or-treaters seemed entertained by my cyborg pumpkin buddy as I handed out
+candy!&lt;/p&gt;
+&lt;p&gt;Not long after Halloween, the gourd went downhill fast. Pumpkins are
+not a good choice of long-term project enclosure. I put it off as long as I could, but
+finally I had to put on some gloves to rescue my parts from the slimy
+mess. Those parts went in a box and went untouched for the next year. 
+&lt;br style=&quot;clear:both&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;v2-0-2016-&quot;&gt;v2.0 (2016)&lt;/h2&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/30331621951/in/datetaken/&quot; title=&quot;Pumpkin 2.0&quot;&gt;&lt;img class=&quot;inset wide right&quot; src=&quot;pumpkin2-1.jpg&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;As Halloween approached again, I wanted to give the project another go. I
+found a foam pumpkin at Target that seemed realistic. A little time at
+&lt;a href=&quot;https://www.i3detroit.org/&quot;&gt;the local maker space&lt;/a&gt; with my Swiss Army knife, and I had a freshly carved
+synthetic jack-&#39;o-lantern. &lt;/p&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/30380916606/in/datetaken/&quot; title=&quot;Pumpkin 2.0&quot;&gt;&lt;img class=&quot;inset wide right&quot; src=&quot;pumpkin2-2.jpg&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Rather than glue things together, I just used some gaffer tape inside to hold
+the eyes in place. I&#39;d planned to add some more LED matrices to give it a mouth,
+but never quite got around to it. The little guy seems a bit creepy with just a
+pair of eyes, though.&lt;/p&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/30380883136/in/datetaken/&quot; title=&quot;Pumpkin 2.0 NES connection&quot;&gt;&lt;img class=&quot;inset wide right&quot; src=&quot;nes-connection.jpg&quot; alt=&quot;Pumpkin 2.0 NES connection&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;With a house move in the works, my ambition ran out fast that year. I
+didn&#39;t make any code changes, but I did have to do some reverse engineering.&lt;/p&gt;
+&lt;p&gt;Because, of course, I hadn&#39;t left myself good notes and some of the wires had
+come undone over the past year.  My poor NES controller was looking sad with
+wires just kind of crammed into it.  But, it still worked.&lt;/p&gt;
+&lt;p&gt;I refreshed the thing just enough to make it live to see another day. We
+didn&#39;t hand out candy that year, though, so the thing just decorated my office
+for awhile. &lt;br style=&quot;clear:both&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;v3-0-2017-&quot;&gt;v3.0 (2017)&lt;/h2&gt;
+&lt;!--
+&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/37852469272/in/datetaken/&quot; title=&quot;Pumpkin meets hot glue&quot;&gt;&lt;img class=&quot;inset wide right&quot; src=&quot;hot-glue.jpg&quot; alt=&quot;Pumpkin meets hot glue&quot;&gt;&lt;/a&gt;
+--&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/24031281868/in/datetaken/&quot; title=&quot;20171022_203806&quot;&gt;&lt;img id=&quot;thumbnail&quot; class=&quot;inset wide left&quot; src=&quot;pumpkin.jpg&quot; alt=&quot;20171022_203806&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Another Halloween and I felt an urge to get more ambitious: I’d picked up that
+Arduino at a Maker Faire back in 2011, pretty far from state of the art these 
+days. &lt;/p&gt;
+&lt;p&gt;I’d been reading about the &lt;a href=&quot;https://www.espressif.com/en/products/hardware/esp8266ex/overview&quot;&gt;ESP8266&lt;/a&gt; -
+a cheap and tiny WiFi module that had been repurposed for
+more tinkery things.  In fact, I read that you could even flash unmodified
+Arduino sketches onto the thing.&lt;/p&gt;
+&lt;!--
+&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/24031428708/in/datetaken/&quot; title=&quot;Creepy pumpkin eyes&quot;&gt;&lt;img class=&quot;inset wide left&quot; src=&quot;creepy.jpg&quot; alt=&quot;Creepy pumpkin eyes&quot;&gt;&lt;/a&gt;
+--&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/37626526390/in/datetaken/&quot; title=&quot;20171019_233614&quot;&gt;&lt;img class=&quot;inset wide left&quot; src=&quot;interior.jpg&quot; alt=&quot;20171019_233614&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;So, I ordered &lt;a href=&quot;http://a.co/8zPcmQ5&quot;&gt;an ESP8266 dev board&lt;/a&gt; and four more &lt;a href=&quot;http://a.co/3Mc3qZZ&quot;&gt;8x8 LED
+matrices&lt;/a&gt; for a mouth.
+It took me an hour to &lt;a href=&quot;https://github.com/lmorchard/arduino-sketches/blob/master/nodemcu/nespad_eyes/nespad_eyes.ino&quot;&gt;port my old Arduino sketch over&lt;/a&gt;,
+including the time to set up the dev stack. The eyes came alive on
+the new hardware in very short order. Another hour and I had the
+mouth animating.&lt;/p&gt;
+&lt;!--
+&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/37852235042/in/datetaken/&quot; title=&quot;20171017_005235&quot;&gt;&lt;img class=&quot;inset wide left&quot; src=&quot;mouth.jpg&quot; alt=&quot;20171017_005235&quot;&gt;&lt;/a&gt;
+--&gt;
+&lt;!--
+&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/37173755914/in/datetaken/&quot; title=&quot;20171021_230802&quot;&gt;&lt;img class=&quot;inset wide left&quot; src=&quot;missing-column.jpg&quot; alt=&quot;20171021_230802&quot;&gt;&lt;/a&gt;
+--&gt;
+&lt;p&gt;A bit more carving, and I was ready to install the mouth. I switched
+from gaffer tape to hot glue to make things more permanent. Alas, somehow I
+damaged a column of LEDs in the process. But, oh well: I just gave it fangs.&lt;/p&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/37626516700/in/datetaken/&quot; title=&quot;20171019_233504&quot;&gt;&lt;img class=&quot;inset wide left&quot; src=&quot;plugs.jpg&quot; alt=&quot;20171019_233504&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;!--
+&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/37626520570/in/datetaken/&quot; title=&quot;20171019_233530&quot;&gt;&lt;img class=&quot;inset wide wide left&quot; src=&quot;plugged-in.jpg&quot; alt=&quot;20171019_233530&quot;&gt;&lt;/a&gt;
+--&gt;
+&lt;p&gt;To tidy the whole thing up, I bought extension cables for USB power and the NES
+gamepad. I hacked those up and hot glued them into the back of the pumpkin. &lt;/p&gt;
+&lt;p&gt;When I was done, I had no cables trailing out from the inside of the thing. And, I could
+stop shoving bare wires into the end of an NES pad. And, if I wanted to go
+completely wireless, I could drop a USB power bank into the top and just
+connect it from inside.
+&lt;br style=&quot;clear:both&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;v4-0-2017-&quot;&gt;v4.0 (2017)&lt;/h2&gt;
+&lt;p&gt;But, speaking of completely wireless: Back at the start, I&#39;d
+considered using a Raspberry Pi.  Given a USB wifi adapter, I could have
+written a little web app to use as a remote control for the pumpkin. I still
+wanted to make that happen.&lt;/p&gt;
+&lt;p&gt;I knew this ESP8266 thing was handy, but I didn&#39;t realize just how handy until I did some more research. I found an interesting set of libraries to glue together:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/esp8266/Arduino&quot;&gt;ESP8266 Arduino core&lt;/a&gt; - this let me port my sketch over mostly unmodified&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://esp8266.github.io/Arduino/versions/2.0.0/doc/filesystem.html&quot;&gt;SPIFFS&lt;/a&gt; - offers an onboard filesystem in flash memory&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/esp8266/Arduino/tree/master/libraries/ESP8266WebServer&quot;&gt;ESP8266WebServer&lt;/a&gt; - an embedded webserver that &lt;a href=&quot;https://github.com/esp8266/Arduino/tree/master/libraries/ESP8266WebServer/examples/FSBrowser&quot;&gt;serves up static files from SPIFFS&lt;/a&gt; and lets me handle some URL routes with C code&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Links2004/arduinoWebSockets&quot;&gt;arduinoWebsockets&lt;/a&gt; - websockets server and client libraries&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/tzapu/WiFiManager&quot;&gt;WiFiManager&lt;/a&gt; - code to fire up an temporary Access Point with a captive web portal to bootstrap wifi configuration - great for a device with no screen or keyboard&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Long story short, I used all the above to produce this masterpiece:&lt;/p&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/24031282388/in/datetaken/&quot; title=&quot;Screenshot_20171023-004211&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;controls.jpg&quot; alt=&quot;Screenshot_20171023-004211&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;What you&#39;re looking at is the wifi remote control for my pumpkin. The big yellow square is a virtual touchpad - dragging my finger across it moves the eyeballs. Tapping &quot;Blink&quot; makes the eyes blink, while &quot;Talk&quot; makes the mouth open &amp; close.&lt;/p&gt;
+&lt;p&gt;It&#39;s a little web page loaded up from the onboard file system. It connects back to a websocket server that &lt;a href=&quot;https://github.com/lmorchard/arduino-sketches/blob/master/nodemcu/nespad_eyes/nespad_eyes.ino#L324&quot;&gt;accepts a bunch of little commands&lt;/a&gt; - which, oddly enough, map directly to NES pad buttons so I could be lazy and just reuse all the same code paths.&lt;/p&gt;
+&lt;p&gt;Building this went way easier than I expected. Sure, it&#39;s embarassing code that anyone sensible would shred in a code review. But, it was fun hacking and works pretty much like I hoped it would. In particular, I was surprised at how responsive it ended up being. Without any optimization, it follows my taps and drags without noticible lag.&lt;/p&gt;
+&lt;p&gt;So, for another year, I sat next to an animated glowing pumpkin while I handed
+out candy. But this time, I played amateur ventriloquist and had the thing
+talking to kids while I prodded at my cell phone. Pretty awkward and nerdy, but
+I think some folks appreciated it. They humored me, at least.&lt;/p&gt;
+&lt;h2 id=&quot;v5-0-what-s-next-&quot;&gt;v5.0? What&#39;s next?&lt;/h2&gt;
+&lt;p&gt;A few months later, this project is lying fallow. It’s on display in my office, where I can watch the semi-random idle gibbering whenever I like. And though I haven&#39;t gotten back to any ESP8266 tinkering since October, I&#39;m still kind of musing over what I could hack together next.&lt;/p&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/37885815451/in/datetaken/&quot; title=&quot;20171023_144656&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;in-office.jpg&quot; alt=&quot;20171023_144656&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;It feels weird to say it, but this project might be done: this pumpkin seems pretty close to my original idea. &lt;/p&gt;
+&lt;p&gt;I’ve mused about maybe building some sort of voice assistant into it: talk to the pumpkin, control things around the house, hear about the weather, order it to fire candy into kids’ bags with tiny trebuchets - who knows?&lt;/p&gt;
+&lt;p&gt;I could upgrade from LED matrices to &lt;a href=&quot;https://learn.adafruit.com/animated-electronic-eyes-using-teensy-3-1/overview&quot;&gt;full-blown OLED screens&lt;/a&gt;. Though, if I did that, I&#39;ve got a notion to build myself a replica of 790 from Lexx. I&#39;d probably regret it, but he seems more my kind of personal assistant than current offerings like Alexa or Siri:&lt;/p&gt;
+&lt;div style=&quot;position: relative; padding-bottom: 56.25%;&quot;&gt;
+  &lt;iframe class=&quot;lazyload&quot; style=&quot;position: absolute; top: 0; left: 0; width: 100%; height: 100%;&quot; src=&quot;&quot; data-src=&quot;https://www.youtube.com/embed/s8d1mfLa5Vk&quot; frameborder=&quot;0&quot; gesture=&quot;media&quot; allow=&quot;encrypted-media&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;I&#39;ve also been thinking bigger: Like, what if I turned my &lt;em&gt;house&lt;/em&gt; into an animated character? Combine some &lt;a href=&quot;https://www.itead.cc/sonoff-wifi-wireless-switch.html&quot;&gt;ESP8266&#39;s with AC relays&lt;/a&gt; and orchestrate strings of holiday lights into something animated? I could be &lt;em&gt;that&lt;/em&gt; guy on the block!&lt;/p&gt;
+&lt;p&gt;Anyway, let me know what you think!&lt;/p&gt;
+&lt;script async src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;!-- vim: set wrap linebreak nolist wrapmargin=0 textwidth=0 syntax=markdown formatoptions-=t: --&gt;
+</description>
+        
+        <pubDate>Thu, 08 Feb 2018 00:00:00 GMT</pubDate>
+        <link>https://blog.lmorchard.com/2018/02/08/pumpkin</link>
+        <guid isPermaLink="true">https://blog.lmorchard.com/2018/02/08/pumpkin</guid>
+      </item>
+    
+      <item>
+        <title>Backyard Pond</title>
+        
+          <description>&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;: I get conflicted about hosting &amp; running a community site&lt;/p&gt;
+&lt;!--more--&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/34786107212/in/datetaken/&quot; title=&quot;Backyard Pond&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;https://farm5.staticflickr.com/4250/34786107212_d5bfb6088a_z.jpg&quot; width=&quot;640&quot; height=&quot;480&quot; alt=&quot;Backyard Pond&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;an-unintentional-community&quot;&gt;An Unintentional Community&lt;/h2&gt;
+&lt;p&gt;Last fall, we bought a house with a pond in back. At first, I didn&#39;t really
+want it. I had a notion to fill it in, maybe replace it with a fire pit. By
+spring, we decided to keep it.&lt;/p&gt;
+&lt;p&gt;It&#39;s not a large pond - 6&#39; x 7&#39; x 2&#39; and roughly butterfly-shaped. It&#39;s got a
+little turtle that spits water pumped up from a filter box on the bottom. The
+pond liner is hard plastic, like a kiddie pool, covered in gravel and rocks to
+add a more natural look. The whole arrangement is probably 10 years old.&lt;/p&gt;
+&lt;p&gt;In March, I drained it, cleaned it, refilled it, started the fountain again.
+As I got busy over the next weeks, I discovered the liner had leaks - mainly
+cracks from the aforementioned rocks over many seasonal cycles of freeze &amp;
+thaw. I had to keep adding water to maintain the level: if it dropped below
+the fountain&#39;s filter box, the pump made horrible noises as it ran dry.&lt;/p&gt;
+&lt;p&gt;I got tired of wasting water. So, I turned off the pump and let
+things go while I researched next steps. It was about a week before I acquired
+a new rubber liner - and then another few days of rain before I had a sunny
+weekend day to work on it.&lt;/p&gt;
+&lt;p&gt;As it turns out, that&#39;s just enough time in May for a not-quite-empty backyard
+pond to transform into a murky swamp teeming with wriggling life. Mostly
+mosquito larvae, but there were plenty of other things I didn&#39;t quite
+recognize. So, I cleaned the whole thing out again, starting over with the new
+liner. It&#39;s back in business again - the water&#39;s stayed put and been clear for
+a week so far.&lt;/p&gt;
+&lt;p&gt;TL;DR, Here&#39;s the thing about a pond in your backyard: It&#39;s a responsibility.
+Water and debris collect. It attracts wildlife - some kinds less desirable
+than others. Left unchecked, it becomes a smelly, stagnant soup that can
+present hazards to yourself and your neighbors.&lt;/p&gt;
+&lt;h2 id=&quot;my-mastodon-mania&quot;&gt;My Mastodon Mania&lt;/h2&gt;
+&lt;p&gt;Thinking about this reminded me of something else: A few weeks ago, I was
+tinkering with setting up Mastodon instances. I bought some cheap domain
+names, set up some virtual hosts on my hobby server. They&#39;re all working - but
+I stopped short of opening up account registration. &lt;/p&gt;
+&lt;p&gt;I was suddenly aware of a feeling of anticipated responsibility. Each of these
+Mastodon instances would be backyard ponds. I&#39;d have to keep the pumps
+running, make sure to skim debris. I&#39;d have to monitor for wildlife setting up
+homes in and around them. I&#39;d have to work to keep these things from becoming
+hazards to myself and my neighbors. Hell, I could even be exposing myself to
+legal peril through what I might inadvertantly enable through neglect.&lt;/p&gt;
+&lt;p&gt;And, for what? The pond in our backyard has been a nice feature. I&#39;ve spent a
+few hours by it with my laptop. My wife seems to like it fine. Maybe some
+friends &amp; neighbors will enjoy gathering around it this summer. In contrast,
+the prospect of hosting social media watering holes for internet randos - let
+alone acquaintances and friends - fills me with dread.&lt;/p&gt;
+&lt;p&gt;So, that&#39;s me. I&#39;m not going to stand up a public Mastodon instance unless I
+convince myself that taking on the responsibility will pay off. I haven&#39;t
+imagined a good scenario yet.&lt;/p&gt;
+&lt;h2 id=&quot;what-s-my-motivation-&quot;&gt;What&#39;s My Motivation?&lt;/h2&gt;
+&lt;p&gt;But, what about other folks? &lt;/p&gt;
+&lt;p&gt;Consider the generous admins who run instances of Mastodon &amp; GNU Social &amp;
+PostActiv &amp; everything else that participates in the OStatus federation. Those
+folks all have their reasons and I think they&#39;ve accepted the responsibility
+to keep their ponds running clear. At least, with consideration for varied
+local definitions of &quot;clear&quot; in codes of conduct and whatnot.&lt;/p&gt;
+&lt;p&gt;But, what about Twitter and Facebook and Reddit? Hell, what about companies
+running servers for multiplayer games?&lt;/p&gt;
+&lt;p&gt;Do these folks not feel any of the dread &amp; responsibility I felt even
+considering setting up my own ponds online? Their ponds smell swampy. Their
+filtration pumps are not great. They leave things unchecked, because treating
+the water would eat into (or completely wipe out) the value extracted from the
+wildlife. The usual excuse is expense and difficulty, with an occasional lazy
+handwave at &quot;radical free speech&quot; as a rationalization.&lt;/p&gt;
+&lt;p&gt;But, could I get away leaving my pond as a Petri dish? I suspect the
+neighbors - and maybe the local authorities (including my wife) - would have something
+to say about it. That said, I&#39;m not sure who or what could nudge these pond
+owners into cleaning up their water. Maybe there&#39;ll be some laws - most likely
+ineffective or disastrous. Maybe all the valuable wildlife needs to migrate
+away - but we all seem not to mind the stinky water enough to leave yet.&lt;/p&gt;
+&lt;p&gt;Maybe we need more ponds run by people who care - and who get rewarded for the
+effort. More cooperatives and more volunteer efforts. Maybe some actually for
+pay! Each on smaller scales, because people can only take care of so much
+water &amp; wildlife. But, I don&#39;t have great ideas on how to make this happen. I
+guess that&#39;s what inspired me to tinker with Mastodon instances - I&#39;d like to
+see cleaner ponds. I just fall short of actually wanting to take on the
+responsibilty. Or feeling like I&#39;m the right guy to do it.&lt;/p&gt;
+&lt;p&gt;Anyway, I guess that&#39;s a fuzzy realization I&#39;ve had: In more traditional
+social gatherings - like house parties or conventions - there&#39;s so much
+emotional labor and organizational effort that chews up value. In trying to
+mechanize things, the whole ad-supported social media industry seems powered
+by as little care as possible to extract as much value as possible. In a
+sense, the value is skimmed from monetized neglect - not monetized eyeballs.
+Feels to me like the whole structure will fall over if we ever really figure
+that out or decide this sort of thing is no longer acceptable in a society.&lt;/p&gt;
+&lt;p&gt;Is that a good conclusion? Not sure. Still thinking.&lt;/p&gt;
+&lt;script async src=&quot;//embedr.flickr.com/assets/client-code.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;!-- vim: set wrap wm=5 syntax=markdown textwidth=78: --&gt;
+</description>
+        
+        <pubDate>Thu, 01 Jun 2017 00:00:00 GMT</pubDate>
+        <link>https://blog.lmorchard.com/2017/06/01/backyard-pond</link>
+        <guid isPermaLink="true">https://blog.lmorchard.com/2017/06/01/backyard-pond</guid>
+      </item>
+    
+      <item>
+        <title>Operation: Social Anxiety Edition</title>
+        
+          <description>&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;: Dealing with social anxiety feels like that old game Operation. BZZT!&lt;/p&gt;
+&lt;!--more--&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/foreverdigital/3379365663/in/photolist-69C8Fe-pu3mfW-9Bv4ea-biWkGx-fbMxp-ejerNC-ejezzb-dZNCGx-iH98pX-8vBVTe-2nEkS-8vEXjo-hJfJMv-azsQDV-pu1Avg-bWfPmW-bCEPaQ-4qFd84-29RVSQ-b8E1ER-ej1AmS-bCgETS-8vEXd9-fvJfjW-8vBWaH-8vEXtU-8vEXmG-ej82x2-ejE4Mi-b8G1AB-bRbjpM-9JFWdK-b8DZS4-gaVaRC-8uVpXv-8vEXbY-edy5iv-8vEXpw-ei5Mht-k1H7g-b8E11K-8vBVYn-nQdDvA-czXZxd-q5zVfA-ejKNDY-boiid3-6WrbUV-6BxAua-eiC5pG&quot; title=&quot;operation&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;https://c1.staticflickr.com/4/3639/3379365663_f966393ba0_z.jpg&quot; width=&quot;640&quot; height=&quot;432&quot; alt=&quot;operation&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;nav role=&quot;navigation&quot; class=&quot;table-of-contents&quot;&gt;&lt;/nav&gt;
+
+&lt;p&gt;One of the things I made a resolution to work on this year is my social
+anxiety. That&#39;s a hard thing, as it&#39;s got a lot of inertia
+behind it and I need a lot of self-convincing to change it.&lt;/p&gt;
+&lt;h2 id=&quot;life-s-pretty-pretty-good&quot;&gt;Life&#39;s pretty, pretty good&lt;/h2&gt;
+&lt;p&gt;Overall, life&#39;s pretty good. I&#39;m productive and successful. I work from home.
+I shop from home. My main hobbies—writing, reading, tinkering, gaming—they&#39;re
+all things I usually do at home. I even socialize from home! &lt;/p&gt;
+&lt;p&gt;Thanks to the internet, I&#39;m an elusive hermit who can go days without changing
+out of pajamas or even walking outside. I could be living on a space station,
+except the network latency is better here on the ground.&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;inset left&quot; src=&quot;/uploads/2016/heartbroken.jpg&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;The only person I see every day is my lovely wife. By some miracle I&#39;ve
+yet to fully understand, she&#39;s one of the few people in the world who does not
+fill me with terror. At least, not unless I&#39;ve done something that warrants
+it.&lt;/p&gt;
+&lt;p&gt;Being with her is almost like being alone, but she helps keep me from
+going completely feral. She reminds me that other people exist and need to be
+considered.&lt;/p&gt;
+&lt;p&gt;She&#39;s also a lot of fun to be around and my life would not be
+possible without her.
+&lt;br style=&quot;clear: both&quot;/&gt;&lt;/p&gt;
+&lt;h2 id=&quot;relatively-functional-adult&quot;&gt;Relatively functional adult&lt;/h2&gt;
+&lt;p&gt;That said, I do manage to strike out on &lt;em&gt;some&lt;/em&gt; expeditions.  Grocery shopping,
+though a challenge, is a thing I&#39;ve been known to do. We order take-out and I
+often pick it up. Haircuts and doctor visits are harder.&lt;/p&gt;
+&lt;p&gt;So I guess I&#39;m a relatively functional adult. I&#39;ve read that it&#39;s
+usually only worth addressing a condition if it affects your ability to live
+and achieve goals. I do a lot of that. I&#39;m doing pretty well—so why change it?&lt;/p&gt;
+&lt;p&gt;But, I often forget that this hermitage is bounded by anxiety, because I&#39;ve so
+successfully built my adult life within that delimited space. There &lt;em&gt;are&lt;/em&gt;
+times when I would like to interact with live people. That&#39;s usually from a
+perspective of great conceptual distance, like when I&#39;m &lt;a href=&quot;https://blog.lmorchard.com/2017/01/31/pages-and-pens/&quot;&gt;writing in my
+journal&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;I think of myself as the kind of person who &lt;em&gt;should&lt;/em&gt; participate in events
+like &lt;a href=&quot;https://2017.penguicon.org/&quot;&gt;Penguicon&lt;/a&gt;. I imagine I&#39;m the kind of person who &lt;em&gt;should&lt;/em&gt; be an active
+community member at a maker space like &lt;a href=&quot;https://www.i3detroit.org/&quot;&gt;i3Detroit&lt;/a&gt;. You &lt;em&gt;should&lt;/em&gt; see me
+often at Detroit-area gaming &amp; tech meetups. I &lt;em&gt;should&lt;/em&gt; have many nerdy
+friends with whom I meet often and have great times.&lt;/p&gt;
+&lt;p&gt;In reality, I am an elusive hermit of whom sightings are rare. When you
+&lt;em&gt;do&lt;/em&gt; see me, it&#39;s likely that I&#39;m pushing down some serious terror. I may act
+awkward &amp; spazzy. I may look shifty and have my eyes on the exits.&lt;/p&gt;
+&lt;h2 id=&quot;on-being-gelatinous&quot;&gt;On being gelatinous&lt;/h2&gt;
+&lt;p&gt;Here&#39;s a thing that happens a lot: Say there&#39;s an event I&#39;d like to attend—one
+of the fortnightly &lt;a href=&quot;https://www.i3detroit.org/&quot;&gt;i3Detroit&lt;/a&gt; &lt;a href=&quot;https://www.i3detroit.org/wiki/Main_Page&quot;&gt;member meetings&lt;/a&gt;, for example. When the
+day comes, I start getting nervous when I get out of bed. By afternoon, I&#39;m
+feeling worn down by the day. I start telling myself I should just
+skip it. And this is also how I end up just kind of disappearing from things:
+If I skip enough times, it starts to feel like that&#39;s not a thing I do
+anymore—and going back is awkward.&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;inset right&quot; src=&quot;https://1.bp.blogspot.com/-tj8RNJyjuq8/V7zt0vRot7I/AAAAAAAAaoY/ae-HGggy-jYoB3BR6jAqyYikJdX_3igGgCLcB/s1600/Odo.gif&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;If I&#39;m lucky, I can summon up this kind of Super Mario Star Power
+state where I can be &quot;&lt;strong&gt;on&lt;/strong&gt;&quot; and pass for human temporarily—before collapsing
+into a gelatinous blob once I&#39;m alone again. Huge success! I did the thing and
+it wasn&#39;t so bad!&lt;/p&gt;
+&lt;p&gt;If I&#39;m not so lucky, I manage to do the thing but I&#39;m a wreck about it. Once,
+I had to spend ten minutes with my head down on the steering wheel in a
+parking lot trying to pull myself together before an event. I fought down the
+urge to sob from frustration. I dragged myself in by sheer willpower, but I
+wanted to retreat at each stage: putting on shoes; getting my bag; turning the
+key in the car; driving to the venue; leaving the car; walking in the door.&lt;/p&gt;
+&lt;h2 id=&quot;this-strange-year&quot;&gt;This strange year&lt;/h2&gt;
+&lt;p&gt;Addressing this problem has taken on new importance this year: I feel compelled
+to do strange &amp; new things—like make daily phone calls to my
+representatives in government and politely inform them of my preferences.
+Everywhere, I read things like &quot;&lt;a href=&quot;https://dailyaction.org/&quot;&gt;in 90 seconds... be done with
+it&lt;/a&gt;&quot; or &quot;&lt;a href=&quot;https://5calls.org/&quot;&gt;spend 5 minutes, make 5
+calls&lt;/a&gt;&quot; and I laugh &amp; laugh. It turns a bit maniacal,
+this laughing.&lt;/p&gt;
+&lt;p&gt;It takes me &lt;strong&gt;hours&lt;/strong&gt; to make calls: That includes build up &amp;
+procrastination beforehand, as well as the subsequent release of nervous
+energy afterward. Or, of course, there&#39;s the extended self-flagellation if I
+don&#39;t manage to dial the phone. Doesn&#39;t matter that I&#39;m not leaving the
+house—phone calls are just as bad as anything else!&lt;/p&gt;
+&lt;h2 id=&quot;it-takes-a-steady-hand-&quot;&gt;It takes a steady hand!&lt;/h2&gt;
+&lt;p&gt;It feels like that old battery-powered game Operation. It goes like
+so: You have metal tweezers. You need to extract plastic bones from
+metal-rimmed recesses in the game board. If your tweezers contact the sides, a
+harsh buzzer blares and you lose.&lt;/p&gt;
+&lt;div class=&quot;video-container&quot;&gt;&lt;iframe class=&quot;lazyload&quot; width=&quot;560&quot; height=&quot;315&quot; src=&quot;&quot; data-src=&quot;https://www.youtube.com/embed/_6MAkLJ79LE?ecver=1&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;Extracting a positive outcome from my head is like that: If I can thread
+myself through the anxious thoughts and not touch any of them, I win. I can do
+the thing easily. But, if I touch any of those thoughts with attention, they
+all pile in on me and I lose. I still might be able to do the thing, but only
+with an exhausting effort of will. And then, there&#39;s little energy left to use
+during the event itself.&lt;/p&gt;
+&lt;p&gt;This forms a cycle: The next time I consider doing a thing, I remember the
+gamble. Can I turn on the Star Man Power? Or will this be an uphill climb with
+a parking log sobbing session at the peak? It&#39;s not always predicable. The
+same regular event can summon up either outcome. I&#39;ve given talks before large
+groups and felt good before &amp; after. I&#39;ve gone to a friend&#39;s house for a
+small party and felt like sprinting away.&lt;/p&gt;
+&lt;h2 id=&quot;the-problem-with-this-problem&quot;&gt;The problem with this problem&lt;/h2&gt;
+&lt;p&gt;And here&#39;s the meta-problem: Knowing all of the above doesn&#39;t seem to help. So
+silly at a rational distance, yet it always catches me by surprise in the
+moment of truth. Still, I often wonder—is this real? Am I being melodramatic?
+Is this just some kind of habitual affectation in which I&#39;ve decided to
+wallow? Can&#39;t I just suck it up and power through like everyone else
+apparently does? Should I even be writing this precious little blog post?&lt;/p&gt;
+&lt;p&gt;Why &lt;em&gt;am&lt;/em&gt; I writing this blog post, anyway? My inner critics accuse me of seeking
+attention, but that doesn&#39;t quite seem like me. If anything, I want these
+thoughts out of my head for the sake of catharsis. I wouldn&#39;t mind connecting
+with other folks who are going through this too. Additionally, I suppose it
+could serve as an explanation to folks who might be confused by why I&#39;m such
+an elusive hermit. &lt;/p&gt;
+&lt;h2 id=&quot;so-uh-what-now-&quot;&gt;So, uh, what now?&lt;/h2&gt;
+&lt;p&gt;I don&#39;t really know what to do from here.  I turned 41 last year and I&#39;ve
+been dealing with this issue for most of those decades. I&#39;m under no delusion
+that I&#39;ll find some magic self-help cheat code to turn it around. &lt;/p&gt;
+&lt;p&gt;I guess I&#39;m just going to keep plugging away at it, trying to alter my habits
+and trying to do the things.  Maybe having written this and admitting the
+problem will help? Maybe this makes my efforts this year more real?&lt;/p&gt;
+&lt;p&gt;Who knows? But, feel free to chime in with comments!&lt;/p&gt;
+&lt;script async src=&quot;//embedr.flickr.com/assets/client-code.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;!-- vim: set wrap wm=5 syntax=markdown textwidth=78: --&gt;
+</description>
+        
+        <pubDate>Thu, 02 Feb 2017 00:00:00 GMT</pubDate>
+        <link>https://blog.lmorchard.com/2017/02/02/operation-anxiety</link>
+        <guid isPermaLink="true">https://blog.lmorchard.com/2017/02/02/operation-anxiety</guid>
+      </item>
+    
+      <item>
+        <title>Pages and Pens</title>
+        
+          <description>&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;: I&#39;ve been writing a lot and accumulating fancy pens &amp; ink colors.&lt;/p&gt;
+&lt;!--more--&gt;
+&lt;p&gt;I&#39;ve been trying to make some changes in my life. I started &lt;a href=&quot;https://www.strava.com/athletes/6013128&quot;&gt;running&lt;/a&gt; and tried eating better. I&#39;ve tried &lt;a href=&quot;https://blog.lmorchard.com/tag/diy/&quot;&gt;making things besides software&lt;/a&gt;. I&#39;ve also been trying to write more consistently.&lt;/p&gt;
+&lt;p&gt;Last January, I started writing three pages almost every morning, five days a week. I take weekends off because my routine is so random &amp; lazy then. But, as of now, I&#39;ve written roughly 200,000 words by hand.&lt;/p&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/31795028574/in/datetaken/&quot; title=&quot;20170131_194758&quot;&gt;&lt;img src=&quot;https://c1.staticflickr.com/1/700/31795028574_efd910810d_c.jpg&quot; width=&quot;800&quot; height=&quot;450&quot; alt=&quot;20170131_194758&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I started with a Moleskine I&#39;d unwrapped in 2014—these books typically last years for me. I&#39;ve always idly kept a journal since I was a teenager. I even tried forming a daily pages habit in college after reading &lt;a href=&quot;http://amzn.to/2jTm12t&quot;&gt;The Artist&#39;s Way&lt;/a&gt; and &lt;a href=&quot;http://amzn.to/2jttNUp&quot;&gt;Life&#39;s Companion&lt;/a&gt;, but that iteration of the habit sputtered. Since then, I&#39;ve only written when something extraordinary happened or, oddly, when I was stuck on a plane.&lt;/p&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/32637957475/in/datetaken/&quot; title=&quot;20170131_195015&quot;&gt;&lt;img src=&quot;https://c1.staticflickr.com/1/263/32637957475_75eed87a45_c.jpg&quot; width=&quot;800&quot; height=&quot;450&quot; alt=&quot;20170131_195015&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I&#39;ve still got &lt;strong&gt;20&lt;/strong&gt; and &lt;strong&gt;30&lt;/strong&gt; (!) year old journals that I browse through occasionally. One of my biggest regrets is that there are such enormous gaps between entries. Important things happened to me and my memory is fuzzy on how they hit me and who I was then.&lt;/p&gt;
+&lt;p&gt;But, since the daily pages habit took hold this time, my consumption of pages has made a sharp uptick. I&#39;ve filled close to four volumes of around 250 pages each. It&#39;s also taken a toll on my supply of pens. Where before a Pilot Precise V5 RT might have lasted the year, I started going through them every month. I was actually surprised &amp; confused to have one run dry on me—I&#39;d always lose them well before that happened!&lt;/p&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/26931688854/in/datetaken/&quot; title=&quot;Ran my pen out of ink writing daily journal pages&quot;&gt;&lt;img src=&quot;https://c1.staticflickr.com/8/7394/26931688854_b2fcdb6e66_c.jpg&quot; width=&quot;800&quot; height=&quot;600&quot; alt=&quot;Ran my pen out of ink writing daily journal pages&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I shared this picture on Twitter and someone joked that the next step was obviously to get into fountain pens. Well, I figured why not? But, I may have gone overboard by accumulating this assortment over the summer:&lt;/p&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/29858479905/in/datetaken/&quot; title=&quot;20160922_135315&quot;&gt;&lt;img src=&quot;https://c1.staticflickr.com/9/8784/29858479905_65038f2187_c.jpg&quot; width=&quot;800&quot; height=&quot;450&quot; alt=&quot;20160922_135315&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I&#39;m also well-stocked with ink at this point—at least as far as journal pages are concerned. Though now that the addiction has seized me, I&#39;m probably going to keep accumulating colors and playing.&lt;/p&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/32485741872/in/datetaken/&quot; title=&quot;20170131_210751&quot;&gt;&lt;img src=&quot;https://c1.staticflickr.com/1/530/32485741872_40b9df99c2_c.jpg&quot; width=&quot;800&quot; height=&quot;450&quot; alt=&quot;20170131_210751&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Now I&#39;ve got a virtuous nerdy cycle: Every morning, I look forward to grabbing my journal and one of my fancy pens and making sure the pen is topped off with ink. It&#39;s a very fiddly and satisfying process—and if you know me at all, you know I&#39;m easily satisfied with fiddly processes.&lt;/p&gt;
+&lt;p&gt;And, it turns out, I love writing with a fountain pen. I find myself almost craving it, hours after I finish my morning routine. The ink literally flows onto the page, by way of capillary action drawing it down the tiny gap in the nib. Unlike with a ballpoint or even a Pilot rolling ball, I don&#39;t have to apply any pressure. I can just barely touch the page and paint the ink onto the page. I&#39;ve also come to appreciate nicer paper, having upgraded my Moleskine habit to a &lt;a href=&quot;http://amzn.to/2kSYMW0&quot;&gt;Leuchtturm1917&lt;/a&gt; habit. I&#39;ve come a long way since a drug-store spiral notebook and a No. 2 pencil would do.&lt;/p&gt;
+&lt;p&gt;But anyway, back to the routine: I make coffee &amp; oatmeal. I start some music. I fire up my &lt;a href=&quot;http://amzn.to/2kTiEbS&quot;&gt;light therapy panel&lt;/a&gt; because &lt;a href=&quot;http://www.mlive.com/weather/index.ssf/2017/01/incredible_lack_of_sun_continu.html&quot;&gt;winter in Michigan is ridiculous&lt;/a&gt;. I attract a cat or two. Then, I start writing.&lt;/p&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/32372860692/in/datetaken/&quot; title=&quot;20170124_102605&quot;&gt;&lt;img src=&quot;https://c1.staticflickr.com/1/605/32372860692_110624a036_c.jpg&quot; width=&quot;800&quot; height=&quot;450&quot; alt=&quot;20170124_102605&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Usually, I can make it through 3 pages in 45-60 minutes. That ends up being about 750 words. I started this habit at my office desk, but I would get distracted by my laptop. At our old house, I moved to the kitchen island downstairs and kept my phone just out of arm&#39;s reach once I got the music started. Since we moved to Detroit this past fall, we&#39;ve got a breakfast nook with a little table near a window overlooking the backyard. It&#39;s embarrassingly precious, but I manage.&lt;/p&gt;
+&lt;p&gt;When I&#39;m lucky, I get myself into a good mindful state for a solid block of time. Sometimes, the writing is rewarding and dislodges interesting stuff from my head. More often, the writing is just random blather that spills out to fill pages. And every once in awhile, the writing is about the fact that I&#39;m writing random blather for the sake of writing—at which point the journal implodes into itself and I have to buy a new one.&lt;/p&gt;
+&lt;p&gt;The thing is, though, that I sit down and that I finish it. Three pages every time. It&#39;s an interesting way to start the day, accomplishing a moderately strenuous mental task not unlike physical exercise. When it works, I untangle my brain while also exercising focus and willpower to complete the task. Some days, that focused feeling spills over into the rest of the day&#39;s work. Sometimes it doesn&#39;t &lt;em&gt;quite&lt;/em&gt; work. A few times, I&#39;ve experimented with writing these pages while I ride an exercise bike to kill two birds with one stone—but the result was disastrous and messy. Really, it&#39;s just best to stick to a simpler ritual.&lt;/p&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/31960336615/in/datetaken/&quot; title=&quot;20161229_103704&quot;&gt;&lt;img src=&quot;https://c1.staticflickr.com/1/762/31960336615_790c96f099_c.jpg&quot; width=&quot;800&quot; height=&quot;450&quot; alt=&quot;20161229_103704&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;So, where do I go from here?&lt;/strong&gt; I had an interesting time &lt;strong&gt;reviewing&lt;/strong&gt; entries when I had vacation time at the end of 2016. It was a pretty good year, &lt;a href=&quot;https://blog.lmorchard.com/2016/11/11/heartbroken/&quot;&gt;until it wrecked me&lt;/a&gt;. But, I&#39;d like to do better in 2017. And, of course, this new year brings new challenges and pushes me to do &lt;a href=&quot;https://twitter.com/lmorchard/status/821789340355428352&quot;&gt;things that I&#39;ve never really done before&lt;/a&gt;. I&#39;ve got a lot of tangle to straighten in my brain.&lt;/p&gt;
+&lt;p&gt;I also want to &lt;strong&gt;publish&lt;/strong&gt; more consistently &amp; effectively. I wrote 200,000 words this past year, but it&#39;s unlikely anyone will ever read them but me. It&#39;s not like I&#39;m going to be a historically significant figure and see all these journals end up in an archive somewhere. Hell, I&#39;m not even all that sure anyone&#39;s reading &lt;em&gt;this very blog post&lt;/em&gt;—but since you don&#39;t have to sneak into my office to access it, chances are way higher.&lt;/p&gt;
+&lt;p&gt;I&#39;ve got my &lt;strong&gt;tinkering &amp; making&lt;/strong&gt; to write about, like I always have. But, I&#39;ve also been considering writing here about more general topics—and whether that might work better than snipey little junk food retweets and Facebook threads. You know, versus just keeping my mouth shut altogether. I&#39;ve never really gotten all that &lt;strong&gt;political&lt;/strong&gt; on a blog before, but maybe it would help me clarify my thinking by doing it out loud and inviting some push back.&lt;/p&gt;
+&lt;p&gt;I&#39;ve also really wanted to get myself writing &lt;strong&gt;stories&lt;/strong&gt;. I&#39;ve got &lt;a href=&quot;https://blog.lmorchard.com/tag/fiction/&quot;&gt;a little bit of fiction on my blog&lt;/a&gt;, but I&#39;ve always wanted to do more. The engine never quite catches, though. Maybe I can find a way to translate or replicate this daily pages habit as a regular creative writing habit. Maybe start with some flash fiction again and work my way up to extended works.&lt;/p&gt;
+&lt;p&gt;All in all, I love writing. I&#39;m not sure why I have such a hard time doing it more out in the open, but I&#39;d like to solve that. Maybe 2017 will be the year I progress from this solid private habit to a public one.&lt;/p&gt;
+&lt;script async src=&quot;//embedr.flickr.com/assets/client-code.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;!-- vim: set wrap wm=5 syntax=markdown textwidth=78: --&gt;
+</description>
+        
+        <pubDate>Tue, 31 Jan 2017 00:00:00 GMT</pubDate>
+        <link>https://blog.lmorchard.com/2017/01/31/pages-and-pens</link>
+        <guid isPermaLink="true">https://blog.lmorchard.com/2017/01/31/pages-and-pens</guid>
+      </item>
+    
+      <item>
+        <title>Upgrading my Couch PC monitor, v1.2</title>
+        
+          <description>&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;: My DIY couch PC monitor has been upgraded for a third time.&lt;/p&gt;
+&lt;!--more--&gt;
+&lt;nav role=&quot;navigation&quot; class=&quot;table-of-contents&quot;&gt;&lt;/nav&gt;
+
+&lt;h2 id=&quot;the-story-so-far-&quot;&gt;The story so far...&lt;/h2&gt;
+&lt;p&gt;Almost 3 years ago, &lt;a href=&quot;http://blog.lmorchard.com/2013/01/21/gaming-from-the-orchard-house-couch&quot;&gt;I decided to build a gaming PC that I could use from the couch&lt;/a&gt; while a) hanging out with my wife and b) not monopolizing the living room TV.&lt;/p&gt;
+&lt;p&gt;The PC was simple: &lt;a href=&quot;http://amzn.to/2iy5G2b&quot;&gt;it&#39;s just a cube&lt;/a&gt; behind the couch. Mouse &amp; keyboard &amp; headphones are also easy—USB cables come in long lengths and Bluetooth is a thing.&lt;/p&gt;
+&lt;p&gt;No, the hard part was the monitor. I had been gaming on a 2012 15&quot; MacBook Pro—which was physically convenient but lacking in performance. A gaming PC solves the latter, but no one seems to sell 15&quot; standalone monitors equivalent to my laptop screen. That was when I discovered &lt;a href=&quot;http://www.instructables.com/id/Laptop-to-Desktop-Conversion/&quot;&gt;an Instructable article&lt;/a&gt; about how to turn an old laptop into a desktop panel. &lt;a href=&quot;https://blog.lmorchard.com/2013/01/21/gaming-from-the-orchard-house-couch/#Laptop_decapitation&quot;&gt;That gave me ideas&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;version-1-0-artisanal-acrylic&quot;&gt;Version 1.0 - Artisanal Acrylic&lt;/h2&gt;
+&lt;p&gt;Turns out, there are &lt;a href=&quot;http://www.ebay.com/usr/chinatobby2011&quot;&gt;vendors on eBay&lt;/a&gt; who offer complete kits for hooking a laptop display panel up to a PC. They just don&#39;t come with any kind of enclosure like your typical computer monitor. So, &lt;a href=&quot;http://blog.lmorchard.com/2013/02/10/building-my-couch-computing-station/&quot;&gt;I ordered one of those kits and tried handcrafting a case&lt;/a&gt;. It turned out crude yet functional:&lt;/p&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/8439217201/in/photolist-5m6a-dRKcfR-58SNWo-e3Nbyu-7FS8wi-7FS8pc-e3NbtC-e3Nb3W-4P3uQw-3RZHaZ-RQPr4-RNZRY-RQPwv-7aTRk8-7aTRTz-7aXEAw-dSvv2a-dSvurt-jC3LLU-dSmDqf-5m5D-5EBhpP-7HvphU-cVUcz-cVXdK-5EFzQf-cVV14&quot; title=&quot;First fully assembled power-on of my DIY monitor&quot;&gt;&lt;img src=&quot;/uploads/2017/diy-monitor-v12/8439217201_6eea54c3e5_z.jpg&quot; width=&quot;800&quot; height=&quot;600&quot; alt=&quot;First fully assembled power-on of my DIY monitor&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/8447859933/in/photolist-5m6a-dRKcfR-58SNWo-e3Nbyu-7FS8wi-7FS8pc-e3NbtC-e3Nb3W-4P3uQw-3RZHaZ-RQPr4-RNZRY-RQPwv-7aTRk8-7aTRTz-7aXEAw-dSvv2a-dSvurt-jC3LLU-dSmDqf-5m5D-5EBhpP-7HvphU-cVUcz-cVXdK-5EFzQf-cVV14&quot; title=&quot;Rear view #2 of DIY monitor and IKEA DAVE&quot;&gt;&lt;img src=&quot;/uploads/2017/diy-monitor-v12/8447859933_c1bf2c05aa_z.jpg&quot; width=&quot;800&quot; height=&quot;600&quot; alt=&quot;Rear view #2 of DIY monitor and IKEA DAVE&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;version-1-1-custom-picture-frame&quot;&gt;Version 1.1 - Custom Picture Frame&lt;/h2&gt;
+&lt;p&gt;I used that first version for a year in my living room. It was ugly &amp; heavy &amp; awkward. Happily, I fell upon &lt;a href=&quot;http://www.instructables.com/id/How-to-Make-a-Raspberry-Pi-Media-Panel-fka-Digita/?ALLSTEPS&quot;&gt;this Instructables article&lt;/a&gt; that pointed me to &lt;a href=&quot;http://www.americanframe.com/&quot;&gt;American Frame&lt;/a&gt;. They&#39;ll produce a rectangular picture frame in just about any custom size you&#39;d like—height, width, &lt;em&gt;and&lt;/em&gt; depth.&lt;/p&gt;
+&lt;p&gt;So, I ordered a nice matte black metal frame close to the size of my display panel. I ended up with this:&lt;/p&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/12222356524/in/photolist-dRKcfR-7aTRk8-dSvv2a-dSvurt-jC3LLU-5m6a-58SNWo-e3Nbyu-7FS8wi-7FS8pc-e3NbtC-e3Nb3W-4P3uQw-3RZHaZ-RQPr4-RNZRY-RQPwv-7aTRTz-7aXEAw-dSmDqf-5m5D-5EBhpP-7HvphU-cVUcz-cVXdK-5EFzQf-cVV14&quot; title=&quot;Updated Couch PC monitor&quot;&gt;&lt;img src=&quot;/uploads/2017/diy-monitor-v12/12222356524_fcbd4cf0b4_z.jpg&quot; width=&quot;600&quot; height=&quot;800&quot; alt=&quot;Updated Couch PC monitor&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Sleeker and lighter. The back of the picture frame was just &lt;a href=&quot;https://en.wikipedia.org/wiki/Foamcore&quot;&gt;foamcore&lt;/a&gt; and I used double-sided tape on the monitor arm and all the electronics. Luckily, the panel and all were light enough for these hacks. But, it kind of fell apart across two house moves.&lt;/p&gt;
+&lt;h2 id=&quot;version-1-2-mic-stands-laser-cutters-ftw&quot;&gt;Version 1.2 - Mic Stands &amp; Laser Cutters FTW&lt;/h2&gt;
+&lt;p&gt;I decided I wanted to minimize things. The Ikea Dave laptop stand seemed a bit much, especially when I needed to move it around—or hide it when company came over.&lt;/p&gt;
+&lt;p&gt;Last year, I (finally) got a membership at &lt;a href=&quot;https://www.i3detroit.org/&quot;&gt;i3Detroit&lt;/a&gt;. I skilled up on laser cutters and &lt;a href=&quot;https://blog.lmorchard.com/2016/08/29/gamechord/&quot;&gt;made a DIY keypad that I showed off at the Detroit Maker Faire&lt;/a&gt;. Things that, you know, &lt;a href=&quot;https://groups.google.com/d/topic/i3detroit-public/Qv1P91ySqWo/discussion&quot;&gt;I should have done years ago at the start of this whole DIY monitor project&lt;/a&gt;—rather than cutting things by hand and with a Dremel.&lt;/p&gt;
+&lt;p&gt;Anyway, I discovered that there&#39;s a such thing as &lt;a href=&quot;http://amzn.to/2jccG5D&quot;&gt;a VESA mount&lt;/a&gt; for &lt;a href=&quot;http://amzn.to/2jcc93M&quot;&gt;microphone stands&lt;/a&gt;. I bought those and threw in an &lt;a href=&quot;http://amzn.to/2j1YpeM&quot;&gt;adapter&lt;/a&gt; &amp; a &lt;a href=&quot;http://amzn.to/2j1VYZq&quot;&gt;gooseneck&lt;/a&gt;—all of which let me strip my rig down like so:&lt;/p&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/32182700386/in/datetaken/&quot; title=&quot;20170109_221645&quot;&gt;&lt;img src=&quot;/uploads/2017/diy-monitor-v12/32182700386_4320d2a1d0_z.jpg&quot; width=&quot;450&quot; height=&quot;800&quot; alt=&quot;20170109_221645&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/31845156280/in/datetaken/&quot; title=&quot;20170109_221722&quot;&gt;&lt;img src=&quot;/uploads/2017/diy-monitor-v12/31845156280_d16551c8df_z.jpg&quot; width=&quot;450&quot; height=&quot;800&quot; alt=&quot;20170109_221722&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;By this point, the double-sided tape and the foamcore just weren&#39;t up to the task. I decided that I needed to use my laser cutter skills and spare stock of acrylic sheets to build a new mounting solution.&lt;/p&gt;
+&lt;p&gt;I came up with this in &lt;a href=&quot;https://inkscape.org/en/&quot;&gt;Inkscape&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/uploads/2017/diy-monitor-v12/monitor-back-2.svg&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/uploads/2017/diy-monitor-v12/path3848.png&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This is a flattened image (linked to &lt;a href=&quot;/uploads/2017/diy-monitor-v12/monitor-back-2.svg&quot;&gt;the original SVG&lt;/a&gt;) of what turned out to be two 2.5mm and two 1.5mm sheets behind the laptop display panel. This layout has places to bolt in all of the electronic components of the monitor—driver board, button panel, and power supply. It&#39;s also got a proper 75/100 VESA mount that accepts &lt;a href=&quot;http://amzn.to/2iYwbAU&quot;&gt;10mm thumbscrew bolts&lt;/a&gt; through the mic stand plate.&lt;/p&gt;
+&lt;p&gt;The main thing that worked out better than I expected is this: &lt;img src=&quot;/uploads/2017/diy-monitor-v12/nuts.png&quot; style=&quot;width: 1.5em&quot;&gt;&lt;/p&gt;
+&lt;p&gt;The two 1.5mm layers have rectangular cut-outs. Each of those trap a 3mm thick hexogonal M4 nut and act as wrenches. The 2.5mm layers have holes for bolts. With a little Dremel work, I have a set of M4 bolts that are trimmed so as to prevent grinding into the display panel behind the acrylic layers.&lt;/p&gt;
+&lt;p&gt;After a trip to &lt;a href=&quot;https://www.i3detroit.org/&quot;&gt;i3Detroit&lt;/a&gt; yesterday, I ended up with this:&lt;/p&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/32080951661/in/datetaken/&quot; title=&quot;20170108_214638&quot;&gt;&lt;img src=&quot;/uploads/2017/diy-monitor-v12/32080951661_c92bb3f74c_z.jpg&quot; width=&quot;800&quot; height=&quot;450&quot; alt=&quot;20170108_214638&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I improvised attaching the power supply with bolted-down velcro straps. And, alas, the &quot;roof&quot; I made for the driver board didn&#39;t quite work—I need longer bolts &amp; spacers. But, the 75/100 VESA mounting holes worked great!&lt;/p&gt;
+&lt;p&gt;The whole thing is now decidedly heavier than with the old foamcore—but it&#39;s still lighter than v1.0 and any other comparable monitor I&#39;ve seen. It&#39;s also much sturdier: I can turn &amp; adjust it however I like with the gooseneck without the constant threat of duct tape tearing and falling apart. And, of course, the mic stand raises &amp; lowers easily.&lt;/p&gt;
+&lt;p&gt;But, when I &lt;em&gt;do&lt;/em&gt; want to take it apart, it&#39;s totally doable without worry. Cables unplug, thumbscrews unscrew, the mic stand breaks down—and the whole thing can hide under the couch in pieces.&lt;/p&gt;
+&lt;h2 id=&quot;next-steps-&quot;&gt;Next steps?&lt;/h2&gt;
+&lt;p&gt;Enclosure upgrades notwithstanding, this is a 3-year-old 17&quot; 1080p monitor. I&#39;m starting to feel the itch for a 4k panel since &lt;a href=&quot;https://www.instagram.com/p/BOlqtGyh7Ln&quot;&gt;I upgraded my video card&lt;/a&gt;. But, there&#39;s apparently still no one who sells such a thing as a readymade product.&lt;/p&gt;
+&lt;p&gt;Meanwhile, on eBay, there are vendors offering &lt;a href=&quot;http://www.ebay.com/itm/HDMI-DVI-DP-Board-17-3-3840x2160-UHD-4K-Wideview-100-NTSC-LCD-B173ZAN01-0-/192056466946?hash=item2cb7751e02&quot;&gt;4k versions of the kit&lt;/a&gt; that started me off on this whole adventure. I&#39;m tempted to order one of those and use what I&#39;ve learned so far to build the next revision of my monitor in a picture frame with a laser-cut VESA mount back panel.&lt;/p&gt;
+&lt;p&gt;Maybe I&#39;ll retire this 1080p monitor for use with my CHIP &lt;a href=&quot;https://getchip.com/pages/chip&quot;&gt;Pico-8 console kit&lt;/a&gt; for a snazzy all-in-one barcade project. In any case, I&#39;m just happy my lovely wife continues to tolerate this experiment of mine in living room couch gaming.&lt;/p&gt;
+&lt;script async src=&quot;//embedr.flickr.com/assets/client-code.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;!-- vim: set wrap linebreak nolist wrapmargin=0 textwidth=0 syntax=markdown formatoptions-=t textwidth=78: --&gt;
+</description>
+        
+        <pubDate>Mon, 09 Jan 2017 00:00:00 GMT</pubDate>
+        <link>https://blog.lmorchard.com/2017/01/09/diy-monitor-v12</link>
+        <guid isPermaLink="true">https://blog.lmorchard.com/2017/01/09/diy-monitor-v12</guid>
+      </item>
+    
+      <item>
+        <title>Heartbroken</title>
+        
+          <description>&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;: My heart is broken. Less shitposting. More thinking. Hopefully something productive, soon.&lt;/p&gt;
+&lt;!--more--&gt;
+&lt;p&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/uploads/2016/heartbroken.jpg&quot; id=&quot;thumbnail&quot; title=&quot;my wife drew me this&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;My heart is broken. My last tweet before going to bed on election night was this:&lt;/p&gt;
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;This is a fucking terrible night to be a humanist. Just gutted. No humor, no whimsy, no faith. All rage &amp; despair &amp; loathing &amp; shame.&lt;/p&gt;&amp;mdash; Les Orchard (@lmorchard) &lt;a href=&quot;https://twitter.com/lmorchard/status/796228402948833280&quot;&gt;November 9, 2016&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;My last Facebook post was to share this tweet:&lt;/p&gt;
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;“Never underestimate the power of stupid people in large groups.” &lt;br&gt;― George Carlin&lt;/p&gt;&amp;mdash; Justin Maxwell (@303) &lt;a href=&quot;https://twitter.com/303/status/796245867376218112&quot;&gt;November 9, 2016&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;After that, I decided to take a break from posting anything. I’ve tried not to look very much. I unfollowed a relative after seeing a string of posts that struck me as ugly and gloating. They struck me rather personally and had me fuming. Then, I noticed another relative whom I thought followed me no longer did. Did some post of mine in the recent past much have had a similar effect on them? Probably.&lt;/p&gt;
+&lt;p&gt;Since then, I’ve been thinking about why I post anything anywhere. This popped into my head:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Is it true?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Is it necessary?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Is it kind?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I don’t remember where I picked that up - probably attributed to whomever sounded wisest at the time the meme was slapped together. Whatever the source, I’ve asked myself those three questions each time I’ve been tempted to break my social media fast over the past few days.&lt;/p&gt;
+&lt;p&gt;And, so far, I haven’t liked the answers.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Is it true?&lt;/strong&gt; I like to think I’m well read &amp; informed. Ideally, what I write &amp; share are things on which I’ve done homework to be sure they’re not hoaxes or hyperbolic trolls. In all honesty, I’ve posted plenty of knee-jerk hot takes.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Is it necessary?&lt;/strong&gt; It’s cathartic to hop madly and jab a finger at something infuriating or unfair. Is that sufficient? I can’t say if I’ve swayed anyone or fixed anything with tweet storms or sharing streaks. I get likes &amp; shares &amp; nodding heads, but that’s just bonding with folks who already agree.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Is it kind?&lt;/strong&gt; I’d like to think that helping expose new information &amp; perspectives is kind. I’d like to think that shining a light on things going wrong is kind. But, maybe it’s not always kind. Maybe sometimes it’s received as a bewildering assault of meanness. You know, I&#39;m having particular trouble with the kindness question just now.&lt;/p&gt;
+&lt;p&gt;I’ve been alternating between numb and feeling all the things. I’ve been trying to work. I’ve been crying a lot. I talk with my amazing wife, but I don’t want to turn the firehose on her.&lt;/p&gt;
+&lt;p&gt;Frankly, all I want to do right now is channel this white-hot primal scream of rage &amp; despair &amp; loathing &amp; shame into every outlet I have available. That’s not much different from some of what I’ve already been doing, except by intensity. I can’t identify any desirable outcome beyond catharsis. Well, if that’s all, I can just roar into a pillow and leave the world less to listen to.&lt;/p&gt;
+&lt;p&gt;So, I’ve denied myself this self-soothing habit of posting garbage on the internet because I just can’t trust myself and haven’t envisioned pride in what I’d do. But, in doing that, I’ve also cut off what I tend to consider a support system. It might just be a bubble of people I barely know clicking little hearts and thumbs, but it’s often been an ambient comfort to me.&lt;/p&gt;
+&lt;p&gt;I’ve got notes on a post about social anxiety I’ve been meaning to write. If I had it published, I’d point to the part where I talk about how - from the days of dial-up BBSes to IRC to blogs to ten years of Twitter - computer mediated communication has been most of what serves as a social life for me. Having the computer in the middle eases what I usually find so hard to abide in meeting people face-to-face.&lt;/p&gt;
+&lt;p&gt;I should work on changing that in my life. Again, if I had that social anxiety post written, I’d point to the bit where I’m rather stymied on how to improve things. I’ve been taking swings at the problem for close to 41 years. (Maybe I should write that post next.)&lt;/p&gt;
+&lt;p&gt;If I actually post this, it’s because I decided it had good-enough answers to those three questions. I don’t have a conclusion to write. I’m not sure what to do next. Less shitposting. More thinking. Hopefully something more productive soon.&lt;/p&gt;
+&lt;p&gt;In the meantime, I made a mixtape while I was fasting. Maybe you&#39;ll like it:&lt;/p&gt;
+&lt;iframe src=&quot;https://embed.spotify.com/?uri=spotify%3Auser%3Almorchard%3Aplaylist%3A6VAci6bT2I9fnE2sZLYJA3&quot; width=&quot;300&quot; height=&quot;380&quot; frameborder=&quot;0&quot; allowtransparency=&quot;true&quot;&gt;&lt;/iframe&gt;
+
+&lt;script async src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;!-- vim: set wrap linebreak nolist wrapmargin=0 textwidth=0 syntax=markdown formatoptions-=t: --&gt;
+</description>
+        
+        <pubDate>Fri, 11 Nov 2016 00:00:00 GMT</pubDate>
+        <link>https://blog.lmorchard.com/2016/11/11/heartbroken</link>
+        <guid isPermaLink="true">https://blog.lmorchard.com/2016/11/11/heartbroken</guid>
+      </item>
+    
+      <item>
+        <title>Firefox Test Pilot: The Flattening</title>
+        
+          <description>&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;: Firefox Test Pilot is becoming a statically-generated site from content in flat files. We&#39;re moving away from Django and PostgreSQL, and it&#39;s been a bit of a journey.&lt;/p&gt;
+&lt;!--more--&gt;
+&lt;p&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/uploads/2016/tp-header.png&quot; /&gt;&lt;/p&gt;
+&lt;nav role=&quot;navigation&quot; class=&quot;table-of-contents&quot;&gt;&lt;/nav&gt;
+
+&lt;p&gt;I&#39;ve been working on &lt;a href=&quot;https://testpilot.firefox.com/&quot;&gt;Firefox Test Pilot&lt;/a&gt; for over a year, but I haven&#39;t written about it here before now. Mostly because I&#39;ve been busy and lazy and &lt;a href=&quot;/2016/08/31/yak-shaving-habits/&quot;&gt;busily shaving yaks&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;But, there have been big things afoot lately, and I figured they were worth writing about - if only because they&#39;re invisible, behind-the-scenes things that nonetheless took a lot of work to accomplish.&lt;/p&gt;
+&lt;h2 id=&quot;be-prepared-but-for-what-&quot;&gt;Be prepared - but for what?&lt;/h2&gt;
+&lt;p&gt;When we started building Test Pilot last summer, we based the server-side on Django &amp; PostgreSQL. We had assumptions about the future: &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;We&#39;d need to collect measurements from experiments. &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;We thought experiments would need some active server-side resources provided by the mothership.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;We&#39;d need to manage user profiles &amp; preferences, so we required sign-in with a Firefox Account. &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A year later, these assumptions didn&#39;t quite pan out: &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Rather than reinvent the wheel by collecting &amp; analyzing measurements ourselves, we took advantage of Google Analytics and the efforts of &lt;a href=&quot;https://wiki.mozilla.org/Telemetry&quot;&gt;the Firefox Telemetry team&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;We found it&#39;s best to stay out of the way of teams building Test Pilot experiments - let them manage their own services as necessary, rather than be tied to the delivery cadence of the core project.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The sign-in requirement turned away many potential users. But, we didn&#39;t need accounts to facilitate experiment participation anyway. Our metrics are anonymous and a Firefox add-on manages opt-in.&lt;/p&gt;
+&lt;p&gt;Accounts ended up being private data we had to keep secure, but only used for email notifications. We have better ways to manage email subscriptions across Mozilla - so one less wheel to reinvent!&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;didn-t-need-that-server-anyway&quot;&gt;Didn&#39;t need that server anyway&lt;/h2&gt;
+&lt;p&gt;There was just one last reason to use Django &amp; PostgreSQL on Test Pilot: A web-based content management system to update the site without heavyweight server deployments &amp; database migrations. &lt;/p&gt;
+&lt;p&gt;But, wait a minute: If the other reasons for a server dropped away - why do we need complex deployments?&lt;/p&gt;
+&lt;p&gt;Furthermore, why maintain content &lt;a href=&quot;https://indieweb.org/database-antipattern&quot;&gt;in a database&lt;/a&gt; at all?&lt;/p&gt;
+&lt;p&gt;The whole Test Pilot team knows their way around text editors and GitHub - so let&#39;s make that our CMS. We can &lt;a href=&quot;https://github.com/mozilla/testpilot/blob/master/frontend/tasks/pages.js&quot;&gt;bake the whole site&lt;/a&gt; from &lt;a href=&quot;https://github.com/mozilla/testpilot/tree/master/content-src/experiments&quot;&gt;flat files&lt;/a&gt;. Deployment is &lt;a href=&quot;https://github.com/mozilla/testpilot/blob/master/docs/development/deployment.md#producing-a-static-build&quot;&gt;running a build script&lt;/a&gt; and &lt;a href=&quot;https://github.com/mozilla/testpilot/blob/master/circle.yml#L71&quot;&gt;uploading the result&lt;/a&gt; to a web server. We get revision control &amp; collaboration along with the rest of the project. And as a security bonus, we stop shipping the tools to change the site along with the deployed site itself.&lt;/p&gt;
+&lt;p&gt;None of this is revolutionary. Aaron Swartz&#39;s &quot;&lt;a href=&quot;http://www.aaronsw.com/weblog/000404&quot;&gt;Bake, Don&#39;t Fry&lt;/a&gt;&quot; is over 14 years old: Why fry up a new web page for every visit when you can pre-bake the whole site ahead of time? I used &lt;a href=&quot;http://blosxom.sourceforge.net/&quot;&gt;Bloxsom&lt;/a&gt; back in the day and &lt;a href=&quot;https://blog.lmorchard.com/2014/10/20/static-blog-generation-with-gulp/&quot;&gt;Gulp bakes this blog now&lt;/a&gt;. Static site generators &lt;a href=&quot;https://www.staticgen.com/&quot;&gt;are numerous &amp; popular&lt;/a&gt; - GitHub itself offers &lt;a href=&quot;https://help.github.com/articles/using-jekyll-as-a-static-site-generator-with-github-pages/&quot;&gt;GitHub Pages&lt;/a&gt; powered by &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;It sounds obvious in retrospect, but it took awhile to realize our site could be stripped down to so little. We assumed we needed all those moving parts - or would need them someday. But, it appears that we can get away with being nearly serverless. And if someday a feature requires more, we can stand up some loosely-coupled microservices - or better yet, find that another team at Mozilla has already solved the problem.&lt;/p&gt;
+&lt;h2 id=&quot;the-show-must-go-on&quot;&gt;The show must go on&lt;/h2&gt;
+&lt;p&gt;But, having realized all of this, we couldn&#39;t just burn down the site and start over. Because we&#39;re working on a vehicle in motion, we&#39;ve been doing this in increments over the summer: &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;A couple of months ago, &lt;a href=&quot;https://github.com/mozilla/testpilot/issues/1035&quot;&gt;we removed the Firefox Accounts requirement&lt;/a&gt; and then &lt;a href=&quot;https://github.com/mozilla/testpilot/issues/1034&quot;&gt;deleted the user data&lt;/a&gt; once we were sure we weren&#39;t going back.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;We switched data sources for displaying the number of folks participating in experiments from our own Django API to &lt;a href=&quot;https://github.com/mozilla/testpilot/issues/1039&quot;&gt;a Telemetry-based resource&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;I wrote a task to &lt;a href=&quot;https://github.com/mozilla/testpilot/blob/master/frontend/tasks/content.js#L22&quot;&gt;import content from the current Django API&lt;/a&gt;. Then, I wrote &lt;a href=&quot;https://github.com/mozilla/testpilot/blob/master/frontend/tasks/content.js#L16&quot;&gt;a task to generate JSON&lt;/a&gt; from those imported files - a direct static replacement for the Django API.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Next, I implemented &lt;a href=&quot;https://github.com/mozilla/testpilot/blob/master/testpilot/experiments/views.py#L50&quot;&gt;a feature flag in Django&lt;/a&gt; to substitute static JSON for content from the database. Thus, we can start managing content in YAML now, maintaining our current infrastructure until we work out a new stripped-down deployment process.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Soon, we&#39;ll be able to update the site by pushing to the appropriate branch on GitHub. We&#39;ve got &lt;a href=&quot;https://github.com/mozilla/testpilot/blob/master/frontend/tasks/pages.js&quot;&gt;tasks to generate stub pages&lt;/a&gt; for all the front end app routes. We&#39;re also looking into enforcing a requirement to &lt;a href=&quot;http://micropipes.com/blog//2016/08/31/signing-your-commits-on-github-with-a-gpg-key/&quot;&gt;sign our commits and tags&lt;/a&gt; on the way to release.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;After that, &lt;a href=&quot;https://github.com/mozilla/testpilot/issues/1306&quot;&gt;we plan to go even further with static site generation&lt;/a&gt;. Test Pilot is currently a single page app that pulls content from JSON. But, we can do better by pre-rendering those HTML pages in our build process ahead of time.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;what-s-next-&quot;&gt;What&#39;s next?&lt;/h2&gt;
+&lt;p&gt;There&#39;s a funny thing about all of this: If we&#39;re successful, no one visiting the site should notice anything different. We&#39;re developing some new features &amp; experiments - but all this work to rid our infrastructure of Django &amp; PostgreSQL should ideally be a non-event for anyone visiting the site. This is the least glamorous sort of work one occasionally has to do on a software project - change everything, but don&#39;t break anything.&lt;/p&gt;
+&lt;p&gt;The real benefit will be that we&#39;re able to do a lot of things faster and more easily. For instance, there are now fewer places that need changes to display a new piece of information on a page. We don&#39;t have to monitor as many third-party dependencies - &lt;a href=&quot;https://github.com/mozilla/testpilot/issues/1116&quot;&gt;which we weren&#39;t doing very well to begin with&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Our development stack shrinks from Docker containers with Django &amp; PostgreSQL &amp; Node.js - down to just Node.js v6.2.0. &lt;a href=&quot;https://github.com/mozilla/testpilot/blob/master/docs/development/quickstart.md&quot;&gt;The whole system has gotten simpler and more direct&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;But, wait, there&#39;s more: Along with totally changing our server-side infrastructure, &lt;a href=&quot;https://github.com/mozilla/testpilot/issues/1307&quot;&gt;we&#39;ve also rewritten the front end of the site to switch from Ampersand to React &amp; Redux&lt;/a&gt;. It should make static site generation easier. It&#39;s also eased development on a handful of new features in the past week or so.&lt;/p&gt;
+&lt;p&gt;It&#39;s a big deal - and another thing that, in retrospect, seems more obvious now than it did a year ago. But, I&#39;m going to save writing about that for my next post.&lt;/p&gt;
+&lt;!-- vim: set wrap linebreak nolist wrapmargin=0 textwidth=0 syntax=markdown formatoptions-=t: --&gt;
+</description>
+        
+        <pubDate>Mon, 26 Sep 2016 00:00:00 GMT</pubDate>
+        <link>https://blog.lmorchard.com/2016/09/26/testpilot-static</link>
+        <guid isPermaLink="true">https://blog.lmorchard.com/2016/09/26/testpilot-static</guid>
+      </item>
+    
+      <item>
+        <title>Poking the Mongo on Pico-8</title>
+        
+          <description>&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;: I started writing a video game for a fantasy console. The future is weird.&lt;/p&gt;
+&lt;!--more--&gt;
+&lt;nav role=&quot;navigation&quot; class=&quot;table-of-contents&quot;&gt;&lt;/nav&gt;
+
+&lt;h2 id=&quot;enter-the-pocketc-h-i-p-&quot;&gt;Enter the PocketC.H.I.P.&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.lexaloffle.com/pico-8.php&quot;&gt;Pico-8&lt;/a&gt; has been out for a few years. With it, folks have been making fun neo-retro games - and of course I&#39;ve got a soft spot for that genre. &lt;/p&gt;
+&lt;p&gt;But, I never really fell down the Pico-8 rabbit hole until this arrived:&lt;/p&gt;
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Oh hey! My &lt;a href=&quot;https://twitter.com/hashtag/pocketchip?src=hash&quot;&gt;#pocketchip&lt;/a&gt; just showed up! &lt;a href=&quot;https://t.co/5HxB2mzCPw&quot;&gt;pic.twitter.com/5HxB2mzCPw&lt;/a&gt;&lt;/p&gt;&amp;mdash; Les Orchard (@lmorchard) &lt;a href=&quot;https://twitter.com/lmorchard/status/766350094555750400&quot;&gt;August 18, 2016&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://boingboing.net/2016/05/04/tiny-8-bit-console-designed-f.html&quot;&gt;I read about the PocketC.H.I.P. back in May&lt;/a&gt;. I was sold on the idea of real hardware for a fantasy game console - a Raspberry PI turned GameBoy. I pre-ordered and then mostly forgot about it. Fast forward three months and I&#39;ve got the thing in my hands.&lt;/p&gt;
+&lt;p&gt;While I do want to write up an in-depth look at the PocketC.H.I.P., for now I&#39;m going to focus on this Pico-8 thing that&#39;s grabbed me in the past few weeks.&lt;/p&gt;
+&lt;p&gt;But, like my old Commodore 64, PocketC.H.I.P. is a gateway drug: It doesn&#39;t just play games - it comes with a full Pico-8 installation: Tools for code, sprites, maps, sounds, and music. In past visits to the Pico-8 scene, using just the web player, the significance of this hadn&#39;t quite dawned on me. &lt;/p&gt;
+&lt;h2 id=&quot;view-source&quot;&gt;View Source&lt;/h2&gt;
+&lt;p&gt;&lt;img class=&quot;lazyload inset right&quot; data-src=&quot;/uploads/2016/poke-the-mongo/PICO-8_21.gif&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;With the full package, you can hit &lt;kbd&gt;Esc&lt;/kbd&gt; on any running cartridge and tinker with the source - &lt;strong&gt;not entirely unlike View Source and Developer Tools on the Web&lt;/strong&gt;. And, &lt;a href=&quot;/2015/08/07/web-awesome/&quot;&gt;you know I&#39;m a fan of that&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Or, to strum my nostalgia strings, it&#39;s like when I would pour over listings in 1980s computer magazines to see how those games worked. In fact, there have even been a few issues of a &lt;a href=&quot;https://sectordub.itch.io/pico-8-fanzine-1&quot;&gt;Pico-8 Zine&lt;/a&gt; with code and interviews. &lt;/p&gt;
+&lt;p&gt;After I&#39;d poked at a dozen-odd carts and browsed through the zines, I thought I should give it a go myself. I didn&#39;t know much Lua, but it&#39;s an easy language to pick up. Simpler than JavaScript, &lt;a href=&quot;https://twitter.com/lmorchard/status/766870582856081409&quot;&gt;but it beats revisiting BASIC&lt;/a&gt; - even my old favorite &lt;a href=&quot;https://en.wikipedia.org/wiki/Simons%27_BASIC&quot;&gt;Simons&#39; BASIC&lt;/a&gt;, which has a surprising amount in common with this modern day system. &lt;/p&gt;
+&lt;p&gt;I also decided to be masochistic by coding directly on the PocketC.H.I.P. Later, when my fingers vetoed further typing on metal domes, I plugged in a USB keyboard. As things got more complex, I broke down and bought the main edition of Pico-8 to move to a bigger screen. It&#39;s not Free Software or even Free-as-in-Beer. But, &lt;a href=&quot;http://www.lexaloffle.com/pico-8.php#getpico8&quot;&gt;it&#39;s only US$14.99&lt;/a&gt;. That single purchase gave me access to versions for my PC, Mac, and Linux machines. &lt;/p&gt;
+&lt;p&gt;(There&#39;s even a Raspberry PI version - which gives me ideas for building a Pico-8 multicade machine. But, that&#39;s a story for another post.)&lt;/p&gt;
+&lt;p&gt;On my PC, I discovered &lt;code&gt;.p8&lt;/code&gt; cartridges are just text files I can edit in Vim! With that revelation, &lt;a href=&quot;https://github.com/lmorchard/Pico-8-Carts&quot;&gt;I created a GitHub repo&lt;/a&gt; and started saving my work there. Things have come a long way since I only had a tape drive to work with on my C64!&lt;/p&gt;
+&lt;p&gt;A couple of days later, I had a promising start:&lt;/p&gt;
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Just in case I don&#39;t work on it any further, here&#39;s Poke the Mongo v0.1! &lt;a href=&quot;https://t.co/Qgn0p2ZCep&quot;&gt;https://t.co/Qgn0p2ZCep&lt;/a&gt; &lt;a href=&quot;https://t.co/rGtP6UCf5p&quot;&gt;pic.twitter.com/rGtP6UCf5p&lt;/a&gt;&lt;/p&gt;&amp;mdash; Les Orchard (@lmorchard) &lt;a href=&quot;https://twitter.com/lmorchard/status/767604122388279296&quot;&gt;August 22, 2016&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;share-and-enjoy-&quot;&gt;Share and enjoy!&lt;/h2&gt;
+&lt;p&gt;There are a few more things I discovered in composing that tweet:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Pico-8 has easy built-in video recording that renders animated GIFs to my desktop. &lt;kbd&gt;F3&lt;/kbd&gt; to start, &lt;kbd&gt;F4&lt;/kbd&gt; to save - and I&#39;m ready to tweet little moments while I hack.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Pico-8 cartridges can be exported as images. &lt;img class=&quot;inset right&quot; style=&quot;width: inherit&quot; src=&quot;/uploads/2016/poke-the-mongo/poke-the-mongo.p8.png&quot; /&gt; The code for my game is encoded in that PNG with &lt;a href=&quot;https://twitter.com/lexaloffle/status/611581098900897793&quot;&gt;a steganography technique that subtly tweaks pixel color bits&lt;/a&gt;. As long as no intermediaries corrupt the hidden encoding, I can share this game cartridge by uploading the image.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Apropos of that, Lexaloffle has forums - a BBS - where folks post &amp; discuss their Pico-8 carts. &lt;a href=&quot;http://www.lexaloffle.com/bbs/?tid=4111&quot;&gt;You can find mine over here&lt;/a&gt;!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Inside Pico-8 is a mode called &quot;Splore&quot; which connects to the Lexaloffle BBS to let you browse uploaded carts from the console. So, when I uploaded my game, it was instantly available to everyone else with Pico-8!&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Pico-8 is game making as a social activity, and the system has all the batteries included.&lt;/p&gt;
+&lt;h2 id=&quot;game-making-is-a-fun-game&quot;&gt;Game making is a fun game&lt;/h2&gt;
+&lt;p&gt;As I tinkered, it occurred to me that Pico-8 is less a serious game development system and more a game about making games. Through intentional constraints &amp; platform quirks, it offers offer creative hooks &amp; puzzles.&lt;/p&gt;
+&lt;p&gt;The constraints mean it&#39;s not as easy to get lost in options or feel overwhelmed. For example, &lt;a href=&quot;https://neko250.github.io/pico8-api/&quot;&gt;here&#39;s a Pico-8 API cheatsheet&lt;/a&gt; - it&#39;s pretty much all I&#39;ve needed! It&#39;s also hard to build anything huge, so there&#39;s less of a compulsion to go beyond doodles or a few specific game mechanics. I can make something derpy but good enough and move on without stressing about my artistic skills.&lt;/p&gt;
+&lt;p&gt;But also, some folks have found ways to really push the boundaries of the system - and that is a puzzle in itself. It&#39;s great to get a fresh dose of that old school awe from seeing a clever hack make the machine do something it wasn&#39;t meant to do. It&#39;s akin to seeing someone pull off some nasty moves in game streams where I know just enough to realize what&#39;s happening.&lt;/p&gt;
+&lt;p&gt;I&#39;m nowhere near that level of Pico-8 mastery, but it could be interesting to dive into some of the things I&#39;ve learned so far. But, I&#39;ll save that for yet another post.&lt;/p&gt;
+&lt;h2 id=&quot;play-my-game-&quot;&gt;Play my game!&lt;/h2&gt;
+&lt;p&gt;Pico-8 games can also be exported to HTML5 and JavaScript. This embedded web player consists of the game code and an Emscripten-compiled version of the Pico-8 engine. So, &lt;a href=&quot;/2015/08/07/web-awesome/&quot;&gt;because the web is awesome&lt;/a&gt;, even if Pico-8 goes away this copy of my game will continue working long after:&lt;/p&gt;
+&lt;iframe class=&quot;lazyload&quot; style=&quot;width: 100%; height: 420px&quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; allowfullscreen data-src=&quot;/uploads/2016/poke-the-mongo/pokethemongo.html&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;I&#39;ve also read that the folks behind Pico-8 aren&#39;t particularly hostile to others cloning the system - which has lead to things like &lt;a href=&quot;https://github.com/picolove/picolove&quot;&gt;PICOLOVE&lt;/a&gt;, an independent implementation of the Pico-8 APIs for another Lua-based game system. I&#39;ve seen a few folks leverage that to get their games running on Android, so I&#39;ll have to check that out at some point.&lt;/p&gt;
+&lt;p&gt;Anyway, I&#39;ve got a few more things to add, but I think this game is getting pretty close to where I want it to be. It&#39;s all gone much faster than I expected, so I&#39;m looking forward to trying more ideas. &lt;/p&gt;
+&lt;p&gt;Until then, let me know how you like Poke the Mongo, and I&#39;ll follow up with a more in-depth look at how I made this thing!&lt;/p&gt;
+&lt;script async src=&quot;//embedr.flickr.com/assets/client-code.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;script async src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;!-- vim: set wrap linebreak nolist wrapmargin=0 textwidth=0 syntax=markdown formatoptions-=t textwidth=78: --&gt;
+</description>
+        
+        <pubDate>Sun, 11 Sep 2016 00:00:00 GMT</pubDate>
+        <link>https://blog.lmorchard.com/2016/09/11/poke-the-mongo</link>
+        <guid isPermaLink="true">https://blog.lmorchard.com/2016/09/11/poke-the-mongo</guid>
+      </item>
+    
+      <item>
+        <title>On the Yak Shaving Habits of a Writer</title>
+        
+          <description>&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;: Writing is apparently so important to me that I procrastinate like crazy rather than risk failing at it.&lt;/p&gt;
+&lt;!--more--&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/28744583274/in/datetaken/&quot; title=&quot;The shaven yak&quot;&gt;&lt;img src=&quot;https://c3.staticflickr.com/9/8339/28744583274_3736faf0d9_c.jpg&quot; class=&quot;fullwidth&quot; alt=&quot;The shaven yak&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;nav role=&quot;navigation&quot; class=&quot;table-of-contents&quot;&gt;&lt;/nav&gt;
+
+&lt;p&gt;In composing this, I fully recognize the danger of disappearing up my own backside. The thing is, I want to write more. And, it was pretty cool I managed to get something posted last night. But, the process of doing so ended up way more convoluted than it should have been. So, I want to share the story and invite public ridicule.&lt;/p&gt;
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;So I told myself that I should do some writing tonight, but now that it&#39;s tonight all I want to do is drink booze and play video games.&lt;/p&gt;&amp;mdash; Les Orchard (@lmorchard) &lt;a href=&quot;https://twitter.com/lmorchard/status/770771394816729088&quot;&gt;August 30, 2016&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;It started with yesterday morning&#39;s journal pages. I told myself it was a good night to get this done. I made plans to start working on it after dinner.  I cooked dinner. I ate dinner and had a beer. I sat down on the couch... and all I wanted to do was anything else but write.&lt;/p&gt;
+&lt;h2 id=&quot;recursive-yak-shaving&quot;&gt;Recursive yak shaving&lt;/h2&gt;
+&lt;p&gt;Let&#39;s see, what did I do instead? I&#39;d mused in my journal that I needed a different venue to get myself into the ritual mindset to write. I write my daily pages at the kitchen island over breakfast. That&#39;s a way easier environment for focusing on that task than my workaday desk with my laptop and all that entails.&lt;/p&gt;
+&lt;p&gt;So, that means I went to the kitchen island with notebook &amp; pen and started writing, right? Nope. &lt;/p&gt;
+&lt;p&gt;I went to the basement to dig out an old laptop. I wanted something to write a blog post with fewer distractions. I dug up a ChromeBook, a MacBook, and an Android tablet with a keyboard. Surely one of those things would be handy for writing! (Why I didn&#39;t also dig up &lt;a href=&quot;http://www.tankraider.com/DOSPALMTOP/prolinearps1000.html&quot;&gt;my old 80x24 DOS palmtop from 1993&lt;/a&gt;, I&#39;m not sure. That thing&#39;s nifty and I used to write with it back in college!)&lt;/p&gt;
+&lt;div class=&quot;pullquote right&quot;&gt;
+So, that means I went to the kitchen island with notebook &amp; pen and started writing, right? Nope. 
+&lt;/div&gt;
+
+&lt;p&gt;On the way out of the basement, I noticed the unassembled comic book boxes I&#39;d been meaning to put together. So, I put them together. I considered reorganizing some comics from their 20+ year old boxes into the new ones. But, no, I decided: That was too far off task. I&#39;ll get to that later.&lt;/p&gt;
+&lt;p&gt;Continuing on, I considered my Tempest arcade machine. The screen&#39;s still not working on that thing, and I&#39;ve been meaning to fix it most of the last year. I moved to pop open the back, but stopped. Again, too far off task!&lt;/p&gt;
+&lt;p&gt;I made it upstairs with the laptops and the tablet. I got to the kitchen and plugged things in to charge. The tablet wouldn&#39;t get past the boot-up screen. Okay, forget the tablet. The MacBook booted into... Ubuntu Linux? I forgot I did that with this machine. I forgot my password. Wi-fi didn&#39;t work. Deal with that later. &lt;/p&gt;
+&lt;p&gt;The ChromeBook booted up fine. But, for some reason, I suddenly decided it needed to have &lt;a href=&quot;https://github.com/dnschneid/crouton&quot;&gt;Crouton&lt;/a&gt; and Ubuntu installed. You know, so I could run git &amp; node &amp; gulp to preview my blog post and publish when I was done. So, I started on that. &lt;a href=&quot;https://github.com/dnschneid/crouton&quot;&gt;Crouton&lt;/a&gt;&#39;s nifty and it was up &amp; running with less fuss than I expected. I got all my tools installed, and had my blog building before I knew it.&lt;/p&gt;
+&lt;p&gt;Then, around 10pm, I moved back to the couch and my Windows PC. I opened up a text editor, a shell running my blog, and a browser for previews - all of which, mind you, I&#39;ve had set up and working fine on that Windows machine for the past year at least. I put on headphones and started &lt;a href=&quot;https://open.spotify.com/album/16MILExMR5RIvzTIII2YnH&quot;&gt;Killing Joke&lt;/a&gt; on Spotify. I assembled photos and drafted the blog post for GameChord. Finally, around 3am, I published it. Then, I went to bed.&lt;/p&gt;
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Finally wrote about GameChord, the little 1-handed keypad I made this summer &lt;a href=&quot;https://t.co/fUCv6o5M6l&quot;&gt;https://t.co/fUCv6o5M6l&lt;/a&gt;&lt;/p&gt;&amp;mdash; Les Orchard (@lmorchard) &lt;a href=&quot;https://twitter.com/lmorchard/status/770881246020800512&quot;&gt;August 31, 2016&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;So, umm, yeah. Did you notice that I never used the tablet, the MacBook, or the ChromeBook at any point? The comic books didn&#39;t come in handy, either.&lt;/p&gt;
+&lt;h2 id=&quot;building-high-pedestals&quot;&gt;Building high pedestals&lt;/h2&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/28511732042/in/datetaken-public/&quot; title=&quot;20160728_200320&quot;&gt;&lt;img src=&quot;https://c3.staticflickr.com/9/8782/28511732042_815448af85.jpg&quot; alt=&quot;20160728_200320&quot; class=&quot;inset wide right&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Recently, &lt;a href=&quot;https://www.flickr.com/photos/deusx/28511732042/in/datetaken-public/&quot;&gt;I built worktables out of 2x4s and plywood&lt;/a&gt;. It was my first time really working with wood since shop class in High School. But, I did it: Found plans. Found a lumberyard. Got lumber &amp; tools. Picked a weekend and got super sweaty in the garage making lots of mistakes with wood. I produced a pair of crude but solid worktables.&lt;/p&gt;
+&lt;p&gt;Building GameChord was similar: I started researching &amp; tinkering until I had something working. I even managed to get myself out of the house to talk to actual people and join up as a member at &lt;a href=&quot;https://i3detroit.org/&quot;&gt;i3Detroit&lt;/a&gt;. No small measure of social terror involved, there. It took me a few months, but I managed to move the project along to completion.&lt;/p&gt;
+&lt;p&gt;But, somehow, the notion of writing drives me to insane &lt;a href=&quot;http://www.catb.org/~esr/jargon/html/Y/yak-shaving.html&quot;&gt;yak shaving&lt;/a&gt; diversions in the basement. &lt;/p&gt;
+&lt;p&gt;This morning, back at the kitchen island, I had a post-mortem over coffee. What I managed to wring out of myself is that I&#39;ve stuck writing up on a scary high pedestal.&lt;/p&gt;
+&lt;p&gt;If I don&#39;t make another table or keyboard, that&#39;s cool: I&#39;ve never considered myself &lt;strong&gt;A Woodworker&lt;/strong&gt; or &lt;strong&gt;A Keyboard Maker&lt;/strong&gt;. Those things aren&#39;t as crucial to my self-image, I guess. For as long as I can remember, though, I&#39;ve wanted to be &lt;strong&gt;A Writer&lt;/strong&gt;. The trouble is that actually engaging in the process of writing means I might discover that, you know, I might be &lt;strong&gt;Not A Writer&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;how-to-get-past-this-&quot;&gt;How to get past this?&lt;/h2&gt;
+&lt;p&gt;The funny thing is that I &lt;em&gt;have&lt;/em&gt; written a bunch. I really like words. I&#39;ve been told I&#39;m good at it. &lt;a href=&quot;http://amzn.to/2bW4moK&quot;&gt;A book publisher even paid me for it, more than once!&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I also know I produce some terrible stuff. But, writers I admire have admitted the same. The key is to just keep writing and get better. Clean up the junk in editing.&lt;/p&gt;
+&lt;p&gt;What to do, then, to stop all the procrastination &amp; avoidance?&lt;/p&gt;
+&lt;p&gt;The best answer I have is nothing clever: Write more. No lifehacks. Just get over myself and write more. Be a writer by writing and let the failure wash over me. Then write some more - maybe even write about feeling like a failure. Write embarassing things and invite ridicule. Disappear up my own backside and turn inside out. (Wait, that last one sounds unpleasant. I should edit that out.)&lt;/p&gt;
+&lt;p&gt;Anyway, I guess I don&#39;t really have a conclusion. Do you, dear reader, have any better advice? I&#39;d like to hear it.&lt;/p&gt;
+&lt;script async src=&quot;//embedr.flickr.com/assets/client-code.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;script async src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;!-- vim: set wrap linebreak nolist wrapmargin=0 textwidth=0 syntax=markdown textwidth=78: --&gt;
+</description>
+        
+        <pubDate>Wed, 31 Aug 2016 00:00:00 GMT</pubDate>
+        <link>https://blog.lmorchard.com/2016/08/31/yak-shaving-habits</link>
+        <guid isPermaLink="true">https://blog.lmorchard.com/2016/08/31/yak-shaving-habits</guid>
+      </item>
+    
+      <item>
+        <title>Making of the GameChord</title>
+        
+          <description>&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;: I made a USB keypad that&#39;s good for gaming and typing entirely with
+one hand.&lt;/p&gt;
+&lt;!--more--&gt;
+&lt;nav role=&quot;navigation&quot; class=&quot;table-of-contents&quot;&gt;&lt;/nav&gt;
+
+&lt;p&gt;So, remember back in February when I said that &lt;a href=&quot;http://blog.lmorchard.com/2016/02/06/keyboard-hacking/&quot;&gt;keyboard hacking seems like
+fun&lt;/a&gt;?  Well, I
+finished this GameChord thing back in July after about 5 months of occasional
+work. But, I&#39;ve been too busy &lt;a href=&quot;https://twitter.com/lmorchard/status/770771394816729088&quot;&gt;drinking booze
+and playing video games&lt;/a&gt; 
+to get my butt in a chair and write about it.&lt;/p&gt;
+&lt;p&gt;Let&#39;s see if I can fix that now...&lt;/p&gt;
+&lt;h2 id=&quot;the-design&quot;&gt;The design&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.keyboard-layout-editor.com/##@_name=gamechord&amp;author=lmorchard;&amp;@=1&amp;=2&amp;=3&amp;=4&amp;=5;&amp;@=1&amp;=2&amp;=3&amp;=4&amp;=5;&amp;@=1&amp;=2&amp;=3&amp;=4&amp;=5;&amp;@_r:35&amp;rx:2.5&amp;ry:3.5&amp;y:-1&amp;x:1;&amp;=a&amp;=b&amp;=c&quot;&gt;&lt;img class=&quot;inset left&quot;
+src=&quot;/uploads/2016/gamechord/keyboard-layout.png&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I started doodling with key layouts and &lt;a href=&quot;http://www.keyboard-layout-editor.com/##@_name=gamechord&amp;author=lmorchard;&amp;@=1&amp;=2&amp;=3&amp;=4&amp;=5;&amp;@=1&amp;=2&amp;=3&amp;=4&amp;=5;&amp;@=1&amp;=2&amp;=3&amp;=4&amp;=5;&amp;@_r:35&amp;rx:2.5&amp;ry:3.5&amp;y:-1&amp;x:1;&amp;=a&amp;=b&amp;=c&quot;&gt;came up with
+this&lt;/a&gt;. Only 18 switches, but enough for gaming. At the
+time, I was putting a lot of hours into Elite
+Dangerous, so this felt promising as a spaceship control pad.&lt;br&gt;&lt;a href=&quot;https://www.flickr.com/photos/deusx/24872268889/&quot;&gt;&lt;img class=&quot;inset right&quot; src=&quot;/uploads/2016/gamechord/paper-planning.jpg&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.flickr.com/photos/deusx/24781232904/in/datetaken-public/&quot;&gt;&lt;img class=&quot;inset right&quot; src=&quot;/uploads/2016/gamechord/cats-happen.jpg&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Over on &lt;a href=&quot;http://builder.swillkb.com/&quot;&gt;builder.swillkb.com&lt;/a&gt;, I plonked in the JSON from &lt;a href=&quot;http://www.keyboard-layout-editor.com/##@_name=gamechord&amp;author=lmorchard;&amp;@=1&amp;=2&amp;=3&amp;=4&amp;=5;&amp;@=1&amp;=2&amp;=3&amp;=4&amp;=5;&amp;@=1&amp;=2&amp;=3&amp;=4&amp;=5;&amp;@_r:35&amp;rx:2.5&amp;ry:3.5&amp;y:-1&amp;x:1;&amp;=a&amp;=b&amp;=c&quot;&gt;Keyboard
+Layout Editor&lt;/a&gt; and came up with some SVG files that printed
+up nicely.&lt;/p&gt;
+&lt;p&gt;That gave me a paper mockup of a mounting plate for key switches. I had some
+clear keycaps, so I dropped them onto the paper to get a sense for how it
+would feel under my hand.&lt;/p&gt;
+&lt;p&gt;Of course, cats happen - so those keycaps didn&#39;t stay put for very long. But,
+that&#39;s okay. Nothing wandered off too far, and I got what I needed from
+the mess on my desk.&lt;/p&gt;
+&lt;h2 id=&quot;making-the-case&quot;&gt;Making the case&lt;/h2&gt;
+&lt;p&gt;Back when &lt;a href=&quot;http://blog.lmorchard.com/2016/02/06/keyboard-hacking/&quot;&gt;I first started thinking about building a
+keyboard&lt;/a&gt;, I
+assumed I&#39;d send off whatever design files I came up with to a place
+like &lt;a href=&quot;https://www.ponoko.com/&quot;&gt;Ponoko&lt;/a&gt; and get the mounting plate made for me.&lt;/p&gt;
+&lt;p&gt;Prices at those places were just a bit higher than I liked, though. I also
+suspected things wouldn&#39;t work with my first attempt. I wanted to be able
+to iterate without it taking days or weeks to learn from my mistakes
+and refine.&lt;/p&gt;
+&lt;p&gt;That&#39;s when I remembered &lt;a href=&quot;https://i3detroit.org&quot;&gt;i3Detroit&lt;/a&gt; was just down the road. I&#39;d been
+meaning to get over there for a couple of years: Among other things, the space
+has &lt;a href=&quot;https://www.i3detroit.org/wiki/Category:Laser_Cutter&quot;&gt;nice laser cutters&lt;/a&gt; that I really wish I&#39;d used &lt;a href=&quot;http://blog.lmorchard.com/2013/02/10/building-my-couch-computing-station/&quot;&gt;back when
+I butchered some plastic to make a terrible PC monitor case&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;A month or so later, I&#39;d gotten through the new member onboarding process
+and a few training sessions with the laser cutter. I had some
+acrylic sheets still on hand, so I gave my design a shot:&lt;/p&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/25839524664/&quot; title=&quot;Cutting a keyboard mounting plate on a laser cutter&quot;&gt;&lt;img src=&quot;https://c1.staticflickr.com/2/1506/25839524664_3250860a23_c.jpg&quot; width=&quot;800&quot; height=&quot;450&quot; alt=&quot;Cutting a keyboard mounting plate on a laser cutter&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Pretty sure I had the power too high and the speed too low for the run
+in this video. But, the result was not too bad for a first attempt.  I had a
+few dozen Cherry MX Clear switches to play with, so I snapped them into the
+plate and put on the keycaps I&#39;d used in the paper mockup earlier:&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/uploads/2016/gamechord/clear-keycaps.jpg&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Still lots of work ahead, but I was feeling pretty accomplished after taking
+this little glamour shot. I even took it into an &lt;a href=&quot;https://i3detroit.org&quot;&gt;i3Detroit&lt;/a&gt; member meeting
+for show &amp; tell.&lt;/p&gt;
+&lt;h2 id=&quot;re-making-the-case&quot;&gt;Re-making the case&lt;/h2&gt;
+&lt;p&gt;At this point, I&#39;d already heard the term &quot;kerf&quot;. Like a saw blade, the laser
+has a width that destroys material while cutting. You want that on the
+&lt;em&gt;inside&lt;/em&gt; edge of something like a key switch mounting hole, in order to keep
+the dimensions correct. Unlike a blade, the laser is a cylindrical
+beam that passes through a lens to form &lt;a href=&quot;http://www.buildlog.net/blog/2013/05/why-are-my-laser-cut-edges-not-straight/&quot;&gt;something like an
+hourglass&lt;/a&gt;. So, the
+kerf&#39;s shape depends on the lens focal length and the conical section that
+intersects with the material.&lt;/p&gt;
+&lt;p&gt;Well, I didn&#39;t account for the kerf well enough in my first plate. All the key
+switches were wobbly. Some would just fall out if I flipped
+the thing over. Time for some of those iterations I
+figured I&#39;d have to end up doing.&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;inset wide right&quot; src=&quot;/uploads/2016/gamechord/kerf-is-real.jpg&quot;&gt;&lt;/p&gt;
+&lt;p&gt;I know the saying is &quot;measure twice, cut once&quot; - but in this case it was
+easier to measure by cutting! I tried mounting holes with a sampling of kerf
+widths until I found one that matched the key switch tolerances. Not so snug
+that it cracked the plate, but not so loose that it wiggled or fell out. &lt;/p&gt;
+&lt;p&gt;Once I found a good laser focus and figured out the kerf, I
+attacked another sheet of acrylic with the laser to produce another
+iteration of the case.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.flickr.com/photos/deusx/26975072884/&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/uploads/2016/gamechord/glamour-shot.jpg&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Two changes you might notice: I added slots to glue in some socket
+headers, so I could unplug or replace the Teensy without soldering. I also found some
+&lt;a href=&quot;http://dro.ps/b/x3g0KCy&quot;&gt;relegendable keycaps&lt;/a&gt; on Massdrop - they have little removable covers that
+take 14mm paper squares. I figured that would come in handy for crazy
+key layouts I might come up with.&lt;/p&gt;
+&lt;h2 id=&quot;wiring-up-the-key-matrix&quot;&gt;Wiring up the key matrix&lt;/h2&gt;
+&lt;p&gt;I haven&#39;t learned how to design circuit boards yet, so I figured I&#39;d just
+handwire this &lt;a href=&quot;https://www.youtube.com/watch?v=MrokZ1afnVg&quot;&gt;like I saw in the video&lt;/a&gt;. Only 18 switches, so
+how bad could it be?
+Turns out, it&#39;s rather annoying. Interesting exercise with my terrible old
+Radio Shack soldering iron. &lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;inset wide left&quot; src=&quot;/uploads/2016/gamechord/matrix-wired-up.jpg&quot;&gt;&lt;/p&gt;
+&lt;p&gt;I think I&#39;d much rather get over that PCB fabrication hurdle for when I try
+scaling this up to a 60% keyboard like my HHKB.&lt;/p&gt;
+&lt;p&gt;The technique here involves first building up rows of diodes across the
+right-hand pin of every key switch. The diodes serve to prevent &lt;a href=&quot;https://deskthority.net/wiki/Rollover,_blocking_and_ghosting&quot;&gt;ghosting when
+multiple keys are pressed&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;Then, I stripped sections of wires to
+run as columns down the left-hand pin of the switches. &lt;/p&gt;
+&lt;p&gt;The remaining
+insulation ensures the column wires don&#39;t short against the row diodes.&lt;/p&gt;
+&lt;h2 id=&quot;wiring-up-the-teensy&quot;&gt;Wiring up the Teensy&lt;/h2&gt;
+&lt;p&gt;&lt;img class=&quot;inset wide left&quot; src=&quot;/uploads/2016/gamechord/teensy-wired-up.jpg&quot;&gt;&lt;/p&gt;
+&lt;p&gt;This matrix gives me 4 rows (counting the thumb switches) and 5 columns - or 9
+I/O pins to scan 18 switches.&lt;/p&gt;
+&lt;p&gt;Except for &lt;a href=&quot;https://geekhack.org/index.php?topic=72804.0&quot;&gt;magical PD6&lt;/a&gt; - which is hardwired to an onboard LED - just
+about every pin is fair game on the Teensy for rows or columns. &lt;/p&gt;
+&lt;p&gt;So, I tried to pick a set that would be easiest to route wires. Since this
+case is transparent, I wanted to keep things visually interesting with
+different colored wires and a neat shape to the runs.&lt;/p&gt;
+&lt;p&gt;Of course, I botched things a bit and marred the acrylic by splashing
+solder and slipping with the iron a few times. But, maybe no one will really
+notice.&lt;/p&gt;
+&lt;p&gt;If I had to do this over again - and I &lt;em&gt;still&lt;/em&gt; hadn&#39;t learned how to make a
+PCB - I&#39;d probably try using something thinner like &lt;a href=&quot;https://www.adafruit.com/product/1446&quot;&gt;30AWG repair
+wire&lt;/a&gt;. That seems like it would thread through the spaces much
+better, which would be even more important for a board with many more
+switches. &lt;/p&gt;
+&lt;h2 style=&quot;clear: both&quot;&gt;Programming the Teensy&lt;/h2&gt;
+
+&lt;p&gt;I based &lt;a href=&quot;https://github.com/lmorchard/gamechord&quot;&gt;the GameChord firmware&lt;/a&gt; on the great &lt;a href=&quot;https://github.com/tmk/tmk_keyboard&quot;&gt;tmk
+firmware&lt;/a&gt; that seems popular on mech keyboard forums.&lt;/p&gt;
+&lt;p&gt;Building &lt;a href=&quot;https://github.com/lmorchard/gamechord/blob/863295d2cbdbc7052a25e989a77c3448796e67a6/matrix.c&quot;&gt;the matrix&lt;/a&gt; was easy: The firmware scans through rows (DF0, DF1,
+DF4, and DF5) by pulling each low in turn. The columns (DB4, DB5, DB6, DF7,
+and DF6) are set as &quot;active low&quot; pins - which means keys pressed in the
+current scan row get connected to ground and read as signals. So,
+I wrote the functions to manipulate &amp; read the appropriate row &amp; column pins,
+respectively. &lt;/p&gt;
+&lt;p&gt;It was almost &lt;em&gt;too&lt;/em&gt; easy:&lt;/p&gt;
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Holy crap. My attempt at setting up firmware for my newly wired DIY keypad worked first time. How does this happen. &lt;a href=&quot;https://t.co/xWESzku4Lp&quot;&gt;https://t.co/xWESzku4Lp&lt;/a&gt;&lt;/p&gt;&amp;mdash; Les Orchard (@lmorchard) &lt;a href=&quot;https://twitter.com/lmorchard/status/746518856328372225&quot;&gt;June 25, 2016&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;From there, I built &lt;a href=&quot;https://github.com/lmorchard/gamechord/blob/863295d2cbdbc7052a25e989a77c3448796e67a6/keymap_plain.c&quot;&gt;a dead simple key map&lt;/a&gt; with just enough
+keys to play &lt;a href=&quot;https://playoverwatch.com/en-us/&quot;&gt;Overwatch&lt;/a&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-c&quot;&gt;#include &quot;keymap_common.h&quot;
+
+const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+    KEYMAP( ESC,   1,    2,    3,    T, \
+            TAB,   Q,    W,    E,    R, \
+           LSFT,   A,    S,    D,    F, \
+             NO,  NO, LCTL,  SPC,    C),
+};
+const uint16_t PROGMEM fn_actions[] = {};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I got it all working and had myself a nice evening of pushing carts and taking
+objectives.&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/uploads/2016/gamechord/test-run-on-gaming-station.jpg&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;going-crazy-with-chording&quot;&gt;Going crazy with chording&lt;/h2&gt;
+&lt;p&gt;I had all these &lt;a href=&quot;http://dro.ps/b/x3g0KCy&quot;&gt;relegendable keycaps&lt;/a&gt; and this crazy flexible &lt;a href=&quot;https://github.com/tmk/tmk_keyboard&quot;&gt;tmk
+firmware&lt;/a&gt; - so I decided to try implementing &lt;a href=&quot;https://github.com/lmorchard/gamechord/blob/863295d2cbdbc7052a25e989a77c3448796e67a6/keymap_halfqwerty.c&quot;&gt;a complex and fully impractical
+keymap based on chords with the thumb keys&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/uploads/2016/gamechord/finished-key-legends.jpg&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Given two thumb keys in combination, I can get 4 layers out of the other 15
+keys - for a total of 60 keys. The firmware also &lt;a href=&quot;https://github.com/lmorchard/gamechord/blob/863295d2cbdbc7052a25e989a77c3448796e67a6/keymap_halfqwerty.c#L43&quot;&gt;lets me distinguish
+between keys held or just tapped&lt;/a&gt;, which gives me a few more layers or
+modifier keys.&lt;/p&gt;
+&lt;p&gt;Long story short, I can get most of the functionality of a regular keyboard
+out of just one hand. All I have to do is just get used to putting my left
+hand through some very awkward and uncomfortable contortions until I get up to
+full typing speed!&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://blog.lmorchard.com/2016/02/05/steam-controller/&quot;&gt;As I&#39;ve written before&lt;/a&gt;, I do really like odd input devices.
+But, this got old fast. This isn&#39;t so much a practical peripheral as a thing I
+did because I could. It gave me an excuse to explore the firmware more
+and to use Inkscape to design some legends for my nifty keycaps.&lt;/p&gt;
+&lt;h2 id=&quot;showing-it-off&quot;&gt;Showing it off&lt;/h2&gt;
+&lt;p&gt;And just to wrap things up, this happened:&lt;/p&gt;
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;I even have a project out in the &lt;a href=&quot;https://twitter.com/i3Detroit&quot;&gt;@i3Detroit&lt;/a&gt; tent at &lt;a href=&quot;https://twitter.com/hashtag/MakerFaireDetroit?src=hash&quot;&gt;#MakerFaireDetroit&lt;/a&gt; ! &lt;a href=&quot;https://t.co/v0goD3DCBk&quot;&gt;pic.twitter.com/v0goD3DCBk&lt;/a&gt;&lt;/p&gt;&amp;mdash; Les Orchard (@lmorchard) &lt;a href=&quot;https://twitter.com/lmorchard/status/759400946514427904&quot;&gt;July 30, 2016&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;This was the first summer I went to &lt;a href=&quot;http://www.makerfairedetroit.com/&quot;&gt;Maker Faire Detroit&lt;/a&gt; as a Maker. I
+helped for a bit at the &lt;a href=&quot;https://i3detroit.org&quot;&gt;i3Detroit&lt;/a&gt; tent, mainly just standing and smiling
+at the front table as folks walked in. But, I had my little keyboard out there
+on a table, with a project card and everything.&lt;/p&gt;
+&lt;p&gt;It and I were only there for a handful of hours, but it&#39;s pretty satisfying to
+have actually gotten this thing done!&lt;/p&gt;
+&lt;script async src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;script async src=&quot;//embedr.flickr.com/assets/client-code.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;!-- vim: set wrap wm=5 syntax=markdown textwidth=78: --&gt;
+</description>
+        
+        <pubDate>Mon, 29 Aug 2016 00:00:00 GMT</pubDate>
+        <link>https://blog.lmorchard.com/2016/08/29/gamechord</link>
+        <guid isPermaLink="true">https://blog.lmorchard.com/2016/08/29/gamechord</guid>
+      </item>
+    
+      <item>
+        <title>How I learned to love spreadsheets in space</title>
+        
+          <description>&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;: I thought it would be fun to fly internet space ships. Instead,
+it&#39;s proven more satisfying to write software and make internet space money.&lt;/p&gt;
+&lt;!--more--&gt;
+&lt;nav role=&quot;navigation&quot; class=&quot;table-of-contents&quot;&gt;&lt;/nav&gt;
+
+&lt;h2 id=&quot;looking-for-a-space-job&quot;&gt;Looking for a space job&lt;/h2&gt;
+&lt;p&gt;I&#39;ve had an on-again, off-again relationship with EVE Online over the years.
+I was initially attracted by the opportunities to fly space ships, explore the
+universe, and occasionally shoot at things in the company of feral internet
+randos. &lt;/p&gt;
+&lt;p&gt;But, when you shoot at things, they often shoot back. Sometimes, you explode.
+Since space ships cost space money, you&#39;re going to need a steady space income.&lt;/p&gt;
+&lt;p&gt;Unless you&#39;ve got disposable money IRL to blow on &lt;a href=&quot;https://secure.eveonline.com/PLEX/howToUsePlex.aspx&quot;&gt;PLEX&lt;/a&gt;, this
+means you need to &lt;a href=&quot;http://wiki.eveuniversity.org/EVE_Careers_101&quot;&gt;find a space job&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://swiftandbitter.com/eve/wtd/&quot;&gt;&lt;img class=&quot;fullwidth&quot; title=&quot;What to do in EVE Online&quot; src=&quot;/uploads/2016/spreadsheets-in-space/eve-wtd.jpg&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;For the most part, I&#39;ve found that space jobs in EVE Online are machines
+designed to convert tolerance for tedium into small amounts of space money,
+with scattered moments of panic to keep you paying attention. In fact, it
+really seems like space jobs are a clever mechanism to position you as
+content for other players:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Miners are stationary targets for long hours in asteroid fields.&lt;/li&gt;
+&lt;li&gt;Mission runners hang out in dangerous space for long periods.&lt;/li&gt;
+&lt;li&gt;Haulers travel predictable paths between markets.&lt;/li&gt;
+&lt;li&gt;Explorers offer roaming targets in otherwise mostly empty space.&lt;/li&gt;
+&lt;li&gt;Traders provide inputs into a lively market simulation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Much of EVE Online seems to be in discovering ways to generate fun from space
+jobs despite the tedium, and players have been astonishingly creative in doing
+so.&lt;/p&gt;
+&lt;h2 id=&quot;wherein-i-found-the-spreadsheets-in-space&quot;&gt;Wherein I found the spreadsheets in space&lt;/h2&gt;
+&lt;p&gt;But, I digress. There are reasons why EVE Online is synonymous with
+&quot;&lt;a href=&quot;google&quot;&gt;spreadsheets in space&lt;/a&gt;&quot; - every space station in EVE has a market.
+Most space jobs lead there: Loot, minerals, salvage, and stolen goods all get
+sold on the market. And, nearly everything you&#39;d want to buy with the proceeds
+of your space job come from the market.&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/uploads/2016/spreadsheets-in-space/transactions-1.PNG&quot;&gt;&lt;/p&gt;
+&lt;p&gt;This is where I discovered &lt;a href=&quot;https://wiki.braveineve.com/public/dojo/wiki/station_trading_complete_guide&quot;&gt;station trading&lt;/a&gt;: The price for
+buying from the market is always higher than selling to the market. It&#39;s like
+retail vs wholesale pricing, but weirder. And, for various reasons, the spread
+between these prices can be quite large. So, without ever leaving the station,
+you can perform &lt;a href=&quot;https://en.wikipedia.org/wiki/Arbitrage&quot;&gt;arbitrage&lt;/a&gt; - i.e. buy low, sell high, pocket the
+difference.&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/uploads/2016/spreadsheets-in-space/history-3.PNG&quot;&gt;&lt;/p&gt;
+&lt;p&gt;One evening, I tried getting into station trading entirely off-the-cuff:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Click through every item in the market.&lt;/li&gt;
+&lt;li&gt;Eyeball the price spread and history.&lt;/li&gt;
+&lt;li&gt;Assemble a list of all the items with a decent, stable margin.&lt;/li&gt;
+&lt;li&gt;Put up buy orders, babysit them to ensure they&#39;re always slightly higher
+than competitors. &lt;/li&gt;
+&lt;li&gt;Put items up for sale as buy orders are fulfilled.&lt;/li&gt;
+&lt;li&gt;Babysit sell orders to ensure they&#39;re always slightly lower than competitors. &lt;/li&gt;
+&lt;li&gt;Profit!&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;this-looks-like-a-job-for-a-machine&quot;&gt;This looks like a job for a machine&lt;/h2&gt;
+&lt;p&gt;As with most space jobs, there is a generous helping of tedium in trading.  It
+immediately occurred to me that this would be better done by a computer. Why
+click through all these items one-by-one, when an algorithm could zip through
+and serve up a list of high-margin items in seconds?&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/uploads/2016/spreadsheets-in-space/shell.PNG&quot; style=&quot;width: 100%&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Of course, in many games, this would be considered cheating. I remember the
+controversy back in the 80s &amp; 90s when &quot;&lt;a href=&quot;https://www.google.com/search?q=&quot;tradewars+2002&quot;+helpers&quot;&gt;helpers&lt;/a&gt;&quot; first started appearing for
+&lt;a href=&quot;http://www.tradewars.com/default.html&quot;&gt;TradeWars 2002&lt;/a&gt;, a game that many cite as an early inspiration for EVE
+Online. And, indeed, fully automated market bots are a bannable offense in EVE
+Online - that is, CCP want a human to manually enter all those buy &amp; sell
+orders and keep on top of them. &lt;/p&gt;
+&lt;p&gt;However, CCP only seem to consider the last mile of automation as
+off limits.  &lt;a href=&quot;https://eve-central.com/home/develop.html&quot;&gt;Enterprising players&lt;/a&gt; and &lt;a href=&quot;https://eveonline-third-party-documentation.readthedocs.org/en/latest/&quot;&gt;even CCP themselves&lt;/a&gt; have
+long offered web service APIs for things like character and market data.  This
+means you can use Excel or Google Spreadsheets or even your own original
+software to pull in this data, run calculations, scan for trade
+opportunities, etc. &lt;/p&gt;
+&lt;p&gt;As I read up about all of this, it dawned on me: &lt;strong&gt;This is one of the first
+video games I&#39;ve played where software development and algorithms are
+intentionally supported ways to play&lt;/strong&gt;!&lt;/p&gt;
+&lt;p&gt;Holy crap.&lt;/p&gt;
+&lt;h2 id=&quot;sharpening-the-saw&quot;&gt;Sharpening the saw&lt;/h2&gt;
+&lt;p&gt;I&#39;ve always loved writing software to solve problems. And, you can
+describe games as problem generators. So, it&#39;s been satisfying to play a
+game through software development. And, it&#39;s been rewarding to measure that
+software&#39;s effectiveness through my profits in space money.  It feels demented
+to say it, but most days I get more out of my wallet balance in station than
+from actually flying a ship.&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/uploads/2016/spreadsheets-in-space/code-3.PNG&quot;&gt;&lt;/p&gt;
+&lt;p&gt;It&#39;s had all the nerdy fun of working through puzzles, while also helping
+sharpen the saw on my tech skills. I wasn&#39;t all that familiar with node.js
+beforehand, but now I&#39;m pretty sharp on it after having applied it to
+practical challenges. I learned a bit of MongoDB and Postgresql to get things
+done. I&#39;ve played with some JS frameworks to build visualizations for
+myself, and will probably poke at building some UI for myself in React at some
+point.&lt;/p&gt;
+&lt;p&gt;In the past, my &quot;Hello World&quot; for a new technology stack might have been
+ingesting RSS &amp; Atom news feeds to build a River of News. I even used that
+habit as fodder to write &lt;a href=&quot;http://amzn.to/1T0lk0p&quot;&gt;my first book&lt;/a&gt;. But, these days, I&#39;m finding
+myself reaching for EVE Online data to provide the test bed for things I want
+to learn. Maybe I&#39;ll find some way to channel this enthusiasm into something
+like another book or some conference talks. Who knows?&lt;/p&gt;
+&lt;!-- vim: set wrap wm=5 syntax=markdown textwidth=78: --&gt;
+</description>
+        
+        <pubDate>Sun, 17 Apr 2016 00:00:00 GMT</pubDate>
+        <link>https://blog.lmorchard.com/2016/04/17/spreadsheets-in-space</link>
+        <guid isPermaLink="true">https://blog.lmorchard.com/2016/04/17/spreadsheets-in-space</guid>
+      </item>
+    
+      <item>
+        <title>Building a USB controller for an IBM Model M</title>
+        
+          <description>&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;: I wired up a Teensy 2.0++ to an IBM Model M keyboard,
+which gave it a USB interface and custom firmware that can remap keys and do
+other interesting things.&lt;/p&gt;
+&lt;!--more--&gt;
+&lt;nav role=&quot;navigation&quot; class=&quot;table-of-contents&quot;&gt;&lt;/nav&gt;
+
+&lt;p&gt;In my &lt;a href=&quot;http://blog.lmorchard.com/2016/02/06/keyboard-hacking/&quot;&gt;previous post&lt;/a&gt;, I wrote about my initial forays into
+keyboard hacking. I got my hands on a few IBM Model M keyboards, and built a
+PS/2-to-USB converter with a &lt;a href=&quot;https://www.pjrc.com/store/teensy.html&quot;&gt;Teensy 2.0&lt;/a&gt; so I could use it with my
+MacBook Pro after remapping some keys via the &lt;a href=&quot;https://geekhack.org/index.php?topic=41989.0&quot;&gt;TMK keyboard firmware&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;That was a pretty rewarding little hack. But, then, I found &lt;a href=&quot;https://github.com/antonizoon/archivis.me/wiki/IBM-Model-M-USB-Controller&quot;&gt;Lawrence Wu&#39;s
+notes&lt;/a&gt; on replacing the original controller inside the IBM
+Model M.  In a nutshell, it turns out you can find ribbon connectors that work
+with the Model M membrane layers and fit on a breadboard. That makes it easy
+to build - and reversible if I decide to return the keyboard to its original
+state.&lt;/p&gt;
+&lt;h2 id=&quot;initial-prototype&quot;&gt;Initial Prototype&lt;/h2&gt;
+&lt;p&gt;So, I ordered a few of the &lt;a href=&quot;http://www.mouser.com/ProductDetail/TE-Connectivity/6-520315-6/?qs=sGAEpiMZZMvYKGyZxp8jxkA16bSpREuh&quot;&gt;16-pin ribbon connectors from Mouser&lt;/a&gt;
+and a &lt;a href=&quot;https://www.pjrc.com/store/teensypp.html&quot;&gt;Teensy 2.0++&lt;/a&gt;. My first stab at wiring things up was
+pretty simple:&lt;/p&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot; data-footer=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/24987051026/in/photolist-E52aJA-E1nBs8-DGrCJf-Dd9aTh-E2C6uB-DBgzUX-E7Yy31-EaiCZz-Dzg18k&quot; title=&quot;Original prototype for replacement IBM Model M keyboard controller&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/uploads/2016/modelm-controller/24987051026_0d0b1ac2a9_z.jpg&quot; alt=&quot;Original prototype for replacement IBM Model M keyboard controller&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&quot;https://www.pjrc.com/store/teensypp.html&quot;&gt;Teensy 2.0++&lt;/a&gt; has 20 pins per side, and I needed 16 for the
+first ribbon. So, it was convenient to just plonk both onto the breadboard and
+take advantage of the built-in conductors. That&#39;s also why I upgraded from a
+&lt;a href=&quot;https://www.pjrc.com/store/teensy.html&quot;&gt;Teensy 2.0&lt;/a&gt;: I needed more pins. The second ribbon needed
+8 pins, so I cut some lengths of &lt;a href=&quot;http://amzn.to/1oCuCJ1&quot;&gt;hook-up wire&lt;/a&gt; to keep things neat
+and ran the connections over.&lt;/p&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot; data-footer=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/24684318539/in/photolist-E1nBs8-DGrCJf-Dd9aTh-E2C6uB-DBgzUX-E7Yy31-EaiCZz/&quot; title=&quot;5.5mm nut driver needed for opening IBM Model M keyboards&quot;&gt;&lt;img class=&quot;inset wide right&quot; src=&quot;/uploads/2016/modelm-controller/24684318539_4dde739235_n.jpg&quot; alt=&quot;5.5mm nut driver needed for opening IBM Model M keyboards&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;driving-me-nuts&quot;&gt;Driving Me Nuts&lt;/h2&gt;
+&lt;p&gt;Then, I wanted to get inside the keyboard to start tinkering. As it turns out,
+opening up an IBM Model M is annoying: None of the tools I had on hand could
+do it. &lt;/p&gt;
+&lt;p&gt;The case is assembled using screws with 5.5mm nut heads, rather than
+something like a Phillips-head screw. And, the screws are down in deep wells
+too narrow to fit any of the socket wrench heads I had on hand.&lt;/p&gt;
+&lt;p&gt;So, I had to order &lt;a href=&quot;http://amzn.to/1RgjN8k&quot;&gt;a 5.5mm nut driver&lt;/a&gt; with a very slim head.
+Reading &lt;a href=&quot;http://www.amazon.com/Dynamite-2803-Nut-Driver-5-5mm/product-reviews/B000BQ4XP6/ref=cm_cr_dp_see_all_summary?ie=UTF8&amp;showViewpoints=1&amp;sortBy=helpful&quot;&gt;the reviews&lt;/a&gt;, I can see I&#39;m not alone in this.&lt;/p&gt;
+&lt;p&gt;While that made its way to my house, I&#39;d read that &lt;a href=&quot;https://deskthority.net/workshop-f7/model-m-disassembly-t1960.html#p34013&quot;&gt;some folks used a lighter
+and a pen&lt;/a&gt; to form a makeshift nut driver. That was a terrible
+idea, but it worked. In hindsight, I really should have just waited for the
+driver to show up. But, I was determined to get the thing open while I had
+time to play with it.&lt;/p&gt;
+&lt;h2 id=&quot;the-original-controller&quot;&gt;The Original Controller&lt;/h2&gt;
+&lt;p&gt;And, once open, this is the board I found inside:&lt;/p&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot; data-footer=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/25046846995/in/photolist-E1nBs8-DGrCJf-Dd9aTh-E2C6uB-DBgzUX-E7Yy31-EaiCZz/&quot; title=&quot;IBM Model M original controller board&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/uploads/2016/modelm-controller/25046846995_c8dab2484c_z.jpg&quot; alt=&quot;IBM Model M original controller board&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I should have taken a picture of it in place, but oh well. The board has a
+grounding strap that was screwed down to the steel plate under the keys.
+Beyond that, it just fit into plastic brackets in the case and wasn&#39;t
+otherwise fastened down. And, in a weird coincidence, the board was almost the
+exact same dimensions as my breadboard. Maybe these things are standard sizes?&lt;/p&gt;
+&lt;h2 id=&quot;mapping-the-membranes&quot;&gt;Mapping the Membranes&lt;/h2&gt;
+&lt;p&gt;With the keyboard membrane ribbons free from the original board, I hooked them up to
+my prototype. From there, I wanted to start making the keys send the right
+signals. There are three parts to this:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Mapping Teensy pins to a 16 x 8 switch matrix&lt;/li&gt;
+&lt;li&gt;Mapping the 16 x 8 switch matrix to physical key locations&lt;/li&gt;
+&lt;li&gt;Mapping physical key locations to USB key codes&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;To accomplish #1, &lt;a href=&quot;https://github.com/lmorchard/tmk_keyboard/blob/bdde5f9413ce5c3ea627f201b04f04fe371806ce/keyboard/modelm/matrix.c#L163&quot;&gt;I set up pins in the firmware&lt;/a&gt;. The way this works is
+that the rows are set to input and the columns are set to output. By pulsing a
+current for each column in turn and reading the rows, you can build up a
+matrix of switch state where the circuit is completed. This is called
+&lt;a href=&quot;https://www.massdrop.com/article/introduction-to-keyboard-programming&quot;&gt;scanning the keyboard&lt;/a&gt;. There are problems in this process - &lt;a href=&quot;http://blog.komar.be/how-to-make-a-keyboard-the-matrix/&quot;&gt;like
+ghosting&lt;/a&gt; - but I&#39;ll skip describing them for now.&lt;/p&gt;
+&lt;p&gt;To double check that I had my matrix working, I threw together an initial
+keymap and set every key to emit &quot;1&quot;.  I tapped each key and saw a &quot;1&quot; in my
+notepad. Hooray, it worked! At least, electrically speaking.&lt;/p&gt;
+&lt;p&gt;For step #2, I started googling for IBM Model M membrane matrix maps. Surely
+someone had done this before! Well, &lt;a href=&quot;https://deskthority.net/workshop-f7/universal-model-m-controller-t9820.html#p207736&quot;&gt;it turns out someone had&lt;/a&gt;.
+Deskthority user &lt;a href=&quot;https://deskthority.net/idollar-u6930/&quot;&gt;idollar&lt;/a&gt; had traced all the wires and annotated the
+membranes with row &amp; column numbers in marker:&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/uploads/2016/modelm-controller/DSC_9298.jpg&quot;&gt;
+&lt;img class=&quot;fullwidth&quot; src=&quot;/uploads/2016/modelm-controller/DSC_9300.jpg&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Just to be clear: These two are not my photos. I stand on the shoulders of
+&lt;a href=&quot;https://deskthority.net/idollar-u6930/&quot;&gt;forum giants&lt;/a&gt;. But, after awhile, I couldn&#39;t really read the
+handwriting and started making mistakes. &lt;/p&gt;
+&lt;p&gt;That&#39;s when I remembered &lt;a href=&quot;https://github.com/tmk/tmk_keyboard#magic-commands&quot;&gt;the matrix debug mode in TMK&lt;/a&gt;: After
+configuring just enough keys to enable it, I could just watch the debug
+output to tell me the rows &amp; columns as I hit other keys.&lt;/p&gt;
+&lt;p&gt;Thus equipped, I spent a Sunday morning over coffee mapping the keyboard:
+Methodically pressing keys, noting rows &amp; columns, and building up &lt;a href=&quot;https://github.com/lmorchard/tmk_keyboard/blob/bdde5f9413ce5c3ea627f201b04f04fe371806ce/keyboard/modelm/keymap.c#L34&quot;&gt;the KEYMAP
+macro&lt;/a&gt; that converts symbols for physical keys to logical matrix
+positions. Along the way, I also built up &lt;a href=&quot;https://github.com/lmorchard/tmk_keyboard/blob/bdde5f9413ce5c3ea627f201b04f04fe371806ce/keyboard/modelm/keymap.c#L54&quot;&gt;the initial
+keymap&lt;/a&gt; using that macro to assign keycodes to the physical
+keys.&lt;/p&gt;
+&lt;h2 id=&quot;fitting-the-prototype&quot;&gt;Fitting the Prototype&lt;/h2&gt;
+&lt;p&gt;After that, I had an initial stab at steps #2 &amp; #3 - the keyboard was pretty
+much working and I could start typing practically with it. But, because I was
+hacking on this from the couch, it was all super-awkward holding things
+together in my lap.&lt;/p&gt;
+&lt;p&gt;I should mention that these ribbon connectors have short, fragile leads.
+They&#39;re really meant for soldering into a PCB. They snap into the breadboard,
+but just barely. They spring free at the slightest pressure - you know, like
+hooking up ribbons and moving the keyboard around. And, whenever I reinsert
+them, invariably one pin or another gets bent up and then snaps off after the
+4th or 5th realignment. I&#39;m really glad I bought extras, because I&#39;m down to
+my last two that still work.&lt;/p&gt;
+&lt;p&gt;So, I got tired of things falling apart and started positioning my breadboard
+into the case. Everything fit physically, but the parts were all in the wrong
+place. With a sigh, I pulled everything out of the board, rewired it, and
+reassigned all the pins:&lt;/p&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot; data-footer=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/24742861610/in/dateposted-public/&quot; title=&quot;Teensy 2.0++ USB replacement controller for IBM Model M keyboard&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/uploads/2016/modelm-controller/24742861610_8c3c931768_z.jpg&quot; alt=&quot;Teensy 2.0++ USB replacement controller for IBM Model M keyboard&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;That put the ribbon connectors in the right spots for the keyboard membranes
+to connect, as well as room for a USB connector I bought to loop around without
+too much bend. Oh, and I slightly rewired things again, because I discovered
+I&#39;d connected all the LEDs backward:&lt;/p&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot; data-footer=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/24945773791/in/photolist-E52aJA-E1nBs8-DGrCJf-Dd9aTh-E2C6uB-DBgzUX-E7Yy31-EaiCZz-Dzg18k/&quot; title=&quot;Teensy 2.0++ USB replacement controller for IBM Model M keyboard&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/uploads/2016/modelm-controller/24945773791_b208614dd7_z.jpg&quot; alt=&quot;Teensy 2.0++ USB replacement controller for IBM Model M keyboard&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;my-keyboard-is-haunted&quot;&gt;My Keyboard is Haunted&lt;/h2&gt;
+&lt;p&gt;After all the rewiring and reassigned pins, I fired things up again. This
+time, I started getting mysterious spontaneous keystrokes. I thought it might
+be a grounding issue with static electricity, because I could usually make it
+happen by waving my hands over the keyboard. While a &lt;a href=&quot;https://en.wikipedia.org/wiki/Theremin&quot;&gt;theremin&lt;/a&gt;
+keyboard might be fun, that&#39;s not actually what I was going for here.&lt;/p&gt;
+&lt;p&gt;So, I ran a wire from the steel plate to the GND pin on the Teensy. That
+didn&#39;t fix it.&lt;/p&gt;
+&lt;p&gt;Finally, I realized that one of my new pins in use was D6 - and
+D6 is hardwired to an LED on the Teensy board. And, it so happens that LEDs
+can do weird things when hooked up as an input - &lt;a href=&quot;http://www.analog.com/library/analogdialogue/archives/48-08/raq_108.html&quot;&gt;such as detecting
+light&lt;/a&gt;. You know, maybe like the changing light from waving my
+hands over the keyboard.&lt;/p&gt;
+&lt;p&gt;Thus, I was able to exorcise my keyboard ghost by bending up the pin at D6 to
+disconnect it from the breadboard. Then, I ran a jumper over to D1 and
+&lt;a href=&quot;https://github.com/lmorchard/tmk_keyboard/commit/f5b31e9d320d494a4d3fc75db614883b7225d332&quot;&gt;switched the pin assignments in the firmware&lt;/a&gt;. No more spontaneous
+keypresses.&lt;/p&gt;
+&lt;h2 id=&quot;secrets-of-2kro-matrices&quot;&gt;Secrets of 2KRO Matrices&lt;/h2&gt;
+&lt;p&gt;After typing a bit, I realized I couldn&#39;t get certain key combinations to work -
+Shift-T, for example.&lt;/p&gt;
+&lt;p&gt;Now, I know that the IBM Model M isn&#39;t &lt;a href=&quot;https://deskthority.net/wiki/Rollover,_blocking_and_ghosting&quot;&gt;an NKRO keyboard&lt;/a&gt;. That is, you
+cannot press any arbitrary combination of keys together. But, of course, a
+keyboard is useless if you can&#39;t press at least &lt;em&gt;some&lt;/em&gt; keys together - like, say,
+Shift and T. In fact, I&#39;ve read that the IBM Model M is described as 2KRO -
+i.e. two-key rollover.&lt;/p&gt;
+&lt;p&gt;So, I knew that the original controller supported Shift-T. Looking in the
+matrix debug output, I noticed that I couldn&#39;t press any 2 keys in the same
+row together - that included Left Shift and T.&lt;/p&gt;
+&lt;p&gt;Scratching my head, I noticed that the membrane matrix had some interesting
+properties: Pretty much all the modifier keys were in different columns than
+the other keys I wanted to press along with them. So, my problem might be
+solved by rotating the matrix - that is, &lt;a href=&quot;https://github.com/lmorchard/tmk_keyboard/commit/afc4d0f23be23e8c69bc1dfbe127898a7fe82db7&quot;&gt;turning rows into columns and columns
+into rows&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I don&#39;t entirely have my head wrapped around the design of the Model M
+membrane layout, but I think this is part of it: After I rotated the matrix,
+there are 8 columns per row. As far as I can tell, only one key can be pressed
+per row - so that means any given key has 7 others that cannot be pressed at
+the same time. Practical key rollover, then, is implemented by putting keys
+you&#39;re likely to press together in different rows.&lt;/p&gt;
+&lt;p&gt;For example, modifiers like Left Shift and Right Shift share a row, and so
+cannot be pressed together. But, Left Shift &amp; T are found in different rows
+and can work together. However, some of the letters in the QWER &amp; ASDF cluster
+share rows, so that can be trouble for gaming - directional keypresses and
+suchlike might cancel each other out in the heat of the keymashing moment.
+But, since this keyboard harkens to an era where keys were more for typing
+words than for controlling games, the tradeoff makes sense.&lt;/p&gt;
+&lt;h2 id=&quot;the-result&quot;&gt;The Result&lt;/h2&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot; data-header=&quot;false&quot; data-footer=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/24422592514/in/photolist-E1nBs8-DGrCJf-Dd9aTh-E2C6uB-DBgzUX-E7Yy31-EaiCZz&quot; title=&quot;IBM Model M keyboard with USB controller&quot;&gt;&lt;img class=&quot;inset wide right&quot; id=&quot;thumbnail&quot; src=&quot;/uploads/2016/modelm-controller/24422592514_d79da1882a_z.jpg&quot; alt=&quot;IBM Model M keyboard with USB controller&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;So, after all the above and a few more random adventures in C programming,
+this IBM Model M keyboard is now sitting on my desk with a USB cable plugged
+into it.&lt;/p&gt;
+&lt;p&gt;I ordered &lt;a href=&quot;http://www.pckeyboard.com/page/category/Buttons&quot;&gt;some custom replacement keycaps from Unicomp&lt;/a&gt; to reflect
+some of the remapped keys I implemented - i.e. media control, Command (⌘),
+Caps Lock replaced by Ctrl. &lt;/p&gt;
+&lt;p&gt;I&#39;ve been having some clicky-clacky fun with this thing, and it&#39;s been easy to
+reconfigure &amp; reflash along the way as needed. Experience with &lt;a href=&quot;https://geekhack.org/index.php?topic=41989.0&quot;&gt;TMK&lt;/a&gt; to
+configure my previous project really came in handy.&lt;/p&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot; data-footer=&quot;true&quot;  href=&quot;https://www.flickr.com/photos/deusx/24959916191/in/photolist-E1nBs8-DGrCJf-Dd9aTh-E2C6uB-DBgzUX-E7Yy31-EaiCZz/&quot; title=&quot;IBM Model M with USB controller upgrade&quot;&gt;&lt;img class=&quot;inset wide left&quot; src=&quot;/uploads/2016/modelm-controller/24959916191_bfe3246ded_z.jpg&quot; alt=&quot;IBM Model M with USB controller upgrade&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The one part that could be considered irreversible with this project is that I
+ended up drilling two small holes in the back to secure the USB port. I&#39;m just
+slightly sad about that. But, I guess if I ever sell this thing on eBay, I&#39;ll
+try talking up the benefits of the new USB controller.&lt;/p&gt;
+&lt;p&gt;But, otherwise, if I wanted to undo all this work, I could just open it back
+up and plonk the original controller back in. I&#39;ve currently got that board
+sitting in an anti-static bag in a drawer, taking a rest after decades of
+service.
+&lt;br style=&quot;clear: both&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;next-steps&quot;&gt;Next Steps&lt;/h2&gt;
+&lt;h3 id=&quot;breadboard-to-pcb&quot;&gt;Breadboard to PCB&lt;/h3&gt;
+&lt;p&gt;Like I mentioned before, those ribbon connectors are fragile and meant to be
+soldered to a PCB. I&#39;d also like to learn how to design PCBs, so this seems
+like a super easy project to start with. The only things needed are places to
+solder the connectors, a socket for a Teensy, and traces connecting everything
+properly. I wouldn&#39;t even need to learn SMD soldering yet!&lt;/p&gt;
+&lt;h3 id=&quot;bluetooth&quot;&gt;Bluetooth&lt;/h3&gt;
+&lt;p&gt;I saw &lt;a href=&quot;https://learn.adafruit.com/convert-your-model-m-keyboard-to-bluetooth-with-bluefruit-ez-key-hid/overview&quot;&gt;a project on Adafruit to add Bluetooth support to an IBM Model
+M&lt;/a&gt;. But, that was using the original controller board and
+converting from PS/2. With my controller, I could hook a Bluetooth module
+directly up to Teensy pins and talk to it from &lt;a href=&quot;https://geekhack.org/index.php?topic=41989.0&quot;&gt;TMK&lt;/a&gt;. That should be
+interesting.&lt;/p&gt;
+&lt;h3 id=&quot;alphanumeric-display&quot;&gt;Alphanumeric Display&lt;/h3&gt;
+&lt;p&gt;I noticed that a backlit alphanumeric LCD display is pretty much the exact
+dimensions of the Num Lock / Scroll Lock / Caps Lock LED area on the keyboard
+case. It would definitely be a destructive change, but it might be kind of
+cool to replace that section with a text readout. I&#39;m not really sure what it
+would display, but it could be a fun little project like a retro-DIY version
+of &lt;a href=&quot;http://amzn.to/1TuflVD&quot;&gt;a Logitech G15 keyboard&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;reset-button&quot;&gt;Reset button&lt;/h3&gt;
+&lt;p&gt;Flashing the Teensy firmware usually requires pushing a button on the board.
+There are also a couple of pins on the board that do the same when shorted, so
+I threaded some wires out of the case to do that. It&#39;s ugly.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&quot;https://geekhack.org/index.php?topic=41989.0&quot;&gt;TMK&lt;/a&gt; firmware also supports a key combination that does the same thing,
+which would let me just toss the wires. But, after once or twice where I
+locked the firmware and had to reopen the case, I don&#39;t think I can totally go
+without a reset button.&lt;/p&gt;
+&lt;p&gt;So, I&#39;m considering where and how to mount an external reset / programming
+button that doesn&#39;t require any more holes to be drilled or anything else
+destructive.&lt;/p&gt;
+&lt;h3 id=&quot;60-model-m&quot;&gt;60% Model M&lt;/h3&gt;
+&lt;p&gt;On the topic of destructive changes: &lt;a href=&quot;https://geekhack.org/index.php?action=profile;u=3412&quot;&gt;hasu&lt;/a&gt;, the author of the &lt;a href=&quot;https://geekhack.org/index.php?topic=41989.0&quot;&gt;TMK&lt;/a&gt;
+firmware, &lt;a href=&quot;https://geekhack.org/index.php?action=profile;u=3412&quot;&gt;literally carved up&lt;/a&gt; an IBM Model M keyboard and &lt;a href=&quot;https://geekhack.org/index.php?topic=29483.0&quot;&gt;reduced it
+to a 60% layout&lt;/a&gt; more comparable to a Happy Hacking Keyboard.&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/uploads/2016/modelm-controller/yROEN.jpg&quot;&gt;&lt;/p&gt;
+&lt;p&gt;That project took a bit of work reconstituting the membrane using copper tape
+and conductive ink, as well as work to join the plastic bits back together.
+But, the electronics end up being simpler after discarding piles of keys.
+I know it would be a certain kind of sacriledge to Model M lovers, but I might
+attempt it once I get tired of just how huge this keyboard is on my desk.&lt;/p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;This was a pretty fun project, and a bit of a step up from the PS/2 converter
+I just built. I learned a bit about the innards of this keyboard, and I&#39;ve got
+some decent next steps to pursue in the future. All of this feels like it&#39;s
+giving me some good foundational know-how for when I finally get all the parts
+together to try building my own DIY keyboard from the ground up.&lt;/p&gt;
+&lt;!-- vim: set wrap wm=5 syntax=markdown textwidth=78: --&gt;
+</description>
+        
+        <pubDate>Sun, 21 Feb 2016 00:00:00 GMT</pubDate>
+        <link>https://blog.lmorchard.com/2016/02/21/modelm-controller</link>
+        <guid isPermaLink="true">https://blog.lmorchard.com/2016/02/21/modelm-controller</guid>
+      </item>
+    
+      <item>
+        <title>Keyboard hacking seems like fun</title>
+        
+          <description>&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;: I think I&#39;ve caught the DIY keyboard hacking bug, and I&#39;ll probably
+end up building something weird.&lt;/p&gt;
+&lt;!--more--&gt;
+&lt;p&gt;I love tinkering and I love keyboards. But, I&#39;d never really tinkered with my
+keyboards - at least, not beyond &lt;a href=&quot;http://blog.lmorchard.com/2006/07/31/i-heart-my-filthy-happy-hacking-keyboard/&quot;&gt;disassembling &amp; cleaning them&lt;/a&gt;.
+I&#39;d seen a smattering of crowdfunded projects over the years like the
+&lt;a href=&quot;https://www.indiegogo.com/projects/ergodox-ez-an-incredible-mechanical-keyboard#/&quot;&gt;ErgoDox&lt;/a&gt; and &lt;a href=&quot;http://shop.keyboard.io/&quot;&gt;Keyboardio&lt;/a&gt;. But, those seemed like complex design
+&amp; manufacturing efforts - not like, you know, something I&#39;d do for fun.&lt;/p&gt;
+&lt;p&gt;But then, last summer, I ran across &lt;a href=&quot;https://www.massdrop.com/&quot;&gt;Massdrop&lt;/a&gt; and saw the &lt;a href=&quot;https://www.massdrop.com/buy/infinity-keyboard-kit&quot;&gt;Infinity 60%
+Keyboard Kit&lt;/a&gt;. From there, I ran across &quot;&lt;a href=&quot;https://www.massdrop.com/article/introduction-to-keyboard-programming&quot;&gt;Introduction to Keyboard
+Programming&lt;/a&gt;&quot; and some rusty gears turned over in my brain. I
+discovered &lt;a href=&quot;https://geekhack.org/&quot;&gt;geekhack&lt;/a&gt; and &lt;a href=&quot;https://deskthority.net/&quot;&gt;Deskthority&lt;/a&gt; and fell down a dangerous
+rabbit hole of &lt;a href=&quot;https://www.massdrop.com/buy/cherry-mx-red-key-switches-120-pack&quot;&gt;switches&lt;/a&gt; and &lt;a href=&quot;https://geekhack.org/index.php?board=80.0&quot;&gt;caps&lt;/a&gt;, &lt;a href=&quot;https://geekhack.org/index.php?topic=47133&quot;&gt;layouts&lt;/a&gt; and &lt;a href=&quot;https://deskthority.net/workshop-f7/thkb-tiny-hacking-keyboard-40-t6455.html&quot;&gt;plates&lt;/a&gt;,
+&lt;a href=&quot;https://www.pjrc.com/teensy/&quot;&gt;microcontrollers&lt;/a&gt; and &lt;a href=&quot;https://geekhack.org/index.php?topic=41989.0&quot;&gt;firmware&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Turns out there are a bunch of folks doing this stuff as a hobby, along with a
+niche industry to support it.&lt;/p&gt;
+&lt;p&gt;After a few months of absorbing information and spectating on projects in
+forums, it occurred to me that this did in fact seem like something I&#39;d have
+fun doing. But, rather than just dive in, I decided to start small:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.flickr.com/photos/deusx/24832952956/&quot;&gt;&lt;img class=&quot;fullwidth&quot; id=&quot;thumbnail&quot; src=&quot;/uploads/2016/teensy-ps2-adapter/minikey.jpg&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Last weekend, I ran to my local &lt;a href=&quot;http://www.microcenter.com/site/stores/madison-heights.aspx&quot;&gt;Micro Center&lt;/a&gt; and picked up a &lt;a href=&quot;https://www.pjrc.com/teensy/&quot;&gt;Teensy
+2.0&lt;/a&gt;. That seems to be the microcontroller board a lot of keyboard
+projects have been using, so I figured getting acquainted with it would be
+handy. After the traditional &quot;hello world&quot; project of &lt;a href=&quot;https://www.pjrc.com/teensy/tutorial.html&quot;&gt;getting an LED to
+blink&lt;/a&gt;, I wired up a pile of buttons on a breadboard and &lt;a href=&quot;https://www.pjrc.com/teensy/td_keyboard.html&quot;&gt;built the
+firmware to my first DIY USB keyboard&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Okay, so it was just a tutorial and no special effort on my part. But, the
+process was super easy, so the hacking possibilities started piling up in my
+head.&lt;/p&gt;
+&lt;p&gt;Then, I discovered the &lt;a href=&quot;https://geekhack.org/index.php?topic=41989.0&quot;&gt;TMK keyboard firmware&lt;/a&gt; on the
+&lt;a href=&quot;https://geekhack.org/&quot;&gt;geekhack&lt;/a&gt; forums. Basically, all the software work had been done for me.
+The TMK firmware is a ready-made pile of code for translating from basically any
+matrix of switches or wire protocol to USB HID keyboard codes - complete with
+support for flexible key maps, mouse control, function-key layers, macros, and
+a bunch of other things. &lt;/p&gt;
+&lt;p&gt;My little 10-key breadboard toy wasn&#39;t all that practical. But, I discovered
+that the TMK firmware also supported building keyboard &lt;em&gt;converters&lt;/em&gt;. Of
+particular interest was the &lt;a href=&quot;https://github.com/tmk/tmk_keyboard/blob/master/converter/ps2_usb/README.md&quot;&gt;PS/2 to USB keyboard converter&lt;/a&gt;, since I
+just happen to have a pile of older PS/2 keyboards lying around doing nothing.&lt;/p&gt;
+&lt;p&gt;The converter only took 4 wires, so I sacrificed a PS/2 cable from the back of
+a drawer and came up with this:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.flickr.com/photos/deusx/24832952956/&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/uploads/2016/teensy-ps2-adapter/adapter.jpg&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Coincidentally, the day after I built this, I got some IBM Model M keyboards
+from &lt;a href=&quot;https://nuxx.net/blog/&quot;&gt;a friend&lt;/a&gt; of mine. I&#39;ve been wanting to fill my office with the
+sound of buckling springs for awhile, now. &lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.flickr.com/photos/deusx/24685464831/&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/uploads/2016/teensy-ps2-adapter/modelm.jpg&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This is all hooked up to a modern MacBook Pro, but the IBM Model M is
+decidedly lacking in &lt;a href=&quot;https://en.wikipedia.org/wiki/Command_key&quot;&gt;Command (⌘) keys&lt;/a&gt;. So, the DIY converter
+proved its worth immediately. &lt;/p&gt;
+&lt;p&gt;I put together &lt;a href=&quot;https://github.com/lmorchard/tmk_keyboard/blob/lmo-model-mac/converter/ps2_usb/keymap_modelmac.c&quot;&gt;my own simple keymap&lt;/a&gt; and spent a day with it,
+tweaking as I went.  I set up &lt;a href=&quot;https://github.com/alloy/kicker&quot;&gt;a file watcher&lt;/a&gt; to rebuild the
+firmware whenever I changed the source. Along with that, the &lt;a href=&quot;https://www.pjrc.com/teensy/loader.html&quot;&gt;Teensy
+Loader&lt;/a&gt; has an &quot;auto&quot; mode which reprograms the Teensy whenever I hit
+the reset button. &lt;/p&gt;
+&lt;p&gt;At this point, I&#39;ve replaced the Caps Lock key with Control and changed Alt keys
+to Command keys.  Then, I turned the Print Screen / Caps Lock / Pause trio
+into volume control keys. After that, F10, F11, and F12 were pressed into
+service as previous, next, &amp; pause buttons for music. It was all a bit fiddly,
+but it&#39;s the kind of thing I enjoy.&lt;/p&gt;
+&lt;p&gt;Overall, this all feels like a nice intro into a new hobby. Next, I&#39;m
+considering &lt;a href=&quot;https://github.com/antonizoon/archivis.me/wiki/IBM-Model-M-USB-Controller&quot;&gt;replacing the IBM Model M keyboard controller&lt;/a&gt;
+altogether, which will embed the Teensy right in the case. &lt;/p&gt;
+&lt;p&gt;After that, I&#39;m tempted to turn my screwdriver on that other keyboard on my
+desk - the Happy Hacking Keyboard Professional. There&#39;s a &lt;a href=&quot;https://geekhack.org/index.php?topic=12047.0&quot;&gt;Teensy-based
+alternative controller&lt;/a&gt; option for it, also using the TMK firmware.&lt;/p&gt;
+&lt;p&gt;Once I feel comfortable with all that, it might be time to build something of
+my own! &lt;a href=&quot;http://www.keyboard-layout-editor.com/##@_name=noisy%20fat%20hacker%20keyboard&amp;author=lmorchard&amp;switchMount=cherry&amp;switchBrand=cherry&amp;plate:true%3B&amp;@=Esc&amp;=!%0A1&amp;=%2F@%0A2&amp;=%23%0A3&amp;=$%0A4&amp;=%25%0A5&amp;=^%0A6&amp;=%2F&amp;%0A7&amp;=*%0A8&amp;=%28%0A9&amp;=%29%0A0&amp;=%2F_%0A-&amp;=+%0A%2F=&amp;=|%0A\&amp;=~%0A%60&amp;_x:0.25%3B&amp;=Insert&amp;=Home&amp;=PgUp%3B&amp;@_w:1.5%3B&amp;=Tab&amp;=Q&amp;=W&amp;=E&amp;=R&amp;=T&amp;=Y&amp;=U&amp;=I&amp;=O&amp;=P&amp;={%0A[&amp;=}%0A]&amp;_a:0&amp;w:1.5%3B&amp;=Delete%0A%0A%0A%0ABS&amp;_x:0.25&amp;a:4%3B&amp;=Delete&amp;=End&amp;=PgDn%3B&amp;@_w:1.75%3B&amp;=Control&amp;=A&amp;=S&amp;=D&amp;=F&amp;=G&amp;=H&amp;=J&amp;=K&amp;=L&amp;=%2F:%0A%2F%3B&amp;=%22%0A%27&amp;_w:2.25%3B&amp;=Enter&amp;_x:0.25%3B&amp;=Op1&amp;=Op2&amp;=Op3%3B&amp;@_w:2.25%3B&amp;=Shift&amp;=Z&amp;=X&amp;=C&amp;=V&amp;=B&amp;=N&amp;=M&amp;=%3C%0A,&amp;=%3E%0A.&amp;=%3F%0A%2F%2F&amp;_w:2.75%3B&amp;=Shift&amp;_x:1.25%3B&amp;=%E2%86%91%3B&amp;@_w:1.25%3B&amp;=Fn&amp;_w:1.25%3B&amp;=%3Ci%20class%2F=%27mss%20mss-Unicode-Option-3%27%3E%3C%2F%2Fi%3E&amp;_w:1.25%3B&amp;=%3Ci%20class%2F=%27kb%20kb-logo-apple-outline%27%3E%3C%2F%2Fi%3E&amp;_a:7&amp;w:6.25%3B&amp;=&amp;_a:4&amp;w:1.25%3B&amp;=%3Ci%20class%2F=%27kb%20kb-logo-apple%27%3E%3C%2F%2Fi%3E&amp;_w:1.25%3B&amp;=%3Ci%20class%2F=%27mss%20mss-Unicode-Option-3%27%3E%3C%2F%2Fi%3E&amp;_w:1.25%3B&amp;=%3Ci%20class%2F=%27kb%20kb-Hamburger-Menu%27%3E%3C%2F%2Fi%3E&amp;_w:1.25%3B&amp;=Fn&amp;_x:0.25%3B&amp;=%E2%86%90&amp;=%E2%86%93&amp;=%E2%86%92&quot;&gt;I&#39;ve got a 75-key layout I&#39;m mulling over.&lt;/a&gt; If I end up liking
+that, I can get a case &amp; mounting plate &lt;a href=&quot;http://builder.swillkb.com/&quot;&gt;designed&lt;/a&gt; &amp;
+&lt;a href=&quot;https://www.ponoko.com/&quot;&gt;fabricated&lt;/a&gt;. Then, I can buy all the &lt;a href=&quot;https://www.massdrop.com/buy/cherry-mx-red-key-switches-120-pack&quot;&gt;switches&lt;/a&gt; and
+&lt;a href=&quot;http://amzn.to/1UUHUu8&quot;&gt;diodes&lt;/a&gt;. And last, but not least, I&#39;ll have to design a circuit board &amp;
+&lt;a href=&quot;https://oshpark.com/&quot;&gt;get that fabricated&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Or, if I really want to go for that handcrafted artisan experience - which I
+just might, because I&#39;m a glutton for punishment - I&#39;ve got something like
+this in my future:&lt;/p&gt;
+&lt;div class=&quot;video-container&quot;&gt;&lt;iframe class=&quot;lazyload&quot; width=&quot;560&quot; height=&quot;315&quot; src=&quot;&quot; data-src=&quot;https://www.youtube.com/embed/MrokZ1afnVg&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;!-- vim: set wrap wm=5 syntax=markdown textwidth=78: --&gt;
+</description>
+        
+        <pubDate>Sat, 06 Feb 2016 00:00:00 GMT</pubDate>
+        <link>https://blog.lmorchard.com/2016/02/06/keyboard-hacking</link>
+        <guid isPermaLink="true">https://blog.lmorchard.com/2016/02/06/keyboard-hacking</guid>
+      </item>
+    
+  </channel>
+</rss>

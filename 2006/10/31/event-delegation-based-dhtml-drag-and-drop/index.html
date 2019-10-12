@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name="microtip" content="1Ad1VPQBBk7WhyJPfB6cAgZoBs3gUngurN" data-currency="btc">
+    <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen, projection" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Event Delegation based DHTML Drag and Drop? - blog.lmorchard.com</title>
+    <meta name="author" content="" />
+
+    
+      <link href="/index.rss" rel="alternate"
+        title="blog.lmorchard.com" type="application/rss+xml" />
+    
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="blog.lmorchard.com"/>
+
+    
+  <meta property="og:title" content="Event Delegation based DHTML Drag and Drop?" />
+  <meta property="og:url" content="https://blog.lmorchard.com/2006/10/31/event-delegation-based-dhtml-drag-and-drop//" />
+  
+  
+
+
+
+  </head>
+  <body>
+
+    <section class="main">
+
+      <header>
+        <h1><a href="/">blog.lmorchard.com</a></h1>
+        <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+        <nav>
+
+          <label for="nav-trigger"></label>
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+          <ul>
+            <li><a href="http://lmorchard.com/">about me</a></li>
+            <li><a href="/archives.html">archives</a></li>
+          </ul>
+
+        </nav>
+      </header>
+
+      <section class="content">
+<article class="post tag-webdev tag-js tag-outliners tag-outlining tag-javascript tag-dhtml tag-yui ">
+    <time title="2006-10-31T00:00:00.000Z" pubdate="2006-10-31T00:00:00.000Z">
+      <a href="/"><i class="fa fa-home"></i></a>
+      &raquo;
+      <a href="/2006">2006</a>
+      &raquo;
+      <a href="/2006/10">October</a>
+      &raquo;
+      <span>31</span>
+      &raquo;
+    </time>
+    <h1 class="title">Event Delegation based DHTML Drag and Drop?</h1>
+    
+      <ul class="tags">
+          
+              <li><a href="/tag/webdev">webdev</a>, </li>
+          
+              <li><a href="/tag/js">js</a>, </li>
+          
+              <li><a href="/tag/outliners">outliners</a>, </li>
+          
+              <li><a href="/tag/outlining">outlining</a>, </li>
+          
+              <li><a href="/tag/javascript">javascript</a>, </li>
+          
+              <li><a href="/tag/dhtml">dhtml</a>, </li>
+          
+              <li><a href="/tag/yui">yui</a></li>
+          
+      </ul>
+    
+    <section class="post-content"><p>So, as the urge to tinker rises again, I&#39;ve started playing with <a href="http://developer.yahoo.com/yui/">YUI</a> and cracked open some <a href="http://decafbad.com/trac/wiki/XoxoOutliner">XoxoOutliner</a> code again.  One of the things that struck me like a bolt from the blue recently is the notion of <a href="http://icant.co.uk/sandbox/eventdelegation/">event delegation</a>.  For the most part, I&#39;ve treated event bubbling as a nuisance, except for where it came in handy in keyboard input handling.  But avoiding the need to individually track events on every list element on the page via instantiated objects and methods is <em>hot</em> and <em>forehead-slappingly obvious</em> once you&#39;ve seen it working.  Just implement one set of event handlers on the outline root element (ie. UL or OL), and do the right thing as events come in from the list child elements.</p>
+<p>Thus, while I can do outline node expand/collapse with ease, my goal is to implement an <a href="http://icant.co.uk/sandbox/eventdelegation/">event delegation</a> based approach to dragging outline nodes around.  Apropos of that, I&#39;ve been poking at <a href="http://yuiblog.com/sandbox/yui/v0114/examples/event/delegation.php">how event delegation it works in YUI</a>.  While there&#39;s nothing much special about it in general, I&#39;ve run into a bit of a snag when it comes to drag-and-drop.</p>
+<p>See, YUI comes with a <a href="http://developer.yahoo.com/yui/dragdrop/">rather nice drag-and-drop abstraction</a> that I&#39;d like to use.  That abstraction, however, requires the instantiation of lots of little objects - one per outline node.  Definitely not delegation-based: The problem is that I&#39;ll be adding and removing outline nodes at whim throughout the lifetime of the page, which would require lots of care to ensure that I&#39;m maintaining drag-and-drop wrapper objects.  I&#39;ve done that a bit in <a href="http://decafbad.com/trac/wiki/XoxoOutliner">XoxoOutliner</a>; it sucks.</p>
+<p>So, I was able to build part of a delegation-based drag tracker from scratch.  I&#39;m sad to lose the other niceties that the YUI DnD offers, but it works.  The problem now, though, is the <em>drop</em> part of the equation.  I can drag elements around the page until my heart&#39;s content, but I can never quite tell in what context I&#39;ve dropped it.</p>
+<p>I poured through the source code for the YUI DnD implementation, as well as the implementation of a few other JS frameworks&#39; DnD offerings.  The general solution seems to be calculating and caching the page coordinate regions for each element relevant in the drop operation.  In my case, that usually includes every outline node on the page.  That&#39;s easy when you have lots of little objects instantiated - you just iterate through them and match up regions with the coordinates where the drag stopped.  But, part of my win with event delegation was that I don&#39;t have to maintain a pile of objects.</p>
+<p>Oh yeah, and did I mention that I don&#39;t assign IDs to all the little list items making up my outline?  And that I don&#39;t particularly feel like doing so?  That also throws a monkey wrench in the YUI DnD paradigm.</p>
+<p>The only idea I have so far is that I need to at least build a cache mapping regions to outline nodes, and keep it fairly well maintained.  That should be lighterweight than a fleet of DOM event wrappers, but still annoying.  I could trigger a cache refresh when a drag first starts, but that will probably drag down UI response.  I could trigger it whenever the outline changes, but that&#39;s just moving the burden.  And then, who knows how I&#39;ll map ID-less elements to their respective regions, while ensuring I stay clear of memory leaks.  That&#39;s still semi-voodoo to me, and I feel ashamed of that.</p>
+<p>Eh, maybe it won&#39;t be as bad as I think.  But, to anyone who understands what I just spewed:  Any ideas?</p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221083066">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=2d870e8df3af0d62fa636b336b17cd60&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="">Nick</a>
+</div>
+<a href="#comment-221083066" class="permalink"><time datetime="2006-11-01T00:19:27">2006-11-01T00:19:27</time></a>
+</div>
+<div class="content"><p>You know, Marty and I were talking tonight about how some of your posts make NO sense to us.  She even said &quot;it&#39;s like he&#39;s talking another fucking language&quot;.</p>
+<p>Damn Programmers!!</p>
+<p>--nick</p></div>
+</li>
+<li class="comment" id="comment-221083067">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://gandrew.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=de0d80e531fef9095048375a247d1149&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://gandrew.com">Gareth Andrew</a>
+</div>
+<a href="#comment-221083067" class="permalink"><time datetime="2006-11-01T18:57:21">2006-11-01T18:57:21</time></a>
+</div>
+<div class="content"><p>I&#39;m sure I&#39;ve missed something obvious - why can&#39;t you simply use the same event delegation approach on the mouseUp event?  getTarget should return the node you&#39;ve dropped on, what else do you need?</p></div>
+</li>
+<li class="comment" id="comment-221083074">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2377f34a68801b861c3e54e1301f0dce&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.decafbad.com">l.m.orchard</a>
+</div>
+<a href="#comment-221083074" class="permalink"><time datetime="2006-11-01T19:18:52">2006-11-01T19:18:52</time></a>
+</div>
+<div class="content"><p>Gareth: Yup, the issue I have with the mouseUp is that getTarget gives me what was under the mouse when I let go of the button - namely, the element I&#39;ve been dragging around, not the element under the thing being dragged.  In addition, for user feedback <em>during</em> the drag (ie. at mouseMove time), I want to know what&#39;s under the dragged element - so I can highlight the potential landing spot, etc.</p></div>
+</li>
+<li class="comment" id="comment-221083075">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.fluffy.co.uk/stediting/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=a660afb8f1f22ce1b03ad3b532aa05b5&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.fluffy.co.uk/stediting/">Ben</a>
+</div>
+<a href="#comment-221083075" class="permalink"><time datetime="2006-11-02T13:10:53">2006-11-02T13:10:53</time></a>
+</div>
+<div class="content"><p>I presume the problem is that, given a point on the screen, you want to find exactly what DOM element is beneath it.</p>
+<p>I found a solution for this in my proof-of-concept structured editor <a href="http://www.fluffy.co.uk/stediting/">http://www.fluffy.co.uk/stediting/</a> -- you need to know where the mouse was clicked to insert the caret.</p>
+<p>It might be a start anyway.</p></div>
+</li>
+<li class="comment" id="comment-221083078">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.gibberish.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=d78a376f93e23dd093abe8d280198ebd&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.gibberish.com">misuba</a>
+</div>
+<a href="#comment-221083078" class="permalink"><time datetime="2006-11-06T02:40:19">2006-11-06T02:40:19</time></a>
+</div>
+<div class="content"><p>I think the dragdrop stuff in scriptaculous would get you most of this... at least, it is good about draggable elements having handles you can specify (e.g. child elements of the thing you want to drag), and flexible about what sorts of targets you can land on.</p></div>
+</li>
+<li class="comment" id="comment-221083084">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2377f34a68801b861c3e54e1301f0dce&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.decafbad.com">l.m.orchard</a>
+</div>
+<a href="#comment-221083084" class="permalink"><time datetime="2006-11-06T19:06:03">2006-11-06T19:06:03</time></a>
+</div>
+<div class="content"><p>misuba: Nope, the Scriptaculous approach gives me problems too.  The first is that I don&#39;t like Prototype, unless they&#39;ve stopped messing with Object.prototype since I last checked.  The second is that DnD in Scriptaculous involves juggling lots of little objects ilke most other DnD implementations I&#39;ve found.  When I have an outline of 100&#39;s to 1000&#39;s of items, that really blows.  I think I&#39;ve got an approach working now that&#39;s significantly lighter weight.</p></div>
+</li>
+<li class="comment" id="comment-221083085">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.gibberish.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=d78a376f93e23dd093abe8d280198ebd&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.gibberish.com">misuba</a>
+</div>
+<a href="#comment-221083085" class="permalink"><time datetime="2006-11-06T22:26:55">2006-11-06T22:26:55</time></a>
+</div>
+<div class="content"><p>I&#39;m interested to see your approach. (FWIW, Proto hasn&#39;t touched Object.prototype for a couple of versions now.)</p></div>
+</li>
+<li class="comment" id="comment-221083086">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://javascriptmvc.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=10b3282aac613831755e42ac74acbc41&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://javascriptmvc.com">Justin Meyer</a>
+</div>
+<a href="#comment-221083086" class="permalink"><time datetime="2008-05-31T07:43:52">2008-05-31T07:43:52</time></a>
+</div>
+<div class="content"><p>I am working on the exact same issue for JavaScriptMVC.  If you haven&#39;t seen JavaScriptMVC, check out its trunk.  In the controller2 plugin, you&#39;ll find a really nice event delegation library.</p>
+<p>I&#39;ve only thought of 1 way to do event delegation drops.  It&#39;s crazy, but it might work.</p>
+<p>First, style Drags so their z-Index is LOWER than the Drops.  You want your mouse to hit the droppable areas.</p>
+<p>Once a droppable is moused over by dragging a drag to it, it creates a transparent element in the exact same position as the Droppable.  It also lowers the droppable z-Index.  This gives the appearance that the draggable is over the droppable.</p>
+<p>To simulate movement, the transparent droppable&#39;s mouseovers are sent to the draggable.</p>
+<p>On mousing out of the transparent Droppable, it sets everything back to normal.</p>
+<p>I haven&#39;t tried this yet.  The biggest issue I see is that when you grab a draggable in the middle, half of it will be behind the droppable until the mouseover happens.  This isn&#39;t ideal, but maybe there is something that can be done about that.</p></div>
+</li>
+<li class="comment" id="comment-221083088">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=8f18d2579d5c8f2fb2a79c09a9234e6e&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="">Batiste</a>
+</div>
+<a href="#comment-221083088" class="permalink"><time datetime="2009-01-20T10:06:54">2009-01-20T10:06:54</time></a>
+</div>
+<div class="content"><p>A jQuery solution for Drag and Drop with event delegation :</p>
+<p><a href="http://batiste.dosimple.ch/blog/posts/2008-05-18-1/jquery-drag-and-drop-and-resize-event-delegation.html">http://batiste.dosimple.ch/blog/posts/2008-05-18-1/jquery-drag-and-drop-and-resize-event-delegation.html</a></p></div>
+</li>
+</ul>
+</div>
+</section>
+</article>
+
+
+
+</section>
+
+      <footer>
+        <img id="growup" src="/uploads/growup.jpg">
+      </footer>
+
+    </section>
+
+    <section id="javascript">
+      <script src="/js/main.js"></script>
+      
+    </section>
+
+  </body>
+</html>

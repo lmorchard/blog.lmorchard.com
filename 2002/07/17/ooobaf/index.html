@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name="microtip" content="1Ad1VPQBBk7WhyJPfB6cAgZoBs3gUngurN" data-currency="btc">
+    <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen, projection" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Making a return to the fields of Java - blog.lmorchard.com</title>
+    <meta name="author" content="" />
+
+    
+      <link href="/index.rss" rel="alternate"
+        title="blog.lmorchard.com" type="application/rss+xml" />
+    
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="blog.lmorchard.com"/>
+
+    
+  <meta property="og:title" content="Making a return to the fields of Java" />
+  <meta property="og:url" content="https://blog.lmorchard.com/2002/07/17/ooobaf//" />
+  
+  <meta property="og:description" content="So we&amp;apos;ve managed to get the go ahead at work on what seems like it should be a nightmare project:  We&amp;apos;re going to re-examine, re-design, and re-implement our in-house web app platform, the Toybox.  Not only that, but we&amp;apos;re going to switch languages, from Perl to Java.  It&amp;apos;s got me immensely excited, though this may be naive of me. It&amp;apos;s been years since I was last knee deep in Java, and years that I&amp;apos;ve spent up to my ears in Perl.  I&amp;apos;d almost forgotten how much of Java I&amp;apos;d reinvented to make my ideas work in Perl.  (This may not be so much an indictment of Perl as of the way I think.)  And the last time I worked seriously in Java, there were no IDEs yet, so starting to work with NetBeans or even Project Builder under OS X for Java work is a dream.  I love using NetBeans in particular, occasional hiccups aside.  Besides all the obvious integration of build, test, run, debug, etc, I love being able to highlight a keyword or class name and pop up the docs in an internal HTML browser.  I love that it makes suggested changes to classes when I change an interface they implement. Yeah, none of this is news to most of the world, but I&amp;apos;ve been steadfastly sticking to shells and bare emacs or pico for my editing.  Maybe a web browser handy for docs.  I haven&amp;apos;t worked very much with IDEs these past years, since a lot of them just got in my way.  Or at least, with hubris, I thought that they did.  Then again, I don&amp;apos;t see very many equivalent tools for a language as free-form and multiple choice as Perl. And, though I miss CPAN, I&amp;apos;m loving resources like the Jakarta project over at Apache.  Again, not news, but new to me.  I feel like a Rip Van Winkel-Java over here, since my last real work in Java was when the API was in 1.0 days, Servlets were this neat thing for the Java Web Server (now at the end of its life), and the dot-com boom was just starting to stretch its wings. Now, I haven&amp;apos;t been completely oblivious to Java over this time.  I&amp;apos;ve poked at it, and played with a few things from time to time to at least stay somewhat current, and I&amp;apos;ve tried to vaguely keep up with things a bit.  I have an overall sense of what does what and where to find what, but really getting it under my fingernails again now is a different experience. " />
+
+
+
+  </head>
+  <body>
+
+    <section class="main">
+
+      <header>
+        <h1><a href="/">blog.lmorchard.com</a></h1>
+        <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+        <nav>
+
+          <label for="nav-trigger"></label>
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+          <ul>
+            <li><a href="http://lmorchard.com/">about me</a></li>
+            <li><a href="/archives.html">archives</a></li>
+          </ul>
+
+        </nav>
+      </header>
+
+      <section class="content">
+<article class="post ">
+    <time title="2002-07-17T00:00:00.000Z" pubdate="2002-07-17T00:00:00.000Z">
+      <a href="/"><i class="fa fa-home"></i></a>
+      &raquo;
+      <a href="/2002">2002</a>
+      &raquo;
+      <a href="/2002/07">July</a>
+      &raquo;
+      <span>17</span>
+      &raquo;
+    </time>
+    <h1 class="title">Making a return to the fields of Java</h1>
+    
+    <section class="post-content"><p><p>So we&#39;ve managed to get the go ahead at work on what seems like it should be a nightmare project:  We&#39;re going to re-examine, re-design, and re-implement our in-house web app platform, the Toybox.  Not only that, but we&#39;re going to switch languages, from Perl to Java.  It&#39;s got me immensely excited, though this may be naive of me.</p></p>
+<p><p>It&#39;s been years since I was last knee deep in Java, and years that I&#39;ve spent up to my ears in Perl.  I&#39;d almost forgotten how much of Java I&#39;d reinvented to make my ideas work in Perl.  (This may not be so much an indictment of Perl as of the way I think.)  And the last time I worked seriously in Java, there were no IDEs yet, so starting to work with <a href="http://www.netbeans.org">NetBeans</a> or even Project Builder under OS X for Java work is a dream.  I love using <a href="http://www.netbeans.org">NetBeans</a> in particular, occasional hiccups aside.  Besides all the obvious integration of build, test, run, debug, etc, I love being able to highlight a keyword or class name and pop up the docs in an internal HTML browser.  I love that it makes suggested changes to classes when I change an interface they implement.</p></p>
+<p><p>Yeah, none of this is news to most of the world, but I&#39;ve been steadfastly sticking to shells and bare emacs or pico for my editing.  Maybe a web browser handy for docs.  I haven&#39;t worked very much with IDEs these past years, since a lot of them just got in my way.  Or at least, with hubris, I <i>thought</i> that they did.  Then again, I don&#39;t see very many equivalent tools for a language as free-form and multiple choice as Perl.</p></p>
+<p><p>And, though I miss <a href="http://www.cpan.org">CPAN</a>, I&#39;m loving resources like the <a href="http://jakarta.apache.org">Jakarta</a> project over at Apache.  Again, not news, but new to me.  I feel like a Rip Van Winkel-Java over here, since my last real work in Java was when the API was in 1.0 days, Servlets were this neat thing for the <a href="http://wwws.sun.com/software/jwebserver/index.html">Java Web Server</a> (now at the end of its life), and the dot-com boom was just starting to stretch its wings.</p></p>
+<p><p>Now, I haven&#39;t been completely oblivious to Java over this time.  I&#39;ve poked at it, and played with a few things from time to time to at least stay somewhat current, and I&#39;ve tried to vaguely keep up with things a bit.  I have an overall sense of what does what and where to find what, but really getting it under my fingernails again now is a different experience.</p>
+<!--more-->
+shortname=ooobaf</p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221083428">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://dal.i.am"><img src="http://www.gravatar.com/avatar.php?gravatar_id=b581950de350ed6ad83f09ec48a6be3f&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://dal.i.am">Doug</a>
+</div>
+<a href="#comment-221083428" class="permalink"><time datetime="2002-07-18T00:45:50">2002-07-18T00:45:50</time></a>
+</div>
+<div class="content">Suggestion:  do it in Jython first, then profile and convert the important parts to normal Java.  I suspect that it&#39;ll be way more fun that way.</div>
+</li>
+<li class="comment" id="comment-221083430">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.decafbad.com">l.m.orchard</a>
+</div>
+<a href="#comment-221083430" class="permalink"><time datetime="2002-07-18T00:50:57">2002-07-18T00:50:57</time></a>
+</div>
+<div class="content">Actually, I&#39;ve been circulating that thought a bit :)  Seems to me that Jython would make me never homesick for Perl again, Python being tastier to me than Perl in many respects.</div>
+</li>
+<li class="comment" id="comment-221083431">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://bwinton.latte.ca/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=441f5529f1db69e1a18cefb090e2690a&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://bwinton.latte.ca/">Blake Winton</a>
+</div>
+<a href="#comment-221083431" class="permalink"><time datetime="2002-07-18T12:27:32">2002-07-18T12:27:32</time></a>
+</div>
+<div class="content">If you like Netbeans, you should try Idea.  IMHO, it kicks Netbeans all over the map.  Things to specifically note are the Ctrl-Space context sensitive completion of almost anything (even going so far as to suggest variable names), and the built-in refactorings (extract method being one of my favourites).</div>
+</li>
+<li class="comment" id="comment-221083433">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.decafbad.com">l.m.orchard</a>
+</div>
+<a href="#comment-221083433" class="permalink"><time datetime="2002-07-18T12:34:00">2002-07-18T12:34:00</time></a>
+</div>
+<div class="content">Hmm...  The latest beta of Netbeans I&#39;m using has a ton of Ctrl-Space completion now of classes, variables, etc.  But I&#39;m happy to see Idea has a Mac OS X version, so I&#39;ll have to check it out.  I don&#39;t think Netbeans has any or much refactoring support, which is something I&#39;ve been dreaming about while working in other languages.  :)
+The only barrier might be price for me, since NetBeans is open/free and Idea is almost US$400.</div>
+</li>
+<li class="comment" id="comment-221083435">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://bwinton.latte.ca/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=441f5529f1db69e1a18cefb090e2690a&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://bwinton.latte.ca/">Blake Winton</a>
+</div>
+<a href="#comment-221083435" class="permalink"><time datetime="2002-07-19T16:24:37">2002-07-19T16:24:37</time></a>
+</div>
+<div class="content">The price is definately higher than Netbeans, although significantly lower than, say, JBuilder.  And they have an Early Access Program where you can test out betas for free.  I&#39;ve been on it for a couple of years, and it&#39;s very rare that the betas are less than rock-solid.  Also, you get to influence the development of the product, which is always a good thing.  :)</div>
+</li>
+<li class="comment" id="comment-221083436">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://lockney.net"><img src="http://www.gravatar.com/avatar.php?gravatar_id=e413973485c5536801d587baa1a55905&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://lockney.net">Thomas Lockney</a>
+</div>
+<a href="#comment-221083436" class="permalink"><time datetime="2002-07-20T21:11:57">2002-07-20T21:11:57</time></a>
+</div>
+<div class="content">You might want to check out Eclipse (<a href="http://www.eclipse.org)">http://www.eclipse.org)</a>, too. It was originally developer by IBM and then released as open source. While it&#39;s written in Java, it doesn&#39;t use Swing. They use an API called SWT that they developed in house. SWT uses native libraries on the platforms it&#39;s been ported, too (right now includes Windows, Linux and a number of Unix variants, but not OSX, yet -- though OSX support is planned). I&#39;ve found that the latest release is significantly zippier than any of the other java IDEs I&#39;ve used and the features it supports are generally comparable or better than any of the others that I&#39;ve tried. 
+It should be noted that Eclipse is also the basic technology underlying a number of major player products (IBM&#39;s WebSphere Studio and Rational&#39;s newest development tool, the name of which I can&#39;t recall at the moment). So you know the project isn&#39;t going anywhere anytime soon.</div>
+</li>
+<li class="comment" id="comment-221083437">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.decafbad.com">l.m.orchard</a>
+</div>
+<a href="#comment-221083437" class="permalink"><time datetime="2002-07-21T02:39:37">2002-07-21T02:39:37</time></a>
+</div>
+<div class="content">Yeah, I checked out Eclipse too, getting the vibe that it was a main competitor for NetBeans in the open source arena.  But, the lack of OS X support is pretty much a show stopper for me since my primary work machine and personal laptop are both Macs.
+This is also the reason I have yet to get into .NET and C#, but that&#39;s another story altogether.. :)</div>
+</li>
+</ul>
+</div>
+</section>
+</article>
+
+
+
+</section>
+
+      <footer>
+        <img id="growup" src="/uploads/growup.jpg">
+      </footer>
+
+    </section>
+
+    <section id="javascript">
+      <script src="/js/main.js"></script>
+      
+    </section>
+
+  </body>
+</html>

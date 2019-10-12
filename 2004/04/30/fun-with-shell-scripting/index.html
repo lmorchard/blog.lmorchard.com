@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name="microtip" content="1Ad1VPQBBk7WhyJPfB6cAgZoBs3gUngurN" data-currency="btc">
+    <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen, projection" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Fun with shell scripting - blog.lmorchard.com</title>
+    <meta name="author" content="" />
+
+    
+      <link href="/index.rss" rel="alternate"
+        title="blog.lmorchard.com" type="application/rss+xml" />
+    
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="blog.lmorchard.com"/>
+
+    
+  <meta property="og:title" content="Fun with shell scripting" />
+  <meta property="og:url" content="https://blog.lmorchard.com/2004/04/30/fun-with-shell-scripting//" />
+  
+  
+
+
+
+  </head>
+  <body>
+
+    <section class="main">
+
+      <header>
+        <h1><a href="/">blog.lmorchard.com</a></h1>
+        <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+        <nav>
+
+          <label for="nav-trigger"></label>
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+          <ul>
+            <li><a href="http://lmorchard.com/">about me</a></li>
+            <li><a href="/archives.html">archives</a></li>
+          </ul>
+
+        </nav>
+      </header>
+
+      <section class="content">
+<article class="post tag-colophon ">
+    <time title="2004-04-30T00:00:00.000Z" pubdate="2004-04-30T00:00:00.000Z">
+      <a href="/"><i class="fa fa-home"></i></a>
+      &raquo;
+      <a href="/2004">2004</a>
+      &raquo;
+      <a href="/2004/04">April</a>
+      &raquo;
+      <span>30</span>
+      &raquo;
+    </time>
+    <h1 class="title">Fun with shell scripting</h1>
+    
+      <ul class="tags">
+          
+              <li><a href="/tag/colophon">colophon</a></li>
+          
+      </ul>
+    
+    <section class="post-content"><p>I went a little nuts tonight with shell scripting.  It started off with a few innocent bits of <a href="http://www.rt.com/man/cat.1.html"><code>cat</code></a> and <a href="http://www.rt.com/man/grep.1.html"><code>grep</code></a> piped together.  But then I invited trouble <a href="http://www.decafbad.com/cvs/*checkout*/www.decafbad.com/bin/parse_access_log">started using</a> <a href="http://www.rt.com/man/sed.1.html"><code>sed</code></a>.  Pretty soon, I was bringing in <a href="http://www.rt.com/man/cut.1.html"><code>cut</code></a> and <a href="http://www.rt.com/man/sort.1.html"><code>sort</code></a> and <a href="http://www.rt.com/man/uniq.1.html"><code>uniq</code></a>.  I knew I was doomed when I made the whole mess <a href="http://www.decafbad.com/cvs/*checkout*/www.decafbad.com/bin/mail_500_400_report.sh">start emailing me</a> with <a href="http://www.rt.com/man/sendmail.8.html"><code>sendmail</code></a>.  </p>
+<p>Oh, but then I went completely off the deep end.  I looked up <a href="http://www.aaronsw.com/2002/rss30">RSS 3.0</a>, since that&#39;s so much easier to generate on the fly.  I started producing that with a little help from <a href="http://www.rt.com/man/echo.1.html"><code>echo</code></a> and <a href="http://www.rt.com/man/awk.1.html"><code>awk</code></a>.  From there, I whipped up <a href="http://www.decafbad.com/cvs/*checkout*/www.decafbad.com/bin/rss300to091.py">a quick v3.0 to v0.91 converter</a> so I could get something <a href="http://www.decafbad.com/cvs/dbagg2/">my aggregator</a> could understand.</p>
+<p>It was all a very iterative process down a slippery slope of geekiness, and the resulting scripts are nothing that I&#39;d&#39;ve designed as such from scratch.  But, one thing led to another, and now I&#39;ve got a <a href="http://www.decafbad.com/cvs/*checkout*/www.decafbad.com/bin/mail_500_400_report.sh">nightly report emailed</a> to me of pages that have gone 404 and 500, and an <a href="http://www.decafbad.com/cvs/*checkout*/www.decafbad.com/bin/gen_referer_feed.sh">RSS feed of referers</a> to boot.</p>
+<p>I&#39;m sure it looks like completely braindead work, but it was fun!  </p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221086528">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://msittig.wubi.org/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=a233a0b9bf67e939e7575b36e626744d&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://msittig.wubi.org/">Micah</a>
+</div>
+<a href="#comment-221086528" class="permalink"><time datetime="2004-04-30T09:21:59">2004-04-30T09:21:59</time></a>
+</div>
+<div class="content">Is &quot;sort | uniq&quot; the same as &quot;sort -u&quot; ?  Uniq is cool, though, I&#39;d never seen it before.  And very nice scripts, it&#39;s (almost) always fun to read other peoples&#39; code.</div>
+</li>
+<li class="comment" id="comment-221086530">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.ulaluma.com/pyx"><img src="http://www.gravatar.com/avatar.php?gravatar_id=9e03aaf8edbe4b2c0d25e30ab9a69ffb&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.ulaluma.com/pyx">Donovan Preston</a>
+</div>
+<a href="#comment-221086530" class="permalink"><time datetime="2004-04-30T12:01:48">2004-04-30T12:01:48</time></a>
+</div>
+<div class="content">Haha. RSS 3.0 is awesome. Nothing like a little almost-rfc822 to knock some sense into the blogging world. How long has it been around? I never notice these things, I don&#39;t pay any attention to any of the blog world bullshit. (Maybe I should.)</div>
+</li>
+<li class="comment" id="comment-221086531">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://diveintomark.org/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=357a20e8c56e69d6f9734d23ef9517e8&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://diveintomark.org/">Mark</a>
+</div>
+<a href="#comment-221086531" class="permalink"><time datetime="2004-04-30T19:32:43">2004-04-30T19:32:43</time></a>
+</div>
+<div class="content">&gt; I don’t pay any attention to any of the blog world bullshit. (Maybe I should.)
+No!  No, you shouldn&#39;t!  Do not, under any circumstances, get sucked into that grungy, petty, venom-soaked little world!  Anyone who knows what I&#39;m talking about will back me up on this, including Les.</div>
+</li>
+</ul>
+</div>
+</section>
+</article>
+
+
+
+</section>
+
+      <footer>
+        <img id="growup" src="/uploads/growup.jpg">
+      </footer>
+
+    </section>
+
+    <section id="javascript">
+      <script src="/js/main.js"></script>
+      
+    </section>
+
+  </body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name="microtip" content="1Ad1VPQBBk7WhyJPfB6cAgZoBs3gUngurN" data-currency="btc">
+    <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen, projection" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Spotlight Bummers and the CC Metadata Importer - blog.lmorchard.com</title>
+    <meta name="author" content="" />
+
+    
+      <link href="/index.rss" rel="alternate"
+        title="blog.lmorchard.com" type="application/rss+xml" />
+    
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="blog.lmorchard.com"/>
+
+    
+  <meta property="og:title" content="Spotlight Bummers and the CC Metadata Importer" />
+  <meta property="og:url" content="https://blog.lmorchard.com/2005/06/15/spotlight-bummers-and-the-cc-metadata-importer//" />
+  
+  
+
+
+
+  </head>
+  <body>
+
+    <section class="main">
+
+      <header>
+        <h1><a href="/">blog.lmorchard.com</a></h1>
+        <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+        <nav>
+
+          <label for="nav-trigger"></label>
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+          <ul>
+            <li><a href="http://lmorchard.com/">about me</a></li>
+            <li><a href="/archives.html">archives</a></li>
+          </ul>
+
+        </nav>
+      </header>
+
+      <section class="content">
+<article class="post ">
+    <time title="2005-06-15T00:00:00.000Z" pubdate="2005-06-15T00:00:00.000Z">
+      <a href="/"><i class="fa fa-home"></i></a>
+      &raquo;
+      <a href="/2005">2005</a>
+      &raquo;
+      <a href="/2005/06">June</a>
+      &raquo;
+      <span>15</span>
+      &raquo;
+    </time>
+    <h1 class="title">Spotlight Bummers and the CC Metadata Importer</h1>
+    
+    <section class="post-content"><p>I was just snooping through the installer package for Nathan Yergler&#39;s <a href="http://yergler.net/projects/cc-spotlight/">CC Metadata Importer</a> looking for some clues toward resolving my gripes noted in <a href="http://www.decafbad.com/blog/2005/06/10/blosxom_tiger_and_spotlight">Blosxom, Tiger, and Spotlight</a>.  In doing so, I just realized that the <a href="http://sourceforge.net/mailarchive/forum.php?thread_id=7432157&amp;forum_id=4355">guts of this importer are written in Python</a>.  That&#39;s really pretty nifty and I need to look into this some more.</p>
+<p>However, more toward the gripes from <a href="http://www.decafbad.com/blog/2005/06/10/blosxom_tiger_and_spotlight">that previous post</a>, I&#39;m assuming that this <a href="http://yergler.net/projects/cc-spotlight/">CC Metadata Importer</a> will kick out any other importer dealing with MP3 files once it&#39;s installed.  Let&#39;s see what happens...  (<em>runs off to install the importer</em>)</p>
+<p>In fact, after I installed the importer, I noticed metadata missing from my MP3s that had been there pre-install, such as:</p>
+<ul>
+<li>kMDItemMediaTypes              = (Sound)</li>
+<li>kMDItemMusicalGenre            = &quot;Rock&quot;</li>
+<li>kMDItemTitle                   = &quot;Sunday&quot;</li>
+<li>kMDItemTotalBitRate            = 256</li>
+<li>kMDItemAudioBitRate            = 256</li>
+<li>kMDItemAudioChannelCount       = 2</li>
+<li>kMDItemAudioSampleRate         = 44100</li>
+<li>kMDItemAuthors                 = (&quot;David Bowie&quot;)</li>
+</ul>
+<p>I looked into <code>Audio.mdimporter</code> under <code>/System/Library/Spotlight</code> and this is what I found in <code>Contents/Info.plist</code>:</p>
+  <textarea cols="60" rows="10">
+    <key>CFBundleDocumentTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleTypeRole</key>
+            <string>MDImporter</string>
+            <key>LSItemContentTypes</key>
+            <array>
+                <string>public.mp3</string>
+                <string>public.aifc-audio</string>
+                <string>public.aiff-audio</string>
+                <string>com.digidesign.sd2-audio</string>
+                <string>com.microsoft.waveform-audio</string>
+                <string>public.ulaw-audio</string>
+                <string>com.apple.coreaudio-format</string>
+            </array>
+        </dict>
+    </array>
+  </textarea>
+
+<p>  And, what do you know?  This is what I found in <code>Contents/Info.plist</code> for <code>Creative Commons Metadata Importer.mdimporter</code>:</p>
+  <textarea cols="60" rows="10">
+    <key>CFBundleDocumentTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleTypeRole</key>
+            <string>MDImporter</string>
+            <key>LSItemContentTypes</key>
+            <array>
+                <string>public.mp3</string>
+            </array>
+        </dict>
+    </array>
+  </textarea>
+
+<p>This new importer wants to handle <code>public.mp3</code>, just like Apple&#39;s <code>Audio.mdimporter</code>.  So, from my understanding, the CC importer will replace Apple&#39;s--rather than cooperating with it, as I&#39;d like to see.  (I wonder if there&#39;s any way to hack <em>chaining</em> into these things?)</p>
+<p>When I run <code>mdls</code> on an MP3 I have lying around, this is what I get before installing the importer:</p>
+  <textarea cols="60" rows="10">
+01 Sunday.mp3 -------------
+kMDItemAlbum                   = &quot;Heathen&quot;
+kMDItemAttributeChangeDate     = 2005-05-03 20:41:01 -0400
+kMDItemAudioBitRate            = 256
+kMDItemAudioChannelCount       = 2
+kMDItemAudioSampleRate         = 44100
+kMDItemAuthors                 = (&quot;David Bowie&quot;)
+kMDItemContentCreationDate     = 2003-01-22 12:43:35 -0500
+kMDItemContentModificationDate = 2005-05-03 20:41:00 -0400
+kMDItemContentType             = &quot;public.mp3&quot;
+kMDItemContentTypeTree         = (
+    &quot;public.mp3&quot;, 
+    &quot;public.audio&quot;, 
+    &quot;public.audiovisual-content&quot;, 
+    &quot;public.data&quot;, 
+    &quot;public.item&quot;, 
+    &quot;public.content&quot;
+)
+kMDItemDisplayName             = &quot;01 Sunday.mp3&quot;
+kMDItemDurationSeconds         = 856
+kMDItemFSContentChangeDate     = 2005-05-03 20:41:00 -0400
+kMDItemFSCreationDate          = 2003-01-22 12:43:35 -0500
+kMDItemFSCreatorCode           = 0
+kMDItemFSFinderFlags           = 0
+kMDItemFSInvisible             = 0
+kMDItemFSLabel                 = 0
+kMDItemFSName                  = &quot;01 Sunday.mp3&quot;
+kMDItemFSNodeCount             = 0
+kMDItemFSOwnerGroupID          = 501
+kMDItemFSOwnerUserID           = 501
+kMDItemFSSize                  = 9138342
+kMDItemFSTypeCode              = 0
+kMDItemID                      = 820671
+kMDItemKind                    = &quot;MP3 Audio File&quot;
+kMDItemLastUsedDate            = 2003-01-22 12:43:35 -0500
+kMDItemMediaTypes              = (Sound)
+kMDItemMusicalGenre            = &quot;Rock&quot;
+kMDItemTitle                   = &quot;Sunday&quot;
+kMDItemTotalBitRate            = 256
+kMDItemUsedDates               = (2003-01-22 12:43:35 -0500)
+  </textarea>
+
+<p>So, I installed the CC importer, let it re-index things, and this is what <code>mdls</code> gives me now:</p>
+  <textarea cols="60" rows="10">
+01 Sunday.mp3 -------------
+kMDItemAttributeChangeDate     = 2005-06-15 12:27:57 -0400
+kMDItemContentCreationDate     = 2003-01-22 12:43:35 -0500
+kMDItemContentModificationDate = 2005-05-03 20:41:00 -0400
+kMDItemContentType             = &quot;public.mp3&quot;
+kMDItemContentTypeTree         = (
+    &quot;public.mp3&quot;, 
+    &quot;public.audio&quot;, 
+    &quot;public.audiovisual-content&quot;, 
+    &quot;public.data&quot;, 
+    &quot;public.item&quot;, 
+    &quot;public.content&quot;
+)
+kMDItemDisplayName             = &quot;01 Sunday.mp3&quot;
+kMDItemFSContentChangeDate     = 2005-05-03 20:41:00 -0400
+kMDItemFSCreationDate          = 2003-01-22 12:43:35 -0500
+kMDItemFSCreatorCode           = 0
+kMDItemFSFinderFlags           = 0
+kMDItemFSInvisible             = 0
+kMDItemFSLabel                 = 0
+kMDItemFSName                  = &quot;01 Sunday.mp3&quot;
+kMDItemFSNodeCount             = 0
+kMDItemFSOwnerGroupID          = 501
+kMDItemFSOwnerUserID           = 501
+kMDItemFSSize                  = 9138342
+kMDItemFSTypeCode              = 0
+kMDItemID                      = 820671
+kMDItemKind                    = &quot;MP3 Audio File&quot;
+kMDItemLastUsedDate            = 2003-01-22 12:43:35 -0500
+kMDItemUsedDates               = (2003-01-22 12:43:35 -0500)
+  </textarea>
+
+<p>In case those two floods of metadata set your head spinning, the post-install metadata is lacking items from the pre-install metadata.  I need to uninstall this importer and get my other metadata back.  And, this isn&#39;t a slight against the importer--it looks like really cool work.  No, this is a bummer of Spotlight.</p>
+<p><em>Almost there...</em></p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221088590">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://ulaluma.com/pyx"><img src="http://www.gravatar.com/avatar.php?gravatar_id=9e03aaf8edbe4b2c0d25e30ab9a69ffb&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://ulaluma.com/pyx">Donovan Preston</a>
+</div>
+<a href="#comment-221088590" class="permalink"><time datetime="2005-06-15T12:55:56">2005-06-15T12:55:56</time></a>
+</div>
+<div class="content">At WWDC I heard some of the Apple developers complaining about this as well. It certainly is a huge shortcoming of spotlight and hopefully it will be addressed soon. Because of this, for example, it would be impossible to have an importer for * which imported the MD5 hash of every file on your system, or something like that.</div>
+</li>
+<li class="comment" id="comment-221088591">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.fluffy.co.uk/spotmeta/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=a660afb8f1f22ce1b03ad3b532aa05b5&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.fluffy.co.uk/spotmeta/">Ben Summers</a>
+</div>
+<a href="#comment-221088591" class="permalink"><time datetime="2005-10-20T14:54:46">2005-10-20T14:54:46</time></a>
+</div>
+<div class="content"><p>My latest project, SpotMeta, solves this problem. The extension it installs also allows <a href="http://www.fluffy.co.uk/spotmeta/devimporters.html" rel="nofollow">importers to be cascaded</a>.</p></div>
+</li>
+</ul>
+</div>
+</section>
+</article>
+
+
+
+</section>
+
+      <footer>
+        <img id="growup" src="/uploads/growup.jpg">
+      </footer>
+
+    </section>
+
+    <section id="javascript">
+      <script src="/js/main.js"></script>
+      
+    </section>
+
+  </body>
+</html>

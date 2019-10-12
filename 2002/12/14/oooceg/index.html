@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name="microtip" content="1Ad1VPQBBk7WhyJPfB6cAgZoBs3gUngurN" data-currency="btc">
+    <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen, projection" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Think of everything but the obvious first - blog.lmorchard.com</title>
+    <meta name="author" content="" />
+
+    
+      <link href="/index.rss" rel="alternate"
+        title="blog.lmorchard.com" type="application/rss+xml" />
+    
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="blog.lmorchard.com"/>
+
+    
+  <meta property="og:title" content="Think of everything but the obvious first" />
+  <meta property="og:url" content="https://blog.lmorchard.com/2002/12/14/oooceg//" />
+  
+  <meta property="og:description" content="Today&amp;apos;s revelation while tinkering with my PersonalWebProxy:  Decompressed content is larger than compressed content.   See, I was decompressing gzipped content streams in the proxy in order to fiddle with the content before it got to the browser, but then I noticed that browsers kept only displaying part of the content.  I remove the in-proxy decompression, things are fine.  Put it back in, things get cut short.  I poke for a few hours at various bits and parts, to no avail.   Then, finally I remember...  &quot;Hey, you know, I think browsers pay attention to that Content-Length header.  And hey, you know...  decompressed content is larger than compressed content.&quot;  Bingo.  Problem solved by keeping the Content-Length header updated with the length of modified content.  This makes me feel very dumb, because it&amp;apos;s not like I haven&amp;apos;t written a handful or two both of HTTP clients and servers.  And I&amp;apos;ve written code that uses the Content-Length header, over and over again.  I&amp;apos;d&amp;apos;ve thought this would be something I&amp;apos;d remember more quickly. More often than I&amp;apos;d like to admit, remembering simple and obvious things like the above are what unlock problems that I&amp;apos;d been banging my head against.  The last revelation of this nature I had while frustrated at a project at work was:  &quot;Not all months are 31 days.&quot;  And before that, &quot;Not all days in a year are 24 hours long, due daylight savings time.&quot; Trying to think of more, but I thought I&amp;apos;d share. Maybe I&amp;apos;ll start a wiki topic for sage bits of the ObviousInHindsight.  " />
+
+
+
+  </head>
+  <body>
+
+    <section class="main">
+
+      <header>
+        <h1><a href="/">blog.lmorchard.com</a></h1>
+        <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+        <nav>
+
+          <label for="nav-trigger"></label>
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+          <ul>
+            <li><a href="http://lmorchard.com/">about me</a></li>
+            <li><a href="/archives.html">archives</a></li>
+          </ul>
+
+        </nav>
+      </header>
+
+      <section class="content">
+<article class="post ">
+    <time title="2002-12-14T00:00:00.000Z" pubdate="2002-12-14T00:00:00.000Z">
+      <a href="/"><i class="fa fa-home"></i></a>
+      &raquo;
+      <a href="/2002">2002</a>
+      &raquo;
+      <a href="/2002/12">December</a>
+      &raquo;
+      <span>14</span>
+      &raquo;
+    </time>
+    <h1 class="title">Think of everything but the obvious first</h1>
+    
+    <section class="post-content"><p><p>Today&#39;s revelation while tinkering with my <a href="http://www.decafbad.com/twiki/bin/view/Main/PersonalWebProxy">PersonalWebProxy</a>:  Decompressed content is larger than compressed content.  </p></p>
+<p><p>See, I was decompressing gzipped content streams in the proxy in order to fiddle with the content before it got to the browser, but then I noticed that browsers kept only displaying part of the content.  I remove the in-proxy decompression, things are fine.  Put it back in, things get cut short.  I poke for a few hours at various bits and parts, to no avail.  </p></p>
+<p><p>Then, finally I remember...  &quot;Hey, you know, I think browsers pay attention to that Content-Length header.  And hey, you know...  decompressed content is larger than compressed content.&quot;  Bingo.  Problem solved by keeping the Content-Length header updated with the length of modified content.  This makes me feel very dumb, because it&#39;s not like I haven&#39;t written a handful or two both of HTTP clients and servers.  And I&#39;ve written code that uses the Content-Length header, over and over again.  I&#39;d&#39;ve thought this would be something I&#39;d remember more quickly.</p></p>
+<p><p>More often than I&#39;d like to admit, remembering simple and obvious things like the above are what unlock problems that I&#39;d been banging my head against.  The last revelation of this nature I had while frustrated at a project at work was:  &quot;Not all months are 31 days.&quot;  And before that, &quot;Not all days in a year are 24 hours long, due daylight savings time.&quot;</p></p>
+<p><p>Trying to think of more, but I thought I&#39;d share. Maybe I&#39;ll start a wiki topic for sage bits of the <a href="http://www.decafbad.com/twiki/bin/view/Main/ObviousInHindsight">ObviousInHindsight</a>.<br />
+</p>
+<!--more-->
+shortname=oooceg</p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221087820">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.perceive.net"><img src="http://www.gravatar.com/avatar.php?gravatar_id=9e76d0bf99487acc610624122a6317f3&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.perceive.net">Eric Vitiello</a>
+</div>
+<a href="#comment-221087820" class="permalink"><time datetime="2002-12-14T17:55:33">2002-12-14T17:55:33</time></a>
+</div>
+<div class="content">I find that 80% of my programming time is spent solving obvious and mundane problems.  The other 20% is actually productive...  If I could fins a way to get past the things that make me smack my head, I&#39;d be a programming god.</div>
+</li>
+<li class="comment" id="comment-221087821">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://little-bits.blogspot.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=808b65db5da2d018b3b034e2b69821e6&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://little-bits.blogspot.com">Paul Morriss</a>
+</div>
+<a href="#comment-221087821" class="permalink"><time datetime="2002-12-19T12:03:09">2002-12-19T12:03:09</time></a>
+</div>
+<div class="content">I spent a while working on a system for PowerGen, a UK electricity company. Electricity is traded here in half hour slots and I reckon I spent about 25% of my time coding to cope with the time when there are 46 or 50 half hour slots in a day sometimes.
+There were all sorts of calculations that needed to be done for the generators to do with ramping up and ramping down and changing output. The companies promised never to change anything during the autumn/fall clock change when we had a &quot;repeated&quot; hour.</div>
+</li>
+<li class="comment" id="comment-221087824">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://yarinareth.net/caveatlector/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=def808e6072af95b27c6d298fbb05a2b&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://yarinareth.net/caveatlector/">Dorothea Salo</a>
+</div>
+<a href="#comment-221087824" class="permalink"><time datetime="2002-12-19T19:52:38">2002-12-19T19:52:38</time></a>
+</div>
+<div class="content">Ah, yes, the &quot;I am SUCH an idiot!&quot; moments. I dearly <em>hope</em> they happen to everyone.
+&#39;Cuz if they don&#39;t... man, I am <em>such</em> an idiot!</div>
+</li>
+</ul>
+</div>
+</section>
+</article>
+
+
+
+</section>
+
+      <footer>
+        <img id="growup" src="/uploads/growup.jpg">
+      </footer>
+
+    </section>
+
+    <section id="javascript">
+      <script src="/js/main.js"></script>
+      
+    </section>
+
+  </body>
+</html>

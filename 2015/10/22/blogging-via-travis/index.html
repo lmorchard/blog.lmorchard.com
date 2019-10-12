@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name="microtip" content="1Ad1VPQBBk7WhyJPfB6cAgZoBs3gUngurN" data-currency="btc">
+    <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen, projection" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Continual Blogployment - blog.lmorchard.com</title>
+    <meta name="author" content="" />
+
+    
+      <link href="/index.rss" rel="alternate"
+        title="blog.lmorchard.com" type="application/rss+xml" />
+    
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="blog.lmorchard.com"/>
+
+    
+  <meta property="og:title" content="Continual Blogployment" />
+  <meta property="og:url" content="https://blog.lmorchard.com/2015/10/22/blogging-via-travis//" />
+  
+  <meta property="og:description" content="Ever since I switched this blog over to a Gulp-based toolchain - holy crap, 2 years ago - I had a TODO to wire this thing up for continual deployment. Well, today I finally did it.  " />
+
+
+
+  </head>
+  <body>
+
+    <section class="main">
+
+      <header>
+        <h1><a href="/">blog.lmorchard.com</a></h1>
+        <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+        <nav>
+
+          <label for="nav-trigger"></label>
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+          <ul>
+            <li><a href="http://lmorchard.com/">about me</a></li>
+            <li><a href="/archives.html">archives</a></li>
+          </ul>
+
+        </nav>
+      </header>
+
+      <section class="content">
+<article class="post tag-metablogging tag-webdev tag-js tag-gulp tag-github tag-travis tag-s3 tag-amazon tag-devops ">
+    <time title="2015-10-22T00:00:00.000Z" pubdate="2015-10-22T00:00:00.000Z">
+      <a href="/"><i class="fa fa-home"></i></a>
+      &raquo;
+      <a href="/2015">2015</a>
+      &raquo;
+      <a href="/2015/10">October</a>
+      &raquo;
+      <span>22</span>
+      &raquo;
+    </time>
+    <h1 class="title">Continual Blogployment</h1>
+    
+      <ul class="tags">
+          
+              <li><a href="/tag/metablogging">metablogging</a>, </li>
+          
+              <li><a href="/tag/webdev">webdev</a>, </li>
+          
+              <li><a href="/tag/js">js</a>, </li>
+          
+              <li><a href="/tag/gulp">gulp</a>, </li>
+          
+              <li><a href="/tag/github">github</a>, </li>
+          
+              <li><a href="/tag/travis">travis</a>, </li>
+          
+              <li><a href="/tag/s3">s3</a>, </li>
+          
+              <li><a href="/tag/amazon">amazon</a>, </li>
+          
+              <li><a href="/tag/devops">devops</a></li>
+          
+      </ul>
+    
+    <section class="post-content"><p>Ever since <a href="http://blog.lmorchard.com/2014/10/20/static-blog-generation-with-gulp/">I switched this blog over to a Gulp-based toolchain</a> - <em>holy crap, 2 years ago</em> - I had a TODO to wire this thing up for continual deployment. Well, today I finally did it. </p>
+<!--more-->
+<p>Just to test the cloud machinery I&#39;m (ab)using here, I&#39;m writing this post as a new commit on GitHub in a browser. When I get done and commit this, Travis CI will fire up, install my node-based blog code and build all the content. Assuming that goes well, my code on Travis will then publish any changes in the content to Amazon S3. And, voila, I will have blogged via the magic of cheap cloud infrastructure.</p>
+<p>Up until now, I&#39;ve been doing this all from my laptop: Write a post in Vim, commit to git, build &amp; deploy from my local machine. I&#39;d push to GitHub to work in the open and have a handy backup. But from here on, the push to GitHub will actually make the magic happen!</p>
+<p>If you&#39;re curious about the plumbing, <a href="https://github.com/lmorchard/blog.lmorchard.com/compare/5992311ade7acc0e9dbeb0352ac4097c687be1a5...10149c0e520f7e75536535ff563dfe42aa30b960">the changes in my recent commits</a> can tell the exact story. But, what I did in a nutshell is this:</p>
+<ul>
+<li><a href="https://github.com/lmorchard/blog.lmorchard.com/commit/4c029ab9a6d3f5869cee02b7265e0ad41908a8c4">Switched to using environment vars to configure AWS credentials for S3 publishing</a>.</li>
+<li>Used <a href="http://docs.travis-ci.com/user/environment-variables/#Encrypted-Variables"><code>travis secure</code></a> to supply credentials in encrypted environment vars.</li>
+<li>Started <a href="https://github.com/lmorchard/blog.lmorchard.com/commit/4b525710760ad70c0d83d910585e7bd9ddd80583">maintaining a copy of file hashes on the site</a> so that <a href="https://www.npmjs.com/package/gulp-awspublish">gulp-awspublish</a> will only publish changes.</li>
+<li>Composed a <a href="https://github.com/lmorchard/blog.lmorchard.com/blob/master/.travis.yml">.travis.yml</a> to build &amp; deploy everything.</li>
+</ul>
+<p>And, if you&#39;re reading this post, then that means everything worked when I hit the &quot;Commit new file&quot; button! (And, if you&#39;re reading <em>this</em> sentence, then I was able to update this post, too!)</p>
+</section>
+</article>
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_needs_loading = true;
+        var disqus_url = 'https://blog.lmorchard.com/2015/10/22/blogging-via-travis/';
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+</section>
+
+      <footer>
+        <img id="growup" src="/uploads/growup.jpg">
+      </footer>
+
+    </section>
+
+    <section id="javascript">
+      <script src="/js/main.js"></script>
+      
+    </section>
+
+  </body>
+</html>

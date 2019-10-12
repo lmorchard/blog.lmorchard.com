@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name="microtip" content="1Ad1VPQBBk7WhyJPfB6cAgZoBs3gUngurN" data-currency="btc">
+    <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen, projection" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>An unnecessary Template Attribute Language - blog.lmorchard.com</title>
+    <meta name="author" content="" />
+
+    
+      <link href="/index.rss" rel="alternate"
+        title="blog.lmorchard.com" type="application/rss+xml" />
+    
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="blog.lmorchard.com"/>
+
+    
+  <meta property="og:title" content="An unnecessary Template Attribute Language" />
+  <meta property="og:url" content="https://blog.lmorchard.com/2008/11/01/an-unnecessary-template-attribute-language//" />
+  
+  
+
+
+
+  </head>
+  <body>
+
+    <section class="main">
+
+      <header>
+        <h1><a href="/">blog.lmorchard.com</a></h1>
+        <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+        <nav>
+
+          <label for="nav-trigger"></label>
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+          <ul>
+            <li><a href="http://lmorchard.com/">about me</a></li>
+            <li><a href="/archives.html">archives</a></li>
+          </ul>
+
+        </nav>
+      </header>
+
+      <section class="content">
+<article class="post tag-webdev tag-js tag-javascript tag-entries tag-jquery tag-zope tag-zpt tag-tal tag-templates ">
+    <time title="2008-11-01T00:00:00.000Z" pubdate="2008-11-01T00:00:00.000Z">
+      <a href="/"><i class="fa fa-home"></i></a>
+      &raquo;
+      <a href="/2008">2008</a>
+      &raquo;
+      <a href="/2008/11">November</a>
+      &raquo;
+      <span>01</span>
+      &raquo;
+    </time>
+    <h1 class="title">An unnecessary Template Attribute Language</h1>
+    
+      <ul class="tags">
+          
+              <li><a href="/tag/webdev">webdev</a>, </li>
+          
+              <li><a href="/tag/js">js</a>, </li>
+          
+              <li><a href="/tag/javascript">javascript</a>, </li>
+          
+              <li><a href="/tag/entries">entries</a>, </li>
+          
+              <li><a href="/tag/jquery">jquery</a>, </li>
+          
+              <li><a href="/tag/zope">zope</a>, </li>
+          
+              <li><a href="/tag/zpt">zpt</a>, </li>
+          
+              <li><a href="/tag/tal">tal</a>, </li>
+          
+              <li><a href="/tag/templates">templates</a></li>
+          
+      </ul>
+    
+    <section class="post-content"><p>A funny thing happened on the way to building <a href="http://svn.mozilla.org/projects/lizardfeeder/trunk/">a delayed real-time feed display</a>:  I got temporarily obsessed with implementing <a href="http://github.com/lmorchard/jquery-tal-template/tree/master">a template language in JavaScript</a> that, as it turned out later, I didn&#39;t need.  About <a href="http://svn.mozilla.org/projects/lizardfeeder/trunk/">the feed project itself</a>, I hope to write more soon—but for now I want to get this extra template language thing out of my system and see if anyone else might have a use for it.</p>
+<p>See, I had a notion it would be keen if I had access to the same template language on the client as on the server.  I needed to render a number of list items statically on the server with feed entries, then update that list with new entries on the client as they became available through JSON feed polling.  It&#39;d be a pain in the butt to maintain two separate list item templates for client and server, so I reached for a shared template language.</p>
+<p>Never mind that I&#39;d just gotten done writing <a href="http://www.amazon.com/gp/product/0470452021?ie=UTF8&amp;tag=0xdecafbad01-20&amp;linkCode=as2&amp;camp=1789&amp;c%0D%0Areative=9325&amp;creativeASIN=0470452021">a small book on Dojo</a>, and was already aware of the existence of the <a href="http://svn.dojotoolkit.org/src/dojox/trunk/dtl/README">DojoX Django Template Language</a>.  This might&#39;ve worked, since the server end of things was written in Python (though not with Django).  That the JavaScript side already used <a href="http://jquery.com/">jQuery</a> wasn&#39;t <em>too</em> tall a hurdle.  Also, I&#39;m sure there are a handful of other JavaScript/Python template language match-ups to be found.</p>
+<p>But, let&#39;s be honest here:  I&#39;ve always been a fan of Zope&#39;s <a href="http://wiki.zope.org/ZPT/TALSpecification14">Template Attribute Language</a> for their <a href="http://wiki.zope.org/ZPT/FrontPage">Page Templates</a>, and have long wondered how hard it would be to implement.  The concept seems so much cleaner to me than most string-formatting template languages, and the workflow from mockup-to-template and back again has always been appealing to me when it works.  So, when my first few experimental steps in trying my hand at it actually started working, I couldn&#39;t stop coding.  </p>
+<p>And now, <a href="http://github.com/lmorchard/jquery-tal-template/tree/master/jquery.taltemplate.js">the thing</a> is mostly done.  It has no tests, has features left undone, and probably yields plenty of bugs—but I finished it enough to use it practically, and that was long enough to convince me it wasn&#39;t the right tool for the job.  </p>
+<p>Still, though, I can&#39;t help thinking it might be the right tool for <em>some</em> job.  That could be because I spent a lot of time on it, or that I&#39;m unreasonably fond of <a href="http://wiki.zope.org/ZPT/TALSpecification14">TAL</a>, but it still feels like a decent little plugin to have on hand.  Maybe someone reading this will have a similar conclusion.</p>
+<p>Oh and by the way, plain <a href="http://jquery.com/">jQuery</a> turned out to be a better tool for <a href="http://svn.mozilla.org/projects/lizardfeeder/trunk/">the job in question</a>.  This seems to nicely balance the duplicate effort between server and client, demanding only that I stick with semantically significant CSS class names in the server template—something I should be doing anyway:</p>
+<pre><code>        // Clone and populate a new entry.
+        var new_item = $(&#39;#feed-items .entry:last&#39;)
+            .clone()
+            .attr(&#39;class&#39;, entry_classes.join(&#39; &#39;)) 
+            .find(&#39;.group span&#39;)
+                .text(tags[&#39;group&#39;])
+            .end()
+            .find(&#39;.title&#39;)
+                .find(&#39;.favicon&#39;)
+                    .attr(&#39;src&#39;, favicon)
+                .end()
+                .find(&#39;.link&#39;)
+                    .attr(&#39;href&#39;, entry.link)
+                    .text(entry.title)
+                .end()
+            .end()
+            .find(&#39;.updated&#39;)
+                .find(&#39;.timeago&#39;)
+                    .attr(&#39;title&#39;, entry.updated)
+                    .text(entry_updated.strftime(&#39;%+&#39;))
+                    .timeago()
+                .end()
+                .find(&#39;.time&#39;)
+                    .text(entry_updated.strftime(&#39;%I:%M %p&#39;))
+                .end()
+            .end()
+            .find(&#39;.author&#39;)
+                .text(entry.author || &#39;n/a&#39;)
+            .end()
+            .prependTo(&#39;#feed-items&#39;)
+            .hide();
+</code></pre><p>Of course, <em>plain</em> is a relative term here.</p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221083366">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=3f398029eea744ce9ba9147aab627557&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="">brad clements</a>
+</div>
+<a href="#comment-221083366" class="permalink"><time datetime="2008-11-03T21:26:42">2008-11-03T21:26:42</time></a>
+</div>
+<div class="content"><p>Groan,</p>
+<p>Too bad I haven&#39;t had a chance to finish documenting (and tweaking) the ATALi project.</p>
+<p>It&#39;s a collection of Alternative TAL Implementations.</p>
+<p>It currently has TAL for xslt (server side using libxslt directly or via lxml with metal support)</p>
+<p>and TAL for javascript (no libraries needed, though it does recognize mochikit iterators, no metal)</p>
+<p><a href="https://launchpad.net/atali">https://launchpad.net/atali</a></p></div>
+</li>
+<li class="comment" id="comment-221083367">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.jm3.net/"><img src="http://disqus.com/api/users/avatars/jm3.jpg"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.jm3.net/">John Manoogian III (jm3)</a>
+</div>
+<a href="#comment-221083367" class="permalink"><time datetime="2008-11-24T18:51:17">2008-11-24T18:51:17</time></a>
+</div>
+<div class="content"><p>Have you seen &quot;trimpath&quot;?</p>
+<p><a href="http://code.google.com/p/trimpath/wiki/JavaScriptTemplates">http://code.google.com/p/trimpath/wiki/JavaScriptTemplates</a></p></div>
+</li>
+</ul>
+</div>
+</section>
+</article>
+
+
+
+</section>
+
+      <footer>
+        <img id="growup" src="/uploads/growup.jpg">
+      </footer>
+
+    </section>
+
+    <section id="javascript">
+      <script src="/js/main.js"></script>
+      
+    </section>
+
+  </body>
+</html>

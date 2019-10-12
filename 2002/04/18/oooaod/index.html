@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name="microtip" content="1Ad1VPQBBk7WhyJPfB6cAgZoBs3gUngurN" data-currency="btc">
+    <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen, projection" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Pipelining the web makes for messy URLs - blog.lmorchard.com</title>
+    <meta name="author" content="" />
+
+    
+      <link href="/index.rss" rel="alternate"
+        title="blog.lmorchard.com" type="application/rss+xml" />
+    
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="blog.lmorchard.com"/>
+
+    
+  <meta property="og:title" content="Pipelining the web makes for messy URLs" />
+  <meta property="og:url" content="https://blog.lmorchard.com/2002/04/18/oooaod//" />
+  
+  <meta property="og:description" content=" Jon Udell wrote a few columns and weblog entries about pipelining the web, and the power of the URL-line as akin to a UNIX command line with pipes.  His examples did nifty things with a publicly available XSLT processor to use an XSL stylesheet at one URL and an XML document at another to produce a new document.   So, this is what I&amp;apos;ve been playing with a bit this week, expecially with GoogleToRSS and RssDisplay.  But, this is what the URL looks like when I string the two together (line wrapping forced):  http://www.decafbad.com/web-services/url-based/rss_display.cgi?xml_img=htt p://www.decafbad.com/images/tinyXML.jpg&amp;src=http%3A%2F%2Fwww.decafbad.com% 2Fweb-services%2Furl-based%2Fgoogle_rss.cgi%3Fquery%3Dlink%3AXGnxCbayl9UC% 3Awww.decafbad.com%2F%26title%3DLinks+to+0xDECAFBAD%26description%3DTop%25 2010%2520Links%2520to%25200xDECAFBAD%26   What a pain this was to build.  I had to make a little form in a throwaway page to trick my browser into doing the hard work.  I suppose I could make a lil utility script to do the meta character escaping more easily.  But, man, if people are already making fun of the punctuation and obfuscation possible in Perl, imagine what they&amp;apos;ll say about scripts on the URL-line.  (Assuming I&amp;apos;m not missing reams of existing ridicule already. :) )    Jon does make a note of this little problem, but I&amp;apos;m thinking it&amp;apos;s going to be what makes me wrap up my URL-as-command-line experiments.  What would this URL look like if it had 1 or 2 more levels of pipeline?    I suppose I could, as he&amp;apos;d also mentioned, employ a few tricks like reducing script names and parameter names down to single characters, but then I&amp;apos;m sacrificing one of the virtues he&amp;apos;d mentioned: the human readable, self-documenting nature of URL-based services.  Well, that gets scrapped at the first layer of pipelined URL indirection with the escaping of URL meta characters.  Hmm...    Still poking away at things, anyway.  " />
+
+
+
+  </head>
+  <body>
+
+    <section class="main">
+
+      <header>
+        <h1><a href="/">blog.lmorchard.com</a></h1>
+        <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+        <nav>
+
+          <label for="nav-trigger"></label>
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+          <ul>
+            <li><a href="http://lmorchard.com/">about me</a></li>
+            <li><a href="/archives.html">archives</a></li>
+          </ul>
+
+        </nav>
+      </header>
+
+      <section class="content">
+<article class="post ">
+    <time title="2002-04-18T00:00:00.000Z" pubdate="2002-04-18T00:00:00.000Z">
+      <a href="/"><i class="fa fa-home"></i></a>
+      &raquo;
+      <a href="/2002">2002</a>
+      &raquo;
+      <a href="/2002/04">April</a>
+      &raquo;
+      <span>18</span>
+      &raquo;
+    </time>
+    <h1 class="title">Pipelining the web makes for messy URLs</h1>
+    
+    <section class="post-content"><p><p>
+Jon Udell wrote <a href="http://www.byte.com/documents/s=1113/byt20010816s0002/0820_udell.html">a few columns</a> <a href="http://radio.weblogs.com/0100887/2002/03/27.html#a153">and weblog entries</a> about <a href="http://www.decafbad.com/twiki/bin/view/Main/PipelineTheWeb">pipelining the web</a>, and the power of the URL-line as akin to a UNIX command line with pipes.  His examples did nifty things with a publicly available XSLT processor to use an XSL stylesheet at one URL and an XML document at another to produce a new document.
+</p></p>
+<p><p>
+So, this is what I&#39;ve been playing with a bit this week, expecially with <a href="http://www.decafbad.com/twiki/bin/view/Main/GoogleToRSS">GoogleToRSS</a> and <a href="http://www.decafbad.com/twiki/bin/view/Main/RssDisplay">RssDisplay</a>.  But, this is what the URL looks like when I string the two together (line wrapping forced):</p>
+<br /><br /></p>
+<p><pre style="font-size:8pt"><a href="http://www.decafbad.com/web-services/url-based/rss_display.cgi?xml_img=htt">http://www.decafbad.com/web-services/url-based/rss_display.cgi?xml_img=htt</a>
+p://<a href="http://www.decafbad.com/images/tinyXML.jpg&amp;src=http%3A%2F%2Fwww.decafbad.com%">www.decafbad.com/images/tinyXML.jpg&amp;src=http%3A%2F%2Fwww.decafbad.com%</a>
+2Fweb-services%2Furl-based%2Fgoogle_rss.cgi%3Fquery%3Dlink%3AXGnxCbayl9UC%
+3A<a href="http://www.decafbad.com%2F%26title%3DLinks+to+0xDECAFBAD%26description%3DTop%25">www.decafbad.com%2F%26title%3DLinks+to+0xDECAFBAD%26description%3DTop%25</a>
+2010%2520Links%2520to%25200xDECAFBAD%26</pre>
+<br /><br /></p>
+<p><p>
+What a pain this was to build.  I had to make a little form in a throwaway page to trick my browser into doing the hard work.  I suppose I could make a lil utility script to do the meta character escaping more easily.  But, man, if people are already making fun of the punctuation and obfuscation possible in <i>Perl</i>, imagine what they&#39;ll say about scripts on the URL-line.  (Assuming I&#39;m not missing reams of existing ridicule already. :) )
+</p>
+<br /><br /></p>
+<p><p>
+Jon does make a note of this little problem, but I&#39;m thinking it&#39;s going to be what makes me wrap up my URL-as-command-line experiments.  What would this URL look like if it had 1 or 2 more levels of pipeline? 
+</p></p>
+<p><p>
+I suppose I could, as he&#39;d also mentioned, employ a few tricks like reducing script names and parameter names down to single characters, but then I&#39;m sacrificing one of the virtues he&#39;d mentioned: the human readable, self-documenting nature of URL-based services.  Well, that gets scrapped at the first layer of pipelined URL indirection with the escaping of URL meta characters.  Hmm...
+</p>
+<br /><br /></p>
+<p><p>
+Still poking away at things, anyway.
+</p>
+<!--more-->
+shortname=oooaod</p>
+</section>
+</article>
+
+
+
+</section>
+
+      <footer>
+        <img id="growup" src="/uploads/growup.jpg">
+      </footer>
+
+    </section>
+
+    <section id="javascript">
+      <script src="/js/main.js"></script>
+      
+    </section>
+
+  </body>
+</html>

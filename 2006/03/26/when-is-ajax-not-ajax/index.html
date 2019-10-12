@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name="microtip" content="1Ad1VPQBBk7WhyJPfB6cAgZoBs3gUngurN" data-currency="btc">
+    <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen, projection" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>When is AJAX not AJAX? - blog.lmorchard.com</title>
+    <meta name="author" content="" />
+
+    
+      <link href="/index.rss" rel="alternate"
+        title="blog.lmorchard.com" type="application/rss+xml" />
+    
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="blog.lmorchard.com"/>
+
+    
+  <meta property="og:title" content="When is AJAX not AJAX?" />
+  <meta property="og:url" content="https://blog.lmorchard.com/2006/03/26/when-is-ajax-not-ajax//" />
+  
+  
+
+
+
+  </head>
+  <body>
+
+    <section class="main">
+
+      <header>
+        <h1><a href="/">blog.lmorchard.com</a></h1>
+        <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+        <nav>
+
+          <label for="nav-trigger"></label>
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+          <ul>
+            <li><a href="http://lmorchard.com/">about me</a></li>
+            <li><a href="/archives.html">archives</a></li>
+          </ul>
+
+        </nav>
+      </header>
+
+      <section class="content">
+<article class="post ">
+    <time title="2006-03-26T00:00:00.000Z" pubdate="2006-03-26T00:00:00.000Z">
+      <a href="/"><i class="fa fa-home"></i></a>
+      &raquo;
+      <a href="/2006">2006</a>
+      &raquo;
+      <a href="/2006/03">March</a>
+      &raquo;
+      <span>26</span>
+      &raquo;
+    </time>
+    <h1 class="title">When is AJAX not AJAX?</h1>
+    
+    <section class="post-content"> <p>I started this as a comment over at <a href="http://alex.dojotoolkit.org/?p=551">Alex Russell&#39;s entry, &quot;ajaxWrong&quot;</a>, copied here because I felt like it.  He writes:</p>
+     <ul>
+     <li>
+     <span><i>This thing is appropriating the necessarily amorphous terminology of &#8220;Ajax&#8221; for an implementation that is directly at odds with why Ajax is an important technology. A XUL app being billed as &#8220;Ajax&#8221; is just as laughable as a Flex or XAML app suddenly growing the same moniker. That it&#8217;s Mozilla&#8217;s walled-garden language doesn&#8217;t really excuse the gaffe.</i></span>
+     </li>
+     </ul>
+ <p>I thought <a href="http://www.linspire.com/ajaxwrite.php">ajaxWrite</a> was pretty keen when I first tried it - I presumed there must&#39;ve been a bit of nice trickery to get what is generally called an AJAX app to work like that.  Imagine my disappointed surprise when I realize that they used XUL.  XUL ain&#39;t AJAX, no matter how you try to deform and stretch the term.</p>
+ <p>AJAX may be a coined term with an acronym of Asynchronous Javascript and XML, but it&#8217;s descriptive of a new wave of web programming practices.</p>
+ <p>It&#8217;s not a spec, so you can&#8217;t get away with a literal reading of &#8220;There&#8217;s no HTML in AJAX, so neener!&#8221; It&#8217;s a community concensus term. And, XUL ain&#8217;t a part of it. Hell, read the list from <a href="http://adaptivepath.com/publications/essays/archives/000385.php">the original article coining the term</a>:</p>
+     <ul>
+     <li>
+     <span>standards-based presentation using XHTML and CSS;</span>
+     </li>
+     <li>
+     <span>dynamic display and interaction using the Document Object Model;</span>
+     </li>
+     <li>
+     <span>data interchange and manipulation using XML and XSLT;</span>
+     </li>
+     <li>
+     <span>asynchronous data retrieval using XMLHttpRequest;</span>
+     </li>
+     <li>
+     <span>and JavaScript binding everything together.</span>
+     </li>
+     </ul>
+ <p>That&#8217;s what AJAX means to <del>us</del> <ins>me</ins>. If you want it to mean something else and get away with it, you&#8217;re going to have to convince everyone who read that article and ran with that definition.</p>
+
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221082587">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://blog.ianbicking.org"><img src="http://www.gravatar.com/avatar.php?gravatar_id=cc8334869c9d2a9e603017f2da805eb3&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://blog.ianbicking.org">Ian Bicking</a>
+</div>
+<a href="#comment-221082587" class="permalink"><time datetime="2006-03-26T18:40:45">2006-03-26T18:40:45</time></a>
+</div>
+<div class="content"><p>The original Ajax definition doesn&#39;t make much sense either.  For example, XHTML isn&#39;t important -- work is typically done with the DOM or innerHTML, neither of which care one bit about XHTML.  They care intensely about HTML, though.  XML is not important either -- heck, just replace the X in Ajax with XMLHttpRequest, because that&#39;s what people often use.  JSON or HTML literals work just fine, and JSONP provides an interesting alternative to XMLHttpRequest that can&#39;t be done with XML at all.</p>
+<p>Really, Ajax is a new set of practices being developed by a loose but forming community (in a realm where there was <em>no</em> community before), centered around <em>browsers</em> and Javascript and complementary server interaction.</p>
+<p>Coming back around, I don&#39;t have a particular opinion, but AjaxWrite <em>is</em> browser-focused, and HTML-focused; XUL is not HTML, but it is more HTML than some arbitrary XML.  And it is Javascript focused.  I have no idea what the server component might look like; I suspect it may be very minimal.  I think it is a good attempt towards Ajax ideas.</p></div>
+</li>
+<li class="comment" id="comment-221082588">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://ejohn.org/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=b3e04a46e85ad3e165d66f5d927eb609&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://ejohn.org/">John Resig</a>
+</div>
+<a href="#comment-221082588" class="permalink"><time datetime="2006-03-26T18:53:38">2006-03-26T18:53:38</time></a>
+</div>
+<div class="content"><p>I&#39;m going to have to agree with Ian.  If it was using SVG instead of XUL - would it be &#39;AJAX&#39;? Or how about the new canvas element in HTML 5? Much in the same way that you can have an &#39;AJAX&#39; application that uses ActiveX controls. I believe that just because a technology isn&#39;t widely supported doesn&#39;t mean that it can&#39;t participate.</p>
+<p>Now, from the point of view of a developer, XUL was a really crappy choice for a front-end - you&#39;re immediately excluding 80%+ of your audience (you know, the ones that you&#39;re trying to convert from using Word!). Nothing that I saw presented in ajaxWrite was a XUL-only feature. And this isn&#39;t even counting that fact that the application itself is very poorly designed.</p></div>
+</li>
+<li class="comment" id="comment-221082589">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2377f34a68801b861c3e54e1301f0dce&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.decafbad.com">l.m.orchard</a>
+</div>
+<a href="#comment-221082589" class="permalink"><time datetime="2006-03-26T18:58:48">2006-03-26T18:58:48</time></a>
+</div>
+<div class="content"><p>Bah!  You&#39;re both wrong!  I wave my hands at you!  :)</p>
+<p>In my mind, AJAX and DOM Scripting are inexplicably tied together.  For me, the magic of AJAX was the discovery that plain old JS and DHTML apps could perform HTTP requests post page load.  HTML+CSS+JS+XHR means AJAX to me.  No XUL, SVG, canvas, or Flash.  </p>
+<p>Well, maybe canvas...  er... and SVG is nice.  And we use an awful lot of Flash at work.. and..  Aw crap, maybe I don&#39;t know what I&#39;m talking about after all.  My gut still says that the proper domain of AJAX is in formerly dead HTML+CSS sprinkled with XHR pixie dust, but I can&#39;t really back it up with more than opinion and what the originator of the term said.</p></div>
+</li>
+<li class="comment" id="comment-221082590">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.justplain.org"><img src="http://www.gravatar.com/avatar.php?gravatar_id=59570c72b938a14e030f187f7f71c366&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.justplain.org">Pieter Overbeeke</a>
+</div>
+<a href="#comment-221082590" class="permalink"><time datetime="2006-03-26T19:04:21">2006-03-26T19:04:21</time></a>
+</div>
+<div class="content"><p>What the &#39;general public&#39; defines as Ajax is slowly changing from it&#39;s original meaning (Asynchronous JavaScript And XML) to &#39;a rich user interface experience&#39;.
+The problem is that people can&#39;t see and don&#39;t care what&#39;s going on under the hood, and their only association with ajax is rich user interface experience. 
+I guess the ajaxwrite team thought they could get some extra attention by labeling their app &#39;Ajax&#39;. And why would you be dissapointed about the fact that they used xul? I think it shows what is possible and how future (web)applications will look when xaml can be used in ie.</p></div>
+</li>
+<li class="comment" id="comment-221082592">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2377f34a68801b861c3e54e1301f0dce&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.decafbad.com">l.m.orchard</a>
+</div>
+<a href="#comment-221082592" class="permalink"><time datetime="2006-03-26T19:23:33">2006-03-26T19:23:33</time></a>
+</div>
+<div class="content"><p>The use of XUL disappoints me because XUL is a Firefox/Mozilla app that happens to be web-transferred.  And XAML squicks me out because it&#39;s a Microsoft app that happens to be web-transferred.  Neither makes me happy when I&#39;m trying to make broadly usable web applications across many platforms.  Neither XUL nor XAML will become the standards that HTML, CSS, and JS have become - even with their fuzzy semi-proprietary sidecars like XMLHttpRequest.</p>
+<p>My association with AJAX comes from having written apps using it, and that&#39;s from where my grousing arises.  I don&#39;t care about the general public&#39;s definition of AJAX, just the developers who care about terms like &quot;asynchronous&quot; and &quot;XML&quot;.  But it looks like &quot;ajaxWrite&quot; is a somewhat cynical attempt to cash in on public perceptions of AJAXian buzz.</p></div>
+</li>
+<li class="comment" id="comment-221082593">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://blogs.opml.org/thewilk/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=6f010da6af916f57143ff4d04f6dfb83&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://blogs.opml.org/thewilk/">David Wilkinson</a>
+</div>
+<a href="#comment-221082593" class="permalink"><time datetime="2006-03-28T07:08:32">2006-03-28T07:08:32</time></a>
+</div>
+<div class="content"><p>Thanks for voicing this l.m. I&#39;m registering my vote with you.</p>
+<p>AJAX or AJAXY or AJAX-like has become one of those weird, undefinably vague web 2.0 type terms that means one thing: &#39;cool&#39;.  I have had clients ask for cool AJAXY type web interfaces, and they don&#39;t even know what they are talking about. They just want it to be &#39;web 2.0 cool&#39;. I can&#39;t wait to see a job description that asks for 5 years of AJAX experience. &quot;Yeah, sure, I can do AJAX..., been doing it since 1984!&quot;</p>
+<p>I think the term has been over-used and over-hyped in this mini-bubble of excitement just to get a VC&#39;s attention. To me it means a server side remote-procedure call, that updates some part of a page without updating the whole page in a round-trip to the server, accomplished with some form of javascript and server side code via httpRequestObject.</p>
+<p>I could charge extra dollars to develop an AJAXIAN Website. Wouldn&#39;t that be &#39;cool&#39;. Almost nobody would know the difference, except you...</p></div>
+</li>
+</ul>
+</div>
+</section>
+</article>
+
+
+
+</section>
+
+      <footer>
+        <img id="growup" src="/uploads/growup.jpg">
+      </footer>
+
+    </section>
+
+    <section id="javascript">
+      <script src="/js/main.js"></script>
+      
+    </section>
+
+  </body>
+</html>

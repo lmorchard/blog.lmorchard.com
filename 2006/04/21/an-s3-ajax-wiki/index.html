@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name="microtip" content="1Ad1VPQBBk7WhyJPfB6cAgZoBs3gUngurN" data-currency="btc">
+    <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen, projection" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>An S3 AJAX Wiki - blog.lmorchard.com</title>
+    <meta name="author" content="" />
+
+    
+      <link href="/index.rss" rel="alternate"
+        title="blog.lmorchard.com" type="application/rss+xml" />
+    
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="blog.lmorchard.com"/>
+
+    
+  <meta property="og:title" content="An S3 AJAX Wiki" />
+  <meta property="og:url" content="https://blog.lmorchard.com/2006/04/21/an-s3-ajax-wiki//" />
+  
+  
+
+
+
+  </head>
+  <body>
+
+    <section class="main">
+
+      <header>
+        <h1><a href="/">blog.lmorchard.com</a></h1>
+        <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+        <nav>
+
+          <label for="nav-trigger"></label>
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+          <ul>
+            <li><a href="http://lmorchard.com/">about me</a></li>
+            <li><a href="/archives.html">archives</a></li>
+          </ul>
+
+        </nav>
+      </header>
+
+      <section class="content">
+<article class="post ">
+    <time title="2006-04-21T00:00:00.000Z" pubdate="2006-04-21T00:00:00.000Z">
+      <a href="/"><i class="fa fa-home"></i></a>
+      &raquo;
+      <a href="/2006">2006</a>
+      &raquo;
+      <a href="/2006/04">April</a>
+      &raquo;
+      <span>21</span>
+      &raquo;
+    </time>
+    <h1 class="title">An S3 AJAX Wiki</h1>
+    
+    <section class="post-content"> <p>So, who knows how long it&#39;ll stay up - or if it even works for anyone besides me in Firefox on OS X - but I&#39;ve got an initial version of an <a href="http://decafbad.com/trac/wiki/S3Ajax">S3Ajax</a>-based wiki:</p>
+     <ul>
+     <li>
+     <span><a href="http://s3.amazonaws.com/s3wiki/wiki/StartPage"><a href="http://s3.amazonaws.com/s3wiki/wiki/StartPage">http://s3.amazonaws.com/s3wiki/wiki/StartPage</a></a></span>
+     </li>
+     </ul>
+ <p>I&#39;m using <a href="http://goessner.net/">Stefan G&ouml;ssner&#39;s</a> <a href="http://goessner.net/articles/wiky/">Wiky</a>, to handle round trip conversion between wiki text and HTML.  My <a href="http://decafbad.com/trac/wiki/S3Ajax">S3Ajax</a> handles all the I/O, tied together with a clunky <a href="http://s3.amazonaws.com/s3wiki/js/wiki.js">wiki.js</a>.</p>
+ <p>I&#39;ve not had time yet to test this at all, but I figured setting it loose on a public-write ACL bucket on S3 would surely get bugs exposed.  :) Be aware that I will nuke this bucket for any whimisical reason, including porn or spam or excessive usage costs.</p>
+ <p>Anyway, one of the main tricks to this thing of which I&#39;m particularly enamoured is the fact that all the pages are stored as HTML.  There&#39;s a bit of JS and CSS include hell going on in the page header that I&#39;d like to reduce, but all the wiki text mungeing happens in the browser.  What lands in the S3 bucket is pure HTML, fully able to be separated from the wiki system and crawled by Google or processed in whatever other way you&#39;d like.</p>
+ <p>More soon.  For now:  I go to bed.</p>
+
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221084960">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=c9302dd41c8d25a2de00d04dccf4a086&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="">Brett Adam</a>
+</div>
+<a href="#comment-221084960" class="permalink"><time datetime="2007-01-21T12:12:51">2007-01-21T12:12:51</time></a>
+</div>
+<div class="content"><p>Have you considered using TiddlyWiki and marrying it to S3 as the backend? Would be an &quot;instant&quot; <em>useful</em> wiki. See <a href="http://bewest.wordpress.com/2006/09/04/idea-tiddlywiki-s3-microformat-tabulator/">http://bewest.wordpress.com/2006/09/04/idea-tiddlywiki-s3-microformat-tabulator/</a> and</p></div>
+</li>
+</ul>
+</div>
+</section>
+</article>
+
+
+
+</section>
+
+      <footer>
+        <img id="growup" src="/uploads/growup.jpg">
+      </footer>
+
+    </section>
+
+    <section id="javascript">
+      <script src="/js/main.js"></script>
+      
+    </section>
+
+  </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name="microtip" content="1Ad1VPQBBk7WhyJPfB6cAgZoBs3gUngurN" data-currency="btc">
+    <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen, projection" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Bean Markup Language revealed, sorta! - blog.lmorchard.com</title>
+    <meta name="author" content="" />
+
+    
+      <link href="/index.rss" rel="alternate"
+        title="blog.lmorchard.com" type="application/rss+xml" />
+    
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="blog.lmorchard.com"/>
+
+    
+  <meta property="og:title" content="Bean Markup Language revealed, sorta!" />
+  <meta property="og:url" content="https://blog.lmorchard.com/2002/08/14/ooobcc//" />
+  
+  <meta property="og:description" content="Hmm...  The plot thickens a bit for me with regard to the Bean Markup Language project.  On a whim, I Google&amp;apos;d for a Java decompiler, having remembered that I&amp;apos;d gotten some use and enlightenment back in the day from Mocha.  So I found, downloaded, and tried Mocha on the BML class files.  It choked a bit, produced some source files, but the collection as a whole was not trivially easy to recompile.  Pretty much what I expected, given that Mocha is a relic these days. But then, I noticed JODE, a few search results down the page.  Google&amp;apos;s description said, &quot;Java decompiler with full source code. Supports inner/anonymous classes...&quot;  Well, inner/anonymous classes are new to me since I was last very active with Java.  (Yes, I know, that&amp;apos;s been awhile.)  So I figured I&amp;apos;d check JODE out.  Besides, the last release of JODE looked newer than the last release of BML. Much to my surprise, JODE consumed the BML jar file directly and gave me a directory full of source without a complaint.  For the hell of it, I compiled everything there, and made a new jar file from the results.  I cleaned my project out, replaced the original BML jar with my new decompiled-recompiled archive and...  everything worked just fine. Skimming through the various source files JODE gave me, things look surprisingly less ugly than I&amp;apos;d expected.  Of course comments are nowhere to be seen, and variable names are nothing like the original would have been, but the source was is still readable and I can follow it.  So this means I have the source code to BML now, after a fashion. So my question now is... I read the IBM ALPHAWORKS COMMERCIAL LICENSE AGREEMENT which came with the original download, and I see these paragraphs:Permission to reproduce and create derivative works from the Software (&quot;Software Derivative Works&quot;) is hereby granted to you under the copyrights of International Business Machines Corporation (&quot;IBM&quot;). IBM also grants you the right to distribute the Software and Software Derivative Works. You grant IBM a world-wide, royalty-free right to use, copy, distribute, sublicense and prepare derivative works based upon any feedback, including materials, error corrections, Software Derivatives, enhancements, suggestions and the like that you provide to IBM relating to the Software.Does this mean, basically, that it&amp;apos;s okay for me to distribute this source as a derivative work, with various potential enhancements, &amp;etc, as long as IBM is still able to grab a copy of it back from me with no strings attached?  If so, that&amp;apos;s great. My only other question remaining, though, is whether or not my naivete toward Java has me yet to find what the community at large considers the Right Way to work with ?JavaBeans.  Because, this BML thing seems great to me, but it seems to have gotten next to zero attention.  This usually tells me that I&amp;apos;m missing something, but the thing itself works nicely. Any thoughts out there in the blogosphere? " />
+
+
+
+  </head>
+  <body>
+
+    <section class="main">
+
+      <header>
+        <h1><a href="/">blog.lmorchard.com</a></h1>
+        <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+        <nav>
+
+          <label for="nav-trigger"></label>
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+          <ul>
+            <li><a href="http://lmorchard.com/">about me</a></li>
+            <li><a href="/archives.html">archives</a></li>
+          </ul>
+
+        </nav>
+      </header>
+
+      <section class="content">
+<article class="post ">
+    <time title="2002-08-14T00:00:00.000Z" pubdate="2002-08-14T00:00:00.000Z">
+      <a href="/"><i class="fa fa-home"></i></a>
+      &raquo;
+      <a href="/2002">2002</a>
+      &raquo;
+      <a href="/2002/08">August</a>
+      &raquo;
+      <span>14</span>
+      &raquo;
+    </time>
+    <h1 class="title">Bean Markup Language revealed, sorta!</h1>
+    
+    <section class="post-content"><p><p>Hmm...  The plot thickens a bit for me with regard to the <a href="http://www.alphaworks.ibm.com/tech/bml">Bean Markup Language</a> project.  On a whim, I Google&#39;d for a Java decompiler, having remembered that I&#39;d gotten some use and enlightenment back in the day from <a href="http://www.brouhaha.com/~eric/computers/mocha.html">Mocha</a>.  So I found, downloaded, and tried Mocha on the BML class files.  It choked a bit, produced some source files, but the collection as a whole was not trivially easy to recompile.  Pretty much what I expected, given that Mocha is a relic these days.</p></p>
+<p><p>But then, I noticed <a href="http://jode.sourceforge.net/usage.php">JODE</a>, a few search results down the page.  Google&#39;s description said, &quot;Java decompiler with full source code. Supports inner/anonymous classes...&quot;  Well, inner/anonymous classes are new to me since I was last very active with Java.  (Yes, I know, that&#39;s been awhile.)  So I figured I&#39;d check JODE out.  Besides, the last release of JODE looked newer than the last release of BML.</p></p>
+<p><p>Much to my surprise, JODE consumed the BML jar file directly and gave me a directory full of source without a complaint.  For the hell of it, I compiled everything there, and made a new jar file from the results.  I cleaned my project out, replaced the original BML jar with my new decompiled-recompiled archive and...  <i>everything worked just fine.</i></p></p>
+<p><p>Skimming through the various source files JODE gave me, things look surprisingly less ugly than I&#39;d expected.  Of course comments are nowhere to be seen, and variable names are nothing like the original would have been, but the source was is still readable and I can follow it.  So this means I have the source code to BML now, after a fashion.</p></p>
+<p><p>So my question now is... I read the <a href="http://www.decafbad.com/gems/ibm-alphaworks-license.txt">IBM ALPHAWORKS COMMERCIAL LICENSE AGREEMENT</a> which came with the original download, and I see these paragraphs:<blockquote><i>Permission to reproduce and create derivative works from the Software (&quot;Software Derivative Works&quot;) is hereby granted to you under the copyrights of International Business Machines Corporation (&quot;IBM&quot;). IBM also grants you the right to distribute the Software and Software Derivative Works.</p></p>
+<p><p>You grant IBM a world-wide, royalty-free right to use, copy, distribute, sublicense and prepare derivative works based upon any feedback, including materials, error corrections, Software Derivatives, enhancements, suggestions and the like that you provide to IBM relating to the Software.</i></blockquote>Does this mean, basically, that it&#39;s okay for me to distribute this source as a derivative work, with various potential enhancements, &amp;etc, as long as IBM is still able to grab a copy of it back from me with no strings attached?  If so, that&#39;s great.</p></p>
+<p><p>My only other question remaining, though, is whether or not my naivete toward Java has me yet to find what the community at large considers the Right Way to work with <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/JavaBeans?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">JavaBeans</font></span>.  Because, this BML thing seems great to me, but it seems to have gotten next to zero attention.  This usually tells me that <i>I&#39;m</i> missing something, but the thing itself works nicely.</p></p>
+<p><p>Any thoughts out there in the blogosphere?</p>
+<!--more-->
+shortname=ooobcc</p>
+</section>
+</article>
+
+
+
+</section>
+
+      <footer>
+        <img id="growup" src="/uploads/growup.jpg">
+      </footer>
+
+    </section>
+
+    <section id="javascript">
+      <script src="/js/main.js"></script>
+      
+    </section>
+
+  </body>
+</html>

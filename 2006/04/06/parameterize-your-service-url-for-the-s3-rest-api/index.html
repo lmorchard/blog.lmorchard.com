@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name="microtip" content="1Ad1VPQBBk7WhyJPfB6cAgZoBs3gUngurN" data-currency="btc">
+    <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen, projection" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Parameterize your service URL for the S3 REST API - blog.lmorchard.com</title>
+    <meta name="author" content="" />
+
+    
+      <link href="/index.rss" rel="alternate"
+        title="blog.lmorchard.com" type="application/rss+xml" />
+    
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="blog.lmorchard.com"/>
+
+    
+  <meta property="og:title" content="Parameterize your service URL for the S3 REST API" />
+  <meta property="og:url" content="https://blog.lmorchard.com/2006/04/06/parameterize-your-service-url-for-the-s3-rest-api//" />
+  
+  
+
+
+
+  </head>
+  <body>
+
+    <section class="main">
+
+      <header>
+        <h1><a href="/">blog.lmorchard.com</a></h1>
+        <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+        <nav>
+
+          <label for="nav-trigger"></label>
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+          <ul>
+            <li><a href="http://lmorchard.com/">about me</a></li>
+            <li><a href="/archives.html">archives</a></li>
+          </ul>
+
+        </nav>
+      </header>
+
+      <section class="content">
+<article class="post tag-asides ">
+    <time title="2006-04-06T00:00:00.000Z" pubdate="2006-04-06T00:00:00.000Z">
+      <a href="/"><i class="fa fa-home"></i></a>
+      &raquo;
+      <a href="/2006">2006</a>
+      &raquo;
+      <a href="/2006/04">April</a>
+      &raquo;
+      <span>06</span>
+      &raquo;
+    </time>
+    <h1 class="title">Parameterize your service URL for the S3 REST API</h1>
+    
+      <ul class="tags">
+          
+              <li><a href="/tag/asides">asides</a></li>
+          
+      </ul>
+    
+    <section class="post-content"> <p>One more rapid fire thought on Amazon S3:  If you&#39;re building an app that talks to the S3 REST API, please parameterize the base URL used to access the service.  Make it a config file parameter or a control panel setting or whatever.  This API will be cloned.</p>
+ <p>And an issue related to that:  Say you find that the base URL to an S3 clone is <a href="http://example.com/foo/myS3/service.php">http://example.com/foo/myS3/service.php</a> - this path shouldn&#39;t be included in the resource path.  That is, accessing key &quot;/bar/baz&quot; in bucket &quot;/foo&quot; should not result in a resource path of /foo/myS3/service.php/foo/bar/baz.  Instead it should simply be /foo/bar/baz.  This is important for the authentication scheme when used in a clone.</p>
+</section>
+</article>
+
+
+
+</section>
+
+      <footer>
+        <img id="growup" src="/uploads/growup.jpg">
+      </footer>
+
+    </section>
+
+    <section id="javascript">
+      <script src="/js/main.js"></script>
+      
+    </section>
+
+  </body>
+</html>

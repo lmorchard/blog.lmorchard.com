@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name="microtip" content="1Ad1VPQBBk7WhyJPfB6cAgZoBs3gUngurN" data-currency="btc">
+    <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen, projection" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>The Blogosphere as a Tuple Space - blog.lmorchard.com</title>
+    <meta name="author" content="" />
+
+    
+      <link href="/index.rss" rel="alternate"
+        title="blog.lmorchard.com" type="application/rss+xml" />
+    
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="blog.lmorchard.com"/>
+
+    
+  <meta property="og:title" content="The Blogosphere as a Tuple Space" />
+  <meta property="og:url" content="https://blog.lmorchard.com/2005/01/12/the-blogosphere-as-a-tuple-space//" />
+  
+  
+
+
+
+  </head>
+  <body>
+
+    <section class="main">
+
+      <header>
+        <h1><a href="/">blog.lmorchard.com</a></h1>
+        <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+        <nav>
+
+          <label for="nav-trigger"></label>
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+          <ul>
+            <li><a href="http://lmorchard.com/">about me</a></li>
+            <li><a href="/archives.html">archives</a></li>
+          </ul>
+
+        </nav>
+      </header>
+
+      <section class="content">
+<article class="post ">
+    <time title="2005-01-12T00:00:00.000Z" pubdate="2005-01-12T00:00:00.000Z">
+      <a href="/"><i class="fa fa-home"></i></a>
+      &raquo;
+      <a href="/2005">2005</a>
+      &raquo;
+      <a href="/2005/01">January</a>
+      &raquo;
+      <span>12</span>
+      &raquo;
+    </time>
+    <h1 class="title">The Blogosphere as a Tuple Space</h1>
+    
+    <section class="post-content"><p>It just occurred to me today that the blogosphere is like a <a href="http://c2.com/cgi/wiki?TupleSpace">Tuple Space</a>.  Or rather, each person&#39;s light cone in the blogosphere, made up of the feeds and blogs you track and what you publish, is a <a href="http://c2.com/cgi/wiki?TupleSpace">Tuple Space</a>--and the blogosphere itself is the union of every personal <a href="http://c2.com/cgi/wiki?TupleSpace">Tuple Space</a> in existence.</p>
+<h2 id="what-s-a-tuple-space-">What&#39;s a Tuple Space?</h2>
+<p>In case you&#39;re not at all familiar with <a href="http://c2.com/cgi/wiki?TupleSpace">Tuple Spaces</a>, this is how I understand them:  </p>
+<p>There&#39;s a magic bag full of marbles.  The marbles have all sorts of different properties, like color, roundness, size, and material.  You can put in marbles of any sort, and so can everyone else.  When you want to take marbles out, you tell the bag what you want.  </p>
+<p>For instance, &quot;Bag, I want blue marbles made of glass,&quot; and you&#39;ll get a pile of marbles that are blue and made of glass, but come in all sizes and degrees of roundness.  Someone else asks for 1cm-wide egg-shaped marbles made of high-bounce rubber, they get egg-shaped bouncing marbles in all kinds of colors.</p>
+<p>Now, real <a href="http://c2.com/cgi/wiki?TupleSpace">Tuple Spaces</a> are even more abstract than this.  Python has tuples; they look something like this:</p>
+<pre><code>(&quot;foo&quot;, 1, 2, &quot;baz&quot;, 23.2)
+(4, 5, 6)
+(&quot;foo&quot;, 7, 2, &quot;xyzzy&quot;, 89)
+(&quot;foo&quot;, 9, 2, &quot;xyzzy&quot;, 100.3)
+(ExampleObject(&quot;wheee&quot;), 123, None)
+(23,)
+</code></pre><p>Imagine the magic bag is a heap of these tuples.  You ask for tuples by <em>pattern</em>, like this:</p>
+<pre><code>(&quot;foo&quot;, ?int, 2, ?str, ?float)
+</code></pre><p>And the bag would give you the tuples which match the pattern:</p>
+<pre><code>(&quot;foo&quot;, 1, 2, &quot;baz&quot;, 23.2)
+(&quot;foo&quot;, 9, 2, &quot;xyzzy&quot;, 100.3)
+</code></pre><p>The thing that makes this even more abstract than a bag of marbles is that these tuples are just ordered collections of data items.  They&#39;re not labeled as properties like &quot;color&quot;, &quot;size&quot;, &quot;shape&quot;, or &quot;material&quot;.  Where the data items within tuples pick up meaning is through agreement amongst users of the tuple space.  </p>
+<p>Tuple spaces get really interesting, though, because different collectives of users of the tuple space can each agree upon different sets of meanings for tuples--and the agreements exist outside of tuple space, so the space doesn&#39;t need reconfiguration for any particular new use.  Meanwhile, the infrastructure supporting the sharing of the tuple space remains simple, and the interface remains the same.  Because they don&#39;t know any better, tuple spaces can allow for all kinds of sharing and coordination that no one necessarily has to plan for ahead of time.</p>
+<p>For example, want to send instant messages?  Fill space with tuples like this:</p>
+<pre><code>(&quot;TIM-Msg&quot;, &quot;Joe&quot;, &quot;Frank&quot;, &quot;2004-01-12T15:49:00&quot;, &quot;Hi there, Joe.&quot;)
+(&quot;TIM-Msg&quot;, &quot;Frank&quot;, &quot;Joe&quot;, &quot;2004-01-12T15:52:00&quot;, &quot;Hey Frank, how&#39;s it going?&quot;)
+(&quot;TIM-Msg&quot;, &quot;Joe&quot;, &quot;Frank&quot;, &quot;2004-01-12T16:01:00&quot;, &quot;Good, good.&quot;)
+(&quot;TIM-Msg&quot;, &quot;Frank&quot;, &quot;Joe&quot;, &quot;2004-01-12T16:12:00&quot;, &quot;Glad to hear it!&quot;)
+</code></pre><p>You can probably figure out what meanings the &quot;TupleIM&quot; client would assign to tuple elements.  If you were Joe, your client might leave a running query in space for tuples like <code>(&quot;TIM-Msg&quot;, &quot;Joe&quot;, ?, ?, ?)</code>, where as Frank would subscribe to a query like <code>(&quot;TIM-Msg&quot;, &quot;Frank&quot;, ?, ?, ?)</code> .  </p>
+<h2 id="what-do-tuples-have-to-do-with-blogs-">What Do Tuples Have to Do with Blogs?</h2>
+<p>Well, we&#39;re not really there yet, but the parallels between blogs, the web, REST APIs, and tuple spaces are many.  The web sounds an awful lot like a potential tuple space to me, although it needs a lot of work to become one.  Resources accessible by URL are kind of like tuples, though Google doesn&#39;t make quite as universal a tuple-finder as we&#39;d like.  Syndication feeds, however, and the metadata they carry causes the data items to be better exposed to a potential tuple-finder.</p>
+<p>But, think about the <a href="http://www.lazyweb.org/">Lazyweb</a>.  Want something made?  Post a description of it on your blog and trackback to the <a href="http://www.lazyweb.org/">Lazyweb</a>.  (Put a marble in the bag, insert a tuple into space.)  Bored and want to make something?  Subscribe to the <a href="http://www.lazyweb.org/">Lazyweb</a> feed and watch for interesting projects to roll by.  (Ask the bag for fun marbles, search for special tuples.)  The person who posted the project might have never met the person who eventually implements the project, but the blogosphere enabled the interaction.  The people involved took on at least half of the duty in finding tuples, but there seem to be tuple-space-esque things going on here.</p>
+<p>Ever post something to your blog with no specific set of people in mind?  Maybe just a vague notion of what <em>sort</em> of people might want to read it or respond to you?  Ever get surprised by who responds to your postings?  </p>
+<p>That feels like a tuple space to me.  </p>
+<p>These tuple spaces seem pretty nifty.  I wonder how we can make the web more like a tuple space?</p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221085211">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://talideon.com/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=16a1717a880cce3bfefce65049d7120d&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://talideon.com/">Keith Gaughan</a>
+</div>
+<a href="#comment-221085211" class="permalink"><time datetime="2005-01-12T19:40:05">2005-01-12T19:40:05</time></a>
+</div>
+<div class="content">I remember somebody remarking online, somebody well known, that blogs look like Lifestreams. It&#39;s all connected really.</div>
+</li>
+<li class="comment" id="comment-221085216">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://lion.taoriver.net/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=b49f34733c8d7cf1120f83d6c21433df&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://lion.taoriver.net/">Lion Kimbro</a>
+</div>
+<a href="#comment-221085216" class="permalink"><time datetime="2005-01-13T04:53:00">2005-01-13T04:53:00</time></a>
+</div>
+<div class="content">I was very excited about Tuple Spaces, until I realized that they were only supposed to store tuples.
+What I think is more interesting, is a large general graph store, with a pattern matcher.
+The tuple space is limited to only looking for matching <em>tuples.</em> But I think you should be able to enter in any query over a giant graph.
+For instance, in your Instant Message example, there should be a node for &quot;single conversation.&quot; The individual message would be another node. The word &quot;Joe&quot; should be replaced by a link to the node for the whole person, Joe. (If you wanted to know that person&#39;s name, it the node for the person Joe would have an attribute &quot;first name&quot; that linked to &quot;Joe.&quot;) The destination, in turn, links to the node for Frank. The <em>time</em> links to a temporal node, which may be a virtual node on a continuum. Finally, the message is an attribute that links to the particular string.
+This is a MUCH more powerful model, because you can look at the graph, and say, &quot;Show me everything that happened from time t1 to time t2,&quot; and it will mesh with the entire system.
+In fact, you can say, &quot;Let me know whenever a message is posted between time t3-t4 where the target is Frank.&quot;</div>
+</li>
+<li class="comment" id="comment-221085217">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://creativekarma.com/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=b581950de350ed6ad83f09ec48a6be3f&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://creativekarma.com/">Doug</a>
+</div>
+<a href="#comment-221085217" class="permalink"><time datetime="2005-01-14T01:09:55">2005-01-14T01:09:55</time></a>
+</div>
+<div class="content">Since I don&#39;t understand either concept in detail, I&#39;ll ignorantly ask, &quot;Is this somehow different from the Semantic Web?&quot; They sound the same to me.</div>
+</li>
+<li class="comment" id="comment-221085219">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.jamesbritt.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=ff9e18f0699bf079f1fc91c8d4506438&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.jamesbritt.com">James Britt</a>
+</div>
+<a href="#comment-221085219" class="permalink"><time datetime="2005-01-18T10:29:22">2005-01-18T10:29:22</time></a>
+</div>
+<div class="content">&quot;Since I don&#39;t understand either concept in detail, I&#39;ll ignorantly ask, &#39;Is this somehow different from the Semantic Web?&#39; They sound the same to me&quot;
+Good question.  The description of tuples as a vector of attributes looks just like del.icio.us.  Bookmarks (i.e., resources) are the marbles.  You can ask for resources by some tag vector:
+[ &#39;Ruby&#39;, &#39;XML&#39;, &#39;Rinda&#39; ]
+and see what comes back.
+One interesting difference is that the tags do not (currently, that I know of) have types.  The Python example shows the use of type selectors (e.g., include as a criteria any Integer).  Tags on del.icio.us (and probably all folksonomy sites) are unclassified.  You cannot, for example, ask for all resource with tags related to database programming; something has to know that this request set includes more than just those resources explicitly tagged &#39;database-programming&#39;.  You would likely also want resource tagged &#39;mysql-programming&#39;, and so on.  (And this is the harder part: the metadata itself needs metadata to define such higher-level groupings. To get a richer navigation scheme, it would be good if tags/topics were assigned to facets. )
+But even without such sophistication the use of tagged resources is very much like tuple spaces.</div>
+</li>
+<li class="comment" id="comment-221085220">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://thefourthplace.net/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=b96fe040c899286ba7ec28e05aab6e5f&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://thefourthplace.net/">Simon Gibbs</a>
+</div>
+<a href="#comment-221085220" class="permalink"><time datetime="2005-01-20T07:57:40">2005-01-20T07:57:40</time></a>
+</div>
+<div class="content">You are talking about the Semantic Web, RDF in particular, though you can indirectly derive tuples from X/HTML too. blockquote, used with cite, is a great example, and link, meta etc as well.
+&quot;this is the harder part: the metadata itself needs metadata to define such higher-level groupings&quot;
+This is what OWL does. For example, ((url),(topic),(mysql-programming))
+is a &quot;specialisation&quot; of the tuple ((url),(topic),(database-programming)).
+<a href="http://www.w3c.org">http://www.w3c.org</a> for more.</div>
+</li>
+</ul>
+</div>
+</section>
+</article>
+
+
+
+</section>
+
+      <footer>
+        <img id="growup" src="/uploads/growup.jpg">
+      </footer>
+
+    </section>
+
+    <section id="javascript">
+      <script src="/js/main.js"></script>
+      
+    </section>
+
+  </body>
+</html>

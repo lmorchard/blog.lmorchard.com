@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name="microtip" content="1Ad1VPQBBk7WhyJPfB6cAgZoBs3gUngurN" data-currency="btc">
+    <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen, projection" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>My experience in becoming a FirefoxOS contributor - blog.lmorchard.com</title>
+    <meta name="author" content="" />
+
+    
+      <link href="/index.rss" rel="alternate"
+        title="blog.lmorchard.com" type="application/rss+xml" />
+    
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="blog.lmorchard.com"/>
+
+    
+  <meta property="og:title" content="My experience in becoming a FirefoxOS contributor" />
+  <meta property="og:url" content="https://blog.lmorchard.com/2012/11/15/my-experience-in-becoming-a-firefoxos-contributor//" />
+  
+  <meta property="og:description" content="  Back in September, I wrote that I wasn&amp;#x2019;t leaving MDN. And, I&amp;#x2019;m not, really. But, it turns out that FirefoxOS needs some help to reach its first release milestones. So, some of us webdevs from around Mozilla are temporarily switching our daily efforts over to slay bugs on Gaia. That&amp;#x2019;s the layer of FirefoxOS which provides the overall system UI and core apps. " />
+
+
+
+  </head>
+  <body>
+
+    <section class="main">
+
+      <header>
+        <h1><a href="/">blog.lmorchard.com</a></h1>
+        <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+        <nav>
+
+          <label for="nav-trigger"></label>
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+          <ul>
+            <li><a href="http://lmorchard.com/">about me</a></li>
+            <li><a href="/archives.html">archives</a></li>
+          </ul>
+
+        </nav>
+      </header>
+
+      <section class="content">
+<article class="post tag-firefoxos tag-mobile tag-mozilla tag-webdev ">
+    <time title="2012-11-15T00:00:00.000Z" pubdate="2012-11-15T00:00:00.000Z">
+      <a href="/"><i class="fa fa-home"></i></a>
+      &raquo;
+      <a href="/2012">2012</a>
+      &raquo;
+      <a href="/2012/11">November</a>
+      &raquo;
+      <span>15</span>
+      &raquo;
+    </time>
+    <h1 class="title">My experience in becoming a FirefoxOS contributor</h1>
+    
+      <ul class="tags">
+          
+              <li><a href="/tag/firefoxos">firefoxos</a>, </li>
+          
+              <li><a href="/tag/mobile">mobile</a>, </li>
+          
+              <li><a href="/tag/mozilla">mozilla</a>, </li>
+          
+              <li><a href="/tag/webdev">webdev</a></li>
+          
+      </ul>
+    
+    <section class="post-content"><div id="toc_container" class="toc_wrap_right no_bullets">
+  <p class="toc_title">
+    Contents
+  </p>
+
+  <ul class="toc_list">
+    <li>
+      <a href="#Finding_the_docs"><span class="toc_number toc_depth_1">1</span> Finding the docs</a>
+    </li>
+    <li>
+      <a href="#Getting_the_source"><span class="toc_number toc_depth_1">2</span> Getting the source</a>
+    </li>
+    <li>
+      <a href="#Running_the_project"><span class="toc_number toc_depth_1">3</span> Running the project</a>
+    </li>
+    <li>
+      <a href="#Breaking_things"><span class="toc_number toc_depth_1">4</span> Breaking things</a>
+    </li>
+    <li>
+      <a href="#Fixing_things"><span class="toc_number toc_depth_1">5</span> Fixing things</a>
+    </li>
+    <li>
+      <a href="#Room_for_improvement"><span class="toc_number toc_depth_1">6</span> Room for improvement</a>
+    </li>
+    <li>
+      <a href="#Still_digging"><span class="toc_number toc_depth_1">7</span> Still digging</a>
+    </li>
+  </ul>
+</div>
+
+<p>Back in September, <a href="http://blog.lmorchard.com/2012/09/17/on-the-other-end-of-a-self-imposed-death-march-project#p[BInCtb]">I wrote that I wasn&#8217;t leaving MDN</a>. And, I&#8217;m not, really. But, it turns out that <a href="http://www.mozilla.org/firefoxos/">FirefoxOS</a> needs some help to reach its first release milestones. So, some of us <a href="http://blog.mozilla.com/webdev/">webdevs from around Mozilla</a> are temporarily switching our daily efforts over to slay bugs on <a href="https://github.com/mozilla-b2g/gaia">Gaia</a>. That&#8217;s the layer of <a href="http://www.mozilla.org/firefoxos/">FirefoxOS</a> which provides the overall system UI and core apps.</p>
+<!--more-->
+<p>I&#8217;m planning to return to primarily <a href="https://developer.mozilla.org/">MDN</a> work in a few months &#8211; but, right now, <a href="http://www.mozilla.org/firefoxos/">FirefoxOS</a> is kind of a big deal.</p>
+<p>Thus, like <a href="http://blog.margaretleibovic.com/post/32836884540/challenges-getting-started-with-gaia">some of</a> my <a href="http://bluesock.org/~willg/blog/gaia/gaia_onboarding.html">other</a> <a href="http://schalk-neethling.com/2012/10/debugging-b2g-desktop-blank-screen-on-launch-gaia/">colleagues</a> in the past month, I&#8217;ve gone from being a fully-operational battle coder on a project with which I have years of experience, to being a total noob with no idea how to find my way to &#8220;Hello world&#8221;. It&#8217;s been awhile since I last parachuted into the middle of an open source combat zone, so I fell back to my training to get my bearings:</p>
+<ol>
+<li>Find the docs</li>
+<li>Get the source</li>
+<li>Run the project</li>
+<li>Break something, see what happens, fix it</li>
+<li>Fix a known bug, submit a patch</li>
+<li>Try to improve the process of fixing things</li>
+</ol>
+<h2 id="-span-id-finding_the_docs-finding-the-docs-span-"><span id="Finding_the_docs">Finding the docs</span></h2>
+<p>Oddly enough, <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Firefox_OS">MDN was a good place to start for docs</a>. Though, there are FirefoxOS docs spread between <a target="_blank" title="MDN" href="https://developer.mozilla.org/?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">MDN</a>, GitHub, and <a href="https://wiki.mozilla.org/Gaia/Hacking">wiki.mozilla.org</a>. And, of course, they are each in various states of freshness and truthiness. Keep your wits about you; here be dragons.</p>
+<h2 id="-span-id-getting_the_source-getting-the-source-span-"><span id="Getting_the_source">Getting the source</span></h2>
+<p>Getting the source for FirefoxOS is a bit of a trick question &#8211; it depends on what you want to do, and how you want to contribute:</p>
+<ul>
+<li><a href="https://github.com/mozilla-b2g/B2G">mozilla-b2g/B2G</a> is the mother of all repos. Only start there if you&#8217;re brave &amp; interested in the whole shebang. Fair warning, though: When the smoke cleared hours later, and the README was done with me, I had acquired 17G of new stuff in my dev directory. But, you&#8217;ll have ALL the things, and you can flash FirefoxOS to compatible hardware. </li>
+<li><a href="https://github.com/mozilla-b2g/gaia">mozilla-b2g/gaia</a> will be the most interesting if you&#8217;re like me and hoping to contribute as a webdev. That&#8217;s chock full of <a target="_blank" title="HTML" href="https://developer.mozilla.org/docs/Web/HTML?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">HTML</a>, <a target="_blank" title="CSS" href="https://developer.mozilla.org/docs/Web/CSS?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">CSS</a>, and <a target="_blank" title="JavaScript" href="https://developer.mozilla.org/docs/JavaScript?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">JavaScript</a>. It&#8217;s also pretty much free of pesky kernel code or device drivers that hurt my brain, because I&#8217;m not prepared to work at that low a level at this point in the morning. </li>
+</ul>
+<p>There are other repos, for the <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Firefox_OS/Gonk">Gonk</a> and <a href="https://developer.mozilla.org/en-US/docs/Gecko">Gecko</a> layers of FirefoxOS. But, for the sake of my sanity, I&#8217;m trying to avert my eyes for now.</p>
+<h2 id="-span-id-running_the_project-running-the-project-span-"><span id="Running_the_project">Running the project</span></h2>
+<p>If you don&#8217;t have a compatible mobile device (and few do), you need a <a target="_blank" title="B2G" href="https://developer.mozilla.org/docs/Mozilla/Firefox_OS?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">B2G</a> Desktop build. While it&#8217;s true that many apps <em>will</em> run in Firefox Nightly, and there is an emulator you can build from the <a target="_blank" title="b2g" href="https://developer.mozilla.org/docs/Mozilla/Firefox_OS?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">b2g</a> repo, most apps are presently problematic in Firefox Nightly, and I&#8217;ve never gotten the emulator to build successfully.</p>
+<p>You can either <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Boot_to_Gecko/Using_the_B2G_desktop_client#Building_the_desktop_client">build your own B2G Desktop</a>, or <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Boot_to_Gecko/Using_the_B2G_desktop_client#Download_a_nightly_build">download a nightly build</a>. I&#8217;ve done both, and generally I recommend sticking with the nightly Aurora builds.</p>
+<p>On OS X, I was able to download a nightly build and launch it with a double-click. That got things running &#8211; hooray! But, it didn&#8217;t get me productive straight away: The nightly build comes equipped with its own embedded build of Gaia, which makes it handy for trying out your own 3rd party apps but not-so-handy for hacking on Gaia itself.</p>
+<p>To improve this situation, you need to do two things:</p>
+<ol>
+<li><a href="https://wiki.mozilla.org/Gaia/Hacking#Nightly_Builds">Build your own Gaia profile</a> from your own clone of <a href="https://github.com/mozilla-b2g/gaia">mozilla-b2g/gaia</a>. This is pretty much just running <code>make</code> or <code>DEBUG=1 make</code> from your git clone. </li>
+<li>Run <a target="_blank" title="B2G" href="https://developer.mozilla.org/docs/Mozilla/Firefox_OS?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">B2G</a> Desktop from a terminal <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Boot_to_Gecko/Using_the_B2G_desktop_client#Running_the_desktop_client">with command line options</a> that tell it to use your new Gaia profile, rather than the built-in. </li>
+</ol>
+<p>So, at this point, I have the Gaia source and a means by which to run it on my laptop.</p>
+<h2 id="-span-id-breaking_things-breaking-things-span-"><span id="Breaking_things">Breaking things</span></h2>
+<p>After getting the project running as intended, I break something. And by that, I mean that I change a button title somewhere to &#8220;LOL BUTTS&#8221; or intentionally introduce an exception or syntax error somewhere. Then, I fix it. This is practice that exposes me to the guts of the thing; gets me into the edit/build/run cycle; shows me what it does when something goes wrong; and pushes me toward finding the tests.</p>
+<p>But, I think I picked the wrong week to step into the arena, because everything came pre-broken. There were semi-known bugs preventing nightly builds of <a target="_blank" title="B2G" href="https://developer.mozilla.org/docs/Mozilla/Firefox_OS?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">B2G</a> Desktop from running my fresh clone of Gaia. It took me most of my first week to track down those bugs in bugzilla, find workarounds, and finally get something going. And then, it all broke again. And I found workarounds again.</p>
+<p>Eventually, I was at a point where I built my own <a target="_blank" title="B2G" href="https://developer.mozilla.org/docs/Mozilla/Firefox_OS?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">B2G</a> Desktop from source with a particular patch from a particular bug applied, and <em>that</em> got me to the point where I could <a href="https://github.com/mozilla-b2g/gaia/commit/9f0129c7a5f04d58bbbe140de2b9562e3172d23c">submit my first pull request</a> to fix a broken test.</p>
+<p>Happily, things seem to have stabilized since I started: <a target="_blank" title="B2G" href="https://developer.mozilla.org/docs/Mozilla/Firefox_OS?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">B2G</a> Desktop nightlies have been cooperating with bleeding-edge Gaia lately, so I&#8217;ve been able to stop building my own. So, now, when I find a combination of <a target="_blank" title="B2G" href="https://developer.mozilla.org/docs/Mozilla/Firefox_OS?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">B2G</a> Desktop and phone and Gaia checkout that works, I cling to that for dear life until it&#8217;s absolutely necessary for me to update one of the parts.</p>
+<p>In short, FirefoxOS is very much in flux, right now. Bring a hard hat and expect delays.</p>
+<h2 id="-span-id-fixing_things-fixing-things-span-"><span id="Fixing_things">Fixing things</span></h2>
+<p>Once I&#8217;ve broken something and then fixed it, I usually have a sense for how to get real work done. Since then, I&#8217;ve been slowly wrapping my head around <a href="https://github.com/mozilla-b2g/gaia/tree/master/apps/calendar">the core Calendar app</a>, and <a href="https://github.com/mozilla-b2g/gaia/commits?author=lmorchard">my bug fixes have finally started trickling in</a>.</p>
+<p>Cobbling together a reliable Gaia-hacking workflow is complicated, though:</p>
+<ul>
+<li>Some Gaia apps work in Firefox Nightly, at least partially. This is great, because Firefox has all the great tools like the <a target="_blank" title="DOM" href="https://developer.mozilla.org/docs/DOM?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">DOM</a> inspector and web console. And, for the most part, you can just save-and-refresh to see changes. </li>
+<li>All Gaia apps work in <a target="_blank" title="B2G" href="https://developer.mozilla.org/docs/Mozilla/Firefox_OS?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">B2G</a> Desktop, usually, though sometimes there are&#8230; quirks. This is good for seeing how changes work in a closer-to-real environment. But, <a target="_blank" title="B2G" href="https://developer.mozilla.org/docs/Mozilla/Firefox_OS?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">B2G</a> Desktop has none of the web developer tools offered by Firefox. And, to see changes, I generally have to save, relaunch <a target="_blank" title="B2G" href="https://developer.mozilla.org/docs/Mozilla/Firefox_OS?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">B2G</a> Desktop, then relaunch the app within the simulator. That&#8217;s pretty inconvenient.</li>
+<li>All Gaia apps work on the <a target="_blank" title="Mozilla" href="https://www.mozilla.org/?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">Mozilla</a>-supplied dev phone &#8211; which almost no one has. Well, they work more often than they do on <a target="_blank" title="B2G" href="https://developer.mozilla.org/docs/Mozilla/Firefox_OS?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">B2G</a> Desktop and Firefox, anyway. But, including a phone in the dev iteration loop is downright painful: As opposed to the usual webdev experience of save-and-refresh, the phone demands a save-build-flash-restart-relaunch cycle. </li>
+<li>There is one awesome thing, at least for <a href="https://github.com/mozilla-b2g/gaia/tree/master/apps/calendar">the Calendar app</a>: <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Boot_to_Gecko/Gaia_Unit_Tests">There are unit tests which run in B2G Desktop, but are driven by a node.js controller in my shell</a>. That lets me beat up on my code &amp; logic in a &#8220;headless&#8221; context before jumping into Firefox, <a target="_blank" title="B2G" href="https://developer.mozilla.org/docs/Mozilla/Firefox_OS?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">B2G</a> Desktop, or the phone for a fuller integration test and a manual run-through. In fact, the unit testing framework even watches for file changes and will re-run tests right after a save, complete with a Growl notification of pass/fail.</li>
+</ul>
+<h2 id="-span-id-room_for_improvement-room-for-improvement-span-"><span id="Room_for_improvement">Room for improvement</span></h2>
+<p>Slowly but surely, I&#8217;ve gotten my minigun barrel spun up to start firing <a href="http://techcrunch.com/2011/10/25/lead-bullets/">piles of lead bullets</a> at Gaia bugs. But, it has been and continues to be a challenge. I&#8217;m hard-pressed to recommend it as a fun-time leisure project to anyone without a <a target="_blank" title="Mozilla" href="https://www.mozilla.org/?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">Mozilla</a> paycheck, or even as an off-hours interest for those who live-and-breathe Firefox. This is to be expected, since it&#8217;s not even a v1.0 project yet &#8211; but, I really, really hope things improve in the not-so-distant future.</p>
+<ul>
+<li>We need to make sure that new contributors can get quickly from cloning the source to running the code. And it should <em>always</em> work &#8211; as in big, noisy automated tests fail when it breaks. I don&#8217;t care if it works fine on the phone if I can&#8217;t hack on it, at least from a contributor perspective. </li>
+<li>We need a consistent and convenient development environment for Gaia. All day, I bounce between things that are partly broken in Firefox, partly broken in <a target="_blank" title="B2G" href="https://developer.mozilla.org/docs/Mozilla/Firefox_OS?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">B2G</a> Desktop, and mostly working on the phone. This kills productivity and enthusiasm, all day. And, many times, no one else in the <a href="irc://irc.mozilla.org/gaia">#gaia channel on IRC</a> knows what I&#8217;m on about when I say something&#8217;s broken &#8211; because everyone&#8217;s dev environment is a unique little snowflake. </li>
+<li>My ideal workflow would never leave Firefox and my editor: Consider it a variant of the Responsive Design View, and ensure all the various APIs expected on a real phone are either working properly, polyfilled, or usefully stubbed out. Then, when it&#8217;s perfect in my most comfy environment, I can try it on a phone or standalone simulator as an afterthought. The <a href="http://www.blueskyonmars.com/2012/11/08/r2d2b2g-is-becoming-the-firefox-os-simulator/">upcoming built-in Firefox OS Simulator</a> (née <a href="https://hacks.mozilla.org/2012/10/r2d2b2g-an-experimental-prototype-firefox-os-test-environment/">r2d2b2g</a>) looks promising, but it needs to be seamless. </li>
+</ul>
+<h2 id="-span-id-still_digging-still-digging-span-"><span id="Still_digging">Still digging</span></h2>
+<p>Even with the challenges, and even if my contributions are small, I&#8217;m happy to have the opportunity to work on FirefoxOS. It&#8217;s a big deal; it&#8217;s the next Firefox. So, I plan to keep ramming my head against this stuff to help make it better, and I hope we can start taking time to make making it better better, too!</p>
+</section>
+</article>
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_needs_loading = true;
+        var disqus_url = 'https://blog.lmorchard.com/2012/11/15/my-experience-in-becoming-a-firefoxos-contributor/';
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+</section>
+
+      <footer>
+        <img id="growup" src="/uploads/growup.jpg">
+      </footer>
+
+    </section>
+
+    <section id="javascript">
+      <script src="/js/main.js"></script>
+      
+    </section>
+
+  </body>
+</html>

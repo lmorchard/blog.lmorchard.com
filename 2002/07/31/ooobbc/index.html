@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name="microtip" content="1Ad1VPQBBk7WhyJPfB6cAgZoBs3gUngurN" data-currency="btc">
+    <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen, projection" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>AmphetaDesk + Outlines + iTunes 3, the next iteration - blog.lmorchard.com</title>
+    <meta name="author" content="" />
+
+    
+      <link href="/index.rss" rel="alternate"
+        title="blog.lmorchard.com" type="application/rss+xml" />
+    
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="blog.lmorchard.com"/>
+
+    
+  <meta property="og:title" content="AmphetaDesk + Outlines + iTunes 3, the next iteration" />
+  <meta property="og:url" content="https://blog.lmorchard.com/2002/07/31/ooobbc//" />
+  
+  <meta property="og:description" content="So this past weekend, I wrote (thanks for the link, Jenny!) about continuing down the road of my experiments with news aggregation and the tweaks I&amp;apos;ve been doing to AmphetaDesk&amp;apos;s interface.  Well, I&amp;apos;m at it again.  I&amp;apos;m debating whether to post what I have so far for download yet, since I&amp;apos;m still refining some things, but I will very soon.  I&amp;apos;ve noticed that my first attempt gathered some fans, so you all might like what I&amp;apos;m adding now:Template code seems easier on memory usageMuch, much more sparing with tables, items are displayed using only DIV&amp;apos;s and margin widths for indentation.  (Seems to have saved a lot of memory.)Outliner javascript now uses the browser DOM exclusively.  (Seems to be slimmer and faster.)Per-channel metadata annotation &amp; storage - a feature already planned for Ampheta, but I was impatient and hacked a quick scheme together.  (The future AmphetaDesk implementaiton will replace this.)A new interstitial redirect page via which links are visited, to count clicksIn the per-channel metadata, I track:Unique MD5 signatures for itemsDate-first-seen for itemsNumber of times an item has been shownNumber of times an item&amp;apos;s link has been clickedItems clicked for the channel as a whole Using the newly recorded metrics on channels and items, I do a few nifty things now:Item hiding thresholds can be set on # of appearences, # of clicks, and item age.  Hidden items disappear behind an expandable outline handle.Channels and items can be sorted on # of clicks, age/last update, number of items shown.Channels with no shown items can be automatically collapsed.The gist of all this:Channels and items I like and visit regularly tend to bubble toward the topStale channels and items tend to disappear and get demand less attention during my skim-and-scan.Hidden things are out of the way, but are still available within a click or twoAfter letting this run for a few days (since all items are new at the first run), I&amp;apos;ve noticed that my news scanning has gotten much faster, even with occasional checks to be sure I&amp;apos;m not really missing anything with my thresholds. The reasons I haven&amp;apos;t immediately uploaded it for all of you: No preferences for thresholds - I&amp;apos;m editing constants at the header of my template for now; dependancy on Perl modules that don&amp;apos;t come with Ampheta - only a few, but I&amp;apos;d like to wean away from them.  Oh, and it&amp;apos;s also nasty code that I want to refactor into a bunch of subroutines, some of which will be factored out of the template and eventually replaced with calls to core AmphetaDesk code.  (Too much logic in my template.) I also want to add some &quot;karma&quot; features so that, beyond metrics of age, visits, and appearances, you can add your own manual rating and opinion to the process of sorting and show/hide.  And then there&amp;apos;s the idea of categories/playlists I want to steal from iTunes as well.  But, I might just clean up what I have by this weekend and do the early release thing so you can all cheer or jeer it at will.  I also need to drop back into the AmphetaDesk dev crowd.  I miss those guys... " />
+
+
+
+  </head>
+  <body>
+
+    <section class="main">
+
+      <header>
+        <h1><a href="/">blog.lmorchard.com</a></h1>
+        <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+        <nav>
+
+          <label for="nav-trigger"></label>
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+          <ul>
+            <li><a href="http://lmorchard.com/">about me</a></li>
+            <li><a href="/archives.html">archives</a></li>
+          </ul>
+
+        </nav>
+      </header>
+
+      <section class="content">
+<article class="post ">
+    <time title="2002-07-31T00:00:00.000Z" pubdate="2002-07-31T00:00:00.000Z">
+      <a href="/"><i class="fa fa-home"></i></a>
+      &raquo;
+      <a href="/2002">2002</a>
+      &raquo;
+      <a href="/2002/07">July</a>
+      &raquo;
+      <span>31</span>
+      &raquo;
+    </time>
+    <h1 class="title">AmphetaDesk + Outlines + iTunes 3, the next iteration</h1>
+    
+    <section class="post-content"><p><p>So this past weekend, <a href="http://www.decafbad.com/news_archives/000220.phtml#000220">I wrote</a> (thanks for the link, <a href="http://www.theshiftedlibrarian.com/2002/07/30.html#a2701">Jenny</a>!) about continuing down the road of my experiments with news aggregation and the <a href="http://www.decafbad.com/news_archives/000187.phtml#000187">tweaks I&#39;ve been doing</a> to <a href="http://www.decafbad.com/twiki/bin/view/Main/AmphetaDesk">AmphetaDesk</a>&#39;s interface.  Well, I&#39;m at it again.  I&#39;m debating whether to post what I have so far for download yet, since I&#39;m still refining some things, but I will very soon.  I&#39;ve noticed that my first attempt gathered some fans, so you all might like what I&#39;m adding now:<ul><li>Template code seems easier on memory usage</li><li>Much, much more sparing with tables, items are displayed using only DIV&#39;s and margin widths for indentation.  (Seems to have saved a lot of memory.)</li><li>Outliner javascript now uses the browser DOM exclusively.  (Seems to be slimmer and faster.)</li><li>Per-channel metadata annotation &amp; storage - a feature already planned for Ampheta, but I was impatient and hacked a quick scheme together.  (The future <a href="http://www.decafbad.com/twiki/bin/view/Main/AmphetaDesk">AmphetaDesk</a> implementaiton will replace this.)</li><li>A new interstitial redirect page via which links are visited, to count clicks</li><li>In the per-channel metadata, I track:<ul><li>Unique MD5 signatures for items</li><li>Date-first-seen for items</li><li>Number of times an item has been shown</li><li>Number of times an item&#39;s link has been clicked</li><li>Items clicked for the channel as a whole</li> </ul></li><li>Using the newly recorded metrics on channels and items, I do a few nifty things now:<ul><li>Item hiding thresholds can be set on # of appearences, # of clicks, and item age.  Hidden items disappear behind an expandable outline handle.</li><li>Channels and items can be sorted on # of clicks, age/last update, number of items shown.</li><li>Channels with no shown items can be automatically collapsed.</li></ul></li></ul>The gist of all this:<ul><li>Channels and items I like and visit regularly tend to bubble toward the top</li><li>Stale channels and items tend to disappear and get demand less attention during my skim-and-scan.</li><li>Hidden things are out of the way, but are still available within a click or two</li></ul>After letting this run for a few days (since <i>all</i> items are new at the first run), I&#39;ve noticed that my news scanning has gotten <i>much</i> faster, even with occasional checks to be sure I&#39;m not really missing anything with my thresholds.</p></p>
+<p><p>The reasons I haven&#39;t immediately uploaded it for all of you: No preferences for thresholds - I&#39;m editing constants at the header of my template for now; dependancy on Perl modules that don&#39;t come with Ampheta - only a few, but I&#39;d like to wean away from them.  Oh, and it&#39;s also nasty code that I want to refactor into a bunch of subroutines, some of which will be factored out of the template and eventually replaced with calls to core <a href="http://www.decafbad.com/twiki/bin/view/Main/AmphetaDesk">AmphetaDesk</a> code.  (Too much logic in my template.)</p></p>
+<p><p>I also want to add some &quot;karma&quot; features so that, beyond metrics of age, visits, and appearances, you can add your own manual rating and opinion to the process of sorting and show/hide.  And then there&#39;s the idea of categories/playlists I want to steal from iTunes as well.  But, I might just clean up what I have by this weekend and do the early release thing so you can all cheer or jeer it at will.  I also need to drop back into the <a href="http://www.decafbad.com/twiki/bin/view/Main/AmphetaDesk">AmphetaDesk</a> dev crowd.  I miss those guys...</p>
+<!--more-->
+shortname=ooobbc</p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221089241">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.furrygoat.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=53617e52a0ccf29f19c750e312df0f31&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.furrygoat.com">Steve</a>
+</div>
+<a href="#comment-221089241" class="permalink"><time datetime="2002-07-31T15:15:41">2002-07-31T15:15:41</time></a>
+</div>
+<div class="content">Very cool stuff! Cant wait to see it. I&#39;ve been toying with the idea of &quot;favorites&quot; aswell with PocketFeed (that you mentioned in the original article). I&#39;ve found that while useful to have the content with me, without some automated intelligence to it&#39;s organization, it&#39;s a big blob of blog data.</div>
+</li>
+<li class="comment" id="comment-221089243">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://jeremy.zawodny.com/blog/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=c7aeda8ae5621d97ec1b1f7b7c20822e&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://jeremy.zawodny.com/blog/">Jeremy Zawodny</a>
+</div>
+<a href="#comment-221089243" class="permalink"><time datetime="2002-08-04T09:59:14">2002-08-04T09:59:14</time></a>
+</div>
+<div class="content">Oh, come on.  Post it already! :-)
+I can&#39;t wait to play with in.  I&#39;m writing about AmphetaDesk for Linux Magazine, and it&#39;be nice to mention some of this stuff too.
+Jeremy</div>
+</li>
+</ul>
+</div>
+</section>
+</article>
+
+
+
+</section>
+
+      <footer>
+        <img id="growup" src="/uploads/growup.jpg">
+      </footer>
+
+    </section>
+
+    <section id="javascript">
+      <script src="/js/main.js"></script>
+      
+    </section>
+
+  </body>
+</html>

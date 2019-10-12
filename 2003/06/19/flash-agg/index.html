@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name="microtip" content="1Ad1VPQBBk7WhyJPfB6cAgZoBs3gUngurN" data-currency="btc">
+    <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen, projection" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Desktop server + Flash GUI? - blog.lmorchard.com</title>
+    <meta name="author" content="" />
+
+    
+      <link href="/index.rss" rel="alternate"
+        title="blog.lmorchard.com" type="application/rss+xml" />
+    
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="blog.lmorchard.com"/>
+
+    
+  <meta property="og:title" content="Desktop server + Flash GUI?" />
+  <meta property="og:url" content="https://blog.lmorchard.com/2003/06/19/flash-agg//" />
+  
+  <meta property="og:description" content="Still have been busy like crazy, but  as I wrote back in April, some of what I&amp;apos;m doing has been pulling me further into Flash MX and XML. Also, in the few moments of free time I&amp;apos;ve had lately, I&amp;apos;ve been toying with my own news aggregator.  It&amp;apos;s a PersonalServer, written in Python, based on Twisted, and uses SQLite via PySQLite for storage and juggling of items.  So, today I&amp;apos;ve been thinking:  How hard would it be to bundle together a desktop app composed of a backend in Python and a GUI in Flash?  Connecting the two is no problem given whatever method of XML communication you want to pass between them.  Pairing the two together to be launched on the guest OS would seem to be a bit of an oddity.  See, I like my news aggregator GUI in the browser.  It seems native there.  But on the other hand, as far as interfaces go, what I want to make the browser do tends to sound ugly.  I mean, yeah, there&amp;apos;re all sorts of DHTML and CSS tricks and XUL looks promising, but damn have I been noticing how slick Flash is lately.  And fiddling around with ?ActionScript has been pretty fun lately.?JavaScript has gotten a pretty bad reputation via crashy implementations, but as dynamic scripting languages go, there are some nifty elegances I can pull off in it.  So...   I&amp;apos;ve been reading a bit about  Macromedia&amp;apos;s Central as far as  desktop Flash goes, and I&amp;apos;ve seen the  News Aggregator sample app, but  how about a maniacal mutant hybrid of Python and Flash? " />
+
+
+
+  </head>
+  <body>
+
+    <section class="main">
+
+      <header>
+        <h1><a href="/">blog.lmorchard.com</a></h1>
+        <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+        <nav>
+
+          <label for="nav-trigger"></label>
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+          <ul>
+            <li><a href="http://lmorchard.com/">about me</a></li>
+            <li><a href="/archives.html">archives</a></li>
+          </ul>
+
+        </nav>
+      </header>
+
+      <section class="content">
+<article class="post ">
+    <time title="2003-06-19T00:00:00.000Z" pubdate="2003-06-19T00:00:00.000Z">
+      <a href="/"><i class="fa fa-home"></i></a>
+      &raquo;
+      <a href="/2003">2003</a>
+      &raquo;
+      <a href="/2003/06">June</a>
+      &raquo;
+      <span>19</span>
+      &raquo;
+    </time>
+    <h1 class="title">Desktop server + Flash GUI?</h1>
+    
+    <section class="post-content"><p>Still have been busy like crazy, but 
+<a href="http://www.decafbad.com/blog/geek/flash_xml_magic.html" target="_top">as I wrote</a> back in April,
+some of what I&#39;m doing has been pulling me further into Flash MX and XML.
+Also, in the few moments of free time I&#39;ve had lately, I&#39;ve been toying
+with <a href="http://www.decafbad.com/viewcvs.cgi/dbagg/" target="_top">my own news aggregator</a>.  It&#39;s a
+<a href="http://www.decafbad.com/twiki/bin/view/Main/PersonalServer">PersonalServer</a>, written in <a href="http://www.decafbad.com/twiki/bin/view/Main/Python">Python</a>, based on <a href="http://www.decafbad.com/twiki/bin/view/Main/Twisted">Twisted</a>, and uses
+<a href="http://www.sqlite.org" target="_top">SQLite</a> via <a href="http://pysqlite.sourceforge.net" target="_top">PySQLite</a>
+for storage and juggling of items.
+<br /><br />
+So, today I&#39;ve been thinking:  How hard would it be to bundle together a desktop app
+composed of a backend in Python and a GUI in Flash?  Connecting the two is no problem
+given whatever method of XML communication you want to pass between them.  Pairing
+the two together to be launched on the guest OS would seem to be a bit of an
+oddity.
+<br /><br />
+See, I like my news aggregator GUI in the browser.  It seems native there.  But
+on the other hand, as far as interfaces go, what I want to make the browser
+do tends to sound ugly.  I mean, yeah, there&#39;re all sorts of DHTML and <a href="http://www.decafbad.com/twiki/bin/view/Main/CSS">CSS</a> tricks
+and XUL looks promising, but damn have I been noticing how slick Flash is
+lately.  And fiddling around with <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/ActionScript?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">ActionScript</font></span> has been pretty fun lately.<br><span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/JavaScript?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">JavaScript</font></span> has gotten a pretty bad reputation via crashy implementations, but
+as dynamic scripting languages go, there are some nifty elegances I can pull
+off in it.
+<br /><br />
+So...
+  I&#39;ve been reading a bit about 
+<a href="http://www.macromedia.com/software/central/" target="_top">Macromedia&#39;s Central</a> as far as 
+desktop Flash goes, and I&#39;ve seen the 
+<a href="http://www.macromedia.com/devnet/mx/flash/articles/rss_aggregator_sample_app.html" target="_top">News Aggregator sample app</a>,
+but 
+how about a maniacal mutant hybrid of Python and Flash?
+<!--more-->
+shortname=flash_agg</p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221085293">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.zanpo.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=8ece86b9eb93514da6f0300082374dbc&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.zanpo.com">genjo</a>
+</div>
+<a href="#comment-221085293" class="permalink"><time datetime="2003-07-04T23:47:13">2003-07-04T23:47:13</time></a>
+</div>
+<div class="content">I was doing a search on Python and Flash, and stumbled upon your post.  Any luck with this?  I had the same idea... building apps in Python with a Flash front-end... they could talk to eachother via XML... so, how can you get python to create a wrapper for a flash gui?</div>
+</li>
+</ul>
+</div>
+</section>
+</article>
+
+
+
+</section>
+
+      <footer>
+        <img id="growup" src="/uploads/growup.jpg">
+      </footer>
+
+    </section>
+
+    <section id="javascript">
+      <script src="/js/main.js"></script>
+      
+    </section>
+
+  </body>
+</html>

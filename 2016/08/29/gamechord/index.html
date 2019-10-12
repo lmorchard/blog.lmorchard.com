@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name="microtip" content="1Ad1VPQBBk7WhyJPfB6cAgZoBs3gUngurN" data-currency="btc">
+    <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen, projection" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Making of the GameChord - blog.lmorchard.com</title>
+    <meta name="author" content="" />
+
+    
+      <link href="/index.rss" rel="alternate"
+        title="blog.lmorchard.com" type="application/rss+xml" />
+    
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="blog.lmorchard.com"/>
+
+    
+  <meta property="og:title" content="Making of the GameChord" />
+  <meta property="og:url" content="https://blog.lmorchard.com/2016/08/29/gamechord//" />
+  <meta property="og:image" content="https://blog.lmorchard.com/uploads/2016/gamechord/thumbnail.jpg" />
+  <meta property="og:description" content="TL;DR: I made a USB keypad that&amp;apos;s good for gaming and typing entirely with one hand. " />
+
+
+
+  </head>
+  <body>
+
+    <section class="main">
+
+      <header>
+        <h1><a href="/">blog.lmorchard.com</a></h1>
+        <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+        <nav>
+
+          <label for="nav-trigger"></label>
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+          <ul>
+            <li><a href="http://lmorchard.com/">about me</a></li>
+            <li><a href="/archives.html">archives</a></li>
+          </ul>
+
+        </nav>
+      </header>
+
+      <section class="content">
+<article class="post tag-diy tag-keyboards tag-hardware tag-teensy tag-microcontrollers tag-electronics ">
+    <time title="2016-08-29T00:00:00.000Z" pubdate="2016-08-29T00:00:00.000Z">
+      <a href="/"><i class="fa fa-home"></i></a>
+      &raquo;
+      <a href="/2016">2016</a>
+      &raquo;
+      <a href="/2016/08">August</a>
+      &raquo;
+      <span>29</span>
+      &raquo;
+    </time>
+    <h1 class="title">Making of the GameChord</h1>
+    
+      <ul class="tags">
+          
+              <li><a href="/tag/diy">diy</a>, </li>
+          
+              <li><a href="/tag/keyboards">keyboards</a>, </li>
+          
+              <li><a href="/tag/hardware">hardware</a>, </li>
+          
+              <li><a href="/tag/teensy">teensy</a>, </li>
+          
+              <li><a href="/tag/microcontrollers">microcontrollers</a>, </li>
+          
+              <li><a href="/tag/electronics">electronics</a></li>
+          
+      </ul>
+    
+    <section class="post-content"><p><strong>TL;DR</strong>: I made a USB keypad that&#39;s good for gaming and typing entirely with
+one hand.</p>
+<!--more-->
+<nav role="navigation" class="table-of-contents"></nav>
+
+<p>So, remember back in February when I said that <a href="http://blog.lmorchard.com/2016/02/06/keyboard-hacking/">keyboard hacking seems like
+fun</a>?  Well, I
+finished this GameChord thing back in July after about 5 months of occasional
+work. But, I&#39;ve been too busy <a href="https://twitter.com/lmorchard/status/770771394816729088">drinking booze
+and playing video games</a> 
+to get my butt in a chair and write about it.</p>
+<p>Let&#39;s see if I can fix that now...</p>
+<h2 id="the-design">The design</h2>
+<p><a href="http://www.keyboard-layout-editor.com/##@_name=gamechord&amp;author=lmorchard;&amp;@=1&amp;=2&amp;=3&amp;=4&amp;=5;&amp;@=1&amp;=2&amp;=3&amp;=4&amp;=5;&amp;@=1&amp;=2&amp;=3&amp;=4&amp;=5;&amp;@_r:35&amp;rx:2.5&amp;ry:3.5&amp;y:-1&amp;x:1;&amp;=a&amp;=b&amp;=c"><img class="inset left"
+src="/uploads/2016/gamechord/keyboard-layout.png"></a></p>
+<p>I started doodling with key layouts and <a href="http://www.keyboard-layout-editor.com/##@_name=gamechord&amp;author=lmorchard;&amp;@=1&amp;=2&amp;=3&amp;=4&amp;=5;&amp;@=1&amp;=2&amp;=3&amp;=4&amp;=5;&amp;@=1&amp;=2&amp;=3&amp;=4&amp;=5;&amp;@_r:35&amp;rx:2.5&amp;ry:3.5&amp;y:-1&amp;x:1;&amp;=a&amp;=b&amp;=c">came up with
+this</a>. Only 18 switches, but enough for gaming. At the
+time, I was putting a lot of hours into Elite
+Dangerous, so this felt promising as a spaceship control pad.<br><a href="https://www.flickr.com/photos/deusx/24872268889/"><img class="inset right" src="/uploads/2016/gamechord/paper-planning.jpg"></a></p>
+<p><a href="https://www.flickr.com/photos/deusx/24781232904/in/datetaken-public/"><img class="inset right" src="/uploads/2016/gamechord/cats-happen.jpg"></a></p>
+<p>Over on <a href="http://builder.swillkb.com/">builder.swillkb.com</a>, I plonked in the JSON from <a href="http://www.keyboard-layout-editor.com/##@_name=gamechord&amp;author=lmorchard;&amp;@=1&amp;=2&amp;=3&amp;=4&amp;=5;&amp;@=1&amp;=2&amp;=3&amp;=4&amp;=5;&amp;@=1&amp;=2&amp;=3&amp;=4&amp;=5;&amp;@_r:35&amp;rx:2.5&amp;ry:3.5&amp;y:-1&amp;x:1;&amp;=a&amp;=b&amp;=c">Keyboard
+Layout Editor</a> and came up with some SVG files that printed
+up nicely.</p>
+<p>That gave me a paper mockup of a mounting plate for key switches. I had some
+clear keycaps, so I dropped them onto the paper to get a sense for how it
+would feel under my hand.</p>
+<p>Of course, cats happen - so those keycaps didn&#39;t stay put for very long. But,
+that&#39;s okay. Nothing wandered off too far, and I got what I needed from
+the mess on my desk.</p>
+<h2 id="making-the-case">Making the case</h2>
+<p>Back when <a href="http://blog.lmorchard.com/2016/02/06/keyboard-hacking/">I first started thinking about building a
+keyboard</a>, I
+assumed I&#39;d send off whatever design files I came up with to a place
+like <a href="https://www.ponoko.com/">Ponoko</a> and get the mounting plate made for me.</p>
+<p>Prices at those places were just a bit higher than I liked, though. I also
+suspected things wouldn&#39;t work with my first attempt. I wanted to be able
+to iterate without it taking days or weeks to learn from my mistakes
+and refine.</p>
+<p>That&#39;s when I remembered <a href="https://i3detroit.org">i3Detroit</a> was just down the road. I&#39;d been
+meaning to get over there for a couple of years: Among other things, the space
+has <a href="https://www.i3detroit.org/wiki/Category:Laser_Cutter">nice laser cutters</a> that I really wish I&#39;d used <a href="http://blog.lmorchard.com/2013/02/10/building-my-couch-computing-station/">back when
+I butchered some plastic to make a terrible PC monitor case</a>. </p>
+<p>A month or so later, I&#39;d gotten through the new member onboarding process
+and a few training sessions with the laser cutter. I had some
+acrylic sheets still on hand, so I gave my design a shot:</p>
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/deusx/25839524664/" title="Cutting a keyboard mounting plate on a laser cutter"><img src="https://c1.staticflickr.com/2/1506/25839524664_3250860a23_c.jpg" width="800" height="450" alt="Cutting a keyboard mounting plate on a laser cutter"></a></p>
+<p>Pretty sure I had the power too high and the speed too low for the run
+in this video. But, the result was not too bad for a first attempt.  I had a
+few dozen Cherry MX Clear switches to play with, so I snapped them into the
+plate and put on the keycaps I&#39;d used in the paper mockup earlier:</p>
+<p><img class="fullwidth" src="/uploads/2016/gamechord/clear-keycaps.jpg"></p>
+<p>Still lots of work ahead, but I was feeling pretty accomplished after taking
+this little glamour shot. I even took it into an <a href="https://i3detroit.org">i3Detroit</a> member meeting
+for show &amp; tell.</p>
+<h2 id="re-making-the-case">Re-making the case</h2>
+<p>At this point, I&#39;d already heard the term &quot;kerf&quot;. Like a saw blade, the laser
+has a width that destroys material while cutting. You want that on the
+<em>inside</em> edge of something like a key switch mounting hole, in order to keep
+the dimensions correct. Unlike a blade, the laser is a cylindrical
+beam that passes through a lens to form <a href="http://www.buildlog.net/blog/2013/05/why-are-my-laser-cut-edges-not-straight/">something like an
+hourglass</a>. So, the
+kerf&#39;s shape depends on the lens focal length and the conical section that
+intersects with the material.</p>
+<p>Well, I didn&#39;t account for the kerf well enough in my first plate. All the key
+switches were wobbly. Some would just fall out if I flipped
+the thing over. Time for some of those iterations I
+figured I&#39;d have to end up doing.</p>
+<p><img class="inset wide right" src="/uploads/2016/gamechord/kerf-is-real.jpg"></p>
+<p>I know the saying is &quot;measure twice, cut once&quot; - but in this case it was
+easier to measure by cutting! I tried mounting holes with a sampling of kerf
+widths until I found one that matched the key switch tolerances. Not so snug
+that it cracked the plate, but not so loose that it wiggled or fell out. </p>
+<p>Once I found a good laser focus and figured out the kerf, I
+attacked another sheet of acrylic with the laser to produce another
+iteration of the case.</p>
+<p><a href="https://www.flickr.com/photos/deusx/26975072884/"><img class="fullwidth" src="/uploads/2016/gamechord/glamour-shot.jpg"></a></p>
+<p>Two changes you might notice: I added slots to glue in some socket
+headers, so I could unplug or replace the Teensy without soldering. I also found some
+<a href="http://dro.ps/b/x3g0KCy">relegendable keycaps</a> on Massdrop - they have little removable covers that
+take 14mm paper squares. I figured that would come in handy for crazy
+key layouts I might come up with.</p>
+<h2 id="wiring-up-the-key-matrix">Wiring up the key matrix</h2>
+<p>I haven&#39;t learned how to design circuit boards yet, so I figured I&#39;d just
+handwire this <a href="https://www.youtube.com/watch?v=MrokZ1afnVg">like I saw in the video</a>. Only 18 switches, so
+how bad could it be?
+Turns out, it&#39;s rather annoying. Interesting exercise with my terrible old
+Radio Shack soldering iron. </p>
+<p><img class="inset wide left" src="/uploads/2016/gamechord/matrix-wired-up.jpg"></p>
+<p>I think I&#39;d much rather get over that PCB fabrication hurdle for when I try
+scaling this up to a 60% keyboard like my HHKB.</p>
+<p>The technique here involves first building up rows of diodes across the
+right-hand pin of every key switch. The diodes serve to prevent <a href="https://deskthority.net/wiki/Rollover,_blocking_and_ghosting">ghosting when
+multiple keys are pressed</a>. </p>
+<p>Then, I stripped sections of wires to
+run as columns down the left-hand pin of the switches. </p>
+<p>The remaining
+insulation ensures the column wires don&#39;t short against the row diodes.</p>
+<h2 id="wiring-up-the-teensy">Wiring up the Teensy</h2>
+<p><img class="inset wide left" src="/uploads/2016/gamechord/teensy-wired-up.jpg"></p>
+<p>This matrix gives me 4 rows (counting the thumb switches) and 5 columns - or 9
+I/O pins to scan 18 switches.</p>
+<p>Except for <a href="https://geekhack.org/index.php?topic=72804.0">magical PD6</a> - which is hardwired to an onboard LED - just
+about every pin is fair game on the Teensy for rows or columns. </p>
+<p>So, I tried to pick a set that would be easiest to route wires. Since this
+case is transparent, I wanted to keep things visually interesting with
+different colored wires and a neat shape to the runs.</p>
+<p>Of course, I botched things a bit and marred the acrylic by splashing
+solder and slipping with the iron a few times. But, maybe no one will really
+notice.</p>
+<p>If I had to do this over again - and I <em>still</em> hadn&#39;t learned how to make a
+PCB - I&#39;d probably try using something thinner like <a href="https://www.adafruit.com/product/1446">30AWG repair
+wire</a>. That seems like it would thread through the spaces much
+better, which would be even more important for a board with many more
+switches. </p>
+<h2 style="clear: both">Programming the Teensy</h2>
+
+<p>I based <a href="https://github.com/lmorchard/gamechord">the GameChord firmware</a> on the great <a href="https://github.com/tmk/tmk_keyboard">tmk
+firmware</a> that seems popular on mech keyboard forums.</p>
+<p>Building <a href="https://github.com/lmorchard/gamechord/blob/863295d2cbdbc7052a25e989a77c3448796e67a6/matrix.c">the matrix</a> was easy: The firmware scans through rows (DF0, DF1,
+DF4, and DF5) by pulling each low in turn. The columns (DB4, DB5, DB6, DF7,
+and DF6) are set as &quot;active low&quot; pins - which means keys pressed in the
+current scan row get connected to ground and read as signals. So,
+I wrote the functions to manipulate &amp; read the appropriate row &amp; column pins,
+respectively. </p>
+<p>It was almost <em>too</em> easy:</p>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Holy crap. My attempt at setting up firmware for my newly wired DIY keypad worked first time. How does this happen. <a href="https://t.co/xWESzku4Lp">https://t.co/xWESzku4Lp</a></p>&mdash; Les Orchard (@lmorchard) <a href="https://twitter.com/lmorchard/status/746518856328372225">June 25, 2016</a></blockquote>
+
+<p>From there, I built <a href="https://github.com/lmorchard/gamechord/blob/863295d2cbdbc7052a25e989a77c3448796e67a6/keymap_plain.c">a dead simple key map</a> with just enough
+keys to play <a href="https://playoverwatch.com/en-us/">Overwatch</a>:</p>
+<pre><code class="lang-c">#include &quot;keymap_common.h&quot;
+
+const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+    KEYMAP( ESC,   1,    2,    3,    T, \
+            TAB,   Q,    W,    E,    R, \
+           LSFT,   A,    S,    D,    F, \
+             NO,  NO, LCTL,  SPC,    C),
+};
+const uint16_t PROGMEM fn_actions[] = {};
+</code></pre>
+<p>I got it all working and had myself a nice evening of pushing carts and taking
+objectives.</p>
+<p><img class="fullwidth" src="/uploads/2016/gamechord/test-run-on-gaming-station.jpg"></p>
+<h2 id="going-crazy-with-chording">Going crazy with chording</h2>
+<p>I had all these <a href="http://dro.ps/b/x3g0KCy">relegendable keycaps</a> and this crazy flexible <a href="https://github.com/tmk/tmk_keyboard">tmk
+firmware</a> - so I decided to try implementing <a href="https://github.com/lmorchard/gamechord/blob/863295d2cbdbc7052a25e989a77c3448796e67a6/keymap_halfqwerty.c">a complex and fully impractical
+keymap based on chords with the thumb keys</a>.</p>
+<p><img class="fullwidth" src="/uploads/2016/gamechord/finished-key-legends.jpg"></p>
+<p>Given two thumb keys in combination, I can get 4 layers out of the other 15
+keys - for a total of 60 keys. The firmware also <a href="https://github.com/lmorchard/gamechord/blob/863295d2cbdbc7052a25e989a77c3448796e67a6/keymap_halfqwerty.c#L43">lets me distinguish
+between keys held or just tapped</a>, which gives me a few more layers or
+modifier keys.</p>
+<p>Long story short, I can get most of the functionality of a regular keyboard
+out of just one hand. All I have to do is just get used to putting my left
+hand through some very awkward and uncomfortable contortions until I get up to
+full typing speed!</p>
+<p><a href="http://blog.lmorchard.com/2016/02/05/steam-controller/">As I&#39;ve written before</a>, I do really like odd input devices.
+But, this got old fast. This isn&#39;t so much a practical peripheral as a thing I
+did because I could. It gave me an excuse to explore the firmware more
+and to use Inkscape to design some legends for my nifty keycaps.</p>
+<h2 id="showing-it-off">Showing it off</h2>
+<p>And just to wrap things up, this happened:</p>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">I even have a project out in the <a href="https://twitter.com/i3Detroit">@i3Detroit</a> tent at <a href="https://twitter.com/hashtag/MakerFaireDetroit?src=hash">#MakerFaireDetroit</a> ! <a href="https://t.co/v0goD3DCBk">pic.twitter.com/v0goD3DCBk</a></p>&mdash; Les Orchard (@lmorchard) <a href="https://twitter.com/lmorchard/status/759400946514427904">July 30, 2016</a></blockquote>
+
+<p>This was the first summer I went to <a href="http://www.makerfairedetroit.com/">Maker Faire Detroit</a> as a Maker. I
+helped for a bit at the <a href="https://i3detroit.org">i3Detroit</a> tent, mainly just standing and smiling
+at the front table as folks walked in. But, I had my little keyboard out there
+on a table, with a project card and everything.</p>
+<p>It and I were only there for a handful of hours, but it&#39;s pretty satisfying to
+have actually gotten this thing done!</p>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+
+<!-- vim: set wrap wm=5 syntax=markdown textwidth=78: -->
+</section>
+</article>
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_needs_loading = true;
+        var disqus_url = 'https://blog.lmorchard.com/2016/08/29/gamechord/';
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+</section>
+
+      <footer>
+        <img id="growup" src="/uploads/growup.jpg">
+      </footer>
+
+    </section>
+
+    <section id="javascript">
+      <script src="/js/main.js"></script>
+      
+    </section>
+
+  </body>
+</html>

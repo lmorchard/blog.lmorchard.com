@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name="microtip" content="1Ad1VPQBBk7WhyJPfB6cAgZoBs3gUngurN" data-currency="btc">
+    <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen, projection" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Improving my Delicious command for Ubiquity - blog.lmorchard.com</title>
+    <meta name="author" content="" />
+
+    
+      <link href="/index.rss" rel="alternate"
+        title="blog.lmorchard.com" type="application/rss+xml" />
+    
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="blog.lmorchard.com"/>
+
+    
+  <meta property="og:title" content="Improving my Delicious command for Ubiquity" />
+  <meta property="og:url" content="https://blog.lmorchard.com/2008/09/07/improving-my-delicious-command-for-ubiquity//" />
+  <meta property="og:image" content="http://decafbad.com/2008/ubiq-del-status.jpg" />
+  
+
+
+
+  </head>
+  <body>
+
+    <section class="main">
+
+      <header>
+        <h1><a href="/">blog.lmorchard.com</a></h1>
+        <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+        <nav>
+
+          <label for="nav-trigger"></label>
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+          <ul>
+            <li><a href="http://lmorchard.com/">about me</a></li>
+            <li><a href="/archives.html">archives</a></li>
+          </ul>
+
+        </nav>
+      </header>
+
+      <section class="content">
+<article class="post tag-delicious tag-web20 tag-firefox tag-entries tag-mozilla tag-ubiquity ">
+    <time title="2008-09-07T00:00:00.000Z" pubdate="2008-09-07T00:00:00.000Z">
+      <a href="/"><i class="fa fa-home"></i></a>
+      &raquo;
+      <a href="/2008">2008</a>
+      &raquo;
+      <a href="/2008/09">September</a>
+      &raquo;
+      <span>07</span>
+      &raquo;
+    </time>
+    <h1 class="title">Improving my Delicious command for Ubiquity</h1>
+    
+      <ul class="tags">
+          
+              <li><a href="/tag/delicious">delicious</a>, </li>
+          
+              <li><a href="/tag/web20">web20</a>, </li>
+          
+              <li><a href="/tag/firefox">firefox</a>, </li>
+          
+              <li><a href="/tag/entries">entries</a>, </li>
+          
+              <li><a href="/tag/mozilla">mozilla</a>, </li>
+          
+              <li><a href="/tag/ubiquity">ubiquity</a></li>
+          
+      </ul>
+    
+    <section class="post-content"><p>After writing up my <a href="http://decafbad.com/blog/2008/09/01/writing-a-delicious-command-for-ubiquity">first stab at a Delicious command for Ubiquity</a>, I planned to continue revising it based on feedback and to work on exploring more of what Ubiquity enables.  I started looking into writing my own nouns for tag suggestions, as well as playing with page load and browser startup hooks.  And, I also started poking at a little bit of deeper extension development, which took up most of my time today.</p>
+<p>I&#39;ve <a href="http://decafbad.com/UbiquityCommands/">updated my UbiquityCommands</a> page and checked in my latest revision of <a href="http://decafbad.com/hgwebdir.cgi/UbiquityCommands/file/tip/delicious.ubiq.js">the Delicious command</a>.  </p>
+<p>The main new feature is a status bar item reporting bookmarks for the current page:</p>
+<p><img style="padding: 0.25em" src="http://decafbad.com/2008/ubiq-del-status.jpg" />&nbsp;<img style="padding: 0.25em" src="http://decafbad.com/2008/ubiq-del-tip.jpg" /></p>
+<p>As you can see above, the command now comes with a status bar panel powered by the <a href="http://delicious.com/help/feeds">Delicious URL info JSON feed</a>, providing bookmarking info on every page visited.  It shows a bookmark count, a tooltip with further information, and sends the user to the URL info page on Delicious when clicked.  It mostly works, but it could use some looking at.  This is my first time really cracking open the hood on Firefox and XUL, and so I&#39;m feeling around in the dark.</p>
+<p>Specifically, I&#39;m using Ubiquity&#39;s page load hook—but I&#39;m also trying to augment that by tracking tab selection events, in order to keep the status bar info updated for the active tab.  But then, that leads me to trying to track new windows, to attach the tab selection event handler for every newly opened window.  Or I could just be barking up the wrong tree entirely.  At any rate, the code is probably brain-dead dumb, so I hope someone can clue me into a better way.</p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221088289">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://blog.mozilla.com/gen/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=ef1b5a29836fa211b938d8ccbbd3e0a1&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://blog.mozilla.com/gen/">Gen Kanai</a>
+</div>
+<a href="#comment-221088289" class="permalink"><time datetime="2008-09-07T08:10:39">2008-09-07T08:10:39</time></a>
+</div>
+<div class="content"><p>Les, you may want to let R/RW know about your new command.</p>
+<p><a href="http://www.readwriteweb.com/archives/the_ultimate_list_of_custom_ubiquity_verbs.php">http://www.readwriteweb.com/archives/the_ultimate_list_of_custom_ubiquity_verbs.php</a></p></div>
+</li>
+<li class="comment" id="comment-221088292">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://abcdefu.wordpress.com/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=af8b180d6d4092fb42fe6b5e0b21536c&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://abcdefu.wordpress.com/">Abimanyu Raja</a>
+</div>
+<a href="#comment-221088292" class="permalink"><time datetime="2008-09-07T08:55:52">2008-09-07T08:55:52</time></a>
+</div>
+<div class="content"><p>I disagree... Your command doesn&#39;t fit on that list. It&#39;s way too good for that list. :)</p></div>
+</li>
+<li class="comment" id="comment-221088296">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=61fc20fbb1afbfc057df523f9dae79da&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="">Jeton</a>
+</div>
+<a href="#comment-221088296" class="permalink"><time datetime="2008-09-07T21:56:43">2008-09-07T21:56:43</time></a>
+</div>
+<div class="content"><p>Well, i was having problems understanding the &quot;tagged&quot; and &quot;entitled&quot;. Didn&#39;t knew it was without brackets....</p>
+<p>But i gotta say, it actually replaces the delicious firefox extension for its easy way of posting links on delicious.</p>
+<p>Well done, and seeing that it&#39;s only the begining i don&#39;t doubt that it will improve much more!</p>
+<p>Oh, and i had a WTF when i first saw that delicous icon on the status bar of Firefox. Didn&#39;t knew it was from your command ;)</p>
+<p>Thanks for making this.</p></div>
+</li>
+<li class="comment" id="comment-221088300">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=61fc20fbb1afbfc057df523f9dae79da&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="">Jeton</a>
+</div>
+<a href="#comment-221088300" class="permalink"><time datetime="2008-09-07T22:20:09">2008-09-07T22:20:09</time></a>
+</div>
+<div class="content"><p>One question:
+Is there a chance to remove the quotation marks (i meant the same on the above comment as well, not brackets) when saving a note about a bookmark?</p>
+<p>Everytime i bookmark a page via this command, it quotes the note.</p></div>
+</li>
+<li class="comment" id="comment-221088302">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2377f34a68801b861c3e54e1301f0dce&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.decafbad.com">l.m.orchard</a>
+</div>
+<a href="#comment-221088302" class="permalink"><time datetime="2008-09-07T22:41:20">2008-09-07T22:41:20</time></a>
+</div>
+<div class="content"><p>@Jeton: I guess the quoted thing is something I do by habit, to discriminate between what&#39;s my comment and what&#39;s summary straight from the page.  One way you can force it unquoted is with the &quot;noted&quot; modifier.  So, select some text on the page, and you can do something like:</p>
+<pre><code>sha noted this tagged foo bar baz
+</code></pre>
+<p>That should use the selected text without quotes.  Also, you can just type arbitrary stuff:</p>
+<pre><code>sha noted These are notes entitled A title goes here tagged foo bar baz
+</code></pre></div>
+</li>
+<li class="comment" id="comment-221088304">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2377f34a68801b861c3e54e1301f0dce&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.decafbad.com">l.m.orchard</a>
+</div>
+<a href="#comment-221088304" class="permalink"><time datetime="2008-09-07T22:44:59">2008-09-07T22:44:59</time></a>
+</div>
+<div class="content"><p>@Jeton: Actually, I just made a check-in that flips it around.  There&#39;s now a &quot;quoted&quot; modifier to wrap the notes in quotes, leaving it unquoted otherwise.  I might be the weirdo here in my quote usage :)</p></div>
+</li>
+<li class="comment" id="comment-221088306">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://jackmottram.com/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=3a6aa11eff36e9d968119a6bb4cea05e&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://jackmottram.com/">Jack Mottram</a>
+</div>
+<a href="#comment-221088306" class="permalink"><time datetime="2008-09-09T10:04:12">2008-09-09T10:04:12</time></a>
+</div>
+<div class="content"><p>I&#39;m a weirdo too, and now I can&#39;t quite work out how to get quotes around stuff I&#39;m quoting from a page. I assumed this would work:</p>
+<p><code>sha this quoted</code></p>
+<p>but it just adds the word &#39;quoted&#39; to the end of the quoted text, without quotes.</p>
+<p>Similarly:</p>
+<p><code>sha quoted this tagged test</code></p>
+<p>adds the words &#39;tagged&#39; and &#39;test&#39; to the end of the quoted text, though this time everything _is_ in quotes. (So it seems I can get quotes, but lose the ability to tag in the process.)</p>
+<p><code>sha this quoted text</code></p>
+<p>puts the word &#39;text&#39; in quotes, but drops the selected text...</p>
+<p>So, I give up - what&#39;s the secret to getting quotes around quoted text?!</p></div>
+</li>
+<li class="comment" id="comment-221088310">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://jackmottram.com/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=3a6aa11eff36e9d968119a6bb4cea05e&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://jackmottram.com/">Jack Mottram</a>
+</div>
+<a href="#comment-221088310" class="permalink"><time datetime="2008-09-09T10:11:59">2008-09-09T10:11:59</time></a>
+</div>
+<div class="content"><p>And of course I worked it out immediately after leaving that comment:</p>
+<p><code>sha tagged test monkey whatever quoted this</code></p>
+<p>works just fine (but feels the wrong way around to be tagging before quoting). And now I can&#39;t work out how to quote <i>and</i> note, so to speak. I tried adding</p>
+<p><code>noted These are my comments on what I just quoted</code></p>
+<p>but it doesn&#39;t work, it puts &#39;noted These are my &amp;c.&#39; inside the quotes...</p>
+<p>(I should say, despite all this moaning, I really have been enjoying using the command - it&#39;s very slick compared to the official add-on.)</p></div>
+</li>
+<li class="comment" id="comment-221088312">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2377f34a68801b861c3e54e1301f0dce&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.decafbad.com">l.m.orchard</a>
+</div>
+<a href="#comment-221088312" class="permalink"><time datetime="2008-09-09T14:30:06">2008-09-09T14:30:06</time></a>
+</div>
+<div class="content"><p>Huh, weird - that&#39;s exactly how I use the command:</p>
+<pre><code>sha quoted this tagged foo bar baz
+</code></pre>
+<p>One major difference, though, is that I&#39;m using a bleeding edge checkout of the Ubiquity extension.  I wonder if there&#39;s a bug in the parser for the last release.  :(  </p>
+<p>The definition of the modifiers is pretty simple, so there&#39;s not a whole lot of debugging I can do in the command itself.  Ugh.</p>
+<p>Oh, and also: RIght now it&#39;s either plain notes or quoted notes.  Presence of the quoted modifier clobbers plain notes.  But, how that I think about it I wonder if I should make those work together.</p></div>
+</li>
+<li class="comment" id="comment-221088314">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://FromTheGut.us"><img src="http://www.gravatar.com/avatar.php?gravatar_id=3be27db3db50892929ef892ab04621a4&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://FromTheGut.us">Frank</a>
+</div>
+<a href="#comment-221088314" class="permalink"><time datetime="2008-09-09T17:40:39">2008-09-09T17:40:39</time></a>
+</div>
+<div class="content"><p>Hello, </p>
+<p>I was wondering if there was any chance you could put together a post annotating/explaining the changes/additions to your improved Delicious command. In particular, some explanations of the code dealing with the statusbar would be helpful for us beginners. Thanks.</p>
+<p>Frank</p></div>
+</li>
+<li class="comment" id="comment-221088317">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=357a20e8c56e69d6f9734d23ef9517e8&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="">Tony</a>
+</div>
+<a href="#comment-221088317" class="permalink"><time datetime="2008-10-22T05:12:52">2008-10-22T05:12:52</time></a>
+</div>
+<div class="content"><p>Not a big fan of things adding stuff my status bar. :/ Ubiquity commands should just focus on Ubiquity, not XUL changes in Firefox.</p></div>
+</li>
+<li class="comment" id="comment-221088320">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2377f34a68801b861c3e54e1301f0dce&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://decafbad.com">l.m.orchard</a>
+</div>
+<a href="#comment-221088320" class="permalink"><time datetime="2008-10-29T16:04:28">2008-10-29T16:04:28</time></a>
+</div>
+<div class="content"><p>@Tony: Actually, commands are just one of the goals of Ubiquity.  Easier XUL hacking, ala Greasemonkey, is another goal, albeit under-explored so far.</p></div>
+</li>
+<li class="comment" id="comment-221088321">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://dy-verse.blogspot.com/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=40e05965a0c35ba44927a8e4b0546f9d&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://dy-verse.blogspot.com/">http://dy-verse.blogspot.com/</a>
+</div>
+<a href="#comment-221088321" class="permalink"><time datetime="2009-04-27T14:50:43">2009-04-27T14:50:43</time></a>
+</div>
+<div class="content"><p>Here is a share-to-delicious ubiquity command that automatically generates tags using YAHOO pipes. It also uses the text selected on the page as notes and the page title as the title of the article. </p>
+<p><a href="http://gist.github.com/26425">http://gist.github.com/26425</a></p></div>
+</li>
+<li class="comment" id="comment-221088327">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2377f34a68801b861c3e54e1301f0dce&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.decafbad.com">l.m.orchard</a>
+</div>
+<a href="#comment-221088327" class="permalink"><time datetime="2009-04-28T05:25:58">2009-04-28T05:25:58</time></a>
+</div>
+<div class="content"><p>Auto-generating tags via Yahoo Pipes is a neat trick, but it&#39;s unfortunately very much frowned upon by delicious.  Not that anything negative will happen to you, but it defeats the purpose of tagging altogether.</p>
+<p>Try searching for &quot;Lazy Sheep Bookmarklet&quot; and possibly read:</p>
+<p><a href="http://www.mail-archive.com/ydn-delicious@yahoogroups.com/msg00853.html">http://www.mail-archive.com/ydn-delicious@yahoogroups.com/msg00853.html</a></p>
+<p>In particular - &quot;People add metadata so that 1) they can find things and 2) other people can find things. You are removing the step in which people add the tag metadata, thus making the system less valuable to themselves and others.&quot;</p>
+<p>The key word repeated there is &quot;people&quot;</p></div>
+</li>
+</ul>
+</div>
+</section>
+</article>
+
+
+
+</section>
+
+      <footer>
+        <img id="growup" src="/uploads/growup.jpg">
+      </footer>
+
+    </section>
+
+    <section id="javascript">
+      <script src="/js/main.js"></script>
+      
+    </section>
+
+  </body>
+</html>

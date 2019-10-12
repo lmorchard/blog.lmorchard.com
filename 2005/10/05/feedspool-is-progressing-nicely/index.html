@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name="microtip" content="1Ad1VPQBBk7WhyJPfB6cAgZoBs3gUngurN" data-currency="btc">
+    <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen, projection" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>FeedSpool is progressing nicely - blog.lmorchard.com</title>
+    <meta name="author" content="" />
+
+    
+      <link href="/index.rss" rel="alternate"
+        title="blog.lmorchard.com" type="application/rss+xml" />
+    
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="blog.lmorchard.com"/>
+
+    
+  <meta property="og:title" content="FeedSpool is progressing nicely" />
+  <meta property="og:url" content="https://blog.lmorchard.com/2005/10/05/feedspool-is-progressing-nicely//" />
+  <meta property="og:image" content="http://www.decafbad.com/blog_attachments/miniagg-1-tm.jpg" />
+  
+
+
+
+  </head>
+  <body>
+
+    <section class="main">
+
+      <header>
+        <h1><a href="/">blog.lmorchard.com</a></h1>
+        <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+        <nav>
+
+          <label for="nav-trigger"></label>
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+          <ul>
+            <li><a href="http://lmorchard.com/">about me</a></li>
+            <li><a href="/archives.html">archives</a></li>
+          </ul>
+
+        </nav>
+      </header>
+
+      <section class="content">
+<article class="post tag-webdev tag-rss tag-syndication tag-atom tag-projects tag-aggregation tag-feedspool ">
+    <time title="2005-10-05T00:00:00.000Z" pubdate="2005-10-05T00:00:00.000Z">
+      <a href="/"><i class="fa fa-home"></i></a>
+      &raquo;
+      <a href="/2005">2005</a>
+      &raquo;
+      <a href="/2005/10">October</a>
+      &raquo;
+      <span>05</span>
+      &raquo;
+    </time>
+    <h1 class="title">FeedSpool is progressing nicely</h1>
+    
+      <ul class="tags">
+          
+              <li><a href="/tag/webdev">webdev</a>, </li>
+          
+              <li><a href="/tag/rss">rss</a>, </li>
+          
+              <li><a href="/tag/syndication">syndication</a>, </li>
+          
+              <li><a href="/tag/atom">atom</a>, </li>
+          
+              <li><a href="/tag/projects">projects</a>, </li>
+          
+              <li><a href="/tag/aggregation">aggregation</a>, </li>
+          
+              <li><a href="/tag/feedspool">feedspool</a></li>
+          
+      </ul>
+    
+    <section class="post-content"><p>I&#39;m at it again:  Last night, I got an initial stab at a <a href="http://decafbad.com/trac/wiki/FeedSpool/Plugins">plugin API</a> for <a href="http://decafbad.com/trac/wiki/FeedSpool">FeedSpool</a> working.</p>
+<p>The first thing I built was an <a href="http://decafbad.com/trac/browser/trunk/feedspool/plugins/poll_schedule_vary.py">auto-adjusting feed poll schedule plugin</a> which varies the time between feed polls based on whether there were new entries found in the latest poll.  It&#39;s kind of like an AIMD algorithm used in networking—I thank <a href="http://decafbad.com/blog/2003/09/29/dynamic-polling-freq-too#comment-1061">Gnomon</a> for the idea a few years back.</p>
+<p>The next thing I built was a <a href="http://decafbad.com/trac/browser/trunk/feedspool/plugins/miniagg/">quick plugin bundle I call <code>miniagg</code></a>.  If you&#39;d like a preview, I&#39;ve posted <a href="http://decafbad.com/2005/10/miniagg/news-20051005-152956.html">an HTML snapshot of what <code>miniagg</code> produces</a>.  It&#39;s a refinement and reworking of various aggregator UI pieces I&#39;ve had floating around since <a href="http://decafbad.com/trac/wiki/AmphetaOutlines">AmphetaOutlines</a>, only I think this is the simplest and cleanest I&#39;ve gotten it yet.  (CSS and unobtrusive JavaScript, hooray!)</p>
+<p>This only seems to work on Firefox and Safari—it&#39;s currently broken for MSIE, and I don&#39;t care enough to fix it yet.  (Something to do with multiple CSS classes, I believe.)  But, if you&#39;re unfortunate enough to be using that browser, here&#39;s a screen capture:  </p>
+<p><a href="http://www.decafbad.com/blog_attachments/miniagg-1.jpg" onclick="window.open('http://www.decafbad.com/blog_attachments/miniagg-1.jpg','popup','width=984,height=742,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.decafbad.com/blog_attachments/miniagg-1-tm.jpg" height="244" width="324" border="1" hspace="4" vspace="4" alt="Miniagg-1" /></a></p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221085179">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://thecrypto.org"><img src="http://www.gravatar.com/avatar.php?gravatar_id=55fe39199c1dbe9e342e527d0173c57f&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://thecrypto.org">Julian Krause</a>
+</div>
+<a href="#comment-221085179" class="permalink"><time datetime="2005-10-05T22:12:31">2005-10-05T22:12:31</time></a>
+</div>
+<div class="content"><p>I&#39;ve been using a program called <a href="http://offog.org/code/rawdog.html" rel="nofollow">Rawdog</a> for a while as my feed reader. Miniagg looks very similar to it. I&#39;ve been looking for a replacement as he is not planning to support Atom 1.0 since <a href="http://feedparser.org" rel="nofollow">feedparser</a> has gone unmaintained. The HTML preview looks really good, I&#39;m importing my subscriptions right now ;)</p></div>
+</li>
+<li class="comment" id="comment-221085180">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2377f34a68801b861c3e54e1301f0dce&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.decafbad.com">l.m.orchard</a>
+</div>
+<a href="#comment-221085180" class="permalink"><time datetime="2005-10-05T23:25:03">2005-10-05T23:25:03</time></a>
+</div>
+<div class="content"><p>Alas, this miniagg uses feedparser also.  However, I was thinking of patching / finding someone who&#39;d patched feedparser for Atom 1.0—or replacing it with a new, maybe less liberal parser of my own, since FeedSpool is actually not all that liberal (in that it requires valid XML, anyway).</p></div>
+</li>
+<li class="comment" id="comment-221085182">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://plasmasturm.org/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=e17949267bbfe21a0fadf1bbf00592b4&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://plasmasturm.org/">Aristotle Pagaltzis</a>
+</div>
+<a href="#comment-221085182" class="permalink"><time datetime="2005-10-06T08:48:52">2005-10-06T08:48:52</time></a>
+</div>
+<div class="content"><p><a href="http://fucoder.com/2005/08/feedparser-atom-10-patch/" rel="nofollow">FeedParser Atom 1.0 support patch</a>.</p></div>
+</li>
+<li class="comment" id="comment-221085183">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=9e44fa55e7078bff7c3dab8404913928&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="">Dan V.</a>
+</div>
+<a href="#comment-221085183" class="permalink"><time datetime="2005-10-26T19:16:09">2005-10-26T19:16:09</time></a>
+</div>
+<div class="content"><p>The feedparser page says that a prerelease v4.0 can be downloaded that includes support for Atom 1.0 feeds.  Beats writing your own :)</p></div>
+</li>
+</ul>
+</div>
+</section>
+</article>
+
+
+
+</section>
+
+      <footer>
+        <img id="growup" src="/uploads/growup.jpg">
+      </footer>
+
+    </section>
+
+    <section id="javascript">
+      <script src="/js/main.js"></script>
+      
+    </section>
+
+  </body>
+</html>

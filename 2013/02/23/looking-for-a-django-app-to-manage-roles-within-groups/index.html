@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name="microtip" content="1Ad1VPQBBk7WhyJPfB6cAgZoBs3gUngurN" data-currency="btc">
+    <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen, projection" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Looking for a Django app to manage Roles within Groups - blog.lmorchard.com</title>
+    <meta name="author" content="" />
+
+    
+      <link href="/index.rss" rel="alternate"
+        title="blog.lmorchard.com" type="application/rss+xml" />
+    
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="blog.lmorchard.com"/>
+
+    
+  <meta property="og:title" content="Looking for a Django app to manage Roles within Groups" />
+  <meta property="og:url" content="https://blog.lmorchard.com/2013/02/23/looking-for-a-django-app-to-manage-roles-within-groups//" />
+  <meta property="og:image" content="http://images2.wikia.nocookie.net/__cb20091106224144/wowwiki/images/thumb/3/3e/Guild_list_%28interface%29.png/450px-Guild_list_%28interface%29.png" />
+  <meta property="og:description" content="I want to add some team-based features to django-badger. I was hoping that someone had already built a reusable app to do most of the work for me. This happens quite a lot when I&amp;#x2019;m working with Django. Unfortunately, I haven&amp;#x2019;t quite found what I&amp;#x2019;m looking for yet. Consider this blog post either the product of my thinking out loud toward a rough spec, or a long-winded lazyweb search query. " />
+
+
+
+  </head>
+  <body>
+
+    <section class="main">
+
+      <header>
+        <h1><a href="/">blog.lmorchard.com</a></h1>
+        <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+        <nav>
+
+          <label for="nav-trigger"></label>
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+          <ul>
+            <li><a href="http://lmorchard.com/">about me</a></li>
+            <li><a href="/archives.html">archives</a></li>
+          </ul>
+
+        </nav>
+      </header>
+
+      <section class="content">
+<article class="post tag-badger tag-badges tag-django tag-mozilla tag-webdev ">
+    <time title="2013-02-23T00:00:00.000Z" pubdate="2013-02-23T00:00:00.000Z">
+      <a href="/"><i class="fa fa-home"></i></a>
+      &raquo;
+      <a href="/2013">2013</a>
+      &raquo;
+      <a href="/2013/02">February</a>
+      &raquo;
+      <span>23</span>
+      &raquo;
+    </time>
+    <h1 class="title">Looking for a Django app to manage Roles within Groups</h1>
+    
+      <ul class="tags">
+          
+              <li><a href="/tag/badger">badger</a>, </li>
+          
+              <li><a href="/tag/badges">badges</a>, </li>
+          
+              <li><a href="/tag/django">django</a>, </li>
+          
+              <li><a href="/tag/mozilla">mozilla</a>, </li>
+          
+              <li><a href="/tag/webdev">webdev</a></li>
+          
+      </ul>
+    
+    <section class="post-content"><p>I want to add some team-based features to <a href="https://github.com/lmorchard/django-badger">django-badger</a>. I was hoping that someone had already built a reusable app to do most of the work for me. This happens quite a lot when I&#8217;m working with Django. Unfortunately, I haven&#8217;t <em>quite</em> found what I&#8217;m looking for yet. Consider this blog post either the product of my thinking out loud toward a rough spec, or a long-winded lazyweb search query.</p>
+<!--more-->
+<p>First, what do I mean by a &#8220;team&#8221;? Well, a familiar example is <a href="http://www.wowwiki.com/Guild_list_%28interface%29">a guild in World of Warcraft</a>: A group of people with access to shared resources, that access controlled by permissions bundled into ranks assigned to each member of the group.</p>
+<div style="width: 460px" class="wp-caption aligncenter">
+  <a href="http://www.wowwiki.com/Guild_list_%28interface%29"><img alt="Guild management in WoW" src="http://images2.wikia.nocookie.net/__cb20091106224144/wowwiki/images/thumb/3/3e/Guild_list_%28interface%29.png/450px-Guild_list_%28interface%29.png" width="450" height="324" /></a><p class="wp-caption-text">
+    Guild management in WoW
+  </p>
+</div>
+
+<p>While Django does come with Users, Groups, &amp; Permissions, the concept of Roles within Groups to which Permissions can be attached seems missing.</p>
+<p>If I try to extend the Django building blocks, maybe I could represent a &#8220;Team&#8221; as a bundle of Groups and treat those Groups as Roles? Or, maybe Groups should just become hierarchical &#8211; make it <a href="http://en.wikipedia.org/wiki/Turtles_all_the_way_down">turtles all the way down</a>. (I really like that expression, in case you can&#8217;t tell.)</p>
+<p>With respect to that last point, I found <a href="https://github.com/rasca/django-hierarchical-auth">django-hierarchical-auth</a>. That seems like a good lead. But, I&#8217;m having trouble finding other projects using it. There&#8217;s <a href="http://www.feincms.org/">feinCMS</a> &#8211; I&#8217;ve never heard of that before, but that&#8217;s more my lack than theirs.</p>
+<p>In the case of <a href="https://github.com/lmorchard/django-badger">django-badger</a>, I&#8217;d like to enable users to start teams, create badges that belong to the team, and allow other team members varying levels of control over those badges (e.g. creating, editing, awarding, approving nominations, etc).</p>
+<p>So, there&#8217;s the matter of user interface &#8211; I&#8217;d like any user (not just site-wide admins) to be able to:</p>
+<ul>
+<li>create a team;</li>
+<li>manage team profile information;</li>
+<li>manage &amp; grant roles based on a canned selection of permissions;</li>
+<li>invite other users as members, remove members;</li>
+<li>accept team invitations, request to join a team, remove oneself from a team.</li>
+</ul>
+<p>The <a href="https://github.com/rasca/django-hierarchical-auth">django-hierarchical-auth</a> app comes with no views; it&#8217;s just a backend utility. So, if I grab that app, I&#8217;ll still have to build the UI and supporting models myself (i.e. for team profiles and permission sets).</p>
+<p>So, that leaves me wondering if there&#8217;s some value in me building a reusable app atop <a href="https://github.com/rasca/django-hierarchical-auth">django-hierarchical-auth</a> that basically implements what that WoW guild management interface offers? Ultimately, that&#8217;s what I&#8217;m really hoping someone else has built for me.</p>
+</section>
+</article>
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_needs_loading = true;
+        var disqus_url = 'https://blog.lmorchard.com/2013/02/23/looking-for-a-django-app-to-manage-roles-within-groups/';
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+</section>
+
+      <footer>
+        <img id="growup" src="/uploads/growup.jpg">
+      </footer>
+
+    </section>
+
+    <section id="javascript">
+      <script src="/js/main.js"></script>
+      
+    </section>
+
+  </body>
+</html>

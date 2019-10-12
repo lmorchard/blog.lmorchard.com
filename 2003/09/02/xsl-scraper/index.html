@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name="microtip" content="1Ad1VPQBBk7WhyJPfB6cAgZoBs3gUngurN" data-currency="btc">
+    <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen, projection" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Using web services and XSLT to scrape RSS from HTML - blog.lmorchard.com</title>
+    <meta name="author" content="" />
+
+    
+      <link href="/index.rss" rel="alternate"
+        title="blog.lmorchard.com" type="application/rss+xml" />
+    
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="blog.lmorchard.com"/>
+
+    
+  <meta property="og:title" content="Using web services and XSLT to scrape RSS from HTML" />
+  <meta property="og:url" content="https://blog.lmorchard.com/2003/09/02/xsl-scraper//" />
+  <meta property="og:image" content="http://www.decafbad.com/images/xml.gif" />
+  <meta property="og:description" content="  After tinkering a bit with web services and XSLT-based scraping last week for generating RSS from HTML, I ripped out some work I was doing for a Java-based scraper I&amp;apos;d started working on last year and threw together a kit of XSLT files that does most everything I was trying to do.  I&amp;apos;m calling this kit XslScraper, and there&amp;apos;s further blurbage and download links avaiable in the Wiki.  Check it out.  I&amp;apos;ve got shell scripts to run the stuff from as a cron job, and CGI scripts to run it all from web services.  For quick gratification, check out these feeds:    - The Nation (using Bill Humphries&amp;apos; XSL)     - KurzweilAI.net    - J-List -- You&amp;apos;ve got a friend in Japan!    - New JOBS at the University of Michigan (By Job Family)    " />
+
+
+
+  </head>
+  <body>
+
+    <section class="main">
+
+      <header>
+        <h1><a href="/">blog.lmorchard.com</a></h1>
+        <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+        <nav>
+
+          <label for="nav-trigger"></label>
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+          <ul>
+            <li><a href="http://lmorchard.com/">about me</a></li>
+            <li><a href="/archives.html">archives</a></li>
+          </ul>
+
+        </nav>
+      </header>
+
+      <section class="content">
+<article class="post ">
+    <time title="2003-09-02T00:00:00.000Z" pubdate="2003-09-02T00:00:00.000Z">
+      <a href="/"><i class="fa fa-home"></i></a>
+      &raquo;
+      <a href="/2003">2003</a>
+      &raquo;
+      <a href="/2003/09">September</a>
+      &raquo;
+      <span>02</span>
+      &raquo;
+    </time>
+    <h1 class="title">Using web services and XSLT to scrape RSS from HTML</h1>
+    
+    <section class="post-content"><p><br /><br /></p>
+<p><p>
+After tinkering a bit with
+<a href="http://www.decafbad.com/blog/geek/rss_scrape_urls2.html" target="_top">web services and XSLT-based scraping</a>
+last week for generating <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> from HTML, I ripped out some work I was
+doing for <a href="http://www.decafbad.com/cvs/XPathScraper/" target="_top">a Java-based scraper</a> I&#39;d started
+working on <a href="http://www.decafbad.com/blog/tech/old/ooobca.html" target="_top">last year</a> and
+threw together a kit of XSLT files that does most everything I was trying
+to do.
+</p><p>
+I&#39;m calling this kit <a href="http://www.decafbad.com/twiki/bin/view/Main/XslScraper">XslScraper</a>, and there&#39;s further blurbage and download links
+avaiable in the Wiki.  Check it out.  I&#39;ve got shell scripts to run the stuff
+from as a cron job, and CGI scripts to run it all from web services.
+</p><p>
+For quick gratification, check out these feeds:</p>
+<p><ul></p>
+<p><li> <a href="http://www.decafbad.com/2003/08/tidyxslt?xsl=http%3A%2F%2Fwww.whump.com%2Fdropbox%2Fnationrss%2Fnation.xsl&amp;doc=http%3A%2F%2Fwww.thenation.com"><img src="http://www.decafbad.com/images/xml.gif" border="0" /></a> - <a href="http://www.thenation.com">The Nation</a> (using <a href="http://www.whump.com/moreLikeThis/date/21/08/2003" target="_top">Bill Humphries&#39; XSL</a>) 
+</li></p>
+<p><li> <a href="http://www.decafbad.com/2003/08/tidyxslt?xsl=http%3A%2F%2Fwww.decafbad.com%2F2003%2F08%2Fxsl_scraper%2Fscrapers%2Fkurzweilai.xsl&amp;doc=http%3A%2F%2Fwww.kurzweilai.net%2Findex.html%3Fflash%3D1"><img src="http://www.decafbad.com/images/xml.gif" border="0" /></a> - <a href="http://www.kurzweilai.net/index.html?flash=1">KurzweilAI.net</a>
+</li></p>
+<p><li> <a href="http://www.decafbad.com/2003/08/tidyxslt?xsl=http%3A%2F%2Fwww.decafbad.com%2F2003%2F08%2Fxsl_scraper%2Fscrapers%2Fjlist.xsl&amp;doc=http%3A%2F%2Fwww.jlist.com%2FUPDATES%2FPG%2F7%2F"><img src="http://www.decafbad.com/images/xml.gif" border="0" /></a> - <a href="http://www.jlist.com/">J-List -- You&#39;ve got a friend in Japan!</a>
+</li></p>
+<p><li> <a href="http://www.decafbad.com/2003/08/tidyxslt?xsl=http%3A%2F%2Fwww.decafbad.com%2F2003%2F08%2Fxsl_scraper%2Fscrapers%2Fumich-jobs.xsl&amp;doc=http%3A%2F%2Fwebsvcs.itd.umich.edu%2Fjobnet%2Fnew_postings_byjobfamily.php"><img src="http://www.decafbad.com/images/xml.gif" border="0" /></a> - <a href="http://websvcs.itd.umich.edu/jobnet/">New JOBS at the University of Michigan (By Job Family)</a>
+</li>
+</ul>
+</p>
+<!--more-->
+shortname=xsl_scraper</p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221082688">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://patrick.lioi.net"><img src="http://www.gravatar.com/avatar.php?gravatar_id=0af1f52a082bc92d355d3fc9b29b4c2e&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://patrick.lioi.net">Patrick Lioi</a>
+</div>
+<a href="#comment-221082688" class="permalink"><time datetime="2003-09-03T19:03:03">2003-09-03T19:03:03</time></a>
+</div>
+<div class="content">The KurzweilAI.net feed is empty.</div>
+</li>
+</ul>
+</div>
+</section>
+</article>
+
+
+
+</section>
+
+      <footer>
+        <img id="growup" src="/uploads/growup.jpg">
+      </footer>
+
+    </section>
+
+    <section id="javascript">
+      <script src="/js/main.js"></script>
+      
+    </section>
+
+  </body>
+</html>

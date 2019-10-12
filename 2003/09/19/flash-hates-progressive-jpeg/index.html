@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name="microtip" content="1Ad1VPQBBk7WhyJPfB6cAgZoBs3gUngurN" data-currency="btc">
+    <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen, projection" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Flash MX Hates Progressive JPEGs - blog.lmorchard.com</title>
+    <meta name="author" content="" />
+
+    
+      <link href="/index.rss" rel="alternate"
+        title="blog.lmorchard.com" type="application/rss+xml" />
+    
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="blog.lmorchard.com"/>
+
+    
+  <meta property="og:title" content="Flash MX Hates Progressive JPEGs" />
+  <meta property="og:url" content="https://blog.lmorchard.com/2003/09/19/flash-hates-progressive-jpeg//" />
+  
+  <meta property="og:description" content=" Okay, I may be the last person fiddling with Flash to discover this, but here&amp;apos;s what I&amp;apos;ve learned today:   Flash MX hates progressive JPEGs.   From the above: &quot;The Macromedia Flash Player does not have a decompressor for progressive JPEG images, therefore files of this type cannot be loaded dynamically and will not display when using the loadMovie action.&quot;   This would have been nice to know, hours ago.  Or maybe fixed in the past year or so since the above linked tech note.  See, although I&amp;apos;m a Jack of a lot of Trades, I don&amp;apos;t really pay attention much to things like JPEGs and their progressive natures.  It wasn&amp;apos;t until I finally started randomly clicking buttons on and off in Macromedia Fireworks while exporting a test JPEG that I finally narrowed down the problem.   This was after a day worth of examining ActionScript, XML data, HTTP headers, and a mess of other random dead ends.  And a lot of last-ditch random and exhaustive twiddling of checkboxes and options.   Then, once I had the words I wouldn&amp;apos;t have had unless I already knew what my problem was, a Google search for &quot;flash progressive jpeg&quot; got me all kinds of info.   Problem is, the JPEGs supplied to the particular Flash app on which I&amp;apos;m hacking come from a random assortment of people working through a content management system on the backend.  They upload them with a form in their browser, and this Flash app gets a URL to the image via an XML doc it loads.  Me, I&amp;apos;m probably in bed when this happens.  I&amp;apos;d love to have tested every one... er, rather, no I wouldn&amp;apos;t.   So... Now I just have to figure out how to get all these people to start making sure that their JPEGs aren&amp;apos;t progressive.  Hmph.   I can only hope that this message gets indexed and maybe provides more triangulation for some other poor sucker in the future.  " />
+
+
+
+  </head>
+  <body>
+
+    <section class="main">
+
+      <header>
+        <h1><a href="/">blog.lmorchard.com</a></h1>
+        <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+        <nav>
+
+          <label for="nav-trigger"></label>
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+          <ul>
+            <li><a href="http://lmorchard.com/">about me</a></li>
+            <li><a href="/archives.html">archives</a></li>
+          </ul>
+
+        </nav>
+      </header>
+
+      <section class="content">
+<article class="post ">
+    <time title="2003-09-19T00:00:00.000Z" pubdate="2003-09-19T00:00:00.000Z">
+      <a href="/"><i class="fa fa-home"></i></a>
+      &raquo;
+      <a href="/2003">2003</a>
+      &raquo;
+      <a href="/2003/09">September</a>
+      &raquo;
+      <span>19</span>
+      &raquo;
+    </time>
+    <h1 class="title">Flash MX Hates Progressive JPEGs</h1>
+    
+    <section class="post-content"><p><p>
+Okay, I may be the last person fiddling with Flash to
+discover this, but here&#39;s what I&#39;ve learned today:
+</p></p>
+<p><p>
+<a href="http://www.macromedia.com/support/flash/ts/documents/cant_load_jpg.htm"><b>Flash MX hates progressive JPEGs.</b></a>
+</p></p>
+<p><p>
+From the above: &quot;<i>The Macromedia Flash Player does not have a
+decompressor for progressive JPEG images, therefore files of this type
+cannot be loaded dynamically and will not display when using the
+loadMovie action.</i>&quot;
+</p></p>
+<p><p>
+This would have been nice to know, hours ago.  Or maybe fixed in
+the past year or so since the above linked tech note.  See, although
+I&#39;m a Jack of a lot of Trades, I don&#39;t really pay attention much
+to things like JPEGs and their progressive natures.  It wasn&#39;t
+until I finally started randomly clicking buttons on and off in
+Macromedia Fireworks while exporting a test JPEG that I finally
+narrowed down the problem.
+</p></p>
+<p><p>
+This was after a day worth of examining ActionScript, XML data,
+HTTP headers, and a mess of other random dead ends.  And a lot of
+last-ditch random and exhaustive twiddling of checkboxes and
+options.
+</p></p>
+<p><p>
+<b>Then</b>, once I had the words I
+wouldn&#39;t have had unless I already knew what my problem was, a Google search for
+&quot;<a href="http://www.google.com/search?q=flash+progressive+jpeg&ie=UTF-8&oe=UTF-8">flash progressive jpeg</a>&quot;
+got me all kinds of info.
+</p></p>
+<p><p>
+Problem is, the JPEGs supplied to the particular Flash app on which
+I&#39;m hacking come from a random assortment of people working through
+a content management system on the backend.  They upload them
+with a form in their browser, and this Flash app gets a URL to the
+image via an XML doc it loads.  Me, I&#39;m probably in bed when this
+happens.  I&#39;d love to have tested every one... er, rather, no I
+wouldn&#39;t.
+</p></p>
+<p><p>
+So... Now I just have to figure out how to get all these people
+to start making sure that their JPEGs aren&#39;t progressive.  Hmph.
+</p></p>
+<p><p>
+I can only hope that this message gets indexed and maybe provides
+more triangulation for some other poor sucker in the future.
+</p>
+<!--more-->
+shortname=flash_hates_progressive_jpeg</p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221090485">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://aaronland.net"><img src="http://www.gravatar.com/avatar.php?gravatar_id=9b704dff33489e0ba50f7a6364a8bf5a&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://aaronland.net">Aaron of Montreal</a>
+</div>
+<a href="#comment-221090485" class="permalink"><time datetime="2003-09-19T15:01:02">2003-09-19T15:01:02</time></a>
+</div>
+<div class="content">FYI : 
+<a href="http://studio.imagemagick.org/pipermail/magick-users/2003-May/008922.html">http://studio.imagemagick.org/pipermail/magick-users/2003-May/008922.html</a></div>
+</li>
+<li class="comment" id="comment-221090486">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.m14m.net/bloglet.php"><img src="http://www.gravatar.com/avatar.php?gravatar_id=4a798b64b3d34d2377959729761f68b2&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.m14m.net/bloglet.php">Moss Collum</a>
+</div>
+<a href="#comment-221090486" class="permalink"><time datetime="2003-09-19T16:02:38">2003-09-19T16:02:38</time></a>
+</div>
+<div class="content">Wow... and here&#39;s me just embarking on a project in Flash that&#39;s going to have to deal with JPEGs uploaded by random people on the web. Thank you, I think you&#39;ve just saved me a lot of trouble.</div>
+</li>
+<li class="comment" id="comment-221090488">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://dougal.gunters.org/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=9f2c8c704e6bf55bc51399157c5283a9&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://dougal.gunters.org/">Dougal Campbell</a>
+</div>
+<a href="#comment-221090488" class="permalink"><time datetime="2003-09-19T16:43:43">2003-09-19T16:43:43</time></a>
+</div>
+<div class="content">And of course, there&#39;s always the GD library, too, which may or may not be easier to install than ImageMagick. Many PHP environments already have it, in case that helps. Yaarrr!
+Just gdImageCreateFromJpeg, gdImageInterlace, then gdImageJpeg, and you can get a non-interlaced version of your image.</div>
+</li>
+<li class="comment" id="comment-221090489">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://admin.support.journurl.com/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=4df556273eae91df768e9af6e4efdfcc&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://admin.support.journurl.com/">Roger Benningfield</a>
+</div>
+<a href="#comment-221090489" class="permalink"><time datetime="2003-09-20T13:21:31">2003-09-20T13:21:31</time></a>
+</div>
+<div class="content">Just another option I stumbled across:
+<a href="http://www.img2swf.com/about.htm">http://www.img2swf.com/about.htm</a></div>
+</li>
+</ul>
+</div>
+</section>
+</article>
+
+
+
+</section>
+
+      <footer>
+        <img id="growup" src="/uploads/growup.jpg">
+      </footer>
+
+    </section>
+
+    <section id="javascript">
+      <script src="/js/main.js"></script>
+      
+    </section>
+
+  </body>
+</html>

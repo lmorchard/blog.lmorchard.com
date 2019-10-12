@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name="microtip" content="1Ad1VPQBBk7WhyJPfB6cAgZoBs3gUngurN" data-currency="btc">
+    <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen, projection" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Early dbagg3 demo is alive and kicking - blog.lmorchard.com</title>
+    <meta name="author" content="" />
+
+    
+      <link href="/index.rss" rel="alternate"
+        title="blog.lmorchard.com" type="application/rss+xml" />
+    
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="blog.lmorchard.com"/>
+
+    
+  <meta property="og:title" content="Early dbagg3 demo is alive and kicking" />
+  <meta property="og:url" content="https://blog.lmorchard.com/2004/09/13/dbagg3alive//" />
+  
+  <meta property="og:description" content="Got some very good work in this weekend on switching servers and getting dbagg3 in some semblance of working order somewhere other than on my overworked and decidedly non-publicly-demonstrable laptop. This stuff is so this side of premature, that I&amp;apos;m probably about to cause JohnCompanies to send hit-men out to cancel me, along with my hosting account (have I said that I really appreciate the help so far?).  But I just have to get this out: I&amp;apos;m easily excited by shiny code and gadgets, but it&amp;apos;s so much easier to get excited when I can see something in working condition before taking a screwdriver to it.  So... remember when I mentioned all those URLs?  They&amp;apos;re working out nicely. First, check out a simple two-pane view of news items, ala Bloglines:  http://feeds.decafbad.com/api/users/demo.xml?xsl=xsl/two-pane/index.xsl&amp;content-type=text/html  Taking this apart, you can see:  A user account: http://feeds.decafbad.com/api/users/demo.xml Some XSL: http://feeds.decafbad.com/xsl/two-pane/index.xsl ... and a specified content type (text/html)  If your curiosity is piqued by this, view source and pay attention to link URLs.  It&amp;apos;s more of the same:  XML produced by a REST API, passed through XSL, delivered as HTML. Here, take a look at another view on this demo user&amp;apos;s aggregated items:  http://feeds.decafbad.com/api/users/demo/subscriptions/now-12.xml?xsl=xsl/outliner/index.xsl&amp;content-type=text/html  Unfortunately, this only seems to be working decently with Firefox and Safari.  MSIE seems to be balking at the dynamic stuff, though I&amp;apos;ve had it working there in a previous incarnation of this code.  So hopefully this will be fixed soon. At any rate, what you should see is a single-pane outliner-style display of feed entries.  This is the style of aggregator UI I&amp;apos;ve been using for almost 3 years now.  Disclosure triangles open entries up to show summaries and further content.  &amp;#x201C;[seen]&amp;#x201D; links hide the entries, while &amp;#x201C;[queue]&amp;#x201D; hides an entry while tossing it into a queue for viewing later. Speaking of that, you can see what&amp;apos;s in the queue right now:  http://feeds.decafbad.com/api/users/demo/subscriptions/now-12.xml?xsl=xsl/full.xsl&amp;content-type=text/html&amp;show_queued=1  Here is a display of queued entries, with another stylesheet applied that shows everything in a flat and open blog-like template.  It&amp;apos;s not reverse-chronological, but that&amp;apos;s not hard to accomplish with a flag or a tweak to an &lt;xsl:sort&gt; tag.   So that&amp;apos;s just the start of things.  Remember when I was rambling on about XML storage and query?  A URL like this is one product of that:  http://feeds.decafbad.com/api/users/demo/subscriptions/now-12.xml?xsl=xsl/full.xsl&amp;content-type=text/html&amp;entry_xpath=//entry/title[contains(text(),&amp;apos;OS%20X&amp;apos;)]  This should show you a flat listing of all entries whose titles contain &amp;#x201C;OS X&amp;#x201D;.  This is far from perfect, but it&amp;apos;s very exciting to me-- it&amp;apos;s got a lot of promise, stuff that first caught my eye when I saw Jon Udell playing awhile back. Now, something that you might not notice until doing a bit more digging, is that all these attributes like &amp;#x201C;seen&amp;#x201D; and &amp;#x201C;query&amp;#x201D; are annotations made by the user on entries.  If you take a peek at some of the Javascript under the hood, you might notice some XmlHTTPRequest code going on.  To mark something as &amp;#x201C;seen&amp;#x201D; or &amp;#x201C;queued&amp;#x201D;, I POST XML to a URL like this:  http://feeds.decafbad.com/api/users/demo/subscriptions/638/entries/60567/notes/  The upshot of this is that these attributes are not limited to &amp;#x201C;seen&amp;#x201D; or &amp;#x201C;queued&amp;#x201D; flags-- in fact, these annotations can (well, in theory) be any pairing of arbitrary XML and a name.  This annotation then gets injected into the entry, when viewed by the user who owns the annotation, like so:  http://feeds.decafbad.com/api/users/demo/subscriptions/638/entries/60567.xml  In fact, you could invent a new annotation called &amp;apos;tags&amp;apos; and filter for entries with this annotation with a URL like this:  http://feeds.decafbad.com/api/users/demo/subscriptions/now-12.xml?xsl=xsl/full.xsl&amp;content-type=text/html&amp;entry\_notes\_xpath=//dbagg3:note[@name=&amp;apos;tags&amp;apos; and contains(text(),&amp;apos;#food#&amp;apos;) and contains(text(),&amp;apos;#odd#&amp;apos;)]  Eventually, what I&amp;apos;d really like to see this start doing is something akin to del.icio.us-style tagging while you&amp;apos;re reading.  Then, you can have public queries that pull feeds based on your (and others&amp;apos;) tags and spit things back out as feeds again with the proper XSL stylings. So at this point, it&amp;apos;s all URLs and barely working HTML, but it&amp;apos;s exciting to me at least.  And it&amp;apos;s dogfood for me, since I&amp;apos;m using this crud to get my daily (hourly?) fix.  Pretty soon, I&amp;apos;ll be diving into wrapping more of a proper usable web app around this, with user management and stuff that works in MSIE.  Until then, maybe someone else will see this and catch a buzz from it. Stay tuned. " />
+
+
+
+  </head>
+  <body>
+
+    <section class="main">
+
+      <header>
+        <h1><a href="/">blog.lmorchard.com</a></h1>
+        <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+        <nav>
+
+          <label for="nav-trigger"></label>
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+          <ul>
+            <li><a href="http://lmorchard.com/">about me</a></li>
+            <li><a href="/archives.html">archives</a></li>
+          </ul>
+
+        </nav>
+      </header>
+
+      <section class="content">
+<article class="post tag-syndication tag-xml ">
+    <time title="2004-09-13T00:00:00.000Z" pubdate="2004-09-13T00:00:00.000Z">
+      <a href="/"><i class="fa fa-home"></i></a>
+      &raquo;
+      <a href="/2004">2004</a>
+      &raquo;
+      <a href="/2004/09">September</a>
+      &raquo;
+      <span>13</span>
+      &raquo;
+    </time>
+    <h1 class="title">Early dbagg3 demo is alive and kicking</h1>
+    
+      <ul class="tags">
+          
+              <li><a href="/tag/syndication">syndication</a>, </li>
+          
+              <li><a href="/tag/xml">xml</a></li>
+          
+      </ul>
+    
+    <section class="post-content"><p>Got some very good work in this weekend on switching servers and getting <a href="http://www.decafbad.com/cvs/dbagg3/"><code>dbagg3</code></a> in some semblance of working order somewhere other than on my overworked and decidedly non-publicly-demonstrable laptop.</p>
+<p>This stuff is so this side of premature, that I&#39;m probably about to cause <a href="http://www.johncompanies.com">JohnCompanies</a> to send hit-men out to cancel <strong>me</strong>, along with my hosting account (have I said that I <em>really</em> appreciate the help so far?).  But I just have to get this out: I&#39;m easily excited by shiny code and gadgets, but it&#39;s so much easier to get excited when I can see something in working condition before taking a screwdriver to it.  So... remember <a href="http://www.decafbad.com/blog/2004/08/30/dbagg3_makingprogress">when I mentioned all those URLs</a>?  They&#39;re working out nicely.</p>
+<p>First, check out a simple two-pane view of news items, ala <a href="http://www.bloglines.com/">Bloglines</a>:</p>
+<ul>
+<li><a href="http://feeds.decafbad.com/api/users/demo.xml?xsl=xsl/two-pane/index.xsl&#38;content-type=text/html" target="new">http://feeds.decafbad.com/api/users/demo.xml?xsl=xsl/two-pane/index.xsl&#38;content-type=text/html</a></li>
+</ul>
+<p>Taking this apart, you can see:</p>
+<ul>
+<li>A user account: <a href="http://feeds.decafbad.com/api/users/demo.xml">http://feeds.decafbad.com/api/users/demo.xml</a></li>
+<li>Some XSL: <a href="http://feeds.decafbad.com/xsl/two-pane/index.xsl">http://feeds.decafbad.com/xsl/two-pane/index.xsl</a></li>
+<li>... and a specified content type (text/html)</li>
+</ul>
+<p>If your curiosity is piqued by this, view source and pay attention to link URLs.  It&#39;s more of the same:  XML produced by a REST API, passed through XSL, delivered as HTML.</p>
+<p>Here, take a look at another view on this demo user&#39;s aggregated items:</p>
+<ul>
+<li><a href="http://feeds.decafbad.com/api/users/demo/subscriptions/now-12.xml?xsl=xsl/outliner/index.xsl&#38;content-type=text/html" target="new">http://feeds.decafbad.com/api/users/demo/subscriptions/now-12.xml?xsl=xsl/outliner/index.xsl&#38;content-type=text/html</a></li>
+</ul>
+<p>Unfortunately, this only seems to be working decently with Firefox and Safari.  MSIE seems to be balking at the dynamic stuff, though I&#39;ve had it working there in a previous incarnation of this code.  So hopefully this will be fixed soon.</p>
+<p>At any rate, what you should see is a single-pane outliner-style display of feed entries.  This is the style of aggregator UI I&#39;ve been using for almost 3 years now.  Disclosure triangles open entries up to show summaries and further content.  &#8220;[seen]&#8221; links hide the entries, while &#8220;[queue]&#8221; hides an entry while tossing it into a queue for viewing later.</p>
+<p>Speaking of that, you can see what&#39;s in the queue right now:</p>
+<ul>
+<li><a href="http://feeds.decafbad.com/api/users/demo/subscriptions/now-12.xml?xsl=xsl/full.xsl&#38;content-type=text/html&#38;show_queued=1" target="new">http://feeds.decafbad.com/api/users/demo/subscriptions/now-12.xml?xsl=xsl/full.xsl&#38;content-type=text/html&#38;show_queued=1</a></li>
+</ul>
+<p>Here is a display of queued entries, with another stylesheet applied that shows everything in a flat and open blog-like template.  It&#39;s not reverse-chronological, but that&#39;s not hard to accomplish with a flag or a tweak to an &lt;xsl:sort&gt; tag.  </p>
+<p>So that&#39;s just the start of things.  Remember <a href="http://www.decafbad.com/blog/2004/08/23/slicing_and_dicing_to_make_atom_soup_in_dbagg3">when I was rambling on about XML storage and query</a>?  A URL like this is one product of that:</p>
+<ul>
+<li><a href="http://feeds.decafbad.com/api/users/demo/subscriptions/now-12.xml?xsl=xsl/full.xsl&#38;content-type=text/html&#38;entry_xpath=//entry/title[contains(text(),'OS%20X')]" target="new">http://feeds.decafbad.com/api/users/demo/subscriptions/now-12.xml?xsl=xsl/full.xsl&#38;content-type=text/html&#38;entry_xpath=//entry/title[contains(text(),&#39;OS%20X&#39;)]</a></li>
+</ul>
+<p>This should show you a flat listing of all entries whose titles contain &#8220;OS X&#8221;.  This is far from perfect, but it&#39;s very exciting to me-- it&#39;s got a lot of promise, stuff that first caught my eye when I saw <a href="http://webservices.xml.com/pub/a/ws/2003/04/15/semanticblog.html">Jon Udell playing</a> <a href="http://webservices.xml.com/pub/a/ws/2003/06/10/xpathsearch.html?page=1">awhile back</a>.</p>
+<p>Now, something that you might not notice until doing a bit more digging, is that all these attributes like &#8220;seen&#8221; and &#8220;query&#8221; are annotations made by the user on entries.  If you take a peek at <a href="http://feeds.decafbad.com/js/agg.js">some of the Javascript</a> under the hood, you might notice some XmlHTTPRequest code going on.  To mark something as &#8220;seen&#8221; or &#8220;queued&#8221;, I POST XML to a URL like this:</p>
+<ul>
+<li><a href="http://feeds.decafbad.com/api/users/demo/subscriptions/638/entries/60567/notes/">http://feeds.decafbad.com/api/users/demo/subscriptions/638/entries/60567/notes/</a></li>
+</ul>
+<p>The upshot of this is that these attributes are not limited to &#8220;seen&#8221; or &#8220;queued&#8221; flags-- in fact, these annotations can (well, in theory) be any pairing of arbitrary XML and a name.  This annotation then gets injected into the entry, when viewed by the user who owns the annotation, like so:</p>
+<ul>
+<li><a href="http://feeds.decafbad.com/api/users/demo/subscriptions/638/entries/60567.xml">http://feeds.decafbad.com/api/users/demo/subscriptions/638/entries/60567.xml</a></li>
+</ul>
+<p>In fact, you could invent a new annotation called &#39;tags&#39; and filter for entries with this annotation with a URL like this:</p>
+<ul>
+<li><a href="http://feeds.decafbad.com/api/users/demo/subscriptions/now-12.xml?xsl=xsl/full.xsl&#38;content-type=text/html&#38;entry\_notes\_xpath=//dbagg3:note[@name=&#39;tags&#39;">http://feeds.decafbad.com/api/users/demo/subscriptions/now-12.xml?xsl=xsl/full.xsl&#38;content-type=text/html&#38;entry\_notes\_xpath=//dbagg3:note[@name=&#39;tags&#39;</a> and contains(text(),&#39;#food#&#39;) and contains(text(),&#39;#odd#&#39;)]</li>
+</ul>
+<p>Eventually, what I&#39;d <em>really</em> like to see this start doing is something akin to del.icio.us-style tagging while you&#39;re reading.  Then, you can have public queries that pull feeds based on your (and others&#39;) tags and spit things back out as feeds again with the proper XSL stylings.</p>
+<p>So at this point, it&#39;s all URLs and barely working HTML, but it&#39;s exciting to me at least.  And it&#39;s dogfood for me, since I&#39;m using this crud to get my daily (hourly?) fix.  Pretty soon, I&#39;ll be diving into wrapping more of a proper usable web app around this, with user management and stuff that works in MSIE.  Until then, maybe someone else will see this and catch a buzz from it.</p>
+<p>Stay tuned.</p>
+<!--more-->
+<p>shortname=dbagg3alive</p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221090566">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=e1cc8e7103bb0f77a7d7abf91b1a961b&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="">Christopher</a>
+</div>
+<a href="#comment-221090566" class="permalink"><time datetime="2004-09-14T09:40:02">2004-09-14T09:40:02</time></a>
+</div>
+<div class="content">Very cool! Keep this up. I&#39;m looking forward to your final version :)</div>
+</li>
+<li class="comment" id="comment-221090567">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://notizen.typepad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=005509858f6bec19f23d989ff9228724&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://notizen.typepad.com">Markus Breuer</a>
+</div>
+<a href="#comment-221090567" class="permalink"><time datetime="2004-09-15T12:48:19">2004-09-15T12:48:19</time></a>
+</div>
+<div class="content">Could not find the Trackback-URL. So here my two-cents-worth as a comment:
+Leslie Michael Orchard (of Decafbad) did it again. He has a demo of his latest projekt online: Dbagg3 (a.k.a . FeedReactor?) I am very impressed. It is still in its embryonic state but show great promise. 
+The current demo may look unimpressing to the uninitiated but actually implements already a lot of functionality in a rather light package. All this functionality can be accessed elegantly through the REST-API.
+[...]
+I am looking into integrating dbagg3 into my own feedbox-project (see here). I hope Leslie aggrees with us doing some tinkering around ...
+... in more detail 
+LINK: <a href="http://notizen.typepad.com/aus_der_provinz/2004/09/cool_new_embryo.html">http://notizen.typepad.com/aus_der_provinz/2004/09/cool_new_embryo.html</a></div>
+</li>
+</ul>
+</div>
+</section>
+</article>
+
+
+
+</section>
+
+      <footer>
+        <img id="growup" src="/uploads/growup.jpg">
+      </footer>
+
+    </section>
+
+    <section id="javascript">
+      <script src="/js/main.js"></script>
+      
+    </section>
+
+  </body>
+</html>

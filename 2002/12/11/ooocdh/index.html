@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name="microtip" content="1Ad1VPQBBk7WhyJPfB6cAgZoBs3gUngurN" data-currency="btc">
+    <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen, projection" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Personal Web Proxy, Part the Second - blog.lmorchard.com</title>
+    <meta name="author" content="" />
+
+    
+      <link href="/index.rss" rel="alternate"
+        title="blog.lmorchard.com" type="application/rss+xml" />
+    
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="blog.lmorchard.com"/>
+
+    
+  <meta property="og:title" content="Personal Web Proxy, Part the Second" />
+  <meta property="og:url" content="https://blog.lmorchard.com/2002/12/11/ooocdh//" />
+  
+  <meta property="og:description" content="Well, it&amp;apos;s not earth shattering, but after some research and some more feature brainstorming, I&amp;apos;ve gotten a start on a PersonalWebProxy.  At the moment, it&amp;apos;s not much code and is transparent except for the fact that it transforms every appearance of &quot;0xDECAFBAD&quot; on pages into &quot;0x31337D00D&quot;.  What&amp;apos;s exciting to me though, is that I tossed it together with an hour&amp;apos;s hacking in Python, using the Twisted framework.  So, starting work in a language and framework both mostly new to me is fun.  Also, it&amp;apos;s interesting to work in the event-driven style again, even though I still think I still want threads (see:  Blog:000090).  If I go to threads, I think I&amp;apos;d swap over to Java. I was tempted to start the thing in Perl, since I already know my way around the language, and I already know my way around POE, a major event-driven framework in that scene.  But, I&amp;apos;ve been programming in perl almost to the exclusion of other languages for a little over 10 years now, not counting some excursions into Java or assignments for college classes.  I think it&amp;apos;s time to expand, and force my brane wider.  I&amp;apos;ve touched on this topic before, but it&amp;apos;s been ages since I had any energy to devote to this place and its projects. At least I didn&amp;apos;t go completely apeshit and start this in Lisp or ?Scheme.  :)  Though I&amp;apos;d still like to make myself an assignment using one of those two, I&amp;apos;d like a few collaborators on this project at some point.  I figure Python would be more hackable for this at present. " />
+
+
+
+  </head>
+  <body>
+
+    <section class="main">
+
+      <header>
+        <h1><a href="/">blog.lmorchard.com</a></h1>
+        <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+        <nav>
+
+          <label for="nav-trigger"></label>
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+          <ul>
+            <li><a href="http://lmorchard.com/">about me</a></li>
+            <li><a href="/archives.html">archives</a></li>
+          </ul>
+
+        </nav>
+      </header>
+
+      <section class="content">
+<article class="post ">
+    <time title="2002-12-11T00:00:00.000Z" pubdate="2002-12-11T00:00:00.000Z">
+      <a href="/"><i class="fa fa-home"></i></a>
+      &raquo;
+      <a href="/2002">2002</a>
+      &raquo;
+      <a href="/2002/12">December</a>
+      &raquo;
+      <span>11</span>
+      &raquo;
+    </time>
+    <h1 class="title">Personal Web Proxy, Part the Second</h1>
+    
+    <section class="post-content"><p><p>Well, it&#39;s not earth shattering, but after some research and some more feature brainstorming, I&#39;ve gotten a start on a <a href="http://www.decafbad.com/twiki/bin/view/Main/PersonalWebProxy">PersonalWebProxy</a>.  At the moment, it&#39;s not much code and is transparent except for the fact that it transforms every appearance of &quot;0xDECAFBAD&quot; on pages into &quot;0x31337D00D&quot;.  What&#39;s exciting to me though, is that I tossed it together with an hour&#39;s hacking in <a href="http://www.decafbad.com/twiki/bin/view/Main/Python">Python</a>, using the <a href="http://www.decafbad.com/twiki/bin/view/Main/Twisted">Twisted</a> framework.  So, starting work in a language and framework both mostly new to me is fun.  Also, it&#39;s interesting to work in the event-driven style again, even though I still think I still want threads (see:  <a href="http://www.decafbad.com/news_archives/000090.phtml" title="Blog entry #000090">Blog:000090</a>).  If I go to threads, I think I&#39;d swap over to <a href="http://www.decafbad.com/twiki/bin/view/Main/Java">Java</a>.</p></p>
+<p><p>I was tempted to start the thing in <a href="http://www.decafbad.com/twiki/bin/view/Main/Perl">Perl</a>, since I already know my way around the language, and I already know my way around <a href="http://www.decafbad.com/twiki/bin/view/Main/POE">POE</a>, a major event-driven framework in that scene.  But, I&#39;ve been programming in perl almost to the exclusion of other languages for a little over 10 years now, not counting some excursions into Java or assignments for college classes.  I think it&#39;s time to expand, and force my brane wider.  I&#39;ve touched on this topic before, but it&#39;s been ages since I had any energy to devote to this place and its projects.</p></p>
+<p><p>At least I didn&#39;t go completely apeshit and start this in <a href="http://www.decafbad.com/twiki/bin/view/Main/Lisp">Lisp</a> or <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/Scheme?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">Scheme</font></span>.  :)  Though I&#39;d still like to make myself an assignment using one of those two, I&#39;d like a few collaborators on this project at some point.  I figure <a href="http://www.decafbad.com/twiki/bin/view/Main/Python">Python</a> would be more hackable for this at present.</p>
+<!--more-->
+shortname=ooocdh</p>
+</section>
+</article>
+
+
+
+</section>
+
+      <footer>
+        <img id="growup" src="/uploads/growup.jpg">
+      </footer>
+
+    </section>
+
+    <section id="javascript">
+      <script src="/js/main.js"></script>
+      
+    </section>
+
+  </body>
+</html>

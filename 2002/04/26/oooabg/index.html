@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name="microtip" content="1Ad1VPQBBk7WhyJPfB6cAgZoBs3gUngurN" data-currency="btc">
+    <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen, projection" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>REST: What's it good for?  Part Deux - blog.lmorchard.com</title>
+    <meta name="author" content="" />
+
+    
+      <link href="/index.rss" rel="alternate"
+        title="blog.lmorchard.com" type="application/rss+xml" />
+    
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="blog.lmorchard.com"/>
+
+    
+  <meta property="og:title" content="REST: What&#39;s it good for?  Part Deux" />
+  <meta property="og:url" content="https://blog.lmorchard.com/2002/04/26/oooabg//" />
+  
+  <meta property="og:description" content="Chris Heschong writes: Ken ?MacLeod notes that, in regards to REST, &quot;the only thing holding us back is a marshalling standard.&quot; I&amp;apos;d be a lot happier with REST implementations if this were the case. (Whew, I think I need a convention for quoting quoters.  Maybe a new language.  I seem to remember hearing on the Todd Mundt Show that the Turkish language has a facility for specifying whether something you&amp;apos;re saying originates with you, or whether you heard it from someone else...) Anyway, since Ken ?MacLeod had taken the time to respond in some detail to a post I made asking about REST not too long ago, I thought I should come back around to it. So I think my first confusion was with marshalling.  This is why I like XML-RPC:  I don&amp;apos;t worry about much.  As a client, I give it a URL and a method name, and then throw a pile of parameters for the method at it.  As a server-side method, the server gives me parameters when it calls me, and I throw back a return value.  The server takes care of turning the XML into my arguments, and my return value to XML. In all the languages I&amp;apos;ve worked with it in (ie. Perl, Python, ?UserTalk, and AppleScript), this works conveniently well.  I never actually pay much attention to the XML in XML-RPC.  So, I was very confused in reading a few things about REST and not seeing much mention of this, other than along the lines of &quot;Oh, well, you could go ahead and use XML-RPC libraries to build messages if you wanted to.&quot;  Which begged the question for me: Why not just go the whole hog and use XML-RPC?  (Or SOAP, for that matter, but that&amp;apos;s another holy war I&amp;apos;m avoiding for the present context.) Okay, so REST isn&amp;apos;t about marshalling parameters.  Then what is it about?  Well, I think a bit more reading and Ken&amp;apos;s response to me have helped illuminate me a bit. The REST point seems to me to be that all operations being attempted by Web Services can be distilled into a few actions:  retrieve, create, update, and delete.  REST says that these fundamentals are already defined as GET, POST, PUT, and DELETE, respectively.  I think.  Is this right? So, I apply these verbs to URI nouns.  To concretize the concept:  I recently wrote &amp; exposed an XML-RPC API to a scorekeeping component on one of our promotions.  Some of the methods of this API were along the lines of int points.get_points(string email), points.award_points(string email, int points), and points.create_points_account(string email).  To make myself a new account I&amp;apos;d call points.create_points_account(&quot;deus_x@pobox.com&quot;) and then points.award_points(&quot;deus_x@pobox.com&quot;, 100) to drop myself some points in the scoreboard.  Then, I would do points.get_points(&quot;deus_x@pobox.com&quot;) to check my score. I&amp;apos;m afraid this example is too simple.  Jon Udell wrote that he wanted to see the &quot;stock quote example&quot; retired for being too simplistic to stress the technology in mental experiments.  Hmm.  Oh well, let&amp;apos;s see where it goes. So, if I were to RESTify the above example, would the sequence of things be like a POST, PUT, and GET, all to a URL that looks something like: http://myhost/promotion/players/deus_x@pobox.com/points Whereas POST does the account creation, PUT updates the points, and GET of course grabs the points total? Okay, maybe POST needs to post to .../players/deus_x@pobox.com with a request body specifying &quot;points&quot;, to create the new URI?  The request body of the PUT should contain a points value -- positive for award, negative for debit?  And if the thing needed more complex data, I could use something like XML-RPC to encode a data structure as arguments, or as Chris Heschong wrote, use WDDX? Do I get it?  Hmm...  okay, have to run to a meeting, but I wanted to post this and see if anyone could give me feedback on my understanding.  I think I see how, if all resources are manipulatable in this manner, one could envision a more abstracted and uniform interface on web resources than a pile of published web services APIs.  But...  can it really be that abstracted? Hmm. " />
+
+
+
+  </head>
+  <body>
+
+    <section class="main">
+
+      <header>
+        <h1><a href="/">blog.lmorchard.com</a></h1>
+        <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+        <nav>
+
+          <label for="nav-trigger"></label>
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+          <ul>
+            <li><a href="http://lmorchard.com/">about me</a></li>
+            <li><a href="/archives.html">archives</a></li>
+          </ul>
+
+        </nav>
+      </header>
+
+      <section class="content">
+<article class="post ">
+    <time title="2002-04-26T00:00:00.000Z" pubdate="2002-04-26T00:00:00.000Z">
+      <a href="/"><i class="fa fa-home"></i></a>
+      &raquo;
+      <a href="/2002">2002</a>
+      &raquo;
+      <a href="/2002/04">April</a>
+      &raquo;
+      <span>26</span>
+      &raquo;
+    </time>
+    <h1 class="title">REST: What's it good for?  Part Deux</h1>
+    
+    <section class="post-content"><p><p>Chris Heschong <a href="http://chris.wiw.org/2002/04/26.html#a16">writes</a>: <i>Ken <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/MacLeod?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">MacLeod</font></span> notes that, in regards to <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a>, &quot;the only thing holding us back is a marshalling standard.&quot; I&#39;d be a lot happier with <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a> implementations if this were the case.</i></p></p>
+<p><p>(Whew, I think I need a convention for quoting quoters.  Maybe a new language.  I seem to remember hearing on the <a href="http://www.toddshow.org">Todd Mundt Show</a> that the Turkish language has a facility for specifying whether something you&#39;re saying originates with you, or whether you heard it from someone else...)</p></p>
+<p><p>Anyway, since Ken <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/MacLeod?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">MacLeod</font></span> had taken the time to <a href="http://www.decafbad.com/news_archives/000102.shtml">respond in some detail</a> to a post I made asking about <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a> not too long ago, I thought I should come back around to it.</p></p>
+<p><p>So I think my first confusion was with marshalling.  This is why I like XML-RPC:  I don&#39;t worry about much.  As a client, I give it a URL and a method name, and then throw a pile of parameters for the method at it.  As a server-side method, the server gives me parameters when it calls me, and I throw back a return value.  The server takes care of turning the XML into my arguments, and my return value to XML.</p></p>
+<p><p>In all the languages I&#39;ve worked with it in (ie. Perl, Python, <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/UserTalk?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">UserTalk</font></span>, and <a href="http://www.decafbad.com/twiki/bin/view/Main/AppleScript">AppleScript</a>), this works conveniently well.  I never actually pay much attention to the XML in XML-RPC.  So, I was very confused in reading a few things about <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a> and not seeing much mention of this, other than along the lines of &quot;Oh, well, you could go ahead and use XML-RPC libraries to build messages if you wanted to.&quot;  Which begged the question for me: Why not just go the whole hog and use XML-RPC?  (Or SOAP, for that matter, but that&#39;s another holy war I&#39;m avoiding for the present context.)</p></p>
+<p><p>Okay, so <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a> isn&#39;t about marshalling parameters.  Then what is it about?  Well, I think a bit more reading and Ken&#39;s response to me have helped illuminate me a bit.</p></p>
+<p><p>The <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a> point seems to me to be that all operations being attempted by Web Services can be distilled into a few actions:  retrieve, create, update, and delete.  <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a> says that these fundamentals are already defined as GET, POST, PUT, and DELETE, respectively.  I think.  Is this right?</p></p>
+<p><p>So, I apply these verbs to URI nouns.  To concretize the concept:  I recently wrote &amp; exposed an XML-RPC API to a scorekeeping component on one of our promotions.  Some of the methods of this API were along the lines of <code>int points.get_points(string email)</code>, <code>points.award_points(string email, int points)</code>, and <code>points.create_points_account(string email)</code>.  To make myself a new account I&#39;d call <code>points.create_points_account(&quot;<a href="mailto:deus_x@pobox.com">deus_x@pobox.com</a>&quot;)</code> and then <code>points.award_points(&quot;<a href="mailto:deus_x@pobox.com">deus_x@pobox.com</a>&quot;, 100)</code> to drop myself some points in the scoreboard.  Then, I would do <code>points.get_points(&quot;<a href="mailto:deus_x@pobox.com">deus_x@pobox.com</a>&quot;)</code> to check my score.</p></p>
+<p><p>I&#39;m afraid this example is too simple.  Jon Udell <a href="http://radio.weblogs.com/0100887/2002/02/24.html#a92">wrote</a> that he wanted to see the &quot;stock quote example&quot; retired for being too simplistic to stress the technology in mental experiments.  Hmm.  Oh well, let&#39;s see where it goes.</p></p>
+<p><p>So, if I were to <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a>ify the above example, would the sequence of things be like a POST, PUT, and GET, all to a URL that looks something like:</p></p>
+<p><p><code><a href="http://myhost/promotion/players/deus_x@pobox.com/points">http://myhost/promotion/players/deus_x@pobox.com/points</a></code></p></p>
+<p><p>Whereas POST does the account creation, PUT updates the points, and GET of course grabs the points total?</p></p>
+<p><p>Okay, maybe POST needs to post to <code><a href="mailto:.../players/deus_x@pobox.com">.../players/deus_x@pobox.com</a></code> with a request body specifying &quot;points&quot;, to create the new URI?  The request body of the PUT should contain a points value -- positive for award, negative for debit?  And if the thing needed more complex data, I could use something like XML-RPC to encode a data structure as arguments, or as <a href="http://chris.wiw.org/2002/04/26.html#a16">Chris Heschong</a> wrote, use <a href="http://www.openwddx.org/">WDDX</a>?</p></p>
+<p><p>Do I get it?  Hmm...  okay, have to run to a meeting, but I wanted to post this and see if anyone could give me feedback on my understanding.  I think I see how, if all resources are manipulatable in this manner, one could envision a more abstracted and uniform interface on web resources than a pile of published web services APIs.  But...  can it really be that abstracted?</p></p>
+<p><p>Hmm.</p>
+<!--more-->
+shortname=oooabg</p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221085579">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=989c4ddf929db7556b199fedf7d9a405&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="">pb</a>
+</div>
+<a href="#comment-221085579" class="permalink"><time datetime="2002-04-26T18:14:55">2002-04-26T18:14:55</time></a>
+</div>
+<div class="content">Why not POST/GET requests with key=value pairs as a response. Done. Forget the PUT and DELETE. You&#39;re just making a function call. Forget XML formatted response since so few environments come with XML parsing. The average function call returns so little data that key=value pairs are more than adequate. And everyone already knows how to do this stuff.</div>
+</li>
+<li class="comment" id="comment-221085580">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://chris.wiw.org/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=41a3710dfca25cec2382a08ffb7cdba5&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://chris.wiw.org/">Christopher Heschong</a>
+</div>
+<a href="#comment-221085580" class="permalink"><time datetime="2002-04-26T19:19:33">2002-04-26T19:19:33</time></a>
+</div>
+<div class="content">pb, how do you represent arrays?  Or multi-dimensional arrays?  Or note that something is an integer instead of a string?</div>
+</li>
+<li class="comment" id="comment-221085582">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.markbaker.ca"><img src="http://www.gravatar.com/avatar.php?gravatar_id=51dc7f1116f78b622bd1cdd733b6c03a&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.markbaker.ca">Mark Baker</a>
+</div>
+<a href="#comment-221085582" class="permalink"><time datetime="2002-04-26T19:46:19">2002-04-26T19:46:19</time></a>
+</div>
+<div class="content">deus_x, that&#39;s pretty much exactly right.  The only clarification I&#39;d make is that you might POST an email address (in plain text, or application/x-www-form-urlencoded, or XML if you want) to <a href="http://myhost/promotion/players">http://myhost/promotion/players</a> in order to create a new player.  That POST could return a HTTP 201 response with the Location header set to the URI of that new player (if it succeeded).
+MB</div>
+</li>
+<li class="comment" id="comment-221085584">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.decafbad.com">l.m.orchard</a>
+</div>
+<a href="#comment-221085584" class="permalink"><time datetime="2002-04-27T12:54:38">2002-04-27T12:54:38</time></a>
+</div>
+<div class="content">pb: 
+Well, that&#39;s exactly how I did things with flash games-- POST/GET requests with key/value pairs which responded with key/value pairs.  Like Christopher says, this started to fall apart when I needed richer data structures.
+As for REST, it seems that their idea is to not make function calls.  What you do with REST is to treat URIs more like database resources, on which you perform SELECT (GET), INSERT (POST), UPDATE (PUT) and DELETE (DELETE).  So instead of calling an award_points method on my player object, I UPDATE (PUT) points on the points resource of my player (represented by URI).</div>
+</li>
+</ul>
+</div>
+</section>
+</article>
+
+
+
+</section>
+
+      <footer>
+        <img id="growup" src="/uploads/growup.jpg">
+      </footer>
+
+    </section>
+
+    <section id="javascript">
+      <script src="/js/main.js"></script>
+      
+    </section>
+
+  </body>
+</html>

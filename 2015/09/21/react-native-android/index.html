@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name="microtip" content="1Ad1VPQBBk7WhyJPfB6cAgZoBs3gUngurN" data-currency="btc">
+    <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen, projection" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Adding Android to a multi-platform React app - blog.lmorchard.com</title>
+    <meta name="author" content="" />
+
+    
+      <link href="/index.rss" rel="alternate"
+        title="blog.lmorchard.com" type="application/rss+xml" />
+    
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="blog.lmorchard.com"/>
+
+    
+  <meta property="og:title" content="Adding Android to a multi-platform React app" />
+  <meta property="og:url" content="https://blog.lmorchard.com/2015/09/21/react-native-android//" />
+  <meta property="og:image" content="https://blog.lmorchard.com/uploads/2015/react-native-android/shared-overall.svg" />
+  
+
+
+
+  </head>
+  <body>
+
+    <section class="main">
+
+      <header>
+        <h1><a href="/">blog.lmorchard.com</a></h1>
+        <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+        <nav>
+
+          <label for="nav-trigger"></label>
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+          <ul>
+            <li><a href="http://lmorchard.com/">about me</a></li>
+            <li><a href="/archives.html">archives</a></li>
+          </ul>
+
+        </nav>
+      </header>
+
+      <section class="content">
+<article class="post tag-webdev tag-native tag-react tag-reactnative tag-android tag-ios tag-mobile tag-mozilla ">
+    <time title="2015-09-21T00:00:00.000Z" pubdate="2015-09-21T00:00:00.000Z">
+      <a href="/"><i class="fa fa-home"></i></a>
+      &raquo;
+      <a href="/2015">2015</a>
+      &raquo;
+      <a href="/2015/09">September</a>
+      &raquo;
+      <span>21</span>
+      &raquo;
+    </time>
+    <h1 class="title">Adding Android to a multi-platform React app</h1>
+    
+      <ul class="tags">
+          
+              <li><a href="/tag/webdev">webdev</a>, </li>
+          
+              <li><a href="/tag/native">native</a>, </li>
+          
+              <li><a href="/tag/react">react</a>, </li>
+          
+              <li><a href="/tag/reactnative">reactnative</a>, </li>
+          
+              <li><a href="/tag/android">android</a>, </li>
+          
+              <li><a href="/tag/ios">ios</a>, </li>
+          
+              <li><a href="/tag/mobile">mobile</a>, </li>
+          
+              <li><a href="/tag/mozilla">mozilla</a></li>
+          
+      </ul>
+    
+    <section class="post-content"><nav role="navigation" class="table-of-contents"></nav>
+
+<p>TL;DR: A couple of months back, <a href="http://blog.lmorchard.com/2015/07/22/react-multiplatform/">I wrote about a TODO app built using React
+for web and React Native for iOS</a>. </p>
+<p>Last week, the team at Facebook 
+<a href="https://code.facebook.com/posts/1189117404435352/">released React Native for Android</a>. So, I circled back to add
+Android support and revisit how code sharing looks now.</p>
+<h2 id="getting-up-to-speed">Getting up to speed</h2>
+<p>With this <a href="https://code.facebook.com/posts/1189117404435352/">new release of React Native</a>, I was able to add support
+for Android to <a href="https://github.com/lmorchard/react-multiplatform">my little TODO app</a>.</p>
+<p>The first task was to <a href="https://github.com/lmorchard/react-multiplatform/commit/38fb7afe67f8c339b8d51c69a1f515a5a91e97c7">shuffle directories &amp; files around and add the base
+Android support</a>. In general, the project layout is now cleaner.
+Assets for each platform now live in separate sub-directories.</p>
+<p>Next, to start iterating &amp; experimenting, I copied the code from the iOS app
+into Android-specific directories. I <a href="https://github.com/lmorchard/react-multiplatform/commit/fd80e9859400744ac5fcffc8f7d75d6703a3856d">only needed to make some small
+tweaks</a> to account for differences in native component sets. That got my
+base app functionality working.</p>
+<p>Then, <a href="https://github.com/lmorchard/react-multiplatform/commit/dd8b6b307c31b67fde23c6b090e7b1f1d8b0f579">I squashed the iOS &amp; Android models together</a> when I realized that
+code was identical between the React Native platforms. That could change in
+the future, but there&#39;s no need for a difference right now.</p>
+<p>After sleeping on it, <a href="https://github.com/lmorchard/react-multiplatform/commit/ea7abb421b7e0486b2d3de42001724343f832901">I refactored some common mixins</a> to take advantage of
+additional sharing opportunities I found between iOS &amp; Android views. That
+helped to further shrink the lines of duplicated code.</p>
+<p>This added what amounts to a new category of code sharing in my project. So,
+<a href="https://github.com/lmorchard/react-multiplatform/commit/cdbbff72cb941fac75f68c1c91279fa780997b26">I separated that code into its own module</a> to make the distinction easier
+to see &amp; measure.  Now, I have code shared between web and native in general,
+and code shared between the iOS and Android native platforms.</p>
+<p>Finally, in an attempt to start automating my code metrics, <a href="https://github.com/lmorchard/react-multiplatform/commit/d5149768e116571d0a1a059d1ff16e1cfc45fcfd">I added
+<code>loc-metrics.sh</code></a>.</p>
+<h2 id="visualizing-the-code-metrics">Visualizing the code metrics</h2>
+<p>So, I tried drawing some Venn diagrams in my notebook. But, I&#39;m terrible at
+drawing. That&#39;s when I remembered that SVG is a thing where I can draw by
+writing code. So, <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial">I spent an afternoon teaching myself some SVG</a>
+and <a href="https://github.com/lmorchard/react-multiplatform/commit/0014232c9858e082414e094be021170fda19aab0">reworked my metrics shell script</a>.</p>
+<p>I&#39;m not going to bother trying to make the areas actually proportional to the
+lines of code. But, here&#39;s a rough picture of code sharing:</p>
+<p><img style="width: 240px" src="/uploads/2015/react-native-android/shared-overall.svg">
+<img style="width: 240px" src="/uploads/2015/react-native-android/shared-models.svg">
+<img style="width: 240px" src="/uploads/2015/react-native-android/shared-views.svg"></p>
+<p>If you can&#39;t see those images, then you&#39;ll need to find a browser that understands
+SVG until I can be bothered to convert to PNG. (Pull requests welcome!)</p>
+<h2 id="conclusions-revisited">Conclusions revisited</h2>
+<p>As before, most of the models code is shared between web and both native
+platforms. What&#39;s unique is mostly boilerplate wrapping <a href="http://blog.lmorchard.com/2015/07/22/react-multiplatform/#forking-sharing-model-code-for-persistence">the localStorage /
+asyncStorage split between web and native</a>.</p>
+<p>On the view side, however, things are a bit more spread out. In a nutshell,
+React patterns in general allow a decent chunk of code to be shared between
+web and native. And even more code can be shared between the iOS and Android
+platforms.</p>
+<p>But, unique concerns in each platform - web, iOS, and Android - call for
+unique code for each case. This is not actually a failing, though: Varying the
+UX between web &amp; iOS &amp; Android is a flexibility you&#39;ll probably appreciate. </p>
+<p>In other words, use components &amp; conventions unique to each
+platform without your app suffering from the lowest-common-denominator UX
+problem historically found in a lot of multi-platform apps. In the case of this
+TODO app, that just boils down to trivialities like checkboxes &amp; switches &amp;
+segmented controls. In a larger app, I&#39;d expect this concern to grow.</p>
+<p>I&#39;m being lazy and not coding up the math in percentages. This approach shared
+about half the code from the web app, and even more than that for each of the
+native apps. I think that&#39;s a significant advantage over writing separate
+apps.</p>
+<p>Of course, <a href="http://blog.lmorchard.com/2015/07/22/react-multiplatform/#conclusion">all my caveats from the first go
+around</a> still apply: This is a very simple app. The code devoted to
+doing interesting things versus React boilerplate is probably not at a good
+ratio. Also, as more view components arise, further overlap might be found.
+And, hopefully, common logic would remain the primary area of growth on the
+model site.</p>
+<p>I think this approach toward building apps remains interesting &amp; promising. </p>
+<!-- vim: set wrap wm=5 syntax=markdown textwidth=78: -->
+</section>
+</article>
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_needs_loading = true;
+        var disqus_url = 'https://blog.lmorchard.com/2015/09/21/react-native-android/';
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+</section>
+
+      <footer>
+        <img id="growup" src="/uploads/growup.jpg">
+      </footer>
+
+    </section>
+
+    <section id="javascript">
+      <script src="/js/main.js"></script>
+      
+    </section>
+
+  </body>
+</html>
