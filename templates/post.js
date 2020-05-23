@@ -1,5 +1,6 @@
 const { html, unescaped } = require("../lib/html");
 const layoutPage = require("./layoutPage");
+const moment = require("moment");
 
 module.exports = ({ site = {}, page = {} }, content) =>
   layoutPage(
