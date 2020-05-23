@@ -1,9 +1,8 @@
 const { html, unescaped } = require("../lib/html");
-const moment = require("moment");
-const defaultLayout = require("./default");
+const layoutPage = require("./layoutPage");
 
 module.exports = ({ site = {}, page = {} }, content) =>
-  defaultLayout(
+  layoutPage(
     {
       site,
       page,

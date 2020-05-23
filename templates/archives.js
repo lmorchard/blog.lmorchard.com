@@ -1,5 +1,5 @@
 const { html } = require("../lib/html");
-const defaultLayout = require("./default");
+const layoutPage = require("./layoutPage");
 
 const omitTags = ["asides", "entries", "Header"];
 const allMonths = {
@@ -38,7 +38,7 @@ module.exports = ({ site = {}, page = {}, posts }) => {
     return out;
   }, {});
 
-  return defaultLayout(
+  return layoutPage(
     {
       site,
       page,

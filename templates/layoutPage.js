@@ -1,4 +1,4 @@
-const { html, unescaped } = require("../lib/html");
+const { html } = require("../lib/html");
 
 module.exports = (
   { site = {}, page = {}, head = "", js = "" },

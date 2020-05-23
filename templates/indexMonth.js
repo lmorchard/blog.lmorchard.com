@@ -1,9 +1,9 @@
 const { html } = require("../lib/html");
-const defaultLayout = require("./default");
+const layoutPage = require("./layoutPage");
 const postList = require("./postList");
 
 module.exports = ({ site = {}, page = {}, posts = [] }) =>
-  defaultLayout(
+  layoutPage(
     {
       site,
       page,
