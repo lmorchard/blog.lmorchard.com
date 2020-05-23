@@ -53,7 +53,7 @@ module.exports = ({ site = {}, page = {} }, content) =>
             ${page.tags.map(
               (tag) => html`
                 <li>
-                  <a href="${site.baseurl}/tag/${tag}">${tag}</a>
+                  <a href="${site.baseurl}/tag/${tag}/">${tag}</a>
                 </li>
               `
             )}

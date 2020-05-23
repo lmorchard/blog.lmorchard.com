@@ -5,7 +5,8 @@ const mkdirp = require("mkdirp");
 
 const config = require("./config");
 const { parseEntry, buildEntry } = require("./lib/entries");
-const { fs, writeFiles } = require("./lib/files");
+const { fs, writeFiles, readdirMatch } = require("./lib/files");
+const { indexBy } = require("./lib/utils");
 
 async function main() {
   await mkdirp(config.buildPath);
@@ -32,35 +33,42 @@ async function buildAllEntries() {
 
 async function indexAllDates() {
   const root = config.buildPath;
-  for (const yearFn of await fs.readdir(root)) {
-    if (!(await isDirMatch(/\d{4}/, root, yearFn))) {
-      continue;
-    }
+  const posts = await loadAllPosts();
 
-    await indexPosts({
+  const postsByYear = indexBy(posts, ({ year }) => year);
+  for (const [year, posts] of Object.entries(postsByYear)) {
+    await writeIndex({
+      basePath: path.join(root, year),
+      title: year,
       template: "indexYear",
-      title: yearFn,
-      pathParts: [root, yearFn],
+      posts,
     });
+  }
 
-    for (const monthFn of await fs.readdir(path.join(root, yearFn))) {
-      if (!(await isDirMatch(/\d{2}/, root, yearFn, monthFn))) {
-        continue;
-      }
+  const postsByMonth = indexBy(posts, ({ year, month }) => `${year}/${month}`);
+  for (const [month, posts] of Object.entries(postsByMonth)) {
+    await writeIndex({
+      basePath: path.join(root, month),
+      title: month,
+      template: "indexMonth",
+      posts,
+    });
+  }
 
-      await indexPosts({
-        template: "indexMonth",
-        title: monthFn,
-        pathParts: [root, yearFn, monthFn],
-      });
-    }
+  const postsByTag = indexBy(posts, ({ tags = [] }) => tags);
+  for (const [tag, posts] of Object.entries(postsByTag)) {
+    await writeIndex({
+      basePath: path.join(root, 'tag', tag),
+      title: tag,
+      template: "indexTag",
+      posts,
+    });
   }
 }
 
-async function indexPosts({ template, title, pathParts }) {
-  const fullPath = path.join(...pathParts);
-  const posts = await loadPosts(`${fullPath}/**/index.json`);
-  await writeFiles(fullPath, {
+async function writeIndex({ basePath, title, template, posts }) {
+  await mkdirp(basePath);
+  return writeFiles(basePath, {
     "index.json": JSON.stringify(posts, null, "  "),
     "index.html": require(`./templates/${template}`)({
       site: config.site,
@@ -72,33 +80,13 @@ async function indexPosts({ template, title, pathParts }) {
   });
 }
 
-async function readdirMatch(root, pattern) {
-  const entries = await fs.readdir(root);
-  return entries.filter(fn => isDirMatch(pattern, root, fn));
-}
-
-async function isDirMatch(pattern, ...parts) {
-  const full = path.join(...parts);
-  const stat = await fs.stat(full);
-  const fn = parts.pop();
-
-  return !fn.startsWith(".") && stat.isDirectory() && pattern.test(fn);
-}
-
-async function loadPosts(pattern) {
+async function loadAllPosts() {
   const posts = [];
-  for await (const file of globby.stream(pattern)) {
-    posts.push(await loadPost(file));
+  const files = globby.stream(`${config.buildPath}/**/**/**/index.json`);
+  for await (const file of files) {
+    posts.push(JSON.parse(await fs.readFile(file)));
   }
   return posts;
-}
-
-const postCache = {};
-async function loadPost(path) {
-  if (!postCache[path]) {
-    postCache[path] = JSON.parse(await fs.readFile(path));
-  }
-  return postCache[path];
 }
 
 main().catch((err) => console.error(err));

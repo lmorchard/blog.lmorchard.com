@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm-run-all --parallel serve watch",
-    "serve": "reload -d build -p 9980",
+    "serve": "http-server -d true -i true -p 9980 build",
     "watch": "onchange -v -i -d 5000 package.json index.js lib templates public -- yarn run build",
     "build": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -26,6 +26,7 @@
     "glob": "^7.1.6",
     "globby": "^11.0.0",
     "htm": "^3.0.4",
+    "http-server": "^0.12.3",
     "mkdirp": "^1.0.4",
     "moment": "^2.26.0",
     "node-fetch": "^2.6.0",
