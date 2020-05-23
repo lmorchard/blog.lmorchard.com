@@ -1,94 +1,104 @@
 const path = require("path");
-const util = require("util");
 const globby = require("globby");
-const mkdirp = require("mkdirp");
 const copy = require("recursive-copy");
-const frontmatter = require("front-matter");
-const commonmark = require("commonmark");
-const moment = require("moment");
-const fs = mapFn(["readFile", "writeFile"], (name) =>
-  util.promisify(require("fs")[name])
-);
+const mkdirp = require("mkdirp");
 
-const config = {
-  POSTS_PATH: "../blog.lmorchard.com/posts",
-  BUILD_PATH: "./build",
-  COMMONMARK_PARSER_OPTIONS: {},
-  COMMONMARK_RENDERER_OPTIONS: {},
-};
+const config = require("./config");
+const { parseEntry, buildEntry } = require("./lib/entries");
+const { fs, writeFiles } = require("./lib/files");
 
 async function main() {
-  const files = globby.stream(`${config.POSTS_PATH}/**/*.{md,markdown}`);
+  await mkdirp(config.buildPath);
+  await copyAssets();
+  await buildAllEntries();
+  await indexAllDates();
+}
+
+async function copyAssets() {
+  for (const assetPath of config.assetPaths) {
+    await copy(assetPath, config.buildPath, {
+      overwrite: true,
+    });
+  }
+}
+
+async function buildAllEntries() {
+  const files = globby.stream(`${config.postsPath}/**/*.{md,markdown}`);
   for await (const file of files) {
     const content = await parseEntry(file);
     await buildEntry(content);
   }
 }
 
-async function parseEntry(file) {
-  const data = await fs.readFile(file, "utf8");
+async function indexAllDates() {
+  const root = config.buildPath;
+  for (const yearFn of await fs.readdir(root)) {
+    if (!(await isDirMatch(/\d{4}/, root, yearFn))) {
+      continue;
+    }
 
-  const content = frontmatter(data);
-
-  const cmReader = new commonmark.Parser(config.COMMONMARK_PARSER_OPTIONS);
-  const cmWriter = new commonmark.HtmlRenderer(
-    config.COMMONMARK_RENDERER_OPTIONS
-  );
-  content.html = cmWriter.render(cmReader.parse(content.body));
-
-  const isDir = path.basename(file).startsWith("index.");
-  const entryName = isDir
-    ? path.basename(path.dirname(file))
-    : path.basename(file).split(".")[0];
-
-  const [, yy, mm, dd, slug] = /(\d{4})-(\d{2})-(\d{2})-(.*)/.exec(entryName);
-
-  content.attributes = {
-    isDir,
-    slug,
-    entryName,
-    parentPath: path.dirname(file),
-    date: new Date(`${yy}-${mm}-${dd}T12:00:00Z`),
-    ...content.attributes,
-  };
-
-  const date = moment(content.attributes.date);
-  content.attributes.path = `${date.format("YYYY/MM/DD")}/${slug}`;
-
-  return content;
-}
-
-async function buildEntry(content) {
-  const entryPath = path.join(config.BUILD_PATH, content.attributes.path);
-  await mkdirp(entryPath);
-  await writeFiles(entryPath, {
-    "index.md": content.body,
-    "index.html": content.html,
-    "index.json": JSON.stringify(content.attributes, null, "  "),
-  });
-  if (content.attributes.isDir) {
-    await copy(content.attributes.parentPath, entryPath, {
-      overwrite: true,
+    await indexPosts({
+      template: "indexYear",
+      title: yearFn,
+      pathParts: [root, yearFn],
     });
+
+    for (const monthFn of await fs.readdir(path.join(root, yearFn))) {
+      if (!(await isDirMatch(/\d{2}/, root, yearFn, monthFn))) {
+        continue;
+      }
+
+      await indexPosts({
+        template: "indexMonth",
+        title: monthFn,
+        pathParts: [root, yearFn, monthFn],
+      });
+    }
   }
 }
 
-async function writeFiles(basePath, filesToWrite) {
-  return Promise.all(
-    Object.entries(filesToWrite).map(([fn, data]) =>
-      fs.writeFile(path.join(basePath, fn), data)
-    )
-  );
+async function indexPosts({ template, title, pathParts }) {
+  const fullPath = path.join(...pathParts);
+  const posts = await loadPosts(`${fullPath}/**/index.json`);
+  await writeFiles(fullPath, {
+    "index.json": JSON.stringify(posts, null, "  "),
+    "index.html": require(`./templates/${template}`)({
+      site: config.site,
+      page: {
+        title,
+      },
+      posts,
+    })(),
+  });
 }
 
-function mapFn(names, fn) {
-  return names.reduce(
-    (acc, name) => ({
-      ...acc,
-      [name]: fn(name),
-    }),
-    {}
-  );
+async function readdirMatch(root, pattern) {
+  const entries = await fs.readdir(root);
+  return entries.filter(fn => isDirMatch(pattern, root, fn));
+}
+
+async function isDirMatch(pattern, ...parts) {
+  const full = path.join(...parts);
+  const stat = await fs.stat(full);
+  const fn = parts.pop();
+
+  return !fn.startsWith(".") && stat.isDirectory() && pattern.test(fn);
+}
+
+async function loadPosts(pattern) {
+  const posts = [];
+  for await (const file of globby.stream(pattern)) {
+    posts.push(await loadPost(file));
+  }
+  return posts;
+}
+
+const postCache = {};
+async function loadPost(path) {
+  if (!postCache[path]) {
+    postCache[path] = JSON.parse(await fs.readFile(path));
+  }
+  return postCache[path];
 }
 
 main().catch((err) => console.error(err));

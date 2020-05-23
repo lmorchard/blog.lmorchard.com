@@ -4,13 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm-run-all --parallel serve watch",
+    "serve": "reload -d build -p 9980",
+    "watch": "onchange -v -i -d 5000 package.json index.js lib templates public -- yarn run build",
+    "build": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "snowpack"
   },
   "author": "Les Orchard <me@lmorchard.com>",
   "license": "MIT",
+  "snowpack": {
+    "installOptions": {
+      "dest": "public/web_modules"
+    }
+  },
   "dependencies": {
     "commander": "^5.1.0",
     "commonmark": "^0.29.1",
+    "escape-html": "^1.0.3",
     "front-matter": "^4.0.0",
     "glob": "^7.1.6",
     "globby": "^11.0.0",
@@ -24,6 +35,8 @@
     "pino": "^6.2.1",
     "pino-pretty": "^4.0.0",
     "recursive-copy": "^2.0.10",
+    "reload": "^3.0.4",
+    "snowpack": "^1.7.1",
     "vhtml": "^2.2.0",
     "watch": "^1.0.2"
   }
