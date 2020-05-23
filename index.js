@@ -15,8 +15,9 @@ const { indexBy } = require("./lib/utils");
 async function main() {
   await mkdirp(config.buildPath);
   await copyAssets();
-  const posts = await buildAllEntries();
-  await buildAllIndexes(sortPosts(posts));
+  const posts = await loadAllEntries();
+  await buildAllEntries(posts);
+  await buildAllIndexes(posts);
 }
 
 async function copyAssets() {
@@ -27,19 +28,24 @@ async function copyAssets() {
   }
 }
 
-async function buildAllEntries() {
+async function loadAllEntries() {
   const posts = [];
   const files = globby.stream(`${config.postsPath}/**/*.{md,markdown}`);
   for await (const file of files) {
-    const content = await parseEntry(file);
-    posts.push(content.attributes);
-    await buildEntry(content);
+    posts.push(await parseEntry(file));
   }
-  return posts;
+  return sortPosts(posts);
 }
 
-async function buildAllIndexes(posts) {
+async function buildAllEntries(posts) {
+  for (const post of posts) {
+    await buildEntry(post);
+  }
+}
+
+async function buildAllIndexes(postsFull) {
   const root = config.buildPath;
+  const posts = postsFull.map(post => post.attributes);
   
   const postsRecent = posts.slice(0, 20);
   await buildIndex({
