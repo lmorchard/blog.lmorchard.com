@@ -1,15 +1,14 @@
 const { html, unescaped } = require("../lib/html");
 const moment = require("moment");
 
-module.exports = ({ site, posts }) => html`
+module.exports = ({ site, posts }, content) => html`
   <section class="post-list">
     <ul class="posts">
       ${posts.map(
         (post) => html`
           <li
-            class="post ${post.thumbnail && "has-thumb "}${post.tas && post.tags.map(
-              (tag) => html`tag-${tag} `
-            )}"
+            class="post ${post.thumbnail && "has-thumb "}${post.tags &&
+            post.tags.map((tag) => `tag-${tag}`).join(" ")}"
           >
             <time class="date" datetime="${moment(post.date).format()}">
               ${moment(post.date).format("YYYY")}
@@ -28,5 +27,6 @@ module.exports = ({ site, posts }) => html`
         `
       )}
     </ul>
+    ${content}
   </section>
 `;

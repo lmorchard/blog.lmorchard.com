@@ -1,22 +1,20 @@
 const path = require("path");
-const globby = require("globby");
+const util = require('util');
 const copy = require("recursive-copy");
 const mkdirp = require("mkdirp");
+const rimraf = util.promisify(require("rimraf"));
 
 const config = require("./config");
-const {
-  parseEntry,
-  buildEntry,
-  buildIndex,
-  sortPosts,
-} = require("./lib/entries");
+const { writeFiles } = require("./lib/files");
+const { loadAllPosts, buildAllPosts, buildIndex } = require("./lib/posts");
 const { indexBy } = require("./lib/utils");
 
 async function main() {
+  await rimraf(config.buildPath);
   await mkdirp(config.buildPath);
   await copyAssets();
-  const posts = await loadAllEntries();
-  await buildAllEntries(posts);
+  const posts = await loadAllPosts();
+  await buildAllPosts(posts);
   await buildAllIndexes(posts);
 }
 
@@ -28,31 +26,32 @@ async function copyAssets() {
   }
 }
 
-async function loadAllEntries() {
-  const posts = [];
-  const files = globby.stream(`${config.postsPath}/**/*.{md,markdown}`);
-  for await (const file of files) {
-    posts.push(await parseEntry(file));
-  }
-  return sortPosts(posts);
-}
-
-async function buildAllEntries(posts) {
-  for (const post of posts) {
-    await buildEntry(post);
-  }
-}
-
 async function buildAllIndexes(postsFull) {
   const root = config.buildPath;
-  const posts = postsFull.map(post => post.attributes);
-  
-  const postsRecent = posts.slice(0, 20);
-  await buildIndex({
-    basePath: root,
-    title: "Recent",
-    template: "indexRecent",
-    posts: postsRecent,
+  const posts = postsFull.map((post) => post.attributes);
+
+  await writeFiles(root, {
+    "index.html": require(`./templates/indexRecent`)({
+      site: config.site,
+      page: {
+        title: "Home",
+      },
+      posts: posts.slice(0, 20),
+    })(),
+    "all.html": require(`./templates/indexAll`)({
+      site: config.site,
+      page: {
+        title: "All Posts",
+      },
+      posts,
+    })(),
+    "archives.html": require(`./templates/archives`)({
+      site: config.site,
+      page: {
+        title: "Archives",
+      },
+      posts,
+    })(),
   });
 
   const postsByYear = indexBy(posts, ({ year }) => year);

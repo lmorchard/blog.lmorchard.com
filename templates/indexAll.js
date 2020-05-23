@@ -10,14 +10,9 @@ module.exports = ({ site = {}, page = {}, posts = [] }) =>
     },
     html`
       <section class="archive">
-        ${postList(
-          { site, posts },
-          html`
-            <p>
-              Looking for more? <a href="/archives.html">Try the archives.</a>
-            </p>
-          `
-        )}
+        <h2>All Posts</h2>
+        <p>Didn't find what you were looking for? It might be here:</p>
+        ${postList({ site, posts })}
       </section>
     `
   );
