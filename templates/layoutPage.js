@@ -1,5 +1,22 @@
 const { html } = require("../lib/html");
 
+// TODO: use a bundler again someday for CSS & JS?
+const cssAssets = ["screen.css", "vendor/font-awesome.css", "vendor/prism.css"];
+const jsAssets = [
+  // HACK: emphasis depends on jquery, so use explicit order.
+  // TODO: Work out a better way to specify order. Maybe 01- 02- 03- filenames?
+  //'vendor/jquery.js',
+  //'vendor/emphasis.js',
+  //'vendor/moment.min.js',
+  "vendor/lazyload.js",
+  "vendor/prism.js",
+  //'vendor/lodash.js',
+  //'vendor/async.js',
+  "toc.js",
+  "analytics.js",
+  "main.js",
+];
+
 module.exports = (
   { site = {}, page = {}, head = "", js = "" },
   content
@@ -16,7 +33,7 @@ module.exports = (
         content="1Ad1VPQBBk7WhyJPfB6cAgZoBs3gUngurN"
         data-currency="btc"
       />
-      ${["screen.css", "vendor/font-awesome.css", "vendor/prism.css"].map(
+      ${cssAssets.map(
         (css) => html`
           <link
             rel="stylesheet"
@@ -81,7 +98,9 @@ module.exports = (
       </section>
 
       <section id="javascript">
-        <script src="${site.baseurl}/js/main.js"></script>
+        ${jsAssets.map(
+          (src) => html`<script src="${site.baseurl}/js/${src}"></script>`
+        )}
         ${js}
       </section>
     </body>
