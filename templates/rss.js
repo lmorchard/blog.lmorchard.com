@@ -1,5 +1,4 @@
 const { html } = require("../lib/html");
-const moment = require("moment");
 
 // TODO: Use an RSS generating module? This template is just copied
 // over from my old blog generator for initial consistency
