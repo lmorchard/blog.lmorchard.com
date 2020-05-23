@@ -28,11 +28,6 @@ module.exports = (
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
       />
-      <meta
-        name="microtip"
-        content="1Ad1VPQBBk7WhyJPfB6cAgZoBs3gUngurN"
-        data-currency="btc"
-      />
       ${cssAssets.map(
         (css) => html`
           <link
