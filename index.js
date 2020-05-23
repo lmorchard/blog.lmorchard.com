@@ -37,21 +37,21 @@ async function buildAllIndexes(postsFull) {
         title: "Home",
       },
       posts: posts.slice(0, 20),
-    })(),
+    }),
     "all.html": require(`./templates/indexAll`)({
       site: config.site,
       page: {
         title: "All Posts",
       },
       posts,
-    })(),
+    }),
     "archives.html": require(`./templates/archives`)({
       site: config.site,
       page: {
         title: "Archives",
       },
       posts,
-    })(),
+    }),
   });
 
   const postsByYear = indexBy(posts, ({ year }) => year);
