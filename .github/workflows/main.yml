@@ -19,10 +19,15 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js 14.2.0
       uses: actions/setup-node@v1
       with:
         node-version: 14.2.0
-    - run: |
-        yarn install
-        yarn run stage
+    - name: Set git identity
+      run: |
+        git config --global user.email "me@lmorchard.com"
+        git config --global user.name "Les Orchard"        
+    - name: Yarn install
+      run: yarn install
+    - name: Build and stage the blog
+      run: yarn run stage
