@@ -27,8 +27,8 @@ module.exports = ({
           }
           ${
             fullText &&
-            post.content &&
-            html` <description>${post.content}</description> `
+            post.html &&
+            html` <description>${post.html}</description> `
           }
           <pubDate>${new Date(post.date).toUTCString()}</pubDate>
           <link>${site.absolute_baseurl}/${post.path}/</link>
