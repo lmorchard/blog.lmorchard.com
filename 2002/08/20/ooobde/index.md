@@ -1,3 +1,0 @@
-<p><a href="http://www.informationwave.net/news/20020819riaa.php">This ISP has the right idea</a>: treat the RIAA hacking threat like any other hacking threat.  Let's see how long before this is made illegal.  In the meantime, I'm trying to come up with a way to convince myself that it's worth buying an <a href="http://www.decafbad.com/twiki/bin/view/Main/XServe">XServe</a> and <a href="http://www.informationwave.net/services/colocation/index.php">colocating with them</a>.  But first, I've got to come up with a business model to make some money to afford the toys.  :)  This will likely never happen.</p>
-<!--more-->
-shortname=ooobde

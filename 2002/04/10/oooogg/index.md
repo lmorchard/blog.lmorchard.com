@@ -1,6 +1,0 @@
-<p>Psst.  Another version bump.  Playing around with breaking filters out into their own definitions, to be referred to by the pipelines instead of embedded in them.  This way, once I get around to doing the web UI to manage everything, I can have filter creation, acquisition, and trading all done separately from pipeline management.</p>
-<p>Haven't heard much feedback from anyone using the tool, if anyone's using it.  So for now, it's a fun exercise in how to get a Radio Tool put together from A-Z.  Still learning the idiom.  And I like what I see thus far.</p>
-<p>Now if only I had a faster Mac and Radio didn't die on me as much.<br />
-</p>
-<!--more-->
-shortname=oooogg

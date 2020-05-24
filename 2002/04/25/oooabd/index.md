@@ -1,4 +1,0 @@
-<p>One more thing, directed at the Radio <a href="http://www.decafbad.com/twiki/bin/view/Main/UserLand">UserLand</a> crew:  With my recent discovery of and mania for referers, I've seen that Radio sends me people claiming to have come from <a href="http://radio.outliners.com/instantOutliner" target="_top">http://radio.outliners.com/instantOutliner</a> and <a href="http://frontier.userland.com/xmlAggregator" target="_top">http://frontier.userland.com/xmlAggregator</a>, for I/O and news aggregation respectively.</p>
-<p>Here's a wishlist idea:  Make Radio send the URL to the user's blog instead of URLs to <a href="http://www.decafbad.com/twiki/bin/view/Main/UserLand">UserLand</a> documents.  While the current referer URLs tell me why I'm getting the hit, I'd like to have a better handle on from whom the hit is coming.</p>
-<!--more-->
-shortname=oooabd

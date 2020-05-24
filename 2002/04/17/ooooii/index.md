@@ -1,8 +1,0 @@
-<p><a href="http://www.razorsoft.net/weblog/">Peter</a> made a command-line tool called <a href="http://www.razorsoft.net/weblog/stories/2002/04/13/google2rss.html">Google2RSS</a>.  Then, he mentioned that <a href="http://www.patandkat.com/pat/weblog/2002/04/13.php#a535">someone was thinking of making a Perl or <a href="http://www.decafbad.com/twiki/bin/view/Main/PHP">PHP</a></a> version of his tool.</p>
-<p>Well, I saw that <a href="http://aaronland.info/weblog">Aaron</a> made <a href="http://search.cpan.org/search?dist=Net-Google">Net::Google</a>, and I already had <a href="http://search.cpan.org/search?dist=XML-RSS">XML::RSS</a>, so I figured I could make a Google to <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> widget in about a half hour.  That was about right.</p>
-<p>The code is here: <a href="http://www.decafbad.com/web-services/url-based/google_rss_cgi.txt">google_rss_cgi.txt</a>, but I'm planning on making a semi-proper writeup for it in the wiki in a lil bit.</p>
-<p>Let's see if this vain Google to <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> feed works:</p>
-<p><!--#include virtual="/web-services/url-based/rss_display.cgi?src=http%3A%2F%2Fwww.decafbad.com%2Fweb-services%2Furl-based%2Fgoogle_rss.cgi%3Fquery%3Dlink%3AXGnxCbayl9UC%3Awww.decafbad.com%2F%26title%3DLinks+to+0xDECAFBAD%26description%3DTop%252010%2520Links%2520to%25200xDECAFBAD%26" --><br />
-</p>
-<!--more-->
-shortname=ooooii

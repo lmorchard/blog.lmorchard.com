@@ -1,3 +1,0 @@
-<p>Now, after quickly hacking outlines into <a href="http://www.decafbad.com/twiki/bin/view/Main/AmphetaDesk">AmphetaDesk</a>, I see <a href="http://ipwebdev.com/radio/2002/06/07.php#a177">Adam Wendt playing with <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> and XSLT</a>.  Seems like a much cleaner way to do it, and really makes me  want to play more with XSLT.  The <a href="http://www.decafbad.com/twiki/bin/view/Main/AmphetaDesk">AmphetaDesk</a> template hack I did is still horribly inelegant, doesn't leverage the DOM, and could use some tidying.  Would be interesting neat to see XSLT in Ampheta, but that might be a bit much right now.</p>
-<!--more-->
-shortname=oooahh

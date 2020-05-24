@@ -1,1 +1,0 @@
-<span class='embed-youtube' style='text-align:center; display: block;'></span>

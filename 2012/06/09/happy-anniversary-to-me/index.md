@@ -1,1 +1,0 @@
-<img title="2012-06-09_17-26-37_945.jpg" class="alignnone" alt="image" src="http://blog.lmorchard.com/wp-content/uploads/2012/06/wpid-2012-06-09_17-26-37_945.jpg" />

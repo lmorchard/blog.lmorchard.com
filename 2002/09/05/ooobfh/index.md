@@ -1,5 +1,0 @@
-<p>Dave says about <a href="http://scriptingnews.userland.com/backissues/2002/09/05#addingNamespacesTo094">adding namespaces to <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> v0.94</a>:<blockquote><i> Could peace possibly be that simple? Could <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> 0.94 be the format everyone agrees to go forward on? If not, how long would a 0.95 take to get in place?</i></blockquote>I say: Go, man, go!  And then, time permitting, weave some nice hooks into Radio's aggregator to let us make Tools that register to handle the intrepretation/display of a namespace's tags.</p>
-<p>I'd like to play with some more <a href="http://www.decafbad.com/twiki/bin/view/Main/RDF">RDF</a> eventually, but I don't know that <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> is the place.  The thing that I <i>really</i> like are the namespaces and the possibility to throw plugins into aggregators to handle alien elements.<br />
-</p>
-<!--more-->
-shortname=ooobfh

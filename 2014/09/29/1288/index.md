@@ -1,4 +1,0 @@
-My [serial enthusiasm][1] is straying back toward things Indie Web. So, maybe I&#8217;ll start lighting this thing up again with little bits and bobs of mad web science. This status post, in particular, is really just an excuse to see if [WebMentions][2] work.
-
- [1]: http://decafbad.com/blog/2006/05/26/confessions-of-a-serial-enthusiast/
- [2]: http://indiewebcamp.com/webmention

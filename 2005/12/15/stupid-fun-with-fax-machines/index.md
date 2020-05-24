@@ -1,8 +1,0 @@
-<blockquote cite="http://faxtoy.net/">Random Stuff Sent From Your Fax Machine<br />Fax something interesting to 1-510-545-0990</blockquote>
-<small style="text-align:right; display:block">Source: <a href="http://faxtoy.net/">Fax Toy - Random Stuff You Fax To Us</a></small>
-
-It's fun to fax anonymously!  And it's fun to have [yet another opportunity for meta][meta].  First person to fax their ass from the Christmas party loses.
-
-<!-- tags: fax fun nifty hacks -->
-
-[meta]: http://faxtoy.net/page/fax-iBwDqh

@@ -1,5 +1,0 @@
-With <a href="http://diveintomark.org/archives/2002/11/26.html#syndication_is_not_publication">Syndication is not Publication</a>, Mark Pilgrim elucidates in eloquence what I'd <a href="http://www.decafbad.com/news_archives/000331.phtml">vaguely poked at in silliness</a>.  No, I agree with mark - syndication cannot replace publication, and publication cannot replace syndication.  
-<br /><br />
-Though, I think it's interesting to watch the thought experiments and the "what ifs" as <a href="http://www.decafbad.com/news_archives/000331.phtml#comments">Anil commented</a> - and while I sense some eloquence in both approaches, neither answers all the demands placed on each.  Hopefully, what dabbling in overloading one could provide is a little insight into enhancinging the other. In the end, as <a href="http://www.decafbad.com/news_archives/000331.phtml#comments">Dave commented</a> and <a href="http://diveintomark.org/archives/2002/11/26.html#the_rebellion_will_be_syndicated">Mark demonstrated</a>, there will be no fight - tinkerers will route around the solution they don't like.
-<!--more-->
-shortname=oooccf

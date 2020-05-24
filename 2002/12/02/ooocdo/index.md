@@ -1,7 +1,0 @@
-You know you're an info freako and coding junkie when:  Your trusty iBook - home to all of your projects in development, news aggregators, and blogging tools - goes into the shop for repairs, and all you're left with is a Treo 300 for convienient from-the-couch computing over the long Thanksgiving weekend.  Most people would settle into a good book or maybe a James Bond marathon.
-<br /><br />
-Instead, being thankful for unlimited data access and at least having a screen at which to stare (albeit tiny), you install <a href="http://www.decafbad.com/twiki/bin/view/Main/LispMe">LispMe</a> and a handful of editors and tutorials in a sudden, inspired effort to a) learn a new language (Scheme) and b) write a news aggregator and blogging tool for <a href="http://www.decafbad.com/twiki/bin/view/Main/PalmOS">PalmOS</a> as your first project.  I mean, hey, <a href="http://www.decafbad.com/twiki/bin/view/Main/LispMe">LispMe</a> has access to net sockets on <a href="http://www.decafbad.com/twiki/bin/view/Main/PalmOS">PalmOS</a> -  <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a> and <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a>, here we come!
-<br /><br />
-Then, you go have Thanksgiving dinner, doze on your mother's couch in a food coma, dream about hordes of attacking parentheses (too much Scheme and <a href="http://www.decafbad.com/twiki/bin/view/Main/NetHack">NetHack</a>), and all but forget about the whole thing.  Watching the James Bond marathon isn't so bad after all.
-<!--more-->
-shortname=ooocdo
