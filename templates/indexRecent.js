@@ -14,7 +14,7 @@ module.exports = ({ site = {}, page = {}, posts = [] }) =>
           { site, posts },
           html`
             <p>
-              Looking for more? <a href="/archives.html">Try the archives.</a>
+              Looking for more? <a href="${site.baseurl}/archives.html">Try the archives.</a>
             </p>
           `
         )}

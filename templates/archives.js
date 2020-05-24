@@ -49,7 +49,7 @@ module.exports = ({ site = {}, page = {}, posts }) => {
         <p>Looking for something from the back catalog?</p>
         <p>
           Feel free to peruse this
-          <a href="/all.html">huge list of all my posts</a>. Someday, I might
+          <a href="${site.baseurl}/all.html">huge list of all my posts</a>. Someday, I might
           build a local search engine.
         </p>
 

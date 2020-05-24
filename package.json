@@ -9,7 +9,10 @@
     "watch": "onchange -v -i -d 5000 package.json index.js lib templates public -- yarn run build",
     "build": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "snowpack"
+    "prepare": "snowpack",
+    "stage": "npm-run-all --serial stage:build stage:deploy",
+    "stage:build": "ABSOLUTE_BASE_URL=https://lmorchard.github.io/blog.lmorchard.com/ BASE_URL=/blog.lmorchard.com yarn build",
+    "stage:deploy": "gh-pages -t -d build"
   },
   "author": "Les Orchard <me@lmorchard.com>",
   "license": "MIT",
@@ -24,6 +27,7 @@
     "commonmark": "^0.29.1",
     "escape-html": "^1.0.3",
     "front-matter": "^4.0.0",
+    "gh-pages": "^2.2.0",
     "globby": "^11.0.0",
     "http-server": "^0.12.3",
     "marked": "^1.1.0",

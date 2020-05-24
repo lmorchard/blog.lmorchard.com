@@ -9,8 +9,8 @@ module.exports = {
     subtitle:
       "It's all spinning wheels and self-doubt until the first pot of coffee.",
     language: "en",
-    baseurl: "",
-    absolute_baseurl: "https://blog.lmorchard.com",
+    baseurl: process.env.BASE_URL || "",
+    absolute_baseurl: process.env.ABSOLUTE_BASE_URL || "https://blog.lmorchard.com",
     domain: "blog.lmorchard.com",
     author: {
       full_name: "Les Orchard",
