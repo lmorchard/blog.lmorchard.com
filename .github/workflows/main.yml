@@ -29,5 +29,7 @@ jobs:
         git config --global user.name "Les Orchard"        
     - name: Yarn install
       run: yarn install
-    - name: Build and stage the blog
-      run: yarn run stage
+    - name: Build for staging
+      run: yarn run stage:build
+    - name: Deploy for staging
+      run: gh-pages -t -d build -r https://${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git
