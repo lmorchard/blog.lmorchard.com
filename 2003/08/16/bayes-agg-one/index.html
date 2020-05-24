@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>Issues in using SpamBayes to filter news items - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/blog.lmorchard.com/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="Issues in using SpamBayes to filter news items" />
+        <meta
+          property="og:url"
+          content="https://lmorchard.github.io/blog.lmorchard.com//"
+        />
+        
+        <meta property="og:description" content="&lt;p&gt;Despite a reading &lt;a href=&quot;http://www.srijith.net/trinetre/archives/2003/08/11/index.shtml#000373&quot;&gt;an entry by Srijith&lt;/a&gt;
+discussing Bayes-based classification as unsuitable
+for use in news aggregators, I tied &lt;a href=&quot;http://www.spambayes.org&quot;&gt;SpamBayes&lt;/a&gt;
+into my &lt;a href=&quot;http://www.decafbad.com/viewcvs.cgi/dbagg/&quot;&gt;homebrew news aggregator&lt;/a&gt;
+and have been trying it out this week.  I know I&amp;#x2019;ve been &lt;a href=&quot;http://www.decafbad.com/blog/geek/syndicated_whuffie.phtml&quot;&gt;talking about it&lt;/a&gt;
+for awhile, but procrastination and being busy all round kept me from getting
+to it.  Funny thing is, when I finally got a chance to really check things out,
+the integration was a snap.  I&amp;#x2019;d anticipated a bit of work, but was pleasantly
+surprised.  I doubt that any other aggregator written in
+Python would have a hard time with it.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;If, that is, anyone else wants to do it.  I already knew it wasn&amp;amp;#8217;t&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&quot;http://diveintomark.org/archives/2003/07/07/linkdumps_are_like_sex&quot;&gt;magic pixy dust&lt;/a&gt;
+but I figured it might be worth a try.  I will be eating my dogfood
+for awhile with this, but I&amp;#x2019;m thinking already that what&amp;#x2019;s good for spam
+might not be so good for news aggregators.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;Srijith&amp;amp;#8217;s &amp;lt;a href=&amp;quot;http://www.srijith.net/trinetre/archives/2003/08/11/index.shtml#000373&amp;quot;&amp;gt;post&amp;lt;/a&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;mentions some snags in ignoring some of the semantics of a news item,
+such as whether a word appears in the item&amp;#x2019;s title or information about
+the item&amp;#x2019;s source.  I don&amp;#x2019;t think that this completely
+applies to how I&amp;#x2019;m doing classification, since SpamBayes appears to
+differentiate between words found in email headers and the body itself.
+When I feed an item to SpamBayes for training and scoring, I represent
+it as something like an email message, with headers like date, subject,
+from, and an &amp;#x201C;X-Link&amp;#x201D; header for the link.  However, even with this,
+I think Srijith&amp;#x2019;s got a point when he writes that this method will miss
+a lot of available clues for classification.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;Unlike Srijith&amp;amp;#8217;s examples, though, I&amp;amp;#8217;m not trying to train my&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;aggregator to sift entries into any specific categories.  So far, I&amp;#x2019;ve
+been trying to get it to discriminate between what I really want to
+read, and what I&amp;#x2019;m not so interested in.  So, I figured that something
+which can learn the difference between spam and normal email could help.
+But, although it&amp;#x2019;s early, I&amp;#x2019;m noticing a few things about the results and
+I&amp;#x2019;ve had a few things occur to me.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;See, in the case of ham vs spam, I really want all the ham and none of&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;the spam.  A method to differentiate between these two should be
+optimized toward one answer or the other.  SpamBayes offers &amp;#x201C;I don&amp;#x2019;t
+know&amp;#x201D; as a third answer, but it&amp;#x2019;s not geared toward anything else
+in-between.  However, in measuring something like &amp;#x201C;interest&amp;#x201C;,
+inbetween answers are useful.  I want all of the interesting stuff,
+some of the sort-of interesting stuff, and a little of the rest.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;This is also a problem for me in deciding to what I&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;should give a thumbs up and what gets the thumbs down.  Even though
+I&amp;#x2019;ve subscribed to a little over 300 feeds, every item from each of
+them is somewhat interesting to me.  I wouldn&amp;#x2019;t have subscribed to the
+feed if there wasn&amp;#x2019;t anything of interest there, so I&amp;#x2019;ve already
+biased the content of what I receive.  Some items are more interesting
+than others, but the difference between them is nowhere near the
+difference of wanted ham vs unsolicited spam.  So, I find myself
+giving the nod to lots of items, but only turning down a few.
+SpamBayes would like equal examples of both, if possible.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;I&amp;amp;#8217;ll still be playing with this for awhile, but I need to look&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;around at other machine learning tech.  I&amp;#x2019;m just hacking around,
+but the important thing is to try to understand the algorithms
+better and know how they work and why.  Bayes is in vogue right now,
+but as Mark Pilgrim intimated, it&amp;#x2019;s not magic.  It&amp;#x2019;s just &amp;#x201C;advanced&amp;#x201D; :)&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;In the immortal words of &amp;lt;a href=&amp;quot;http://www.spidereyeballs.com/os6/set3/small_os6_d3_3596_sm.html&amp;quot;&amp;gt;Mark Jason Dominus&amp;lt;/a&amp;gt;: &amp;amp;#8220;You can&amp;amp;#8217;t just make shit&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;up and expect the computer to know what you mean, retardo!&amp;#x201D; &lt;/p&gt;&lt;p&gt;&lt;/p&gt;
+" />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post "
+      >
+        <time
+          title="2003-08-16T04:28:41+00:00"
+          pubdate="2003-08-16T04:28:41+00:00"
+        >
+          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/blog.lmorchard.com/2003/"
+            >2003</a
+          >
+          &raquo;
+          <a href="/blog.lmorchard.com/2003/08/"
+            >August</a
+          >
+          &raquo;
+          <span>16</span>
+          &raquo;
+        </time>
+        <h1 class="title">Issues in using SpamBayes to filter news items</h1>
+        
+        <section class="post-content">
+          <p>Despite a reading <a href="http://www.srijith.net/trinetre/archives/2003/08/11/index.shtml#000373">an entry by Srijith</a>
+discussing Bayes-based classification as unsuitable
+for use in news aggregators, I tied <a href="http://www.spambayes.org">SpamBayes</a>
+into my <a href="http://www.decafbad.com/viewcvs.cgi/dbagg/">homebrew news aggregator</a>
+and have been trying it out this week.  I know I&#8217;ve been <a href="http://www.decafbad.com/blog/geek/syndicated_whuffie.phtml">talking about it</a>
+for awhile, but procrastination and being busy all round kept me from getting
+to it.  Funny thing is, when I finally got a chance to really check things out,
+the integration was a snap.  I&#8217;d anticipated a bit of work, but was pleasantly
+surprised.  I doubt that any other aggregator written in
+Python would have a hard time with it.</p>
+
+<pre><code>&lt;p&gt;If, that is, anyone else wants to do it.  I already knew it wasn&amp;#8217;t</code></pre>
+<p><a href="http://diveintomark.org/archives/2003/07/07/linkdumps_are_like_sex">magic pixy dust</a>
+but I figured it might be worth a try.  I will be eating my dogfood
+for awhile with this, but I&#8217;m thinking already that what&#8217;s good for spam
+might not be so good for news aggregators.</p></p>
+<pre><code>&lt;p&gt;Srijith&amp;#8217;s &lt;a href=&quot;http://www.srijith.net/trinetre/archives/2003/08/11/index.shtml#000373&quot;&gt;post&lt;/a&gt;</code></pre>
+<p>mentions some snags in ignoring some of the semantics of a news item,
+such as whether a word appears in the item&#8217;s title or information about
+the item&#8217;s source.  I don&#8217;t think that this completely
+applies to how I&#8217;m doing classification, since SpamBayes appears to
+differentiate between words found in email headers and the body itself.
+When I feed an item to SpamBayes for training and scoring, I represent
+it as something like an email message, with headers like date, subject,
+from, and an &#8220;X-Link&#8221; header for the link.  However, even with this,
+I think Srijith&#8217;s got a point when he writes that this method will miss
+a lot of available clues for classification.</p></p>
+<pre><code>&lt;p&gt;Unlike Srijith&amp;#8217;s examples, though, I&amp;#8217;m not trying to train my</code></pre>
+<p>aggregator to sift entries into any specific categories.  So far, I&#8217;ve
+been trying to get it to discriminate between what I really want to
+read, and what I&#8217;m not so interested in.  So, I figured that something
+which can learn the difference between spam and normal email could help.
+But, although it&#8217;s early, I&#8217;m noticing a few things about the results and
+I&#8217;ve had a few things occur to me.</p></p>
+<pre><code>&lt;p&gt;See, in the case of ham vs spam, I really want all the ham and none of</code></pre>
+<p>the spam.  A method to differentiate between these two should be
+optimized toward one answer or the other.  SpamBayes offers &#8220;I don&#8217;t
+know&#8221; as a third answer, but it&#8217;s not geared toward anything else
+in-between.  However, in measuring something like &#8220;interest&#8220;,
+inbetween answers are useful.  I want all of the interesting stuff,
+some of the sort-of interesting stuff, and a little of the rest.</p></p>
+<pre><code>&lt;p&gt;This is also a problem for me in deciding to what I</code></pre>
+<p>should give a thumbs up and what gets the thumbs down.  Even though
+I&#8217;ve subscribed to a little over 300 feeds, every item from each of
+them is somewhat interesting to me.  I wouldn&#8217;t have subscribed to the
+feed if there wasn&#8217;t anything of interest there, so I&#8217;ve already
+biased the content of what I receive.  Some items are more interesting
+than others, but the difference between them is nowhere near the
+difference of wanted ham vs unsolicited spam.  So, I find myself
+giving the nod to lots of items, but only turning down a few.
+SpamBayes would like equal examples of both, if possible.</p></p>
+<pre><code>&lt;p&gt;I&amp;#8217;ll still be playing with this for awhile, but I need to look</code></pre>
+<p>around at other machine learning tech.  I&#8217;m just hacking around,
+but the important thing is to try to understand the algorithms
+better and know how they work and why.  Bayes is in vogue right now,
+but as Mark Pilgrim intimated, it&#8217;s not magic.  It&#8217;s just &#8220;advanced&#8221; :)</p></p>
+<pre><code>&lt;p&gt;In the immortal words of &lt;a href=&quot;http://www.spidereyeballs.com/os6/set3/small_os6_d3_3596_sm.html&quot;&gt;Mark Jason Dominus&lt;/a&gt;: &amp;#8220;You can&amp;#8217;t just make shit</code></pre>
+<p>up and expect the computer to know what you mean, retardo!&#8221; </p></p>
+<!--more-->
+<p>shortname=bayes_agg_one</p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221088958">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://philringnalda.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=e68e9944f50a481a64b5a32fdfc02e0d&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://philringnalda.com">Phil Ringnalda</a>
+</div>
+<a href="#comment-221088958" class="permalink"><time datetime="2003-08-16T00:54:54">2003-08-16T00:54:54</time></a>
+</div>
+<div class="content">If you want to train a spam classifier quick, you've got to feed it spam. If you want to train an aggregator classifier, you've got to subscribe to more crap. I do my best to throw you a really stupid post once a week or so, but you need a bunch of feeds yammering on and on about nothing much.
+I'd recommend using MyRSS or Blogstreet (or your own scraper  if you've got one) on a random selection of Blog*Spot blogs: my RandomFreshBlog bookmarklet seems to turn up an unending supply of training material.</div>
+</li>
+</ul>
+</div>
+
+        </section>
+      </article>
+        </section>
+
+        <footer>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>
