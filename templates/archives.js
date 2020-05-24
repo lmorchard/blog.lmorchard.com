@@ -95,7 +95,7 @@ module.exports = ({ site = {}, page = {}, posts }) => {
                               <li class="month">
                                 <a
                                   class="month-container"
-                                  href="${site.baseUrl}/${year}/${month}/"
+                                  href="${site.baseurl}/${year}/${month}/"
                                 >
                                   <span class="month-label">${monthName}</span>
                                   <span class="month-count"
