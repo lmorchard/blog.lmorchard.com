@@ -1,0 +1,54 @@
+Welcome to `0xDECAFBAD` v4, my fourth attempt at establishing and maintaining a presence on the web.
+
+I am your host, variously known as:
+
+* `deusx`
+* l.m.orchard
+* Leslie Michael Orchard
+
+This is all personal branding and googlejuice; my friends call me "Les".
+
+I am a hacker, tinkerer, and creative technologist working in Santa Clara, CA (USA).  I live with two spotted Ocicats, two dwarf bunnies, and a very patient and understanding [wife][wife].  On rare occasions when spare time comes in copious amounts, I play around with odd bits of code and writing here.
+
+[wife]: http://decafbad.com/blog/2006/06/09/wedding-day-is-today
+
+## What's under the hood?
+
+This site largely runs on [WordPress][wp] now, with a small handful of tweaks and hacks I couldn't resist tossing in.  I haven't yet done any proper release of my modifications here, but I may someday and certainly am not averse to sharing when asked.
+
+@@ Watch this space as I rebuild this site with things it used to have.  (ie. a wiki, projects, links, etc)
+
+[wp]: http://www.wordpress.org
+
+## Got any plugins?
+
+In no particular order, here's an overview of the plugins I use around here:
+
+* [Optimal Title](http://elasticdog.com/2004/09/optimal-title/) -- I like making my page titles read from specific to general, so this helps me lead with the post title and trail with the blog title.
+
+* [dp.SyntaxHighlighter](http://www.dreamprojections.com/SyntaxHighlighter/) -- Beats all those clumsy attempts I've made using &amp;lt;pre&amp;gt; tags and textareas.
+
+* [PHP Markdown](http://www.michelf.com/projects/php-markdown/) -- I got hooked on Markdown while using Blosxom and Movable Type.  There's no turning back now.
+
+* [AJAX Comment Preview](http://blogwaffe.com/2005/06/14/298/) -- By semi-popular demand, I offer AJAX-enabled comment preview.  It seems pretty nifty to have.
+
+* [Related Posts](http://www.w-a-s-a-b-i.com/archives/2004/05/26/wordpress-related-entries-plugin/) -- I think that attempting to show some relation between posts provides a better way to wander around in archives than by dates.
+
+* [Ultimate Tag Warrior](http://www.neato.co.nz/ultimate-tag-warrior/) -- It's an ultimate warrior for tagging.  I dislike the usual category technology, am hooked on del.icio.us tagging, so here we are.
+
+* [WordPress Administration Design: Tiger](http://orderedlist.com/articles/wordpress-administration-design-tiger/ "WordPress Administration Design: Tiger // Ordered List by Steve Smith") -- Because WordPress' default admin style kinda looks like butt.
+
+## History
+
+**2002**: [It looked like this.](http://web.archive.org/web/20020525024010/http://www.decafbad.com/) I launched this site on a lark, liking the name `oxDECAFBAD`.  It's a 32-bit hexadecimal number, as well as an expression of distaste for things not containing caffeine.   Initially, the software was [Movable Type][mt2], which I quickly overwhelmed with hacks and plugins and all manner of crap.
+
+**2003**: [It looked like this.](http://web.archive.org/web/20030603165048/www.decafbad.com/blog/)  Tired of the crud I'd accumulated with my Movable Type exploits, I rebooted things and reworked everything to use [Blosxom][blosxom].  I also started taking a turn away from blogging "proper" and mostly posted lists of links for awhile.
+
+**2004**: [It looked like this.](http://web.archive.org/web/20040618092324/www.decafbad.com/blog/)  I stole some ideas from [Mark Pilgrim's accessibility series](http://diveintoaccessibility.org/) (whether it showed or not), and planned to switch to a more verbose and article-oriented style of blogging.  I also tried to integrate my wiki and link-blogging activities into a more unified navigation on the site.  Unfortunately, the net result was that the only thing that really every got updated was my linkblog.
+
+**2005**: Wanting to switch back to a more free and lightweight style of blogging, I ditched Movable Type and my article-length-biased templates.  (For some reason, I always end up making MT move like a battleship.)  This is another reboot, and as such, many of my site's previous features (ie. the wiki and linkblog) have gone away until I've had a chance to reevaluate them.
+
+**@@ More soon.**
+
+[mt2]: http://www.movabletype.org
+[blosxom]: http://blosxom.com

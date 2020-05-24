@@ -1,0 +1,831 @@
+
+/*----------------------------------------------------------------------*/
+/* main.css */
+/*----------------------------------------------------------------------*/
+
+html, body { width: 100%; height: 100%; }
+
+body {
+  margin: 0; padding: 0;
+  font: 13px sans-serif;
+  background-color: #222;
+}
+
+/* --------------------------------- */
+/* HTML5 bits and bobs */
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+#templates { display: none; }
+
+section.main {
+  height: 100%;
+  margin: 0 auto;
+
+}
+
+section.main header {
+  display: block;
+  position: relative;
+  background-color: #222;
+  z-index: 50;
+  padding-left: 4.75em;
+}
+
+section.main header:before {
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  float: left;
+  width: 3.75em;
+  height: 3.75em;
+  content: '\00a0';
+  background-image: url(https://en.gravatar.com/userimage/24353/8ff115257eb336d1858931fda80807b3.jpeg);
+  background-size: 3.75em;
+}
+
+section.main header h1 {
+  color: #eee;
+  font-family: monospace;
+  font-size: 28px;
+  line-height: 28px;
+  font-weight: bold;
+  padding: 0;
+  margin: 0.25em 0 0.125em 0;
+}
+
+section.main header h1 a {
+  text-decoration: none;
+  color: #eee;
+}
+
+section.main header h2 {
+  font-size: 0.9em;
+  font-family: monospace;
+  color: #999;
+  margin: 0 0 1.25em 0;
+  display: block;
+}
+
+section.main section.archive h2 {
+  clear: both;
+  color: #eee;
+  font-family: monospace;
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 0;
+  margin: 0.25em 0 0.125em 0;
+}
+
+section.main section.archive h3 {
+  color: #eee;
+  font-family: monospace;
+  font-size: 1.25em;
+  font-weight: bold;
+  padding: 0;
+  margin: 0.25em 0 0.125em 0;
+}
+
+section.main section.archive p {
+  color: #eee;
+  font-family: monospace;
+}
+
+section.main section.archive p a {
+  color: #ccc;
+}
+
+section.main header nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em 1em 0 0;
+}
+
+section.main header nav ul {
+  list-style-type: none;
+  margin: 0; padding: 0;
+}
+
+section.main header nav ul li {
+  float: left;
+}
+
+section.main header nav ul li a {
+  font-family: monospace;
+  font-size: 1.125em;
+  color: #eee;
+  margin: 0 0 0.25em 1.5em;
+}
+
+section.main footer {
+  padding: 1em;
+  text-align: center;
+}
+
+section.main footer img#growup {
+  max-width: 100%;
+}
+
+section.main .post-list p {
+  font-family: monospace;
+  color: #eee;
+  text-align: center;
+}
+section.main .post-list p a {
+  color: #ddd;
+}
+
+section.main .post-list .posts {
+  clear: both;
+  list-style-type: none;
+  margin: 0; padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+section.main .post-list .posts .post {
+  flex-grow: 1;
+  float: left;
+  position: relative;
+  min-width: 150px; min-height: 150px;
+  margin: 0;
+  overflow: hidden;
+  background-color: rgba(17, 17, 17, 1);
+  margin: 0.125em;
+  color: #fff;
+}
+
+section.main .post-list .posts .post .icon {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: #ccc;
+  padding-top: 0.5em;
+  font-size: 5em;
+  text-align: center;
+  opacity: 0.6;
+  transition: opacity 0.5s;
+}
+
+section.main .post-list .posts .post .link {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+section.main .post-list .posts .post .infoContainer {
+  display: block;
+  width: 100%;
+  background: rgba(17, 17, 17, 0.6);
+  position: absolute;
+  bottom: 0px;
+}
+
+section.main .post-list .posts .post .date {
+  display: block;
+  position: absolute;
+  background: rgba(17, 17, 17, 0.6);
+  top: 0; left: 0;
+  width: 100%;
+  z-index: 5;
+  font-size: 0.85em;
+  font-family: monospace;
+  padding: 0.7em 0;
+  text-align: center;
+}
+
+section.main .post-list .posts .post .title {
+  display: block;
+  margin: 0 0.5em 0.5em 0.5em;
+  line-height: 1.25em;
+  text-align: center;
+  color: #fff;
+}
+
+section.main .post-list .posts .post .thumb {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  opacity: 0.6;
+  transition: opacity 0.5s;
+}
+section.main .post-list .posts .post:hover .icon {
+  opacity: 1.0;
+  transition: opacity 0.5s;
+}
+section.main .post-list .posts .post:hover .thumb {
+  opacity: 1.0;
+  transition: opacity 0.5s;
+}
+
+section.main .post-list .posts .post .thumb {
+  display: none;
+}
+section.main .post-list .posts .post.has-thumb .thumb {
+  display: block;
+}
+section.main .post-list .posts .post.has-thumb .icon {
+  display: none;
+}
+
+section.content article {
+    padding: 1.5em 2em;
+    background-color: #f8f8f8;
+    font: 15px Georgia;
+    line-height: 1.5em;
+}
+article h1.title {
+  clear: both;
+  font-size: 1.85em;
+  line-height: 1em;
+  margin: 0; padding: 0;
+  text-shadow: #ccc 2px 2px 4px;
+}
+section.content article h2 {
+	text-shadow: #ccc 2px 2px 4px;
+	line-height:1.25em;
+}
+section.content article h3 {
+	text-shadow: #ccc 2px 2px 4px;
+}
+section.content > article ul,
+section.content > article ol {
+  margin: 0;
+  padding: 0 1.5em;
+}
+section.content > article .post-content > li {
+  margin: 0.25em 1.5em;
+}
+section.content > article ul > li,
+section.content > article ol > li {
+    margin: 0.25em 0 0.25em 0;
+}
+section.content > article  ul > li {
+    list-style: square;
+}
+section.content > article  blockquote {
+    font-style: italic;
+    margin: 1em 1.5em 1em 1.5em;
+    padding: 0 0 0 1em;
+    border-left: 4px solid #999;
+}
+
+section.content > article > pre {
+    background-color: #333;
+    color: #eee;
+    font-size: 0.85em;
+    margin: 0.25em 2em;
+    padding: 1em 1em;
+}
+section.content article pre[class*="language-"] {
+  font-size: 0.7em;
+}
+
+section.content article {
+overflow-y: hidden;
+}
+
+section.content article img {
+  max-width: 100% !important;
+}
+section.content article div.wp-caption {
+  max-width: 100% !important;
+
+}
+
+section.content article iframe.fullwidth,
+section.content article img.fullwidth {
+  width: 100%;
+  max-width: 100% !important;
+  clear: both;
+}
+
+section.content article ul.columns {
+  margin: 1em; padding: 1em;
+  clear: both;
+  border: 1px solid #ccc;
+}
+section.content article ul.columns li {
+  list-style-type: none;
+  display: inline;
+  float: left;
+  width: 25%;
+}
+
+article.post nav.table-of-contents,
+article.post #toc_container {
+    float: right;
+    margin: 0em 0em 1em 1em;
+    padding: 1em;
+    background-color: #eee;
+}
+article.post nav.table-of-contents p.title,
+article.post #toc_container .toc_title {
+  font-weight: bold;
+  padding: 0; margin: 0;
+  text-shadow: #ccc 2px 2px 4px;
+}
+
+section.post > time,
+article.post > time {
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+
+section.content .post > ul.tags:before,
+section.content article > ul.tags:before {
+  content: "";
+
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  font-size-adjust: none;
+  font-stretch: normal;
+  -moz-font-feature-settings: normal;
+  -moz-font-language-override: normal;
+  font-size: inherit;
+  text-rendering: auto;
+  -moz-osx-font-smoothing: grayscale;
+}
+section.content .post > ul.tags,
+section.content article > ul.tags {
+    display: block;
+    padding: 0;
+    margin: 0.75em 0 0.25em 0;
+    font-size: 0.85em;
+}
+section.content .post > ul.tags li,
+section.content article > ul.tags li {
+    list-style: none;
+    display: inline;
+}
+
+section.comments {
+    padding: 1.5em 2em;
+    background-color: #f8f8f8;
+}
+
+#comments.archived-comments {
+     border-top: 4px solid #333333;
+     margin: 2em 0pt 3em 0em;
+     padding-top: 1em;
+}
+
+#comments.archived-comments > h3 {
+     margin: 0.5em 0pt 1em 0em;
+}
+
+#comments.archived-comments ul.comments {
+     margin: 0pt 0pt 0pt 3em;
+     padding: 0pt;
+}
+
+#comments.archived-comments > ul.comments {
+     margin: 0pt 0pt 0pt 0em;
+}
+
+#comments.archived-comments ul.comments li.comment {
+     list-style: none outside none;
+}
+
+#comments.archived-comments ul.comments li.comment .meta {
+     background: none repeat scroll 0% 0% #EEEEEE;
+     border: 1px solid #DDDDDD;
+     margin: 1em 0pt 0pt;
+     padding: 0.5em;
+     position: relative;
+}
+
+#comments.archived-comments ul.comments li.comment .meta .author img {
+     height: 32px;
+     width: 32px;
+}
+
+#comments.archived-comments ul.comments li.comment .meta .permalink {
+     position: absolute;
+     right: 1em;
+     top: 1em;
+}
+
+/* Super special espresso cups for thought posts */
+section.content > article.tag-thoughts > .post-content > ul {
+  margin-left: 0;
+}
+section.content > article.tag-thoughts > .post-content > ul > li {
+  list-style-type: none;
+  padding-left: 2.125em;
+  background: url('../img/bullet-espresso.gif') no-repeat scroll left 0.25em transparent
+}
+section.content > article.tag-thoughts > .post-content > ul.tags > li {
+  background: none;
+  padding-left: 0;
+}
+section.content > article.tag-thoughts > .post-content > ul > li > ul {
+  margin: 0 0 0 1.5em;
+}
+section.content > article.tag-thoughts > .post-content > ul > li > ul > li {
+  list-style-type: none;
+}
+section.content > article.tag-thoughts > .post-content > ul > li > ul > li:before {
+  content: "\00bb";
+  font-weight: bold;
+  font-size: 1.25em;
+  float: left;
+  margin-left: -1em;
+}
+
+/* emphasis tweaks */
+a.emAnchor { font-size: 1.75em; margin-left: -0.25em }
+
+
+.post .icon:before { content:"\f15c" }
+.post.tag-webdev .icon:before { content: ""; }
+.post.tag-pets .icon:before { content: ""; }
+.post.tag-metablogging .icon:before { content: ""; }
+.post.tag-social .icon:before { content: ""; }
+.post.tag-thoughts .icon:before { content: ""; }
+.post.tag-asides .icon:before { content: ""; }
+
+section.archive { }
+section.archive ul.tags {
+  list-style-type: none;
+  margin: 1em 0; padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+section.archive ul.tags li.tag {
+  display: block;
+  float: left;
+  min-width: 10em;
+  margin: 0.25em; padding: 0.5em;
+  border: 1px solid #999;
+  border-radius: 4px;
+  background-color: #ddd;
+  color: #111;
+}
+section.archive ul.tags li.tag a {
+  color: #111;
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+section.archive ul.tags li.tag .count {
+  font-size: 0.75em;
+}
+
+section.archive ul.years {
+  color: #fff;
+  list-style-type: none;
+  padding: 0;
+  margin: 1.5em 0 1.5em 0;
+}
+section.archive ul.years li.year {
+  clear: both;
+  padding: 0 0 1.125em 0;
+}
+section.archive ul.years li.year > a {
+  color: #111;
+  background-color: #eee;
+  border-radius: 4px;
+  display: block;
+  float: left;
+  margin: 0 0.5em 0 0;
+  padding: 0.5em;
+  text-align: right;
+  width: 5em;
+  text-decoration: none;
+}
+section.archive ul.years li.year ul.months {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 0.75em 6.5em;
+}
+section.archive ul.years li.year ul.months li.month {
+  float: left;
+  color: #111;
+  width: 16%;
+}
+section.archive ul.years li.year ul.months li.month .month-container {
+  color: #fff;
+  text-decoration: none;
+  background-color: #666;
+  border-radius: 4px;
+  display: block;
+  margin: 0em 0.25em 0.5em 0.25em;
+  padding: 0.5em;
+  text-align: center;
+  text-decoration: none;
+}
+section.archive ul.years li.year ul.months li.month .month-label {
+  font-size: 1em;
+}
+section.archive ul.years li.year ul.months li.month .month-count {
+  font-size: 0.8em;
+  color: #ccc;
+}
+section.archive ul.years li.year ul.months li.month.no-posts .month-container,
+section.archive ul.years li.year ul.months li.month.no-posts .month-container .month-count {
+  color: #777;
+}
+
+section.content>article .post-content img.inset.left {
+	float:left;
+	clear:left;
+	padding:0 1em 1em 0;
+	width:25%
+}
+section.content>article .post-content img.inset.left.wide {
+	width:50%;
+  padding: 0 2em 2em 0;
+}
+section.content>article .post-content img.inset.right {
+	float:right;
+	clear:right;
+	padding:0 0 1em 1em;
+	width:25%
+}
+section.content>article .post-content img.inset.right.wide {
+	width:50%;
+  padding: 0 0 2em 2em;
+}
+@media (max-width:800px) {
+	.image-group {
+		display:flex;
+		flex-direction:row;
+		justify-content:stretch;
+		align-items: center;
+		align-content: center;
+	}
+	section.content>article .post-content img.inset.left,
+	section.content>article .post-content img.inset.left.wide,
+	section.content>article .post-content img.inset.right.wide,
+  section.content>article .post-content img.inset.right {
+		display: block;
+		float: none;
+		margin: auto;
+		width: 100%;
+	}
+}
+
+section.content>article .post-content .pullquote {
+	float:left;
+	width:33%;
+	font-size:1.5em;
+	line-height:1.5em;
+	padding:0.75em 1.5em;
+	font-style:italic;
+	border-top:1px solid #aaa;
+	border-bottom:1px solid #aaa;
+	margin:0.75em 1.5em;
+	color:#333;
+	text-shadow:#ccc 2px 2px 4px
+}
+
+section.content>article .post-content .pullquote.left {
+	float:left
+}
+section.content>article .post-content .pullquote.right {
+	float:right
+}
+@media (max-width:800px) {
+  section.content>article .post-content .pullquote {
+		width:inherit;
+		float:none;
+		margin: 1.5em 1.5em;
+		padding: 1em;
+		font-size: 1.25em;
+	}
+	section.content>article .post-content .pullquote.left,section.content>article .post-content .pullquote.right {
+		float:none
+	}
+}
+
+article .video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+}
+
+/* See: http://avexdesigns.com/responsive-youtube-embed/ */
+article .video-container iframe,
+article .video-container object,
+article .video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+header nav .nav-trigger { display: none; }
+header nav label[for="nav-trigger"] { display: none; }
+
+@media (min-width: 800px) {
+  section.main {
+    padding-top: 2em;
+    width: 800px;
+  }
+  .post-list .posts .post {
+  }
+  section.archive ul.years li.year ul.months li.month {
+    float: left;
+    color: #111;
+    width: 4.25em;
+  }
+  section.archive ul.years li.year ul.months li.month .month-count {
+   display: block;
+  }
+
+  body.scrolled section.content {
+    margin-top: 60px;
+  }
+  body.scrolled section.main > header {
+    position: fixed;
+    width: calc(800px - 4.75em);
+    top: 0;
+    box-shadow: 0px 4px 2px 0px rgba(0, 0, 0, 0.7);
+  }
+  body.scrolled section.main > header h1 {
+    margin-top: 0;
+  }
+  body.scrolled section.main > header h2 {
+    margin-bottom: 0.25em;
+  }
+
+}
+
+@media (max-width: 800px) {
+  .post-list .posts .post .icon {
+    opacity: 1.0;
+  }
+  .post-list .posts .post .thumb {
+    opacity: 1.0;
+  }
+  section.main header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.7);
+  }
+  section.main header h1 {
+    padding: 0; margin: 0;
+  }
+  section.main header h2 {
+    padding: 0.5em 0 0.25em 0; margin: 0;
+  }
+  section.main header nav {
+    padding: 0.125em 0.5em;
+  }
+  section.content {
+    margin-top: 3.75em;
+  }
+
+  section.main header nav {
+    width: 100%;
+  }
+
+  /* Inspired by: http://www.sitepoint.com/pure-css-off-screen-navigation-menu/ */
+
+  section.main header nav .nav-trigger {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  section.main header nav label[for="nav-trigger"] {
+    display: block;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    z-index: 20;
+    width: 2.75em;
+    height: 2.75em;
+    margin: 0.5em;
+    cursor: pointer;
+    background-image: url("/img/menu.svg");
+    background-size: contain;
+  }
+
+  section.main header nav ul {
+    display: block;
+    background: rgba(32, 32, 32, 0.9);
+    padding: 0;
+    position: fixed;
+    top: 3.75em;
+    bottom: 0;
+    width: 15em;
+    right: -15em;
+    transition: right 0.2s;
+  }
+
+  section.main header nav ul li {
+    display: block;
+    float: none;
+    text-align: right;
+    font-size: 1.25em;
+    border-bottom: 1px solid #666;
+    line-height: 2.5em;
+    padding: 0.25em 0.75em;
+  }
+
+  section.main header nav ul li a {
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  section.main header nav .nav-trigger:checked + ul {
+    right: 0em;
+    transition: right 0.2s;
+  }
+
+}
+
+@media (max-width: 700px) {
+  article h1.title {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 550px) {
+  section.main header {
+    padding: 0;
+    margin: 0;
+    height: 3.75em;
+  }
+  section.main header h1 {
+    padding: 0;
+    margin: 0;
+    font-size: 1.5em;
+    line-height: 2.75em;
+    text-align: center;
+  }
+  section.main header h2 {
+    display: none;
+  }
+  section.content {
+    margin-top: 3.75em;
+  }
+  article h1.title,
+  article h2 {
+    font-size: 1.25em;
+  }
+  article.post nav.table-of-contents,
+  article.post #toc_container {
+    float: inherit;
+    margin: 0.5em 0;
+  }
+  section.archive ul.years li.year ul.months li.month .month-count {
+   display: block;
+  }
+
+}
+
+@media (max-width: 325px) {
+  section.main header h1 {
+    font-size: 1em;
+    line-height: 4em;
+  }
+  section.archive ul.years li.year ul.months li.month .month-count {
+   display: none;
+  }
+}
+
+/* See: http://nicolasgallagher.com/micro-clearfix-hack/ */
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+.clearfix:after { clear: both; }
+.clearfix { *zoom: 1; }

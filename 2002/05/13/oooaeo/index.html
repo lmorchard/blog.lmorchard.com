@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>Mr. Downes&#39; Javascript-based referrers - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="Mr. Downes&#39; Javascript-based referrers" />
+        <meta
+          property="og:url"
+          content="https://blog.lmorchard.com/"
+        />
+        
+        <meta property="og:description" content="&lt;p&gt;
+Just noticed that &lt;a href=&quot;http://www.downes.ca/&quot;&gt;Stephen Downes&lt;/a&gt; emailed me about his implementation of a &lt;a href=&quot;http://www.downes.ca/referrers.htm&quot;&gt;Javascript-based referrer linkback system&lt;/a&gt;.  I&amp;apos;d been planning to get around to making one inspired from &lt;a href=&quot;http://www.decafbad.com/news_archives/000141.phtml&quot;&gt;our blogchat&lt;/a&gt;, but he&amp;apos;s got it first.  Cool.  :)  Looks like &lt;a href=&quot;http://radio.weblogs.com/0100887/2002/05/12.html#a234&quot;&gt;Jon&amp;apos;s picked up on it, too&lt;/a&gt;.  
+&lt;/p&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;p&gt;
+Jon muses:&lt;/p&gt;&lt;blockquote&gt;&lt;i&gt;I haven&amp;apos;t yet looked into what it will take to make the reporting item- rather than page-specific. It&amp;apos;s doable, I&amp;apos;m sure. Thanks, Stephen! A &lt;span style=&quot;background : #FFFFCE;&quot;&gt;&lt;a href=&quot;http://www.decafbad.com/twiki/bin/edit/Main/JavaScript?topicparent=Main.FilterData&quot;&gt;&lt;b&gt;?&lt;/b&gt;&lt;/a&gt;&lt;font color=&quot;#0000FF&quot;&gt;JavaScript&lt;/font&gt;&lt;/span&gt;-oriented solution like this will appeal to a lot of Radio users.&lt;/i&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;p&gt;
+The biggest issue I see for Radio, obviously, is that the style there is to have many blog entries on one page for the day.  Permalinks are anchors within those pages.  However, I haven&amp;apos;t seen browsers reporting the post-anchor-hash info for referrals.  At first though, one would need to have Radio spew blog entries into individual files to make this JS linkback scheme work at per-entry granularity.  Otherwise, I&amp;apos;d &lt;i&gt;love&lt;/i&gt; to see this work for Radio.  I&amp;apos;d also love to see it woven with &lt;a href=&quot;http://rcs.userland.com/&quot;&gt;community server&lt;/a&gt; services.
+&lt;/p&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;p&gt;
+A few brief musings on the &lt;a href=&quot;http://www.downes.ca/referrers.txt&quot;&gt;referrers script itself&lt;/a&gt;:
+&lt;/p&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;ul&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;li&gt;
+Hmm, haven&amp;apos;t seen &lt;a href=&quot;http://cgi-lib.berkeley.edu/&quot;&gt;cgi-lib.pl&lt;/a&gt; used since my Perl 4 and pre-CGI.pm days.  I&amp;apos;d forgotten how serviceable the thing still is.
+&lt;/li&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;li&gt;
+I like &lt;code&gt;get_page_title()&lt;/code&gt;.  It&amp;apos;s a start on what I was &lt;a href=&quot;http://www.decafbad.com/news_archives/000142.phtml&quot;&gt;musing about over here&lt;/a&gt;.
+&lt;/li&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;li&gt;
+I want to steal this, maybe transliterate it into &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/PHP&quot;&gt;PHP&lt;/a&gt; (since my webhost frowns on my CGIs now), and hook it up to a &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/MySQL&quot;&gt;MySQL&lt;/a&gt; database.  Stephen doesn&amp;apos;t want to host the world&amp;apos;s referers, but I wonder how mad my host will get if I open mine up.  :)  Would make for some neat data to draw maps with, but probably shouldn&amp;apos;t do things to make myself an even more annoying band practicing neighbor.
+&lt;/li&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;/ul&gt;
+" />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post "
+      >
+        <time
+          title="2002-05-13T00:07:48-07:00"
+          pubdate="2002-05-13T00:07:48-07:00"
+        >
+          <a href="/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/2002/"
+            >2002</a
+          >
+          &raquo;
+          <a href="/2002/05/"
+            >May</a
+          >
+          &raquo;
+          <span>13</span>
+          &raquo;
+        </time>
+        <h1 class="title">Mr. Downes&#39; Javascript-based referrers</h1>
+        
+        <section class="post-content">
+          <p>
+Just noticed that <a href="http://www.downes.ca/">Stephen Downes</a> emailed me about his implementation of a <a href="http://www.downes.ca/referrers.htm">Javascript-based referrer linkback system</a>.  I'd been planning to get around to making one inspired from <a href="http://www.decafbad.com/news_archives/000141.phtml">our blogchat</a>, but he's got it first.  Cool.  :)  Looks like <a href="http://radio.weblogs.com/0100887/2002/05/12.html#a234">Jon's picked up on it, too</a>.  
+</p>
+<br /><br />
+<p>
+Jon muses:<blockquote><i>I haven't yet looked into what it will take to make the reporting item- rather than page-specific. It's doable, I'm sure. Thanks, Stephen! A <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/JavaScript?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">JavaScript</font></span>-oriented solution like this will appeal to a lot of Radio users.</i></blockquote>
+</p>
+<br /><br />
+<p>
+The biggest issue I see for Radio, obviously, is that the style there is to have many blog entries on one page for the day.  Permalinks are anchors within those pages.  However, I haven't seen browsers reporting the post-anchor-hash info for referrals.  At first though, one would need to have Radio spew blog entries into individual files to make this JS linkback scheme work at per-entry granularity.  Otherwise, I'd <i>love</i> to see this work for Radio.  I'd also love to see it woven with <a href="http://rcs.userland.com/">community server</a> services.
+</p>
+<br /><br />
+<p>
+A few brief musings on the <a href="http://www.downes.ca/referrers.txt">referrers script itself</a>:
+</p>
+<br /><br />
+<ul>
+<br /><br />
+<li>
+Hmm, haven't seen <a href="http://cgi-lib.berkeley.edu/">cgi-lib.pl</a> used since my Perl 4 and pre-CGI.pm days.  I'd forgotten how serviceable the thing still is.
+</li>
+<br /><br />
+<li>
+I like <code>get_page_title()</code>.  It's a start on what I was <a href="http://www.decafbad.com/news_archives/000142.phtml">musing about over here</a>.
+</li>
+<br /><br />
+<li>
+I want to steal this, maybe transliterate it into <a href="http://www.decafbad.com/twiki/bin/view/Main/PHP">PHP</a> (since my webhost frowns on my CGIs now), and hook it up to a <a href="http://www.decafbad.com/twiki/bin/view/Main/MySQL">MySQL</a> database.  Stephen doesn't want to host the world's referers, but I wonder how mad my host will get if I open mine up.  :)  Would make for some neat data to draw maps with, but probably shouldn't do things to make myself an even more annoying band practicing neighbor.
+</li>
+<br /><br />
+</ul>
+<!--more-->
+shortname=oooaeo
+
+        </section>
+      </article>
+        </section>
+
+        <footer>
+          <img id="growup" src="/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/js/vendor/lazyload.js"></script><script src="/js/vendor/prism.js"></script><script src="/js/toc.js"></script><script src="/js/analytics.js"></script><script src="/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

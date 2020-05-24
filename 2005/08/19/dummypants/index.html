@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>Super-fast DummyPants Addressbarlet for del.icio.us - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="Super-fast DummyPants Addressbarlet for del.icio.us" />
+        <meta
+          property="og:url"
+          content="https://blog.lmorchard.com/"
+        />
+        
+        <meta property="og:description" content="&lt;p&gt;Okay, so lately I&amp;apos;ve switched to using &amp;quot;&lt;a href=&quot;http://naeblis.cx/rtomayko/2004/08/09/DeliciousAddresslets&quot;&gt;addressbarlets&lt;/a&gt;&amp;quot; for my &lt;a href=&quot;http://del.icio.us&quot;&gt;del.icio.us&lt;/a&gt; posting needs.  In particular, I&amp;apos;ve been using the &lt;a href=&quot;http://ejohn.org/blog/super-fast-delicious-bookmarklet/&quot;&gt;Super-Fast variety&lt;/a&gt;.  I cannot stress how much better these are than clicking links in the bookmark toolbar.  My &lt;a href=&quot;http://del.icio.us&quot;&gt;del.icio.us&lt;/a&gt; posting has converged that much closer to command-line / QuickSilver perfection.  &lt;/p&gt;
+&lt;p&gt;But, I just noticed that in my &lt;a href=&quot;http://del.icio.us&quot;&gt;del.icio.us&lt;/a&gt; RSS feed, the title &amp;quot;&lt;strong&gt;del.icio.us warning: non-utf8 string! (sorry)&lt;/strong&gt;&amp;quot; has been popping up--especially on &lt;a href=&quot;http://dev.upian.com/hotlinks/&quot;&gt;Hot Links&lt;/a&gt;, which includes my links on a regular basis.  &lt;/p&gt;
+&lt;p&gt;Well, although I&amp;apos;m not really all that hip to unicode and non-ASCII characters, it appears that things like &lt;a href=&quot;http://daringfireball.net/projects/smartypants/&quot;&gt;SmartyPants&lt;/a&gt; and the &lt;a href=&quot;http://www.365tomorrows.com/08/19/deo%e2%80%99s-hole/&quot;&gt;use of chevrons in page titles&lt;/a&gt; are throwing the monkey wrench for me when the addressbarlet picks up the &lt;code&gt;document.title&lt;/code&gt;.  So, I decided to do a little sloppy butchery in my bookmarklet code to wrestle these titles into something acceptable.&lt;/p&gt;
+&lt;p&gt;After you&amp;apos;ve had a chance to try out / comprehend &lt;a href=&quot;http://ejohn.org/blog/super-fast-delicious-bookmarklet/&quot;&gt;the original versions&lt;/a&gt;, take a look at this revised addressbarlet:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;javascript:u=%22CHANGEME%22;us=[[&amp;apos;\u201C&amp;apos;,&amp;apos;%22&amp;apos;],[&amp;apos;\u201D&amp;apos;,&amp;apos;%22&amp;apos;],[&amp;apos;\u2019&amp;apos;,%22&amp;apos;%22],[&amp;apos;\u2018&amp;apos;,%22&amp;apos;%22],[&amp;apos;\u2026&amp;apos;,%22...%22],[&amp;apos;\u00BB&amp;apos;,&amp;apos;-&amp;apos;]];function es(p){for(var i=0;i&amp;lt;us.length;i++){p=p.replace(us[i][0],us[i][1])};p=p.replace(/[\u0080-\uFFFF]/g,&amp;apos;&amp;apos;);return encodeURIComponent(p);};q=location.href;e=%22%22+(window.getSelection?window.getSelection():document.getSelection?document.getSelection():document.selection.createRange().text);p=document.title;window.location.href=%22http://del.icio.us/%22+u+%22?jump=doclose&amp;amp;tags=%22+es(%22%s%22)+%22&amp;amp;url=%22+es(q)+%22&amp;amp;description=%22+es(p)+%22&amp;amp;extended=%22+es(&amp;apos;%22&amp;apos;+e+&amp;apos;%22&amp;apos;).replace(/ /g,%22+%22);&quot;&gt;Post to del.icio.us and close&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In case, for some reason, that doesn&amp;apos;t come through in this entry, here&amp;apos;s the code which should appear in the HREF:&lt;/p&gt;
+&lt;textarea rows=&quot;10&quot; cols=&quot;65&quot; name=&quot;code&quot; class=&quot;javascript&quot;&gt;    javascript:u=%22CHANGEME%22;us=[[&amp;apos;\u201C&amp;apos;,&amp;apos;%22&amp;apos;],[&amp;apos;\u201D&amp;apos;,&amp;apos;%22&amp;apos;],[&amp;apos;\u2019&amp;apos;,%22&amp;apos;%22],[&amp;apos;\u2018&amp;apos;,%22&amp;apos;%22],[&amp;apos;\u2026&amp;apos;,%22...%22],[&amp;apos;\u00BB&amp;apos;,&amp;apos;-&amp;apos;]];function es(p){for(var i=0;i&amp;lt;us .length;i++){p=p.replace(us[i][0],us[i][1])};p=p.replace(/[\u0080-\uFFFF]/g,&amp;apos;&amp;apos;);return encodeURIComponent(p);};q=location.href;e=%22%22+(window.getSelection?window.getSelection():document.getSelection?document.getSelection():document.selection.createRange().text);p=document.title;window.location.href=%22http://del.icio.us/%22+u+%22?jump=doclose&amp;amp;tags=%22+es(%22%s%22)+%22&amp;amp;url=%22+es(q)+%22&amp;amp;description=%22+es(p)+%22&amp;amp;extended=%22+es(&amp;apos;%22&amp;apos;+e+&amp;apos;%22&amp;apos;).replace(/ /g,%22+%22);&lt;/textarea&gt;
+
+&lt;p&gt;I&amp;apos;m sure I have a few nasty bugs lurking in there, but basically I&amp;apos;m trying to reverse &lt;a href=&quot;http://daringfireball.net/projects/smartypants/&quot;&gt;SmartyPants&lt;/a&gt;--DummyPants, if you will--and crudely hack out everything that&amp;apos;s not the usual ASCII.&lt;/p&gt;
+&lt;p&gt;If you happen to be having this problem, let me know if this code works for you.&lt;/p&gt;
+" />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post "
+      >
+        <time
+          title="2005-08-19T14:32:12-07:00"
+          pubdate="2005-08-19T14:32:12-07:00"
+        >
+          <a href="/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/2005/"
+            >2005</a
+          >
+          &raquo;
+          <a href="/2005/08/"
+            >August</a
+          >
+          &raquo;
+          <span>19</span>
+          &raquo;
+        </time>
+        <h1 class="title">Super-fast DummyPants Addressbarlet for del.icio.us</h1>
+        
+        <section class="post-content">
+          <p>Okay, so lately I&#39;ve switched to using &quot;<a href="http://naeblis.cx/rtomayko/2004/08/09/DeliciousAddresslets">addressbarlets</a>&quot; for my <a href="http://del.icio.us">del.icio.us</a> posting needs.  In particular, I&#39;ve been using the <a href="http://ejohn.org/blog/super-fast-delicious-bookmarklet/">Super-Fast variety</a>.  I cannot stress how much better these are than clicking links in the bookmark toolbar.  My <a href="http://del.icio.us">del.icio.us</a> posting has converged that much closer to command-line / QuickSilver perfection.  </p>
+<p>But, I just noticed that in my <a href="http://del.icio.us">del.icio.us</a> RSS feed, the title &quot;<strong>del.icio.us warning: non-utf8 string! (sorry)</strong>&quot; has been popping up--especially on <a href="http://dev.upian.com/hotlinks/">Hot Links</a>, which includes my links on a regular basis.  </p>
+<p>Well, although I&#39;m not really all that hip to unicode and non-ASCII characters, it appears that things like <a href="http://daringfireball.net/projects/smartypants/">SmartyPants</a> and the <a href="http://www.365tomorrows.com/08/19/deo%e2%80%99s-hole/">use of chevrons in page titles</a> are throwing the monkey wrench for me when the addressbarlet picks up the <code>document.title</code>.  So, I decided to do a little sloppy butchery in my bookmarklet code to wrestle these titles into something acceptable.</p>
+<p>After you&#39;ve had a chance to try out / comprehend <a href="http://ejohn.org/blog/super-fast-delicious-bookmarklet/">the original versions</a>, take a look at this revised addressbarlet:</p>
+<ul>
+<li><a href="javascript:u=%22CHANGEME%22;us=[['\u201C','%22'],['\u201D','%22'],['\u2019',%22'%22],['\u2018',%22'%22],['\u2026',%22...%22],['\u00BB','-']];function es(p){for(var i=0;i<us.length;i++){p=p.replace(us[i][0],us[i][1])};p=p.replace(/[\u0080-\uFFFF]/g,'');return encodeURIComponent(p);};q=location.href;e=%22%22+(window.getSelection?window.getSelection():document.getSelection?document.getSelection():document.selection.createRange().text);p=document.title;window.location.href=%22http://del.icio.us/%22+u+%22?jump=doclose&#38;tags=%22+es(%22%s%22)+%22&#38;url=%22+es(q)+%22&#38;description=%22+es(p)+%22&#38;extended=%22+es('%22'+e+'%22').replace(/ /g,%22+%22);">Post to del.icio.us and close</a></li>
+</ul>
+<p>In case, for some reason, that doesn&#39;t come through in this entry, here&#39;s the code which should appear in the HREF:</p>
+<textarea rows="10" cols="65" name="code" class="javascript">
+    javascript:u=%22CHANGEME%22;us=[['\u201C','%22'],['\u201D','%22'],['\u2019',%22'%22],['\u2018',%22'%22],['\u2026',%22...%22],['\u00BB','-']];function es(p){for(var i=0;i<us .length;i++){p=p.replace(us[i][0],us[i][1])};p=p.replace(/[\u0080-\uFFFF]/g,'');return encodeURIComponent(p);};q=location.href;e=%22%22+(window.getSelection?window.getSelection():document.getSelection?document.getSelection():document.selection.createRange().text);p=document.title;window.location.href=%22http://del.icio.us/%22+u+%22?jump=doclose&#38;tags=%22+es(%22%s%22)+%22&#38;url=%22+es(q)+%22&#38;description=%22+es(p)+%22&#38;extended=%22+es('%22'+e+'%22').replace(/ /g,%22+%22);</textarea>
+
+<p>I&#39;m sure I have a few nasty bugs lurking in there, but basically I&#39;m trying to reverse <a href="http://daringfireball.net/projects/smartypants/">SmartyPants</a>--DummyPants, if you will--and crudely hack out everything that&#39;s not the usual ASCII.</p>
+<p>If you happen to be having this problem, let me know if this code works for you.</p>
+<!--more-->
+<p>shortname=dummypants</us></textarea></p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221088797">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://plasmasturm.org/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=e17949267bbfe21a0fadf1bbf00592b4&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://plasmasturm.org/">Aristotle Pagaltzis</a>
+</div>
+<a href="#comment-221088797" class="permalink"><time datetime="2005-08-20T00:47:22">2005-08-20T00:47:22</time></a>
+</div>
+<div class="content">del.icio.us understands UTF-8 (which is exactly what the message says, after all), and the characters you remove are expressed in Unicode codepoints.
+The disconnect seems to happen when the page you're on is in an encoding other than UTF-8, in which case Firefox apparently escapes characters using their byte values from that encoding in `encodeURIComponent`. I have no idea why, or exactly where this problem happens; the JS docs say the function should always use the UTF-8 representation for the byte values.</div>
+</li>
+<li class="comment" id="comment-221088798">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://ejohn.org/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=b3e04a46e85ad3e165d66f5d927eb609&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://ejohn.org/">John Resig</a>
+</div>
+<a href="#comment-221088798" class="permalink"><time datetime="2005-08-20T19:30:38">2005-08-20T19:30:38</time></a>
+</div>
+<div class="content">A very smart improvement of the original - I like it! I'll see if I can't include a link to it, before I forget.</div>
+</li>
+</ul>
+</div>
+
+        </section>
+      </article>
+        </section>
+
+        <footer>
+          <img id="growup" src="/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/js/vendor/lazyload.js"></script><script src="/js/vendor/prism.js"></script><script src="/js/toc.js"></script><script src="/js/analytics.js"></script><script src="/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

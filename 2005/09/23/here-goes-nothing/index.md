@@ -1,0 +1,1 @@
+So here goes nothing:  In attempt to break the yak shaving cycle and post my first new-style aside, I'm trying out a per-category post theme tweak of my own hackish design which selects sub-templates based on the "nicename" of the post's category.

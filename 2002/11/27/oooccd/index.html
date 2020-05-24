@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>XML-RPC case study redux, Part II: REST and I - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="XML-RPC case study redux, Part II: REST and I" />
+        <meta
+          property="og:url"
+          content="https://blog.lmorchard.com/"
+        />
+        
+        <meta property="og:description" content="&lt;p&gt;So, from my &lt;a href=&quot;http://www.decafbad.com/news_archives/000333.phtml&quot;&gt;last installment&lt;/a&gt;, I left off with this:  My daily situation with regards to integrating the web-based services of various parties boils down to what I can explain in 30 minutes to a developer of unknown competence to whom I&amp;apos;m barely a priority.  So far, I&amp;apos;ve been able to apply &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpc&quot;&gt;XmlRpc&lt;/a&gt; as a solution to this problem with a great degree of success.
+&lt;br&gt;&lt;br&gt;
+About this, endulging me although I&amp;apos;m sure issues like mine have been hashed out a million times already on various mailing lists, &lt;a href=&quot;http://www.blogstream.com/pauls/1038403139&quot;&gt;Paul Prescod writes&lt;/a&gt;:&lt;/p&gt;&lt;blockquote&gt;&lt;i&gt;There&amp;apos;s nothing wrong with the way you&amp;apos;ve used XML-RPC and I&amp;apos;ve used it that way myself. I only write to ensure that you (and anyone reading) understands the costs and benefits of this approach. You&amp;apos;ve given up on many of the feature of the underlying XML and HTTP technologies. If you don&amp;apos;t need the features, then amen, let her rip. But people building more substantial apps do need them.&lt;/i&gt;&lt;/blockquote&gt;
+&lt;br&gt;&lt;br&gt;
+Yes.  So, I know that my chosen solution has its blemishes and land mines awaiting my step.  But, none of them have bitten me yet, nor do I expect them to for some time.  On the contrary, for every practical application of &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpc&quot;&gt;XmlRpc&lt;/a&gt; we&amp;apos;ve deployed, we&amp;apos;ve had happy clients.  While working in this industry, the &lt;a href=&quot;http://www.google.com/search?q=80/20%20rule&quot;&gt;80/20 rule&lt;/a&gt; has been beaten into me - so if a solution that&amp;apos;s 20% complete solves 80% of our problems, it&amp;apos;s time to move onto the next problem.
+&lt;br&gt;&lt;br&gt;
+This, however, is a dangerous thing to become complacent about - there&amp;apos;re still 20% worth of problems out there for which this solution falls down.  And each one will become a work-till-3-am nightmare when they hit.  And besides, I&amp;apos;m a perfectionist and a purist at heart, so the dirtiness of this solution will never fail to irk me.  It may be simple, but simple is not necessarily elegant.  So what about the rest of Paul&amp;apos;s points?
+&lt;br&gt;&lt;br&gt;&lt;p&gt;&lt;/p&gt;
+&lt;blockquote&gt;&lt;i&gt;The first axis of flexibility you&amp;apos;ve given up is in character set. XML-RPC disallows Unicode character strings.&lt;/i&gt;&lt;/blockquote&gt;On one hand, my impulse is to respond to this by invoking &lt;a href=&quot;http://www.acronymfinder.com/af-query.asp?String=exact&amp;amp;Acronym=YAGNI&quot;&gt;YAGNI&lt;/a&gt; - since our use of &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpc&quot;&gt;XmlRpc&lt;/a&gt; involves messages between machines, I don&amp;apos;t care about localizing those.  I&amp;apos;ll just keep to language neutral data in there.  But, I&amp;apos;m naive.  With a bit of pondering, I can identify at least one area where user-supplied input needs to be traded - shared registration and login for global promotions.  And if I can identify one, there&amp;apos;s bound to be more.  I don&amp;apos;t have as much experience with Unicode and handling languages other than English as I&amp;apos;d like, so I can&amp;apos;t trust my assumptions here.
+&lt;br&gt;&lt;br&gt;
+&lt;blockquote&gt;&lt;i&gt;XML-RPC is brutally non-extensible. ... Dave Winer has been actively hostile to every effort to evolve XML-RPC.&lt;/i&gt;&lt;/blockquote&gt;In this case, I&amp;apos;d say this is a good thing, for &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpc&quot;&gt;XmlRpc&lt;/a&gt; in particular.  It does what it does, no more and no less, and this will never change.  I will never need to bring up versions of the spec in my 1/2 hour conversation with the junior engineer.  And though I don&amp;apos;t want to second guess Dave Winer, I assume this is the goal in his insistence on &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpc&quot;&gt;XmlRpc&lt;/a&gt; being ever frozen.  The alternative at which he points, if memory serves, is SOAP.
+&lt;br&gt;&lt;br&gt;
+&lt;blockquote&gt;&lt;i&gt;The third aspect: XML itself. What will happen when and if your industry, whatever it is, canonizes a schema for what you do, like the hundreds of existing ones. ... Maybe your industry isn&amp;apos;t organized enough to define a schema for whatever it is you do.&lt;/i&gt;&lt;/blockquote&gt;Bingo.  Our industry is neither mature nor organized enough to conceive of any sort of schema.  Our products and the concepts involved in our work are in constant change, not to mention the conditions of the market and what will continue to work.
+&lt;br&gt;&lt;br&gt;
+&lt;blockquote&gt;&lt;i&gt;Another way of attacking your interoperability problem would be to start from that point of view, defining the XML and then working back to the &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/REST&quot;&gt;REST&lt;/a&gt; system. That&amp;apos;s a much more natural way to define a &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/REST&quot;&gt;REST&lt;/a&gt;-based web service and is arguably a better way to define web services in general. I would be curious whether you tried this.&lt;/i&gt;&lt;/blockquote&gt;Nope, haven&amp;apos;t tried this.  This is where I start calling things &amp;quot;ivory tower&amp;quot;.  To me, it makes elegant sense.  
+&lt;br&gt;&lt;br&gt;
+&lt;blockquote&gt;&lt;i&gt;You say you tried &amp;quot;REST-ish URL schemes&amp;quot; but that isn&amp;apos;t the same as trying &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/REST&quot;&gt;REST&lt;/a&gt;. In particular, you don&amp;apos;t say much about what your XML strategy was.&lt;/i&gt;&lt;/blockquote&gt;Calling our early interop schemes &amp;quot;REST-ish&amp;quot; may have been too strong an association with &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/REST&quot;&gt;REST&lt;/a&gt;.  No XML strategy.  More like: &amp;quot;Make a GET to this URL with these query parameters, documented here.  You&amp;apos;ll get a simple text response back, documented here.&amp;quot;  This was always balked at, though I thought it was the simplest thing in the world.  I might have some thoughts on the failure of this, if I think about it some more.
+&lt;br&gt;&lt;br&gt;
+&lt;blockquote&gt;&lt;i&gt;I don&amp;apos;t know your suppliers, but in the vast majority of situations I have been exposed to, they &amp;quot;get it&amp;quot; if you tell them: &amp;quot;here are some XML example documents. POST things like that to me when you want me to do something and GET them from me when you want to get information from me.&amp;quot;&lt;/i&gt;&lt;/blockquote&gt;Whenever XML is brought up, fear rises and eyes glaze.  We&amp;apos;re the &amp;quot;supplier&amp;quot; in most situations, and it&amp;apos;s rare that our clients are tech-centered companies.  They have a web site, and maybe a team maintaining it if we&amp;apos;re lucky.  
+&lt;br&gt;&lt;br&gt;
+&lt;blockquote&gt;&lt;i&gt;You depicted the situation as SOAP on one side (grungy), &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/REST&quot;&gt;REST&lt;/a&gt; on the other (ivory tower) and XML-RPC in the middle. &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/REST&quot;&gt;REST&lt;/a&gt; is basically the same old CGI-ish stuff we&amp;apos;ve been doing for a decade so I don&amp;apos;t see how it is very ivory towerish.&lt;/i&gt;&lt;/blockquote&gt;Well, I&amp;apos;m mixing audiences here.  SOAP, to me and my lack of time with it, seems grungy and in flux.  To my clients, &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/REST&quot;&gt;REST&lt;/a&gt; seems out there, especially if I ever try to explain to them what the letters stand for.  :)
+&lt;br&gt;&lt;br&gt;
+&amp;quot;What&amp;apos;s a siggy?&amp;quot;  
+&lt;br&gt;&lt;br&gt;
+&amp;quot;You mean a C-G-I?&amp;quot;
+&lt;br&gt;&lt;br&gt;
+In explaining &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpc&quot;&gt;XmlRpc&lt;/a&gt;, I usually say something long the lines of &amp;quot;your people&amp;apos;s boxes talk to my people&amp;apos;s boxes,&amp;quot; then point them at the website that says largely the same thing.  Of course, this begs the question of my effort and competence in explaining &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/REST&quot;&gt;REST&lt;/a&gt; to others, which I feel is lacking thus far.  Because, well, &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/REST&quot;&gt;REST&lt;/a&gt; is also their boxes talking to my boxes.  And, I haven&amp;apos;t found a website at which to point both techie and non-techie audiences to &amp;quot;get it&amp;quot;.
+&lt;br&gt;&lt;br&gt;
+&lt;blockquote&gt;&lt;i&gt;...perhaps &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/REST&quot;&gt;REST&lt;/a&gt; doesn&amp;apos;t apply to you. Yet. ... You say that &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/REST&quot;&gt;REST&lt;/a&gt; doesn&amp;apos;t &amp;quot;feel finished&amp;quot; to you. Nor to me. Our industry is in the middle of a huge migration to extensible formats like &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; which builds on &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RDF&quot;&gt;RDF&lt;/a&gt; which builds on XML.&lt;/i&gt;&lt;/blockquote&gt;I don&amp;apos;t think &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/REST&quot;&gt;REST&lt;/a&gt; quite applies to us yet.  I&amp;apos;d like it to.  Maybe once we, as a company, have formed much stronger partnerships I can get past the 30 minute barrier and get to some real discussions and establish things like XML schema.
+&lt;br&gt;&lt;br&gt;
+&lt;blockquote&gt;&lt;i&gt;When people are comfortable with extensible, hyperlinked formats, &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/REST&quot;&gt;REST&lt;/a&gt; will seem like a no-brainer.&lt;/i&gt;&lt;/blockquote&gt;The more I read and think about &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/REST&quot;&gt;REST&lt;/a&gt;, the more I agree with this.  It&amp;apos;s just that I find it very hard to sell the idea yet.  Again, this may be the nature of the beast for whom I work, and it may be my lack of ability to describe this simply.  
+&lt;br&gt;&lt;br&gt;
+But for now, it seems that the ability to throw a random unknown web developer an API and a URL with less than 30 minutes&amp;apos; accompanying discussion, and get results, seems to work for us.
+" />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post "
+      >
+        <time
+          title="2002-11-27T13:05:02-08:00"
+          pubdate="2002-11-27T13:05:02-08:00"
+        >
+          <a href="/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/2002/"
+            >2002</a
+          >
+          &raquo;
+          <a href="/2002/11/"
+            >November</a
+          >
+          &raquo;
+          <span>27</span>
+          &raquo;
+        </time>
+        <h1 class="title">XML-RPC case study redux, Part II: REST and I</h1>
+        
+        <section class="post-content">
+          <p>So, from my <a href="http://www.decafbad.com/news_archives/000333.phtml">last installment</a>, I left off with this:  My daily situation with regards to integrating the web-based services of various parties boils down to what I can explain in 30 minutes to a developer of unknown competence to whom I&#39;m barely a priority.  So far, I&#39;ve been able to apply <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a> as a solution to this problem with a great degree of success.
+<br /><br />
+About this, endulging me although I&#39;m sure issues like mine have been hashed out a million times already on various mailing lists, <a href="http://www.blogstream.com/pauls/1038403139">Paul Prescod writes</a>:<blockquote><i>There&#39;s nothing wrong with the way you&#39;ve used XML-RPC and I&#39;ve used it that way myself. I only write to ensure that you (and anyone reading) understands the costs and benefits of this approach. You&#39;ve given up on many of the feature of the underlying XML and HTTP technologies. If you don&#39;t need the features, then amen, let her rip. But people building more substantial apps do need them.</i></blockquote>
+<br /><br />
+Yes.  So, I know that my chosen solution has its blemishes and land mines awaiting my step.  But, none of them have bitten me yet, nor do I expect them to for some time.  On the contrary, for every practical application of <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a> we&#39;ve deployed, we&#39;ve had happy clients.  While working in this industry, the <a href="http://www.google.com/search?q=80/20%20rule">80/20 rule</a> has been beaten into me - so if a solution that&#39;s 20% complete solves 80% of our problems, it&#39;s time to move onto the next problem.
+<br /><br />
+This, however, is a dangerous thing to become complacent about - there&#39;re still 20% worth of problems out there for which this solution falls down.  And each one will become a work-till-3-am nightmare when they hit.  And besides, I&#39;m a perfectionist and a purist at heart, so the dirtiness of this solution will never fail to irk me.  It may be simple, but simple is not necessarily elegant.  So what about the rest of Paul&#39;s points?
+<br /><br /></p>
+<blockquote><i>The first axis of flexibility you've given up is in character set. XML-RPC disallows Unicode character strings.</i></blockquote>On one hand, my impulse is to respond to this by invoking <a href="http://www.acronymfinder.com/af-query.asp?String=exact&amp;Acronym=YAGNI">YAGNI</a> - since our use of <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a> involves messages between machines, I don't care about localizing those.  I'll just keep to language neutral data in there.  But, I'm naive.  With a bit of pondering, I can identify at least one area where user-supplied input needs to be traded - shared registration and login for global promotions.  And if I can identify one, there's bound to be more.  I don't have as much experience with Unicode and handling languages other than English as I'd like, so I can't trust my assumptions here.
+<br /><br />
+<blockquote><i>XML-RPC is brutally non-extensible. ... Dave Winer has been actively hostile to every effort to evolve XML-RPC.</i></blockquote>In this case, I'd say this is a good thing, for <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a> in particular.  It does what it does, no more and no less, and this will never change.  I will never need to bring up versions of the spec in my 1/2 hour conversation with the junior engineer.  And though I don't want to second guess Dave Winer, I assume this is the goal in his insistence on <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a> being ever frozen.  The alternative at which he points, if memory serves, is SOAP.
+<br /><br />
+<blockquote><i>The third aspect: XML itself. What will happen when and if your industry, whatever it is, canonizes a schema for what you do, like the hundreds of existing ones. ... Maybe your industry isn't organized enough to define a schema for whatever it is you do.</i></blockquote>Bingo.  Our industry is neither mature nor organized enough to conceive of any sort of schema.  Our products and the concepts involved in our work are in constant change, not to mention the conditions of the market and what will continue to work.
+<br /><br />
+<blockquote><i>Another way of attacking your interoperability problem would be to start from that point of view, defining the XML and then working back to the <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a> system. That's a much more natural way to define a <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a>-based web service and is arguably a better way to define web services in general. I would be curious whether you tried this.</i></blockquote>Nope, haven't tried this.  This is where I start calling things "ivory tower".  To me, it makes elegant sense.  
+<br /><br />
+<blockquote><i>You say you tried "REST-ish URL schemes" but that isn't the same as trying <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a>. In particular, you don't say much about what your XML strategy was.</i></blockquote>Calling our early interop schemes "REST-ish" may have been too strong an association with <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a>.  No XML strategy.  More like: "Make a GET to this URL with these query parameters, documented here.  You'll get a simple text response back, documented here."  This was always balked at, though I thought it was the simplest thing in the world.  I might have some thoughts on the failure of this, if I think about it some more.
+<br /><br />
+<blockquote><i>I don't know your suppliers, but in the vast majority of situations I have been exposed to, they "get it" if you tell them: "here are some XML example documents. POST things like that to me when you want me to do something and GET them from me when you want to get information from me."</i></blockquote>Whenever XML is brought up, fear rises and eyes glaze.  We're the "supplier" in most situations, and it's rare that our clients are tech-centered companies.  They have a web site, and maybe a team maintaining it if we're lucky.  
+<br /><br />
+<blockquote><i>You depicted the situation as SOAP on one side (grungy), <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a> on the other (ivory tower) and XML-RPC in the middle. <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a> is basically the same old CGI-ish stuff we've been doing for a decade so I don't see how it is very ivory towerish.</blockquote></i>Well, I'm mixing audiences here.  SOAP, to me and my lack of time with it, seems grungy and in flux.  To my clients, <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a> seems out there, especially if I ever try to explain to them what the letters stand for.  :)
+<br /><br />
+"What's a siggy?"  
+<br /><br />
+"You mean a C-G-I?"
+<br /><br />
+In explaining <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a>, I usually say something long the lines of "your people's boxes talk to my people's boxes," then point them at the website that says largely the same thing.  Of course, this begs the question of my effort and competence in explaining <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a> to others, which I feel is lacking thus far.  Because, well, <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a> is also their boxes talking to my boxes.  And, I haven't found a website at which to point both techie and non-techie audiences to "get it".
+<br /><br />
+<blockquote><i>...perhaps <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a> doesn't apply to you. Yet. ... You say that <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a> doesn't "feel finished" to you. Nor to me. Our industry is in the middle of a huge migration to extensible formats like <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> which builds on <a href="http://www.decafbad.com/twiki/bin/view/Main/RDF">RDF</a> which builds on XML.</i></blockquote>I don't think <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a> quite applies to us yet.  I'd like it to.  Maybe once we, as a company, have formed much stronger partnerships I can get past the 30 minute barrier and get to some real discussions and establish things like XML schema.
+<br /><br />
+<blockquote><i>When people are comfortable with extensible, hyperlinked formats, <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a> will seem like a no-brainer.</i></blockquote>The more I read and think about <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a>, the more I agree with this.  It's just that I find it very hard to sell the idea yet.  Again, this may be the nature of the beast for whom I work, and it may be my lack of ability to describe this simply.  
+<br /><br />
+But for now, it seems that the ability to throw a random unknown web developer an API and a URL with less than 30 minutes' accompanying discussion, and get results, seems to work for us.
+<!--more-->
+shortname=oooccd
+
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221084102">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.prescod.net"><img src="http://www.gravatar.com/avatar.php?gravatar_id=6c04a6792c6196149d2f9e14894a8b6d&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.prescod.net">Paul Prescod</a>
+</div>
+<a href="#comment-221084102" class="permalink"><time datetime="2002-11-28T00:39:52">2002-11-28T00:39:52</time></a>
+</div>
+<div class="content">It seems that XML-RPC is the right choice for your situation. That doesn't mean that I accept that REST is "ivory tower" because it requires an understanding of XML and HTTP. These are two technologies that most real network application developers already know and will need to know going into the future. The gist of your story is that the people consuming your application are not network application developers and do not need the extensibility, flexibility and XML-integration of the REST model. REST may be ivory tower-ish compared to XML-RPC as Visual Basic is ivory-towerish to the Excel "programmer" and Python to the Visual Basic programmer and Lisp to the Python programmer and Mercury to the Lisp programmer.
+If XML-RPC solved 80% of the data integration problems out there, then I would agree that it would be ivory towerish to spend too much effort on the remaining 20%. But that is not true. Web Services have made such a miniscule impact in our day to day lives because they solve less than 20% of the integration problems they were supposed to solve (rough guess). Conversely, the Blog world would crash to a halt without REST (in its HTML,  RSS and Trackback incarnations).
+For the 20% that XML-RPC solves, by all means use it! I have.</div>
+</li>
+</ul>
+</div>
+
+        </section>
+      </article>
+        </section>
+
+        <footer>
+          <img id="growup" src="/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/js/vendor/lazyload.js"></script><script src="/js/vendor/prism.js"></script><script src="/js/toc.js"></script><script src="/js/analytics.js"></script><script src="/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

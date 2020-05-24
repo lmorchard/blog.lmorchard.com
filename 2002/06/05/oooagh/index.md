@@ -1,0 +1,7 @@
+<p>I love it when <a href="http://www.decafbad.com/twiki/bin/view/Main/LiveJournal">LiveJournal</a> gets some props, and via Dave no less:  <a href="http://scriptingnews.userland.com/liveJournalRssDiscovery">LiveJournal to support <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> and discovery.</a>  <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> was gone for awhile from journals, but now it's back <i>and</i> with autodiscovery link tags.</p>
+<p>Aggregate me: <a href="http://deus-x.livejournal.com/rss"><img src="http://www.decafbad.com/images/xml.gif"></a></p>
+<p>Autodiscover me: <a href="http://deus-x.livejournal.com">http://deus-x.livejournal.com</a></p>
+<p>Radio subscribe me: <a href="http://127.0.0.1:5335/system/pages/subscriptions?url=http%3A%2F%2Fdeus-x.livejournal.com%2Frss"><img src="http://www.decafbad.com/images/xmlCoffeeCup.gif"></a><br />
+</p>
+<!--more-->
+shortname=oooagh

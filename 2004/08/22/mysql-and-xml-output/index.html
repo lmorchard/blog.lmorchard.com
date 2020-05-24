@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>mysql and XML output - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="mysql and XML output" />
+        <meta
+          property="og:url"
+          content="https://blog.lmorchard.com/"
+        />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post tag-hackstag-xml"
+      >
+        <time
+          title="2004-08-22T22:09:51-07:00"
+          pubdate="2004-08-22T22:09:51-07:00"
+        >
+          <a href="/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/2004/"
+            >2004</a
+          >
+          &raquo;
+          <a href="/2004/08/"
+            >August</a
+          >
+          &raquo;
+          <span>22</span>
+          &raquo;
+        </time>
+        <h1 class="title">mysql and XML output</h1>
+        <ul class="tags">
+            <li>
+                  <a href="/tag/hacks/">hacks</a>
+                </li><li>
+                  <a href="/tag/xml/">xml</a>
+                </li>
+          </ul>
+        <section class="post-content">
+          <p>So...  How many of you have ever used <code>mysql -X</code>?</p>
+<p>I just discovered it today, while screwing around with dumping database queries into Atom.  While I&#39;m not entirely sure it&#39;s what I need to use, this is pretty nifty:</p>
+<pre><code>$ mysql -Xp -udbagg3 dbagg3 -e &#39;
+&gt; select id, title, modified 
+&gt; from feed
+&gt; order by modified 
+&gt; limit 4&#39; 
+Enter password:
+
+&lt;?xml version=&quot;1.0&quot;?&gt;
+
+&lt;resultset statement=&quot;select id, title, modified 
+        from feed order by modified limit 4&quot;&gt;
+  &lt;row&gt;
+    &lt;id&gt;527&lt;/id&gt;
+    &lt;title&gt;Channel Dean&lt;/title&gt;
+    &lt;modified&gt;2004-03-04 15:56:54&lt;/modified&gt;
+  &lt;/row&gt;
+
+  &lt;row&gt;
+    &lt;id&gt;31&lt;/id&gt;
+    &lt;title&gt;chocolate and vodka&lt;/title&gt;
+    &lt;modified&gt;2004-07-21 21:30:08&lt;/modified&gt;
+  &lt;/row&gt;
+
+  &lt;row&gt;
+    &lt;id&gt;183&lt;/id&gt;
+    &lt;title&gt;floating atoll&lt;/title&gt;
+    &lt;modified&gt;2004-07-31 14:09:27&lt;/modified&gt;
+  &lt;/row&gt;
+
+  &lt;row&gt;
+    &lt;id&gt;24&lt;/id&gt;
+    &lt;title&gt;What&#39;s Your Brand Mantra?&lt;/title&gt;
+    &lt;modified&gt;2004-08-02 03:15:03&lt;/modified&gt;
+  &lt;/row&gt;
+&lt;/resultset&gt;    </code></pre>
+<p>Now, while I don&#39;t think that using this for <code>dbagg3</code> is all that great an idea, it&#39;s something I need to remember for future shell and XSLT hacks...</p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221087588">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=365087c6a73a2ee5fa90760c2f9d9ca8&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="">iamsure</a>
+</div>
+<a href="#comment-221087588" class="permalink"><time datetime="2004-08-23T03:47:12">2004-08-23T03:47:12</time></a>
+</div>
+<div class="content">Is there a way to do so without the commandline option, ie, via a select call, etc?</div>
+</li>
+<li class="comment" id="comment-221087591">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=34b6089110a6bfc86b6351ba400ae8fa&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="">bosshoff</a>
+</div>
+<a href="#comment-221087591" class="permalink"><time datetime="2005-04-20T12:22:15">2005-04-20T12:22:15</time></a>
+</div>
+<div class="content">There is a better way, using mysqldump, explained here: http://insight.zdnet.co.uk/software/developer/0,39020469,2112200,00.htm</div>
+</li>
+<li class="comment" id="comment-221087595">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=4c32c5992ac6744d2f14712d280e3834&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="">Rededog027</a>
+</div>
+<a href="#comment-221087595" class="permalink"><time datetime="2007-07-19T23:51:15">2007-07-19T23:51:15</time></a>
+</div>
+<div class="content"><p>That is awesome I haven't used it before but it is extreamly useful for  creating changelogs from svn and bugzilla :)</p></div>
+</li>
+</ul>
+</div>
+
+        </section>
+      </article>
+        </section>
+
+        <footer>
+          <img id="growup" src="/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/js/vendor/lazyload.js"></script><script src="/js/vendor/prism.js"></script><script src="/js/toc.js"></script><script src="/js/analytics.js"></script><script src="/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

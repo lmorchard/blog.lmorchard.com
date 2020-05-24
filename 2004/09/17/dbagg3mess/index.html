@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>dbagg3: Please excuse the mess - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="dbagg3: Please excuse the mess" />
+        <meta
+          property="og:url"
+          content="https://blog.lmorchard.com/"
+        />
+        
+        <meta property="og:description" content="&lt;p&gt;Wow.  So it looks like there are some people starting to follow to what I&amp;apos;m doing with &lt;code&gt;dbagg3&lt;/code&gt;, and they&amp;apos;re showing me how woefully prepared I am for the attention from tinkerers who are actually trying to, you know, &lt;strong&gt;run&lt;/strong&gt; my code.  Things have been crazy busy for me at work, so I haven&amp;apos;t been getting done what I&amp;apos;ve planned.  But, I do need to pull a few things together and clean a few things up.  I&amp;apos;ll soon be answering the smattering of email I&amp;apos;ve gotten so far, but until then, a few quick thoughts:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;My source control is a bit of a mess at the moment.  Not only have I &lt;a href=&quot;http://www.decafbad.com/blog/2004/09/16/moving_time_from_cvs_to_subversion&quot;&gt;switched from CVS to SVN&lt;/a&gt;-- but even if you followed me in that migration, I&amp;apos;ve not kept committed code in working order.  I already know that this is a horrible habit, but since no one&amp;apos;s really been looking, I haven&amp;apos;t been called on it until now.  (Heh, heh--d&amp;apos;oh.)  Planning this weekend (but hopefully today) to resolve this, so that moving forward, svn trunk will be (as far as possible) in a working state at any given moment.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;I&amp;apos;ve hacked one of my dependencies, SQLObject, by applying &lt;a href=&quot;http://sourceforge.net/mailarchive/message.php?msg_id=9122066&quot;&gt;a patch&lt;/a&gt; to support SELECT DISTINCT queries.  This has understandably caused problems for some people who have no idea what I did.  This patch has turned out to be essential, though I don&amp;apos;t know if/when it will or would be included in a release of SQLObject.  So...  I wonder if I should dump my working copy of SQLObject into source control?  Otherwise, applying the DISTINCT patch to your SQLObject install should work.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;At some point very soon, I want to change the name of this thing to &lt;strong&gt;feedReactor&lt;/strong&gt;.  Yes, I know there&amp;apos;s already a &lt;em&gt;feedparser&lt;/em&gt;, and a &lt;em&gt;feeddemon&lt;/em&gt;, and a &lt;em&gt;feedburner&lt;/em&gt;, and someone&amp;apos;s probably got a &lt;em&gt;feedkitchensink&lt;/em&gt; in the works, but I like this name and want to run with it.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So, in the meantime while I straighten some things out, please excuse the mess and thanks for bearing with me!&lt;/p&gt;
+" />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post tag-syndicationtag-xml"
+      >
+        <time
+          title="2004-09-17T06:32:30-07:00"
+          pubdate="2004-09-17T06:32:30-07:00"
+        >
+          <a href="/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/2004/"
+            >2004</a
+          >
+          &raquo;
+          <a href="/2004/09/"
+            >September</a
+          >
+          &raquo;
+          <span>17</span>
+          &raquo;
+        </time>
+        <h1 class="title">dbagg3: Please excuse the mess</h1>
+        <ul class="tags">
+            <li>
+                  <a href="/tag/syndication/">syndication</a>
+                </li><li>
+                  <a href="/tag/xml/">xml</a>
+                </li>
+          </ul>
+        <section class="post-content">
+          <p>Wow.  So it looks like there are some people starting to follow to what I&#39;m doing with <code>dbagg3</code>, and they&#39;re showing me how woefully prepared I am for the attention from tinkerers who are actually trying to, you know, <strong>run</strong> my code.  Things have been crazy busy for me at work, so I haven&#39;t been getting done what I&#39;ve planned.  But, I do need to pull a few things together and clean a few things up.  I&#39;ll soon be answering the smattering of email I&#39;ve gotten so far, but until then, a few quick thoughts:</p>
+<ul>
+<li><p>My source control is a bit of a mess at the moment.  Not only have I <a href="http://www.decafbad.com/blog/2004/09/16/moving_time_from_cvs_to_subversion">switched from CVS to SVN</a>-- but even if you followed me in that migration, I&#39;ve not kept committed code in working order.  I already know that this is a horrible habit, but since no one&#39;s really been looking, I haven&#39;t been called on it until now.  (Heh, heh--d&#39;oh.)  Planning this weekend (but hopefully today) to resolve this, so that moving forward, svn trunk will be (as far as possible) in a working state at any given moment.</p>
+</li>
+<li><p>I&#39;ve hacked one of my dependencies, SQLObject, by applying <a href="http://sourceforge.net/mailarchive/message.php?msg_id=9122066">a patch</a> to support SELECT DISTINCT queries.  This has understandably caused problems for some people who have no idea what I did.  This patch has turned out to be essential, though I don&#39;t know if/when it will or would be included in a release of SQLObject.  So...  I wonder if I should dump my working copy of SQLObject into source control?  Otherwise, applying the DISTINCT patch to your SQLObject install should work.</p>
+</li>
+<li><p>At some point very soon, I want to change the name of this thing to <strong>feedReactor</strong>.  Yes, I know there&#39;s already a <em>feedparser</em>, and a <em>feeddemon</em>, and a <em>feedburner</em>, and someone&#39;s probably got a <em>feedkitchensink</em> in the works, but I like this name and want to run with it.</p>
+</li>
+</ul>
+<p>So, in the meantime while I straighten some things out, please excuse the mess and thanks for bearing with me!</p>
+<!--more-->
+<p>shortname=dbagg3mess</p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221083379">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=1229fe3e2959517f522393889bedbf61&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="">Christian Henz</a>
+</div>
+<a href="#comment-221083379" class="permalink"><time datetime="2004-09-18T06:25:13">2004-09-18T06:25:13</time></a>
+</div>
+<div class="content">I think having a copy of your SQLObject tree would be most helpful.
+First of all, that patch applies (or at least _did_ apply a few weeks ago) to their development version, while you're using the 0.5 Version, right? 
+I also 'back-ported' the patch to 0.5.2 (only the distinct part though), but I'm still getting errors...
+cheers,
+Christian</div>
+</li>
+<li class="comment" id="comment-221083380">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=1229fe3e2959517f522393889bedbf61&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="">Christian Henz</a>
+</div>
+<a href="#comment-221083380" class="permalink"><time datetime="2004-09-18T07:28:15">2004-09-18T07:28:15</time></a>
+</div>
+<div class="content">Woops, just tried it again with a fresh svn-upped dbagg3 and it seems to work now.
+Good stuff :-)
+cheers,
+Christian</div>
+</li>
+</ul>
+</div>
+
+        </section>
+      </article>
+        </section>
+
+        <footer>
+          <img id="growup" src="/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/js/vendor/lazyload.js"></script><script src="/js/vendor/prism.js"></script><script src="/js/toc.js"></script><script src="/js/analytics.js"></script><script src="/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

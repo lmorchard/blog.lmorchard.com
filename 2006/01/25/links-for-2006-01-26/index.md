@@ -1,0 +1,42 @@
+<ul class="delicious">
+	<li>
+		<div class="delicious-link"><a href="http://www.nytimes.com/2006/01/22/magazine/22wwln_q4.html?ex=1295586000&en=f98fddb663a39246&ei=5090&partner=rssuserland&emc=rss">Questions for Daniel C. Dennett - Interview by Deborah Solomon - New York Times</a></div>
+		<div class="delicious-extended">"Churches have given us great treasures. Whether that pays for the harm they have done is another matter."</div>
+		<div class="delicious-tags">(tags: <a href="http://del.icio.us/deusx/philosophy">philosophy</a> <a href="http://del.icio.us/deusx/cogsci">cogsci</a> <a href="http://del.icio.us/deusx/religion">religion</a>)</div>
+	</li>
+	<li>
+		<div class="delicious-link"><a href="http://en.wikipedia.org/wiki/M.U.G.E.N">M.U.G.E.N - Wikipedia, the free encyclopedia</a></div>
+		<div class="delicious-extended">"The engine is very powerful and flexible, allowing for the same type of functionality found in most any commercial 2D fighting game, such as the Street Fighter games produced by Capcom or the King of Fighters games produced by SNK."</div>
+		<div class="delicious-tags">(tags: <a href="http://del.icio.us/deusx/gaming">gaming</a> <a href="http://del.icio.us/deusx/snk">snk</a> <a href="http://del.icio.us/deusx/capcom">capcom</a> <a href="http://del.icio.us/deusx/mugen">mugen</a>)</div>
+	</li>
+	<li>
+		<div class="delicious-link"><a href="http://www.angolapress-angop.ao/noticia-e.asp?ID=409853">AngolaPress - News - China to build world`s first "artificial sun" experimental device</a></div>
+		<div class="delicious-extended">It's like AstroBoy!</div>
+		<div class="delicious-tags">(tags: <a href="http://del.icio.us/deusx/future">future</a> <a href="http://del.icio.us/deusx/science">science</a> <a href="http://del.icio.us/deusx/fusion">fusion</a>)</div>
+	</li>
+	<li>
+		<div class="delicious-link"><a href="http://www.ditchnet.org/aquapath/">AquaPath</a></div>
+		<div class="delicious-extended">"AquaPath is a free Cocoa-based developer tool for Mac OS X Tiger that allows you evaluate XPath 2.0 expressions against any XML document and view the result sequence in a dynamic, intuitive tree representation."</div>
+		<div class="delicious-tags">(tags: <a href="http://del.icio.us/deusx/cocoa">cocoa</a> <a href="http://del.icio.us/deusx/osx">osx</a> <a href="http://del.icio.us/deusx/webdev">webdev</a> <a href="http://del.icio.us/deusx/xml">xml</a> <a href="http://del.icio.us/deusx/xsl">xsl</a> <a href="http://del.icio.us/deusx/via:revgeorge">via:revgeorge</a>)</div>
+	</li>
+	<li>
+		<div class="delicious-link"><a href="http://weblogs.macromedia.com/mesh/archives/2006/01/removing_html_e.cfm">Mike Chambers: Removing HTML Element children with JavaScript</a></div>
+		<div class="delicious-extended">"Just a quick fyi, but if you are doing work in JavaScript and need to dynamically remove all of the childNodes from a DOM element, make sure to do it with a while loop, and not a for loop."</div>
+		<div class="delicious-tags">(tags: <a href="http://del.icio.us/deusx/webdev">webdev</a> <a href="http://del.icio.us/deusx/xml">xml</a> <a href="http://del.icio.us/deusx/dhtml">dhtml</a>)</div>
+	</li>
+	<li>
+		<div class="delicious-link"><a href="http://codenautics.com/zombies/">Zombies</a></div>
+		<div class="delicious-extended">One of the best things about this page is the zombie head that follows you when you scroll.  "Welcome to Zombies, a turn-based game where the only goal is to outlast and destroy the zombies before they do the same to you."</div>
+		<div class="delicious-tags">(tags: <a href="http://del.icio.us/deusx/mac">mac</a> <a href="http://del.icio.us/deusx/osx">osx</a> <a href="http://del.icio.us/deusx/gaming">gaming</a>)</div>
+	</li>
+	<li>
+		<div class="delicious-link"><a href="http://penn.freefm.com/?">Penn Jillette - Sawing People in Half</a></div>
+		<div class="delicious-extended">It's a podcast from Penn Jillette</div>
+		<div class="delicious-tags">(tags: <a href="http://del.icio.us/deusx/podcasts">podcasts</a> <a href="http://del.icio.us/deusx/pennjillette">pennjillette</a>)</div>
+	</li>
+	<li>
+		<div class="delicious-link"><a href="http://insomnia.livejournal.com/652389.html?nc=2&style=mine">insomnia: Future American lawyers to be proud of.</a></div>
+		<div class="delicious-extended">Holy crap - these guys give lawyers a good name! "Alberto Gonzales spoke before law students at Georgetown today ... the students in class did something pretty ballsy and brave. They got up from their seats and turned their backs to him."</div>
+		<div class="delicious-tags">(tags: <a href="http://del.icio.us/deusx/politics">politics</a> <a href="http://del.icio.us/deusx/law">law</a> <a href="http://del.icio.us/deusx/lawyers">lawyers</a> <a href="http://del.icio.us/deusx/gonzales">gonzales</a>)</div>
+	</li>
+</ul>

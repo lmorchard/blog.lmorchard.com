@@ -1,0 +1,32 @@
+<ul class="delicious">
+	<li>
+		<div class="delicious-link"><a href="http://www.flickr.com/photos/andy_m/sets/1791706/">radio babylon - a photoset on Flickr</a></div>
+		<div class="delicious-extended">""</div>
+		<div class="delicious-tags">(tags: <a href="http://del.icio.us/deusx/nifty">nifty</a> <a href="http://del.icio.us/deusx/hardware">hardware</a> <a href="http://del.icio.us/deusx/hacks">hacks</a> <a href="http://del.icio.us/deusx/audio">audio</a> <a href="http://del.icio.us/deusx/wireless">wireless</a>)</div>
+	</li>
+	<li>
+		<div class="delicious-link"><a href="http://www.cs.pdx.edu/~harry/Relay/index.html">Harry Porter's Relay Computer</a></div>
+		<div class="delicious-extended">It's a computer made from mechanical relays!</div>
+		<div class="delicious-tags">(tags: <a href="http://del.icio.us/deusx/nifty">nifty</a> <a href="http://del.icio.us/deusx/hardware">hardware</a> <a href="http://del.icio.us/deusx/computing">computing</a> <a href="http://del.icio.us/deusx/compsci">compsci</a>)</div>
+	</li>
+	<li>
+		<div class="delicious-link"><a href="http://community.moertel.com/ss/space/A+Coder's+Guide+To+Coffee">Moertel Consulting's Community Projects :: A Coder's Guide To Coffee</a></div>
+		<div class="delicious-extended">"As most software and creative professionals know, coffee is an important technology for boosting mental acuity and maintaining peak on-the-job performance."</div>
+		<div class="delicious-tags">(tags: <a href="http://del.icio.us/deusx/coffee">coffee</a> <a href="http://del.icio.us/deusx/caffeine">caffeine</a>)</div>
+	</li>
+	<li>
+		<div class="delicious-link"><a href="http://eugeneciurana.com/musings/sushi-eating-HOWTO.html">Sushi Eating HOWTO</a></div>
+		<div class="delicious-extended">"This document provides a simple guide to eating sushi."</div>
+		<div class="delicious-tags">(tags: <a href="http://del.icio.us/deusx/sushi">sushi</a> <a href="http://del.icio.us/deusx/food">food</a> <a href="http://del.icio.us/deusx/yum">yum</a>)</div>
+	</li>
+	<li>
+		<div class="delicious-link"><a href="http://times.usefulinc.com/2006/01/22-firebug">Firebug: neutralizes nasty niffs</a></div>
+		<div class="delicious-extended">"t is a full-featured error console that shows your errors in Javascript, CSS (a godsend!) and XML. Not only that, but it does full logging for XMLHttpRequest calls, so it's a powerful tool for debugging AJAX applications as well."</div>
+		<div class="delicious-tags">(tags: <a href="http://del.icio.us/deusx/webdev">webdev</a> <a href="http://del.icio.us/deusx/firefox">firefox</a> <a href="http://del.icio.us/deusx/nifty">nifty</a> <a href="http://del.icio.us/deusx/tools">tools</a>)</div>
+	</li>
+	<li>
+		<div class="delicious-link"><a href="http://codeswami.com/2006/01/19/fireflynet-a-bit-of-history/">John Manoogian III - Code Swami - Blog Archive  Firefly.net - a bit of history</a></div>
+		<div class="delicious-extended">"Firefly.net rarely gets mentioned these days, but when pheezy mentioned Pandora (which i've not yet tried), my mind rolled back to 1998."</div>
+		<div class="delicious-tags">(tags: <a href="http://del.icio.us/deusx/socialsoftware">socialsoftware</a>)</div>
+	</li>
+</ul>

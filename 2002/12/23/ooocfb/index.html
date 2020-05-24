@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>PersonalWebProxy as personal Google and Wayback machine - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="PersonalWebProxy as personal Google and Wayback machine" />
+        <meta
+          property="og:url"
+          content="https://blog.lmorchard.com/"
+        />
+        
+        <meta property="og:description" content="&lt;p&gt;Matt Griffith &lt;a href=&quot;http://matt.griffith.com/weblog/stories/2002/12/22/jogMyPersonalGoogleampWaybackMachine.html&quot;&gt;proposes a virtual project&lt;/a&gt;: Jog.  For the most part, what he wants is what I want from my &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/PersonalWebProxy&quot;&gt;PersonalWebProxy&lt;/a&gt;, and more.&lt;br&gt;&lt;br&gt;&lt;br&gt;
+The big difference in the writing, though, is that Matt writes from features and what he wants, where I&amp;apos;m already describing things in terms of implementation.  That is, I started talking about &amp;quot;proxy&amp;quot; where he&amp;apos;s talking about &amp;quot;my personal Google and Wayback machine&amp;quot;.  I think looking at it that way makes a more compelling case for this thing being generally useful, rather than just some nerdy toy.
+&lt;br&gt;&lt;br&gt;
+Another way I&amp;apos;m looking at this &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/PersonalWebProxy&quot;&gt;PersonalWebProxy&lt;/a&gt; is as an assistant in a sidecar attached to my browser.  I want this assistant to watch me, learn, and pipe up from time to time with suggestions.  I also want to be able to ask questions and to remind me of things I vaguely remember.  Eventually, I&amp;apos;d like this assistant to be able to drive for me from time to time, doing some info hunter-gatherer work for me while I do other things.
+&lt;br&gt;&lt;br&gt;
+I&amp;apos;m still working on this thing.  So far I&amp;apos;ve got a proxy in Python and a simple-minded plugin framework.  Two plugins so far: one is a cookie jar separated from any browser - that is, cookies are managed in the proxy, not in the browser; the other is a little thing based on Mark Pilgrim&amp;apos;s &lt;a href=&quot;http://diveintomark.org/archives/2002/08/15.html&quot;&gt;rssfinder.py&lt;/a&gt; that quietly seeks out and gathers &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; links from every text/* resource I view.  It seems to be standing up fairly well.
+&lt;br&gt;&lt;br&gt;
+My next steps are something along these lines:  Should I continue in Python?  To do so means delving deeper into Twisted, using their web app framework for the management UI and staying within their event-driven paradigm in lieu of threading.  The reason I first chose Python is because I wanted something that was quickly and easily hackable and fun to contribute plugins for.  Does this still apply, if things are deep in the Twisted mindset which is not &lt;strong&gt;quite&lt;/strong&gt; straightforward?
+&lt;br&gt;&lt;br&gt;
+On the other hand, I took a peek at &lt;a href=&quot;http://jetty.mortbay.org/jetty/&quot;&gt;Jetty&lt;/a&gt; in Java, which also comes with a simple and hackable HTTP proxy implementation.  I could easily cobble together in Java what I have in Python using this.  I would also say that I could easily make it compatible with whatever plugins were written for the Python version, using Jython, but there&amp;apos;s also a paradigmatic difference were I to go with Java:  Threads in lieu of event-driven design.
+&lt;br&gt;&lt;br&gt;
+Maybe I&amp;apos;m thinking too much about this and should just keep doing what I&amp;apos;m doing.  I&amp;apos;m trying to think and second guess a lot about what anyone who might care to play with this thing would actually care about.   As for myself, I seem to be having fun with things as is.&lt;/p&gt;
+" />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post "
+      >
+        <time
+          title="2002-12-23T11:40:21-08:00"
+          pubdate="2002-12-23T11:40:21-08:00"
+        >
+          <a href="/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/2002/"
+            >2002</a
+          >
+          &raquo;
+          <a href="/2002/12/"
+            >December</a
+          >
+          &raquo;
+          <span>23</span>
+          &raquo;
+        </time>
+        <h1 class="title">PersonalWebProxy as personal Google and Wayback machine</h1>
+        
+        <section class="post-content">
+          <p>Matt Griffith <a href="http://matt.griffith.com/weblog/stories/2002/12/22/jogMyPersonalGoogleampWaybackMachine.html">proposes a virtual project</a>: Jog.  For the most part, what he wants is what I want from my <a href="http://www.decafbad.com/twiki/bin/view/Main/PersonalWebProxy">PersonalWebProxy</a>, and more.<br><br /><br />
+The big difference in the writing, though, is that Matt writes from features and what he wants, where I&#39;m already describing things in terms of implementation.  That is, I started talking about &quot;proxy&quot; where he&#39;s talking about &quot;my personal Google and Wayback machine&quot;.  I think looking at it that way makes a more compelling case for this thing being generally useful, rather than just some nerdy toy.
+<br /><br />
+Another way I&#39;m looking at this <a href="http://www.decafbad.com/twiki/bin/view/Main/PersonalWebProxy">PersonalWebProxy</a> is as an assistant in a sidecar attached to my browser.  I want this assistant to watch me, learn, and pipe up from time to time with suggestions.  I also want to be able to ask questions and to remind me of things I vaguely remember.  Eventually, I&#39;d like this assistant to be able to drive for me from time to time, doing some info hunter-gatherer work for me while I do other things.
+<br /><br />
+I&#39;m still working on this thing.  So far I&#39;ve got a proxy in Python and a simple-minded plugin framework.  Two plugins so far: one is a cookie jar separated from any browser - that is, cookies are managed in the proxy, not in the browser; the other is a little thing based on Mark Pilgrim&#39;s <a href="http://diveintomark.org/archives/2002/08/15.html">rssfinder.py</a> that quietly seeks out and gathers <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> links from every text/* resource I view.  It seems to be standing up fairly well.
+<br /><br />
+My next steps are something along these lines:  Should I continue in Python?  To do so means delving deeper into Twisted, using their web app framework for the management UI and staying within their event-driven paradigm in lieu of threading.  The reason I first chose Python is because I wanted something that was quickly and easily hackable and fun to contribute plugins for.  Does this still apply, if things are deep in the Twisted mindset which is not <strong>quite</strong> straightforward?
+<br /><br />
+On the other hand, I took a peek at <a href="http://jetty.mortbay.org/jetty/">Jetty</a> in Java, which also comes with a simple and hackable HTTP proxy implementation.  I could easily cobble together in Java what I have in Python using this.  I would also say that I could easily make it compatible with whatever plugins were written for the Python version, using Jython, but there&#39;s also a paradigmatic difference were I to go with Java:  Threads in lieu of event-driven design.
+<br /><br />
+Maybe I&#39;m thinking too much about this and should just keep doing what I&#39;m doing.  I&#39;m trying to think and second guess a lot about what anyone who might care to play with this thing would actually care about.   As for myself, I seem to be having fun with things as is.</p>
+<!--more-->
+<p>shortname=ooocfb</p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221087182">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://a1.blogspot.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=e1dd9659ab197d276c87cc80116f73e0&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://a1.blogspot.com">Ewan Grantham</a>
+</div>
+<a href="#comment-221087182" class="permalink"><time datetime="2002-12-23T18:06:23">2002-12-23T18:06:23</time></a>
+</div>
+<div class="content">Your Personal Web Proxy is starting to sound an awful lot like the personal agents described in David Brin's novel "Earth". I have to say that I'd be very interested in being a beta site if you have need for any. As a "Research Analyst" a fair bit of my job is to find out about stuff that might be interesting to my division, and then let folks know about it. A web proxy that can be proactive in constantly searching and updating information in various bins/areas of interest is certainly going to be helpful.
+FWIW,
+Ewan</div>
+</li>
+<li class="comment" id="comment-221087184">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.averagejackal.net"><img src="http://www.gravatar.com/avatar.php?gravatar_id=8567583b271540e491e51e5f253e8252&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.averagejackal.net">Mark M</a>
+</div>
+<a href="#comment-221087184" class="permalink"><time datetime="2002-12-23T18:37:15">2002-12-23T18:37:15</time></a>
+</div>
+<div class="content">Do it in Java!  That way I can help ;)
+Also you can leverage stuff like Lucene (apache's open-source search engine)</div>
+</li>
+<li class="comment" id="comment-221087185">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.decafbad.com">l.m.orchard</a>
+</div>
+<a href="#comment-221087185" class="permalink"><time datetime="2002-12-23T18:53:18">2002-12-23T18:53:18</time></a>
+</div>
+<div class="content">Ewan:  Funny you should mention Mr. Brin and his novel - I've had a blog entry brewing for awhile wherein I gush about the novel and list out all the things from it I want to build.
+This proxy is, actually, one such agent :)</div>
+</li>
+<li class="comment" id="comment-221087186">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.ulaluma.com/pyx"><img src="http://www.gravatar.com/avatar.php?gravatar_id=288adc0fe423befdbb65f707ba714d31&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.ulaluma.com/pyx">Donovan Preston</a>
+</div>
+<a href="#comment-221087186" class="permalink"><time datetime="2002-12-24T01:31:14">2002-12-24T01:31:14</time></a>
+</div>
+<div class="content">Disclaimer: Being on the Twisted team, of course I think you should keep the PersonalWebProxy in Python.
+You keep talking about the Async vs. Threaded decision when talking about whether to use Python or Java for your project. However, there's absolutely no reason you can't use threads if you continue with your Twisted implementation. Twisted fully supports the Half-Async/Half-Threaded design pattern. See twisted.internet.interfaces.IReactorThreads for information.
+The benefits of this design pattern are obvious. You get the speed advantages of the asynchronous bottom layer, which is already written, and the business logic code that runs in threads can be naive. Zope uses this design pattern to allow page assembly code to run synchronous db queries, xml-rpc queries, etc.
+Ewan Grantham: You can help if this project is continued in Python; if you know Java, you're going to have no problem learning Python, and you're going to have tons of fun using it.
+Personally, I am very interested in developing and using the PersonalWebProxy. The first thing I thought about writing was a look-ahead accellerator -- when you visit a page, the proxy fetches that page and all the pages that are linked from that page, so when you click a link the page is already downloaded.
+Another thing I'd like is a permanent history. Whenever I use any browser to browse through the proxy, the PWP should keep track of where I have been, and allow me to review this history chronologically, and also perhaps automatically sort things by keyword. I'd also like this history to be (once I have set up PWP to do so) synchronized with a remote server, so for example, when I am browsing at home, my history file gets synchronized with my web host, and when I am browsing at work, the same history file on my web host is updated.
+Something that goes along with this idea is a permanent bookmarks interface. Visiting the PWP application on a certain web port should show me a list of bookmarks and allow me to add to them, categorize them, etc. The big advantage here would be the syncronization I just talked about with my web host space. My bookmarks would then be available from any host on the internet; no matter what machine I am using (as long as I'm running PWP), my bookmarks would also be locally available.
+Another idea I have been thinking about ever since you started talking about the PersonalWebProxy project is something like a mail proxy. The way it would work is, you would set up the PWP to connect to your mail account as a client. It would then download certain mail messages (more about that later) and re-serve them as a local mail server. You would then set up your email client to talk to the mail server running inside PWP. Thus, the same sort of transformation that occurs while you're browsing web pages occurs to your email.
+The first thing I would do with this is set up the server only to download email from email addresses in a certain list. Then I would allow rules based sorting. Of course, this functionality is all present in a basic email client, but once you're relatively sure you're not downloading spam you can start doing more interesting things. (The idea of only downloading email messages from people in a list is similar to only accepting instant messages from people in your buddy list)
+So things start to get more interesting: We index email for searching, and synchronize email with the email repository on my web host; we parse email messages from friends looking for URLs and have the web proxy immediately download the pages so they are on the hard drive for later, instant viewing; we can send ourselves commands in a simple command language from anything that can send email. Commands could be things like "Bookmark this URL that I don't have time to look at right now"; "Delay delivery of this reminder until the event is near"; etc.
+Anyway, this is all just wild pie-in-the-sky dreaming, which I don't normally do. But the prospects of improving our daily internet experience with these ideas, using an application built on Twisted, is very exciting, and very possible.</div>
+</li>
+<li class="comment" id="comment-221087188">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://webseitz.fluxent.com/wiki"><img src="http://www.gravatar.com/avatar.php?gravatar_id=5a70d939a73fa73603f2a9255ab81d21&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://webseitz.fluxent.com/wiki">BillSeitz</a>
+</div>
+<a href="#comment-221087188" class="permalink"><time datetime="2002-12-27T18:39:42">2002-12-27T18:39:42</time></a>
+</div>
+<div class="content">I hear your conflict on the Python/Twisted thing. I run into that working with Zwiki/Zope all the time. I've been tempted to switch to Twisted, or to Python CGI, or something in-between. So far I've just been momentum-undriven...
+Donovan's email ideas sound like Zoe and Chandler/OSAF.
+http://webseitz.fluxent.com/wiki/ZoE
+http://webseitz.fluxent.com/wiki/OSAF</div>
+</li>
+</ul>
+</div>
+
+        </section>
+      </article>
+        </section>
+
+        <footer>
+          <img id="growup" src="/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/js/vendor/lazyload.js"></script><script src="/js/vendor/prism.js"></script><script src="/js/toc.js"></script><script src="/js/analytics.js"></script><script src="/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

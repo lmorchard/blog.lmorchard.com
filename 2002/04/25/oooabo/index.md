@@ -1,0 +1,130 @@
+<p>Via <a href="http://radio.weblogs.com/0106939/2002/04/24.html#a7">Prof Avery</a>, I just found <a href="http://homepage.mac.com/zoe_info/Resume3.html">ZOE</a>.<blockquote><i>The goal here is to do for email (starting with your personal mailbox) what Google did for the web... The Google principle: It doesn't matter where information is because I can get to it with a keystroke.</p>
+<p>So what is Zoe? Think about it as a sort of librarian, tirelessly, continuously, processing, slicing, indexing, organizing, your messages. The end result is this intertwingled web of information. Messages put in context. Your very own knowledge base accessible at your fingertip. No more "attending to" your messages. The messages organization is done automatically for you so as to not have the need to "manage" your email. Because once information is available at a keystroke, it doesn't matter in which folder you happened to file it two years ago. There is no folder. The information is always there. Accessible when you need it. In context.</i></blockquote></p>
+<p>Rock on!  I'm either terribly unoriginal or my mind is being read or there's just a common Alpha Geek wavelength I'm tuning into.  By the description, this is <b>precisely</b> what I wanted to do with a <a href="http://www.decafbad.com/twiki/bin/view/Main/PersonalMailServer">PersonalMailServer</a>.  Getting tired of making folders, filtering rules, and <a href="http://www.decafbad.com/twiki/bin/view/Main/PersonalMailServer">MailToRSS</a> needs a bit more work and tweaking to be really useful.  </p>
+<p>From <a href="http://homepage.mac.com/zoe_info/Education6.html">the FAQ</a>:<blockquote><i>Q: On which platform does ZO? run?</p>
+<p>A: ZO? has been known to run on the following "platforms":<br />
+...<br />
+<a href="http://www.decafbad.com/twiki/bin/view/Main/MacOSX">MacOSX</a> 10.1.4, jre 1.3.1, Mozilla 0.9.9<br />
+...</i></blockquote>Rock on.<blockquote><i>Q: How much does ZO? cost?</p>
+<p>A: ZO? is free of charge for personal usage. Keep in mind, that you are getting what you are paying for... ;-)</i></blockquote>Rock on.<blockquote><i>Q: Is ZO? open source?</p>
+<p>A: No.</i></blockquote>Awwww.  That's no fun!  I want to play!  I don't see it within 5 minutes of installation, but I think this thing really really needs IMAP.  IMAP would rock for both message import and external mail client access.</p>
+<p>But, from the author's terse response to this question, I'm imagining there are many who've asked it and he's tired of answering why he's not being trendy :)  I guess I'll play and see what happens.</p>
+<!--more-->
+shortname=oooabo
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221083649">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://kavery.ecs.fullerton.edu/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=132888da5dedf3b4903bddd7ad721e63&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://kavery.ecs.fullerton.edu/">Prof Avery</a>
+                </div>
+                <a href="#comment-221083649" class="permalink"><time datetime="2002-04-25T22:45:01">2002-04-25T22:45:01</time></a>
+            </div>
+            <div class="content">Credit where credit is due: I found out about Zoe from Wes.
+
+Still working on wrapping my head around the weblog idea -- if it's just my personal bookmark collection plus commentary, there's nothing wrong with just posting the link; but if I'm writing for an audience, my source deserves credit.  Which is it: both? neither?</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221083650">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=9cff0151cf8e5b99abeb6d59f66cb8ad&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="">Josh</a>
+                </div>
+                <a href="#comment-221083650" class="permalink"><time datetime="2002-04-26T03:14:09">2002-04-26T03:14:09</time></a>
+            </div>
+            <div class="content">Hi. I'm guessing that your using this on OSX? I was gonna give it a try on Win2K. I'm not familiar with mac stuff, is there a windows way to extract the files? WinZip or Stuffit don't seem to recognize gz-link. I know your not a support forum, but if you no off the top of your head, that would be cool. If not no problem. BTW great site.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221083651">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://kavery.ecs.fullerton.edu/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=132888da5dedf3b4903bddd7ad721e63&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://kavery.ecs.fullerton.edu/">Prof Avery</a>
+                </div>
+                <a href="#comment-221083651" class="permalink"><time datetime="2002-04-26T05:43:59">2002-04-26T05:43:59</time></a>
+            </div>
+            <div class="content">The last time I used it (circa 1999), WinZip knew about tarballs.  You might try grabbing a new version, or trying the link to PowerArchiver over at gzip.org.
+
+If you're ok with command prompts, you could also try cygwin and do
+ gzcat Zoe.tar.gz | tar xf -</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221083652">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.decafbad.com">l.m.orchard</a>
+                </div>
+                <a href="#comment-221083652" class="permalink"><time datetime="2002-04-26T10:37:20">2002-04-26T10:37:20</time></a>
+            </div>
+            <div class="content">Weird thing is, though, the tarball appears to be binhex'ed on top.  I have it un-binhexed, but I don't know if I should post it somewhere given that the thing isn't open source and so maybe not kosher for redistribution.
+
+Maybe look for a Windows binhex processor?</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221083653">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.decafbad.com">l.m.orchard</a>
+                </div>
+                <a href="#comment-221083653" class="permalink"><time datetime="2002-04-26T10:37:50">2002-04-26T10:37:50</time></a>
+            </div>
+            <div class="content">Oh, and depending on how you download the file, the filename can get munged.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221083654">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.10500bc.org"><img src="http://www.gravatar.com/avatar.php?gravatar_id=6492f173a7059ece309f7d670ff44e95&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.10500bc.org">nf0</a>
+                </div>
+                <a href="#comment-221083654" class="permalink"><time datetime="2002-04-26T14:22:38">2002-04-26T14:22:38</time></a>
+            </div>
+            <div class="content">Thanks so much for the help. I got a BinHex tool and that was exactly what i needed. I learned something new today. Thanks again.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221083655">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=81a0e7f3440a7c5a0095fb765df043b3&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="">Mad Cow</a>
+                </div>
+                <a href="#comment-221083655" class="permalink"><time datetime="2004-05-01T20:12:39">2004-05-01T20:12:39</time></a>
+            </div>
+            <div class="content">Any further thoughts on an Open Source project along the lines of and Zoe PersonalServers combo... To give gmail a good run for it's money ($2.7Billion).
+
+Anyone got any time?</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

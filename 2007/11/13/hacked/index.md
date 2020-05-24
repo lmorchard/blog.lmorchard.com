@@ -1,0 +1,62 @@
+Crap.  Somehow, someone's gotten access to edit my posts on this blog and have crapped in loads of viagra linkspam.  I've probably destroyed the evidence already by deleting the spam as soon as I saw it — and as soon as some friendly readers emailed me pointing at more.  I've done the obvious, changed my password and tried to lock down the admin pages a bit.  But, I don't know who, how, or why.  Ugh.
+
+So, my apologies if anyone sees any offers for penis pills around these parts.  A heads up would be kindly appreciated as I scour my records and grumble.
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221083270">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.tanershot.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=0e4c3f9f5db1527faf311a4be230bf35&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.tanershot.com">Tanner</a>
+                </div>
+                <a href="#comment-221083270" class="permalink"><time datetime="2007-11-14T15:18:29">2007-11-14T15:18:29</time></a>
+            </div>
+            <div class="content"><p>I have heard that wordpress needs to be updated to the security point releases consistently. 
+This is something that I try to stay on top of. Don't remember this being that big a deal with movable type. Could be a design flaw for wordpress, or perhaps PHP.</p>
+
+<p>At one point I was using rsync to synchronize the new default files, and then hitting the dashboard to update the db design if it had changed. last update I did manually since I needed to move some photo links around in mysql. I still think rsync is a good tool for this task. Though lately they have been obseleting some files and they probably shouldn't be left around. what were the permissions on your files?</p>
+
+<p>-tanner</p></div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221083272">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://richardathome.wordpress.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=fff0d05378ec238b0ccc6f5bedbf0adb&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://richardathome.wordpress.com">Richard@Home</a>
+                </div>
+                <a href="#comment-221083272" class="permalink"><time datetime="2007-11-14T15:26:06">2007-11-14T15:26:06</time></a>
+            </div>
+            <div class="content"><p>Are you hosting on dreamhost?</p>
+
+<p>http://blog.dreamhosters.com/2007/06/06/dreamhost-ftp-accounts-hacked/</p></div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221083273">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2377f34a68801b861c3e54e1301f0dce&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.decafbad.com">l.m.orchard</a>
+                </div>
+                <a href="#comment-221083273" class="permalink"><time datetime="2007-11-14T17:57:29">2007-11-14T17:57:29</time></a>
+            </div>
+            <div class="content"><p>Thankfully no, not on dreamhost.  Unfortunately, that means I don't have that excuse. :)</p></div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

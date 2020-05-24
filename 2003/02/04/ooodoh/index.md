@@ -1,0 +1,107 @@
+<p>Well, it doesn't look like I'm getting the new Java-based <a href="http://www.decafbad.com/twiki/bin/view/Main/PersonalWebProxy">PersonalWebProxy</a> code released last week or soon this week, but if you'd like <strong>something</strong> to poke fun at, try this...</p>
+<p><a href="http://www.decafbad.com/twiki/bin/view/Main/BookmarkBlogger">BookmarkBlogger</a> - a quick hack for Safari users to generate blog entries from bookmark folders.</p>
+<p>Hope it's useful, bet it's ugly, but it was fun in the making.</p>
+<!--more-->
+shortname=ooodoh
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221088862">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://radio.weblogs.com/0108194/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=fb84be2d594c8346b04d91c55118ae08&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://radio.weblogs.com/0108194/">Mad William Flint</a>
+                </div>
+                <a href="#comment-221088862" class="permalink"><time datetime="2003-02-04T22:01:02">2003-02-04T22:01:02</time></a>
+            </div>
+            <div class="content">Heya.  Running into stumbling blocks or just getting distracted?</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221088866">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.decafbad.com">l.m.orchard</a>
+                </div>
+                <a href="#comment-221088866" class="permalink"><time datetime="2003-02-05T13:02:03">2003-02-05T13:02:03</time></a>
+            </div>
+            <div class="content">Mostly just distraction and at-work/at-home business.  That, and the urge to fix just that "one last thing" before I let anyone have it.  But I think by this weekend, I'll make the mess available, no matter what shape it's in.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221088868">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=be404e6d4751d4060c7014d14cc8680d&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="">Brad DeLong</a>
+                </div>
+                <a href="#comment-221088868" class="permalink"><time datetime="2003-03-04T19:25:40">2003-03-04T19:25:40</time></a>
+            </div>
+            <div class="content">I'm slow and stupid. Suppose that I'm running Mac OSX, want to start up a blosxom installation on my office machine at http://www.j-bradford-delong.net/cgi-bin/blosxom.cgi (with blosxom text files in what the office machine sees as: /Library/Webserver/Documents/blosxom). I then remotely mount the office machine's hard disk on my own laptop (at, I think, "/Volumes/Office Hard Disk".) I then want to use Bookmark blogging from Safari to put stuff from my bookmarks into the blosxom remote directory.
+
+What, exactly, are the path arguments that go with java -jar BookmarkBlogger.jar ?
+
+Brad DeLong</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221088873">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.decafbad.com">l.m.orchard</a>
+                </div>
+                <a href="#comment-221088873" class="permalink"><time datetime="2003-03-05T15:25:31">2003-03-05T15:25:31</time></a>
+            </div>
+            <div class="content">I think this is what you'd need:
+
+java -jar BookmarkBlogger.jar "BLOG BOOKMARKS" "/Users/{yourusername}" "/Volumes/Office Hard Disk/Library/Webserver/Documents/blosxom"
+
+Just make sure to fill in the "yourusername".  Extra credit points to anyone to hacks this to use a proper config file :)</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221088875">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.10500bc.org"><img src="http://www.gravatar.com/avatar.php?gravatar_id=6492f173a7059ece309f7d670ff44e95&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.10500bc.org">nf0</a>
+                </div>
+                <a href="#comment-221088875" class="permalink"><time datetime="2003-03-13T23:55:25">2003-03-13T23:55:25</time></a>
+            </div>
+            <div class="content">Is it just mine, or did this break with the java update from apple this week? It worked when i first test, pre update. But after runing the update, it hasn't worked, but its not giving any errors or anything. I even deleted the seen file, so it should have picked up everything. But nothing  happens. Any ideas?</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221088877">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.10500bc.org"><img src="http://www.gravatar.com/avatar.php?gravatar_id=6492f173a7059ece309f7d670ff44e95&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.10500bc.org">nf0</a>
+                </div>
+                <a href="#comment-221088877" class="permalink"><time datetime="2003-03-14T00:10:40">2003-03-14T00:10:40</time></a>
+            </div>
+            <div class="content">Scratch that, a reboot and its working like a charm.</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

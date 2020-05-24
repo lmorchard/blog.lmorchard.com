@@ -1,0 +1,89 @@
+<br /><br />
+<blockquote><i>Some folks are experimenting with using Wiki to build websites.  I particularly like what Matt Haughey did with PHPWiki and a bit of <a href="http://www.decafbad.com/twiki/bin/view/Main/CSS">CSS</a> magic dust.  Looks nice, eh?  [Via Seb's Wikis are Ugly? post at Corante]
+<br /><br />
+Janne Jalkanen's Wiki-based Weblog is interesting too.  Hmm.  Maybe blog API(s) can be used for Wikis too.  That reminds me, shouldn't Wiki formatted text have their own MIME type?  Is there one?  "text/wiki"?  For now, different dialects of Wiki formatting rules will have to be accounted for like "text/wiki+moinmoin".</i></blockquote><div class="credit" align="right"><small>Source: <cite><a href="http://www.docuverse.com/blog/donpark/2003/09/05.html#a859">Don Park's Daily Habit</s></cite></small></div>
+<br /><br />
+It's been a while since I last worked on it, but I did implement an
+XML-RPC API on a few wikis, called <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpcToWiki">XmlRpcToWiki</a>.  Janne Jalkanen
+did a lot of work toward the same interface with JSPWiki.  I use this API
+in the linkage between my blog and the wiki on this site.  Now that
+I've drifted away from <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a> a bit and am more in favor of simpler
+<a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a>-ish web service APIs, I'd like to see something more toward that
+end.  Seems like a lot of people are discovering or rediscovering
+wikis since the introduction of Sam Ruby's wiki for Atom/Echo/Pie
+work, so it's interesting to see a lot of things come up again like
+grousing about APIs and mutant wiki-format offshoots and standards.
+<!--more-->
+shortname=wiki_apis
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221087123">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://bitsko.slc.ut.us/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=743ec87899694a206abd6bdca8fed5fc&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://bitsko.slc.ut.us/">Ken MacLeod</a>
+                </div>
+                <a href="#comment-221087123" class="permalink"><time datetime="2003-09-06T16:46:13">2003-09-06T16:46:13</time></a>
+            </div>
+            <div class="content">Joe Gregorio recently posted today how the Atom API is great Wiki API too, http://bitworking.org/news/An_editable_web .</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221087124">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://webseitz.fluxent.com/wiki"><img src="http://www.gravatar.com/avatar.php?gravatar_id=5a70d939a73fa73603f2a9255ab81d21&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://webseitz.fluxent.com/wiki">BillSeitz</a>
+                </div>
+                <a href="#comment-221087124" class="permalink"><time datetime="2003-09-08T12:22:28">2003-09-08T12:22:28</time></a>
+            </div>
+            <div class="content">But it still leaves you the issue of the formatting of the contents, since different WikiEngines use different SmartAscii flavors.
+
+http://webseitz.fluxent.com/wiki/SmartAscii</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221087125">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://thetinfoilhat.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=af907f0db68a77ac7aca277f19121470&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://thetinfoilhat.com">Al Brown</a>
+                </div>
+                <a href="#comment-221087125" class="permalink"><time datetime="2003-09-08T15:48:40">2003-09-08T15:48:40</time></a>
+            </div>
+            <div class="content">You should give a look at TikiWiki http://tikiwiki.org the package has grown to become a full service CMS/Portal.
+
+Not exactly ugly either.
+
+Al</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221087127">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://weblog.beruf-it.de/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=9c1b3189cb72c7b4a2f6cac236a24732&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://weblog.beruf-it.de/">reinhard</a>
+                </div>
+                <a href="#comment-221087127" class="permalink"><time datetime="2003-09-09T10:09:35">2003-09-09T10:09:35</time></a>
+            </div>
+            <div class="content">look at http://www.decafbad.com/twiki/bin/search/Main/SearchResult?scope=text&regex=on&search=Xml%20*Rpc%20*To%20*Wiki%5B%5EA-Za-z%5D</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

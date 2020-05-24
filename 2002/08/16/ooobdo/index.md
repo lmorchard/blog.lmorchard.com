@@ -1,0 +1,63 @@
+<p>Do not stand in our way - we will walk around you.</p>
+<p>Spam is in our way.</p>
+<p>We will <a href="http://www.paulgraham.com/spam.html">use the inhuman aspects inherent to your sales pitch</a> to walk around you.</p>
+<p><a href="http://www.cluetrain.com">Cluetrain</a> on statistic-driven autopilot.  :)</p>
+<!--more-->
+shortname=ooobdo
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221090056">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://danger-island.com/~dav/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=b399e029d10b188eaed00fcce8701e5b&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://danger-island.com/~dav/">dav</a>
+                </div>
+                <a href="#comment-221090056" class="permalink"><time datetime="2002-08-18T17:03:04">2002-08-18T17:03:04</time></a>
+            </div>
+            <div class="content">Wow that's great. Shouldn't be too hard to implement in perl (maybe it already is, I haven't finished reading the article yet actually). 
+
+I also found this scientific paper on it:
+http://www.cs.utexas.edu/users/jp/research/email.paper.pdf
+
+I think what needs to be added though (as with most systems) is a feedback loop. There should be a hook which takes into account any emails you tag as legitimate after the system is started. For instance if I read and kept an email from alan@turing.com then that email from that address should be given 100% legitamcy in the future.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221090058">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=245deac89edc98cb15923ed07500e20c&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="">RIchard</a>
+                </div>
+                <a href="#comment-221090058" class="permalink"><time datetime="2002-10-01T13:08:32">2002-10-01T13:08:32</time></a>
+            </div>
+            <div class="content">Well, unless the emailaddress alan@turing.com is spoofed and the contents of the email truly is spam. At this point the filter should tag mail even though it seems to come from an apparent "save" address.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221090060">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://perpetualbeta.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=43f54f4e781c8374414d45c287474cac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://perpetualbeta.com">Mike</a>
+                </div>
+                <a href="#comment-221090060" class="permalink"><time datetime="2003-01-16T03:25:23">2003-01-16T03:25:23</time></a>
+            </div>
+            <div class="content">SpamSieve for the Mac is an exceptional example of Bayes anti-spam filtering.</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

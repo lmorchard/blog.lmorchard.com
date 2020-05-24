@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>Microsummaries and Content-Type Mysteries - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="Microsummaries and Content-Type Mysteries" />
+        <meta
+          property="og:url"
+          content="https://blog.lmorchard.com/"
+        />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post tag-webdevtag-firefoxtag-microsummariestag-bookmarks"
+      >
+        <time
+          title="2006-10-29T12:34:49-08:00"
+          pubdate="2006-10-29T12:34:49-08:00"
+        >
+          <a href="/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/2006/"
+            >2006</a
+          >
+          &raquo;
+          <a href="/2006/10/"
+            >October</a
+          >
+          &raquo;
+          <span>29</span>
+          &raquo;
+        </time>
+        <h1 class="title">Microsummaries and Content-Type Mysteries</h1>
+        <ul class="tags">
+            <li>
+                  <a href="/tag/webdev/">webdev</a>
+                </li><li>
+                  <a href="/tag/firefox/">firefox</a>
+                </li><li>
+                  <a href="/tag/microsummaries/">microsummaries</a>
+                </li><li>
+                  <a href="/tag/bookmarks/">bookmarks</a>
+                </li>
+          </ul>
+        <section class="post-content">
+          <p>One of my favorite features of the new Firefox are <a href="http://microsummaries.org/">Microsummaries</a>.  They&#39;re like RSS-lite: one-liner summaries of web pages that can be used to keep bookmark titles up to date and get succinct info about a page.  For example, you could get the latest temperature from the title of a weather report bookmark, or the most recent bid price from an auction page.</p>
+<p>But, there&#39;s one thing that rubs me the wrong way, and it&#39;s this:</p>
+<pre><code>&lt;link rel=&quot;microsummary&quot; href=&quot;microsummary.txt&quot;&gt;</code></pre>
+<p>That&#39;s how you clue a client into finding the microsummary for a given HTML page.  Stick that in your head tag, and you&#39;re off.  It&#39;s just like <a href="http://diveintomark.org/archives/2002/05/30/rss_autodiscovery">RSS autodiscovery</a>.  Well it is, except for an important detail: What&#39;s the Content-Type I should expect at that URL?</p>
+<p>You see, microsummaries can be provided as either a direct URL to a plain text summary of the page, or a URL to an XML-based generator providing the means to extract that plain text summary from the page.  But, as spec&#39;ed, you never know which you&#39;re going to get until you fetch the URL.  So, when trying to handle a <a href="http://wiki.mozilla.org/Microsummaries">microsummary</a>, I never know whether to just use the fetched content directly as plain text or whether it&#39;s time to fire up the XSL machinery.</p>
+<p>I&#39;ve seen some sites toss in a type=&quot;text/plain&quot; or type=&quot;application/xml&quot; attribute - which is very helpful and what I really want to see - but it&#39;s not in <a href="http://wiki.mozilla.org/Microsummaries">the spec</a>.  From a cursory perusal of Firefox source code, it looks like the browser tries to sniff the Content-Type header returned by the web server - but that sucks, because web servers often lie or are confused about Content-Type.  I need to read more into that source code, so I can at least do as well as Firefox does.</p>
+<p>Eh, it&#39;s a small gripe, but one on which I&#39;ve spent too much time already.</p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221082514">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://george.hotelling.net/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=c7d1c8d2b1a7643236a4661e9a974dee&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://george.hotelling.net/">George Hotelling</a>
+</div>
+<a href="#comment-221082514" class="permalink"><time datetime="2006-10-29T22:26:04">2006-10-29T22:26:04</time></a>
+</div>
+<div class="content"><p>What's the advantage of sticking it into the markup instead of just using the HTTP headers for the microsummary?</p></div>
+</li>
+<li class="comment" id="comment-221082515">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2377f34a68801b861c3e54e1301f0dce&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.decafbad.com">l.m.orchard</a>
+</div>
+<a href="#comment-221082515" class="permalink"><time datetime="2006-10-31T01:11:08">2006-10-31T01:11:08</time></a>
+</div>
+<div class="content"><p>Well, in the markup, I'm more confident it'll tell the intended truth.  That's easier to change many times than the server config itself to serve up the correct HTTP headers.  I know this is a shady argument - but so far in my small sample set of 8 or so sites, a third of them fed me the wrong Content-Type.  That is, "text/HTML" when it was plain text, "text/HTML" when it was an XML generator.  So, I've had to come up with some smart guesses.</p>
+<p>One example, <a href="http://www.markdownmonkey.com/microsummary.asp" rel="nofollow">Markdown Monkey</a>.  The site header includes a type="application/x.microsummary+xml" for href="http://www.markdownmonkey.com/microsummary.asp", yet the server feeds me a Content-Type: text/html header.</p></div>
+</li>
+<li class="comment" id="comment-221082517">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2377f34a68801b861c3e54e1301f0dce&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.decafbad.com">l.m.orchard</a>
+</div>
+<a href="#comment-221082517" class="permalink"><time datetime="2006-10-31T01:12:15">2006-10-31T01:12:15</time></a>
+</div>
+<div class="content"><p>And, of course, there's always this old horror story:</p>
+<p>http://www.xml.com/pub/a/2004/07/21/dive.html</p></div>
+</li>
+<li class="comment" id="comment-221082518">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.melez.com/mykzilla/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=4bcc1646956acd3ee25234b34da91414&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.melez.com/mykzilla/">Myk Melez</a>
+</div>
+<a href="#comment-221082518" class="permalink"><time datetime="2006-11-01T01:33:18">2006-11-01T01:33:18</time></a>
+</div>
+<div class="content"><p>Indeed, Firefox ignores the type attribute to the  tag.  It would be great if that attribute wasn't necessary, because web servers always served the correct type, but that's clearly not the case, and allowing pages to specify the content type of their microsummaries seems likely to be as useful for microsummaries as it is for feeds.</p>
+<p>I have filed <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=358977" rel="nofollow">bug 358977</a> on the issue.</p></div>
+</li>
+<li class="comment" id="comment-221082519">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2377f34a68801b861c3e54e1301f0dce&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.decafbad.com">l.m.orchard</a>
+</div>
+<a href="#comment-221082519" class="permalink"><time datetime="2006-11-01T02:23:32">2006-11-01T02:23:32</time></a>
+</div>
+<div class="content"><p>Myk: Fair enough.  Excellent technology, by the way.  :)</p></div>
+</li>
+</ul>
+</div>
+
+        </section>
+      </article>
+        </section>
+
+        <footer>
+          <img id="growup" src="/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/js/vendor/lazyload.js"></script><script src="/js/vendor/prism.js"></script><script src="/js/toc.js"></script><script src="/js/analytics.js"></script><script src="/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

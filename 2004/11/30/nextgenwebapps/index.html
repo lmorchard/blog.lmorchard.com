@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>Next generation web apps using REST, XML, XSLT, and XmlHTTPRequest - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="Next generation web apps using REST, XML, XSLT, and XmlHTTPRequest" />
+        <meta
+          property="og:url"
+          content="https://blog.lmorchard.com/"
+        />
+        
+        <meta property="og:description" content="&lt;p&gt;So, like I was saying:  I&amp;apos;ve been working on &lt;a href=&quot;http://www.decafbad.com/kwiki?FeedReactor&quot;&gt;FeedReactor&lt;/a&gt; and have been doing some things with it that I find rather interesting, independent of news aggregation.  &lt;/p&gt;
+&lt;p&gt;One of the core goals I have for FeedReactor is to explore what it takes to build a web app that exploits &lt;a href=&quot;http://www.xfront.com/REST-Web-Services.html&quot;&gt;principles of REST architecture&lt;/a&gt;.  Having already &lt;a href=&quot;http://www.decafbad.com/blog/tech/old/oooccb&quot;&gt;sung the praises&lt;/a&gt; of XML-RPC, I wanted to get immersed in REST and see what all the hubbub was about.  I&amp;apos;ve got some ways to go, but I think I understand the major concepts now, and it&amp;apos;s a pretty nifty frame within which to work.&lt;/p&gt;
+&lt;p&gt;But, two other things I&amp;apos;ve added to my mix have really made things interesting for me:  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;XSLT filtering&lt;/li&gt;
+&lt;li&gt;The XmlHTTPRequest object&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;XSLT and REST make a really good pair, as &lt;a href=&quot;http://www.decafbad.com/blog/2004/06/16/wishofthemonthclub1&quot;&gt;Amazon Web Services already demonstrate&lt;/a&gt;.  Inspired by that API (&lt;a href=&quot;http://www.decafbad.com/blog/2003/09/02/xsl_scraper&quot;&gt;and earlier experiments&lt;/a&gt;), I use XML for all the input and output formats in my API and accept a query string parameter that contains the path to an XSLT file.  When this parameter is supplied, the XML output by the API is first processed using the given XSLT.  (Think of it like piping API output through &lt;code&gt;xsltproc&lt;/code&gt;.)&lt;/p&gt;
+&lt;p&gt;So, with a properly constructed collection of XSLT, I can present a browser-viewable HTML user interface served up directly from REST API calls.  Links, frame sets, and iframes present in the HTML lead the user from that call to the next XSLT-wrapped REST API call. &lt;/p&gt;
+&lt;p&gt;But, once the initial HTML-and-JavaScript payload reaches the browser, it gets better (&lt;a href=&quot;http://www.infoworld.com/article/04/10/22/43OPstrategic_1.html&quot;&gt;ala Gmail&lt;/a&gt;):  &lt;/p&gt;
+&lt;p&gt;On older browsers (if I happen to care about them), I can make new HTTP requests back to the server &lt;a href=&quot;http://developer.apple.com/internet/webcontent/iframe.html&quot;&gt;from JavaScript using iframes&lt;/a&gt;.  In this case, XSLT filtering lets me retrofit the API&amp;apos;s responses to the HTML-and-JavaScript crud I need to serve up to make things happen back in the browser client.  Unfortunately, passing data &lt;em&gt;to&lt;/em&gt; the API (which expects XML, not form submissions) is still a bit wonky and requires some hacks and exceptions involving hidden forms and such.&lt;/p&gt;
+&lt;p&gt;However, on the newer browsers, it&amp;apos;s all about the &lt;a href=&quot;http://developer.apple.com/internet/webcontent/xmlhttpreq.html&quot;&gt;XmlHTTPRequest object&lt;/a&gt;.  With this facility, I can make clean asynchronous requests back to the REST API, including XML data in the request body if I feel like it.  Responses are handled by JavaScript callbacks, which twiddle the browser DOM to update the user interface in response.  &lt;/p&gt;
+&lt;p&gt;So, after the major initial contact with the API to supply the browser with HTML by way of XSLT, most future interactions take place in the form of direct calls to the REST API using XML.  Although for some things, it&amp;apos;s easier to just reload a page of HTML, it&amp;apos;s nicer for most interactions to be handled via DOM manipulations in-place.  I&amp;apos;ve been amazed at the Gmail-like responsiveness I get from FeedReactor when I&amp;apos;m skimming through news items, marking some as seen or flagged, and popping open the descriptions on others.  &lt;/p&gt;
+&lt;p&gt;I suppose I &lt;em&gt;shouldn&amp;apos;t&lt;/em&gt; be amazed at the responsiveness, since I&amp;apos;m using some of the same techniques as Gmail.  However, my daily-use installation of FeedReactor is presently running on an old 300Mhz Debian Linux PC at home, and it&amp;apos;s taking me through the daily produce of 600 subscribed feeds faster than any desktop aggregator has yet.  Of course, this is partly a product of my familiarity with the UI I&amp;apos;ve cobbled together, but... &lt;em&gt;the server&amp;apos;s running on a 300Mhz PC with 256MB of RAM!&lt;/em&gt;  And the client is my 867Mhz G4 PowerBook, running Firefox or Safari, depending on my mood.&lt;/p&gt;
+&lt;p&gt;Although I can&amp;apos;t see when I&amp;apos;ll have time for it, I really want to explore this approach further using desktop apps on OS X and accessing the API from Flash movies (maybe using &lt;a href=&quot;http://openlaszlo.org/&quot;&gt;Laszlo&lt;/a&gt;).  I&amp;apos;d also like to see how far I can go toward adapting the interface toward mobile devices like my Treo 600.&lt;/p&gt;
+&lt;p&gt;So anyway, this has been where most of my private hacking sessions have been taking me over the past year or so:  combining HTML, CSS, DOM, JavaScript, XML, XSLT, and REST to build what I consider to be a next-generation web app.  &lt;/p&gt;
+&lt;p&gt;Now, although I use FeedReactor on a daily basis to keep up with all my feeds, it&amp;apos;s nowhere near any state suitable for public consumption.  I add new subscriptions from a command-line script and still fiddle with the database directly for some operations.  I&amp;apos;d like to have a personal-server version of it ready for use by some alpha geeks before or not long into the new year, but I&amp;apos;d like to share some of the things I&amp;apos;ve been doing with it before then.&lt;/p&gt;
+&lt;p&gt;With that in mind, I think I&amp;apos;ll wrap up this entry and think about putting together a quick tutorial pico-project to demonstrate some of the concepts.  Maybe an address book, or something equally simple-yet-useful.  &lt;/p&gt;
+&lt;p&gt;Stay tuned.&lt;/p&gt;
+" />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post tag-syndicationtag-xml"
+      >
+        <time
+          title="2004-11-30T13:53:35-08:00"
+          pubdate="2004-11-30T13:53:35-08:00"
+        >
+          <a href="/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/2004/"
+            >2004</a
+          >
+          &raquo;
+          <a href="/2004/11/"
+            >November</a
+          >
+          &raquo;
+          <span>30</span>
+          &raquo;
+        </time>
+        <h1 class="title">Next generation web apps using REST, XML, XSLT, and XmlHTTPRequest</h1>
+        <ul class="tags">
+            <li>
+                  <a href="/tag/syndication/">syndication</a>
+                </li><li>
+                  <a href="/tag/xml/">xml</a>
+                </li>
+          </ul>
+        <section class="post-content">
+          <p>So, like I was saying:  I&#39;ve been working on <a href="http://www.decafbad.com/kwiki?FeedReactor">FeedReactor</a> and have been doing some things with it that I find rather interesting, independent of news aggregation.  </p>
+<p>One of the core goals I have for FeedReactor is to explore what it takes to build a web app that exploits <a href="http://www.xfront.com/REST-Web-Services.html">principles of REST architecture</a>.  Having already <a href="http://www.decafbad.com/blog/tech/old/oooccb">sung the praises</a> of XML-RPC, I wanted to get immersed in REST and see what all the hubbub was about.  I&#39;ve got some ways to go, but I think I understand the major concepts now, and it&#39;s a pretty nifty frame within which to work.</p>
+<p>But, two other things I&#39;ve added to my mix have really made things interesting for me:  </p>
+<ol>
+<li>XSLT filtering</li>
+<li>The XmlHTTPRequest object</li>
+</ol>
+<p>XSLT and REST make a really good pair, as <a href="http://www.decafbad.com/blog/2004/06/16/wishofthemonthclub1">Amazon Web Services already demonstrate</a>.  Inspired by that API (<a href="http://www.decafbad.com/blog/2003/09/02/xsl_scraper">and earlier experiments</a>), I use XML for all the input and output formats in my API and accept a query string parameter that contains the path to an XSLT file.  When this parameter is supplied, the XML output by the API is first processed using the given XSLT.  (Think of it like piping API output through <code>xsltproc</code>.)</p>
+<p>So, with a properly constructed collection of XSLT, I can present a browser-viewable HTML user interface served up directly from REST API calls.  Links, frame sets, and iframes present in the HTML lead the user from that call to the next XSLT-wrapped REST API call. </p>
+<p>But, once the initial HTML-and-JavaScript payload reaches the browser, it gets better (<a href="http://www.infoworld.com/article/04/10/22/43OPstrategic_1.html">ala Gmail</a>):  </p>
+<p>On older browsers (if I happen to care about them), I can make new HTTP requests back to the server <a href="http://developer.apple.com/internet/webcontent/iframe.html">from JavaScript using iframes</a>.  In this case, XSLT filtering lets me retrofit the API&#39;s responses to the HTML-and-JavaScript crud I need to serve up to make things happen back in the browser client.  Unfortunately, passing data <em>to</em> the API (which expects XML, not form submissions) is still a bit wonky and requires some hacks and exceptions involving hidden forms and such.</p>
+<p>However, on the newer browsers, it&#39;s all about the <a href="http://developer.apple.com/internet/webcontent/xmlhttpreq.html">XmlHTTPRequest object</a>.  With this facility, I can make clean asynchronous requests back to the REST API, including XML data in the request body if I feel like it.  Responses are handled by JavaScript callbacks, which twiddle the browser DOM to update the user interface in response.  </p>
+<p>So, after the major initial contact with the API to supply the browser with HTML by way of XSLT, most future interactions take place in the form of direct calls to the REST API using XML.  Although for some things, it&#39;s easier to just reload a page of HTML, it&#39;s nicer for most interactions to be handled via DOM manipulations in-place.  I&#39;ve been amazed at the Gmail-like responsiveness I get from FeedReactor when I&#39;m skimming through news items, marking some as seen or flagged, and popping open the descriptions on others.  </p>
+<p>I suppose I <em>shouldn&#39;t</em> be amazed at the responsiveness, since I&#39;m using some of the same techniques as Gmail.  However, my daily-use installation of FeedReactor is presently running on an old 300Mhz Debian Linux PC at home, and it&#39;s taking me through the daily produce of 600 subscribed feeds faster than any desktop aggregator has yet.  Of course, this is partly a product of my familiarity with the UI I&#39;ve cobbled together, but... <em>the server&#39;s running on a 300Mhz PC with 256MB of RAM!</em>  And the client is my 867Mhz G4 PowerBook, running Firefox or Safari, depending on my mood.</p>
+<p>Although I can&#39;t see when I&#39;ll have time for it, I really want to explore this approach further using desktop apps on OS X and accessing the API from Flash movies (maybe using <a href="http://openlaszlo.org/">Laszlo</a>).  I&#39;d also like to see how far I can go toward adapting the interface toward mobile devices like my Treo 600.</p>
+<p>So anyway, this has been where most of my private hacking sessions have been taking me over the past year or so:  combining HTML, CSS, DOM, JavaScript, XML, XSLT, and REST to build what I consider to be a next-generation web app.  </p>
+<p>Now, although I use FeedReactor on a daily basis to keep up with all my feeds, it&#39;s nowhere near any state suitable for public consumption.  I add new subscriptions from a command-line script and still fiddle with the database directly for some operations.  I&#39;d like to have a personal-server version of it ready for use by some alpha geeks before or not long into the new year, but I&#39;d like to share some of the things I&#39;ve been doing with it before then.</p>
+<p>With that in mind, I think I&#39;ll wrap up this entry and think about putting together a quick tutorial pico-project to demonstrate some of the concepts.  Maybe an address book, or something equally simple-yet-useful.  </p>
+<p>Stay tuned.</p>
+<!--more-->
+<p>shortname=nextgenwebapps</p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221089601">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.ricebridge.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=a57fe535201a5daca9590abd68d490c7&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.ricebridge.com">Richard Rodger</a>
+</div>
+<a href="#comment-221089601" class="permalink"><time datetime="2004-12-01T08:14:39">2004-12-01T08:14:39</time></a>
+</div>
+<div class="content">You should take a look at http://www.json.org which provides a really nice JavaScript-native way to exchange data using XMLHttpRequest.</div>
+</li>
+<li class="comment" id="comment-221089609">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://fiftyfly.mine.nu"><img src="http://www.gravatar.com/avatar.php?gravatar_id=c1e58f891708437e94407f573639094c&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://fiftyfly.mine.nu">mike</a>
+</div>
+<a href="#comment-221089609" class="permalink"><time datetime="2004-12-01T14:23:44">2004-12-01T14:23:44</time></a>
+</div>
+<div class="content">This is def a powerful set of techniques. I hadn't worked with a lot of javascript in several years but recently I'd wanted to put a cleaner face on my proof of concept request icecast station: http://fiftyfly.mine.nu/RFM . An off hand comment somone had made regarding XMLHTTPRequest sounded so interesting I had to give it some thought. The result can be found here: http://fiftyfly.mine.nu/RFMamp.html . Faster, cleaner, far more flexible - this excercise has made me think about web services in a way I hadn't previously. Consider my eyes opened ;)</div>
+</li>
+</ul>
+</div>
+
+        </section>
+      </article>
+        </section>
+
+        <footer>
+          <img id="growup" src="/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/js/vendor/lazyload.js"></script><script src="/js/vendor/prism.js"></script><script src="/js/toc.js"></script><script src="/js/analytics.js"></script><script src="/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

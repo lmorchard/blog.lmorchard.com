@@ -1,0 +1,50 @@
+<p>Hmm, just read that <a href="http://radio.weblogs.com/0111823/2002/09/03.html#a39">Charles Nadeau released an XML-RPC to NNTP gateway</a>.  I still think it would be neat to have an <a href="http://www.decafbad.com/news_archives/000261.phtml#comments">NNTP to XML-RPC gateway</a> to use as a wonky, distributedish message queue.</p>
+<!--more-->
+shortname=ooobfd
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221089286">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://radio.weblogs.com/0111823/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=99d6f317c1bc2ac933c26f8233a11fa1&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://radio.weblogs.com/0111823/">Charles Nadeau</a>
+                </div>
+                <a href="#comment-221089286" class="permalink"><time datetime="2002-09-03T23:29:50">2002-09-03T23:29:50</time></a>
+            </div>
+            <div class="content">Your idea of using newsgroups as queues to feed message to an XML-RPC-enabled program is very good: One could assign of or more groups to an application and use the NNTP server as an archive of all the calls made. Clever!
+Let me know more about how you envision it. I will put that on my "programming to-do list". Thanks for mentionning nxgate on your blog!
+
+Charles Nadeau</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221089287">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.decafbad.com">l.m.orchard</a>
+                </div>
+                <a href="#comment-221089287" class="permalink"><time datetime="2002-09-04T01:43:30">2002-09-04T01:43:30</time></a>
+            </div>
+            <div class="content">Well, this is a very hackish idea and there are other systems that implement messaging queues perfectly well, but I thought that you could have a daemon scan new message items on a specified news group on a given server as they come in.  This daemon could check for a predetermined subject line, sender, and maybe even a trusted cryptographic signature.  The payload of the message could be in the clear, or encrypted.  You could have many recipients marked for the message.  
+
+The gateway daemons then would turn valid newsgroup posts into outbound XML-RPC calls, and in turn, post to the newsgroup in response to inbound XML-RPC calls.
+
+What appears particularly attractive to me about doing this ofer NNTP, though, is that it's an existing architecture that already does queueing and distribution and all kinds of other nice things.  And if you wanted to be sneaky with a network of agents, you could even stenograph your messages in with other spam :)  But, the sneaky bits aren't what I'm most interested in.
+
+To me, it's another potential rendevous to add to a hypothetical P2P system I'm musing about</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

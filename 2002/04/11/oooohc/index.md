@@ -1,0 +1,3 @@
+<p>From <a href="http://diveintomark.org/archives/2002/04/11.html#serverside_includes">Mark Pilgrim</a>, again:<blockquote><i>Not that you'll notice any difference, but I'm now using server-side includes to serve up several semi-static pieces of each page of this site, including the logo, the copyright notice, the footer, the <a href="http://www.decafbad.com/twiki/bin/view/Main/CSS">CSS</a> declaration, and most importantly, the blogroll.</i></blockquote>Funny... Is there something in the air?  Not that I've talked much at all (if ever) with Mark Pilgrim, but these are all the same kinds of things I've been playing around with here.  Maybe I should drop him a line :)</p>
+<!--more-->
+shortname=oooohc

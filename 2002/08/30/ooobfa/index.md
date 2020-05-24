@@ -1,0 +1,161 @@
+<p>Even more gas is flowing - from <a href="http://www.jacobsen.no/anders/blog/">andersja</a>'s blog: <a href="http://www.jacobsen.no/anders/blog/archives/2002/08/30/movable_type_notifications_to_instant_messenger.html">Movable Type notifications to Instant Messenger?</a></p>
+<p>I really want to see this, and I want to see news aggregators exploit this - why poll a feed once an hour when you can just have the feed tell you to come 'n get it?  Basic publish/subscribe model.  </p>
+<p>But the advantage Radio has over MT in this regard is this:  Radio is a persistently running app/server/daemon thing.  MT is a collection of scripts that does nothing until asked to run.  Radio can connect to IM and stay connected.  Something like MT would need to login to an IM service each and every time it wanted to ping.  Maybe that's not such a big deal, really.  I also have a hunch that there would be some difficulties with web hosting sites who don't really want customers emitting IMs from their CGIs.  Maybe not a big deal either.</p>
+<p>Just seems like an impedance mismatch, though.</p>
+<p>What I'd like to see is something like this:  An XML-RPC/SOAP <-> IM gateway.  And then, eventually, I'd like to see a decentrallized P2P network with XML-RPC/SOAP entry points that can smoothly replace centralized resources that have XML-RPC/SOAP entry points, maybe using IM networks as one possible rendevous point.  (Just remembered this project: <a href="http://relativity.yi.org/jxta-bridge/">JXTA Bridge</a>.  Mental note - play with JXTA again and poke at SOAP some more.)</p>
+<!--more-->
+shortname=ooobfa
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221090298">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://boston.conman.org/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=778e89305f331b88a87a94b348164df8&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://boston.conman.org/">Sean Conner</a>
+                </div>
+                <a href="#comment-221090298" class="permalink"><time datetime="2002-08-30T19:54:12">2002-08-30T19:54:12</time></a>
+            </div>
+            <div class="content">Why not use IRC?  Decentralized, standard protocol, and *all* the DDoS zombies use it for communication.  Okay, so it doesn't support XML-RPC/SOAP, but I'm still not fully convinced XML-RPC/SOAP is all it's cracked up to be.  Come on, it's just a glorified CGI call.
+
+-spc (Or even NNTP!  Surely you can do XML-RPC/SOAP calls via Usenet ... )</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221090301">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://shawnyeager.com/monolog/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=546b2f1947278db93fa8f7c734876111&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://shawnyeager.com/monolog/">Shawn</a>
+                </div>
+                <a href="#comment-221090301" class="permalink"><time datetime="2002-08-31T00:31:50">2002-08-31T00:31:50</time></a>
+            </div>
+            <div class="content">I hear what you're saying, Sean, but I think the answer to your question is "ubiquity."  While IRC is popular among us old-timers, it has nothing on the mass popularity of IM.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221090302">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.decafbad.com">l.m.orchard</a>
+                </div>
+                <a href="#comment-221090302" class="permalink"><time datetime="2002-08-31T05:33:30">2002-08-31T05:33:30</time></a>
+            </div>
+            <div class="content">Hell, why choose?  Use both and everything else available.  Make a clean interface on the frontend with XML-RPC or SOAP, and rendevous with other agents via whatever channel is most convenient.  Have an IRC server in mind?  Meet up there.  Netsplit?  Bounce some IMs around.  Jabber server down?  Maybe try some JXTA.  Sky falling everywhere but on a local known NNTP server, start posting messages to each other.
+
+Hmm.. have to think some more about this.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221090303">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.pipetree.com/qmacro"><img src="http://www.gravatar.com/avatar.php?gravatar_id=1e7ff23dbea0c7d56117bcd51b58b581&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.pipetree.com/qmacro">DJ</a>
+                </div>
+                <a href="#comment-221090303" class="permalink"><time datetime="2002-08-31T15:31:29">2002-08-31T15:31:29</time></a>
+            </div>
+            <div class="content">An XML-RPC-to-IM gateway? How about this: http://www.pipetree.com/jabber/jrpc/httpgate/ - it's perhaps a start, or at least food for thought :-)</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221090304">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.pipetree.com/qmacro"><img src="http://www.gravatar.com/avatar.php?gravatar_id=1e7ff23dbea0c7d56117bcd51b58b581&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.pipetree.com/qmacro">DJ</a>
+                </div>
+                <a href="#comment-221090304" class="permalink"><time datetime="2002-08-31T15:49:30">2002-08-31T15:49:30</time></a>
+            </div>
+            <div class="content">I almost forgot - there's also this to add to the soup: http://www.pipetree.com/qmacro/2002/Jul/03#weblogspubsub</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221090305">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://markpasc.org/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=7e91c7ddf6c6db73665d8df9bb55d0d9&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://markpasc.org/">Mark Paschal</a>
+                </div>
+                <a href="#comment-221090305" class="permalink"><time datetime="2002-09-05T23:52:19">2002-09-05T23:52:19</time></a>
+            </div>
+            <div class="content">Yeah, I see nothing wrong with using IRC, since it's suppose to be behind the scenes anyway, isn't it? For program to program pub-sub, anyway.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221090306">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.100hgh.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=ae87d13fb08b1fa7a1290879c64f788d&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.100hgh.com">hgh</a>
+                </div>
+                <a href="#comment-221090306" class="permalink"><time datetime="2004-03-26T18:29:27">2004-03-26T18:29:27</time></a>
+            </div>
+            <div class="content">good</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221090307">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.huari-carpet.com.cn"><img src="http://www.gravatar.com/avatar.php?gravatar_id=ef011fcc438620e317e71384502f8d95&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.huari-carpet.com.cn">carpet</a>
+                </div>
+                <a href="#comment-221090307" class="permalink"><time datetime="2004-03-28T11:12:39">2004-03-28T11:12:39</time></a>
+            </div>
+            <div class="content">good websiet</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221090309">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.huari-carpet.com.cn"><img src="http://www.gravatar.com/avatar.php?gravatar_id=b869cc182e1ab12cddea8d0b85c3d492&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.huari-carpet.com.cn">baby blanket</a>
+                </div>
+                <a href="#comment-221090309" class="permalink"><time datetime="2004-03-29T09:40:34">2004-03-29T09:40:34</time></a>
+            </div>
+            <div class="content">good websiet</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221090310">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.huari-carpet.com.cn"><img src="http://www.gravatar.com/avatar.php?gravatar_id=cba1ca1520131cabc63f4cf0f82ba0f1&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.huari-carpet.com.cn">rugs</a>
+                </div>
+                <a href="#comment-221090310" class="permalink"><time datetime="2004-03-29T11:53:32">2004-03-29T11:53:32</time></a>
+            </div>
+            <div class="content">good websiet</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

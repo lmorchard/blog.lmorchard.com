@@ -1,0 +1,4 @@
+<p>From <a href="http://www.aaronsw.com/">Aaron Swartz</a>:<blockquote><i><a href="http://www.aaronsw.com/2002/etcon/notes">Here's an annotated version of the schedule from the Emerging Technologies 2002 conference.</a> Under each session are links to the blog entries about that session.  If I didn't include yours, send me an email...</i></blockquote>You know what would rock for something like this?  Provide a conference schedule, with each event in the schedule as a URL-addressable page or anchor within a page.  Tell bloggers to link to those URLs when blogging about a particular event.  Grab referrers and display links back to blog entries on those pages and on a summary page like Aaron provides.</p>
+<p>Automatic conference annotation, and you don't even have to worry whether Aaron included your blog entry or not.</p>
+<!--more-->
+shortname=oooaeh

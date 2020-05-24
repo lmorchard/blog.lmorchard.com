@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>DecafbadWiki is an OS X service on my iBook now - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="DecafbadWiki is an OS X service on my iBook now" />
+        <meta
+          property="og:url"
+          content="https://blog.lmorchard.com/"
+        />
+        
+        <meta property="og:description" content="&lt;p&gt;This was easier than I thought it would be:  &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpcFilterService&quot;&gt;XmlRpcFilterService&lt;/a&gt;
+&lt;br&gt;&lt;br&gt;
+Basically, this is my first application of the &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpcFilteringPipe&quot;&gt;XmlRpcFilteringPipe&lt;/a&gt;.  On the &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/MacOsX&quot;&gt;MacOsX&lt;/a&gt; side of things, I implemented a quick standalone service using &lt;a href=&quot;http://www.mulle-kybernetik.com/software/XMLRPC/&quot; target=&quot;_top&quot;&gt;Marcus Muller&amp;apos;s XMLRPC Obj-C framework&lt;/a&gt;.  On the filter side of things at 0xDECAFBAD, I added the filter methods to my &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpcToWiki&quot;&gt;XmlRpcToWiki&lt;/a&gt; interface I have running on the &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/DecafbadWiki&quot;&gt;DecafbadWiki&lt;/a&gt;.  So, now there&amp;apos;s a filter named &amp;apos;wiki&amp;apos; on the &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/DecafbadWiki&quot;&gt;DecafbadWiki&lt;/a&gt; that I call with the &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpcFilterService&quot;&gt;XmlRpcFilterService&lt;/a&gt; under &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/MacOsX&quot;&gt;MacOsX&lt;/a&gt;.
+&lt;br&gt;&lt;br&gt;
+The nutshell version of this is:  I write something somewhere, select some of it, click &amp;quot;Appname -&amp;gt; Services -&amp;gt; &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpcFilterService&quot;&gt;XmlRpcFilterService&lt;/a&gt; -&amp;gt; Apply to Selection&amp;quot; in my menu (or use the hot key), and the selected text is filtered through my remote wiki to pick up links and filtering.  In the context of a weblog entry, this means that what I write in the weblog is now bound to the wiki.  Hell, I can even make my postings to message boards and replies to email pick up links to my wiki.  Now that I think of this, I might want to have a selection of an alternate rendering for email, where the links appear at the end of the message as footnotes.
+&lt;br&gt;&lt;br&gt;
+Anyway, it still needs a bit of work to make it more generally useful.  It needs some preference panes to change and construct the filter pipe, support multiple pipes, and I need to bundle the &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpc&quot;&gt;XmlRpc&lt;/a&gt; frameworks up in the app for easy installation (or switch to Apple&amp;apos;s built-in &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpc&quot;&gt;XmlRpc&lt;/a&gt; API).  But the point is, it took me all of 2 hours between server and client side work to get this working, and it&amp;apos;s already useful for me.  I&amp;apos;ll see soon if the sudden population of links in all of my communication from my laptop annoys anyone.  :)
+&lt;br&gt;&lt;br&gt;
+This is one solution for a &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/WeblogWithWiki&quot;&gt;WeblogWithWiki&lt;/a&gt;, but I still want to play around with making the &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/WeblogMulticaster&quot;&gt;WeblogMulticaster&lt;/a&gt; and enabling it to use &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpcFilteringPipe&quot;&gt;XmlRpcFilteringPipes&lt;/a&gt; also.
+&lt;br&gt;&lt;br&gt;
+And, somewhere, this figures into &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RadioUserLand&quot;&gt;RadioUserLand&lt;/a&gt;.&lt;/p&gt;
+" />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post "
+      >
+        <time
+          title="2002-03-11T02:20:51-08:00"
+          pubdate="2002-03-11T02:20:51-08:00"
+        >
+          <a href="/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/2002/"
+            >2002</a
+          >
+          &raquo;
+          <a href="/2002/03/"
+            >March</a
+          >
+          &raquo;
+          <span>11</span>
+          &raquo;
+        </time>
+        <h1 class="title">DecafbadWiki is an OS X service on my iBook now</h1>
+        
+        <section class="post-content">
+          <p>This was easier than I thought it would be:  <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpcFilterService">XmlRpcFilterService</a>
+<br /><br />
+Basically, this is my first application of the <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpcFilteringPipe">XmlRpcFilteringPipe</a>.  On the <a href="http://www.decafbad.com/twiki/bin/view/Main/MacOsX">MacOsX</a> side of things, I implemented a quick standalone service using <a href="http://www.mulle-kybernetik.com/software/XMLRPC/" target="_top">Marcus Muller&#39;s XMLRPC Obj-C framework</a>.  On the filter side of things at 0xDECAFBAD, I added the filter methods to my <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpcToWiki">XmlRpcToWiki</a> interface I have running on the <a href="http://www.decafbad.com/twiki/bin/view/Main/DecafbadWiki">DecafbadWiki</a>.  So, now there&#39;s a filter named &#39;wiki&#39; on the <a href="http://www.decafbad.com/twiki/bin/view/Main/DecafbadWiki">DecafbadWiki</a> that I call with the <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpcFilterService">XmlRpcFilterService</a> under <a href="http://www.decafbad.com/twiki/bin/view/Main/MacOsX">MacOsX</a>.
+<br /><br />
+The nutshell version of this is:  I write something somewhere, select some of it, click &quot;Appname -&gt; Services -&gt; <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpcFilterService">XmlRpcFilterService</a> -&gt; Apply to Selection&quot; in my menu (or use the hot key), and the selected text is filtered through my remote wiki to pick up links and filtering.  In the context of a weblog entry, this means that what I write in the weblog is now bound to the wiki.  Hell, I can even make my postings to message boards and replies to email pick up links to my wiki.  Now that I think of this, I might want to have a selection of an alternate rendering for email, where the links appear at the end of the message as footnotes.
+<br /><br />
+Anyway, it still needs a bit of work to make it more generally useful.  It needs some preference panes to change and construct the filter pipe, support multiple pipes, and I need to bundle the <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a> frameworks up in the app for easy installation (or switch to Apple&#39;s built-in <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a> API).  But the point is, it took me all of 2 hours between server and client side work to get this working, and it&#39;s already useful for me.  I&#39;ll see soon if the sudden population of links in all of my communication from my laptop annoys anyone.  :)
+<br /><br />
+This is one solution for a <a href="http://www.decafbad.com/twiki/bin/view/Main/WeblogWithWiki">WeblogWithWiki</a>, but I still want to play around with making the <a href="http://www.decafbad.com/twiki/bin/view/Main/WeblogMulticaster">WeblogMulticaster</a> and enabling it to use <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpcFilteringPipe">XmlRpcFilteringPipes</a> also.
+<br /><br />
+And, somewhere, this figures into <a href="http://www.decafbad.com/twiki/bin/view/Main/RadioUserLand">RadioUserLand</a>.</p>
+<!--more-->
+<p>shortname=ooooee</p>
+
+        </section>
+      </article>
+        </section>
+
+        <footer>
+          <img id="growup" src="/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/js/vendor/lazyload.js"></script><script src="/js/vendor/prism.js"></script><script src="/js/toc.js"></script><script src="/js/analytics.js"></script><script src="/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

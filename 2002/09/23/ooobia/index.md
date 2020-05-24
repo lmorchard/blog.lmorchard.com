@@ -1,0 +1,5 @@
+Amongst his <a href="http://diveintomark.org/archives/2002/09/23.html#now_heavily_medicated">heavily medicated rantings</a>, Mark Pilgrim points at something called <a href="http://ln.hixie.ch/?start=1032794857&amp;count=1">Pingback</a>.  At a cursory glance, it seems to answer all my <a href="http://www.decafbad.com/news_archives/000208.phtml#000208">initial gripes about <a href="http://www.decafbad.com/twiki/bin/view/Main/TrackBack">TrackBack</a></a>.  So, I think I'm going to take more than a cursory glance, and make an implementation in the next few days if I can't find one ready-made.
+<br /><br />
+Some initial wishes for Pingback:  How about making it two way?  Ping a URL via its autodetected Pingback server, and also retrieve a list of pings for that URL from that server.  Another idea, add a pub/sub method: I supply a URI to monitor and a URI of my own, and the remote Pingback server will ping <strong>me</strong> at my URI (via my Pingback server) when the monitored URI gets new pings at the remote URI.  Require that the subscription be renewed weekly/daily.  Make sense?  One way to track conversations.
+<!--more-->
+shortname=ooobia

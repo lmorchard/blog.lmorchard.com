@@ -1,0 +1,199 @@
+<div id="toc_container" class="toc_wrap_right no_bullets">
+  <p class="toc_title">
+    Contents
+  </p>
+  
+  <ul class="toc_list">
+    <li>
+      <a href="#S3_is_not_simple_enough"><span class="toc_number toc_depth_1">1</span> S3 is not simple enough</a>
+    </li>
+    <li>
+      <a href="#Login_with_Amazon"><span class="toc_number toc_depth_1">2</span> Login with Amazon</a>
+    </li>
+    <li>
+      <a href="#IAM_and_Roles"><span class="toc_number toc_depth_1">3</span> IAM and Roles</a>
+    </li>
+    <li>
+      <a href="#STS_and_Temporary_Credentials"><span class="toc_number toc_depth_1">4</span> STS and Temporary Credentials</a>
+    </li>
+    <li>
+      <a href="#Demo_time_and_next_steps"><span class="toc_number toc_depth_1">5</span> Demo time and next steps</a>
+    </li>
+  </ul>
+</div>
+
+In my last two posts, I wrote about how I&#8217;ve been [thinking about building yet another microblogging tool][1] and how I think it might be interesting to [separate web publishing apps from web hosting][2]. Well, I started tinkering, and I&#8217;ve got a rough prototype working.
+
+<!--more-->
+
+<h2 style="text-align: left;">
+  <span id="S3_is_not_simple_enough">S3 is not simple enough</span>
+</h2>
+
+<p style="text-align: left;">
+  When I think about dead simple web hosting, the first thing that comes to mind is <a href="http://aws.amazon.com/s3/">Amazon S3</a>. I&#8217;ve been a fan of S3 for long enough that <a href="https://twitter.com/lmorchard/status/518228792780005376">digging up my old code freaked me out</a>.
+</p>
+
+<p style="text-align: left;">
+  There&#8217;s not much to the API: GET, PUT, & DELETE web content in URLspace under a &#8220;bucket&#8221; that you pay for by the byte. Overall S3 fits my criteria of &#8220;<a href="http://blog.lmorchard.com/2014/10/09/separating-publishing-from-hosting-on-the-web#p[IadIcc]">dead simple hosting service</a>&#8221; rather nicely.
+</p>
+
+<p style="text-align: left;">
+  Amazon S3 is <a href="http://aws.amazon.com/s3/pricing/">super cheap</a>. I&#8217;ve never paid much more than US$0.50 in a month, and that&#8217;s even when I was experimenting with <a href="https://github.com/lmorchard/S3Ajax/blob/master/js/wiki.js">a public-access wiki built atop the service</a> that folks from Amazon itself were playing with. I&#8217;ll probably move my blog there, someday, once I get the notion to revisit static site generators again.
+</p>
+
+<p style="text-align: left;">
+  Amazon S3 is, however, <a href="http://www.team.net/mjb/hawg.html">a professional&#8217;s tool</a>. It expects documentation to be read and training to be had. For a busy person with non-developer things do to, it&#8217;s <a href="http://en.wikipedia.org/wiki/Colossal_Cave_Adventure">a twisty maze of passages, all alike</a>. That makes it a poor consumer product.
+</p>
+
+So, I wondered: How hard would it be to smooth over some of the rough parts and make the experience almost as easy as a normal social media site?
+
+<h2 style="text-align: left;">
+  <span id="Login_with_Amazon">Login with Amazon</span>
+</h2>
+
+<p style="text-align: left;">
+  First, the on-ramp has to be easy. Filling out a form with username, password, nickname, and email address would be an okay start. (Billing info would be nice, too, but let&#8217;s not go there quite yet.)
+</p>
+
+<p style="text-align: left;">
+  What would be even better, though, is to click one button and reuse data already filled out elsewhere! Filling out forms with personal data is part of the problem web wonks call &#8220;identity&#8221;. Apropos of that, did you know that <a href="http://login.amazon.com/website">Amazon has an identity service</a>? I didn&#8217;t, at least not until last weekend. (<a href="http://mobile.awsblog.com/post/Tx3UKF4SV4V0LV3/Announcing-Web-Identity-Federation">Man, am I behind</a>!)
+</p>
+
+<p style="text-align: left;">
+  I can put a &#8220;<a href="http://login.amazon.com/">Login with Amazon</a>&#8221; button on my web app. You login with your Amazon username & password, but my app doesn&#8217;t see them. Instead, Amazon offers my app some simple profile details &#8211; user ID, email, & full name.
+</p>
+
+<p style="text-align: left;">
+  But, having access to your Amazon identity offers even more power:
+</p>
+
+<li style="text-align: left;">
+  Clicking &#8220;<a href="http://login.amazon.com/">Login with Amazon</a>&#8221; gives your Amazon identity to my app.
+</li>
+<li style="text-align: left;">
+  My app can use your Amazon identity to assume a temporary role.
+</li>
+<li style="text-align: left;">
+  This temporary role enables use of a portion of an S3 bucket.
+</li>
+
+<p style="text-align: left;">
+  This is hewing pretty close to <a href="http://blog.lmorchard.com/2014/10/09/separating-publishing-from-hosting-on-the-web">the publishing app / hosting service notions I laid out in my last post</a>. So, how does it work?
+</p>
+
+<p style="text-align: left;">
+  Well, one of the things my app receives when you click the &#8220;Login&#8221; button is an <a href="http://login.amazon.com/glossary#access_token"><code>access_token</code></a>. Chasing that <code>access_token</code> down the rabbit hole, I rediscovered Amazon IAM and STS &#8211; <a href="http://aws.amazon.com/iam/">Identity & Access Management</a> and <a href="http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html">Secure Token Service</a>.
+</p>
+
+<h2 style="text-align: left;">
+  <span id="IAM_and_Roles">IAM and Roles</span>
+</h2>
+
+<p style="text-align: left;">
+  Among other things, Amazon IAM lets you define roles and associate them with apps. Roles contain policies that grant access to resources controlled by your account &#8211; e.g. an S3 bucket.
+</p>
+
+<p style="text-align: left;">
+  For example, here&#8217;s a policy snippet for a role I created on IAM:
+</p>
+
+<pre class="language-javascript" style="text-align: left;">{
+ "Effect": "Allow",
+ "Action": [
+   "s3:PutObject",
+   "s3:PutObjectAcl",
+   "s3:DeleteObject",
+   "s3:GetObject",
+   "s3:GetObjectAcl"
+ ],
+ "Resource": [
+   "arn:aws:s3:::tootr/users/amazon/${www.amazon.com:user_id}",
+   "arn:aws:s3:::tootr/users/amazon/${www.amazon.com:user_id}/*"
+ ]
+}</pre>
+
+<p style="text-align: left;">
+  This role grants access to GET, PUT, & DELETE web resources in my S3 bucket named &#8220;tootr&#8221; &#8211; but only as long as the resources are under the &#8220;<code>users/amazon/{USER_ID}</code>&#8221; URLspace, where <code>{USER_ID}</code> is a uniquely generated identifier supplied by an Amazon profile.
+</p>
+
+<h2 style="text-align: left;">
+  <span id="STS_and_Temporary_Credentials">STS and Temporary Credentials</span>
+</h2>
+
+<p style="text-align: left;">
+  So, how can someone assume such a role? That&#8217;s <a href="https://github.com/lmorchard/tootr/blob/master/src/javascript/publishers/AmazonS3.js#L103">where Amazon STS comes in</a>:
+</p>
+
+<pre style="text-align: left;"><code class="language-javascript">$.ajax('https://sts.amazonaws.com/?' + $.param({
+
+  'Action': 'AssumeRoleWithWebIdentity',
+  'Version': '2011-06-15',
+  'RoleArn': 'arn:aws:iam::8675309:role/tootr-amazon-user-buckets',
+  'RoleSessionName': 'web-identity-federation',
+  'ProviderId': 'www.amazon.com',
+  'DurationSeconds': '900',
+  'WebIdentityToken': access_token
+
+})).then(function (dataXML, status, xhr) {
+
+  var data = <a href="https://github.com/lmorchard/tootr/blob/master/src/javascript/misc.js#L11">misc.xmlToObj</a>(dataXML);
+  var credentials = data
+    .AssumeRoleWithWebIdentityResponse
+    .AssumeRoleWithWebIdentityResult
+    .Credentials;
+
+});</code></pre>
+
+<p style="text-align: left;">
+  The <code>RoleArn</code> parameter identifies the IAM role created earlier. The <code>access_token</code> is what my app got when you logged in. The <a href="http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html"><code>AssumeRoleWithWebIdentity</code> API on Amazon STS</a> lets me <a href="https://github.com/lmorchard/tootr/blob/master/src/javascript/publishers/AmazonS3.js#L103">connect the two and generate temporary credentials</a>.
+</p>
+
+<p style="text-align: left;">
+  Those credentials look something like this:
+</p>
+
+<pre class="language-javascript" style="text-align: left;">{
+  "SessionToken":"NIweiunfiunIUWNLFIsd87",
+  "Expiration":"2014-10-11T19:15:58Z",
+  "AccessKeyId":"ASIAQWERTYUIOP",
+  "SecretAccessKey":"SKLN9869KJnisdhfli"
+}</pre>
+
+<p style="text-align: left;">
+  As it turns out, <a href="https://github.com/lmorchard/tootr/blob/master/src/javascript/publishers/AmazonS3.js#L148">these credentials work with Amazon S3</a>. So, after accepting a login and doing the <code>AssumeRoleWithWebIdentity</code> dance, my app can manage web hosting at Amazon S3 on your behalf.
+</p>
+
+<p style="text-align: left;">
+  For further reading, check out &#8220;<a href="docs.aws.amazon.com/STS/latest/UsingSTS/CreatingWIF.html">Creating Temporary Security Credentials for Mobile Apps Using Identity Providers</a>&#8221; in Amazon&#8217;s documentation. That&#8217;s from where I stole most of this stuff.
+</p>
+
+<h2 style="text-align: left;">
+  <span id="Demo_time_and_next_steps">Demo time and next steps</span>
+</h2>
+
+<p style="text-align: left;">
+  I&#8217;ve rolled all of this into <a href="https://github.com/lmorchard/tootr">a microblogging app called &#8220;tootr&#8221;</a>. Here&#8217;s a demo:
+</p>
+
+<li style="text-align: left;">
+  <a href="https://lmorchard.github.io/tootr/">https://lmorchard.github.io/tootr/</a>
+</li>
+
+You can visit the app, click &#8220;Login with Amazon&#8221;, and you&#8217;ll soon be tooting up a storm. But, you should notice some serious drawbacks:
+
+*   The app is terrible and missing almost every interesting feature.
+*   Your username is something like [AF5OSES2YSFJEKYBANBHRFB25RXQ][3] and that&#8217;s also terrible.
+*   You&#8217;re tooting into my Amazon S3 bucket. You&#8217;re not paying me or Amazon. I *will* vandalize & delete your stuff and not feel bad about it.
+
+As a proof-of-concept, though, I think it works: The &#8220;tootr&#8221; app at [lmorchard.github.io][4] publishes to a hosting API at [s3.amazonaws.com][5]. The on-ramp is a single button click and an Amazon sign-in dialog.
+
+But, I think all the above issues can be addressed. Also, Amazon is an interesting core for this stuff: Many people have an Amazon account, and Amazon is a place where people generally pay for things. So, it&#8217;s different territory than most social media sites.
+
+The challenge will be keeping the on-ramp simple while improving the app and switching to a user-owned web hosting space. Still, I think this is promising stuff. At any rate, it&#8217;s tinkering I&#8217;ve been procrastinating for years now, so I&#8217;ve got plenty of ideas to chase down.
+
+ [1]: http://blog.lmorchard.com/2014/10/08/microblogging-like-its-2002
+ [2]: http://blog.lmorchard.com/2014/10/09/separating-publishing-from-hosting-on-the-web
+ [3]: https://tootr.s3.amazonaws.com/users/amazon/amzn1.account.AF5OSES2YSFJEKYBANBHRFB25RXQ/index.html
+ [4]: https://lmorchard.github.io/tootr/
+ [5]: http://s3.amazonaws.com

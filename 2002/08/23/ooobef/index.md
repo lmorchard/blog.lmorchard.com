@@ -1,0 +1,5 @@
+<p>Well, that sucked.  I managed to get an all but complete dump of my <code>comments.db</code> file with <code>db_dump</code> on my server, but then nothing would parse or load that file after that.  Banged around with it for awhile until I finally realized how to parse the dump file myself with a perl one-liner and rebuilt the comments DBM file that way.</p>
+<p>Immediately after that, I migrated everything to <a href="http://www.decafbad.com/twiki/bin/view/Main/MySQL">MySQL</a>.  Not a silver bullet, but it seems a better idea than relying on those DBM files.  They seemed neat &amp; clever at first - but now that I have a bit invested here, they're an annoyance.</p>
+<p>I think I managed to recover the last few comments I got while things went wonky, but if I happened to miss one of yours, I'm sorry.  I'm glad I recovered the comments, though, because I tend to think that comments left here are often more valuable than whatever dross I may have spewed in the first place. </p>
+<!--more-->
+shortname=ooobef

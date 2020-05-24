@@ -1,0 +1,38 @@
+<p>I've (not so) secretly replaced my <code>aggregatorData.prefs.appSignatureUrl</code> in Radio <a href="http://www.decafbad.com/twiki/bin/view/Main/UserLand">UserLand</a> with <a href="http://www.decafbad.com/thanks-for-feeding-me.phtml">this URL</a>.  Let's see if anyone notices.  Watch your referrer logs for visits from my invisible (s)elves.</p>
+<p>/me pops in his <a href="http://www.2112.net/powerwindows/VTlyrics.htm#vapor">Vapor Trails</a> CD, whistling...</p>
+<!--more-->
+shortname=oooaho
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221086279">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.pycs.net/devlog/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=79d809dc2d0441ef44efc6ad1a1429eb&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.pycs.net/devlog/">Phillip Pearson</a>
+                </div>
+                <a href="#comment-221086279" class="permalink"><time datetime="2002-06-06T02:12:38">2002-06-06T02:12:38</time></a>
+            </div>
+            <div class="content">Just saw a hit on pycs.net:
+
+/users/0105568/rss.xml - 63 hits
+ref: http://frontier.userland.com/xmlAggregator - 37 hits
+ref: - - 13 hits
+[snip]
+ref: http://www.decafbad.com/thanks-for-feeding-me.phtml - 1 hits
+
+I've seen a few polls from updated copies of Radio too; however your referrer is particularly nice in that it lets me click on it and get to a relevant page rather than the help file for Radio's aggregator.
+
+Very nice.</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

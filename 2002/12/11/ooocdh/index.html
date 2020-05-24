@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>Personal Web Proxy, Part the Second - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="Personal Web Proxy, Part the Second" />
+        <meta
+          property="og:url"
+          content="https://blog.lmorchard.com/"
+        />
+        
+        <meta property="og:description" content="&lt;p&gt;Well, it&amp;apos;s not earth shattering, but after some research and some more feature brainstorming, I&amp;apos;ve gotten a start on a &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/PersonalWebProxy&quot;&gt;PersonalWebProxy&lt;/a&gt;.  At the moment, it&amp;apos;s not much code and is transparent except for the fact that it transforms every appearance of &amp;quot;0xDECAFBAD&amp;quot; on pages into &amp;quot;0x31337D00D&amp;quot;.  What&amp;apos;s exciting to me though, is that I tossed it together with an hour&amp;apos;s hacking in &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/Python&quot;&gt;Python&lt;/a&gt;, using the &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/Twisted&quot;&gt;Twisted&lt;/a&gt; framework.  So, starting work in a language and framework both mostly new to me is fun.  Also, it&amp;apos;s interesting to work in the event-driven style again, even though I still think I still want threads (see:  &lt;a href=&quot;http://www.decafbad.com/news_archives/000090.phtml&quot; title=&quot;Blog entry #000090&quot;&gt;Blog:000090&lt;/a&gt;).  If I go to threads, I think I&amp;apos;d swap over to &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/Java&quot;&gt;Java&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I was tempted to start the thing in &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/Perl&quot;&gt;Perl&lt;/a&gt;, since I already know my way around the language, and I already know my way around &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/POE&quot;&gt;POE&lt;/a&gt;, a major event-driven framework in that scene.  But, I&amp;apos;ve been programming in perl almost to the exclusion of other languages for a little over 10 years now, not counting some excursions into Java or assignments for college classes.  I think it&amp;apos;s time to expand, and force my brane wider.  I&amp;apos;ve touched on this topic before, but it&amp;apos;s been ages since I had any energy to devote to this place and its projects.&lt;/p&gt;
+&lt;p&gt;At least I didn&amp;apos;t go completely apeshit and start this in &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/Lisp&quot;&gt;Lisp&lt;/a&gt; or &lt;span style=&quot;background : #FFFFCE;&quot;&gt;&lt;a href=&quot;http://www.decafbad.com/twiki/bin/edit/Main/Scheme?topicparent=Main.FilterData&quot;&gt;&lt;b&gt;?&lt;/b&gt;&lt;/a&gt;&lt;font color=&quot;#0000FF&quot;&gt;Scheme&lt;/font&gt;&lt;/span&gt;.  :)  Though I&amp;apos;d still like to make myself an assignment using one of those two, I&amp;apos;d like a few collaborators on this project at some point.  I figure &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/Python&quot;&gt;Python&lt;/a&gt; would be more hackable for this at present.&lt;/p&gt;
+" />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post "
+      >
+        <time
+          title="2002-12-11T09:44:26-08:00"
+          pubdate="2002-12-11T09:44:26-08:00"
+        >
+          <a href="/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/2002/"
+            >2002</a
+          >
+          &raquo;
+          <a href="/2002/12/"
+            >December</a
+          >
+          &raquo;
+          <span>11</span>
+          &raquo;
+        </time>
+        <h1 class="title">Personal Web Proxy, Part the Second</h1>
+        
+        <section class="post-content">
+          <p>Well, it's not earth shattering, but after some research and some more feature brainstorming, I've gotten a start on a <a href="http://www.decafbad.com/twiki/bin/view/Main/PersonalWebProxy">PersonalWebProxy</a>.  At the moment, it's not much code and is transparent except for the fact that it transforms every appearance of "0xDECAFBAD" on pages into "0x31337D00D".  What's exciting to me though, is that I tossed it together with an hour's hacking in <a href="http://www.decafbad.com/twiki/bin/view/Main/Python">Python</a>, using the <a href="http://www.decafbad.com/twiki/bin/view/Main/Twisted">Twisted</a> framework.  So, starting work in a language and framework both mostly new to me is fun.  Also, it's interesting to work in the event-driven style again, even though I still think I still want threads (see:  <a href="http://www.decafbad.com/news_archives/000090.phtml" title="Blog entry #000090">Blog:000090</a>).  If I go to threads, I think I'd swap over to <a href="http://www.decafbad.com/twiki/bin/view/Main/Java">Java</a>.</p>
+<p>I was tempted to start the thing in <a href="http://www.decafbad.com/twiki/bin/view/Main/Perl">Perl</a>, since I already know my way around the language, and I already know my way around <a href="http://www.decafbad.com/twiki/bin/view/Main/POE">POE</a>, a major event-driven framework in that scene.  But, I've been programming in perl almost to the exclusion of other languages for a little over 10 years now, not counting some excursions into Java or assignments for college classes.  I think it's time to expand, and force my brane wider.  I've touched on this topic before, but it's been ages since I had any energy to devote to this place and its projects.</p>
+<p>At least I didn't go completely apeshit and start this in <a href="http://www.decafbad.com/twiki/bin/view/Main/Lisp">Lisp</a> or <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/Scheme?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">Scheme</font></span>.  :)  Though I'd still like to make myself an assignment using one of those two, I'd like a few collaborators on this project at some point.  I figure <a href="http://www.decafbad.com/twiki/bin/view/Main/Python">Python</a> would be more hackable for this at present.</p>
+<!--more-->
+shortname=ooocdh
+
+        </section>
+      </article>
+        </section>
+
+        <footer>
+          <img id="growup" src="/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/js/vendor/lazyload.js"></script><script src="/js/vendor/prism.js"></script><script src="/js/toc.js"></script><script src="/js/analytics.js"></script><script src="/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

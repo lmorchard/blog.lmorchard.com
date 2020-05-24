@@ -1,0 +1,3 @@
+<p>Just published a new version (v0.3.5) of my <a href="http://www.decafbad.com/twiki/bin/view/Main/RadioUserLand">RadioUserLand</a> Tool, <a href="http://www.decafbad.com/twiki/bin/view/Main/PipeFilters">PipeFilters</a>:<ul><li>Added a 'shortcuts' filter to use the new Shortcuts variant of the glossary.</li><li>Virgin data contains pipelines using the new shortcuts filter (you may wish to copy some of them to your pipeFiltersData)</li><li>Added a to-do list to the pipeFiltersInfo</li><li>Cleaned up a few installation bugs</li><li>Cleaned up a few bugs in pipeFiltersSuite.sendDataThroughPipeline()</li><li>Unfortunately, no web interface to manage pipelines yet.</li></ul></p>
+<!--more-->
+shortname=ooooge

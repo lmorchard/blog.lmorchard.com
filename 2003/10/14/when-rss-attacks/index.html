@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>When RSS Developers Attack - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="When RSS Developers Attack" />
+        <meta
+          property="og:url"
+          content="https://blog.lmorchard.com/"
+        />
+        
+        <meta property="og:description" content="&lt;blockquote cite=&quot;http://jeremy.zawodny.com/blog/archives/001007.html&quot;&gt;
+&lt;p&gt;I agree with Derek Balling [who &lt;a href=&quot;http://www.megacity.org/blog/archives/001122.php&quot;&gt;criticized Foo Camp&lt;/a&gt;], and when you come back to earth, I bet you will too Jeremy.&lt;/p&gt;
+&lt;p&gt;Did I read that you guys had meetings about RSS? At a private invitation-only event? Do you realize how WRONG that is?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;credit&quot; align=&quot;right&quot;&gt;&lt;small&gt;Source:&lt;cite&gt;&lt;a href=&quot;http://jeremy.zawodny.com/blog/archives/001007.html&quot;&gt;Dave Winer in a comment on &amp;quot;Some Foo Camp Links&amp;quot;&lt;/a&gt;&lt;/cite&gt;&lt;/small&gt;&lt;/div&gt;
+
+&lt;blockquote cite=&quot;http://www.intertwingly.net/blog/1611.html&quot;&gt;
+&lt;p&gt;One of the sessions on Sunday morning at FOO Camp was a brainstorming session on how a site could provide a list of feeds.&lt;/p&gt;
+&lt;p&gt;...A working name for this effort is &amp;quot;FDML&amp;quot;.  The stands for Feed (Discovery / Directory / Detailing) Markup Language, depending on who you ask. ;-)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;credit&quot; align=&quot;right&quot;&gt;&lt;small&gt;Source:&lt;cite&gt;&lt;a href=&quot;http://www.intertwingly.net/blog/1611.html&quot;&gt;Sam Ruby: FDML&lt;/a&gt;&lt;/cite&gt;&lt;/small&gt;&lt;/div&gt;
+
+&lt;blockquote cite=&quot;http://www.intertwingly.net/blog/1611.html#c1066129228&quot;&gt;
+&lt;p&gt;Just so it is absolutely clear: all I have done is listed a set of requirements, many if not most of which are directly from Jeremy himself.  The acronym was suggested by David Sifry.&lt;/p&gt;
+&lt;p&gt;People are welcome to question, refine, or add to the requirements, or present proposals on how these requirements can best be implemented.  Perhaps even with OPML.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;credit&quot; align=&quot;right&quot;&gt;&lt;small&gt;Source:&lt;cite&gt;&lt;a href=&quot;http://www.intertwingly.net/blog/1611.html#c1066129228&quot;&gt;A later comment on Sam Ruby: FDML&lt;/a&gt;&lt;/cite&gt;&lt;/small&gt;&lt;/div&gt;
+
+&lt;p&gt;
+For anyone who wonders why people talk about politics and animosity in
+the tiny sphere of web syndication tech, here&amp;apos;s a case in point.
+&lt;/p&gt;
+
+&lt;p&gt;
+You see, there was a private event over the weekend, called Foo Camp.
+To this, many smart people were invited, and many more weren&amp;apos;t.
+Grousing about invitations, funding, and elitism aside, it sounded
+like a great time and a cool change from your average conference.  I
+hope it turns into a regular event, and hope that someday I&amp;apos;m given
+the opportunity to go to something like it.  I&amp;apos;m sure a lot of us
+out here would like to make it to something like that.
+&lt;/p&gt;
+
+&lt;p&gt;
+But, for what it was, you can only gather so many people before it
+becomes a circus (or a conference).  Charging a price serves as a
+limiter, while making the event invitation-only works as well.  The
+difference is whether you&amp;apos;re bringing in people who can afford it
+versus people who are favored by the organizer.  Either way, someone&amp;apos;s
+going to be pissed about not going.  The difference is whether you&amp;apos;re
+pissed off at the organizer&amp;apos;s economics or the organizer&amp;apos;s
+personality.  Oh well.
+&lt;/p&gt;
+
+&lt;p&gt;
+So anyway, around mid-September, Jeremy Zawodny had floated
+&lt;a href=&quot;http://jeremy.zawodny.com/blog/archives/000967.html&quot;&gt;an idea&lt;/a&gt;
+involving publishing and discovery of lists of RSS feeds.
+He was one of those invited to Foo Camp, and in one of their
+huddles, he brought the idea up for a brainstorming session.
+From the sounds of it, they tossed around a few ideas, but
+didn&amp;apos;t really come up with much other than that it was an idea
+worth discussing.
+&lt;/p&gt;
+
+&lt;p&gt;
+No sooner than the camp breaks up, though, and the angry buzz
+has already started.  How dare a bunch of geeks talk about
+technology they&amp;apos;re interested in while at a private gathering?
+How dare they not invite all of us?  Conspiracy!  Elitism!
+They didn&amp;apos;t pick me for their kickball team!  By the way,
+this isn&amp;apos;t an attempt to put words in mouths.  This is my
+off-the-cuff impression of what I read yesterday.  It all
+seems repeatedly and unnecessarily childish to me, and it&amp;apos;s
+certainly not limited to one person.
+&lt;/p&gt;
+
+&lt;p&gt;
+So, by today, there&amp;apos;s already
+&lt;a href=&quot;http://www.intertwingly.net/wiki/fdml/FrontPage&quot;&gt;a wiki&lt;/a&gt;
+devoted to exploring this idea, along with a scattering of blog
+posts. This seems pretty speedy to me,
+considering campers returning to the work-a-day world after
+a geek retreat.  This doesn&amp;apos;t seem at all the work of a sinister
+cabal bent on wresting control and domination over a technology,
+as what I saw implied in the first comment I quoted above.
+&lt;/p&gt;
+
+&lt;p&gt;
+Dave Winer&amp;apos;s already posted a
+&lt;a href=&quot;http://blogs.law.harvard.edu/tech/myPublicFeedsOpml&quot;&gt;first proposal&lt;/a&gt;
+toward implementing the idea.  And, believe it or not, as Sam comments
+on above, this approach has not been ruled out.  In fact,
+Jeremy had suggested using OPML in his original posting of the idea.
+&lt;/p&gt;
+
+&lt;p&gt;
+Why couldn&amp;apos;t we just have seen the collaboration without the
+antagonism, in at least this case?  Yeah, there was a small, private
+gathering at which discussions were had.  Sounds like what happens at
+work, or with friends, or in classes.  Granted, I suppose an argument
+could be made concerning the relative openness of these gatherings as
+compared to Foo Camp.  But, this is mooted by the fact that the
+people involved were already moving toward sharing the discussion.
+&lt;/p&gt;
+
+&lt;p&gt;
+For all the grousing about flame wars and personality clashes on
+mailing lists and working groups, sometimes it&amp;apos;s nice to work on an
+idea in a smaller group with a good dynamic.  It helps to get
+something together before throwing the doors open to have the thing
+buffeted by opinions and criticism from all sides.  It&amp;apos;s one way to
+avoid &lt;a href=&quot;http://www.userland.com/whatIsStopEnergy&quot;&gt;&amp;quot;stop
+energy&amp;quot;&lt;/a&gt; while trying to build some momentum.
+&lt;/p&gt;
+
+&lt;p&gt;
+As Dave himself wrote, &amp;quot;I heard at a working group meeting that things
+like SOAP can only happen when no one is paying attention.&amp;quot;  So, it
+sounds like a bunch of geeks tried to get something rolling before the
+attentional heat lamps turned on it.  Had they wanted to be a sinister
+cabal, we certainly wouldn&amp;apos;t have heard about any of this until long,
+long after the event.  It would have been kept behind closed corporate
+doors until the day of embrace-and-extend.  Then, profit!  As it is, I
+think they erred on the side of throwing open the discussion
+&lt;i&gt;too&lt;/i&gt; early.
+&lt;/p&gt;
+
+&lt;p&gt;
+So anyway, the reason I write at such length about this is that I
+don&amp;apos;t think that this should be let to pass without comment or
+consideration.  This kind of thing is what&amp;apos;s wrong.  We need to take
+at &lt;i&gt;least&lt;/i&gt; three deep breaths before reacting like this, whether
+or not we&amp;apos;ve taken 900 beep breaths in the past already.  It&amp;apos;s the
+nature of these things.  As an interested but outside observer, the
+atmosphere created by such reactions makes me very sad.  And it&amp;apos;s not
+just one person doing this, either.
+&lt;/p&gt;
+
+&lt;p&gt;
+So, chill out.  It&amp;apos;s just data.  In fact, the proposal at question
+here is just &lt;i&gt;a friggen outline of feeds&lt;/i&gt;!  It&amp;apos;s just a list of
+lists!  Most of the geeks out there just want to play, and are happy
+to have more geeks to play with.  Can&amp;apos;t we just get along and play the
+game together, rather than gaming each other?
+&lt;/p&gt;
+" />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post "
+      >
+        <time
+          title="2003-10-14T08:05:34-07:00"
+          pubdate="2003-10-14T08:05:34-07:00"
+        >
+          <a href="/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/2003/"
+            >2003</a
+          >
+          &raquo;
+          <a href="/2003/10/"
+            >October</a
+          >
+          &raquo;
+          <span>14</span>
+          &raquo;
+        </time>
+        <h1 class="title">When RSS Developers Attack</h1>
+        
+        <section class="post-content">
+          <blockquote cite="http://jeremy.zawodny.com/blog/archives/001007.html">
+<p>I agree with Derek Balling [who <a href="http://www.megacity.org/blog/archives/001122.php">criticized Foo Camp</a>], and when you come back to earth, I bet you will too Jeremy.</p>
+<p>Did I read that you guys had meetings about RSS? At a private invitation-only event? Do you realize how WRONG that is?</p>
+</blockquote>
+<div class="credit" align="right"><small>Source:<cite><a href="http://jeremy.zawodny.com/blog/archives/001007.html">Dave Winer in a comment on "Some Foo Camp Links"</a></cite></small></div>
+
+<blockquote cite="http://www.intertwingly.net/blog/1611.html">
+<p>One of the sessions on Sunday morning at FOO Camp was a brainstorming session on how a site could provide a list of feeds.</p>
+<p>...A working name for this effort is "FDML".  The stands for Feed (Discovery / Directory / Detailing) Markup Language, depending on who you ask. ;-)</p>
+</blockquote>
+<div class="credit" align="right"><small>Source:<cite><a href="http://www.intertwingly.net/blog/1611.html">Sam Ruby: FDML</a></cite></small></div>
+
+<blockquote cite="http://www.intertwingly.net/blog/1611.html#c1066129228">
+<p>Just so it is absolutely clear: all I have done is listed a set of requirements, many if not most of which are directly from Jeremy himself.  The acronym was suggested by David Sifry.</p>
+<p>People are welcome to question, refine, or add to the requirements, or present proposals on how these requirements can best be implemented.  Perhaps even with OPML.</p>
+</blockquote>
+<div class="credit" align="right"><small>Source:<cite><a href="http://www.intertwingly.net/blog/1611.html#c1066129228">A later comment on Sam Ruby: FDML</a></cite></small></div>
+
+<p>
+For anyone who wonders why people talk about politics and animosity in
+the tiny sphere of web syndication tech, here's a case in point.
+</p>
+
+<p>
+You see, there was a private event over the weekend, called Foo Camp.
+To this, many smart people were invited, and many more weren't.
+Grousing about invitations, funding, and elitism aside, it sounded
+like a great time and a cool change from your average conference.  I
+hope it turns into a regular event, and hope that someday I'm given
+the opportunity to go to something like it.  I'm sure a lot of us
+out here would like to make it to something like that.
+</p>
+
+<p>
+But, for what it was, you can only gather so many people before it
+becomes a circus (or a conference).  Charging a price serves as a
+limiter, while making the event invitation-only works as well.  The
+difference is whether you're bringing in people who can afford it
+versus people who are favored by the organizer.  Either way, someone's
+going to be pissed about not going.  The difference is whether you're
+pissed off at the organizer's economics or the organizer's
+personality.  Oh well.
+</p>
+
+<p>
+So anyway, around mid-September, Jeremy Zawodny had floated
+<a href="http://jeremy.zawodny.com/blog/archives/000967.html">an idea</a>
+involving publishing and discovery of lists of RSS feeds.
+He was one of those invited to Foo Camp, and in one of their
+huddles, he brought the idea up for a brainstorming session.
+From the sounds of it, they tossed around a few ideas, but
+didn't really come up with much other than that it was an idea
+worth discussing.
+</p>
+
+<p>
+No sooner than the camp breaks up, though, and the angry buzz
+has already started.  How dare a bunch of geeks talk about
+technology they're interested in while at a private gathering?
+How dare they not invite all of us?  Conspiracy!  Elitism!
+They didn't pick me for their kickball team!  By the way,
+this isn't an attempt to put words in mouths.  This is my
+off-the-cuff impression of what I read yesterday.  It all
+seems repeatedly and unnecessarily childish to me, and it's
+certainly not limited to one person.
+</p>
+
+<p>
+So, by today, there's already
+<a href="http://www.intertwingly.net/wiki/fdml/FrontPage">a wiki</a>
+devoted to exploring this idea, along with a scattering of blog
+posts. This seems pretty speedy to me,
+considering campers returning to the work-a-day world after
+a geek retreat.  This doesn't seem at all the work of a sinister
+cabal bent on wresting control and domination over a technology,
+as what I saw implied in the first comment I quoted above.
+</p>
+
+<p>
+Dave Winer's already posted a
+<a href="http://blogs.law.harvard.edu/tech/myPublicFeedsOpml">first proposal</a>
+toward implementing the idea.  And, believe it or not, as Sam comments
+on above, this approach has not been ruled out.  In fact,
+Jeremy had suggested using OPML in his original posting of the idea.
+</p>
+
+<p>
+Why couldn't we just have seen the collaboration without the
+antagonism, in at least this case?  Yeah, there was a small, private
+gathering at which discussions were had.  Sounds like what happens at
+work, or with friends, or in classes.  Granted, I suppose an argument
+could be made concerning the relative openness of these gatherings as
+compared to Foo Camp.  But, this is mooted by the fact that the
+people involved were already moving toward sharing the discussion.
+</p>
+
+<p>
+For all the grousing about flame wars and personality clashes on
+mailing lists and working groups, sometimes it's nice to work on an
+idea in a smaller group with a good dynamic.  It helps to get
+something together before throwing the doors open to have the thing
+buffeted by opinions and criticism from all sides.  It's one way to
+avoid <a href="http://www.userland.com/whatIsStopEnergy">"stop
+energy"</a> while trying to build some momentum.
+</p>
+
+<p>
+As Dave himself wrote, "I heard at a working group meeting that things
+like SOAP can only happen when no one is paying attention."  So, it
+sounds like a bunch of geeks tried to get something rolling before the
+attentional heat lamps turned on it.  Had they wanted to be a sinister
+cabal, we certainly wouldn't have heard about any of this until long,
+long after the event.  It would have been kept behind closed corporate
+doors until the day of embrace-and-extend.  Then, profit!  As it is, I
+think they erred on the side of throwing open the discussion
+<i>too</i> early.
+</p>
+
+<p>
+So anyway, the reason I write at such length about this is that I
+don't think that this should be let to pass without comment or
+consideration.  This kind of thing is what's wrong.  We need to take
+at <i>least</i> three deep breaths before reacting like this, whether
+or not we've taken 900 beep breaths in the past already.  It's the
+nature of these things.  As an interested but outside observer, the
+atmosphere created by such reactions makes me very sad.  And it's not
+just one person doing this, either.
+</p>
+
+<p>
+So, chill out.  It's just data.  In fact, the proposal at question
+here is just <i>a friggen outline of feeds</i>!  It's just a list of
+lists!  Most of the geeks out there just want to play, and are happy
+to have more geeks to play with.  Can't we just get along and play the
+game together, rather than gaming each other?
+</p>
+<!--more-->
+shortname=when_rss_attacks
+
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221085587">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://george.hotelling.net/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=89242476196334aff51840e7c4dadad2&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://george.hotelling.net/">George Hotelling</a>
+</div>
+<a href="#comment-221085587" class="permalink"><time datetime="2003-10-14T18:55:17">2003-10-14T18:55:17</time></a>
+</div>
+<div class="content">Danny O'Brien has an excellent write up of how the exclusionary methods of Camp Foo were pissing people off, and more importantly why they were necessary.</div>
+</li>
+<li class="comment" id="comment-221085588">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://dynamicobjects.com/d2r/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=5c641af6fe45a45f7048ea8ad6184761&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://dynamicobjects.com/d2r/">Diego Doval</a>
+</div>
+<a href="#comment-221085588" class="permalink"><time datetime="2003-10-15T06:03:31">2003-10-15T06:03:31</time></a>
+</div>
+<div class="content">Actually, there was a reasonable amount of work done back when Jeremy first came up with the proposal, most of which I codified here  and here.  It was done without acrynomy, too. Maybe that's why people were not interested in starting from there and instead preferred to start all over again.</div>
+</li>
+</ul>
+</div>
+
+        </section>
+      </article>
+        </section>
+
+        <footer>
+          <img id="growup" src="/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/js/vendor/lazyload.js"></script><script src="/js/vendor/prism.js"></script><script src="/js/toc.js"></script><script src="/js/analytics.js"></script><script src="/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

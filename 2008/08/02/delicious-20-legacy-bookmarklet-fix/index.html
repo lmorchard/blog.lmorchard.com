@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>delicious 2.0 legacy bookmarklet fix - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="delicious 2.0 legacy bookmarklet fix" />
+        <meta
+          property="og:url"
+          content="https://blog.lmorchard.com/"
+        />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post tag-asidestag-delicioustag-bookmarkletstag-greasemonkeytag-delicious2"
+      >
+        <time
+          title="2008-08-02T15:34:28-07:00"
+          pubdate="2008-08-02T15:34:28-07:00"
+        >
+          <a href="/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/2008/"
+            >2008</a
+          >
+          &raquo;
+          <a href="/2008/08/"
+            >August</a
+          >
+          &raquo;
+          <span>02</span>
+          &raquo;
+        </time>
+        <h1 class="title">delicious 2.0 legacy bookmarklet fix</h1>
+        <ul class="tags">
+            <li>
+                  <a href="/tag/asides/">asides</a>
+                </li><li>
+                  <a href="/tag/delicious/">delicious</a>
+                </li><li>
+                  <a href="/tag/bookmarklets/">bookmarklets</a>
+                </li><li>
+                  <a href="/tag/greasemonkey/">greasemonkey</a>
+                </li><li>
+                  <a href="/tag/delicious2/">delicious2</a>
+                </li>
+          </ul>
+        <section class="post-content">
+          <p>As you&#39;ve probably seen by now, <a href="http://blog.delicious.com/blog/2008/07/oh-happy-day.html">Delicious 2.0 has launched</a>.  It&#39;s an all new design and the whole thing has been rewritten from the ground up.  Most of the gripes I&#39;ve seem like general dislike of change—which actually attests to the gargantuan effort put forth to reimplement the original from scratch in a whole new language and architecture.</p>
+<p>That said, I found <a href="http://twitter.com/lmorchard/statuses/875002291">at least one little bug</a> that stops my usual bookmarklet flow.  And, what&#39;s really annoying is that, it&#39;s probably a bug in code I wrote at one point.  As it turns out, the original URL parameters for the bookmark posting form don&#39;t seem to be accepted anymore, so legacy bookmarklets may be broken.  I swore I tested that, since I&#39;ve got some personal investment in it.</p>
+<p>But, although I can&#39;t contribute code to the project anymore, I&#39;ve at least still got <a href="http://www.greasespot.net/">Greasemonkey</a>.  And, through <a href="http://decafbad.com/2008/deliciouscom_legacy_book.user.js">this quick &amp; dirty user script</a>, I&#39;m back to using my legacy bookmarking bookmarklets.  In case you&#39;re interested, <a href="javascript:u=%22USERNAME%22;q=location.href;e%20=%20%22%22%20+%20(window.getSelection%20?%20window.getSelection()%20:%20document.getSelection%20?%20document.getSelection()%20%20:%20document.selection.createRange().text);p=document.title;window.location.href=%22http://del.icio.us/%22+u+%22?jump=doclose&amp;noui&amp;tags=%22+encodeURIComponent(%22%s%22)+%22&amp;url=%22+encodeURIComponent(q)+%22&amp;description=%22+encodeURIComponent(p)+%20%20%22&amp;extended=%22%20+%20encodeURIComponent(&#39;%22&#39;+e+&#39;%22&#39;).replace(/%20/g,%20%22+%22);">here&#39;s my favorite Firefox keyword shortcut bookmarklet</a>—just select some text, type the keyword in the URL bar with some tags, and hit return.</p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221084822">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=4762519f72e7ada7f2050a77eedca0e5&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="">Peter Beardsley</a>
+</div>
+<a href="#comment-221084822" class="permalink"><time datetime="2008-08-03T13:52:14">2008-08-03T13:52:14</time></a>
+</div>
+<div class="content"><p>Just curious-- what language was del.icio.us originally implemented in, and what language was it re-implemented in for 2.0?</p></div>
+</li>
+<li class="comment" id="comment-221084825">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2377f34a68801b861c3e54e1301f0dce&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.decafbad.com">l.m.orchard</a>
+</div>
+<a href="#comment-221084825" class="permalink"><time datetime="2008-08-03T18:30:58">2008-08-03T18:30:58</time></a>
+</div>
+<div class="content"><p>@peter: The original del.icio.us was built with Mason in Perl, backed by MySQL.  The new Delicious 2 is built with Symfony in PHP for the web frontend, with all the out-of-box Symfony database abstraction replaced by a Yahoo!-developed data management and business logic layer written mostly in C++ for the backend.  I'm pretty sure I've read all of that in other public releases, so I don't think I'm letting any cats out of bags there :)</p></div>
+</li>
+</ul>
+</div>
+
+        </section>
+      </article>
+        </section>
+
+        <footer>
+          <img id="growup" src="/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/js/vendor/lazyload.js"></script><script src="/js/vendor/prism.js"></script><script src="/js/toc.js"></script><script src="/js/analytics.js"></script><script src="/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

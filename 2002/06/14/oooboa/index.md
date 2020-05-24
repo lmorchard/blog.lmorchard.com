@@ -1,0 +1,32 @@
+<p>Now that I have this <a href="http://www.decafbad.com/rss_readers_rss.php">recent <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> readers</a> list in <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> (<a href="http://www.decafbad.com/rss_readers_rss_php.txt">src</a>), I can start to see who's just pulled me into their neighborhood.  (It even catches the userWeblog parameter from Radio subscribers!)</p>
+<p>And I think I see that I've just had <a href="http://www.xs4all.nl/~punkey/Userland/">Punkey</a>, <a href="http://www.seanporter.com/">Sean Porter</a>, and <a href="http://www.nickn.net/radio/">Nick Nichols</a> join the audience.  Oh, and I see you've moved a bit, <a href="http://intertwingly.net.sc.sabren.com/">Mr. Ruby</a>.</p>
+<!--more-->
+shortname=oooboa
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221084146">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.pepilog.de/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=dd4613c7e6eba4fc79a3cd45f59471fe&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.pepilog.de/">Pepino</a>
+                </div>
+                <a href="#comment-221084146" class="permalink"><time datetime="2002-09-27T06:41:11">2002-09-27T06:41:11</time></a>
+            </div>
+            <div class="content">Hi,
+
+is it possible, that some wild programs are playing Jojo with our URLs?
+
+Pepino</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

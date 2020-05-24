@@ -1,0 +1,4 @@
+<blockquote cite="http://www.kode-fu.com/geek/2003_01_19_archive.shtml#90213993">I've been wasting some of my time playing the superhero role-playing computer game <a href="http://www.gamers.com/game/505173" target="_top">Freedom Force</a>, which turns out to be done in Python. </blockquote><div class="credit" align="right"><small>Source:<cite><a href="http://www.kode-fu.com/geek/2003_01_19_archive.shtml#90213993">The Happiest Geek on Earth: Python for superheroes </a></cite>.</small></div>
+<p>Swanky!  I've been thinking about getting that game, off and on, wondering if my aging 600Mhz desktop PC would run it.  It looks like a hoot - and if it's that nifty under the hood, it should be pretty fun to hack with occasionally.  :)</p>
+<!--more-->
+shortname=ooocid

@@ -1,0 +1,43 @@
+<p>
+Had a busy weekend living life, entertaining the girl, and cleaning my cave.  A few quick things, if only to remind myself to remember to think about them:
+</p>
+<br /><br />
+<ul>
+<br /><br />
+<li>
+Inspired by a <a href="http://www.decafbad.com/news_archives/000146.phtml">suggestion</a> from <a href="http://IAwiki.net/EricScheid">Eric Scheid</a> to move from my server-included blocks to client-included blocks via <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/JavaScript?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">JavaScript</font></span>, I did a little exploration into the idea and whipped up <a href="http://www.decafbad.com/web-services/url-based/js_include_php.txt">a quick, generalized script</a> to mangle the contents of any given URL into a document.writeln().  Not sure how robust this thing is.
+</li>
+<br /><br />
+<li>
+Also, not sure how widely supported the JS-include hack is.  On the other hand, <a href="http://www.downes.ca/">Stephen Downes</a> had made a good point in my blogchat the other day concerning JS-based hacks:  my visitors can turn them off by disabling Javascript.  Having been employed in the field of internet promotions these past 6 years, this seems like a nightmare.  But, having been reading the <a href="http://www.cluetrain.com">Cluetrain Manifesto</a> and following smart blogs, I start to think this is a Good Thing.
+</li>
+<br /><br />
+<li>I see that <a href="http://www.ecyrd.com/JSPWiki/Wiki.jsp?page=JanneJalkanen">JanneJalkanen </a> and crew are musing out <a href="http://www.ecyrd.com/JSPWiki/Wiki.jsp?page=WikiRPCInterface2">an update to the XML-RPC wiki interface</a>.  Having worked on <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpcToWiki">my own implementations</a> of this interface, I need to keep an eye on this, even if I can't quite be as active as I like.</li>
+<br /><br />
+<li>
+<a href="http://open-content.net/specs/draft-jchapweske-caw-03.html">HTTP Extensions for a Content-Addressable Web</a> seems hot as hell, especially for the future decentrallized publishing world I'm dreaming of.
+</li>
+<br /><br />
+<li>
+I'm updating my home linux box, Memoria, with <a href="http://www.debian.org/">Debian</a>, defecting from <a href="http://linux-mandrake.com">Mandrake Linux</a>.  Wish me luck.  Oh, and the HD in the machine has a few cranky parts from having been dropped.  Wish it luck.
+</li>
+<br /><br />
+<li>
+Running a telnet BBS at <a href="telnet://deus-x.dyndns.org:2323">telnet://deus-x.dyndns.org:2323</a>.  The domain may change to bbs.decafbad.com soon.  I miss the BBS days.  I may bemoan the loss of local community gateways onto the 'net someday soon.  I'm using <a href="http://www.synchro.net/">Synchronet</a> on a poor overworked Pentium 70Mhz PC running Win98, on which I also inflicted Radio <a href="http://www.decafbad.com/twiki/bin/view/Main/UserLand">UserLand</a> for the time being.  No one really calls on my BBS.  I've been thinking of hosting <a href="ftp://vert.synchro.net/Synchronet/sbbsunix.txt">the UNIX version</a> on Memoria.
+</li>
+<br /><br />
+<li>
+Thinking of trying out Radio <a href="http://www.decafbad.com/twiki/bin/view/Main/UserLand">UserLand</a> on Memoria under Wine.  I've <a href="http://radio.userland.com/discuss/msgReader$7581">seen mutterings</a> which claim that this is possible.  Anyone?
+</li>
+<br /><br />
+<li>
+I want to wax pretentious with a few musings on <a href="http://www.aleph.se/Trans/Global/Singularity/">the Singularity</a>, birth control, anti-biotics, glasses, and self-modifying code.  I might not get around to it, though.
+</li>
+<br /><br />
+<li>
+Wasabi-coated peas are at once wonderful and terrifying.
+</li>
+<br /><br />
+</ul>
+<!--more-->
+shortname=oooadi

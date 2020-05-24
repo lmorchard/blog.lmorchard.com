@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>back up and about, limping a bit - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="back up and about, limping a bit" />
+        <meta
+          property="og:url"
+          content="https://blog.lmorchard.com/"
+        />
+        
+        <meta property="og:description" content="&lt;p&gt;0xDECAFBAD was out cold today for some hours, &lt;a href=&quot;http://www.decafbad.com/down-n-out.html&quot;&gt;due to the suspension&lt;/a&gt; of my webhosting account.&lt;/p&gt;
+&lt;p&gt;Seems the &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/SSI&quot;&gt;SSI&lt;/a&gt;-and-CGI combination I was using around here had turned into a monster, and the sysadmins decided things had gone rogue on my site.  So, I get suspended, to be later restored with a lecture on the nature of CGI.  My scripts were called &amp;quot;fucking insane&amp;quot; by the admin who finally gave me back my keys.  And, on top of it, I got a lesson in UNIX file permissions while he was at it.&lt;/p&gt;
+&lt;p&gt;Well, the thing is... of course I understand CGI, and the expense of launching external processes.  And I gathered that the &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/SSI&quot;&gt;SSI&lt;/a&gt;-and-CGI combination was braindead at the end of the day.  And I understand the necessity for restrictive file permissions.  But still, even with all that, I let things get sloppy.  &lt;/p&gt;
+&lt;p&gt;This is vaguely embarassing.&lt;/p&gt;
+&lt;p&gt;So, today I hastily reimplemented everything using that &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/SSI&quot;&gt;SSI&lt;/a&gt;-and-CGI scheme in &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/PHP&quot;&gt;PHP&lt;/a&gt;.  I&amp;apos;d started leisurely on the &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/PHP&quot;&gt;PHP&lt;/a&gt; replacements this weekend, but this was a kick in the ass to finish it.  Almost every *.shtml page is a *.phtml page now.  I rewrote my referral link listing code, as well as my &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; feed display code, in &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/PHP&quot;&gt;PHP&lt;/a&gt; functions.  There are still some places where things are broken (most notably the referrals in the wiki), but I&amp;apos;ll get around to fixing them.  Not too bad for starting from zero &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/PHP&quot;&gt;PHP&lt;/a&gt; exposure (somehow) until this weekend.&lt;/p&gt;
+&lt;p&gt;I&amp;apos;d like to think that this won&amp;apos;t happen again, but I suspect it might.&lt;/p&gt;
+&lt;p&gt;The problem is that this site is my mad science laboratory.  I mix things together, set things on fire, and occasionally have something explode.  I get enthusiastic about seeing what I can do, without a whole lot of regard toward safety or keeping the wires out of sight.  I figure that I&amp;apos;ll tighten up the bolts and polish up the shells of the interesting experiments, and just archive the ones that turn out boring.&lt;/p&gt;
+&lt;p&gt;Occasionally, this leads to me playing loose with security and resource conservation.  I really need to watch this more, since the sysadmin reminded me, &amp;quot;Remember, your account is on a multi-user, time-sharing UNIX operating system.&amp;quot;  My first reaction to this was, &amp;quot;Well, duh,&amp;quot; but then my second reaction was... &amp;quot;Oops.&amp;quot;  It&amp;apos;s not that I don&amp;apos;t know these things.  It&amp;apos;s just that I get quite a bit ahead of them in tinkering.&lt;/p&gt;
+&lt;p&gt;I have to try to find a balance between boiling beakers and safety goggles.&lt;/p&gt;
+&lt;p&gt;And, I wonder if this webhost is the right place for this site.  They certainly don&amp;apos;t have the world&amp;apos;s best customer service.  It&amp;apos;s low touch, high grumble BOFH service.  It appears that the people running the show are experts (I see the name of one of the admins all over various Open Source projects&amp;apos; patch submissions), but don&amp;apos;t have a whole lot of time or patience for bullshit.  But, I pretty much knew that going in.  It makes things cheap, but it&amp;apos;s also a bozo filter.&lt;/p&gt;
+&lt;p&gt;And with some of the things I&amp;apos;ll be doing, I&amp;apos;m likely to be a continual bozo.&lt;/p&gt;
+&lt;p&gt;The best thing would be, as &lt;a href=&quot;http://www.pipetree.com/qmacro/&quot;&gt;DJ&lt;/a&gt; suggested earlier today in blogchat, to find a cheap-cheap colocation somewhere.  It&amp;apos;s not as if I don&amp;apos;t have machines to spare-- I just need a safe, constant full peer and static IP net connection.  I&amp;apos;d love to have something I could run persistent servers on, play with a few different app servers, a couple generations of Apache, etc.  The things I want to do can be done safely, given that I pay attention, but I doubt that they will make for a quiet neighborhood.  On any server I play, I&amp;apos;ll be the noisy bastard down the street blaring the metal and practicing with his band every night.&lt;/p&gt;
+&lt;p&gt;Hmm.. have to think about that co-lo thing.&lt;/p&gt;
+" />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post "
+      >
+        <time
+          title="2002-05-08T23:31:30-07:00"
+          pubdate="2002-05-08T23:31:30-07:00"
+        >
+          <a href="/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/2002/"
+            >2002</a
+          >
+          &raquo;
+          <a href="/2002/05/"
+            >May</a
+          >
+          &raquo;
+          <span>08</span>
+          &raquo;
+        </time>
+        <h1 class="title">back up and about, limping a bit</h1>
+        
+        <section class="post-content">
+          <p>0xDECAFBAD was out cold today for some hours, <a href="http://www.decafbad.com/down-n-out.html">due to the suspension</a> of my webhosting account.</p>
+<p>Seems the <a href="http://www.decafbad.com/twiki/bin/view/Main/SSI">SSI</a>-and-CGI combination I was using around here had turned into a monster, and the sysadmins decided things had gone rogue on my site.  So, I get suspended, to be later restored with a lecture on the nature of CGI.  My scripts were called "fucking insane" by the admin who finally gave me back my keys.  And, on top of it, I got a lesson in UNIX file permissions while he was at it.</p>
+<p>Well, the thing is... of course I understand CGI, and the expense of launching external processes.  And I gathered that the <a href="http://www.decafbad.com/twiki/bin/view/Main/SSI">SSI</a>-and-CGI combination was braindead at the end of the day.  And I understand the necessity for restrictive file permissions.  But still, even with all that, I let things get sloppy.  </p>
+<p>This is vaguely embarassing.</p>
+<p>So, today I hastily reimplemented everything using that <a href="http://www.decafbad.com/twiki/bin/view/Main/SSI">SSI</a>-and-CGI scheme in <a href="http://www.decafbad.com/twiki/bin/view/Main/PHP">PHP</a>.  I'd started leisurely on the <a href="http://www.decafbad.com/twiki/bin/view/Main/PHP">PHP</a> replacements this weekend, but this was a kick in the ass to finish it.  Almost every *.shtml page is a *.phtml page now.  I rewrote my referral link listing code, as well as my <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> feed display code, in <a href="http://www.decafbad.com/twiki/bin/view/Main/PHP">PHP</a> functions.  There are still some places where things are broken (most notably the referrals in the wiki), but I'll get around to fixing them.  Not too bad for starting from zero <a href="http://www.decafbad.com/twiki/bin/view/Main/PHP">PHP</a> exposure (somehow) until this weekend.</p>
+<p>I'd like to think that this won't happen again, but I suspect it might.</p>
+<p>The problem is that this site is my mad science laboratory.  I mix things together, set things on fire, and occasionally have something explode.  I get enthusiastic about seeing what I can do, without a whole lot of regard toward safety or keeping the wires out of sight.  I figure that I'll tighten up the bolts and polish up the shells of the interesting experiments, and just archive the ones that turn out boring.</p>
+<p>Occasionally, this leads to me playing loose with security and resource conservation.  I really need to watch this more, since the sysadmin reminded me, "Remember, your account is on a multi-user, time-sharing UNIX operating system."  My first reaction to this was, "Well, duh," but then my second reaction was... "Oops."  It's not that I don't know these things.  It's just that I get quite a bit ahead of them in tinkering.</p>
+<p>I have to try to find a balance between boiling beakers and safety goggles.</p>
+<p>And, I wonder if this webhost is the right place for this site.  They certainly don't have the world's best customer service.  It's low touch, high grumble BOFH service.  It appears that the people running the show are experts (I see the name of one of the admins all over various Open Source projects' patch submissions), but don't have a whole lot of time or patience for bullshit.  But, I pretty much knew that going in.  It makes things cheap, but it's also a bozo filter.</p>
+<p>And with some of the things I'll be doing, I'm likely to be a continual bozo.</p>
+<p>The best thing would be, as <a href="http://www.pipetree.com/qmacro/">DJ</a> suggested earlier today in blogchat, to find a cheap-cheap colocation somewhere.  It's not as if I don't have machines to spare-- I just need a safe, constant full peer and static IP net connection.  I'd love to have something I could run persistent servers on, play with a few different app servers, a couple generations of Apache, etc.  The things I want to do can be done safely, given that I pay attention, but I doubt that they will make for a quiet neighborhood.  On any server I play, I'll be the noisy bastard down the street blaring the metal and practicing with his band every night.</p>
+<p>Hmm.. have to think about that co-lo thing.</p>
+<!--more-->
+shortname=oooadd
+
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221090844">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=9cff0151cf8e5b99abeb6d59f66cb8ad&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="">Josh</a>
+</div>
+<a href="#comment-221090844" class="permalink"><time datetime="2002-05-09T03:26:19">2002-05-09T03:26:19</time></a>
+</div>
+<div class="content">Glad to see your back up. I was a bit worried when i tried to get my daily dose this morning. But you site being down did give me a chance to finish up my phpwiki. After seeing the power of wiki, i've jumped in, and i thank you for making me a believer :)</div>
+</li>
+<li class="comment" id="comment-221090845">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://webseitz.fluxent.com/wiki"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2e83224d92ed7f1148f4dd3cdb0e4548&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://webseitz.fluxent.com/wiki">Bill Seitz</a>
+</div>
+<a href="#comment-221090845" class="permalink"><time datetime="2002-05-09T17:44:48">2002-05-09T17:44:48</time></a>
+</div>
+<div class="content">Can you get DSL or cablemodem at home?
+Some sort of dynamic-DNS service could handle the dynamic-IP issue. 
+Bandwidth limitations could also be a problem.</div>
+</li>
+</ul>
+</div>
+
+        </section>
+      </article>
+        </section>
+
+        <footer>
+          <img id="growup" src="/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/js/vendor/lazyload.js"></script><script src="/js/vendor/prism.js"></script><script src="/js/toc.js"></script><script src="/js/analytics.js"></script><script src="/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

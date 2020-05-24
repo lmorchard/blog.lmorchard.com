@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>RSS 2.0 namespace versus RSS-Data, Part 3: Electric Boogalee - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="RSS 2.0 namespace versus RSS-Data, Part 3: Electric Boogalee" />
+        <meta
+          property="og:url"
+          content="https://blog.lmorchard.com/"
+        />
+        
+        <meta property="og:description" content="&lt;p&gt;
+So, for the same of argument, yesterday I threw together
+&lt;a href=&quot;http://www.decafbad.com/blog/tech/rss_data_versus_namespace.html&quot;&gt;examples&lt;/a&gt;
+of what a use of RSS-Data might look like alongside what
+the same data in an RSS namespace extension might look like.
+I promised code, but never got a chance to circle back around.
+Fortunately, &lt;a href=&quot;http://www.myelin.co.nz/post/&quot;&gt;Phillip Pearson&lt;/a&gt;
+connected the rest of the dots for me with two examples:
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.myelin.co.nz/post/2003/10/3/#200310031&quot;&gt;Parsing RSS-Data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.myelin.co.nz/post/2003/10/3/#200310032&quot;&gt;Parsing an RSS namespace extension&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+I was just a &lt;i&gt;little&lt;/i&gt; surprised by his results, since I expected
+the code to handle an RSS namespace to be at least a bit more complex
+than the RSS-Data example.  But,
+&lt;a href=&quot;http://www.myelin.co.nz/post/2003/10/3/#200310033&quot;&gt;as Phillip observed later&lt;/a&gt;,
+the scripts were pretty much equivalent in length, complexity, and
+ease of construction.
+&lt;/p&gt;
+&lt;p&gt;
+Then, this morning, I saw that Danny Ayers had posted an
+&lt;a href=&quot;http://dannyayers.com/archives/001908.html&quot;&gt;example in RDF&lt;/a&gt;
+of this same data.  It doesn&amp;apos;t differ very much from my namespace
+extension example, except that the few differences there are enables
+his example to flow through RDF tools (as well as, usually, XML tools like
+XPath and XSLT).
+&lt;/p&gt;
+&lt;p&gt;
+In &lt;a href=&quot;http://www.myelin.co.nz/phil/pss/comments.php?u=2&amp;amp;p=200310033&amp;amp;link=http://www.myelin.co.nz/post/2003/10/3/#200310033&quot;&gt;a comment&lt;/a&gt;
+on one of Phillip&amp;apos;s posts, though, Roger Benningfield makes
+the point that this example is a bit biased:
+&lt;/p&gt;
+&lt;blockquote&gt;&lt;i&gt;
+I agree that there won&amp;apos;t be a ton of difference between a struct full
+of strings and plain ol&amp;apos; XML. But that&amp;apos;s kind of a stacked example,
+since SDL would allow a lot more than that... arrays, integers, and
+arrays of integers inside structs.
+&lt;/i&gt;&lt;/blockquote&gt;
+&lt;p&gt;
+What I did could be obscuring some work.  I just took an existing
+schema from Amazon, which gave me some initial work already for free.
+(Though, there&amp;apos;s something to be said for &lt;i&gt;that&lt;/i&gt; in and of itself.)
+The structures were already established, and the schema was created
+with XML representation already in mind.  This could have placed
+RSS-Data at an example.  While I really don&amp;apos;t think
+that XML-RPC serialization offers more flexibility in expression than
+XML itself, I could be wrong and I don&amp;apos;t want to be tilting
+at &lt;a href=&quot;http://www.nizkor.org/features/fallacies/straw-man.html&quot;&gt;straw men&lt;/a&gt;.  
+&lt;/p&gt;
+&lt;p&gt;
+So, while I doubt that I&amp;apos;ll have a whole lot of time today, I think
+for the same of completeness, someone should go through the parallel
+processes of going from problem statement up through data modeling and
+on to production and consumption of RSS-Data and an RSS namespace
+extension.  While doing this, capture the work involved in both.
+&lt;/p&gt;
+&lt;p&gt;
+I could see shortcuts taken on the RSS-Data side, since you don&amp;apos;t have
+to be concerened with various bits of XML tech like DTDs or schema
+or whatnot.  You can jump right into coding up an example usage and
+come up with your data model on the fly.  Whether this is a good thing
+or not, I&amp;apos;m sure many will disagree.  Also, I&amp;apos;m sure others would
+go through this differently than I would.  Again, your mojo may
+exceed mine.
+&lt;/p&gt;
+&lt;p&gt;
+At this point, I can see the benefits of RSS-Data in rapidly cobbling
+together scripts, but I lean toward having a decently defined data
+model first.  You can do this in your scripts, but using the existing
+XML tech forces you through some specific processes.  On the other
+hand, I can see where some busy developers don&amp;apos;t have time or spare
+brain cycles to absorb all the XML tech.  It could be made easier
+at that end of things, which is where I&amp;apos;d rather spend my effort.
+&lt;/p&gt;
+&lt;p&gt;
+Anyway, I&amp;apos;m really interested in seeing where this goes, because
+this comparison of RSS-Data, RSS namespace extensions, and even
+RDF seems like another very concrete, non-theoretical way to demonstrate
+the benefits and drawbacks of these ways of thinking about data
+and interoperability.
+&lt;/p&gt;
+" />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post "
+      >
+        <time
+          title="2003-10-03T05:28:16-07:00"
+          pubdate="2003-10-03T05:28:16-07:00"
+        >
+          <a href="/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/2003/"
+            >2003</a
+          >
+          &raquo;
+          <a href="/2003/10/"
+            >October</a
+          >
+          &raquo;
+          <span>03</span>
+          &raquo;
+        </time>
+        <h1 class="title">RSS 2.0 namespace versus RSS-Data, Part 3: Electric Boogalee</h1>
+        
+        <section class="post-content">
+          <p>
+So, for the same of argument, yesterday I threw together
+<a href="http://www.decafbad.com/blog/tech/rss_data_versus_namespace.html">examples</a>
+of what a use of RSS-Data might look like alongside what
+the same data in an RSS namespace extension might look like.
+I promised code, but never got a chance to circle back around.
+Fortunately, <a href="http://www.myelin.co.nz/post/">Phillip Pearson</a>
+connected the rest of the dots for me with two examples:
+</p>
+<ul>
+<li><a href="http://www.myelin.co.nz/post/2003/10/3/#200310031">Parsing RSS-Data</a></li>
+<li><a href="http://www.myelin.co.nz/post/2003/10/3/#200310032">Parsing an RSS namespace extension</a></li>
+</ul>
+<p>
+I was just a <i>little</i> surprised by his results, since I expected
+the code to handle an RSS namespace to be at least a bit more complex
+than the RSS-Data example.  But,
+<a href="http://www.myelin.co.nz/post/2003/10/3/#200310033">as Phillip observed later</a>,
+the scripts were pretty much equivalent in length, complexity, and
+ease of construction.
+</p>
+<p>
+Then, this morning, I saw that Danny Ayers had posted an
+<a href="http://dannyayers.com/archives/001908.html">example in RDF</a>
+of this same data.  It doesn't differ very much from my namespace
+extension example, except that the few differences there are enables
+his example to flow through RDF tools (as well as, usually, XML tools like
+XPath and XSLT).
+</p>
+<p>
+In <a href="http://www.myelin.co.nz/phil/pss/comments.php?u=2&p=200310033&link=http://www.myelin.co.nz/post/2003/10/3/#200310033">a comment</a>
+on one of Phillip's posts, though, Roger Benningfield makes
+the point that this example is a bit biased:
+</p>
+<blockquote><i>
+I agree that there won't be a ton of difference between a struct full
+of strings and plain ol' XML. But that's kind of a stacked example,
+since SDL would allow a lot more than that... arrays, integers, and
+arrays of integers inside structs.
+</i></blockquote>
+<p>
+What I did could be obscuring some work.  I just took an existing
+schema from Amazon, which gave me some initial work already for free.
+(Though, there's something to be said for <i>that</i> in and of itself.)
+The structures were already established, and the schema was created
+with XML representation already in mind.  This could have placed
+RSS-Data at an example.  While I really don't think
+that XML-RPC serialization offers more flexibility in expression than
+XML itself, I could be wrong and I don't want to be tilting
+at <a href="http://www.nizkor.org/features/fallacies/straw-man.html">straw men</a>.  
+</p>
+<p>
+So, while I doubt that I'll have a whole lot of time today, I think
+for the same of completeness, someone should go through the parallel
+processes of going from problem statement up through data modeling and
+on to production and consumption of RSS-Data and an RSS namespace
+extension.  While doing this, capture the work involved in both.
+</p>
+<p>
+I could see shortcuts taken on the RSS-Data side, since you don't have
+to be concerened with various bits of XML tech like DTDs or schema
+or whatnot.  You can jump right into coding up an example usage and
+come up with your data model on the fly.  Whether this is a good thing
+or not, I'm sure many will disagree.  Also, I'm sure others would
+go through this differently than I would.  Again, your mojo may
+exceed mine.
+</p>
+<p>
+At this point, I can see the benefits of RSS-Data in rapidly cobbling
+together scripts, but I lean toward having a decently defined data
+model first.  You can do this in your scripts, but using the existing
+XML tech forces you through some specific processes.  On the other
+hand, I can see where some busy developers don't have time or spare
+brain cycles to absorb all the XML tech.  It could be made easier
+at that end of things, which is where I'd rather spend my effort.
+</p>
+<p>
+Anyway, I'm really interested in seeing where this goes, because
+this comparison of RSS-Data, RSS namespace extensions, and even
+RDF seems like another very concrete, non-theoretical way to demonstrate
+the benefits and drawbacks of these ways of thinking about data
+and interoperability.
+</p>
+<!--more-->
+shortname=rss_data_versus_namespace_3
+
+        </section>
+      </article>
+        </section>
+
+        <footer>
+          <img id="growup" src="/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/js/vendor/lazyload.js"></script><script src="/js/vendor/prism.js"></script><script src="/js/toc.js"></script><script src="/js/analytics.js"></script><script src="/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

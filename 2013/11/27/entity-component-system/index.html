@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>Parsec Patrol Diaries: Entity Component Systems - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="Parsec Patrol Diaries: Entity Component Systems" />
+        <meta
+          property="og:url"
+          content="https://blog.lmorchard.com/"
+        />
+        <meta
+            property="og:image"
+            content="http://blog.lmorchard.com/wp-content/uploads/2013/11/pp-entities-1024x577.jpg"
+          />
+        <meta property="og:description" content="
+
+&lt;p&gt;The &lt;strong&gt;Entity&lt;/strong&gt;, &lt;strong&gt;Component&lt;/strong&gt;, &amp;amp; &lt;strong&gt;System&lt;/strong&gt; design pattern is old hat for many game developers. But, keep in mind that I&amp;#x2019;m a web developer, and mostly on the server side of things for the past decade or so. One of my last big revelations was discovering the Model, View, &amp;amp; Controller way of doing things. Apropos of that, this ECS thing seems to be a Big Deal of similar proportions.&lt;/p&gt;
+" />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post tag-html5tag-parsecpatroltag-webdev"
+      >
+        <time
+          title="2013-11-27T04:00:00-08:00"
+          pubdate="2013-11-27T04:00:00-08:00"
+        >
+          <a href="/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/2013/"
+            >2013</a
+          >
+          &raquo;
+          <a href="/2013/11/"
+            >November</a
+          >
+          &raquo;
+          <span>27</span>
+          &raquo;
+        </time>
+        <h1 class="title">Parsec Patrol Diaries: Entity Component Systems</h1>
+        <ul class="tags">
+            <li>
+                  <a href="/tag/html5/">html5</a>
+                </li><li>
+                  <a href="/tag/parsecpatrol/">parsecpatrol</a>
+                </li><li>
+                  <a href="/tag/webdev/">webdev</a>
+                </li>
+          </ul>
+        <section class="post-content">
+          <div id="toc_container" class="toc_wrap_right no_bullets">
+  <p class="toc_title">
+    Contents
+  </p>
+
+  <ul class="toc_list">
+    <li>
+      <a href="#Background"><span class="toc_number toc_depth_1">1</span> Background</a>
+    </li>
+    <li>
+      <a href="#Entities"><span class="toc_number toc_depth_1">2</span> Entities</a>
+    </li>
+    <li>
+      <a href="#Components"><span class="toc_number toc_depth_1">3</span> Components</a>
+    </li>
+    <li>
+      <a href="#Systems"><span class="toc_number toc_depth_1">4</span> Systems</a>
+    </li>
+    <li>
+      <a href="#Putting_it_together"><span class="toc_number toc_depth_1">5</span> Putting it together</a>
+    </li>
+    <li>
+      <a href="#Having_fun_with_it"><span class="toc_number toc_depth_1">6</span> Having fun with it</a>
+    </li>
+  </ul>
+</div>
+
+<p>The <strong>Entity</strong>, <strong>Component</strong>, &amp; <strong>System</strong> design pattern is old hat for many game developers. But, keep in mind that I&#8217;m a web developer, and mostly on the server side of things for the past decade or so. One of my last big revelations was discovering the Model, View, &amp; Controller way of doing things. Apropos of that, this ECS thing seems to be a Big Deal of similar proportions.</p>
+<!--more-->
+
+<p>When I first started working on <a href="https://github.com/lmorchard/parsec-patrol">Parsec Patrol</a>, I started sketching out a plain vanilla class hierarchy. You know, the kind I saw when I first started learning about Object Oriented Programming.</p>
+<p>I started with an <code>Entity</code>, which begat a <code>RenderableEntity</code>, which begat things like a <code>SpaceShipWithThrustersRenderableEntity</code>. I built a game loop that iterated through all the objects in the universe, calling a <code>tick()</code> method on each in turn. Simple, just like things I&#8217;d seen in textbooks.</p>
+<p>As I started trying to pile things in, though, I flirted with <a href="http://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem">multiple inheritance</a> and primitive <a href="http://en.wikipedia.org/wiki/Composite_pattern">composite patterns</a> and everything just got messy and slow. Performance sucked, and <a href="http://blog.artillery.com/2012/10/browser-garbage-collection-and-framerate.html">garbage collection</a> went wild. So, I figured I must be Doing It Wrong, and started on a Google quest into game engine design to maybe absorb some modern thinking on these matters. Eventually, I stubbed my brain on the notion of an &#8220;entity/component system&#8221;.</p>
+<h2 id="background"><span id="Background">Background</span></h2>
+<p>Plenty of other blog posts &amp; articles out there have done a great job of describing how an ECS design works:</p>
+<ul>
+<li><a href="http://t-machine.org/index.php/2007/09/03/entity-systems-are-the-future-of-mmog-development-part-1/">Entity Systems are the future of MMOG development</a> (Sep 2007)</li>
+<li><a href="http://cowboyprogramming.com/2007/01/05/evolve-your-heirachy/">Evolve Your Hierarchy</a> (Jan 2007)</li>
+<li><a href="http://www.richardlord.net/blog/why-use-an-entity-framework">Why use an entity system framework for game development?</a> (Feb 2012)</li>
+<li><a href="http://www.chris-granger.com/2012/12/11/anatomy-of-a-knockout/">Anatomy of a Knockout</a> (Dec 2012)</li>
+<li><a href="http://www.gamedev.net/page/resources/_/technical/game-programming/understanding-component-entity-systems-r3013">Understanding Component-Entity-Systems</a> (April 2013)</li>
+<li><a href="http://gamadu.com/artemis/tutorial.html">Artemis Entity System Framework</a></li>
+<li><a href="http://www.ashframework.org/">Ash entity framework</a></li>
+</ul>
+<p>I don&#8217;t want to totally reinvent the wheel here. But, let&#8217;s see if I can&#8217;t break it down a little, if only to convey my excitement with discovering this design pattern and the fun I&#8217;ve had with it.</p>
+<h2 id="entities"><span id="Entities">Entities</span></h2>
+<p>First, you&#8217;ve got the <strong>Entity</strong>: Everything in the game universe is an <strong>Entity</strong> &#8211; ships, rocks, missiles, the works. In my naive OOP world, Entities were instances of classes from my tangly, thorny hierarchy.</p>
+<p>But, in this ECS world, an <strong>Entity</strong> is a database ID &#8211; just a string, really.</p>
+<div id="attachment_1143" style="width: 650px" class="wp-caption alignnone">
+  <a href="http://blog.lmorchard.com/wp-content/uploads/2013/11/pp-entities.jpg"><img class="size-large wp-image-1143" alt="Entities" src="http://blog.lmorchard.com/wp-content/uploads/2013/11/pp-entities-1024x577.jpg" width="640" height="360" /></a><p class="wp-caption-text">
+    Entities: OOP & ECS
+  </p>
+</div>
+
+<p>Wait, what? Yeah, that was the first thing that bruised my lobes. This design pattern turns everything inside out. An ECS framework is better understood as a data-oriented system than an object-oriented system. In fact, <a href="http://t-machine.org/index.php/2009/10/26/entity-systems-are-the-future-of-mmos-part-5/">a blog post describing an ECS system in relational database terms</a> really drove it home for me.</p>
+<h2 id="components"><span id="Components">Components</span></h2>
+<p>So, given that an <strong>Entity</strong> is an ID in a system that looks like a SQL database from a certain angle, what&#8217;s in the database?</p>
+<p><strong>Components</strong> are in the database. Specifically, <strong>Component</strong> types correspond to tables and <strong>Component</strong> instances correspond to rows. Structurally, a <strong>Component</strong> is a collection of properties &#8211; not unlike the columns in a row in a table in a database.</p>
+<div id="attachment_1145" style="width: 650px" class="wp-caption alignnone">
+  <a href="http://blog.lmorchard.com/wp-content/uploads/2013/11/2013-11-27-10.14.50.jpg"><img class="size-large wp-image-1145" alt="Parsec Patrol Components" src="http://blog.lmorchard.com/wp-content/uploads/2013/11/2013-11-27-10.14.50-1024x577.jpg" width="640" height="360" /></a><p class="wp-caption-text">
+    Components: OOP & ECS
+  </p>
+</div>
+
+<p>In case it doesn&#8217;t quite make sense yet, here are some sample <strong>Components</strong>:</p>
+<ul>
+<li><a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/components.coffee#L86"><strong>Sprite</strong></a> &#8211; <em>width, height, shape</em></li>
+<li><a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/components.coffee#L26"><strong>Position</strong></a> &#8211; <em>x, y, rotation</em></li>
+<li><a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/components.coffee#L33"><strong>Motion</strong></a> &#8211; <em>dx, dy, drotation</em></li>
+<li><a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/components.coffee#L40"><strong>Thruster</strong></a> &#8211; <em>accel_per_second, max_speed</em></li>
+<li><a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/components.coffee#L110"><strong>Seeker</strong></a> &#8211; <em>target_entity_id, rotation_per_second</em></li>
+<li><a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/components.coffee#L201"><strong>Health</strong></a> &#8211; <em>max_health, current_health</em></li>
+<li><a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/components.coffee#L201"><strong>BeamWeapon</strong></a> &#8211; <em>max_power, current_power, recharge_per_second</em></li>
+<li><a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/components.coffee#L137"><strong>MissileWeapon</strong></a> &#8211; <em>number_turrets, reload_delay</em></li>
+</ul>
+<p>Imagine each of those as schema for database tables, each with the <strong>Entity</strong> ID as primary key. Given an <strong>Entity</strong> ID, you can query across all the tables and assemble a set of <strong>Components</strong> that completely describe an <strong>Entity</strong> in the game universe.</p>
+<p>Note that any given <strong>Entity</strong> can be composed of any combination of these <strong>Components</strong>: A spaceship might be described by <strong>Shape</strong>, <strong>Position</strong>, <strong>Motion</strong>, <strong>Thruster</strong>, <strong>Health</strong>, and <strong>BeamWeapon</strong>. Meanwhile, an asteroid drifting in space might only offer <strong>Shape</strong>, <strong>Position</strong>, and <strong>Motion</strong>.</p>
+<p>(Also, just to be pedantic: This doesn&#8217;t <em>really</em> have to live in a SQL database. In fact, I currently just use an ad-hoc in-memory key-value store &#8211; i.e. <a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/entities.coffee#L9">a set of heavily-abused JavaScript objects</a>.)</p>
+<h2 id="systems"><span id="Systems">Systems</span></h2>
+<p>So, where&#8217;s the stuff that makes things go? In an OOP design, this would live in the methods of the objects, bundled by classes to go alongside the data. In the ECS design, <strong>Entities</strong> are <em>just</em> IDs and <strong>Components</strong> are <em>just</em> data &#8211; neither methods nor code implementing game logic live in either of those artifacts.</p>
+<p>This is where <strong>Systems</strong> come in: <strong>Systems</strong> are modular mini-game loops. The <a href="https://github.com/lmorchard/parsec-patrol/blob/master/app/scripts/worlds.coffee#L62">&#8220;master&#8221; game loop</a> holds a list of available systems and runs a <code>tick()</code> method on each of those in turn. Each <strong>System</strong> performs a query against the <strong>Component</strong> database &#8211; usually for all instances of a particular type &#8211; and crunches through updating the properties for each.</p>
+<div id="attachment_1146" style="width: 650px" class="wp-caption alignnone">
+  <a href="http://blog.lmorchard.com/wp-content/uploads/2013/11/2013-11-27-10.47.11.jpg"><img class="size-large wp-image-1146" alt="Systems: Most confusing diagram ever?" src="http://blog.lmorchard.com/wp-content/uploads/2013/11/2013-11-27-10.47.11-1024x577.jpg" width="640" height="360" /></a><p class="wp-caption-text">
+    Systems: Most confusing diagram ever?
+  </p>
+</div>
+
+<p>Consider a <a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/systems.coffee#L793"><strong>MotionSystem</strong></a>:</p>
+<ul>
+<li>Fetch all the <strong>Motion</strong> components from the database</li>
+<li>For each <strong>Motion</strong>, look up a <strong>Position</strong> for the same <strong>Entity</strong>.</li>
+<li>Update the <code>x</code>, <code>y</code>, and <code>rotation</code> properties of the <strong>Position</strong> using the <strong>Motion</strong> properties.</li>
+</ul>
+<p>Consider a <a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/systems.coffee#L1136"><strong>SeekerSystem</strong></a>:</p>
+<ul>
+<li>Fetch all the <strong>Seeker</strong> components.</li>
+<li>For each, find the <strong>Motion</strong> and <strong>Position</strong> components for the corresponding <strong>Entity</strong>.</li>
+<li>Also find <strong>Motion</strong> &amp; <strong>Position</strong> for the <strong>Entity</strong> identified as the <code>target_entity_id</code>.</li>
+<li>Calculate the angle between seeker &amp; target, update <strong>Motion</strong> to steer toward the target.</li>
+</ul>
+<p>Notice that each system deals only with data directly relevant to the job at hand. Rather than loading up a full representation of an <strong>Entity</strong>, each <strong>System</strong> only touches the specific <strong>Components</strong> needed. For instance, <strong>MotionSystem</strong> and <strong>SeekerSystem</strong> touch <strong>Motion</strong> and <strong>Position</strong> - but never <strong>Shape Components</strong>.</p>
+<p>This adds some efficiencies for data stored entirely in memory. But, I expect this will have <em>huge</em> implications for data that might someday come from a database or over a network. I&#8217;m also thinking that this pattern lends well to shuffling certain systems off onto background threads or Web Workers &#8211; the need for data coordination is limited to just the relevant <strong>Components</strong> when needed.</p>
+<h2 id="putting-it-together"><span id="Putting_it_together">Putting it together</span></h2>
+<div id="attachment_1149" style="width: 650px" class="wp-caption alignnone">
+  <a href="http://lmorchard.github.io/parsec-patrol/sketches/sprites.html"><img class="size-large wp-image-1149 " alt="Parsec Patrol Dancing Sprites" src="http://blog.lmorchard.com/wp-content/uploads/2013/11/Screenshot-2013-11-27-11.16.42-1024x714.png" width="640" height="446" /></a><p class="wp-caption-text">
+    Parade! Of! Sprites!
+  </p>
+</div>
+
+<p>These <strong>Systems</strong> feel a lot like <a href="html5hub.com/build-a-javascript-particle-system/">particle systems</a>: Tight, focused code working close to the metal with data, skipping a lot of overhead and object juggling. <strong>Components</strong> get modified in place and are rarely discarded &#8211; that seems to save me from a lot of <a href="http://buildnewgames.com/garbage-collector-friendly-code/">garbage collection issues</a>. And, if a particular <strong>Component</strong> is not actually used by any existing <strong>Entity</strong>, the <strong>System</strong> looking for it just won&#8217;t perform any work.</p>
+<p>For the most part, <strong>Systems</strong> act independently &amp; are very loosely coupled. They can cooperate through shared <strong>Component</strong> data &#8211; consider how the <strong>SeekerSystem</strong> modifies the <strong>Motion</strong> <strong>Component</strong>, and the <strong>MotionSystem</strong> uses that data to move the <strong>Position</strong> <strong>Component</strong>. I&#8217;m also playing with <a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/worlds.coffee#L38">a crude pub/sub messaging system</a> for things like <a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/systems.coffee#L1583">transmitting damage</a> from one <strong>Entity</strong> to another, but I suspect that might be the wrong approach.</p>
+<p>And, once I was freed from my tangled class hierarchy, things started to get fun. The mental cost for adding a new layer to the system dropped fast: Add a new <strong>Component</strong> or two, add a new <strong>System</strong> &#8211; and suddenly <strong>Entities</strong> can do new things!</p>
+<h2 id="having-fun-with-it"><span id="Having_fun_with_it">Having fun with it</span></h2>
+<p>And, the most fun part? I get to describe things in the game world like a five-year-old and not give a crap about serious programming stuff:</p>
+<div id="attachment_1148" style="width: 650px" class="wp-caption alignnone">
+  <a href="http://blog.lmorchard.com/wp-content/uploads/2013/11/2013-11-27-11.06.12.jpg"><img class="size-large wp-image-1148" alt="Spaceship doodles" src="http://blog.lmorchard.com/wp-content/uploads/2013/11/2013-11-27-11.06.12-1024x577.jpg" width="640" height="360" /></a><p class="wp-caption-text">
+    Spaceship doodles
+  </p>
+</div>
+
+<p>I&#8217;ve got <a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/sketches/radar.coffee#L103">a bad guy space ship</a>! And it&#8217;s <a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/systems.coffee#L660">shaped like an arrow</a>! And it&#8217;s got <a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/systems.coffee#L1193">rocket thrusters</a>! And it <a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/systems.coffee#L1193">chases the good guy</a>! And it has <a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/systems.coffee#L1271">missile launchers</a>! And <a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/systems.coffee#L1574">it blows up when the hero shoots it a lot</a>!</p>
+<p>Oh, and I&#8217;ve got <a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/sketches/radar.coffee#L47">a good guy ship</a>! And it&#8217;s <a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/systems.coffee#L646">shaped like a cool thing different than an arrow</a>! And it&#8217;s also got <a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/systems.coffee#L1193">rocket thrusters</a>! And <a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/systems.coffee#L1245">it goes where you click</a>! And <a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/systems.coffee#L1435">it has lots of laser beam guns</a>!</p>
+<p>Oh, and <a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/sketches/fields.coffee#L95">there are rocks</a>! They kind of spin a bit and drift around! They <a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/systems.coffee#L803">bounce when they run into things</a>! Sometimes <a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/systems.coffee#L1608">they blow up</a>!</p>
+<p>That&#8217;s almost exactly the running dialog in my head when I write the code. It&#8217;s pretty cool.</p>
+
+        </section>
+      </article>
+
+      <section class="comments" id="comments">
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+            var disqus_needs_loading = true;
+            var disqus_url = "https://blog.lmorchard.com";
+          </script>
+          <noscript
+            >Please enable JavaScript to view the
+            <a href="http://disqus.com/?ref_noscript"
+              >comments powered by Disqus.</a
+            ></noscript
+          >
+          <a href="http://disqus.com" class="dsq-brlink"
+            >blog comments powered by <span class="logo-disqus">Disqus</span></a
+          >
+        </section>
+        </section>
+
+        <footer>
+          <img id="growup" src="/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/js/vendor/lazyload.js"></script><script src="/js/vendor/prism.js"></script><script src="/js/toc.js"></script><script src="/js/analytics.js"></script><script src="/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

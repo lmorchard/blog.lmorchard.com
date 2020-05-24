@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>Looking for variable row height in your NSOutlineViews and NSTableViews? - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="Looking for variable row height in your NSOutlineViews and NSTableViews?" />
+        <meta
+          property="og:url"
+          content="https://blog.lmorchard.com/"
+        />
+        
+        <meta property="og:description" content="&lt;blockquote cite=&quot;http://www.eng.uwaterloo.ca/~ejones/software/osx-tableview.html&quot;&gt;Apple&amp;apos;s Cocoa library contains two very good table controls, &lt;span style=&quot;background : #FFFFCE;&quot;&gt;&lt;a href=&quot;http://www.decafbad.com/twiki/bin/edit/Main/NSTableView?topicparent=Main.FilterData&quot;&gt;&lt;b&gt;?&lt;/b&gt;&lt;/a&gt;&lt;font color=&quot;#0000FF&quot;&gt;NSTableView&lt;/font&gt;&lt;/span&gt; and it&amp;apos;s close relative, &lt;span style=&quot;background : #FFFFCE;&quot;&gt;&lt;a href=&quot;http://www.decafbad.com/twiki/bin/edit/Main/NSOutlineView?topicparent=Main.FilterData&quot;&gt;&lt;b&gt;?&lt;/b&gt;&lt;/a&gt;&lt;font color=&quot;#0000FF&quot;&gt;NSOutlineView&lt;/font&gt;&lt;/span&gt; . However, both of these controls have one large limitation: All the rows must be the same height. This is an issue when displaying table cells with content that varies in height, such as large amounts of text or images. Luckily, Apple&amp;apos;s Cocoa controls were also very well designed, making it possible to add this functionality simply by subclassing the table views. &lt;span style=&quot;background : #FFFFCE;&quot;&gt;&lt;a href=&quot;http://www.decafbad.com/twiki/bin/edit/Main/RowResizableTableView?topicparent=Main.FilterData&quot;&gt;&lt;b&gt;?&lt;/b&gt;&lt;/a&gt;&lt;font color=&quot;#0000FF&quot;&gt;RowResizableTableView&lt;/font&gt;&lt;/span&gt; is an &lt;span style=&quot;background : #FFFFCE;&quot;&gt;&lt;a href=&quot;http://www.decafbad.com/twiki/bin/edit/Main/NSTableView?topicparent=Main.FilterData&quot;&gt;&lt;b&gt;?&lt;/b&gt;&lt;/a&gt;&lt;font color=&quot;#0000FF&quot;&gt;NSTableView&lt;/font&gt;&lt;/span&gt; subclass which allows each row to have variable heights, and &lt;span style=&quot;background : #FFFFCE;&quot;&gt;&lt;a href=&quot;http://www.decafbad.com/twiki/bin/edit/Main/RowResizableOutlineView?topicparent=Main.FilterData&quot;&gt;&lt;b&gt;?&lt;/b&gt;&lt;/a&gt;&lt;font color=&quot;#0000FF&quot;&gt;RowResizableOutlineView&lt;/font&gt;&lt;/span&gt; is an &lt;span style=&quot;background : #FFFFCE;&quot;&gt;&lt;a href=&quot;http://www.decafbad.com/twiki/bin/edit/Main/NSOutlineView?topicparent=Main.FilterData&quot;&gt;&lt;b&gt;?&lt;/b&gt;&lt;/a&gt;&lt;font color=&quot;#0000FF&quot;&gt;NSOutlineView&lt;/font&gt;&lt;/span&gt; subclass with the same functionality. &lt;/blockquote&gt;&lt;div class=&quot;credit&quot; align=&quot;right&quot;&gt;&lt;small&gt;Source:&lt;cite&gt;&lt;a href=&quot;http://www.eng.uwaterloo.ca/~ejones/software/osx-tableview.html&quot;&gt;RowResizableTableView: Variable Row Height Tables and Outlines &lt;/a&gt;&lt;/cite&gt;.&lt;/small&gt;&lt;/div&gt;
+&lt;p&gt;Wow.  Although I think my &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/Arboretum&quot;&gt;Arboretum&lt;/a&gt; project is very likely asleep for good, it was the want for this particular component that most discouraged me from continuing with my outliner.  Nowadays what keeps me away is the absolute brilliant quality OmniGroup&amp;apos;s OmniOutliner and the fact that it supports &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/AppleScript&quot;&gt;AppleScript&lt;/a&gt;, and furthermore, the fact that &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/AppleScript&quot;&gt;AppleScript&lt;/a&gt; has its tendrils in abso-freaking-lutely every app that seems to matter to me.  So, I can pretty much have everything I wanted to have out of &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/Arboretum&quot;&gt;Arboretum&lt;/a&gt; right now.&lt;/p&gt;
+&lt;p&gt;But I&amp;apos;d still like to come up with a decent project in Cocoa for myself.  It&amp;apos;s just so damn comfy to develop with.&lt;/p&gt;
+" />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post "
+      >
+        <time
+          title="2003-01-23T15:44:07-08:00"
+          pubdate="2003-01-23T15:44:07-08:00"
+        >
+          <a href="/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/2003/"
+            >2003</a
+          >
+          &raquo;
+          <a href="/2003/01/"
+            >January</a
+          >
+          &raquo;
+          <span>23</span>
+          &raquo;
+        </time>
+        <h1 class="title">Looking for variable row height in your NSOutlineViews and NSTableViews?</h1>
+        
+        <section class="post-content">
+          <blockquote cite="http://www.eng.uwaterloo.ca/~ejones/software/osx-tableview.html">Apple's Cocoa library contains two very good table controls, <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/NSTableView?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">NSTableView</font></span> and it's close relative, <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/NSOutlineView?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">NSOutlineView</font></span> . However, both of these controls have one large limitation: All the rows must be the same height. This is an issue when displaying table cells with content that varies in height, such as large amounts of text or images. Luckily, Apple's Cocoa controls were also very well designed, making it possible to add this functionality simply by subclassing the table views. <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/RowResizableTableView?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">RowResizableTableView</font></span> is an <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/NSTableView?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">NSTableView</font></span> subclass which allows each row to have variable heights, and <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/RowResizableOutlineView?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">RowResizableOutlineView</font></span> is an <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/NSOutlineView?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">NSOutlineView</font></span> subclass with the same functionality. </blockquote><div class="credit" align="right"><small>Source:<cite><a href="http://www.eng.uwaterloo.ca/~ejones/software/osx-tableview.html">RowResizableTableView: Variable Row Height Tables and Outlines </a></cite>.</small></div>
+<p>Wow.  Although I think my <a href="http://www.decafbad.com/twiki/bin/view/Main/Arboretum">Arboretum</a> project is very likely asleep for good, it was the want for this particular component that most discouraged me from continuing with my outliner.  Nowadays what keeps me away is the absolute brilliant quality OmniGroup's OmniOutliner and the fact that it supports <a href="http://www.decafbad.com/twiki/bin/view/Main/AppleScript">AppleScript</a>, and furthermore, the fact that <a href="http://www.decafbad.com/twiki/bin/view/Main/AppleScript">AppleScript</a> has its tendrils in abso-freaking-lutely every app that seems to matter to me.  So, I can pretty much have everything I wanted to have out of <a href="http://www.decafbad.com/twiki/bin/view/Main/Arboretum">Arboretum</a> right now.</p>
+<p>But I'd still like to come up with a decent project in Cocoa for myself.  It's just so damn comfy to develop with.</p>
+<!--more-->
+shortname=ooocie
+
+        </section>
+      </article>
+        </section>
+
+        <footer>
+          <img id="growup" src="/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/js/vendor/lazyload.js"></script><script src="/js/vendor/prism.js"></script><script src="/js/toc.js"></script><script src="/js/analytics.js"></script><script src="/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

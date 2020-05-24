@@ -1,0 +1,141 @@
+Still alive...  I think.  Have worked about 40 or 50 hours in the past 3 days.  First release of work project happens tomorrow, after which I hope to take a 4 day vacation to celebrate my and my girlfriend's birthday (Oct 24, same day).
+<br /><br />
+Some revelations over the last few days:<ul><li>October is not 31 days long - it is 31 days and one hour long.</li><li>Java has a class to handle date manipulations that I forgot to use, for some reason - but now that I know about it, there's some major rearchitecting in store to use it.</li><li>I'm tired of bar graphs, web server logs, and explaining how the tea leaves are read.</li><li>I like my new Treo Communicator - it is great for playing <a href="http://roguelike-palm.sourceforge.net/kMoria/index.php">kMoria</a> (but not <a href="http://www.nethack.org">NetHack</a>) and quickly SSH'ing into a server from bed to restart a process about whose death I was paged on the same device.  (ooh, what if the pager message could contain a button to connect to the server crying wolf?)</li><li>I've come to realize that I enjoy playing <a href="http://www.decafbad.com/twiki/bin/view/Main/NetHack">NetHack</a> and kMoria between compile-and-test cycles at 3AM better than I ever enjoyed Everquest in quieter times.</li><li>On the drive home, as the sun was rising, I was trying to think of just what aspects of Everquest (beyond graphics and besides multiplayer) are better than the family of Rogue-like games.  And...  could someone hack together a Rogue-like UI with which one could play Everquest?</li><li>Also on the drive home, I was thinking that I'd like to take a break from being a geek and a software architect altogether, and maybe raise sheep and make sweaters for awhile.  What do you think?</li><li>Hernias suck, and impending surgery is stress-inducing.</li></ul>Hopefully I'll be recovered and returned to the world after next week.  I've been vaguely poking my head in and around the neighborhood, but with my iBook suffering from seizures and my brain feeling like an alien abduction aftermath, I'll have a lot of catching up to do.
+<!--more-->
+shortname=ooocab
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221086365">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://revjim.net/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=33660e6606dfa6f2a374625315bc40b1&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://revjim.net/">Reverend Jim</a>
+                </div>
+                <a href="#comment-221086365" class="permalink"><time datetime="2002-10-24T11:21:04">2002-10-24T11:21:04</time></a>
+            </div>
+            <div class="content">I can't tell you how many times I've considered getting out of the programming/IT business all together and just doing something normal. Fixing cars. Raising cattle. Cleaning carpet. Anything.
+
+Maybe a nice middle ground would be to do something programming/IT related for a company that isn't in the technology industry.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221086366">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://radio.weblogs.com/0111823/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=99d6f317c1bc2ac933c26f8233a11fa1&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://radio.weblogs.com/0111823/">Charles Nadeau</a>
+                </div>
+                <a href="#comment-221086366" class="permalink"><time datetime="2002-10-24T12:43:34">2002-10-24T12:43:34</time></a>
+            </div>
+            <div class="content">Happy Birthday!!!</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221086368">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.10500bc.org"><img src="http://www.gravatar.com/avatar.php?gravatar_id=6492f173a7059ece309f7d670ff44e95&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.10500bc.org">nf0</a>
+                </div>
+                <a href="#comment-221086368" class="permalink"><time datetime="2002-10-24T13:50:20">2002-10-24T13:50:20</time></a>
+            </div>
+            <div class="content">"Maybe a nice middle ground would be to do something programming/IT related for a company that isn't in the technology industry."
+
+Thats what i did. After too many lost days and nights with family and friends i finally went to work for my companies biggest client. We do manufacturing, we need computers, but its not like working for the software company. Its a balance. Of course the whole farming thing is a good idea as well, i do have a BS in agriculture :)</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221086371">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.decafbad.com">l.m.orchard</a>
+                </div>
+                <a href="#comment-221086371" class="permalink"><time datetime="2002-10-24T13:52:52">2002-10-24T13:52:52</time></a>
+            </div>
+            <div class="content">Thankee :)  I've reached a ripe old age of 27 today!
+
+Gah.  And I remember when I did think that was old.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221086373">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.homestarrunner.com/sbemail27.html"><img src="http://www.gravatar.com/avatar.php?gravatar_id=3d88c05af484609383b6fd11a38bd90a&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.homestarrunner.com/sbemail27.html">Strong Bad</a>
+                </div>
+                <a href="#comment-221086373" class="permalink"><time datetime="2002-10-24T18:27:01">2002-10-24T18:27:01</time></a>
+            </div>
+            <div class="content">What kind of idiot are you??? You forgot Java has a class to handle date manipulations???  Well, humph, I can see.. I can see that you are a very foolish person.  Cheat even knew that you silly silly programer.  Try typing with Boxing Gloves on, are they on, my boxing gloves?
+
+Take it easy, enjoy life.  Raise sheep but, don't do anything else with the sheep.  Please, for the sake of the sheep.  I beg you.  Thats sick.  You know it, I know it.
+
+Crapfully Crap,
+
+Strong Bad</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221086375">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac5a98014474f6932771b1693daeb41&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="">patient0</a>
+                </div>
+                <a href="#comment-221086375" class="permalink"><time datetime="2002-10-29T15:28:56">2002-10-29T15:28:56</time></a>
+            </div>
+            <div class="content">I feel your pain. I too would like to stop working in the tech industry and do something completely different. 
+
+I started out geeked about the internet upon it's public release. I thought it would be cool to make a difference and come up with some really cool technologies, make new types of interactive gadgets and what not. But it is hard to do what you love when people (mostly the ++unsmart kind), business agendas and worst of all: politics; come into play.
+
+By that point, it seems like your not doing what you love anymore, it becomes a compromise, "Well at least I am in the field of work I love." But it seems for me, it's just so hard to put my whole heart into anymore. It doesn't continue to be a personally rewarding field as you progress. At least that is what I found in these past 6 or 7 years of doing this stuff professionally.
+
+Most CS people aren't going to be content to hack the same code forever and at the same pay rate, so you move on to the next thing, at least it's a new challenge, better pay and you might actually be geeked about the new challenge. Time passes, excitement subsides, the loop starts over again. Pretty soon, there is nowhere to go but management. Eek! Who wants that job, I want a job that requires me to think. I say that because if you had to deal with managers like many I have had, it clearly isn't a requirement. 
+
+I agree, save money, quit work, watch management plea on their knees for you to stay, buy a farm, raise sheep and make sweaters. Just don't do any of that repulsive line dancing.
+
+On another of your points, the graphics and multiplayer are what is better about Everquest versus rogue-like games. Well that and the dynamic content, and the variety of things you can pursue in game; like blacksmithing, tailoring, jewelry, baking, pottery, etc. If you&#8217;re a person that really gets into the role-playing aspect of a game, there is actually a role-playing only server in Everquest now, FirionaVie. It has an interesting set of additional rules that make it a bit more fun to play versus the standard servers or PvP. It's more Player versus the Elements, so it forces the social aspect.
+
+And since you seem to be a Mac person now, Everquest is coming out for OSX, though they will be separate from the PC users.
+
+It may be possible to hack together a simple rogue-like interface for EQ, though completely blowing your EULA and having the possibility of getting banned. There are people who have macro programs out there that sit on top of the EQ client that can record any number of actions and run them, I don't see why one couldn't use those hooks directly to overlay the simpler interface. Though realistically, you probably don&#8217;t have enough screen area to hold the basic onscreen stuff you may need for grouping and what not.
+
+I wonder to what extent you extend the current EQ interface with the new XML driven interface.  You can completely customize and mod everything that you see onscreen, it's actually very slick. People have added in-game maps, timers, and new combined features. I wonder if it could even be done that way instead of violating the EULA. Probably not, but I wonder how far you could go with something like that.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221086378">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=822e1d2cd4c92265d1abdc74fc88c0d9&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="">Azinsuken</a>
+                </div>
+                <a href="#comment-221086378" class="permalink"><time datetime="2002-12-30T01:26:56">2002-12-30T01:26:56</time></a>
+            </div>
+            <div class="content">Hello, i was browsing for hack programs for everquest (so i could report them) and for some reason this site came up are you hosting any everquest hacking downloads?</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

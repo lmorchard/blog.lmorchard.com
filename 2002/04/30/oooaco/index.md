@@ -1,0 +1,9 @@
+<p>I &amp;heart; the Internet and weblogs.</p>
+<p>What happens when one of my favorite bands' main man, <a href="http://www.superspecialquestions.com">Mike Doughty</a>, and one of my favorite ex-Star-Trek-survived-the-80's actors, <a href="http://www.wilwheaton.net">Wil Wheaton</a>, collide in <a href="http://www.wilwheaton.net/mt/archives/001030.php">blogspace</a> and <a href="http://www.templar.com/doughty/forum/messages/3857/4818.html?TuesdayApril3020021007am">discussion groups</a>?</p>
+<p>Well, first no one believe's it's really Wil Wheaton posting to the DG.  But then, when everyone realizes that yes, in fact, it's him, Mike himself posts the moral of the story:<blockquote><i>so the flip side of the don't believe what people<br />
+tell you on the internet lesson is--you know,<br />
+people on the internet might actually be who they<br />
+say they are. how bout them apples?</i></blockquote>Not to have a Jerry Springer moment here, but:  Yes, how <b>about</b> them apples?  It's the new internet, where some people really are who they say they are, even if possessed of some vague degree of celebrity.  And not only that, but your ears turn red and ring when someone's talking about you.</p>
+<p>Now, maybe if I say Wil Wheaton's name three times in a <a href="http://us.imdb.com/Title?0094721">Beetlejuician manner</a>, he'll show up over here too.  :)</p>
+<!--more-->
+shortname=oooaco

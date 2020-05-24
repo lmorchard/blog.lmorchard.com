@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>Identifying RSS readers, and obsessively watching referrers in RSS - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="Identifying RSS readers, and obsessively watching referrers in RSS" />
+        <meta
+          property="og:url"
+          content="https://blog.lmorchard.com/"
+        />
+        
+        <meta property="og:description" content="&lt;p&gt;Okay, starting to poke at my referrer scripts again and produced two new things:  &lt;a href=&quot;http://www.decafbad.com/recent_referers_rss.php&quot;&gt;Recent Referrers in &lt;/a&gt;&lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; (&lt;a href=&quot;http://www.decafbad.com/recent_referers_rss_php.txt&quot;&gt;src&lt;/a&gt;) and &lt;a href=&quot;http://www.decafbad.com/rss_readers.phtml&quot;&gt;RSS Feed Readers&lt;/a&gt; (&lt;a href=&quot;http://www.decafbad.com/rss_readers_phtml.txt&quot;&gt;src&lt;/a&gt;).  I simplified my database a bit, collapsing multiple rows into single rows with a hit count column.  Also squashed a few stupid bugs that had cropped up in the Great Site Move a month or so ago.  Realized that the counts were insanely wrong, sometimes showing a count as high as 15 for a post that might have only 3 back links.&lt;/p&gt;
+&lt;p&gt;Likely the referers in &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; will be of interest only to me as I obsessively watch my site (though I &lt;i&gt;do&lt;/i&gt; subscribe to &lt;a href=&quot;http://www.disenchanted.com/dis/xml.html&quot;&gt;Disenchanted&amp;apos;s Recent Inbound&lt;/a&gt;, since it gives me a stream of new sites to visit).  But, the &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; feed readers list is a few steps closer to the friends-of list I want to move from &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/LiveJournal&quot;&gt;LiveJournal&lt;/a&gt; out into the blogosphere proper.  &lt;/p&gt;
+&lt;p&gt;One of the next things I want to do is start cobbling a fairly modular &amp;amp; general URL investigator - that is, give it a url, and have it try to track down title, author, contents page, &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; feed, location, and any other metadata that comes up.  I could then use this to flesh out all the links everywhere, from backlinks to the friends-of list.  Basically what many other people have been doing for different semantic aspects, but all rolled into one agent.&lt;/p&gt;
+&lt;p&gt;Along with that, I want to implement some manual annotation of sites known by my site.  Thinking that, between per-post backlinks and &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; reader links, I could eventually build a decent database of metadata here.  With that, all kinds of nifty things could happen...&lt;/p&gt;
+&lt;p&gt;Okay, time for bed.  Starting to ramble, or at least be tempted to do so.&lt;/p&gt;
+" />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post "
+      >
+        <time
+          title="2002-06-11T02:34:03-07:00"
+          pubdate="2002-06-11T02:34:03-07:00"
+        >
+          <a href="/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/2002/"
+            >2002</a
+          >
+          &raquo;
+          <a href="/2002/06/"
+            >June</a
+          >
+          &raquo;
+          <span>11</span>
+          &raquo;
+        </time>
+        <h1 class="title">Identifying RSS readers, and obsessively watching referrers in RSS</h1>
+        
+        <section class="post-content">
+          <p>Okay, starting to poke at my referrer scripts again and produced two new things:  <a href="http://www.decafbad.com/recent_referers_rss.php">Recent Referrers in <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a></a> (<a href="http://www.decafbad.com/recent_referers_rss_php.txt">src</a>) and <a href="http://www.decafbad.com/rss_readers.phtml">RSS Feed Readers</a> (<a href="http://www.decafbad.com/rss_readers_phtml.txt">src</a>).  I simplified my database a bit, collapsing multiple rows into single rows with a hit count column.  Also squashed a few stupid bugs that had cropped up in the Great Site Move a month or so ago.  Realized that the counts were insanely wrong, sometimes showing a count as high as 15 for a post that might have only 3 back links.</p>
+<p>Likely the referers in <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> will be of interest only to me as I obsessively watch my site (though I <i>do</i> subscribe to <a href="http://www.disenchanted.com/dis/xml.html">Disenchanted's Recent Inbound</a>, since it gives me a stream of new sites to visit).  But, the <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> feed readers list is a few steps closer to the friends-of list I want to move from <a href="http://www.decafbad.com/twiki/bin/view/Main/LiveJournal">LiveJournal</a> out into the blogosphere proper.  </p>
+<p>One of the next things I want to do is start cobbling a fairly modular &amp; general URL investigator - that is, give it a url, and have it try to track down title, author, contents page, <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> feed, location, and any other metadata that comes up.  I could then use this to flesh out all the links everywhere, from backlinks to the friends-of list.  Basically what many other people have been doing for different semantic aspects, but all rolled into one agent.</p>
+<p>Along with that, I want to implement some manual annotation of sites known by my site.  Thinking that, between per-post backlinks and <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> reader links, I could eventually build a decent database of metadata here.  With that, all kinds of nifty things could happen...</p>
+<p>Okay, time for bed.  Starting to ramble, or at least be tempted to do so.</p>
+<!--more-->
+shortname=oooaio
+
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221090289">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.10500bc.org"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2a158ec6895b9af4ce255febfe69ffee&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.10500bc.org">Josh Cooper</a>
+</div>
+<a href="#comment-221090289" class="permalink"><time datetime="2002-06-11T12:50:12">2002-06-11T12:50:12</time></a>
+</div>
+<div class="content">Nice scripts, combine that with Bills RSS comments script and you never have to visit your own site again :)</div>
+</li>
+<li class="comment" id="comment-221090290">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.decafbad.com">l.m.orchard</a>
+</div>
+<a href="#comment-221090290" class="permalink"><time datetime="2002-06-11T13:31:04">2002-06-11T13:31:04</time></a>
+</div>
+<div class="content">Yay, I forgot about that.  All done:
+http://www.decafbad.com/recent_comments_rss.xml</div>
+</li>
+<li class="comment" id="comment-221090291">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=b53911af792174097e8acb282414b44c&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="">Bill Kearney</a>
+</div>
+<a href="#comment-221090291" class="permalink"><time datetime="2002-06-12T13:53:39">2002-06-12T13:53:39</time></a>
+</div>
+<div class="content">Heh, it's really amazing to see how a series of really simple scripts and templates leads to all sorts of unexpected associations.  The aggregator is indeed becoming much of what exists in Digital Dashboard sort of implementations.</div>
+</li>
+</ul>
+</div>
+
+        </section>
+      </article>
+        </section>
+
+        <footer>
+          <img id="growup" src="/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/js/vendor/lazyload.js"></script><script src="/js/vendor/prism.js"></script><script src="/js/toc.js"></script><script src="/js/analytics.js"></script><script src="/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

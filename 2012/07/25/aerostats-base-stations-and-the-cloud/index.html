@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>Aerostats, Base Stations, and the Cloud - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="Aerostats, Base Stations, and the Cloud" />
+        <meta
+          property="og:url"
+          content="https://blog.lmorchard.com/"
+        />
+        <meta
+            property="og:image"
+            content="http://farm1.staticflickr.com/57/168630854_595cb67b37.jpg"
+          />
+        <meta property="og:description" content="
+
+&lt;p&gt;In my thinking about things &lt;a href=&quot;http://indiewebcamp.com/&quot;&gt;IndieWeb&lt;/a&gt; and user-supported cloud infrastructure, I&amp;#x2019;ve had a couple of notions bouncing around in my head that might help clarify some &amp;#x201C;products&amp;#x201D; I&amp;#x2019;d like to build if and when I have time. I guess this would be good to blog about, so maybe someone else can steal my ideas (if they&amp;#x2019;re any good). Because, after all, much of this is sourced from material I&amp;#x2019;ve stolen from guys like &lt;a href=&quot;http://scripting.com/&quot;&gt;Dave Winer&lt;/a&gt;. &lt;/p&gt;" />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post tag-aerostatstag-basestationstag-cloudtag-socialtag-webdev"
+      >
+        <time
+          title="2012-07-25T05:00:00-07:00"
+          pubdate="2012-07-25T05:00:00-07:00"
+        >
+          <a href="/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/2012/"
+            >2012</a
+          >
+          &raquo;
+          <a href="/2012/07/"
+            >July</a
+          >
+          &raquo;
+          <span>25</span>
+          &raquo;
+        </time>
+        <h1 class="title">Aerostats, Base Stations, and the Cloud</h1>
+        <ul class="tags">
+            <li>
+                  <a href="/tag/aerostats/">aerostats</a>
+                </li><li>
+                  <a href="/tag/basestations/">basestations</a>
+                </li><li>
+                  <a href="/tag/cloud/">cloud</a>
+                </li><li>
+                  <a href="/tag/social/">social</a>
+                </li><li>
+                  <a href="/tag/webdev/">webdev</a>
+                </li>
+          </ul>
+        <section class="post-content">
+          <div id="toc_container" class="toc_wrap_right no_bullets">
+  <p class="toc_title">
+    Contents
+  </p>
+
+  <ul class="toc_list">
+    <li>
+      <a href="#Aerostats"><span class="toc_number toc_depth_1">1</span> Aerostats</a>
+    </li>
+    <li>
+      <a href="#Base_Stations"><span class="toc_number toc_depth_1">2</span> Base Stations</a>
+    </li>
+    <li>
+      <a href="#The_Cloud"><span class="toc_number toc_depth_1">3</span> The Cloud</a>
+    </li>
+    <li>
+      <a href="#Nerds-only_for_now"><span class="toc_number toc_depth_1">4</span> Nerds-only, for now</a>
+    </li>
+  </ul>
+</div>
+
+<p>In my thinking about things <a href="http://indiewebcamp.com/">IndieWeb</a> and user-supported cloud infrastructure, I&#8217;ve had a couple of notions bouncing around in my head that might help clarify some &#8220;products&#8221; I&#8217;d like to build if and when I have time. I guess this would be good to blog about, so maybe someone else can steal my ideas (if they&#8217;re any good). Because, after all, much of this is sourced from material I&#8217;ve stolen from guys like <a href="http://scripting.com/">Dave Winer</a>. <!--more--></p>
+<h2 id="aerostats"><span id="Aerostats">Aerostats</span></h2>
+<p><a style="display: block; float: right; width: 200px; margin: 0 0 1em 1em" href="http://www.flickr.com/photos/allstar/168630854/" title="Aerostat Closeup by Alistair Howard, on Flickr"><img src="http://farm1.staticflickr.com/57/168630854_595cb67b37.jpg" width="200" alt="Aerostat Closeup" /></a></p>
+<p>The first notion is &#8220;<strong>areostats on the web</strong>&#8221; &#8211; and by that I mean little servers that you own &amp; run out in the cloud, like communication satellites. They&#8217;re positioned on the high ground, in view of lots of clients behind firewalls that can&#8217;t see each other.</p>
+<p>An <strong>aerostat</strong> provides rendezvous, repeaters, store-and-forward inboxes, and general all-around persistent resources accessible by mobile and sometimes-online devices.</p>
+<p><strong>Aerostats</strong> can talk to each other and pass messages around. They include things like <a href="https://code.google.com/p/pubsubhubbub/">PubSubHubbub</a> &amp; <a href="http://rsscloud.org/">rssCloud</a>; <a href="http://www.jabber.org/">Jabber</a> / <a href="http://xmpp.org/">XMPP</a>; <a href="http://arstechnica.com/business/2012/02/mozilla-developing-web-push-notification-system-for-firefox/">web-based push notifications</a>.</p>
+<p><strong>Aerostats</strong> don&#8217;t necessarily include web servers intended for general content publishing: Many of these coordination and communication services involve a web server, but in my mind an <strong>aerostat</strong> isn&#8217;t where you stick your blog. It might be the thing that fires off update pings when you post to your blog, though. The blog itself could be hosted on Amazon S3 &#8211; because they do paid scalable content hosting very well. (And, just visualize how easy it would be for a mob to pull down an aerostat.)</p>
+<p>I don&#8217;t really have any <strong>aerostats</strong> built, yet. I want to, though. I&#8217;ve got ideas for many pieces, but have yet to assemble them in a meaningful way.</p>
+<h2 id="base-stations"><span id="Base_Stations">Base Stations</span></h2>
+<p><a style="display: block; float: right; width: 200px; margin: 0 0 1em 1em" href="http://www.flickr.com/photos/mikelehen/4271004880/" title="2 cordless phones by mikelehen, on Flickr"><img src="http://farm3.staticflickr.com/2698/4271004880_bd42bc9d94.jpg" width="200" alt="2 cordless phones" /></a></p>
+<p>The second notion is &#8220;<strong>base stations on the web</strong>&#8221; &#8211; and by that I mean little servers that you own &amp; run at home, like the base station for old-school cordless phones.</p>
+<p>A <strong>base station</strong> could be your NAS or Time Machine, and it&#8217;s where your constellation of laptops and mobile devices can sync up when you&#8217;re on the couch. If you&#8217;re lucky, you have a stable IP on the public net from your ISP and can open a port in your router&#8217;s firewall &#8211; that way, your devices can get to the base station while you&#8217;re out and about.</p>
+<p><strong>Base stations</strong> include things such as backup services; a <a href="http://docs.services.mozilla.com/howtos/run-sync.html">Firefox Sync server</a>; a <a href="http://www.w3.org/community/unhosted/wiki/RemoteStorage">storage API</a> for mobile apps. In my mind, a <strong>base station</strong> is largely private, maybe shared with a single household or immediate family. A <strong>base station</strong> isn&#8217;t where you host your blog, but it could be the thing that fetches updates from <em>others&#8217;</em> blogs and hosts a news reader.</p>
+<p>I have a <strong>base station</strong> at home, right now. It&#8217;s a <a href="http://www.amazon.com/gp/product/B005YW7OLM/ref=as_li_ss_tl?ie=UTF8&amp;tag=0xdecafbad01-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=B005YW7OLM" title="The model number changes every year; mine is 2 years old.">Synology DS210j NAS</a>, and it comes with much of the above out of the box. I&#8217;ve added a <a href="http://docs.services.mozilla.com/howtos/run-sync.html">Firefox Sync</a> server, though that needs some work on my end. I&#8217;m also able to open a port on my router. That&#8217;s allowed me to enjoy my own music collection from a 1TB hard drive in my basement, <a href="https://play.google.com/store/apps/details?id=com.synology.DSaudio&amp;feature=search_result#?t=W251bGwsMSwxLDEsImNvbS5zeW5vbG9neS5EU2F1ZGlvIl0.">using my smartphone on wifi</a> while at 10,000 feet over Utah. Who needs to upload tracks to Google or Amazon?</p>
+<p>(Well, you might, if you don&#8217;t want to bother with maintaining a music collection at home &#8211; but I like it.)</p>
+<h2 id="the-cloud"><span id="The_Cloud">The Cloud</span></h2>
+<p><a style="display: block; float: right; width: 200px; margin: 0 0 1em 1em" href="http://www.flickr.com/photos/katysilbs/7537493628/" title="Unusual Cloud over Portage Lake Channel by Katy Silberger, on Flickr"><img src="http://farm8.staticflickr.com/7127/7537493628_6d85b4fab7.jpg" width="200" alt="Unusual Cloud over Portage Lake Channel" /></a></p>
+<p>Now, there&#8217;s nothing keeping <strong>aerostats</strong> or <strong>base stations</strong> from being things provided entirely in the cloud. In fact, most of these things are available out there right now. But, it&#8217;s fairly hard to host these things yourself if you wanted to, and common APIs are lacking.</p>
+<p>Some of the cloud services are for-pay and some are for free, but the stability of many are questionable. So, self-hostability and common APIs would at least make it easier (or at least possible) for you to jump off a burning platform if or when the company goes under or <a href="http://techland.time.com/2012/07/20/why-google-or-facebook-buying-your-favorite-startup-means-its-probably-toast/">a giant like Facebook or Google buys them and the dev team gets retasked</a>.</p>
+<p>Really, the point here is that you should be able to pay a vendor to run these services, or you should be able to buy your own hardware and run them yourself. Or, I guess you can subject yourself to ads and behavioral analysis to get a free ride &#8211; <a href="http://en.wikipedia.org/wiki/There_ain%27t_no_such_thing_as_a_free_lunch">but, you get what you pay for</a>.</p>
+<h2 id="nerds-only-for-now"><span id="Nerds-only_for_now">Nerds-only, for now</span></h2>
+<p>Another thing to note is that, at least in my mind, the terms <strong>aerostat</strong> and <strong>base station</strong> invoke thoughts of amateur radio. That&#8217;s on purpose: Like usual, I think the next phase of this stuff <a href="http://scripting.com/stories/2012/07/21/usersWillTakeControl.html">is and will be lovable only by the nerds</a> &#8211; just like the blogosphere in the last decade. So, I might as well embrace that at first and visualize ham operators on the web.</p>
+<p>Maybe this stuff can eventually be productized in a more generally usable way &#8211; yet preserves qualities of freedom, privacy, usability, and reliability.</p>
+
+        </section>
+      </article>
+
+      <section class="comments" id="comments">
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+            var disqus_needs_loading = true;
+            var disqus_url = "https://blog.lmorchard.com";
+          </script>
+          <noscript
+            >Please enable JavaScript to view the
+            <a href="http://disqus.com/?ref_noscript"
+              >comments powered by Disqus.</a
+            ></noscript
+          >
+          <a href="http://disqus.com" class="dsq-brlink"
+            >blog comments powered by <span class="logo-disqus">Disqus</span></a
+          >
+        </section>
+        </section>
+
+        <footer>
+          <img id="growup" src="/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/js/vendor/lazyload.js"></script><script src="/js/vendor/prism.js"></script><script src="/js/toc.js"></script><script src="/js/analytics.js"></script><script src="/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

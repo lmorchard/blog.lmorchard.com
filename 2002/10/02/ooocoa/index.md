@@ -1,0 +1,32 @@
+Seen at <a href="http://www.hiptop.com">HipTop.com</a>:<blockquote><i>Hiplogs Online Journals?It's your chance to be a star! You and your trusty T-Mobile Sidekick, that is. Share your deepest thoughts or wildest whims online with a public journal you can update on the go!</i></blockquote>See?  <a href="http://www.decafbad.com/twiki/bin/view/Main/BlogWalking">BlogWalking</a> is a nascent meme!  Or something.  Yeah!
+<!--more-->
+shortname=ooocoa
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221087511">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://jw.servebeer.com:8080"><img src="http://www.gravatar.com/avatar.php?gravatar_id=fab1aa3c922ea85cac270ff6ce313a20&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://jw.servebeer.com:8080">Jeff Winkler</a>
+                </div>
+                <a href="#comment-221087511" class="permalink"><time datetime="2002-10-03T11:25:31">2002-10-03T11:25:31</time></a>
+            </div>
+            <div class="content">I've blogged at a traffic light with the Hiptop :) 
+
+Hope someone does a chording keyboard that plugs into the USB port (Bluetooth would be cool here), for faster one-handed typing.
+
+Impressions of the Hiptop, after two days:
+http://jw.servebeer.com:8080/space/</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

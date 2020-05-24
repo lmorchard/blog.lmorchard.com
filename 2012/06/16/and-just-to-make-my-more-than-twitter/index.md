@@ -1,0 +1,1 @@
+And, just to make my more-than-twitter-less-than-essay blogging faster, I&#8217;m going to try out the P2 theme. This seems right up my alley.

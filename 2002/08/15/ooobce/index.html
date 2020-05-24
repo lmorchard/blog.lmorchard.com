@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>Living la vida regex - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="Living la vida regex" />
+        <meta
+          property="og:url"
+          content="https://blog.lmorchard.com/"
+        />
+        
+        <meta property="og:description" content="&lt;p&gt;&lt;a href=&quot;http://diveintomark.org/archives/2002/08/15.html#better_living_through_regular_expressions&quot;&gt;Better living through regular expressions&lt;/a&gt; from Mark Pilgrim.  This has got me thinking of two things:&lt;/p&gt;&lt;ol&gt;&lt;li&gt;I need to hack together some MT macros or a plugin that finds &amp;amp; links wiki-words in blog entries to my wiki, and I need to start writing in the wiki again.&lt;/li&gt;&lt;li&gt;I really dig his blog&amp;apos;s skin, and I need to finally read though all of his &lt;a href=&quot;http://diveintoaccessibility.org/&quot;&gt;accessibility tips&lt;/a&gt; and re-skin this site.  This place is butt-ugly.&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;&lt;/p&gt;
+" />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post "
+      >
+        <time
+          title="2002-08-15T10:33:30-07:00"
+          pubdate="2002-08-15T10:33:30-07:00"
+        >
+          <a href="/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/2002/"
+            >2002</a
+          >
+          &raquo;
+          <a href="/2002/08/"
+            >August</a
+          >
+          &raquo;
+          <span>15</span>
+          &raquo;
+        </time>
+        <h1 class="title">Living la vida regex</h1>
+        
+        <section class="post-content">
+          <p><a href="http://diveintomark.org/archives/2002/08/15.html#better_living_through_regular_expressions">Better living through regular expressions</a> from Mark Pilgrim.  This has got me thinking of two things:<ol><li>I need to hack together some MT macros or a plugin that finds &amp; links wiki-words in blog entries to my wiki, and I need to start writing in the wiki again.</li><li>I really dig his blog's skin, and I need to finally read though all of his <a href="http://diveintoaccessibility.org/">accessibility tips</a> and re-skin this site.  This place is butt-ugly.</li></ol></p>
+<!--more-->
+shortname=ooobce
+
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221089786">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://diveintomark.org/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2aac8a68f46151f080ddb17ee0d2454e&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://diveintomark.org/">Mark Pilgrim</a>
+</div>
+<a href="#comment-221089786" class="permalink"><time datetime="2002-08-15T14:28:35">2002-08-15T14:28:35</time></a>
+</div>
+<div class="content">Better!  Make Movable Type understand wiki-style syntax.  Like complete wiki style.  Structured text.  * for lists.  === for headers.  [] for links.  Auto-paragraphs that actually work (and validate afterwards).  The whole works.  I wish I knew Perl.</div>
+</li>
+<li class="comment" id="comment-221089787">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.decafbad.com">l.m.orchard</a>
+</div>
+<a href="#comment-221089787" class="permalink"><time datetime="2002-08-15T17:11:08">2002-08-15T17:11:08</time></a>
+</div>
+<div class="content">Hmm, I could think of 3 good ways to do this...Run my MT entries through TWiki via a little bit of hackery.  But of course, that leaves users of other wikiclones out.Use Text::WikiFormat  from CPAN, which seems like a nifty self-contained implementation of classic wiki formatting.  This choice, though, leaves MT unconnected to the content in an existing wiki.Use a combination of two of my pet projects: XmlRpcFilteringPipe and XmlRpcToWiki.  I'm not sure how MT tags work yet, but I suppose I could make a tag that filters its contents through an XML-RPC-based filter service that happens to run it through an XML-RPC-enabled wiki.I'm leaning toward #3, since with the XML-RPC pipeline concept I've been tinkering with, you could line up a series of transformations (not just wikification) on your blog entries, some of which could be performed via services offered at other websites.
+Of course, #2 is the probably the simplest, if all you want is just wiki formatting in MT.
+Hmm.  I think I'll have to tinker with this.</div>
+</li>
+</ul>
+</div>
+
+        </section>
+      </article>
+        </section>
+
+        <footer>
+          <img id="growup" src="/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/js/vendor/lazyload.js"></script><script src="/js/vendor/prism.js"></script><script src="/js/toc.js"></script><script src="/js/analytics.js"></script><script src="/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>
