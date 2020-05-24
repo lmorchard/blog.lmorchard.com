@@ -31,5 +31,10 @@ jobs:
       run: yarn install
     - name: Build for staging
       run: yarn run stage:build
+    - name: Archive staging artifacts
+      uses: actions/upload-artifact@v1
+      with:
+        name: build
+        path: build
     - name: Deploy for staging
-      run: ./node_modules/.bin/gh-pages -t -d build -r https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+      run: ./node_modules/.bin/gh-pages -t -d build -r https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
