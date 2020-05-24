@@ -1,0 +1,5 @@
+<p>Hmm.  Okay, so <a href="http://homepage.mac.com/zoe_info/Resume3.html">Zoe</a> looks promising, but.. umm.. I can't figure it out.  </p>
+<p>I added an IMAP account.  Stuff seems to happen, which ends up in a lot of <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/FolderNotFoundException?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">FolderNotFoundException</font></span> and <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/OutOfMemoryError?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">OutOfMemoryError</font></span> exceptions to my terminal.  No mail appears on the front page.  I tried changing my SMTP server to use Zoe, and then was going to foward email to import it as the <a href="http://homepage.mac.com/zoe_info/Education6.html">FAQ suggests</a>, but umm..  to what address do I forward it?</p>
+<p>Urk.  This makes me feel dumb.</p>
+<!--more-->
+shortname=oooabb

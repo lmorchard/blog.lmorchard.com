@@ -1,0 +1,296 @@
+<p>At last:  I had a good solid hacking session with the beast under <a href="http://www.decafbad.com/twiki/bin/view/Main/WinXP">WinXP</a>, and I think I've flushed out the showstopper bugs.  So, here's yet <i>another</i> release (hopefully <i>zaro boogs</i>) of the thing for you to grab and try:<ul><li><a href="http://www.decafbad.com/gems/AmphetaOutlines-20020806-2.tar.gz">AmphetaOutlines-20020806-2.tar.gz</a></li></ul>Thanks for bearing with me out there and not beating me about the head and shoulders.  :)  I mean, yes, it's free and its experimental...  but it's still damn frustrating.</p>
+<p>Basically, the trouble started when I tried to use "<code>use lib</code>".  Seems like a reasonable enough request, <code>lib.pm</code> being very much a core part of perl.  But, Morbus hadn't used it anywhere in <a href="http://www.decafbad.com/twiki/bin/view/Main/AmphetaDesk">AmphetaDesk</a>, so Perl2EXE cheerfully left it out.  Well, I had to hack by other means, since I wanted this thing to be as drop-in compatible with the current release of <a href="http://www.decafbad.com/twiki/bin/view/Main/AmphetaDesk">AmphetaDesk</a> as possible.</p>
+<p>And then, there were other bits I'd left out.  And also there were the bits that I'd written at 3:30 am the other night and wasn't precisely sure what made it possible for them to actually work anywhere, let alone on my iBook.  But, I think now I've got things under control.</p>
+<p>It makes me appreciate the OS X environment so much more.  OS X is like driving a nice big, fully packed RV that handles like a station wagon down the hacking highway.  On the other hand, Windows is a Ford Festiva with a hole in the floorboards and a nagging suspicion that I forgot something back at the house.  Okay, so that was a bit contrived.  I just wanted to say <i>something</i> smarmy after all this grumbling.  :)</p>
+<p>Is this thing working for anyone yet?! </p>
+<p><b>Update:</b> In case you were wondering, this release should be usable via the original instructions <a href="http://www.decafbad.com/news_archives/000226.phtml">back here</a>.  Which are, basically:<ol><li>Replace <code>templates/default</code> with this archive's contents.</li><li>Create a directory named <code>channels_meta</code> in your <code>data</code> directory.</li><li><a href="http://www.decafbad.com/twiki/bin/view/Main/ShareAndEnjoy">Share and Enjoy</a></li></ol></p>
+<!--more-->
+shortname=ooobbh
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221084716">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.furrygoat.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=53617e52a0ccf29f19c750e312df0f31&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.furrygoat.com">Steve</a>
+                </div>
+                <a href="#comment-221084716" class="permalink"><time datetime="2002-08-07T03:17:31">2002-08-07T03:17:31</time></a>
+            </div>
+            <div class="content">Still have some trouble :( Sorry.. 
+
+Amphetadesk opens up ok, the templates are now fine. However, I click on a link, the browser goes nuts when the new window is opened. I do get a message "Click counted. Redirecting you to" and the link name, which is followed by it continuously reloading that page/message.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221084717">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.decafbad.com">l.m.orchard</a>
+                </div>
+                <a href="#comment-221084717" class="permalink"><time datetime="2002-08-07T04:45:56">2002-08-07T04:45:56</time></a>
+            </div>
+            <div class="content">Weird!  So the page actually shows the link you're supposed to be going to, but it goes into a reload loop?  Grr!  And you don't see any other errors or messages other than "Click counted..."?</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221084718">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.disobey.com/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=7c86a3bdffadc965eb444f588c24a3f3&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.disobey.com/">Morbus Iff</a>
+                </div>
+                <a href="#comment-221084718" class="permalink"><time datetime="2002-08-07T12:34:13">2002-08-07T12:34:13</time></a>
+            </div>
+            <div class="content">For those reading on, this is a correct statement: "Seems like a reasonable enough request, lib.pm being very much a core part of perl. But, Morbus hadn't used it anywhere in AmphetaDesk, so Perl2EXE cheerfully left it out." This wasn't a conscious decision on my part - it was a sideeffect of the new backend (which allows people like l.m.orchard to hack magical stuff like this template thingy). Suffice it to say, it'll be in the next version of AmphetaDesk (as well as most of the good stuff from these templates). 
+
+I can't thank l.m.orchard enough for doing these hacks whilst I'm away working on other things. You rock!</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221084719">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.disobey.com/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=7c86a3bdffadc965eb444f588c24a3f3&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.disobey.com/">Morbus Iff</a>
+                </div>
+                <a href="#comment-221084719" class="permalink"><time datetime="2002-08-07T12:45:42">2002-08-07T12:45:42</time></a>
+            </div>
+            <div class="content">Steve,
+
+Concerning your looping problem - which browser are you using? In Mozilla, the page works just fine, however, the meta tag refresh is a little off from what it's supposed to be. l.m.orchard has:
+
+&nbsp;&nbsp;META HTTP-EQUIV="Refresh" Content= "0;[$ $GLOBAL::url $]"
+
+When the standards state it should be:
+
+&nbsp;&nbsp;META HTTP-EQUIV="Refresh" Content= "0;URL=[$ $GLOBAL::url $]"
+
+So, what you may want to try (you can leave AmphetaDesk running when you do this), is to go into templates/default/view_item.html and modify the line (near the bottom) to include the URL=.
+
+Let us know how it goes, eh?</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221084720">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.furrygoat.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=53617e52a0ccf29f19c750e312df0f31&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.furrygoat.com">Steve</a>
+                </div>
+                <a href="#comment-221084720" class="permalink"><time datetime="2002-08-07T13:17:47">2002-08-07T13:17:47</time></a>
+            </div>
+            <div class="content">Im an XP user, just using IE6 (ducking thrown eggs and rotten fruit).. 
+
+Anywyas, thanks, the last change fixed it, the window pops up, I get the message briefly, and it redirects correctly now. 
+
+Thanks, it rocks :)</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221084723">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://lambda.weblogs.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=1f311d2ae9cd3f0e02d56b15924519ca&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://lambda.weblogs.com">Ehud Lamm</a>
+                </div>
+                <a href="#comment-221084723" class="permalink"><time datetime="2002-08-11T17:17:31">2002-08-11T17:17:31</time></a>
+            </div>
+            <div class="content">Seems to work fine under IE6 (win98). 
+But... Expand/Collapse all channels don't work, and when I "back" into the channels page after visiting a site, I am not returned to  the same place on the page. 
+
+Thanks!
+
+(Now we only need a tree view [categories] and less strict XML processing...]</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221084724">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.furrygoat.com/rss.xml"><img src="http://www.gravatar.com/avatar.php?gravatar_id=53617e52a0ccf29f19c750e312df0f31&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.furrygoat.com/rss.xml">Steve</a>
+                </div>
+                <a href="#comment-221084724" class="permalink"><time datetime="2002-08-13T14:49:44">2002-08-13T14:49:44</time></a>
+            </div>
+            <div class="content">Well, hate to say it, but, I had to roll back to the previous version. I like the new version with the click tracking, etc., but, I was experiencing some wierdness. For example, I would get OLD entries showing up as the new ones for channels, with the new entries as the old. Plus, sometimes channels would disappear until the collapsible header for another channel. 
+
+I really do like the click tracking concept, just not ready for prime-time yet .. keep up the great work though :)</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221084725">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.diaries.com/ShareMe/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=d712ad3fcd47ddb689c1e395b12dbf96&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.diaries.com/ShareMe/">Fred Grott</a>
+                </div>
+                <a href="#comment-221084725" class="permalink"><time datetime="2002-11-06T11:39:29">2002-11-06T11:39:29</time></a>
+            </div>
+            <div class="content">error report
+
+Program fragment delivered error ``Can't use string ("Array index is out of
+range. Th") as a HASH ref while "strict refs" in use at
+D:\ide-fredgrott\sampledir\amphetadesk-win-v0.93\templates\default\lib/AmphetaDecaf/ChannelsMeta.pm
+line 228.''</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221084726">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=ac977ef3ec28ccaca80e5cbf6db0b1b7&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="">Curtis Seyfried</a>
+                </div>
+                <a href="#comment-221084726" class="permalink"><time datetime="2002-12-24T12:05:01">2002-12-24T12:05:01</time></a>
+            </div>
+            <div class="content">RE: AmpheteDesk v0.93 l.m. orchard template rework.
+
+Well, I downloaded the tarball, removed my old template\default and replaced it with the new one, created the channels_meta under data, cleared all files in my IE6 (gag) cache, all history, etc.; I ran the app, starts up fine no problems.
+But, I also do not see any changes. How do we access the new features ? 
+I'm running Win2k sp3, IE6 sp2 (oh, god help me, don't throw tomatos on my PC, I'm going MAC with my next PC, I'm fed up with the numerous MS patches every week.) 256 meg. RAM.
+
+I'll try a restart of the PC and see what happens.
+
+Before I go, I just went and looked in the channels_meta and it is empty, I had done a number of clicks on various links.
+
+Anyway, it still works, but where is the beef ?
+Curtis</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221084727">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=ac977ef3ec28ccaca80e5cbf6db0b1b7&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="">Curtis Seyfried</a>
+                </div>
+                <a href="#comment-221084727" class="permalink"><time datetime="2002-12-24T13:31:51">2002-12-24T13:31:51</time></a>
+            </div>
+            <div class="content">OK, so I am having another problem.
+Besides not being able to know there are any new features, I just added about 20 new channels to my existing 31, each time I added one in the add channel page, it said it was added successfully.
+When I finished I closed out the browser, closed out ampheta, reopend ampheta, NOT a single new channel was added.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221084729">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=b3df18fa25c33f5ba1f662adf410c016&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="">Curtis</a>
+                </div>
+                <a href="#comment-221084729" class="permalink"><time datetime="2002-12-26T09:54:46">2002-12-26T09:54:46</time></a>
+            </div>
+            <div class="content">Well,
+I realized why I could not add channels and added channels with the new templates, they added fine.
+
+Late I opened Amphdesk, the NEW channels were gone. So I removed the new templates, put back the original added new channels, all seemed OK. This morning I open Ampheta, the new channels are gone. Nothing like this happened before I added the new templates, and I still could never see any new features.
+It'll be worked out, just posting feedback.
+Curtis</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221084732">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://samizdata.org"><img src="http://www.gravatar.com/avatar.php?gravatar_id=a72910ad407be0671d7206a84dd6d5f2&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://samizdata.org">Sean Tomlinson</a>
+                </div>
+                <a href="#comment-221084732" class="permalink"><time datetime="2003-02-07T15:38:00">2003-02-07T15:38:00</time></a>
+            </div>
+            <div class="content">Well, with .93.1 under XP in my case, Amphetadesk totally dies.  It launches the browser and proceeds straight to "Not Responding."  What should I try?
+
+(For once I had actually backed up the default, so all was not lost.)</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221084734">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://samizdata.org"><img src="http://www.gravatar.com/avatar.php?gravatar_id=a72910ad407be0671d7206a84dd6d5f2&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://samizdata.org">Sean Tomlinson</a>
+                </div>
+                <a href="#comment-221084734" class="permalink"><time datetime="2003-02-11T11:11:17">2003-02-11T11:11:17</time></a>
+            </div>
+            <div class="content">I guess I won't see any comments here then.  I'll just have to wait for the next build of Amphetadesk.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221084738">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=983da8243d545023192ca39d0ecb8ae4&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="">James Bhatt</a>
+                </div>
+                <a href="#comment-221084738" class="permalink"><time datetime="2003-06-05T12:16:05">2003-06-05T12:16:05</time></a>
+            </div>
+            <div class="content">do you know the download linky is broke? hope its back soon, i'd really like to try it</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221084739">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=7f59cf2700beffd8da68d857d1355ae0&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="">Triple Entendre</a>
+                </div>
+                <a href="#comment-221084739" class="permalink"><time datetime="2003-06-10T03:28:46">2003-06-10T03:28:46</time></a>
+            </div>
+            <div class="content">http://www.decafbad.com/downloads/AmphetaOutlines-20020917.tar.gz</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221084741">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.decafbad.com">l.m.orchard</a>
+                </div>
+                <a href="#comment-221084741" class="permalink"><time datetime="2003-06-10T07:34:03">2003-06-10T07:34:03</time></a>
+            </div>
+            <div class="content">Just catching up on comments, look here for further updates to AmphetaOutlines:
+
+http://www.decafbad.com/twiki/bin/view/Main/AmphetaOutlines</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

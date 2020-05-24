@@ -1,0 +1,36 @@
+<p>Prof Avery <a href="http://kavery.ecs.fullerton.edu/index.cgi/2002/Apr/23#1019549720">writes</a>:<blockquote><i>Bad enough that the IM blog idea isn't new, the 0xDECAFBAD guy beat me to <a href="http://www.decafbad.com/news_archives/000087.shtml#000087">"404 Correction" in a Personal HTTP Proxy via Google's Cache</a>.</p>
+<p>Oh well, guess there's only one thing for me to do: quit whining and write the code...</i></blockquote>So I'm the 0xDECAFBAD guy now, eh?  Hee-hee.</p>
+<p>Well, I haven't gotten around to writing the proxy yet, so <i>you</i> can beat <i>me</i> to <i>that</i> still. :)  I've had a metric ton of good and sometimes new ideas throughout my relatively short life, but I have a habit of not getting very many of them done.  <i>That's</i> where it counts, not necessarily in the novelty of the idea.</p>
+<p>I mean...  just look at Microsoft.</p>
+<!--more-->
+shortname=oooaad
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221085538">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://kavery.ecs.fullerton.edu/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=132888da5dedf3b4903bddd7ad721e63&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://kavery.ecs.fullerton.edu/">Prof Avery</a>
+                </div>
+                <a href="#comment-221085538" class="permalink"><time datetime="2002-05-01T21:43:27">2002-05-01T21:43:27</time></a>
+            </div>
+            <div class="content">Oops.  I would have responded sooner but somehow I missed this post.  Forgive me, I was in a mood.
+
+Here's an update: I've written a small proxy server or two in Perl for debugging, but I'd rather use someone else's proxy code.  If this thing works, I'd use it full-time, so best to start with something that's production-ready.  I played with Squid thinking I could use a redirector but that only seems to modify requests, not responses.  Apparently what I want is a "reverse proxy," which they're still working on.
+
+So now I'm thinking either Apache with mod_proxy and mod_perl or a personal proxy server like  Muffin.
+
+If anyone has thoughts, I'd like to hear them.  I'm gonna write this code eventually, I swear :-)</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

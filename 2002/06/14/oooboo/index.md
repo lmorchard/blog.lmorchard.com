@@ -1,0 +1,3 @@
+<p><a href="http://www.decafbad.com/mt-images/ampheta-on-x-sm.jpg"><img src="http://www.decafbad.com/mt-images/ampheta-on-x-sm.jpg" align="right"></a>Guess what?  <a href="http://www.disobey.com/amphetadesk">AmphetaDesk v0.93</a> is unleashed upon the world - so <a href="http://www.fnm.com/faq/#23">sing and rejoice, fortune is smiling upon you</a>.  I'm proud to say that I built the OS X faceplate for it, and hopefully the toxic chemicals I used in its production don't cause any lasting effects on you, your children, or your pets.  So, <a href="http://www.disobey.com/amphetadesk">go get it</a> you infovore freaks!</p>
+<!--more-->
+shortname=oooboo

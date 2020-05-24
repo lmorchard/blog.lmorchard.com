@@ -1,0 +1,60 @@
+<p>John Robb <a href="http://jrobb.userland.com/2002/09/05.html#a2464">says</a>:<blockquote><i>Damn.  I have 95% of my PC's processer available at any given moment.  In a year that will probably be 98%, in three years it will be 99%.  This model of the Internet is so messed up.  The fact that over 90% of the computing horsepower on the Internet sits idle at any given moment is insane (in fact, 98% of my DSL connection is dead too).  It is going to change.  It has to change....</i></blockquote>Exactly.  This one of the main reasons I don't think I want to run a "LiveJournal done right, according to me" site.  I'd rather help build a decentralized mutant spawn of LJ, Radio, Gnutella, JXTA, and other things I've yet to realize I should be looking at.  I really need to get some time this Winter to research, think, write, and tinker.</p>
+<p>And the thing John says about everyone converting to notebooks is dead on for me.  I haven't touched my desktop in ages.  My iBook is becoming more and more my primary computing device.  When I first got it, I thought it would be a satellite.  Instead, all my other computers have become peripherals for it - extra storage, little daemon processes, all serving me via my laptop.  Now I just need an excuse to go get myself a <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/TiBook?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">TiBook</font></span> :)</p>
+<!--more-->
+shortname=ooobfi
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221085237">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://boston.conman.org/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=778e89305f331b88a87a94b348164df8&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://boston.conman.org/">Sean Conner</a>
+                </div>
+                <a href="#comment-221085237" class="permalink"><time datetime="2002-09-06T03:17:41">2002-09-06T03:17:41</time></a>
+            </div>
+            <div class="content">Until laptop keyboards improve (and improve vastly) I won't be getting rid of my desktop unit any time soon.  I have two laptops (only one of which has a halfway decent keyboard but alas, that style of keyboard is no longer being used on laptops) that I rarely use, and two desktop machines I use all the time.
+
+Guess that makes me the exception rather than the rule.
+
+-spc (I use only IBM AT or PS/2 keyboards&mdash;all others aren't worth the money)</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221085238">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://inluminent.com/weblog/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=489902e4dda27edd54b350d46b9d19c1&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://inluminent.com/weblog/">john</a>
+                </div>
+                <a href="#comment-221085238" class="permalink"><time datetime="2002-09-06T12:08:25">2002-09-06T12:08:25</time></a>
+            </div>
+            <div class="content">deal on for me too... my iBook is now my primary machine, and I'm not looking to buy any more desktops in the future... maybe a PowerBook or two, but no more desktops... not with wireless available so much.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221085239">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://zymm.com/raster/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=f659bb22a2e62ccd2cd82c4b52f09ca9&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://zymm.com/raster/">Pete</a>
+                </div>
+                <a href="#comment-221085239" class="permalink"><time datetime="2002-09-07T06:17:38">2002-09-07T06:17:38</time></a>
+            </div>
+            <div class="content">I'm another desktop user, laptops cost quite a bit more than desktops, I don't have a wireless network, or even high-speed access (at home anyway...) That aside, I did just get a used PowerBook G3, though it's quite a bit older/slower than my desktop G4, it actually will be a satellite, if I can get OS X working properly on it.</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

@@ -1,0 +1,126 @@
+<p>Oh, and I bit the bullet and turned off the authentication requirement on the wiki.  I've decided that ultimately I agree that <a href="http://www.usemod.com/cgi-bin/mb.pl?LoginsAreEvil">LoginsAreEvil</a>.  I didn't <i>really</i> want to put up fences, or raise the laziness threshold.  I mostly wanted to identify people, but I was mistaken.  Now, I'd rather <a href="http://www.usemod.com/cgi-bin/mb.pl?AvoidIllusion">AvoidIllusion</a>.</p>
+<p>There still are a <i>few</i> fences, however.  My reasoning is that my use of this wiki slides into the realm of cheap content management, and I don't prefer public input on certain things.  A few pages are access controlled, such as the wiki's front page and my home page.  For this purpose, there's an alternate password-protected set of wiki commands.  The non-authenticated are under /twiki/bin whereas the authenticated set are at /twiki/sbin.  Just as easy as putting an 's' in the URL.</p>
+<p>Access to the authenticated commands doesn't necessarily mean you get to edit everything though. :)  That's access control for you.</p>
+<p>Eventually, maybe I'll drop the access controls too.  I was also thinking of moving out of TWiki for another wiki implementation like <a href="http://www.decafbad.com/twiki/bin/view/Main/MoinMoin">MoinMoin</a>, too.  Still tinkering.</p>
+<!--more-->
+shortname=oooaba
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221083798">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://radio.weblogs.com/0106188/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=56daf9ebc31e5914295c4189637d7125&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://radio.weblogs.com/0106188/">Paul Holbrook</a>
+                </div>
+                <a href="#comment-221083798" class="permalink"><time datetime="2002-04-25T16:49:12">2002-04-25T16:49:12</time></a>
+            </div>
+            <div class="content">Tell us more about your choice of Wiki software.  
+
+I think I started with TWiki, but quickly abandoned it; for what I wanted, the user interface was too busy looking, and there were two many options I would have to fiddle with to make it look right.  
+
+When The Wiki Way came out, I played briefly with the version they did for the book, but that implementation was too limited.
+
+Then I came upon the UseModWiki, and I've used that ever since.  UseModWiki had the advantage of a good feature set and easy installation.   UseModWiki's Perl implementation also made it easy to make it work with mod_perl.  My home Linux box is a poor old P133, and using mod_perl makes Wiki usable.  
+
+One thing UseModWiki isn't good at is appearance customization.  Given the way you've unified your Wiki and your weblog space, I assume that's something you're looking for.  The other nit is that the official implementation of UseModWiki has been at 0.92 for a year.  There are lots of hacks out, but I'd sure appreciate an "official" version.
+
+I looked briefly at MoinMoin, but I didn't find a clear description of what it has to recommend it over any other implementation.  I much prefer Python to Perl, but that alone isn't enough to make me switch.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221083804">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://usemod.com/cgi-bin/mb.pl?SunirShah"><img src="http://www.gravatar.com/avatar.php?gravatar_id=959e33c2c9231c2cee8282e6192cdb4f&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://usemod.com/cgi-bin/mb.pl?SunirShah">Sunir Shah</a>
+                </div>
+                <a href="#comment-221083804" class="permalink"><time datetime="2002-04-25T19:31:01">2002-04-25T19:31:01</time></a>
+            </div>
+            <div class="content">The current development version of UseModWiki is the script we are using at MeatballWiki. I wanted to test the new features on a live server before applying them to the mainstream.
+
+There will be a new release in about one month. A number of additional patches might be included (pending actual testing) such as Eric Scheid's CSS styling, raw mode, and Alex Schoeder's accessible diffs. I don't want to bloat the script with frobby features. These features should be subtle improvements.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221083807">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.decafbad.com">l.m.orchard</a>
+                </div>
+                <a href="#comment-221083807" class="permalink"><time datetime="2002-04-26T01:05:47">2002-04-26T01:05:47</time></a>
+            </div>
+            <div class="content">The first wiki I played with was TWiki, which I found looking for content management systems in perl to play with while I was working on Iaido.  I kind of drifted away from it after not too long, but got interested in wikis again after I saw a few more of them in action out there and read The Wiki Way.
+
+I liked UseModWiki for its simplicity.  And out of every wiki I've played with so far, I've liked UseModWiki's markup the best.  What I didn't like is that the wiki was in one monolithic script, and that modifications and "plugins" were just patches to the uber script.  This seemed very itchy to me, and I wanted modules and plugins so I could easily modify things and keep my mods clean and separate.
+
+So I looked at TWiki again.  It's much more modular and geared toward plugins and drop-in mods.  And, it uses template files instead of HTML tangled up with the program code.  Well, sort of.  The more I played with it, the more I came to think that the modules weren't so clean yet, and the templates are a little screwy.  Eh, nothing's perfect.
+
+Then I started playing with Python and wandered through MoinMoin.  It seems fairly modular, and cleaner than TWiki.  It seems a little less powerful, but not by much.  And it looks like there's the beginnings of multiple output formats in MoinMoin, which is interesting to me because there's a push to try to get our wiki to produce DocBook at work.
+
+But I'm starting to reconsider all of this and thinking of moving either to MoinMoin or UseModWiki.  I've found myself editing core TWiki code anyway, and so my mods are not so clean anymore.  This makes me remember what UseModWiki was like, and that monolithic script doesn't seem as bad to me now.  And I really dislike TWiki's markup.  UseModWiki seemed much more author-oriented whereas TWiki's somehow seems to want to look better as a text document.  Mainly my itch is with headers and lists.
+
+As for MoinMoin, I'm not sure.  I need to play with it some more, though I seem to remember I had problems with its markup format as well.  And then there's that DocBook output push we've got at work which has me wanting to roll my own wiki-inspired system from scratch.
+
+In the end, my issue is that I like wiki but I'm also trying to get a content management system out of it for free, and the two are not precisely the same thing.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221083810">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://usemod.com/cgi-bin/mb.pl?SunirShah"><img src="http://www.gravatar.com/avatar.php?gravatar_id=959e33c2c9231c2cee8282e6192cdb4f&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://usemod.com/cgi-bin/mb.pl?SunirShah">Sunir Shah</a>
+                </div>
+                <a href="#comment-221083810" class="permalink"><time datetime="2002-04-26T04:30:23">2002-04-26T04:30:23</time></a>
+            </div>
+            <div class="content">Most users of UseModWiki appreciate the monolithic file format because it's easy for them to configure. For non-programmers, the fewer parts the better. They're not going to patch the script at all.
+
+I argued with Cliff that the script itself needed to be modularized in some way because it was getting to become one gigantic spaghetti blob. My point was that for development it would be easier, even though for deployment we could repackage the entire program into one file anyway (because Perl is Light.)
+
+I tried to modularize it back then but I didn't get very far, but I understand the script better now. Eric and I are conspiring to do this because there is mounting pressure to make UseModWiki fit into existing weblog structures for one, and because it's a pain in the butt to patch the script as it stands. We might begin soon enough.
+
+However, I have little faith this will get very far either. For instance, in order to implement RSS, I rewrote the RecentChanges subroutine to take an set of lambdas. In the normal circumstance, these lambdas would emit HTML. In the new circumstance, they would emit RSS. These kinds of patches don't modularize well.
+
+The generally philosophy for UseModWiki is in tension between simplicity and flexibility. I don't honestly believe a plug-in, module architecture like TWiki would be healthy for the development of the script. It's too complicated. If anything, I want to keep the system as simple as the original wiki, but with greater depth.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221083811">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.decafbad.com">l.m.orchard</a>
+                </div>
+                <a href="#comment-221083811" class="permalink"><time datetime="2002-04-26T10:26:57">2002-04-26T10:26:57</time></a>
+            </div>
+            <div class="content">Yes, I can see the simplicity/flexibility tension.  It's in UseModWiki and all over the wiki world for that matter.
+
+As for modularizing UseModWiki... This may actually be what you mean: you could work things such that during development, the script is broken up, and then another script is run which re-weaves everything into a single monolith for distribution.  Something ala literate programming and the weaver concept, but that's really different from the current state of things.
+
+On the other hand, I've noticed that the mods I find myself wanting to do generally fall into two categories: new markup and new output styles.  
+
+In the former, I keep leaning toward non-wiki-ish complexity-- seems sometimes I really want PHP in wiki.  Otherwise HTML is pretty much simple and covered by existing markup.  In the latter, I've managed to do this with either simple tweaks or external scripts which load in the UseModWiki script.  Though, emitting DocBook is something that would need quite a bit of work right now, maybe for good reason.  And in both cases, I find myself doing far fewer of either than I thought I would in the first place.
+
+But, the simple tweaks can pile up as patches and monolithic scripts just disturb my software design sensibilities.  Of course, I keep leaning toward non-wiki things in wikis.  I'm all confused sometimes. :)</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

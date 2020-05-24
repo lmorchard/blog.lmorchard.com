@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>Using iTunes as a podcast aggregator, with a little help from XSLT - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/blog.lmorchard.com/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="Using iTunes as a podcast aggregator, with a little help from XSLT" />
+        <meta
+          property="og:url"
+          content="https://lmorchard.github.io/blog.lmorchard.com//"
+        />
+        
+        <meta property="og:description" content="&lt;p&gt;So I had an idea for a quick podcasting listening hack on the way into work this morning. Check it out:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Take one &lt;a href=&quot;http://www.decafbad.com/2004/10/podcasts.opml&quot;&gt;list of RSS feeds in OPML&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Throw in &lt;a href=&quot;http://www.decafbad.com/2004/10/opml-to-playlist.xsl&quot;&gt;a bit of XSLT&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Combine using &lt;code&gt;xsltproc&lt;/code&gt; to make &lt;a href=&quot;http://www.decafbad.com/2004/10/podcasts.pls&quot;&gt;a playlist&lt;/a&gt; that works in iTunes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And, oh yeah, I just happen to have an &lt;code&gt;xsltproc&lt;/code&gt; web service laying around, so:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Supply a URL to your OPML in &lt;a href=&quot;http://www.decafbad.com/2004/10/xsltproc.cgi?xsl=http%3A%2F%2Fwww.decafbad.com%2F2004%2F10%2Fopml-to-playlist.xsl&quot;&gt;this form&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Get a &lt;a href=&quot;http://www.decafbad.com/2004/10/xsltproc.cgi?xsl=http%3A%2F%2Fwww.decafbad.com%2F2004%2F10%2Fopml-to-playlist.xsl&amp;amp;xml=http%3A%2F%2Fwww.decafbad.com%2F2004%2F10%2Fpodcasts.opml&quot;&gt;freshly-built playlist&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now, this has been barely tested and is the product of a ten-minute hacking session.  There are likely an enormous number of things wrong with this.  That said, iTunes does seem to open the playlist happily, and it looks like only new streams are added with repeated openings of the playlist.&lt;/p&gt;
+&lt;p&gt;You will want to be careful to ensure that your OPML is valid XML (mine wasn&amp;apos;t, on initial export from iPodderX - escape those freaking ampersands in URLs already!), and I have no idea what would happen if any of the RSS feeds in your subscriptions turn up invalid.  &lt;/p&gt;
+&lt;p&gt;Have I mentioned that, despite their unforgiving and sometimes fragile nature, I love XML technologies?&lt;/p&gt;
+&lt;p&gt;If this looks useful, maybe I&amp;apos;ll work it over a bit more and pair it up with some python to handle actually downloading the MP3s and torrents.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; Oh yeah, and I&amp;apos;m expecting this will be useful with an iTunes smart playlist crafted along these lines:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Date Added in the last 1 days&lt;/li&gt;
+&lt;li&gt;Play Count is less than 1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Update #2:&lt;/strong&gt; Another use I just found for this playlist, is on my &lt;a href=&quot;http://www.xboxmediacenter.com/&quot;&gt;Xbox Media Center&lt;/a&gt;.  I generate this playlist via cronjob every few hours, and store it on an SMB share accessible to the XBMC.  Voila!  Listening to podcasts on my stereo system via the Xbox.  Yeah, nothing big, just kind of nifty.&lt;/p&gt;
+" />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post tag-syndicationtag-xml"
+      >
+        <time
+          title="2004-10-08T10:07:49-07:00"
+          pubdate="2004-10-08T10:07:49-07:00"
+        >
+          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/blog.lmorchard.com/2004/"
+            >2004</a
+          >
+          &raquo;
+          <a href="/blog.lmorchard.com/2004/10/"
+            >October</a
+          >
+          &raquo;
+          <span>08</span>
+          &raquo;
+        </time>
+        <h1 class="title">Using iTunes as a podcast aggregator, with a little help from XSLT</h1>
+        <ul class="tags">
+            <li>
+                  <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
+                </li><li>
+                  <a href="/blog.lmorchard.com/tag/xml/">xml</a>
+                </li>
+          </ul>
+        <section class="post-content">
+          <p>So I had an idea for a quick podcasting listening hack on the way into work this morning. Check it out:</p>
+<ul>
+<li>Take one <a href="http://www.decafbad.com/2004/10/podcasts.opml">list of RSS feeds in OPML</a>.</li>
+<li>Throw in <a href="http://www.decafbad.com/2004/10/opml-to-playlist.xsl">a bit of XSLT</a>.</li>
+<li>Combine using <code>xsltproc</code> to make <a href="http://www.decafbad.com/2004/10/podcasts.pls">a playlist</a> that works in iTunes.</li>
+</ul>
+<p>And, oh yeah, I just happen to have an <code>xsltproc</code> web service laying around, so:</p>
+<ul>
+<li>Supply a URL to your OPML in <a href="http://www.decafbad.com/2004/10/xsltproc.cgi?xsl=http%3A%2F%2Fwww.decafbad.com%2F2004%2F10%2Fopml-to-playlist.xsl">this form</a>.</li>
+<li>Get a <a href="http://www.decafbad.com/2004/10/xsltproc.cgi?xsl=http%3A%2F%2Fwww.decafbad.com%2F2004%2F10%2Fopml-to-playlist.xsl&#38;xml=http%3A%2F%2Fwww.decafbad.com%2F2004%2F10%2Fpodcasts.opml">freshly-built playlist</a>.</li>
+</ul>
+<p>Now, this has been barely tested and is the product of a ten-minute hacking session.  There are likely an enormous number of things wrong with this.  That said, iTunes does seem to open the playlist happily, and it looks like only new streams are added with repeated openings of the playlist.</p>
+<p>You will want to be careful to ensure that your OPML is valid XML (mine wasn&#39;t, on initial export from iPodderX - escape those freaking ampersands in URLs already!), and I have no idea what would happen if any of the RSS feeds in your subscriptions turn up invalid.  </p>
+<p>Have I mentioned that, despite their unforgiving and sometimes fragile nature, I love XML technologies?</p>
+<p>If this looks useful, maybe I&#39;ll work it over a bit more and pair it up with some python to handle actually downloading the MP3s and torrents.</p>
+<p><strong>Update:</strong> Oh yeah, and I&#39;m expecting this will be useful with an iTunes smart playlist crafted along these lines:</p>
+<ul>
+<li>Date Added in the last 1 days</li>
+<li>Play Count is less than 1</li>
+</ul>
+<p><strong>Update #2:</strong> Another use I just found for this playlist, is on my <a href="http://www.xboxmediacenter.com/">Xbox Media Center</a>.  I generate this playlist via cronjob every few hours, and store it on an SMB share accessible to the XBMC.  Voila!  Listening to podcasts on my stereo system via the Xbox.  Yeah, nothing big, just kind of nifty.</p>
+<!--more-->
+<p>shortname=itunesxslt</p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221090734">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=a5cae412b649470abb8827c85ef2d4c8&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="">Kevin</a>
+</div>
+<a href="#comment-221090734" class="permalink"><time datetime="2004-10-21T10:32:55">2004-10-21T10:32:55</time></a>
+</div>
+<div class="content">This is a great idea...  My playlist seems to be formated all wrong, so i need to work on it.  Any advancements on this one?</div>
+</li>
+</ul>
+</div>
+
+        </section>
+      </article>
+        </section>
+
+        <footer>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

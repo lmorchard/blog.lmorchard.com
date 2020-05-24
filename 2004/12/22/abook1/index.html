@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>Building an Address Book as a Modern Web App - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/blog.lmorchard.com/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="Building an Address Book as a Modern Web App" />
+        <meta
+          property="og:url"
+          content="https://lmorchard.github.io/blog.lmorchard.com//"
+        />
+        <meta
+            property="og:image"
+            content="http://www.decafbad.com/2004/12/abook-architecture.jpg"
+          />
+        <meta property="og:description" content="&lt;img src=&quot;http://www.decafbad.com/2004/12/abook-architecture.jpg&quot; align=&quot;right&quot;&gt;
+
+&lt;p&gt;So, in the spirit of &lt;a href=&quot;http://www.decafbad.com/blog/2004/11/30/picoprojects_and_trepanation&quot;&gt;pico-projects&lt;/a&gt;, I&amp;apos;ve started building &lt;a href=&quot;http://www.decafbad.com/blog/2004/11/30/nextgenwebapps&quot;&gt;that address book application&lt;/a&gt; I mentioned awhile ago and I want to start writing about it as I go.&lt;/p&gt;
+&lt;p&gt;First off, hopefully you&amp;apos;ll notice the quick diagram I threw together in OmniGraffle.  This is a sort of rough sketch of the loosely-joined architecture I want to explore with this thing.  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Data&lt;/em&gt;: This is where address book entries live.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Model&lt;/em&gt;: A set of objects encapsulating the data, this is how address book entries will be accessed.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;REST API&lt;/em&gt;: Model objects exposed as resources identified by URI, serialized and deserialized as XML, and manipulated by GET / PUT / POST / DELETE methods.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;XSLT Filter&lt;/em&gt;: XML data produced by REST API calls can be first passed through XSL at a given URL before being served up as a response.  &lt;/li&gt;
+&lt;li&gt;&lt;em&gt;HTML, CSS, JavaScript&lt;/em&gt;: Thanks to the XSLT filter layer, the XML vocabulary used to describe address book entries can be transformed into user interface presentation.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;HTTP&lt;/em&gt;: Everything happens via HTTP...&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Web Browser Client&lt;/em&gt;: ...and everything is viewed in a web browser.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now, I call this a loosely-joined architecture because I want to stress that you should be able to swap out just about any part of this whenever you want.  &lt;/p&gt;
+&lt;p&gt;Want the &lt;em&gt;Data&lt;/em&gt; to be in MySQL?  Fine.  Want it to be in flat files?  Fine.  Just make sure the &lt;em&gt;Model&lt;/em&gt; can cope while maintaining a consistent interface for the &lt;em&gt;REST API*.  Want to change the user interface in the browser?  Great-- ideally, all you have to do is change some XSLT files.  I&amp;apos;m writing everything from the *XSLT Filter&lt;/em&gt; down to the &lt;em&gt;Model&lt;/em&gt; in Python.  Don&amp;apos;t like that?  Fine.  Rewrite it all in Perl, and hopefully everything from the XSLT up to the browser will still be useful to you.&lt;/p&gt;
+&lt;p&gt;At some point, you might even want to ditch the browser for a native desktop client.  Fabulous! Just ignore everything past the &lt;em&gt;REST API&lt;/em&gt; and &lt;em&gt;HTTP&lt;/em&gt;, don&amp;apos;t use any XSLT in the &lt;em&gt;Filter&lt;/em&gt;, and use the API and XML directly.&lt;/p&gt;
+&lt;p&gt;I don&amp;apos;t think any of this is particularly revolutionary-- although I thought it was when I first saw Amazon Web Services doing some of this, and I hope to throw a little GMail in as well.  I hope that this will all be useful as I muddle through explaining what I&amp;apos;m doing.  In the meantime, you can see me getting the stage set as I start checking things into my Subversion repository over here:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.decafbad.com/svn/trunk/hacks/abook/&quot;&gt;http://www.decafbad.com/svn/trunk/hacks/abook/&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;" />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post tag-hackstag-xml"
+      >
+        <time
+          title="2004-12-22T21:58:41-08:00"
+          pubdate="2004-12-22T21:58:41-08:00"
+        >
+          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/blog.lmorchard.com/2004/"
+            >2004</a
+          >
+          &raquo;
+          <a href="/blog.lmorchard.com/2004/12/"
+            >December</a
+          >
+          &raquo;
+          <span>22</span>
+          &raquo;
+        </time>
+        <h1 class="title">Building an Address Book as a Modern Web App</h1>
+        <ul class="tags">
+            <li>
+                  <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+                </li><li>
+                  <a href="/blog.lmorchard.com/tag/xml/">xml</a>
+                </li>
+          </ul>
+        <section class="post-content">
+          <img src="http://www.decafbad.com/2004/12/abook-architecture.jpg" align="right" />
+
+<p>So, in the spirit of <a href="http://www.decafbad.com/blog/2004/11/30/picoprojects_and_trepanation">pico-projects</a>, I&#39;ve started building <a href="http://www.decafbad.com/blog/2004/11/30/nextgenwebapps">that address book application</a> I mentioned awhile ago and I want to start writing about it as I go.</p>
+<p>First off, hopefully you&#39;ll notice the quick diagram I threw together in OmniGraffle.  This is a sort of rough sketch of the loosely-joined architecture I want to explore with this thing.  </p>
+<ul>
+<li><em>Data</em>: This is where address book entries live.</li>
+<li><em>Model</em>: A set of objects encapsulating the data, this is how address book entries will be accessed.</li>
+<li><em>REST API</em>: Model objects exposed as resources identified by URI, serialized and deserialized as XML, and manipulated by GET / PUT / POST / DELETE methods.</li>
+<li><em>XSLT Filter</em>: XML data produced by REST API calls can be first passed through XSL at a given URL before being served up as a response.  </li>
+<li><em>HTML, CSS, JavaScript</em>: Thanks to the XSLT filter layer, the XML vocabulary used to describe address book entries can be transformed into user interface presentation.</li>
+<li><em>HTTP</em>: Everything happens via HTTP...</li>
+<li><em>Web Browser Client</em>: ...and everything is viewed in a web browser.</li>
+</ul>
+<p>Now, I call this a loosely-joined architecture because I want to stress that you should be able to swap out just about any part of this whenever you want.  </p>
+<p>Want the <em>Data</em> to be in MySQL?  Fine.  Want it to be in flat files?  Fine.  Just make sure the <em>Model</em> can cope while maintaining a consistent interface for the <em>REST API*.  Want to change the user interface in the browser?  Great-- ideally, all you have to do is change some XSLT files.  I&#39;m writing everything from the *XSLT Filter</em> down to the <em>Model</em> in Python.  Don&#39;t like that?  Fine.  Rewrite it all in Perl, and hopefully everything from the XSLT up to the browser will still be useful to you.</p>
+<p>At some point, you might even want to ditch the browser for a native desktop client.  Fabulous! Just ignore everything past the <em>REST API</em> and <em>HTTP</em>, don&#39;t use any XSLT in the <em>Filter</em>, and use the API and XML directly.</p>
+<p>I don&#39;t think any of this is particularly revolutionary-- although I thought it was when I first saw Amazon Web Services doing some of this, and I hope to throw a little GMail in as well.  I hope that this will all be useful as I muddle through explaining what I&#39;m doing.  In the meantime, you can see me getting the stage set as I start checking things into my Subversion repository over here:</p>
+<ul>
+<li><a href="http://www.decafbad.com/svn/trunk/hacks/abook/">http://www.decafbad.com/svn/trunk/hacks/abook/</a><!--more-->
+shortname=abook1</li>
+</ul>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221085892">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://trikuare.cx/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=7d3d1e46aae8ca19855a6026d404b91d&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://trikuare.cx/">fluffy</a>
+</div>
+<a href="#comment-221085892" class="permalink"><time datetime="2004-12-23T07:35:40">2004-12-23T07:35:40</time></a>
+</div>
+<div class="content">Don't forget that with XSLT you could also rewrite it to SyncML and vCard and so on, so you could also sync it with external devices and iSync (assuming Apple finally opens up a third-party conduit system in Tiger, preferably one which doesn't require .Mac to function).</div>
+</li>
+<li class="comment" id="comment-221085894">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://eliot.landrum.cx"><img src="http://www.gravatar.com/avatar.php?gravatar_id=8b8f5370253bd0e0030154baa15785ed&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://eliot.landrum.cx">eliot</a>
+</div>
+<a href="#comment-221085894" class="permalink"><time datetime="2004-12-23T09:12:34">2004-12-23T09:12:34</time></a>
+</div>
+<div class="content">I'm looking forward to what becomes of this little app. Address book apps seem to all be severely lacking (with the possible exception of OS X's app) and need some fresh thinking. Making the components flexible could be a great way for some change to come about. 
+Keep us posted!</div>
+</li>
+<li class="comment" id="comment-221085895">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.decafbad.com/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2377f34a68801b861c3e54e1301f0dce&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.decafbad.com/">l.m.orchard</a>
+</div>
+<a href="#comment-221085895" class="permalink"><time datetime="2004-12-23T12:41:13">2004-12-23T12:41:13</time></a>
+</div>
+<div class="content">Well, hopefully it's not too disappointing, but this address book app will be pretty anemic in terms of use as a serious app.  Implementing an address book is just an excuse to run through the various technologies involved.
+However, there's nothing stopping anyone (including me) from enhancing the thing when I'm done and making it into a serious offering with vCard support and such.</div>
+</li>
+<li class="comment" id="comment-221085896">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://webseitz.fluxent.com/wiki"><img src="http://www.gravatar.com/avatar.php?gravatar_id=8157a5907b244071cda98ba5aa7a9635&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://webseitz.fluxent.com/wiki">Bill Seitz</a>
+</div>
+<a href="#comment-221085896" class="permalink"><time datetime="2004-12-27T12:23:46">2004-12-27T12:23:46</time></a>
+</div>
+<div class="content">(Hmm, posted last week but it never showed up...)
+What are you thinking in terms of having this data store actually used by, say, your email client?
+Make it look like an LDAP server, maybe?</div>
+</li>
+<li class="comment" id="comment-221085898">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.chuckknows.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=6cede7ba6ff803837ba2da9cc6e466b6&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.chuckknows.com">Chuck Conway</a>
+</div>
+<a href="#comment-221085898" class="permalink"><time datetime="2005-01-02T20:37:00">2005-01-02T20:37:00</time></a>
+</div>
+<div class="content">How Funny! I've been thinking about doing the same thing.
+The only difference is I was thinking about doing address book, bookmarks and my RSS feeds. 
+Those are the things I miss the most when I am away.</div>
+</li>
+<li class="comment" id="comment-221085900">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.worldwide-sources.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=73de6d1640f8cae902843f4a753bcaee&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.worldwide-sources.com">William</a>
+</div>
+<a href="#comment-221085900" class="permalink"><time datetime="2005-03-05T05:16:08">2005-03-05T05:16:08</time></a>
+</div>
+<div class="content">I'm curious to see where this little app is going its still needs more work</div>
+</li>
+<li class="comment" id="comment-221085903">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://webseitz.fluxent.com/wiki"><img src="http://www.gravatar.com/avatar.php?gravatar_id=8157a5907b244071cda98ba5aa7a9635&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://webseitz.fluxent.com/wiki">Bill Seitz</a>
+</div>
+<a href="#comment-221085903" class="permalink"><time datetime="2006-08-26T13:37:35">2006-08-26T13:37:35</time></a>
+</div>
+<div class="content"><p>I see you working with Tarawa in there. Did you like it? Is it being worked on at all?</p></div>
+</li>
+</ul>
+</div>
+
+        </section>
+      </article>
+        </section>
+
+        <footer>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

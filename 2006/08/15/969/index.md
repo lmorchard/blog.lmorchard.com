@@ -1,0 +1,25 @@
+Huh.  Generally, I scoff at the idea of hand-holding widgets for blogs.  But, having peeked at the new [WordPress Widgets](http://automattic.com/code/widgets/), I actually get the sense that they will actually make tweaking things for this blog easier and more theme-agnostic.  I can roll my own widgets, and not need to rejigger the main theme and associated templates every time I drop in an update.  Swanky.
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221087167">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://sporkmonger.com/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=56ee28134dd0776825445e3551979b14&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://sporkmonger.com/">Bob Aman</a>
+                </div>
+                <a href="#comment-221087167" class="permalink"><time datetime="2006-08-18T23:48:52">2006-08-18T23:48:52</time></a>
+            </div>
+            <div class="content"><p>Looks a lot like what Typo did.  Even the UI is the same.  That said, I'm sure Wordpress implemented it much better.  (I can't wait to get myself off Typo and onto my own code.)</p></div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

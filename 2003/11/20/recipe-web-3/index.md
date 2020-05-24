@@ -1,0 +1,51 @@
+<p>I haven&#8217;t had much time to tinker in the past week or two, but I have still been thinking about recipes and blogs.  I&#8217;ve also been trading emails with <a href="http://www.troyandgay.com/">Troy Hakala</a>, who&#8217;s one of the food &#38; techie geeks responsible for <a href="http://www.recipezaar.com/about/people.zsp">RecipeZaar</a> and who also has had a hand in the aforementioned <a href="http://www.formatdata.com/recipeml/">RecipeML</a> spec -- clearly, this is someone who knows what&#8217;s what with recipes online.</p>
+
+	<p>The <a href="http://www.recipezaar.com">RecipeZaar</a> site is very rich in functionality, allowing you to refine searches by various types of information in recipes such as ingredient, course, dietary needs, preparation, and occasion.  The recipes themselves are shown with calculated nutritional information, and discussion and ratings are offered as well.  But, what looks like one of the best features of the site is the recipe submission process.</p>
+
+	<p>With all the various ways recipes are organized and indexed on this site, I would expect that entering a new recipe would demand some tedious form field entry to get the information into the database.  And, while there is a tiny bit of that toward the end, with regard to categorization and cooking time, the entry of ingredients and cooking steps is done by pasting them in whole into two text areas.  It seems similar to some job listing sites which manage to parse <span class="caps">ASCII</span> dumps of applicants&#8217; resumes.</p>
+
+	<p>As you&#8217;d guess, a parser -- which I&#8217;ve been told has been in constant refinement since the site started -- churns through the text of the ingredient list and separates things into their parts.  And these parts include things like amounts and units, and ingredients which are themselves linked to nutritional and descriptive data.  It&#8217;s all cross-referenced and classified in a way that makes the <span class="caps">RDF</span> fan in me cheer -- although this ain&#8217;t <span class="caps">RDF</span> or the Semantic Web.</p>
+
+	<p>But what if it could be?  Or, at the least, what if recipes could join the list of content types available to be published by bloggers.  If not in <span class="caps">RDF</span>, then say maybe in some further developed form of RecipeML?  I see recipes in my aggregator from <a href="http://www.10500bc.org/archive/006335.php#006335">a weblog like this</a> and I wonder what things could be done with data like this if it were in some structured and machine-readable form.</p>
+
+	<p>Well, for one thing, bloggers could ping <a href="http://www.recipezaar.com">RecipeZaar</a> when they post new recipes, and that site could become the <a href="http://www.feedster.com">Feedster</a> of recipes.  Bloggers could also provide <span class="caps">RSS</span> indexes of their recipe postings, possibly for use by future aggregators -- although, I think some major work needs to be done on the <a href="http://www.decafbad.com/blog/tech/dynamic_polling_freq_too.html">behavior</a> of <a href="http://diveintomark.org/archives/2003/07/21/atom_aggregator_behavior_http_level">aggregators</a> before we go too far down that road.</p>
+
+	<p>So, what would probably be a great start is to come up with some MovableType plugin which helps support recipe post authoring.  Ideally, this would produce both <span class="caps">HTML</span> and RecipeML (or better) content, for both human and machine consumption.</p>
+
+	<p>But,  there&#8217;s that filling-out-of-forms issue again.  I just read <a href="http://blogs.it/0100198/2003/11/18.html#a2022">a post by Marc Canter</a> talking about the growing formats for reviews, where he asks why there aren&#8217;t more fields to fill out for a properly constructed post.  He acknowledges that end-users might not want to fill those out, but we need that data to be potentially available -- but my take on it is that end-users won&#8217;t <strong>ever</strong> want to fill out any fields that they don&#8217;t have to.  And, if there are too many fields that they <strong>do</strong> have to fill out, they&#8217;ll never do it.</p>
+
+	<p>You&#8217;ll never get people posting reviews or recipes or anything beyond blog entries without dead simple tools to do it.  Because, of course, your average person sharing recipes has absolutely zero interest in authoring <span class="caps">XML</span> or <span class="caps">RDF</span>.  It&#8217;s the techies and machines that want to see things authored in these strange formats, so the motivation to see rich, structured data is on the wrong side of the fence to encourage its production.</p>
+
+	<p>Thus, <a href="http://www.recipezaar.com">RecipeZaar</a> uses a parser in its recipe submission forms to ease the process as much as possible.  And, it&#8217;s been successful, since they can point to over 70,000 recipes submitted to their site by users.</p>
+
+	<p>One solution for this, if the people behind <a href="http://www.recipezaar.com">RecipeZaar</a> like the idea, is to borrow their parser via web service for use in my hypothetical MovableType plugin.  This could also be used for any number of other blogging tools.  On the upside, we get the benefit of all the work done by Troy and company, and they get to pull in more recipes.  On the downside, we&#8217;re dependant on a web service not under our control for the basic functionality of this plugin.  Maybe not such a bad option, practically speaking, since its a great site run by great people.</p>
+
+	<p>So, just sharing some thoughts here.  I&#8217;m excited to see more varieties of micro-content shared between the people of the web, but the thing I see least talked about is how this stuff will be authored.  I read about data formats and all that, but in terms of user interface, we haven&#8217;t progressed much past the <span class="caps">HTML</span> textarea.  Also, I often see handwaving and assumptions that the content is really pretty simple -- but as Troy Hakala would tell you, not even something as &#8220;simple&#8221; as a recipe is a slam dunk in terms of digestion by a machine.  There needs to be some happy medium between a natural human expression of information, and the rigorous structuring required by a machine, mediated by good user interface.</p>
+<!--more-->
+shortname=recipe_web_3
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221090410">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=941b31363609ee1e6144ee4ef937a290&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="">blaine</a>
+                </div>
+                <a href="#comment-221090410" class="permalink"><time datetime="2004-04-27T04:15:17">2004-04-27T04:15:17</time></a>
+            </div>
+            <div class="content">This makes sense; I've also been wanting to do something like this for some time, but alas, it's waaaaay down on my list of priorities.
+
+However, I think it would be best if RecipeZaar just opened up their parser; I really, really hate having to rely on web services for basic tasks. Both as a programmer/user, and as a system administrator ("Why's it broken??! Fix it!").</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

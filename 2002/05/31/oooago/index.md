@@ -1,0 +1,56 @@
+<p><a href="http://matt.griffith.com/weblog/2002/05/29.html#a57">Matt Griffith suggests</a> using an HTML link element as a way to provide robots and news aggregators with means to find a site's <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> feed.  <a href="http://diveintomark.org/archives/2002/05/30.html#rss_autodiscovery">Mark Pilgrim chimes in</a> with a few thoughts and an improvement.  And then, I see the buzz <a href="http://www.theshiftedlibrarian.com/2002/05/30.html#a2087">coming from Jenny Levine</a> too.</p>
+<p>So, well, it's easy enough.  I just joined the bandwagon too.</p>
+<!--more-->
+shortname=oooago
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221084057">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://philringnalda.com/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=e68e9944f50a481a64b5a32fdfc02e0d&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://philringnalda.com/">Phil Ringnalda</a>
+                </div>
+                <a href="#comment-221084057" class="permalink"><time datetime="2002-05-31T14:16:37">2002-05-31T14:16:37</time></a>
+            </div>
+            <div class="content">Not quite easy enough, though: your feed doesn't seem to be in /xml/newslog.xml like your link tag claims. Bad LM. No biscuit for you.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221084059">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.decafbad.com">l.m.orchard</a>
+                </div>
+                <a href="#comment-221084059" class="permalink"><time datetime="2002-05-31T14:51:05">2002-05-31T14:51:05</time></a>
+            </div>
+            <div class="content">D'oht!  I am biscuit-deprived.  Good catch, should be fixed now. :)</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221084061">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.decafbad.com">l.m.orchard</a>
+                </div>
+                <a href="#comment-221084061" class="permalink"><time datetime="2002-05-31T14:52:49">2002-05-31T14:52:49</time></a>
+            </div>
+            <div class="content">Of course, the other thing I'm wondering...  I did have the link on my story pages, but took it off since technically the RSS feed isn't an alternate view for *that* page.  I wonder if it matters so much, and if I should put it back there for convenience?</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

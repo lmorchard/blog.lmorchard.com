@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>XML-RPC, a mini case study - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/blog.lmorchard.com/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="XML-RPC, a mini case study" />
+        <meta
+          property="og:url"
+          content="https://lmorchard.github.io/blog.lmorchard.com//"
+        />
+        
+        <meta property="og:description" content="&lt;p&gt;About SOAP vs &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/REST&quot;&gt;REST&lt;/a&gt; vs XML-RPC, &lt;a href=&quot;http://scriptingnews.userland.com/backissues/2002/11/23#When:3:49:18PM&quot;&gt;Dave writes&lt;/a&gt;:&lt;/p&gt;&lt;blockquote&gt;&lt;i&gt;By and large &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/REST&quot;&gt;REST&lt;/a&gt; interfaces don&amp;apos;t tell you how to serialize and deserialize complex structures, so you kind of start from scratch every time. If they use a SOAP encoding, you get some of that. But there just is nothing simpler than saying &amp;quot;Here&amp;apos;s the XML-RPC interface, and some sample code in a few of the popular scripting languages.&amp;quot; If you want developers to get going quickly, avoid the religious wars, just support XML-RPC. Now even this isn&amp;apos;t bluster-free. Think of it as evangelism. Have a nice day.&lt;/i&gt;&lt;/blockquote&gt;Though I don&amp;apos;t like his remarks on &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/REST&quot;&gt;REST&lt;/a&gt;, I gotta give Dave an &lt;i&gt;amen&lt;/i&gt; here and thank him for having &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpc&quot;&gt;XmlRpc&lt;/a&gt; out there for me to stumble upon.  &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/REST&quot;&gt;REST&lt;/a&gt; seems shiny and neat to me but incomplete - I&amp;apos;m pulling for it because it seems warm and fuzzy to my ivory tower branes.  SOAP seems to try to be nice &amp;amp; clean, but feels grungy and toxic to me and I&amp;apos;ve always felt a vague sense of unease when walking past its house on the block.  In the middle, &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpc&quot;&gt;XmlRpc&lt;/a&gt; seems to be the right balance of dirt and acidity to grow things in.
+&lt;br&gt;&lt;br&gt;
+About &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpc&quot;&gt;XmlRpc&lt;/a&gt;, I can speak with some experience now.  I first started tinkering with it a few months shy of a year ago, &lt;a href=&quot;http://www.decafbad.com/news_archives/000020.phtml#000020&quot;&gt;when I first launched this blog&lt;/a&gt;.  I went to &lt;a href=&quot;http://www.xmlrpc.com&quot; target=&quot;_top&quot;&gt;http://www.xmlrpc.com&lt;/a&gt; and learned it in less than an afternoon.  Cobbled together a few &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/Projects&quot;&gt;Projects&lt;/a&gt; with it, and saw an opportunity to introduce &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpc&quot;&gt;XmlRpc&lt;/a&gt; as a new tech at work.&lt;br&gt;&lt;br&gt;&lt;br&gt;
+(In case you don&amp;apos;t know about my job, I&amp;apos;m the guy who does most of the research &amp;amp; development, tool building, and overall platform architecture at a promotions company called &lt;a href=&quot;http://www.eprize.net&quot;&gt;ePrize&lt;/a&gt;.  I grumble about the place from time to time, but on the whole they let me do an amazing amount of wandering around in finding new things.)
+&lt;br&gt;&lt;br&gt;
+Anyway, we&amp;apos;d been poking around with a few different means of integrating our promotions into clients&amp;apos; websites.  You see, we host the web part of all promotions on our servers, and work toward making inclusion of those promotions not much harder than slipping in a banner.  But sometimes, there&amp;apos;s just no avoiding more complex integration.  And sometimes, it&amp;apos;s exactly what you want with things like shared sign-up &amp;amp; login, awarding tokens &amp;amp; coupons, and coordinating between vendors&amp;apos; services.  So, we had a few different &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/REST&quot;&gt;REST&lt;/a&gt;-esque URL-based schemes, some FTP-and-PGP-based things, and even managed to convince one client to use a one-off protocol between two perl net daemons.  Every time, it was something new, and we could seem to get no two clients happy with the same integration scheme.
+&lt;br&gt;&lt;br&gt;
+Then one day I bring &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpc&quot;&gt;XmlRpc&lt;/a&gt; into the office, and weave it into our app platform at the ground floor.  Overnight, just about every aspect of every promotion we do can be accessed via &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpc&quot;&gt;XmlRpc&lt;/a&gt;, given the proper switches thrown and the right access controls set.  Producing an &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpc&quot;&gt;XmlRpc&lt;/a&gt; API spec for potential clients took mostly a bit of cut &amp;amp; paste massaging of our internal API docs.&lt;br&gt;&lt;br&gt;&lt;br&gt;
+(Your mileage may vary greatly, but our homegrown platform seemed pre-designed to fit with &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpc&quot;&gt;XmlRpc&lt;/a&gt;.  This point right here may be what makes this anecdote fall on its face for you and your experiences.  But, based on the success we have with it on the client end of things, I suspect that we&amp;apos;re not that much an outlier.)
+&lt;br&gt;&lt;br&gt;
+The next day, we had a meeting with a giant customer whose name I&amp;apos;m not sure I can mention, but suffice it to say you&amp;apos;ve heard of them and It&amp;apos;s very, very likely that you&amp;apos;ve used their gadgets.  We helped them put together a customer referral and rewards program, using &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpc&quot;&gt;XmlRpc&lt;/a&gt; as the glue between an online store vendor, the client&amp;apos;s site, and us.  It was a great success, and since then we&amp;apos;ve done another dozen or so cool promotions involving &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpc&quot;&gt;XmlRpc&lt;/a&gt;.
+&lt;br&gt;&lt;br&gt;
+What makes this tech so successful here is that it&amp;apos;s so simple and decently understood.  I get it, my boss gets it, his boss gets it, the sales guys get it, and the marketing guy who&amp;apos;s always our first contact at a client gets it.  And when we finally drill down to a tech guy on the client&amp;apos;s side, we just tell him, &amp;quot;Here&amp;apos;s the API for your promotion, and visit &lt;a href=&quot;http://www.xmlrpc.com&quot; target=&quot;_top&quot;&gt;http://www.xmlrpc.com&lt;/a&gt; for details on how to call it.&amp;quot;  And that&amp;apos;s it - 75% of the time they get it and implement it.  The rest of the time, we have to spend some time proving the tech and answering doubts, but it&amp;apos;s always a pleasant experience from our end having all the answers.
+&lt;br&gt;&lt;br&gt;
+I&amp;apos;ll adore &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/REST&quot;&gt;REST&lt;/a&gt; if/when it gets to this point in helping me get mine and my client counterparts&amp;apos; jobs done.
+&lt;br&gt;&lt;br&gt;
+Anyway, this is sounding like a bad infomercial and I need to get back to work.  But I had to toss out this bit of anecdotal dross in favor of &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpc&quot;&gt;XmlRpc&lt;/a&gt;.&lt;p&gt;&lt;/p&gt;
+" />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post "
+      >
+        <time
+          title="2002-11-26T10:46:07-08:00"
+          pubdate="2002-11-26T10:46:07-08:00"
+        >
+          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/blog.lmorchard.com/2002/"
+            >2002</a
+          >
+          &raquo;
+          <a href="/blog.lmorchard.com/2002/11/"
+            >November</a
+          >
+          &raquo;
+          <span>26</span>
+          &raquo;
+        </time>
+        <h1 class="title">XML-RPC, a mini case study</h1>
+        
+        <section class="post-content">
+          <p>About SOAP vs <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a> vs XML-RPC, <a href="http://scriptingnews.userland.com/backissues/2002/11/23#When:3:49:18PM">Dave writes</a>:<blockquote><i>By and large <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a> interfaces don&#39;t tell you how to serialize and deserialize complex structures, so you kind of start from scratch every time. If they use a SOAP encoding, you get some of that. But there just is nothing simpler than saying &quot;Here&#39;s the XML-RPC interface, and some sample code in a few of the popular scripting languages.&quot; If you want developers to get going quickly, avoid the religious wars, just support XML-RPC. Now even this isn&#39;t bluster-free. Think of it as evangelism. Have a nice day.</i></blockquote>Though I don&#39;t like his remarks on <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a>, I gotta give Dave an <i>amen</i> here and thank him for having <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a> out there for me to stumble upon.  <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a> seems shiny and neat to me but incomplete - I&#39;m pulling for it because it seems warm and fuzzy to my ivory tower branes.  SOAP seems to try to be nice &amp; clean, but feels grungy and toxic to me and I&#39;ve always felt a vague sense of unease when walking past its house on the block.  In the middle, <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a> seems to be the right balance of dirt and acidity to grow things in.
+<br /><br />
+About <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a>, I can speak with some experience now.  I first started tinkering with it a few months shy of a year ago, <a href="http://www.decafbad.com/news_archives/000020.phtml#000020">when I first launched this blog</a>.  I went to <a href="http://www.xmlrpc.com" target="_top">http://www.xmlrpc.com</a> and learned it in less than an afternoon.  Cobbled together a few <a href="http://www.decafbad.com/twiki/bin/view/Main/Projects">Projects</a> with it, and saw an opportunity to introduce <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a> as a new tech at work.<br><br /><br />
+(In case you don&#39;t know about my job, I&#39;m the guy who does most of the research &amp; development, tool building, and overall platform architecture at a promotions company called <a href="http://www.eprize.net">ePrize</a>.  I grumble about the place from time to time, but on the whole they let me do an amazing amount of wandering around in finding new things.)
+<br /><br />
+Anyway, we&#39;d been poking around with a few different means of integrating our promotions into clients&#39; websites.  You see, we host the web part of all promotions on our servers, and work toward making inclusion of those promotions not much harder than slipping in a banner.  But sometimes, there&#39;s just no avoiding more complex integration.  And sometimes, it&#39;s exactly what you want with things like shared sign-up &amp; login, awarding tokens &amp; coupons, and coordinating between vendors&#39; services.  So, we had a few different <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a>-esque URL-based schemes, some FTP-and-PGP-based things, and even managed to convince one client to use a one-off protocol between two perl net daemons.  Every time, it was something new, and we could seem to get no two clients happy with the same integration scheme.
+<br /><br />
+Then one day I bring <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a> into the office, and weave it into our app platform at the ground floor.  Overnight, just about every aspect of every promotion we do can be accessed via <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a>, given the proper switches thrown and the right access controls set.  Producing an <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a> API spec for potential clients took mostly a bit of cut &amp; paste massaging of our internal API docs.<br><br /><br />
+(Your mileage may vary greatly, but our homegrown platform seemed pre-designed to fit with <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a>.  This point right here may be what makes this anecdote fall on its face for you and your experiences.  But, based on the success we have with it on the client end of things, I suspect that we&#39;re not that much an outlier.)
+<br /><br />
+The next day, we had a meeting with a giant customer whose name I&#39;m not sure I can mention, but suffice it to say you&#39;ve heard of them and It&#39;s very, very likely that you&#39;ve used their gadgets.  We helped them put together a customer referral and rewards program, using <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a> as the glue between an online store vendor, the client&#39;s site, and us.  It was a great success, and since then we&#39;ve done another dozen or so cool promotions involving <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a>.
+<br /><br />
+What makes this tech so successful here is that it&#39;s so simple and decently understood.  I get it, my boss gets it, his boss gets it, the sales guys get it, and the marketing guy who&#39;s always our first contact at a client gets it.  And when we finally drill down to a tech guy on the client&#39;s side, we just tell him, &quot;Here&#39;s the API for your promotion, and visit <a href="http://www.xmlrpc.com" target="_top">http://www.xmlrpc.com</a> for details on how to call it.&quot;  And that&#39;s it - 75% of the time they get it and implement it.  The rest of the time, we have to spend some time proving the tech and answering doubts, but it&#39;s always a pleasant experience from our end having all the answers.
+<br /><br />
+I&#39;ll adore <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a> if/when it gets to this point in helping me get mine and my client counterparts&#39; jobs done.
+<br /><br />
+Anyway, this is sounding like a bad infomercial and I need to get back to work.  But I had to toss out this bit of anecdotal dross in favor of <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a>.</p>
+<!--more-->
+<p>shortname=oooccb</p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221085436">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=f62aedd5a22327cb4b3d8cc7f94022a4&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="">Joh</a>
+</div>
+<a href="#comment-221085436" class="permalink"><time datetime="2002-11-26T23:55:01">2002-11-26T23:55:01</time></a>
+</div>
+<div class="content">...unless your client is in China and oops, Dave forgot to mention that since Radio can't do Unicode, the XmlRpc spec only uses ASCII strings. (also oops for Russia, Africa, Arabia (ok, you guys gonna throw bombs at them anyway) and all others who sometimes use non-american characters).
+Damn, then.
+That's why non-american companies tend to use SOAP. If XmlRpc (and most implementations) would not unnecessarily exclude 2+ byte characters, which have been specified in the XML-spec (XML is Unicode) by the way, it would be fine. I can't sell an API for hotels in a country where my software can't spell the name of a customer... "does your name have an english spelling, sir?"</div>
+</li>
+<li class="comment" id="comment-221085438">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=673077cfcaedce7b37ff753d6100560a&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="">John Burton</a>
+</div>
+<a href="#comment-221085438" class="permalink"><time datetime="2002-11-27T10:46:15">2002-11-27T10:46:15</time></a>
+</div>
+<div class="content">Well you can just go ahead and use XmlRpc and UTF-8 encode your unicode strings. Which might be a technical violation of the spec but seems to work well enough in practice.
+Or encode strings as int arrays containing unicode characters?</div>
+</li>
+<li class="comment" id="comment-221085439">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=673077cfcaedce7b37ff753d6100560a&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="">John Burton</a>
+</div>
+<a href="#comment-221085439" class="permalink"><time datetime="2002-11-27T11:10:07">2002-11-27T11:10:07</time></a>
+</div>
+<div class="content">I'd like to build XmlRpc server functionallity into an application we have, but can't find a c++ server library that works under windows (as opposed to unix). Does anyone know of one, or will I have to do it miyself it I want this?</div>
+</li>
+<li class="comment" id="comment-221085440">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.prescod.net"><img src="http://www.gravatar.com/avatar.php?gravatar_id=6c04a6792c6196149d2f9e14894a8b6d&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.prescod.net">Paul Prescod</a>
+</div>
+<a href="#comment-221085440" class="permalink"><time datetime="2002-11-27T11:35:24">2002-11-27T11:35:24</time></a>
+</div>
+<div class="content">I've posted some thoughts: http://www.blogstream.com/pauls/1038403139</div>
+</li>
+<li class="comment" id="comment-221085441">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.decafbad.com">l.m.orchard</a>
+</div>
+<a href="#comment-221085441" class="permalink"><time datetime="2002-11-27T12:39:23">2002-11-27T12:39:23</time></a>
+</div>
+<div class="content">I was about to say that the Unicode issue hasn't been one for us, because we don't really have anything for human consumption in our APIs.  That is, no presentation strings or words or sentences.
+But then I had to think about that - we do simple shared sign-up & login via XML-RPC.  If we had to do such a promotion globally, we might have problems with login names and passwords.
+I'm sure there're more landmines awaiting my feet.</div>
+</li>
+<li class="comment" id="comment-221085442">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.imasy.or.jp/~tai/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=6fd6efdf72c549f7be0089182c40861e&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.imasy.or.jp/~tai/">Taisuke Yamada</a>
+</div>
+<a href="#comment-221085442" class="permalink"><time datetime="2002-11-28T07:18:48">2002-11-28T07:18:48</time></a>
+</div>
+<div class="content">While Unicode in XML-RPC is surely an issue of original specification, that is not a practical one as most implementations never bother to enforce that limitation (why limit it when underlying XML processor allows _any_ charset encoding?).
+Now, regarding REST and XML-RPC, I too agree that Dave's comment on REST was bit off. OTOH, I think I can understand why he sees XML-RPC based design is more appropriate (for his goal) than REST-style design.
+While REST focuses on defining set of accessible resources, XML-RPC focuses on defining set of callable interfaces.
+Traditional programming is about "programming by contract", and in many languages, that means defining set of interfaces (API). Many developers are just so much trained to have this API-centric world view, and adopting REST means there's a need to tweak their heads a little.
+I think it could be argued that this use of "set of resources" is almost same as using multiple objects in OO language. Whole service is constructed by interaction of multiple live objects (resources), and each object (resource) has set of interfaces to be called. I believe REST principle requires you to break up service into smaller set of objects until eash object only needs to implement minimal set of standard interface. But what's puzzling me right now is the way to "expose" selected micro-objects as URI-addressable resource. This is probably more of a problem of toolkit implementation, but it's currently just awkward to me.
+Unless RESTful implementation brings easy way to do it, XML-RPC will be understood *much* faster by developers than REST-style programming model. I'm wondering if this is going to be a typical "worse-is-better" case.</div>
+</li>
+</ul>
+</div>
+
+        </section>
+      </article>
+        </section>
+
+        <footer>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

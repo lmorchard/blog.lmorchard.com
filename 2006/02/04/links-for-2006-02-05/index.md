@@ -1,0 +1,60 @@
+<ul class="delicious">
+	<li>
+		<div class="delicious-link"><a href="http://www.annezelenka.com/2006/02/ning-great-for-mediocre-programmers.html">Anne 2.0: Ning: Great for Mediocre Programmers</a></div>
+		<div class="delicious-extended">"I spent some time playing with Ning today. I couldn't believe how easy it was to parse an OPML file and display it on a web page."</div>
+		<div class="delicious-tags">(tags: <a href="http://del.icio.us/deusx/ning">ning</a> <a href="http://del.icio.us/deusx/webdev">webdev</a>)</div>
+	</li>
+	<li>
+		<div class="delicious-link"><a href="http://www.scripting.com/2006/02/03.html#itsADifferentWorldToday">Scripting News: 2/3/2006 - It's a different world today</a></div>
+		<div class="delicious-extended">"But none of that means that I can't find enough users for my aggregator, and you for yours, to be able to continue development and influence the market, because we don't have to convince the editors of PC Mag and PC Week that our products matter. ... Now</div>
+		<div class="delicious-tags">(tags: <a href="http://del.icio.us/deusx/nifty">nifty</a> <a href="http://del.icio.us/deusx/webdev">webdev</a> <a href="http://del.icio.us/deusx/programming">programming</a> <a href="http://del.icio.us/deusx/syndication">syndication</a> <a href="http://del.icio.us/deusx/rss">rss</a> <a href="http://del.icio.us/deusx/aggregators">aggregators</a>)</div>
+	</li>
+	<li>
+		<div class="delicious-link"><a href="http://news.bbc.co.uk/1/hi/technology/4675114.stm">BBC NEWS | Technology | Gaming glamour tempts tennis pro</a></div>
+		<div class="delicious-extended">"Scotsman David Kinnaird is swapping his tennis racket for a railgun."</div>
+		<div class="delicious-tags">(tags: <a href="http://del.icio.us/deusx/gaming">gaming</a> <a href="http://del.icio.us/deusx/quake">quake</a>)</div>
+	</li>
+	<li>
+		<div class="delicious-link"><a href="http://www.wymsey.co.uk/wymchron/cooking.htm">Wymsey Weekend: A Guide to Mobile Cooking</a></div>
+		<div class="delicious-extended">"we show you how to use two mobile phones to cook an egg which will make a change from phoning out for a pizza."  Eggs == brains?</div>
+		<div class="delicious-tags">(tags: <a href="http://del.icio.us/deusx/mobile">mobile</a> <a href="http://del.icio.us/deusx/cooking">cooking</a>)</div>
+	</li>
+	<li>
+		<div class="delicious-link"><a href="http://www.somebits.com/weblog/culture/games/emulation/noahsArk3D.html">Nelson's Weblog: culture / games / emulation / noahsArk3D</a></div>
+		<div class="delicious-extended">"Instead of a soldier shooting evil Nazis with machine guns, you're Noah lobbing sleep-inducing berries at unruly goats on the Ark. Yes, really."</div>
+		<div class="delicious-tags">(tags: <a href="http://del.icio.us/deusx/gaming">gaming</a> <a href="http://del.icio.us/deusx/snes">snes</a> <a href="http://del.icio.us/deusx/id">id</a> <a href="http://del.icio.us/deusx/christianity">christianity</a>)</div>
+	</li>
+	<li>
+		<div class="delicious-link"><a href="http://blogicblog.blogspot.com/2006/02/techie-way-of-liberating-podcast-url.html">BlogicBlog: View from the trenches: The techie way of liberating the podcast URL from iTunes</a></div>
+		<div class="delicious-extended">"Jon Udell is not happy about having to transcribe podcast URLs that iTunes displays, but does not allow to copy. While the general point about lock-in is good, here is a quick techie workaround in a meanwhile."</div>
+		<div class="delicious-tags">(tags: <a href="http://del.icio.us/deusx/itunes">itunes</a> <a href="http://del.icio.us/deusx/stanford">stanford</a> <a href="http://del.icio.us/deusx/podcasts">podcasts</a>)</div>
+	</li>
+	<li>
+		<div class="delicious-link"><a href="http://nelljames.com/mp3s/01%20-%20South%20Side%20of%20the%20Sky.mp3">01 - South Side of the Sky.mp3 (audio/mpeg Object)</a></div>
+		<div class="delicious-extended">Awesome cover of Yes' "South Side of the Sky", with all parts done by one girl.</div>
+		<div class="delicious-tags">(tags: <a href="http://del.icio.us/deusx/nelljames">nelljames</a> <a href="http://del.icio.us/deusx/mp3">mp3</a> <a href="http://del.icio.us/deusx/music">music</a> <a href="http://del.icio.us/deusx/audio">audio</a> <a href="http://del.icio.us/deusx/yes">yes</a> <a href="http://del.icio.us/deusx/covers">covers</a> <a href="http://del.icio.us/deusx/rock">rock</a>)</div>
+	</li>
+	<li>
+		<div class="delicious-link"><a href="http://nelljames.com/mp3s/04%20-%20Madrigal.mp3">04 - Madrigal.mp3 (audio/mpeg Object)</a></div>
+		<div class="delicious-extended">Another Yes cover with Nell James doing all the parts</div>
+		<div class="delicious-tags">(tags: <a href="http://del.icio.us/deusx/nelljames">nelljames</a> <a href="http://del.icio.us/deusx/music">music</a> <a href="http://del.icio.us/deusx/mp3">mp3</a> <a href="http://del.icio.us/deusx/yes">yes</a>)</div>
+	</li>
+	<li>
+		<div class="delicious-link"><a href="http://nelljames.com/index.html">The Music of Nell James</a></div>
+		<div class="delicious-extended">"Welcome to the official website of musician Nell James (previously known as Nell & the Nellettes), 17 year old multi-instrumentalist and composer."</div>
+		<div class="delicious-tags">(tags: <a href="http://del.icio.us/deusx/nelljames">nelljames</a> <a href="http://del.icio.us/deusx/music">music</a>)</div>
+	</li>
+	<li>
+		<div class="delicious-link"><a href="http://www.npr.org/templates/story/story.php?storyId=5189733">NPR : Al Lewis, Beloved as 'Grandpa Munster,' Dies at 95</a></div>
+		<div class="delicious-extended">"Al Lewis, the cigar-chomping patriarch of The Munsters whose work as a basketball scout, restaurateur and political candidate never eclipsed his role as Grandpa from the television sitcom, died after years of failing health. He was 95."</div>
+		<div class="delicious-tags">(tags: <a href="http://del.icio.us/deusx/sad">sad</a>)</div>
+	</li>
+	<li>
+		<div class="delicious-link"><a href="http://conferences.oreillynet.com/cs/et2006/view/e_sess/7893">O'Reilly Emerging Technology Conference - March 6-9, 2006 - San Diego, CA</a></div>
+		<div class="delicious-extended">"> take proposal
+Okay. You have taken the proposal.
+
+"</div>
+		<div class="delicious-tags">(tags: <a href="http://del.icio.us/deusx/nifty">nifty</a> <a href="http://del.icio.us/deusx/grue">grue</a> <a href="http://del.icio.us/deusx/conference">conference</a> <a href="http://del.icio.us/deusx/etcon">etcon</a>)</div>
+	</li>
+</ul>

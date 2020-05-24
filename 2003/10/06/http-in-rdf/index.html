@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>RDF representations of HTTP transactions? - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/blog.lmorchard.com/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="RDF representations of HTTP transactions?" />
+        <meta
+          property="og:url"
+          content="https://lmorchard.github.io/blog.lmorchard.com//"
+        />
+        
+        <meta property="og:description" content="&lt;blockquote cite=&quot;http://ilrt.org/discovery/chatlogs/rdfig/2003-10-06#T14-01-47&quot;&gt;&lt;i&gt;13:52:29 &amp;lt;monkeyiq&amp;gt; is there a notation for capturing browse
+histories in rdf?
+&lt;br&gt;&lt;br&gt;
+13:53:25 &amp;lt;DanC&amp;gt; good question, monkeyiq... I wanted something
+like that a while ago...
+&lt;br&gt;&lt;br&gt;
+13:53:30 &amp;lt;DanC&amp;gt; I didn&amp;apos;t find anything in particular.&lt;/i&gt;&lt;/blockquote&gt;
+&lt;div class=&quot;credit&quot; align=&quot;right&quot;&gt;&lt;small&gt;Source:&lt;cite&gt;&lt;a href&gt;#rdfig: hypertext histories and RDF schemas for HTTP&lt;/a&gt;&lt;/cite&gt;&lt;/small&gt;&lt;/div&gt;
+&lt;p&gt;
+For what it&amp;apos;s worth, I&amp;apos;m looking &lt;a href=&quot;http://rdfig.xmlhack.com/2003/10/06/2003-10-06.html#1065448897.942970&quot;&gt;for this&lt;/a&gt; too.  I&amp;apos;ve done a little bit
+of work in cobbling together some RDF representations of HTTP transactions,
+in order to record browsing history in a rich way.  I&amp;apos;ve
+basically just been mapping from &lt;a href=&quot;http://www.ietf.org/rfc/rfc2616#&quot;&gt;HTTP/1.1&lt;/a&gt;
+header fields to RDF properties.  It&amp;apos;s been a little while, but I seem to remember that both 
+&lt;a href=&quot;http://www.decafbad.com/cvs/dbproxy/plugins/metaminer/lib/metaminer/__init__.py?rev=HEAD&amp;amp;content-type=text/vnd.viewcvs-markup&quot;&gt;dbproxy&amp;apos;s metaminer plugin&lt;/a&gt;
+and
+&lt;a href=&quot;http://www.decafbad.com/cvs/AgentFrank/plugins/MetaMiner/src/com/decafbad/www/filter/MetaStoreQueue.java?rev=HEAD&amp;amp;content-type=text/vnd.viewcvs-markup&quot;&gt;AgentFrank&amp;apos;s MetaMiner plugin&lt;/a&gt;
+have implementations toward this end.  Sooner or later, I&amp;apos;ll get back to one project or
+the other, and I&amp;apos;d really like someone else to do my homework on this. :)
+&lt;/p&gt;
+" />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post "
+      >
+        <time
+          title="2003-10-06T12:45:12-07:00"
+          pubdate="2003-10-06T12:45:12-07:00"
+        >
+          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/blog.lmorchard.com/2003/"
+            >2003</a
+          >
+          &raquo;
+          <a href="/blog.lmorchard.com/2003/10/"
+            >October</a
+          >
+          &raquo;
+          <span>06</span>
+          &raquo;
+        </time>
+        <h1 class="title">RDF representations of HTTP transactions?</h1>
+        
+        <section class="post-content">
+          <blockquote cite="http://ilrt.org/discovery/chatlogs/rdfig/2003-10-06#T14-01-47"><i>13:52:29 &lt;monkeyiq&gt; is there a notation for capturing browse
+histories in rdf?
+<br /><br />
+13:53:25 &lt;DanC&gt; good question, monkeyiq... I wanted something
+like that a while ago...
+<br /><br />
+13:53:30 &lt;DanC&gt; I didn't find anything in particular.</i></blockquote>
+<div class="credit" align="right"><small>Source:<cite><a href="">#rdfig: hypertext histories and RDF schemas for HTTP</a></cite></small></div>
+<p>
+For what it's worth, I'm looking <a href="http://rdfig.xmlhack.com/2003/10/06/2003-10-06.html#1065448897.942970">for this</a> too.  I've done a little bit
+of work in cobbling together some RDF representations of HTTP transactions,
+in order to record browsing history in a rich way.  I've
+basically just been mapping from <a href="http://www.ietf.org/rfc/rfc2616#">HTTP/1.1</a>
+header fields to RDF properties.  It's been a little while, but I seem to remember that both 
+<a href="http://www.decafbad.com/cvs/dbproxy/plugins/metaminer/lib/metaminer/__init__.py?rev=HEAD&content-type=text/vnd.viewcvs-markup">dbproxy's metaminer plugin</a>
+and
+<a href="http://www.decafbad.com/cvs/AgentFrank/plugins/MetaMiner/src/com/decafbad/www/filter/MetaStoreQueue.java?rev=HEAD&content-type=text/vnd.viewcvs-markup">AgentFrank's MetaMiner plugin</a>
+have implementations toward this end.  Sooner or later, I'll get back to one project or
+the other, and I'd really like someone else to do my homework on this. :)
+</p>
+<!--more-->
+shortname=http_in_rdf
+
+        </section>
+      </article>
+        </section>
+
+        <footer>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

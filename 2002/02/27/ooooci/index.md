@@ -1,0 +1,7 @@
+Hmm, looks like there's a site over here at <a href="http://software.tangent.org/">TangentOrg</a> that's doing a lot of what I keep thinking I want to do with 0xDECAFBAD.  Looking for rolemodels.  If you're out there (<strong>knocks on your screen</strong>), can you point me to any other weblog-ish sites that are kinda about software, kinda about some dude (or dudette), and kinda about the <i>stuff</i> that goes on out there?
+<br /><br />
+I'm sure there're plenty, but I'm looking for not just weblogs, but weblogs that spin off <i>things</i> and make <i>stuff</i> and other <i>crap</i> that sticks around and gets improved, and all that.
+<br /><br />
+Does this make any sense?  It's time to go home.
+<!--more-->
+shortname=ooooci

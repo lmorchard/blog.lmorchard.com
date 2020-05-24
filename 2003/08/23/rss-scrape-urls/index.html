@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>Scraping HTML with web services - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/blog.lmorchard.com/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="Scraping HTML with web services" />
+        <meta
+          property="og:url"
+          content="https://lmorchard.github.io/blog.lmorchard.com//"
+        />
+        
+        <meta property="og:description" content="&lt;p&gt;After &lt;a href=&quot;http://www.decafbad.com/blog/geek/rss_scrape_xsl.html&quot;&gt;checking out&lt;/a&gt; &lt;a href=&quot;http://www.whump.com/moreLikeThis/date/21/08/2003&quot;&gt;Bill Humphries&amp;#x2019; approach&lt;/a&gt; to scraping yesterday, I recalled the various things &lt;a href=&quot;http://udell.roninhouse.com/bytecols/2001-08-15.html&quot;&gt;Jon Udell has written&lt;/a&gt; about &lt;span class=&quot;caps&quot;&gt;URL&lt;/span&gt;-as-command-line and the various places I&amp;#x2019;ve seen the &lt;a href=&quot;http://www.w3.org/2001/05/xslt&quot;&gt;&lt;span class=&quot;caps&quot;&gt;W3C XSLT &lt;/span&gt;Servlet&lt;/a&gt; used in &lt;span class=&quot;caps&quot;&gt;XSLT&lt;/span&gt; tinkering.  I also remembered that there&amp;#x2019;s an &lt;a href=&quot;http://cgi.w3.org/cgi-bin/tidy&quot;&gt;&lt;span class=&quot;caps&quot;&gt;HTML &lt;/span&gt;Tidy service&lt;/a&gt; offered by &lt;span class=&quot;caps&quot;&gt;W3C&lt;/span&gt; as well.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;So&amp;amp;#8230;  these are all URLs.  I figured I could pull together the site &amp;lt;span class=&amp;quot;caps&amp;quot;&amp;gt;URL&amp;lt;/span&amp;gt;, &amp;lt;a href=&amp;quot;http://www.whump.com/dropbox/nationrss/nation.xsl&amp;quot;&amp;gt;Bill&amp;amp;#8217;s &amp;lt;span class=&amp;quot;caps&amp;quot;&amp;gt;XSLT&amp;lt;/span&amp;gt;&amp;lt;/a&amp;gt;, the tidy service, and the &amp;lt;span class=&amp;quot;caps&amp;quot;&amp;gt;XSLT&amp;lt;/span&amp;gt; service, and have a whole lot of scraping going on right in my browser or via wget or curl.  Here are the steps in how I composed the &amp;lt;span class=&amp;quot;caps&amp;quot;&amp;gt;URL&amp;lt;/span&amp;gt;:&amp;lt;/p&amp;gt;
+
+&amp;lt;ol&amp;gt;
+&amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;http://www.thenation.com&amp;quot;&amp;gt;http://www.thenation.com&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;li&gt;&lt;a href=&quot;http://cgi.w3.org/cgi-bin/tidy?docAddr=http%3A%2F%2Fwww.thenation.com&quot;&gt;http://cgi.w3.org/cgi-bin/tidy?docAddr=http%3A%2F%2Fwww.thenation.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.w3.org/2000/06/webdata/xslt?xslfile=http%3A%2F%2Fwww.whump.com%2Fdropbox%2Fnationrss%2Fnation.xsl&amp;amp;xmlfile=http%3A%2F%2Fcgi.w3.org%2Fcgi-bin%2Ftidy%3FdocAddr%3Dhttp%253A%252F%252Fwww.thenation.com&amp;amp;transform=Submit&quot;&gt;http://www.w3.org/2000/06/webdata/xslt?&lt;br&gt;xslfile=http%3A%2F%2Fwww.whump.com%2Fdropbox%2Fnationrss%2Fnation.xsl&amp;amp;&lt;br&gt;xmlfile=http%3A%2F%2Fcgi.w3.org%2Fcgi-bin%2Ftidy%3F&lt;br&gt;docAddr%3Dhttp%253A%252F%252Fwww.thenation.com&amp;amp;transform=Submit&lt;/a&gt;&lt;/li&gt;
+
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;Unfortunately, this doesn&amp;amp;#8217;t work.  In particular, step #2 fails, the Tidy service reporting a failure in processing the original &amp;lt;span class=&amp;quot;caps&amp;quot;&amp;gt;HTML&amp;lt;/span&amp;gt;.  I imagine, had that worked, the whole process at step #3 would be producing &amp;lt;span class=&amp;quot;caps&amp;quot;&amp;gt;RSS&amp;lt;/span&amp;gt;.  On my command line, &amp;lt;span class=&amp;quot;caps&amp;quot;&amp;gt;HTML &amp;lt;/span&amp;gt;Tidy works fine, so I&amp;amp;#8217;ve been thinking of throwing together my own web interface to that program and seeing if that works.&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;If it works, this with the addition of a cache at each stage could allow for what I think is a pretty nifty, all web-based means of scraping news items from web sites.  &amp;lt;/p&amp;gt;
+
+    &amp;lt;p&amp;gt;What would really be nice for apps like this is a better way to express the URLs-within-URLs without escaping and escaping and escaping and...  Thinking some very lightweight scripting here, or some LISP-ish expressions would help.&amp;lt;/p&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+" />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post "
+      >
+        <time
+          title="2003-08-23T10:57:06-07:00"
+          pubdate="2003-08-23T10:57:06-07:00"
+        >
+          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/blog.lmorchard.com/2003/"
+            >2003</a
+          >
+          &raquo;
+          <a href="/blog.lmorchard.com/2003/08/"
+            >August</a
+          >
+          &raquo;
+          <span>23</span>
+          &raquo;
+        </time>
+        <h1 class="title">Scraping HTML with web services</h1>
+        
+        <section class="post-content">
+          <p>After <a href="http://www.decafbad.com/blog/geek/rss_scrape_xsl.html">checking out</a> <a href="http://www.whump.com/moreLikeThis/date/21/08/2003">Bill Humphries&#8217; approach</a> to scraping yesterday, I recalled the various things <a href="http://udell.roninhouse.com/bytecols/2001-08-15.html">Jon Udell has written</a> about <span class="caps">URL</span>-as-command-line and the various places I&#8217;ve seen the <a href="http://www.w3.org/2001/05/xslt"><span class="caps">W3C XSLT </span>Servlet</a> used in <span class="caps">XSLT</span> tinkering.  I also remembered that there&#8217;s an <a href="http://cgi.w3.org/cgi-bin/tidy"><span class="caps">HTML </span>Tidy service</a> offered by <span class="caps">W3C</span> as well.</p>
+
+<pre><code>&lt;p&gt;So&amp;#8230;  these are all URLs.  I figured I could pull together the site &lt;span class=&quot;caps&quot;&gt;URL&lt;/span&gt;, &lt;a href=&quot;http://www.whump.com/dropbox/nationrss/nation.xsl&quot;&gt;Bill&amp;#8217;s &lt;span class=&quot;caps&quot;&gt;XSLT&lt;/span&gt;&lt;/a&gt;, the tidy service, and the &lt;span class=&quot;caps&quot;&gt;XSLT&lt;/span&gt; service, and have a whole lot of scraping going on right in my browser or via wget or curl.  Here are the steps in how I composed the &lt;span class=&quot;caps&quot;&gt;URL&lt;/span&gt;:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.thenation.com&quot;&gt;http://www.thenation.com&lt;/a&gt;&lt;/li&gt;</code></pre>
+<li><a href="http://cgi.w3.org/cgi-bin/tidy?docAddr=http%3A%2F%2Fwww.thenation.com">http://cgi.w3.org/cgi-bin/tidy?docAddr=http%3A%2F%2Fwww.thenation.com</a></li>
+<li><a href="http://www.w3.org/2000/06/webdata/xslt?xslfile=http%3A%2F%2Fwww.whump.com%2Fdropbox%2Fnationrss%2Fnation.xsl&xmlfile=http%3A%2F%2Fcgi.w3.org%2Fcgi-bin%2Ftidy%3FdocAddr%3Dhttp%253A%252F%252Fwww.thenation.com&transform=Submit">http://www.w3.org/2000/06/webdata/xslt?<br />xslfile=http%3A%2F%2Fwww.whump.com%2Fdropbox%2Fnationrss%2Fnation.xsl&#38;<br />xmlfile=http%3A%2F%2Fcgi.w3.org%2Fcgi-bin%2Ftidy%3F<br />docAddr%3Dhttp%253A%252F%252Fwww.thenation.com&#38;transform=Submit</a></li>
+</ol>
+
+<pre><code>&lt;p&gt;Unfortunately, this doesn&amp;#8217;t work.  In particular, step #2 fails, the Tidy service reporting a failure in processing the original &lt;span class=&quot;caps&quot;&gt;HTML&lt;/span&gt;.  I imagine, had that worked, the whole process at step #3 would be producing &lt;span class=&quot;caps&quot;&gt;RSS&lt;/span&gt;.  On my command line, &lt;span class=&quot;caps&quot;&gt;HTML &lt;/span&gt;Tidy works fine, so I&amp;#8217;ve been thinking of throwing together my own web interface to that program and seeing if that works.&lt;/p&gt;
+
+&lt;p&gt;If it works, this with the addition of a cache at each stage could allow for what I think is a pretty nifty, all web-based means of scraping news items from web sites.  &lt;/p&gt;
+
+    &lt;p&gt;What would really be nice for apps like this is a better way to express the URLs-within-URLs without escaping and escaping and escaping and...  Thinking some very lightweight scripting here, or some LISP-ish expressions would help.&lt;/p&gt;</code></pre>
+<!--more-->
+<p>shortname=rss_scrape_urls</p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221086837">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.whump.com/moreLikeThis/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=622548e3f303e03297375ab20ddcb696&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.whump.com/moreLikeThis/">Bill Humphries</a>
+</div>
+<a href="#comment-221086837" class="permalink"><time datetime="2003-08-24T16:08:56">2003-08-24T16:08:56</time></a>
+</div>
+<div class="content">Does the w3c Tidy service support the force output option? That's what I had to do with command line Tidy to get something well formed from The Nation's home page.</div>
+</li>
+<li class="comment" id="comment-221086838">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.decafbad.com/blog"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.decafbad.com/blog">l.m.orchard</a>
+</div>
+<a href="#comment-221086838" class="permalink"><time datetime="2003-08-24T20:07:03">2003-08-24T20:07:03</time></a>
+</div>
+<div class="content">Unfortunately, it seems that the W3C service only offers an indentation option</div>
+</li>
+<li class="comment" id="comment-221086840">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.whump.com/moreLikeThis/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=622548e3f303e03297375ab20ddcb696&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.whump.com/moreLikeThis/">Bill Humphries</a>
+</div>
+<a href="#comment-221086840" class="permalink"><time datetime="2003-08-25T02:13:11">2003-08-25T02:13:11</time></a>
+</div>
+<div class="content">It's tempting to take the script, and offer it as a service myself, with the force output option. However, I'd need to wrap an authorization service in front of it so it doesn't kill my bandwidth.</div>
+</li>
+</ul>
+</div>
+
+        </section>
+      </article>
+        </section>
+
+        <footer>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

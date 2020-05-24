@@ -1,0 +1,1 @@
+ <p>Holy crap, this seems like big news:  <a href="http://docs.python.org/dev/whatsnew/node14.html#SECTION0001440000000000000000">pysqlite is now included in the standard  library with Python 2.5</a>.  Talk about Batteries Included.</p>

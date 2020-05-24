@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>dojo.io and PUT / DELETE - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/blog.lmorchard.com/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="dojo.io and PUT / DELETE" />
+        <meta
+          property="og:url"
+          content="https://lmorchard.github.io/blog.lmorchard.com//"
+        />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post tag-asides"
+      >
+        <time
+          title="2006-04-08T09:08:43-07:00"
+          pubdate="2006-04-08T09:08:43-07:00"
+        >
+          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/blog.lmorchard.com/2006/"
+            >2006</a
+          >
+          &raquo;
+          <a href="/blog.lmorchard.com/2006/04/"
+            >April</a
+          >
+          &raquo;
+          <span>08</span>
+          &raquo;
+        </time>
+        <h1 class="title">dojo.io and PUT / DELETE</h1>
+        <ul class="tags">
+            <li>
+                  <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+                </li>
+          </ul>
+        <section class="post-content">
+           <p>Just starting to delve into Dojo for S3Ajax, thanks to <a href="http://decafbad.com/blog/2006/04/06/private-client-side-cookies-for-ajax#comment-9602">the promise of `dojo.storage` for stashing security credentials locally</a>.  And, that <a href="http://dojotoolkit.org/docs/rich_text.html">Rich Text Editor</a> doesn't look shabby either.</p>
+ <p>I'm having trouble using `dojo.io`, though.  I'm a little fuzzy on the cross-browser availability of PUT and DELETE methods in XMLHttpRequest objects.  So, I assume that's why `dojo.io` doesn't seem to allow them.</p>
+ <p>Code I had working stopped once I swapped over to Dojo's AJAX stuff, which I seemed to root out in the `canHandle` function of `dojo.io.XMLHTTPTransport`.</p>
+ <p>So, for now, I'm still rolling my own there.</p>
+
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221086654">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://codinginparadise.org"><img src="http://www.gravatar.com/avatar.php?gravatar_id=96da1b3d8858bfa0306b7c55d3e48270&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://codinginparadise.org">Brad Neuberg</a>
+</div>
+<a href="#comment-221086654" class="permalink"><time datetime="2006-04-28T06:28:40">2006-04-28T06:28:40</time></a>
+</div>
+<div class="content"><p>Yeah, Safari has trouble with PUTs, and some browsers don't support DELETE; this is why dojo.io only supports POSTS and GETs. I now model all PUTs as POSTs for this reason (including that mobile devices have trouble with wierd http verbs sometimes).</p>
+<p>Your S3 work looks cool! Are you getting to use the new dojo.storage I just posted? It's new and improved! Also, have you played with Moxie? It would be cool to hook that up to S3, and have it sync its local files with S3 once you are online.</p></div>
+</li>
+<li class="comment" id="comment-221086655">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2377f34a68801b861c3e54e1301f0dce&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.decafbad.com">l.m.orchard</a>
+</div>
+<a href="#comment-221086655" class="permalink"><time datetime="2006-04-28T11:37:00">2006-04-28T11:37:00</time></a>
+</div>
+<div class="content"><p>I have gotten dojo.storage working with S3Ajax pretty well.  Although the S3 wiki is anonymous and public-write, I do have code that can use dojo.storage to stash the S3 security credentials locally and then attempt to auto-recall them at page load:</p>
+<p>http://decafbad.com/trac/browser/trunk/S3Ajax/js/play.js#L37</p>
+<p>My approach to waiting for availability of the data after page load is a bit awkward, though:</p>
+<p>http://decafbad.com/trac/browser/trunk/S3Ajax/js/play.js#L24</p>
+<p>And the only other thing I have with it is that I'd like a version that doesn't require the whole of Dojo, if all I need it the storage bit.  I've been trying to keep S3Ajax as focused and free of external dependencies as possible.  On the other hand, when used in building an actual application, I suppose I will be reaching for things like the Dojo rich text editor and the like.</p></div>
+</li>
+</ul>
+</div>
+
+        </section>
+      </article>
+        </section>
+
+        <footer>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

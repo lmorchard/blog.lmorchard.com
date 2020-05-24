@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>Tab Sidebar update and more userChrome.css hacking - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/blog.lmorchard.com/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="Tab Sidebar update and more userChrome.css hacking" />
+        <meta
+          property="og:url"
+          content="https://lmorchard.github.io/blog.lmorchard.com//"
+        />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post tag-asides"
+      >
+        <time
+          title="2005-12-01T21:52:51-08:00"
+          pubdate="2005-12-01T21:52:51-08:00"
+        >
+          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/blog.lmorchard.com/2005/"
+            >2005</a
+          >
+          &raquo;
+          <a href="/blog.lmorchard.com/2005/12/"
+            >December</a
+          >
+          &raquo;
+          <span>01</span>
+          &raquo;
+        </time>
+        <h1 class="title">Tab Sidebar update and more userChrome.css hacking</h1>
+        <ul class="tags">
+            <li>
+                  <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+                </li>
+          </ul>
+        <section class="post-content">
+          <p>Hmm, looks like there&#39;s been another update to my new favorite Firefox extension, <a href="http://users.blueprintit.co.uk/~dave/web/firefox/tabsidebar/index.html">Tab Sidebar</a>.  Nice changes on balance: It seems a bit more polished now, and among other things, the thumbnails have some mini-navigation controls.  But, now there&#39;s too much crammed in there for my 12&quot; screen.  </p>
+<p>So, I&#39;ve started hacking my <code>userChrome.css</code> again:</p>
+<pre><code>#sidebar {
+    min-width: 0px !important;
+    max-width: none !important;
+}
+#sidebar-title { display: none !important }
+sidebarheader  { display: none}
+
+.tbs-tabpreviews .tbs-close   { display:none !important; }
+.tbs-tabpreviews .tbs-favicon { display:none !important; }
+.tbs-tabpreviews .tbs-title   { font-size: 0.825em !important; }
+
+.tbs-tabpreview:hover .tbs-canvas, 
+.tbs-tabpreview[selected=&quot;true&quot;] .tbs-canvas {
+    opacity: 1 !important;
+}
+.tbs-tabpreview[selected=&quot;false&quot;] .tbs-canvas {
+    opacity: 1 !important;
+}</code></pre>
+<p>Unfortunately, that last bit with the opacity doesn&#39;t work.  I want to disable the dimming of unselected tabs, so that all tab previews are 100% opaque at all times and not just when selected.  See, I don&#39;t need the current tab to be fully clear—it&#39;s what I&#39;m looking at right now.  I need all the other tab previews to be as clear as possible.</p>
+
+        </section>
+      </article>
+        </section>
+
+        <footer>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

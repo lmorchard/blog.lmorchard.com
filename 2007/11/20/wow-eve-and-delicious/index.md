@@ -1,0 +1,1 @@
+Come see me try to write big words <a href="http://decafbad.com/recaffeinated/">on my new blog</a> about <a href="http://decafbad.com/recaffeinated/archives/2007/11/20/WoWEVEandDelicious.html">what I hope is not a new MMORPG addiction</a>, while I work through the aftermath of this thing having been hacked.

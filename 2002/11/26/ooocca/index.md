@@ -1,0 +1,97 @@
+In <a href="http://backend.userland.com/formatsForBlogBrowsers">Formats for Blog Browsers</a>, Dave writes:<blockquote><i>I wanted to add a facility that would automatically back up all your weblog posts... "I bet <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> 2.0 could do this," I said out loud. And now that the code works, the answer is clear. It can. ...  Then another lightning bolt hit me. ... What if someone made a browser that worked with this format?  Let's call them Blog Browsers, apps specially designed for reading weblogs.</i></blockquote>About syndication formats, <a href="http://www.dashes.com/anil/index.php?archives/004158.php">Anil Dash writes</a>:<blockquote><i>I have a radical proposal for a ubiqitous content syndication format, applicable for almost any purpose, but extremely well suited for weblogs. ... My new syndication format is called XHTML.</i></blockquote>In one corner, we have the syndication format taking over the document format.  In the other corner, we have the document format taking over the syndication format!  <strong>FIGHT!</strong>
+<br /><br />
+Yeah, yeah, it's not quite <em>that</em> simple - but the opposed directions are interesting.
+<!--more-->
+shortname=ooocca
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221085448">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.scripting.com/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=dc59c5ba9a8aa0a6225d9959eea3b7f3&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.scripting.com/">Dave Winer</a>
+                </div>
+                <a href="#comment-221085448" class="permalink"><time datetime="2002-11-26T13:33:28">2002-11-26T13:33:28</time></a>
+            </div>
+            <div class="content">It won't be much of a fight. If they can get some content flowing in the format they want, and if that content isn't available in RSS, someone is certain to write a format driver for it.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221085449">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=673077cfcaedce7b37ff753d6100560a&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="">John Burton</a>
+                </div>
+                <a href="#comment-221085449" class="permalink"><time datetime="2002-11-26T14:49:15">2002-11-26T14:49:15</time></a>
+            </div>
+            <div class="content">Seeing the recent articles on just using XHTML instead of RSS were one of those moments when something just made sense and completly changed my thoughts about something.
+
+RSS is now looking like a solution in need of a problem.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221085450">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://anildash.com/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=c5840de029a9c139e222305c0d7c5e46&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://anildash.com/">Anil</a>
+                </div>
+                <a href="#comment-221085450" class="permalink"><time datetime="2002-11-26T16:03:54">2002-11-26T16:03:54</time></a>
+            </div>
+            <div class="content">It won't be much of a fight.
+
+I agree... this isn't an "us vs. them" thing, it's a "what if..." thing.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221085451">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.decafbad.com">l.m.orchard</a>
+                </div>
+                <a href="#comment-221085451" class="permalink"><time datetime="2002-11-26T16:36:07">2002-11-26T16:36:07</time></a>
+            </div>
+            <div class="content">Well, presenting this as a "fight" was more or less me trying to be silly.  I don't really expect a fight over it - er, well, yes I do, but then the contestants in that fight will be silly anyway.
+
+It's just very interesting to watch things go in both directions.  In the end, hopefully, either or both ways end up being so simple that it's just a bare hiccup to support in aggregators.
+
+(Though I *do* worry about too many divergent standards.)</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221085452">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.cincomsmalltalk.com/blog/blogView"><img src="http://www.gravatar.com/avatar.php?gravatar_id=fe55d62419d42bd8a4dba4050ade298d&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.cincomsmalltalk.com/blog/blogView">James Robertson</a>
+                </div>
+                <a href="#comment-221085452" class="permalink"><time datetime="2002-11-27T13:49:04">2002-11-27T13:49:04</time></a>
+            </div>
+            <div class="content">I now read most web logs in my RSS Client tool, BottomFeeder - http://www.cincomsmalltalk.com/BottomFeeder.  This site:
+
+http://webaccess.mozquito.com/features/index.xml
+
+shows what you can do via XSLT with an RSS based site.  It's an XML based site, that displays formatted HTML in a browser.  This is cool, since the site is now more accessible - both to those who prefer RSS aggregation, and to those who prefer a 'normal' browser</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

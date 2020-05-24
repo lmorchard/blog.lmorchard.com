@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>FeedMagick, the feed filter that doesn&#39;t know much about feeds - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/blog.lmorchard.com/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="FeedMagick, the feed filter that doesn&#39;t know much about feeds" />
+        <meta
+          property="og:url"
+          content="https://lmorchard.github.io/blog.lmorchard.com//"
+        />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post "
+      >
+        <time
+          title="2005-12-12T22:26:42-08:00"
+          pubdate="2005-12-12T22:26:42-08:00"
+        >
+          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/blog.lmorchard.com/2005/"
+            >2005</a
+          >
+          &raquo;
+          <a href="/blog.lmorchard.com/2005/12/"
+            >December</a
+          >
+          &raquo;
+          <span>12</span>
+          &raquo;
+        </time>
+        <h1 class="title">FeedMagick, the feed filter that doesn&#39;t know much about feeds</h1>
+        
+        <section class="post-content">
+          <blockquote cite="http://decafbad.com/trac/wiki/FeedMagick">FeedMagick is a set of PHP tools used in filtering, converting, and otherwise munging XML syndication feeds in RSS and Atom formats.</blockquote>
+<small style="text-align:right; display:block">Source: <a href="http://decafbad.com/trac/wiki/FeedMagick">FeedMagick - 0xDECAFBAD - Trac</a></small>
+
+<p>Okay, so I held my nose and started doing a bit of PHP hacking this past weekend, and <a href="http://decafbad.com/trac/wiki/FeedMagick">this</a> is what I&#39;ve got so far.  It wasn&#39;t <em>that</em> bad, and there were a few nice toys to be found so far in PHP—but I think I&#39;ll need some peer-review to tell me how well I&#39;m following the local idiom.  Also, my XML mojo may suffer from some unintentional ignorance.</p>
+<p>Anyway, the main idea behind this feed filtering kit is that I&#39;m not parsing and reconstituting feeds at the format level.   Instead, I&#39;m diving down to the <em>XML level</em> with <a href="http://www-128.ibm.com/developerworks/xml/library/x-tipsaxflex.html">SAX filters</a>.  Having finally realized the meaning of <a href="http://www.xml.com/pub/a/2003/12/03/versioning.html"><strong>Must Ignore</strong></a>, this was a particularly interesting realization to me—so I hope you&#39;ll bear with me as I tell the story...</p>
+<h3 id="what-it-doesnt-do">What it doesn&#39;t do:</h3>
+<p>See, I&#39;m not using <a href="http://magpierss.sourceforge.net/">MagpieRSS</a> to chew up feeds into PHP structures, and I&#39;m not using PHP structures <a href="http://hublog.hubmed.org/archives/000919.html">to splice together a new feed</a>.  You see, since starting with <a href="http://decafbad.com/trac/wiki/FeedSpool">FeedSpool</a>, I&#39;ve come to believe that ignorance is bliss and <a href="http://decafbad.com/trac/wiki/FeedMagick">FeedMagick</a> is a continuation of this notion.  </p>
+<p>In <a href="http://decafbad.com/trac/wiki/FeedMagick">FeedMagick</a>, I&#39;m mostly ignoring feed format specifics.  The only thing this code really cares about are <code>item</code> and <code>entry</code> tags, and the rest gets blindly passed along.  Of course, <em>you</em> can write filter subclasses which <em>do</em> know and care about other feed elements—but the beauty is that neither you nor I need to write code that cares about <em>all possible feed elements ever</em>.</p>
+<h3 id="why-it-doesnt-do-it">Why it doesn&#39;t do it:</h3>
+<p>When you write a <a href="http://www.feedparser.org/">general parser for feeds</a>, there are a lot of permutations that need worrying about.  And for a  feed filter, that&#39;s just the first stage of the process.  Next, you need to reconstitute that feed from parsed data—and that&#39;s going to suck.  </p>
+<p>You could consider your job done after implementing the bare feed spec—but what about <a href="http://phobos.apple.com/static/iTunesRSS.html">Apple</a> and <a href="http://search.yahoo.com/mrss">Yahoo!</a> and <a href="http://msdn.microsoft.com/xml/rss/sse/">Microsoft</a>?  Oh, and what about <a href="http://web.resource.org/rss/1.0/modules/event/">calendar events</a>?  What happens to your filter if people start doing interesting things with all of these extensions?  </p>
+<p>Even if the parser author managed to pull off passing along all the information contained in the feed—pretty much reinventing the XML wheel past a certain point—you&#39;ll need to anticipate what all that information might be in order to rebuild the feed basically from scratch on the other end of the filter.  It&#39;s too much.</p>
+<h3 id="how-it-gets-away-with-it">How it gets away with it:</h3>
+<p>Stop caring about the specifics so much.  This is XML, right?  It&#39;s possible to build tools at the XML level that can slice and dice and put it all back together again without harm.  Could be RSS, could be Atom, could be XHTML, could be <a href="http://www.formatdata.com/recipeml/">RecipeML</a>.  In any case, as long as the turtle-depth stops at angle brackets, we can start there and work up.</p>
+<p><a href="http://www.xml.com/pub/a/2001/10/10/sax-filters.html">SAX filters</a> it is, then—<a href="http://pear.php.net/package/XML_SaxFilters">in PHP flavor</a>.  I built a simple chain consisting of a SAX parser to read in the XML and <a href="http://decafbad.com/trac/browser/trunk/FeedMagick/includes/FeedMagick/XMLGeneratorFilter.php">a SAX filter that writes XML</a>.  So far so good, it&#39;s an <a href="http://en.wikipedia.org/wiki/Identity_function">identity function</a>.</p>
+<p>Next, I stuck <a href="http://decafbad.com/trac/browser/trunk/FeedMagick/includes/FeedMagick/FeedItemFilter.php">a filter in the middle that just <em>barely</em> knows about <code>item</code> and <code>entry</code> tags</a>—<em>and not much else</em>.  When this thing sees a feed item in the parsing event stream, it temporarily diverts all further parsing events for that item into a buffer.  At the end of the item, it spews the buffered events down the filter chain.</p>
+<h3 id="where-it-gets-useful">Where it gets useful:</h3>
+<p>Now, with all of this in place, you can make a decision in the middle:  Got an item in the buffer?  Take a peek at it just before it gets unbuffered—does it meet a set of filter criteria?  If not, discard the buffer and keep moving.  Otherwise, proceed as normal and send the item on its way.</p>
+<p>And that&#39;s it, so far.  All this filter knows or cares about is XML and the occasional feed item tag.  Filter subclasses can care about more—<a href="http://decafbad.com/trac/browser/trunk/FeedMagick/subject-filter.php">a <code>dc:subject</code> element, for instance</a>—and decide which items make it down the pipe.  That item could be stuffed full of rich extensions and goodies, but this filter doesn&#39;t have to care.  It can be ignorant beyond angle brackets.</p>
+<h3 id="thats-it">That&#39;s it.</h3>
+<p>So, yeah.  This might all be obvious to some people, but it all finally made a lot of sense to me.  It started making sense when I built <a href="http://decafbad.com/trac/wiki/FeedSpool">FeedSpool</a>, but now it&#39;s really sinking in.  I really get the virtue of ignorance and laziness in XML now.  Or, at least, I think I&#39;m starting to.</p>
+<!-- tags: rss atom feed syndication php hackingfeeds -->
+
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221082611">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://harold.hotelling.net/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=5183bee2961385af94a500759bb7a372&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://harold.hotelling.net/">Harold</a>
+</div>
+<a href="#comment-221082611" class="permalink"><time datetime="2006-09-08T22:17:16">2006-09-08T22:17:16</time></a>
+</div>
+<div class="content"><p>This virtue of laziness and ignorance applies to dynamic programming languages as well, for the same reasons. Not pointed at you, but I see a lot of C++/Java people get very excited about how flexible XML is, but completely miss out on the idea that programming languages like &lt;holy-war&gt; Python Perl Ruby Lisp Scheme etc. &lt;/holy-war&gt; provide this flexibility for all their objects and data structures, all the time. I guess we could try to re-market dynamic languages as XPL &emdash; extensible programming languages.</p>
+<p>Well, sorry for the mini-rant. Welcome to the Bay Area.</p></div>
+</li>
+</ul>
+</div>
+
+        </section>
+      </article>
+        </section>
+
+        <footer>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

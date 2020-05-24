@@ -1,0 +1,51 @@
+<p>When I see links in my referrers <a href="http://www.joueb.com/niutopia/news/155.shtml">like this from Niutopia</a>, it makes me wish I had <a href="http://www.scifi.com/farscape/notes/translator.html">translator microbes</a> instead of <a href="http://babelfish.altavista.com/urltrurl?url=http%3A%2F%2Fwww.joueb.com%2Fniutopia%2Fnews%2F155.shtml&amp;lp=fr_en&amp;tt=url">the Babelfish</a>.  But, at least I have the Fish, and for free!  (Thanks <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/AltaVista?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">AltaVista</font></span>!)  The translation is sketchy and random at best, but it's decent enough for me to get the gist of things.  Now if only I could respond to things in a foriegn language and not accidentally start a war or insult someone's relations, or at best sound like a moron.  It is nice, though, to be reminded that English is not the only language of the web.</p>
+<!--more-->
+shortname=ooobco
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221090647">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=7499db0ba2d89023a4ba8997d19e9970&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="">jm</a>
+                </div>
+                <a href="#comment-221090647" class="permalink"><time datetime="2002-08-09T15:22:03">2002-08-09T15:22:03</time></a>
+            </div>
+            <div class="content">I'm sure you can write english on Niutopia and have some good soul acting as a better fish to translate so everyone can be in the loop.
+(Anyway this article is already there, because of the LinkBack features).
+You can also mail Biz directly.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221090648">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://joueb.com/niutopia/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=8e49939df55df3035756b2bb0bb5c208&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://joueb.com/niutopia/">Biz</a>
+                </div>
+                <a href="#comment-221090648" class="permalink"><time datetime="2002-08-09T17:21:24">2002-08-09T17:21:24</time></a>
+            </div>
+            <div class="content">On Niutopia, linkbacks appear as comments to the article. Those remote comments are mixed with the local comments entered by users directly on the site.
+
+E.g. when someone clicked on your link to Niutopia, Niutopia crawled back, got your link and the context and posted this comment automatically :
+
+0xDECAFBAD : " When I see links in my referrers like this from Niutopia, it makes me wish I had translator microbes instead of the Babelfish. But, at least I have the Fish, and for free! (Thanks AltaVista!) The translation is sketchy and rand"
+
+Comments (remote or local) are ordered chronologicaly. I prefer it to the "top referer" way.
+
+Thanks a lot for the original linkback idea. :-)</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

@@ -1,0 +1,51 @@
+<p>Sheesh, have I rambled on forever about this or what?  I think it could have all been summed up so much more concisely, as <a href="http://www.decafbad.com/news_archives/000334.phtml#comments">Paul Prescod did</a> for me:  "<i>For the 20% that XML-RPC solves, by all means use it!</i>"  With my case in particular, his 20% is 80% of my problem domain.</p>
+<p>I guess the vehemence and volume of my reaction, which surprises me now looking back, stems from three things:</p>
+<p>First, I've gotten used to seeing statements along the lines of "XmlRpc and its ilk are complete and utter useless shite, will be the end of the web as we know it, and what kind of brane damage have you suffered to continue using it?"  So, I fully expected to be smacked around for even vaguely hinting that I'd found, in my experience, that <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a> is extremely useful.  But, to the contrary, I got <a href="http://www.blogstream.com/pauls/1038403139">a very nice and thoughtful response</a> from Paul Prescod and the flames never rose.  </p>
+<p>Second, on the level where my purist perfectionist self sits, I've bought into the "XmlRpc is shite" meme.  So the fact that I do useful work with it from day to day introduces a bit of cognitive dissonance for me - how can it be <strong>complete</strong> shite if it's a money maker for me?  I've got to justify this to myself somehow.  Granted, there are warts in <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a> - but warts by what measure?  A measure of ideal perfection, or a measure of real world experience?  Well, what Paul gets across to me is that it's the latter, but my experience thus far is very much a small subset of the experiences of people who feel they need to go beyond <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a>.  My experience with my problems is valid, and <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a> is useful.  It's just that there's a larger domain for which <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a> falls down.</p>
+<p>This, I think is the key:  <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a> is <strong>not</strong> complete shite.  It works just great for the right problems, which happen to be mine.  The question to which I <strong>don't</strong> have an answer is this:  How many developers' problems fall into my kind of domain?</p>
+<p>Third and lastly, though I didn't get any flames for <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a> advocacy itself, I got a few private nastygrams flaming me for talking nice about <a href="http://www.decafbad.com/twiki/bin/view/Main/DaveWiner">DaveWiner</a>'s work after I'd <a href="http://www.decafbad.com/news_archives/000278.phtml">talked not so nice</a> about him some months ago.  With regard to that, I have to say that I'm not on any particular crusade, other than for that which I find interesting.  That said, I dislike many things Dave does and says.  Though I'd rather not add fuel to fires, I might fail to resist on occasion - as noted above.  However, I'm not the guy who's going to change his ways, he obviously doesn't feel a need to change, and I frequently don't have all the facts anyway.  But I do like some of the guy's contributions to the world, so when occasion arises (as it did with <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a>), I'll say so.  In any case, <a href="http://www.decafbad.com/twiki/bin/view/Main/DaveWiner">DaveWiner</a> has given me much food for thought.<br />
+</p>
+<!--more-->
+shortname=ooocdb
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221090492">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.scripting.com/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=dc59c5ba9a8aa0a6225d9959eea3b7f3&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.scripting.com/">Dave Winer</a>
+                </div>
+                <a href="#comment-221090492" class="permalink"><time datetime="2002-12-08T17:53:49">2002-12-08T17:53:49</time></a>
+            </div>
+            <div class="content">Pretty arrogant if you ask me. What has LM Orchard contributed to the world? Add more value, less bluster and bullshit.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221090494">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.decafbad.com">l.m.orchard</a>
+                </div>
+                <a href="#comment-221090494" class="permalink"><time datetime="2002-12-09T01:40:53">2002-12-09T01:40:53</time></a>
+            </div>
+            <div class="content">Your comment confuses me.  
+
+I've written that your work has helped me and given me food for thought - despite other disagreements I may have with you.  And I've written that a tool of yours I've come to consider imperfect has, nonetheless, worked perfectly for me.  These things remind me that I don't know it all and have much to learn and hash out.  If this is bluster and bullshit, I certainly didn't intend it as such.
+
+As for my contributions and value - I'd like to think I'm doing something right in this field, given that I still have a well-paying job and a non-zero readership of my weblog.</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

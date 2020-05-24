@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>Reinventing wheels versus using the perfectly good set you have - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/blog.lmorchard.com/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="Reinventing wheels versus using the perfectly good set you have" />
+        <meta
+          property="og:url"
+          content="https://lmorchard.github.io/blog.lmorchard.com//"
+        />
+        
+        <meta property="og:description" content="&lt;p&gt;In a column on &lt;a href=&quot;http://www.byte.com/documents/s=7117/byt1018644007316/0415_udell.html&quot;&gt;Zope Lessons Learned&lt;/a&gt;, Jon Udell writes:&lt;/p&gt;&lt;blockquote&gt;&lt;i&gt;It seems silly to recreate, in a scripting platform, services that already exist in the environment. On the other hand, since those services aren&amp;apos;t guaranteed to exist in the same way in every environment, you can argue that the scripting platform should be self sufficient even if that means reinventing wheels...&lt;/i&gt;&lt;/blockquote&gt;This is something else I&amp;apos;ve been thinking about with regards to the &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/PersonalServer&quot;&gt;PersonalServer&lt;/a&gt; / &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/DesktopWebAppServer&quot;&gt;DesktopWebAppServer&lt;/a&gt; I want to put together.  Thing is, between the slice of a full peer I have at decafbad.com, and the full UNIX environments I have on my 2 linux boxen and one iBook, I have 90% of the environment I want already.&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;I have databases, I have web and mail servers, I have &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/WebDAV&quot;&gt;WebDAV&lt;/a&gt;, and I have schedulers.  Should I just say to hell with it and get on with writing the top layer?  That is, the actual apps I want to run on this nifty personal server framework?  I have been so far, and calling it &amp;quot;prototype&amp;quot;.  Telling myself that these little apps are just &amp;quot;playing around&amp;quot; for until I build a &amp;quot;real&amp;quot; desktop environment in which to host the apps.&lt;/p&gt;
+&lt;p&gt;So why reinvent all the wheels to which Jon refers?  Because they &amp;quot;aren&amp;apos;t guaranteed to exist in the same way in every environment&amp;quot;, and I would like to distribute and share my work to people who don&amp;apos;t have a full peer, 2 linux boxen, and an iBook.  So, I&amp;apos;d like this stuff to be a simple little wrapped up package that&amp;apos;s easy to drop in on a Win32 box.  Or a Linux box, or a Mac OS X box.  So, in order to make a cross-platform &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/PersonalServer&quot;&gt;PersonalServer&lt;/a&gt;, I have to reinvent the wheels and create a run-time environment that itself runs on all platforms so that I don&amp;apos;t have to modify the upper layers of the app.&lt;/p&gt;
+&lt;p&gt;Hmm...  Or, I could just get to work within the excellent environments I already have, screw reinventing wheels, and actually create some apps that would be &lt;i&gt;worth&lt;/i&gt; making cross-platform on some later date.  :)  Because the longer I work on reinventing wheels, the fewer things I have that are really any fun to play with in the end.  &lt;/p&gt;
+&lt;p&gt;Besides, who would I be kidding if I didn&amp;apos;t admit that the stuff I&amp;apos;m playing with right now is for early adopters and &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/AlphaGeek&quot;&gt;AlphaGeeks&lt;/a&gt;?  So why waste a lot of time making a pretty box with a bow now?&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/MacOsX&quot;&gt;MacOsX&lt;/a&gt; exists, and &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RadioUserLand&quot;&gt;RadioUserLand&lt;/a&gt; exists, so I might as well stand on their shoulders.  I wish I could find the permalink, but &lt;a href=&quot;http://www.scriptingnews.com&quot;&gt;Dave Winer&lt;/a&gt; was talking about Open Source developers banding together on a mailing lists to &amp;quot;crush&amp;quot; a commercial product.  He works toward the conclusion that this is stupid and useless, and that cooperation is more in everyone&amp;apos;s interest.  Not to be a dittohead in the Cult of &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/UserLand&quot;&gt;UserLand&lt;/a&gt;, but they seem to be bearing this out.  &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RadioUserLand&quot;&gt;RadioUserLand&lt;/a&gt; is so open and inviting for tinkering that I think most of what I&amp;apos;d want from an Open Source clone is already there.  &lt;/p&gt;
+&lt;p&gt;Hell, I even prefer &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/MacOsX&quot;&gt;MacOsX&lt;/a&gt; over Linux now.  Am I selling my hacker soul?  I don&amp;apos;t think so.  :)&lt;/p&gt;
+&lt;p&gt;Okay, okay, enough babbling.  I&amp;apos;ll forget about writing my OS-within-an-OS for now and write the apps on top of it.&lt;/p&gt;
+" />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post "
+      >
+        <time
+          title="2002-04-15T22:43:59-07:00"
+          pubdate="2002-04-15T22:43:59-07:00"
+        >
+          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/blog.lmorchard.com/2002/"
+            >2002</a
+          >
+          &raquo;
+          <a href="/blog.lmorchard.com/2002/04/"
+            >April</a
+          >
+          &raquo;
+          <span>15</span>
+          &raquo;
+        </time>
+        <h1 class="title">Reinventing wheels versus using the perfectly good set you have</h1>
+        
+        <section class="post-content">
+          <p>In a column on <a href="http://www.byte.com/documents/s=7117/byt1018644007316/0415_udell.html">Zope Lessons Learned</a>, Jon Udell writes:<blockquote><i>It seems silly to recreate, in a scripting platform, services that already exist in the environment. On the other hand, since those services aren't guaranteed to exist in the same way in every environment, you can argue that the scripting platform should be self sufficient even if that means reinventing wheels...</i></blockquote>This is something else I've been thinking about with regards to the <a href="http://www.decafbad.com/twiki/bin/view/Main/PersonalServer">PersonalServer</a> / <a href="http://www.decafbad.com/twiki/bin/view/Main/DesktopWebAppServer">DesktopWebAppServer</a> I want to put together.  Thing is, between the slice of a full peer I have at decafbad.com, and the full UNIX environments I have on my 2 linux boxen and one iBook, I have 90% of the environment I want already.</p>
+<p>I have databases, I have web and mail servers, I have <a href="http://www.decafbad.com/twiki/bin/view/Main/WebDAV">WebDAV</a>, and I have schedulers.  Should I just say to hell with it and get on with writing the top layer?  That is, the actual apps I want to run on this nifty personal server framework?  I have been so far, and calling it "prototype".  Telling myself that these little apps are just "playing around" for until I build a "real" desktop environment in which to host the apps.</p>
+<p>So why reinvent all the wheels to which Jon refers?  Because they "aren't guaranteed to exist in the same way in every environment", and I would like to distribute and share my work to people who don't have a full peer, 2 linux boxen, and an iBook.  So, I'd like this stuff to be a simple little wrapped up package that's easy to drop in on a Win32 box.  Or a Linux box, or a Mac OS X box.  So, in order to make a cross-platform <a href="http://www.decafbad.com/twiki/bin/view/Main/PersonalServer">PersonalServer</a>, I have to reinvent the wheels and create a run-time environment that itself runs on all platforms so that I don't have to modify the upper layers of the app.</p>
+<p>Hmm...  Or, I could just get to work within the excellent environments I already have, screw reinventing wheels, and actually create some apps that would be <i>worth</i> making cross-platform on some later date.  :)  Because the longer I work on reinventing wheels, the fewer things I have that are really any fun to play with in the end.  </p>
+<p>Besides, who would I be kidding if I didn't admit that the stuff I'm playing with right now is for early adopters and <a href="http://www.decafbad.com/twiki/bin/view/Main/AlphaGeek">AlphaGeeks</a>?  So why waste a lot of time making a pretty box with a bow now?</p>
+<p><a href="http://www.decafbad.com/twiki/bin/view/Main/MacOsX">MacOsX</a> exists, and <a href="http://www.decafbad.com/twiki/bin/view/Main/RadioUserLand">RadioUserLand</a> exists, so I might as well stand on their shoulders.  I wish I could find the permalink, but <a href="http://www.scriptingnews.com">Dave Winer</a> was talking about Open Source developers banding together on a mailing lists to "crush" a commercial product.  He works toward the conclusion that this is stupid and useless, and that cooperation is more in everyone's interest.  Not to be a dittohead in the Cult of <a href="http://www.decafbad.com/twiki/bin/view/Main/UserLand">UserLand</a>, but they seem to be bearing this out.  <a href="http://www.decafbad.com/twiki/bin/view/Main/RadioUserLand">RadioUserLand</a> is so open and inviting for tinkering that I think most of what I'd want from an Open Source clone is already there.  </p>
+<p>Hell, I even prefer <a href="http://www.decafbad.com/twiki/bin/view/Main/MacOsX">MacOsX</a> over Linux now.  Am I selling my hacker soul?  I don't think so.  :)</p>
+<p>Okay, okay, enough babbling.  I'll forget about writing my OS-within-an-OS for now and write the apps on top of it.</p>
+<!--more-->
+shortname=ooooib
+
+        </section>
+      </article>
+        </section>
+
+        <footer>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

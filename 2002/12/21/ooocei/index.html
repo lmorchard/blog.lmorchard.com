@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>MovableType LDAP integration - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/blog.lmorchard.com/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="MovableType LDAP integration" />
+        <meta
+          property="og:url"
+          content="https://lmorchard.github.io/blog.lmorchard.com//"
+        />
+        
+        <meta property="og:description" content="&lt;p&gt;This week, at work, I cobbled together a hack for &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/MovableType&quot;&gt;MovableType&lt;/a&gt; that hooks it up with an LDAP server for author accounts: &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/MovableTypeLDAPAuthors&quot;&gt;MovableTypeLDAPAuthors&lt;/a&gt;.  This is an early, early, early release of the thing, and is likely to do very nasty things for all that I know.  But, I wanted to share, and it seems to be working for the proof of concept at work (that is, MT weblogs on our intranet for every employee).  Hopefully soon it&amp;apos;ll be approved, and I&amp;apos;ll be looking into a commercial use license for &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/MovableType&quot;&gt;MovableType&lt;/a&gt;.
+&lt;br&gt;&lt;br&gt;
+You know, for all the praise I&amp;apos;ve read about &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/MovableType&quot;&gt;MovableType&lt;/a&gt;, something I&amp;apos;ve really not seen much attention toward is the code itself.  I mean, yeah this thing is great, and it&amp;apos;s so simple to install and use by even non-techies.  But, under the hood, there&amp;apos;re some nice things going on - like a very decent object persistence approach; templating for pretty strict code/presentation separation; a workable servlet-like app structure with facilities for localization and a dispatch-table approach to executing web app methods.  There are some spots that are a bit too if/else-ful for my taste, like the &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/CMS&quot;&gt;CMS&lt;/a&gt;&amp;apos; edit_object() method, but hey, it works.
+&lt;br&gt;&lt;br&gt;
+In other words, &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/MovableType&quot;&gt;MovableType&lt;/a&gt; isn&amp;apos;t just a cobbled together tangle of code that happens to produce weblogs.  I&amp;apos;ve seen piles of well-used code on the web before that all seem to do what they advertise, but present a nightmare under the hood.  (&lt;strong&gt;cough&lt;/strong&gt; Matt Wright&amp;apos;s famous scripts &lt;strong&gt;cough&lt;/strong&gt;)  No, &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/MovableType&quot;&gt;MovableType&lt;/a&gt; looks like the result of experience, and I feel biased, because it demonstrates a lot of the same perl web app design patterns I&amp;apos;ve been employing and advocating for years now.  So, my LDAP hack was a bit of enjoyable fun, instead of a chore.
+&lt;br&gt;&lt;br&gt;
+Along the lines of what I&amp;apos;d written last week &lt;a href=&quot;http://www.decafbad.com/news_archives/000354.phtml&quot;&gt;about perfection versus good enough&lt;/a&gt;, I think &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/MovableType&quot;&gt;MovableType&lt;/a&gt; is a good example.  It&amp;apos;s something I &lt;strong&gt;could&lt;/strong&gt; have written, but &lt;strong&gt;didn&amp;apos;t&lt;/strong&gt; write and &lt;strong&gt;didn&amp;apos;t&lt;/strong&gt; release and &lt;strong&gt;didn&amp;apos;t&lt;/strong&gt; support and &lt;strong&gt;didn&amp;apos;t&lt;/strong&gt; make lots of people happy along the way.  All the did-nots are the important bit.  It&amp;apos;s why I have two projects dead (&lt;a href=&quot;http://sourceforge.net/projects/iaijutsu&quot; target=&quot;_top&quot;&gt;Iaijutsu&lt;/a&gt; and &lt;a href=&quot;http://sourceforge.net/projects/iaido&quot; target=&quot;_top&quot;&gt;Iaido&lt;/a&gt;) after a few years&amp;apos; effort, and &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/MovableType&quot;&gt;MovableType&lt;/a&gt; is a gigantic success today.
+&lt;br&gt;&lt;br&gt;
+So, these are the kind of lessons that  are an important part of what this weblog is about for me.&lt;/p&gt;
+" />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post "
+      >
+        <time
+          title="2002-12-21T13:54:49-08:00"
+          pubdate="2002-12-21T13:54:49-08:00"
+        >
+          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/blog.lmorchard.com/2002/"
+            >2002</a
+          >
+          &raquo;
+          <a href="/blog.lmorchard.com/2002/12/"
+            >December</a
+          >
+          &raquo;
+          <span>21</span>
+          &raquo;
+        </time>
+        <h1 class="title">MovableType LDAP integration</h1>
+        
+        <section class="post-content">
+          <p>This week, at work, I cobbled together a hack for <a href="http://www.decafbad.com/twiki/bin/view/Main/MovableType">MovableType</a> that hooks it up with an LDAP server for author accounts: <a href="http://www.decafbad.com/twiki/bin/view/Main/MovableTypeLDAPAuthors">MovableTypeLDAPAuthors</a>.  This is an early, early, early release of the thing, and is likely to do very nasty things for all that I know.  But, I wanted to share, and it seems to be working for the proof of concept at work (that is, MT weblogs on our intranet for every employee).  Hopefully soon it&#39;ll be approved, and I&#39;ll be looking into a commercial use license for <a href="http://www.decafbad.com/twiki/bin/view/Main/MovableType">MovableType</a>.
+<br /><br />
+You know, for all the praise I&#39;ve read about <a href="http://www.decafbad.com/twiki/bin/view/Main/MovableType">MovableType</a>, something I&#39;ve really not seen much attention toward is the code itself.  I mean, yeah this thing is great, and it&#39;s so simple to install and use by even non-techies.  But, under the hood, there&#39;re some nice things going on - like a very decent object persistence approach; templating for pretty strict code/presentation separation; a workable servlet-like app structure with facilities for localization and a dispatch-table approach to executing web app methods.  There are some spots that are a bit too if/else-ful for my taste, like the <a href="http://www.decafbad.com/twiki/bin/view/Main/CMS">CMS</a>&#39; edit_object() method, but hey, it works.
+<br /><br />
+In other words, <a href="http://www.decafbad.com/twiki/bin/view/Main/MovableType">MovableType</a> isn&#39;t just a cobbled together tangle of code that happens to produce weblogs.  I&#39;ve seen piles of well-used code on the web before that all seem to do what they advertise, but present a nightmare under the hood.  (<strong>cough</strong> Matt Wright&#39;s famous scripts <strong>cough</strong>)  No, <a href="http://www.decafbad.com/twiki/bin/view/Main/MovableType">MovableType</a> looks like the result of experience, and I feel biased, because it demonstrates a lot of the same perl web app design patterns I&#39;ve been employing and advocating for years now.  So, my LDAP hack was a bit of enjoyable fun, instead of a chore.
+<br /><br />
+Along the lines of what I&#39;d written last week <a href="http://www.decafbad.com/news_archives/000354.phtml">about perfection versus good enough</a>, I think <a href="http://www.decafbad.com/twiki/bin/view/Main/MovableType">MovableType</a> is a good example.  It&#39;s something I <strong>could</strong> have written, but <strong>didn&#39;t</strong> write and <strong>didn&#39;t</strong> release and <strong>didn&#39;t</strong> support and <strong>didn&#39;t</strong> make lots of people happy along the way.  All the did-nots are the important bit.  It&#39;s why I have two projects dead (<a href="http://sourceforge.net/projects/iaijutsu" target="_top">Iaijutsu</a> and <a href="http://sourceforge.net/projects/iaido" target="_top">Iaido</a>) after a few years&#39; effort, and <a href="http://www.decafbad.com/twiki/bin/view/Main/MovableType">MovableType</a> is a gigantic success today.
+<br /><br />
+So, these are the kind of lessons that  are an important part of what this weblog is about for me.</p>
+<!--more-->
+<p>shortname=ooocei</p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221082595">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.birdhouse.org/blog/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=990ffc04d68291be18e32416f84b451b&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.birdhouse.org/blog/">Scot Hacker</a>
+</div>
+<a href="#comment-221082595" class="permalink"><time datetime="2002-12-25T19:23:12">2002-12-25T19:23:12</time></a>
+</div>
+<div class="content">Exciting to see work  in this direction. I'm using MT a lot for  student projects at  the Berkeley J-School, and can imagine this being useful. However, I don't have a need for each student get their own blog. Instead, I  would want to make sets of students into LDAP groups and then attach that group to a specific blog. See these:
+http://journalism.berkeley.edu/projects/biplog/
+http://journalism.berkeley.edu/projects/sanpablo/
+http://journalism.berkeley.edu/projects/election2002/
+So in these cases we have, say 20 students in a class, the output of which is a publication in the form of a web site. I  have to create a login for each student. LDAP would be useful for me if I could tell them they could use their  existing network logins.</div>
+</li>
+<li class="comment" id="comment-221082596">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.decafbad.com">l.m.orchard</a>
+</div>
+<a href="#comment-221082596" class="permalink"><time datetime="2002-12-26T14:07:13">2002-12-26T14:07:13</time></a>
+</div>
+<div class="content">Hmm, this sounds like a good idea:  Shared blogs based on LDAP groups.  I have yet to get far into how to configure this stuff beyond hard coded module vars, but I think it would be useful to pick a branch of the LDAP tree where all blog groups might live.  I could then make an explicitly-run script that generates any not-yet-existant blogs for LDAP groups, or maybe work in some autocreation magic that generates them on the fly.</div>
+</li>
+<li class="comment" id="comment-221082597">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://webseitz.fluxent.com/wiki"><img src="http://www.gravatar.com/avatar.php?gravatar_id=5a70d939a73fa73603f2a9255ab81d21&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://webseitz.fluxent.com/wiki">BillSeitz</a>
+</div>
+<a href="#comment-221082597" class="permalink"><time datetime="2002-12-27T18:32:05">2002-12-27T18:32:05</time></a>
+</div>
+<div class="content">What are you using for your LDAP back end? OpenLDAP? MsExchange?
+What other things use it?
+http://webseitz.fluxent.com/wiki/IntraNet
+http://webseitz.fluxent.com/wiki/LDAP</div>
+</li>
+</ul>
+</div>
+
+        </section>
+      </article>
+        </section>
+
+        <footer>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

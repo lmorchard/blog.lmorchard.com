@@ -1,0 +1,46 @@
+<p>Ack!  So I was trying to switch my <a href="http://www.pairnic.com">PairNIC</a>-hosted domain over to <a href="http://www.dyndns.org">DynDNS</a>'s Custom DNS service last week.  I thought all was well, since I followed the directions exactly.  As it was, it really only consisted of "Set your domain's nameservers to ns[1-5].mydyndns.org".  So I did that, then left for a few days.  Come back and I see that it failed miserably, and took 36 hours or so to switch back to <a href="http://www.zoneedit.com">ZoneEdit</a>.  Grr.  The only thing I noticed was that <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/PairNIC?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">PairNIC</font></span>'s control panel appeared to randomize the order of the nameserver addresses I entered, and <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/DynDNS?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">DynDNS</font></span> had a note in the docs stating that I needed to have only <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/DynDNS?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">DynDNS</font></span> nameservers listed in my record and no mixing with other DNS hosts.  Could it be that <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/DynDNS?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">DynDNS</font></span> is picky about the order in which my record lists nameservers?</p>
+<p>Grr.  Well, I'm back on the air.  I just hope not too many of you out there with news aggregators and auto-unsub-on-error have had me slide off your lists.</p>
+<!--more-->
+shortname=ooobad
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221090416">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://brentashley.blogchat.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=f5d2b80ead5baf93719dd7ee0ab3790d&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://brentashley.blogchat.com">brent</a>
+                </div>
+                <a href="#comment-221090416" class="permalink"><time datetime="2002-07-16T02:19:55">2002-07-16T02:19:55</time></a>
+            </div>
+            <div class="content">You don't say why you changed away from ZoneEdit to DynDNS.
+
+I use Zoneedit for dynamic DNS by using a perl script based on the one they provide.  It's been belly belly good to me.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221090417">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.decafbad.com">l.m.orchard</a>
+                </div>
+                <a href="#comment-221090417" class="permalink"><time datetime="2002-07-16T12:42:24">2002-07-16T12:42:24</time></a>
+            </div>
+            <div class="content">Hmm, actually, no good reason except that I've been using DynDNS.org for years for a domain on my home machines, noticed they had something similar for non-dyndns.org domains, and thought I'd try them out.  Now that you mention that, I really need to look further into ZoneEdit.
+
+It all goes back to not fixing what ain't broke.  *smacks forehead*</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

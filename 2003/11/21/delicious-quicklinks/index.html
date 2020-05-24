@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>Publishing Quick Links in blosxom with del.icio.us via xmlstarlet - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/blog.lmorchard.com/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="Publishing Quick Links in blosxom with del.icio.us via xmlstarlet" />
+        <meta
+          property="og:url"
+          content="https://lmorchard.github.io/blog.lmorchard.com//"
+        />
+        
+        <meta property="og:description" content="&lt;p&gt;
+In case anyone is interested in using &lt;a href=&quot;http://del.icio.us/&quot;&gt;del.icio.us&lt;/a&gt; with &lt;a href=&quot;http://www.blosxom.com&quot;&gt;blosxom&lt;/a&gt; in place of my own &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/BookmarkBlogger&quot;&gt;BookmarkBlogger&lt;/a&gt;, get yourself a copy of &lt;a href=&quot;http://xmlstar.sourceforge.net/&quot;&gt;xmlstarlet&lt;/a&gt; and check out this shell script:
+&lt;/p&gt;
+&lt;textarea rows=&quot;14&quot; cols=&quot;70&quot;&gt;#!/bin/bash
+
+&amp;lt;p&amp;gt;DATE=${1-&amp;lt;code&amp;gt;date +%Y-%m-%d&amp;lt;/code&amp;gt;}
+BLOG=&amp;quot;/Users/deusx/desktop/decafbad-entries/links&amp;quot;
+FN=&amp;quot;${BLOG}/&amp;quot;&amp;lt;code&amp;gt;echo ${DATE} | sed -e &amp;apos;y/0123456789-/oabcdefghij/&amp;apos;&amp;lt;/code&amp;gt;&amp;quot;.txt&amp;quot;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;curl -s -u deusx:HAHAHA &amp;apos;&amp;lt;a href=&amp;quot;http://del.icio.us/api/posts/get?dt=&amp;apos;$%7BDATE%7D&amp;quot;&amp;gt;http://del.icio.us/api/posts/get?dt=&amp;apos;${DATE}&amp;lt;/a&amp;gt; |&amp;lt;br&amp;gt;    tidy -xml -asxml -q -f /dev/null |&amp;lt;br&amp;gt;    xml sel -t -o &amp;quot;Quick Links&amp;quot; -n &amp;lt;br&amp;gt;            -e &amp;apos;ul&amp;apos;  -m &amp;apos;//post&amp;apos; &amp;lt;br&amp;gt;            -e &amp;apos;li&amp;apos;  -e &amp;apos;a&amp;apos; -a &amp;apos;href&amp;apos; -v &amp;apos;@href&amp;apos; &amp;lt;br&amp;gt;            -b -v &amp;apos;text()&amp;apos; -n  &amp;gt; ${FN}&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;touch -d &amp;quot;${DATE} 23:59&amp;quot; ${FN}
+&lt;/textarea&gt;&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;
+You could do this with XSLT, but hacking with a REST-ish &amp;amp; XML producing web service entirely in a shell script seemed oddly appealing to me that week.  Extending this sort of thing to blogging systems other than blosxom is left as an exercise to the reader.
+&lt;/p&gt;
+&lt;p&gt;
+&lt;b&gt;Update:&lt;/b&gt; Hmm, looks like one of the blosxom plugins I&amp;apos;m using hates the variables in my code above.  So I stuck curly braces in, which seem to get through okay.
+&lt;/p&gt;
+" />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post "
+      >
+        <time
+          title="2003-11-21T06:47:10-08:00"
+          pubdate="2003-11-21T06:47:10-08:00"
+        >
+          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/blog.lmorchard.com/2003/"
+            >2003</a
+          >
+          &raquo;
+          <a href="/blog.lmorchard.com/2003/11/"
+            >November</a
+          >
+          &raquo;
+          <span>21</span>
+          &raquo;
+        </time>
+        <h1 class="title">Publishing Quick Links in blosxom with del.icio.us via xmlstarlet</h1>
+        
+        <section class="post-content">
+          <p>
+In case anyone is interested in using <a href="http://del.icio.us/">del.icio.us</a> with <a href="http://www.blosxom.com">blosxom</a> in place of my own <a href="http://www.decafbad.com/twiki/bin/view/Main/BookmarkBlogger">BookmarkBlogger</a>, get yourself a copy of <a href="http://xmlstar.sourceforge.net/">xmlstarlet</a> and check out this shell script:
+</p>
+<textarea rows="14" cols="70">
+#!/bin/bash
+
+<p>DATE=${1-<code>date +%Y-%m-%d</code>}
+BLOG=&quot;/Users/deusx/desktop/decafbad-entries/links&quot;
+FN=&quot;${BLOG}/&quot;<code>echo ${DATE} | sed -e &#39;y/0123456789-/oabcdefghij/&#39;</code>&quot;.txt&quot;</p>
+<p>curl -s -u deusx:HAHAHA &#39;<a href="http://del.icio.us/api/posts/get?dt=&#39;$%7BDATE%7D">http://del.icio.us/api/posts/get?dt=&#39;${DATE}</a> |<br>    tidy -xml -asxml -q -f /dev/null |<br>    xml sel -t -o &quot;Quick Links&quot; -n <br>            -e &#39;ul&#39;  -m &#39;//post&#39; <br>            -e &#39;li&#39;  -e &#39;a&#39; -a &#39;href&#39; -v &#39;@href&#39; <br>            -b -v &#39;text()&#39; -n  &gt; ${FN}</p>
+<p>touch -d &quot;${DATE} 23:59&quot; ${FN}
+</textarea></p>
+<p>
+You could do this with XSLT, but hacking with a REST-ish & XML producing web service entirely in a shell script seemed oddly appealing to me that week.  Extending this sort of thing to blogging systems other than blosxom is left as an exercise to the reader.
+</p>
+<p>
+<b>Update:</b> Hmm, looks like one of the blosxom plugins I'm using hates the variables in my code above.  So I stuck curly braces in, which seem to get through okay.
+</p>
+<!--more-->
+shortname=delicious_quicklinks
+
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221086678">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://24.102.209.201/weblogs/ben/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=588bdfdda82be46c638d6956c55ebc38&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://24.102.209.201/weblogs/ben/">Gnomon</a>
+</div>
+<a href="#comment-221086678" class="permalink"><time datetime="2003-11-21T10:36:01">2003-11-21T10:36:01</time></a>
+</div>
+<div class="content">It's probably the interpolate_conditional or interpolate_fancy plugin - it tends to dislike entries that contain dollar symbols. I've wrestled with it in the past, but now I don't bother - I just use &amp;#036; to represent &#036; instead.</div>
+</li>
+<li class="comment" id="comment-221086679">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=b2083fa8a0f60df479da38dbc1256def&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="">Yay</a>
+</div>
+<a href="#comment-221086679" class="permalink"><time datetime="2003-12-05T20:01:13">2003-12-05T20:01:13</time></a>
+</div>
+<div class="content">Hi,
+Cute script. I changed the last line like this to remove the file if it has got no links:
+if test `cat ${FN} |wc -c` = 18; then rm ${FN}; else touch -d "${DATE} 23:59" ${FN}; fi</div>
+</li>
+</ul>
+</div>
+
+        </section>
+      </article>
+        </section>
+
+        <footer>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

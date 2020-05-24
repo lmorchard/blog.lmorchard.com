@@ -1,0 +1,95 @@
+<p><a href="http://www.decafbad.com/deus_x/cocoa-dev/ampheta-on-x.jpg" target="_new"><img hspace="6" vspace="6" src="http://www.decafbad.com/mt-images/ampheta-on-x-sm.jpg" border="0" align="right"></a>This past week, I've been playing with the new <a href="http://www.disobey.com/amphetadesk">AmphetaDesk</a> checked out <a href="http://sourceforge.net/cvs/?group_id=21649">from CVS</a>.  <a href="http://www.disobey.com/about/morbus.shtml">Morbus Iff</a> gets closer to a release, and I threw together a <a href="http://www.decafbad.com/deus_x/cocoa-dev/ampheta-on-x.jpg" target="_new">Cocoa wrapper</a> and <a href="http://www.decafbad.com/deus_x/cocoa-dev/amphy-outline-skin.jpg" target="_new">outline skin</a> for Ampheta.</p>
+<p>I've been bouncing between <a href="http://radio.userland.com">Radio</a>, <a href="http://www.oreillynet.com/~rael/lang/perl/blagg/">blagg</a>, and <a href="http://www.disobey.com/amphetadesk">AmphetaDesk</a> for my reading this week, and I'm leaning more and more toward Ampheta.  Radio's a powerhouse giant, blagg is a tiny gem, but <a href="http://www.decafbad.com/twiki/bin/view/Main/AmphetaDesk">AmphetaDesk</a> is starting to look just right.</p>
+<p><a href="http://www.decafbad.com/mt-images/amphy-outline-skin.jpg" target="_new"><img  hspace="6" vspace="6" src="http://www.decafbad.com/mt-images/amphy-outline-skin-sm.jpg" border="0" align="left"></a>Especially after I hacked together an outline-style template for it today.  You can grab a copy of it over here: <a href="http://www.decafbad.com/gems/amphy-outline-skin.tar.gz">amphy-outline-skin.tar.gz</a></p>
+<p>Back up your <code>AmphetaDesk/templates/default</code> directory and replace it with the one in my tarball.  It's still nasty, probably horribly buggy and inelegant, and seems to vaguely work under Mozilla 1.0 and IE 6.0.  But amongst the skin's features are these things:<ul><li>All channels, items of channels, and descriptions of items are arranged in a tree of expandable/collapsible branches.</li><li>Links are provided to expand/collapse all channels, and all items in a given channel.</li><li>If more than 10 items appear in a channel, the rest are hidden below a collapsed branch, but still available.</li><li>From newest item to oldest, the font changes from large and bold to small and normal.</li></ul>Check it out, let me know what you think.  It's based on <a href="http://radio.weblogs.com/0104487/gems/activeRenderer/outliner.txt">Marc Barrot's activeRenderer code</a>, and inspired by <a href="http://www.pipetree.com/qmacro/2002/Jun/2#slamwedge">DJ Adams' application to blagg</a> of the outline presentation.</p>
+<!--more-->
+shortname=oooahg
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221086787">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=5bacd6d31292e07db33105e7ec08d30d&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="">wrangler</a>
+                </div>
+                <a href="#comment-221086787" class="permalink"><time datetime="2002-06-09T17:53:31">2002-06-09T17:53:31</time></a>
+            </div>
+            <div class="content">Brilliant! Lovely! Perfect!
+I've been wanting to use an aggregator since I first heard of them (RU7) but have always felt that because poor information architecture/presentation they tended to make tracking a large number of sites harder rather than easier.
+Your outline interface is a great step in the right direction, and it's incredibly heartening to know that someone making these tools understands that there is a problem with the way they present the information they collect and is interested in doing something about it.
+Good work and thank you.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221086788">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://zymm.com/raster/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=f659bb22a2e62ccd2cd82c4b52f09ca9&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://zymm.com/raster/">Pete</a>
+                </div>
+                <a href="#comment-221086788" class="permalink"><time datetime="2002-06-10T15:43:16">2002-06-10T15:43:16</time></a>
+            </div>
+            <div class="content">Wow, the amphy-outline-skin is way cool. I'm using Mozilla 1.0 RC1 on Mac OS X and all seems well...
+
+AmphetaDesk is shaping up to be a really nice app! Thanks for contributing to it.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221086789">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://gomercentral.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=c2da88fed5941752b674fa83ec78458d&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://gomercentral.com">gomer43</a>
+                </div>
+                <a href="#comment-221086789" class="permalink"><time datetime="2003-01-31T22:48:50">2003-01-31T22:48:50</time></a>
+            </div>
+            <div class="content">very cool, very cool indeed. glad i found this.
+
+:)</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221086791">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=fff7ba91df048799c50b78b3e3abd843&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="">anders</a>
+                </div>
+                <a href="#comment-221086791" class="permalink"><time datetime="2003-05-28T03:38:01">2003-05-28T03:38:01</time></a>
+            </div>
+            <div class="content">i'm getting a 404 when trying to download the skin!! :( looked like exactly what i was looking for.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221086793">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.decafbad.com">l.m.orchard</a>
+                </div>
+                <a href="#comment-221086793" class="permalink"><time datetime="2003-05-28T07:49:47">2003-05-28T07:49:47</time></a>
+            </div>
+            <div class="content">If you're still looking for this, it's moved into its own project now:
+
+http://www.decafbad.com/twiki/bin/view/Main/AmphetaOutlines</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

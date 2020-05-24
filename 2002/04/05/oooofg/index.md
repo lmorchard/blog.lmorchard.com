@@ -1,0 +1,41 @@
+<ul>   <li><a href="http://www.decafbad.com/twiki/bin/recent.opml">Here's my attempt at <a href="http://www.decafbad.com/twiki/bin/view/Main/DecafbadWiki">DecafbadWiki</a> <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/RecentChanges?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">RecentChanges</font></span> in <a href="http://www.decafbad.com/twiki/bin/view/Main/OPML">OPML</a></a></li>   <li>Dave wanted to see some <a href="http://www.decafbad.com/twiki/bin/view/Main/OPML">OPML</a> coming out of Wikis.  This could be a start.  It's a bit dirty right now, too, since I doubt that all the dates it outputs are kosher.  Radio seems to consume it happily though.</li>   <li>Next thing is that I want to <a href="http://www.decafbad.com/twiki/bin/view/Main/OPML">OPML</a>-ize a wiki page, using the headings (H1-H6) as cues for structure and each paragraph as child headings</li>   <li>One hiccup though:  My script had to be *.opml, just claiming to provide text/x-opml wasn't good enough to be transcluded here.</li>   <li>I wonder: If I subscribe to this as a buddy, will Radio embolden it on new wiki pages?</li>   <li><i>It does, indeed.</i>  But, of course, although it is transcluded into my instant outline, wiki recent changes do not embolden <i>my</i> outline.</li>   </ul>
+<!--more-->
+shortname=oooofg
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221085519">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.novaroot.com/paddy/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=0af1f52a082bc92d355d3fc9b29b4c2e&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.novaroot.com/paddy/">Patrick Lioi</a>
+                </div>
+                <a href="#comment-221085519" class="permalink"><time datetime="2002-04-05T03:54:06">2002-04-05T03:54:06</time></a>
+            </div>
+            <div class="content">Wow, that sounds really cool, especially if the idea to OPML-ize each page works out.  It'd be like a hierarchical RSS feed.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221085522">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.decafbad.com">l.m.orchard</a>
+                </div>
+                <a href="#comment-221085522" class="permalink"><time datetime="2002-04-05T05:13:40">2002-04-05T05:13:40</time></a>
+            </div>
+            <div class="content">The really, really cool thing after that would be to make the transformation 2-way.  That is, for an outliner to be able to submit wiki changes :)</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

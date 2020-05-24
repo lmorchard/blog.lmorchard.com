@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>Per-post comment RSS feeds - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/blog.lmorchard.com/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="Per-post comment RSS feeds" />
+        <meta
+          property="og:url"
+          content="https://lmorchard.github.io/blog.lmorchard.com//"
+        />
+        <meta
+            property="og:image"
+            content="http://www.decafbad.com/images/xml.gif"
+          />
+        <meta property="og:description" content="&lt;p&gt;After following the &lt;a href=&quot;http://www.intertwingly.net/blog/836.html&quot;&gt;thread on Sam Ruby&amp;apos;s blog&lt;/a&gt; about &lt;a href=&quot;http://scriptingnews.userland.com/backissues/2002/09/20#When:8:39:43AM&quot;&gt;Dave&amp;apos;s  comment tracking feature request&lt;/a&gt;, I figured I&amp;apos;d try &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt;-izing comments on each of my posts.  As things seem to have been going lately, I&amp;apos;d underestimated &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/MovableType&quot;&gt;MovableType&lt;/a&gt;, and it turned out &lt;strong&gt;so&lt;/strong&gt; much easier than I&amp;apos;d thought.  :)  I&amp;apos;d had an &lt;a href=&quot;http://www.decafbad.com/recent_comments_rss.xml&quot;&gt;RSS feed for comments overall&lt;/a&gt; on my site, but now I have individual &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; feeds for each post.  (Notice the &lt;img src=&quot;http://www.decafbad.com/images/xml.gif&quot;&gt; in the comments section now.)  The &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; feed is also linked in the head as per &lt;a href=&quot;http://diveintomark.org/archives/2002/05/31.html#more_on_rss_autodiscovery&quot;&gt;RSS autodiscovery&lt;/a&gt; discussions.
+&lt;br&gt;&lt;br&gt;
+I don&amp;apos;t think aggregators are really ready yet for these per-post comment &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; feeds, but the availability of the data gives food for hacking.  Being that they&amp;apos;re pretty disposable and of interest for a very short time, aggregators will likely need to implement expiry times for feeds, or watch for a period of inactivity before unsubbing.  Grouing feeds would be nice too, in case I wanted to round up all my points of weblog discussion participation.  I&amp;apos;ve got a few things of this sort in my &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/AmphetaOutlinesWishList&quot;&gt;AmphetaOutlinesWishList&lt;/a&gt;, with which I hope to play with further aggregator ideas.
+&lt;br&gt;&lt;br&gt;
+If you use &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/MovableType&quot;&gt;MovableType&lt;/a&gt; and you&amp;apos;re interested in trying this, check out these two templates:  &lt;a href=&quot;http://www.decafbad.com/recent_comments_rss.xml.tmpl&quot;&gt;recent_comments_rss.xml.tmpl&lt;/a&gt;, for blog-wide comments; and &lt;a href=&quot;http://www.decafbad.com/archive_entry.rss.tmpl&quot;&gt;archive_entry.rss.tmpl&lt;/a&gt;, for per-post comments.  The former template is added as an index template in &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/MovableType&quot;&gt;MovableType&lt;/a&gt;, whereas the latter is an archive template.  Also, the per-post archive template will need to be added to the list of individual archive templates in the &lt;strong&gt;Archiving&lt;/strong&gt; section of your blog config.  You&amp;apos;ll want to give it a template for the filename, perhaps something like &lt;code&gt;&amp;lt;$MTEntryID pad=&amp;quot;1&amp;quot;$&amp;gt;.rss&lt;/code&gt;.
+&lt;br&gt;&lt;br&gt;
+At present, I&amp;apos;m publishing in what I think is vaguely &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; 0.92 format.  Whether it complies with the spec, I&amp;apos;m not quite sure because I was lazy.  I plan to revisit this soon to make it at least comply with &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; 1.0.  &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/ShareAndEnjoy&quot;&gt;ShareAndEnjoy&lt;/a&gt;.&lt;/p&gt;
+" />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post "
+      >
+        <time
+          title="2002-09-22T18:39:58-07:00"
+          pubdate="2002-09-22T18:39:58-07:00"
+        >
+          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/blog.lmorchard.com/2002/"
+            >2002</a
+          >
+          &raquo;
+          <a href="/blog.lmorchard.com/2002/09/"
+            >September</a
+          >
+          &raquo;
+          <span>22</span>
+          &raquo;
+        </time>
+        <h1 class="title">Per-post comment RSS feeds</h1>
+        
+        <section class="post-content">
+          <p>After following the <a href="http://www.intertwingly.net/blog/836.html">thread on Sam Ruby&#39;s blog</a> about <a href="http://scriptingnews.userland.com/backissues/2002/09/20#When:8:39:43AM">Dave&#39;s  comment tracking feature request</a>, I figured I&#39;d try <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a>-izing comments on each of my posts.  As things seem to have been going lately, I&#39;d underestimated <a href="http://www.decafbad.com/twiki/bin/view/Main/MovableType">MovableType</a>, and it turned out <strong>so</strong> much easier than I&#39;d thought.  :)  I&#39;d had an <a href="http://www.decafbad.com/recent_comments_rss.xml">RSS feed for comments overall</a> on my site, but now I have individual <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> feeds for each post.  (Notice the <img src="http://www.decafbad.com/images/xml.gif"> in the comments section now.)  The <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> feed is also linked in the head as per <a href="http://diveintomark.org/archives/2002/05/31.html#more_on_rss_autodiscovery">RSS autodiscovery</a> discussions.
+<br /><br />
+I don&#39;t think aggregators are really ready yet for these per-post comment <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> feeds, but the availability of the data gives food for hacking.  Being that they&#39;re pretty disposable and of interest for a very short time, aggregators will likely need to implement expiry times for feeds, or watch for a period of inactivity before unsubbing.  Grouing feeds would be nice too, in case I wanted to round up all my points of weblog discussion participation.  I&#39;ve got a few things of this sort in my <a href="http://www.decafbad.com/twiki/bin/view/Main/AmphetaOutlinesWishList">AmphetaOutlinesWishList</a>, with which I hope to play with further aggregator ideas.
+<br /><br />
+If you use <a href="http://www.decafbad.com/twiki/bin/view/Main/MovableType">MovableType</a> and you&#39;re interested in trying this, check out these two templates:  <a href="http://www.decafbad.com/recent_comments_rss.xml.tmpl">recent_comments_rss.xml.tmpl</a>, for blog-wide comments; and <a href="http://www.decafbad.com/archive_entry.rss.tmpl">archive_entry.rss.tmpl</a>, for per-post comments.  The former template is added as an index template in <a href="http://www.decafbad.com/twiki/bin/view/Main/MovableType">MovableType</a>, whereas the latter is an archive template.  Also, the per-post archive template will need to be added to the list of individual archive templates in the <strong>Archiving</strong> section of your blog config.  You&#39;ll want to give it a template for the filename, perhaps something like <code><$MTEntryID pad="1"$>.rss</code>.
+<br /><br />
+At present, I&#39;m publishing in what I think is vaguely <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> 0.92 format.  Whether it complies with the spec, I&#39;m not quite sure because I was lazy.  I plan to revisit this soon to make it at least comply with <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> 1.0.  <a href="http://www.decafbad.com/twiki/bin/view/Main/ShareAndEnjoy">ShareAndEnjoy</a>.</p>
+<!--more-->
+<p>shortname=ooobio</p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221085144">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://philringnalda.com/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=e68e9944f50a481a64b5a32fdfc02e0d&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://philringnalda.com/">Phil Ringnalda</a>
+</div>
+<a href="#comment-221085144" class="permalink"><time datetime="2002-09-22T22:27:20">2002-09-22T22:27:20</time></a>
+</div>
+<div class="content">RSS 1.0 for blog-wide comments: please please, pretty please? I just this minute got the parsing and storing parts of my RDF in RSS project working, and now I'm on the prowl for things to feed it. If it helps, I've got an only partially wrong template (putting HTML in the description, bad me, but I think that you can't both encode_xml and strip_html, and I'd rather encode_xml for safety's sake).</div>
+</li>
+<li class="comment" id="comment-221085145">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.pycs.net/devlog/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=79d809dc2d0441ef44efc6ad1a1429eb&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.pycs.net/devlog/">Phillip Pearson</a>
+</div>
+<a href="#comment-221085145" class="permalink"><time datetime="2002-09-22T22:57:00">2002-09-22T22:57:00</time></a>
+</div>
+<div class="content">I'd second that about aggregators not being ready for per-thread feeds ;-)
+I implemented per-thread feeds (rather than per-user feeds, for some perverse reason) in the Python Community Server a while back, but have found that they weren't really that useful.
+Some poor aggregator has been faithfully downloading http://www.pycs.net/system/comments.py?u=0000003&p=69&format=rss 20 times a day for months, despite the fact that it has *never* contained any items.  Aggregators need to have exponential backoff times or something.
+BTW, I have a script to make RSS feeds from RCS comments.  At http://dev.myelin.co.nz/commentmonitor/tracker.py you can generate an RSS feed for anybody on radio.weblogs.com, blogs.salon.com or www.pycs.net.</div>
+</li>
+<li class="comment" id="comment-221085147">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.decafbad.com">l.m.orchard</a>
+</div>
+<a href="#comment-221085147" class="permalink"><time datetime="2002-09-23T03:21:56">2002-09-23T03:21:56</time></a>
+</div>
+<div class="content">Phil: Hmm... I'll see what I can cook up before the end of tomorrow  :)
+Phillip: Yeah, I'd definitely like to see some more smarts in the polling frequency of aggregators.  Got a little blurb about that on my AmphetaOutlinesWishList.  Maybe a combo of manual preferences and automatic back-off would be a start.</div>
+</li>
+<li class="comment" id="comment-221085148">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://revjim.net/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=33660e6606dfa6f2a374625315bc40b1&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://revjim.net/">Reverend Jim</a>
+</div>
+<a href="#comment-221085148" class="permalink"><time datetime="2002-09-24T10:43:13">2002-09-24T10:43:13</time></a>
+</div>
+<div class="content">While an RSS feed of the comments for an individual entry might be useful for archival purposes (just as weekly, monthly, and/or yearly archive RSS feeds would be) I believe ONE feed for comments might be easier to chew on. As long as each item in the comment RSS feed references a URL that exists in the article RSS feed, aggregators should have little trouble matching one to the other. Having a separate RSS feed for comments per article means that aggregators would have to first get the RSS feed for the articles, then use RSS auto-discovery (as there would be NO other way) to locate the comment feed for each new article, then go get the comment RSS feed. This is a lot more work, not to mention more network bandwidth.</div>
+</li>
+</ul>
+</div>
+
+        </section>
+      </article>
+        </section>
+
+        <footer>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

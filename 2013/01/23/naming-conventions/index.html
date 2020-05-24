@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>Naming Things: CamelCase vs snake_case - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/blog.lmorchard.com/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="Naming Things: CamelCase vs snake_case" />
+        <meta
+          property="og:url"
+          content="https://lmorchard.github.io/blog.lmorchard.com//"
+        />
+        
+        <meta property="og:description" content="&lt;p&gt;I&amp;#x2019;ve contributed code to a number of projects, often as a drive-by bug fix in a GitHub pull request. And, usually, I&amp;#x2019;ll try to do as the Romans do and follow the local naming and coding conventions. But, sometimes, I&amp;#x2019;ll fall back to my personal conventions and get dinged in the code review.&lt;/p&gt;
+" />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post tag-CamelCasetag-devtag-javascripttag-pythontag-snake_casetag-webdev"
+      >
+        <time
+          title="2013-01-23T04:00:00-08:00"
+          pubdate="2013-01-23T04:00:00-08:00"
+        >
+          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/blog.lmorchard.com/2013/"
+            >2013</a
+          >
+          &raquo;
+          <a href="/blog.lmorchard.com/2013/01/"
+            >January</a
+          >
+          &raquo;
+          <span>23</span>
+          &raquo;
+        </time>
+        <h1 class="title">Naming Things: CamelCase vs snake_case</h1>
+        <ul class="tags">
+            <li>
+                  <a href="/blog.lmorchard.com/tag/CamelCase/">CamelCase</a>
+                </li><li>
+                  <a href="/blog.lmorchard.com/tag/dev/">dev</a>
+                </li><li>
+                  <a href="/blog.lmorchard.com/tag/javascript/">javascript</a>
+                </li><li>
+                  <a href="/blog.lmorchard.com/tag/python/">python</a>
+                </li><li>
+                  <a href="/blog.lmorchard.com/tag/snake_case/">snake_case</a>
+                </li><li>
+                  <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+                </li>
+          </ul>
+        <section class="post-content">
+          <p>I&#8217;ve contributed code to a number of projects, often as a drive-by bug fix in a GitHub pull request. And, usually, I&#8217;ll try to do as the Romans do and follow the local naming and coding conventions. But, sometimes, I&#8217;ll fall back to my personal conventions and get dinged in the code review.</p>
+<!--more-->
+
+<p>For what it&#8217;s worth, those personal conventions look something like this:</p>
+<p><code>variable_names_in_snake_case</code>
+:   Variable, a mutable thing. All lower case, words separated by underscores.</p>
+<p><code>CONSTANTS_IN_ALL_CAPS</code>
+:   Constant, an immutable thing. All upper case, words separated by underscores.</p>
+<p><code>functionAndMethodNames</code>
+:   Functions and methods, immutable and callable things. Mixed camel case, first letter always lower case.</p>
+<p><code>StructAndClassNames</code>
+:   Structs and classes, immutable and instantiatable things. Mixed camel case, first letter always upper case.</p>
+<p>Of course, given the features of any particular language, these rules yield subtleties. For instance, in <a target="_blank" title="JavaScript" href="https://developer.mozilla.org/docs/JavaScript?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">JavaScript</a> a variable can be assigned a callable thing, a declared function can be replaced by assignment, and classes &amp; methods are themselves mainly just suggestions. These conventions are more about my intentions than anything literally baked into syntax.</p>
+<p>I&#8217;ve been using some variant of the above rules for close to 20 years, across probably a dozen languages. On <a target="_blank" title="JavaScript" href="https://developer.mozilla.org/docs/JavaScript?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">JavaScript</a> projects, I end up with <a href="http://en.wikipedia.org/wiki/Snake_case">snake_case</a> in undesirable places. On Python projects, I&#8217;ll use <a href="http://en.wikipedia.org/wiki/CamelCase">CamelCase</a> where it&#8217;s not wanted.</p>
+<p>On the Python side, I know there&#8217;s <a href="http://www.python.org/dev/peps/pep-0008/">PEP 8</a>. That&#8217;s something to point at and claim uniformity, and <a href="http://pypi.python.org/pypi/pep8">it has tooling support</a>. On the <a target="_blank" title="JavaScript" href="https://developer.mozilla.org/docs/JavaScript?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">JavaScript</a> side, I seem to be missing some recent consensus amongst the current wave of browser and nodejs enthusiasts. That, or I&#8217;m just contributing to more projects than my own these days (thanks to GitHub) and only running into this now.</p>
+<p>But, here&#8217;s what always leaves me mildly rankled: Why just one or the other? Why discard the semantic shading available through mixing <a href="http://en.wikipedia.org/wiki/Snake_case">snake_case</a> and <a href="http://en.wikipedia.org/wiki/CamelCase">CamelCase</a>, at least by way of consistent rules? I know there&#8217;s a such thing as syntax highlighting, but combining that with these conventions has often helped me with highlighting is unavailable. <a href="http://en.wiktionary.org/wiki/belt_and_suspenders">Belt and suspenders</a>, and all that.</p>
+<p>Of course, I prefer my rules, because they&#8217;re a deeply ingrained habit. I know this is my peeve. But, what I&#8217;ve never quite been able to get is a satisfying answer as to why one style is preferred to the exclusion of another. Usually I get responses like &#8220;That&#8217;s just the way it&#8217;s done&#8221;, or &#8220;The other way is ugly&#8221;. So, it&#8217;s down to personal whim, project momentum, or <a href="http://en.wikipedia.org/wiki/Cargo_cult">cargo cult</a>.</p>
+<p>I guess it bothers me to see a perfectly good semantic tool thrown out for no good reason as far as I can tell. Feel free to drop me a comment here, if I&#8217;m missing any good reasons. Some additional bits and pieces accumulate below:</p>
+<ul>
+<li><p>Here are some arguments against CamelCase for <a href="http://stackoverflow.com/questions/1740116/for-what-reason-do-we-have-the-lower-case-with-underscores-naming-convention/1740152#1740152">accessibility reasons</a> and for <a href="http://stackoverflow.com/questions/1740116/for-what-reason-do-we-have-the-lower-case-with-underscores-naming-convention/1740131#1740131">non-english speakers</a>.</p>
+</li>
+<li><p><a href="http://glyph.twistedmatrix.com/2012/10/a-tired-hobgoblin.html">The Twisted project uses <em>both</em> CamelCase <em>and</em> snake_case in the same variable names.</a> The bit before the underscore signifies the type of a method, and the bit after is the name &#8211; eg. <code>remote_loginAnonymous</code> or <code>test_addDSAIdentityNoComment</code>.</p>
+</li>
+</ul>
+<p>Anyway, this has been bugging me for long enough that here I am finally blogging about it, so that I have an URL to throw into conversations when it comes up.</p>
+
+        </section>
+      </article>
+
+      <section class="comments" id="comments">
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+            var disqus_needs_loading = true;
+            var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com/";
+          </script>
+          <noscript
+            >Please enable JavaScript to view the
+            <a href="http://disqus.com/?ref_noscript"
+              >comments powered by Disqus.</a
+            ></noscript
+          >
+          <a href="http://disqus.com" class="dsq-brlink"
+            >blog comments powered by <span class="logo-disqus">Disqus</span></a
+          >
+        </section>
+        </section>
+
+        <footer>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

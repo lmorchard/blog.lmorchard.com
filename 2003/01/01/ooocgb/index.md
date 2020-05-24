@@ -1,0 +1,99 @@
+Just in case this wasn't common knowledge, it seems there's a bit of a boo-boo in Jaguar's installation of Python that sticks it head up when one tries to compile extentions (like, oh say, the <a href="http://www.zope.org/Products/StandaloneZODB" target="_top">Standalone ZODB</a>).
+<br /><br />
+Line 62 of <code>/usr/lib/python2.2/config/Makefile</code> reads:
+<br /><br />
+<code>LDFLAGS=        -arch i386 -arch ppc</code>
+<br /><br />
+But, I <strong>think</strong> should read:
+<br /><br />
+<code>LDFLAGS=        -arch ppc</code>
+<br /><br />
+Making this change appears to have gotten the thing compiling, though it may also cause my iBook to eventually self-format since I barely understand everything involved.
+<br /><br />
+Ugh, though now that everything's compiled without hitch, the test script goes belly up with a bus error.  Time to go back googling to find a solution or somewhere to whine.  I may also swap back into Java, since I like Jena better than anything I've found in Python for <a href="http://www.decafbad.com/twiki/bin/view/Main/RDF">RDF</a> support.
+<!--more-->
+shortname=ooocgb
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221088613">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.plaidworks.com/chuqui/blog"><img src="http://www.gravatar.com/avatar.php?gravatar_id=082c6623b6c3a0f1be6ddb5280494401&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.plaidworks.com/chuqui/blog">chuqui</a>
+                </div>
+                <a href="#comment-221088613" class="permalink"><time datetime="2003-01-02T01:55:08">2003-01-02T01:55:08</time></a>
+            </div>
+            <div class="content">you mean .../config/Makefile</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221088617">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.decafbad.com">l.m.orchard</a>
+                </div>
+                <a href="#comment-221088617" class="permalink"><time datetime="2003-01-02T02:05:34">2003-01-02T02:05:34</time></a>
+            </div>
+            <div class="content">D'oht!  Why yes, you are correct!</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221088619">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.plaidworks.com/chuqui/blog"><img src="http://www.gravatar.com/avatar.php?gravatar_id=082c6623b6c3a0f1be6ddb5280494401&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.plaidworks.com/chuqui/blog">chuqui</a>
+                </div>
+                <a href="#comment-221088619" class="permalink"><time datetime="2003-01-02T02:34:11">2003-01-02T02:34:11</time></a>
+            </div>
+            <div class="content">by the way, thanks for finding the problem I was looking for -- at the time I was looking for it. independently.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221088621">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://barry.warsaw.us"><img src="http://www.gravatar.com/avatar.php?gravatar_id=621b3da0ceca8ee796c1ec8dfd699722&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://barry.warsaw.us">barry</a>
+                </div>
+                <a href="#comment-221088621" class="permalink"><time datetime="2003-01-02T03:57:27">2003-01-02T03:57:27</time></a>
+            </div>
+            <div class="content">BTW, I just did a from-source build of Python 2.2.2 and /usr/local/lib/python2.2/config/Makefile doesn't seem to have the bogus LDFLAGS entry.  In fact it doesn't seem to have anything for LDFLAGS!
+
+Near as I can tell building MM2.1 from Python 2.2.2 source-distro works just fine.
+
+This looks like an Apple goof?  Chuq, who manages the free software offerings for MacOSX and how would we get in touch with them?</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221088623">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://lee-phillips.org"><img src="http://www.gravatar.com/avatar.php?gravatar_id=53fa64d865d38a5412e74a654346769d&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://lee-phillips.org">Lee Phillips</a>
+                </div>
+                <a href="#comment-221088623" class="permalink"><time datetime="2003-01-17T14:09:23">2003-01-17T14:09:23</time></a>
+            </div>
+            <div class="content">I went through this - trying to get ZODB standalone working on OSX. After I got the bus error, I was informed that the problem is the python version: 2.2 won't work with any part of Zope. You can either downgrade to python 2.1 (I don't want to either) or see if a more recent python will work.</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

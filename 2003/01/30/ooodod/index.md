@@ -1,0 +1,50 @@
+<blockquote cite="http://www.pipetree.com/qmacro/2003/01/29#nntp">I couldn't resist a bit of tinkering with NNTP, partly to follow up a little bit myself on <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> to/via NNTP, but mostly in fact to re-acquaint myself with the wonderfully arcane configuration of the  majestic beast that is inn . In addition, there's been talk recently of aggregators moving out of the realms of satellite applications and into the browser itself. The Blagg and Blosxom powered Morning Reading page - my personal (but open) news aggregator - is already web-based, so I thought I'd have a look in the other direction. </blockquote><div class="credit" align="right"><small>Source:<cite><a href="http://www.pipetree.com/qmacro/2003/01/29#nntp">DJ's Weblog: Tinkering with RSS and NNTP </a></cite>.</small></div>
+<p>I've been toying around with doing this with <a href="http://www.isc.org/products/INN/" target="_top">inn</a> for quite some time now, so I'm happy to see someone else actually follow through and give it a whirl.  And, using <a href="http://www.oreillynet.com/~rael/lang/perl/blagg" target="_top">blagg</a> with a <a href="http://www.pipetree.com/~dj/2003/01/nntp.pl" target="_top">plugin</a> to do the posting seems just the right twist of clever.</p>
+<p>Yeah, inn's a beast and meant for Usenet-scale beating, but it's Just There on many Linux installations.  And blagg seems to do a decent job of prying content out of <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> feeds, with just a few regular expression incantations.  DJ didn't have to reinvent an NNTP server, or create a brand new aggregator - just a few tweaks and glue, and two existing apps are joined in a completely new and interestingly complementary way.</p>
+<p>Though one thing he says:  "As I saw it, there are two approaches to newsgroup article creation ... Send items from all weblogs to the same newsgroup ... Send items from each weblog to a separate newsgroup."  First thing I was wondering is:  Why not cross-post the articles and have both?</p>
+<p>And then there're the ideas for experimentation that come first to mind: "... Combining the various weblog trackbacking mechanisms with NNTP article IDs to link  articles together in a thread; replying (to the newsgroup) to an  article might send a comment to the post at the source weblog."</p>
+<p>Kinda retro, kinda nouveau, joining the new distributed <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> net up with the semi-distributed NNTP net.</p>
+<!--more-->
+shortname=ooodod
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221082553">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://blog.cfrq.net/chk/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=13ef131b87ef6b2957c6f1cb8e522adb&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://blog.cfrq.net/chk/">Harald</a>
+                </div>
+                <a href="#comment-221082553" class="permalink"><time datetime="2003-01-30T16:09:39">2003-01-30T16:09:39</time></a>
+            </div>
+            <div class="content">Just yesterday I compared RSS and aggregators to usenet, so I find it particularly amusing that someone is now using NNTP for the purpose...
+
+http://blog.cfrq.net/chk/archives/20030128170223.html</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221082554">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=ab9fcb784de156e928436f261c607192&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="">Murphy</a>
+                </div>
+                <a href="#comment-221082554" class="permalink"><time datetime="2003-01-30T17:18:51">2003-01-30T17:18:51</time></a>
+            </div>
+            <div class="content">On the topic of the RSS and NNTP couple, you may want to check this:
+http://www.methodize.org/nntprss
+It really works like a charm...</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

@@ -1,0 +1,45 @@
+<p>Just wasted a good 20-30 minutes having been sucked into the <a href="http://www.geekissues.org/quotes/">IRC Quotes Database</a> that <a href="http://ipwebdev.com/radio/2002/06/11.php#a192">Adam mentioned</a>.  It made me spray coffee out my nose.  So, rather than visit it everyday, I made <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> feeds from it, scraped by <a href="http://radiotools.evectors.it/itstories/story$num=13&amp;sec=3&amp;data=stories">RssDistiller</a>'s enclosePat (need to implement that in Perl sometime).  You can find a feed for the <a href="http://www.decafbad.com/deus_x/radio/RssDistillerChannels/irc-qdb.xml">top 25</a>, <a href="http://www.decafbad.com/deus_x/radio/RssDistillerChannels/irc-qdb-latest.xml">25 latest</a>, or just get a <a href="http://www.decafbad.com/deus_x/radio/RssDistillerChannels/irc-qdb-random.xml">random grab bag</a> of fun.</p>
+<p><i>update</i>: Ack.  Looks like my scraping isn't pulling in the actual quotes.  Back to the drawing board.  :(</p>
+<p><i>update 2</i>: I think they should all be fixed now :)  I missed a para tag in the source.</p>
+<!--more-->
+shortname=oooaic
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221090654">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=b53911af792174097e8acb282414b44c&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="">Bill Kearney</a>
+                </div>
+                <a href="#comment-221090654" class="permalink"><time datetime="2002-06-13T10:36:24">2002-06-13T10:36:24</time></a>
+            </div>
+            <div class="content">What's with grafting javascript onclick code into the description items?  I'm as interested as  anyone for doing feedback stuff but cramming live code into what people are expecting to be static content seems like a bad idea.
+
+Any hope of cleaning it up a bit to eliminate the scripting code?</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221090655">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.decafbad.com">l.m.orchard</a>
+                </div>
+                <a href="#comment-221090655" class="permalink"><time datetime="2002-06-13T10:54:55">2002-06-13T10:54:55</time></a>
+            </div>
+            <div class="content">Hmm...  didn't see that before.  I didn't graft any JavaScript on there myself.  The RSS is just a dumb scrape from the page via RssDistiller.  Been thinking of moving to my own quick set of scrapers in perl, since RssDistiller doesn't do anything particularly special.  I could probably look at throwing some filtering in if/when I move to that.</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

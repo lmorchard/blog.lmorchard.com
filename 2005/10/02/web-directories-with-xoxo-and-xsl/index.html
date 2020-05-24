@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>Web directories with XOXO and XSL - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/blog.lmorchard.com/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="Web directories with XOXO and XSL" />
+        <meta
+          property="og:url"
+          content="https://lmorchard.github.io/blog.lmorchard.com//"
+        />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post tag-xoxotag-microformatstag-opmltag-gopher"
+      >
+        <time
+          title="2005-10-02T20:50:17-07:00"
+          pubdate="2005-10-02T20:50:17-07:00"
+        >
+          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/blog.lmorchard.com/2005/"
+            >2005</a
+          >
+          &raquo;
+          <a href="/blog.lmorchard.com/2005/10/"
+            >October</a
+          >
+          &raquo;
+          <span>02</span>
+          &raquo;
+        </time>
+        <h1 class="title">Web directories with XOXO and XSL</h1>
+        <ul class="tags">
+            <li>
+                  <a href="/blog.lmorchard.com/tag/xoxo/">xoxo</a>
+                </li><li>
+                  <a href="/blog.lmorchard.com/tag/microformats/">microformats</a>
+                </li><li>
+                  <a href="/blog.lmorchard.com/tag/opml/">opml</a>
+                </li><li>
+                  <a href="/blog.lmorchard.com/tag/gopher/">gopher</a>
+                </li>
+          </ul>
+        <section class="post-content">
+          <p>Now, in my <a href="http://decafbad.com/blog/2005/10/02/a-kerfluffle-of-opml-and-web-directories">previous post</a>, I&#39;d mentioned that I might have some ideas to &quot;put up&quot; in response to this recent OPML and web directories kerfluffle.  Here&#39;s my general idea:</p>
+<p>How about trying <a href="http://microformats.org/wiki/xoxo">XOXO</a>, <a href="http://www.w3.org/TR/REC-html40/struct/links.html#h-12.2">the <code>rel</code> attribute on HTML links</a>, and <a href="http://www.w3.org/TR/REC-html40/types.html#type-links">the <code>subsection</code> link type</a>—all with a bit of XSL to make it work?</p>
+<p>Here&#39;s some working data and code:</p>
+<ul>
+<li><a href="http://decafbad.com/2005/10/xoxo-transclude/xsltproc?xslAddr=xoxo-transclude.xsl&amp;docAddr=ex1.html">Here&#39;s the end result</a>, a simple web directory.</li>
+</ul>
+<p>Here are some clues as to what the above does:</p>
+<ul>
+<li>This directory started with <a href="http://decafbad.com/2005/10/xoxo-transclude/ex1.html">this top-level outline</a>.  View source on this page, notice the &quot;Syndication Feeds&quot; link with the <code>rel=&quot;subsection&quot;</code>.</li>
+<li>Applying <a href="http://decafbad.com/2005/10/xoxo-transclude/xoxo-transclude.xsl">this XSL</a> using <a href="http://decafbad.com/2005/10/xoxo-transclude/xsltproc">this web service</a> is where the work gets done.  This consists of dereferencing each link with a <code>rel=&quot;subsection&quot;</code> and transcluding the innards of the page at the end of the URL.</li>
+<li>Notice that <a href="http://hackingfeeds.com/2005/10/xoxo-transclude/ex2.html">the URL of &quot;Syndication Feeds&quot;</a> comes from a domain other than <code>decafbad.com</code>.  If I wanted to, the <a href="http://hackingfeeds.com/2005/10/xoxo-transclude/ex3.html">third level of transclusion</a> could&#39;ve come from yet another domain, too.</li>
+</ul>
+<p>I think this solution is better than using OPML for web directories.  Although it could use some refinement—using a bit of <code>&lt;iframe&gt;</code> or AJAX magic to include in a page, perhaps—it&#39;s not only <em>already supported</em> by more applications than OPML, it <em>also</em> leverages a lot of prior art and consensus work.  </p>
+<p>So, am I wrong here?  If so, please tell me how, where, and why.</p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221085762">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://theryanking.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=c846b78a4a4c978fd34ef965320a13b0&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://theryanking.com">ryan king</a>
+</div>
+<a href="#comment-221085762" class="permalink"><time datetime="2005-10-03T05:53:27">2005-10-03T05:53:27</time></a>
+</div>
+<div class="content"><p>You're not wrong. This is very awesome.</p></div>
+</li>
+<li class="comment" id="comment-221085763">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://dannyayers.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=7028f422ca6da0180de6c9d922a3228f&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://dannyayers.com">Danny</a>
+</div>
+<a href="#comment-221085763" class="permalink"><time datetime="2005-10-03T13:37:31">2005-10-03T13:37:31</time></a>
+</div>
+<div class="content"><p>Bravo! I believe you've got the optimal approach to outline-style hierarchies on the Web.</p>
+<p>Gopher NG here we come!</p>
+<p>http://dannyayers.com/archives/2005/07/14/gopher-ng/</p></div>
+</li>
+<li class="comment" id="comment-221085764">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2377f34a68801b861c3e54e1301f0dce&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.decafbad.com">l.m.orchard</a>
+</div>
+<a href="#comment-221085764" class="permalink"><time datetime="2005-10-03T14:18:23">2005-10-03T14:18:23</time></a>
+</div>
+<div class="content"><p>Danny: Well, hey, if we're going to reinvent Gopher, we may as well do it right.  :)  Next, I set my sights on <a href="http://en.wikipedia.org/wiki/Archie_search_engine" rel="nofollow">Archie</a>--watch out, Google!</p></div>
+</li>
+<li class="comment" id="comment-221085765">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://boston.conman.org/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=bbb1c69b64019a3df907c3545186f907&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://boston.conman.org/">Sean Conner</a>
+</div>
+<a href="#comment-221085765" class="permalink"><time datetime="2005-10-03T22:30:43">2005-10-03T22:30:43</time></a>
+</div>
+<div class="content"><p>You're wrong because Dave Winer will say you're wrong for not using <em>his</em> format (dispite it being rather loosely specified).</p>
+<p>But yeah, I thought that <acronym title="eXtensible HyperText Markup Language">XHTML</acronym> was modular and that you could use sections of it as needed, and that <code>&lt;UL&gt;</code> and <code>&lt;OL&gt;</code> are good enough for outlines.  Seems pretty obvious to me.</p></div>
+</li>
+<li class="comment" id="comment-221085766">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://dannyayers.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=7028f422ca6da0180de6c9d922a3228f&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://dannyayers.com">Danny</a>
+</div>
+<a href="#comment-221085766" class="permalink"><time datetime="2005-10-03T23:33:49">2005-10-03T23:33:49</time></a>
+</div>
+<div class="content"><p>Ooh, Archie...yeah...</p></div>
+</li>
+<li class="comment" id="comment-221085767">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.isolani.co.uk/blog/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=b4fadb98bc6bb92fd88c969c0d71d2fe&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.isolani.co.uk/blog/">Isofarro</a>
+</div>
+<a href="#comment-221085767" class="permalink"><time datetime="2005-10-04T14:21:22">2005-10-04T14:21:22</time></a>
+</div>
+<div class="content"><p>Hmm, excellent idea to use rel="subsection" - that make so much sense. I have a few Ajax based outliners lying around handling things from ul/li lists, atom feeds and opml outlines. I should pull it all together and prototype what you've suggested above. (I think I also have an OPML-friendly PHP proxy to "alleviate" the cross-domain security measure - should be able to hack it to accept XOXO-like outlines)</p>
+<p>Step two would be some WikiSyntax additions to author the above on a wiki (for instance defining transclusion links).</p></div>
+</li>
+</ul>
+</div>
+
+        </section>
+      </article>
+        </section>
+
+        <footer>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

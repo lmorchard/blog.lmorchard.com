@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>Static blog generation with Gulp and S3 - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/blog.lmorchard.com/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="Static blog generation with Gulp and S3" />
+        <meta
+          property="og:url"
+          content="https://lmorchard.github.io/blog.lmorchard.com//"
+        />
+        
+        <meta property="og:description" content="&lt;p&gt;I&amp;apos;ve long agreed that many sites, like blogs, are better &lt;a href=&quot;http://www.aaronsw.com/weblog/000404&quot;&gt;baked than
+fried&lt;/a&gt;. It makes for web hosting that&amp;apos;s cheaper to run and simpler to
+maintain. I&amp;apos;ve also often thought that &lt;a href=&quot;https://indiewebcamp.com/database-antipattern&quot;&gt;using a database can be an
+anti-pattern&lt;/a&gt; for managing content. But, what I&amp;apos;ve also found is
+that baked sites often yield a poor writing environment. That said, I think
+I&amp;apos;m going to give it another try, because I think I might have found a new
+approach that works for me.&lt;/p&gt;
+" />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post tag-metabloggingtag-webdevtag-jstag-gulptag-jekylltag-wordpress"
+      >
+        <time
+          title="2014-10-20T05:00:00-07:00"
+          pubdate="2014-10-20T05:00:00-07:00"
+        >
+          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/blog.lmorchard.com/2014/"
+            >2014</a
+          >
+          &raquo;
+          <a href="/blog.lmorchard.com/2014/10/"
+            >October</a
+          >
+          &raquo;
+          <span>20</span>
+          &raquo;
+        </time>
+        <h1 class="title">Static blog generation with Gulp and S3</h1>
+        <ul class="tags">
+            <li>
+                  <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+                </li><li>
+                  <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+                </li><li>
+                  <a href="/blog.lmorchard.com/tag/js/">js</a>
+                </li><li>
+                  <a href="/blog.lmorchard.com/tag/gulp/">gulp</a>
+                </li><li>
+                  <a href="/blog.lmorchard.com/tag/jekyll/">jekyll</a>
+                </li><li>
+                  <a href="/blog.lmorchard.com/tag/wordpress/">wordpress</a>
+                </li>
+          </ul>
+        <section class="post-content">
+          <p>I&#39;ve long agreed that many sites, like blogs, are better <a href="http://www.aaronsw.com/weblog/000404">baked than
+fried</a>. It makes for web hosting that&#39;s cheaper to run and simpler to
+maintain. I&#39;ve also often thought that <a href="https://indiewebcamp.com/database-antipattern">using a database can be an
+anti-pattern</a> for managing content. But, what I&#39;ve also found is
+that baked sites often yield a poor writing environment. That said, I think
+I&#39;m going to give it another try, because I think I might have found a new
+approach that works for me.</p>
+<!--more-->
+
+<h2 id="from-wordpress-to-jekyll-to-wordpress">From WordPress to Jekyll to WordPress</h2>
+<p><a href="http://decafbad.com/blog/2011/06/08/moved-to-jekyll/">As I&#39;ve mentioned before</a>, I&#39;ve flirted with a variety of
+platforms for putting stuff from my brain on the web. But, the last time I
+switched away from WordPress to Jekyll, I ended up switching right back again.</p>
+<p>Jekyll <a href="http://blog.lmorchard.com/2012/06/16/blogging-like-a-blogger/">took <em>way</em> too long</a> to generate my site and its 1150 posts, and I
+couldn&#39;t figure out how to speed that up for previewing drafts without moving
+files around.  I tried a few different external tools like
+<a href="http://25.io/mou/">Mou</a> and <a href="http://marked2app.com/">Marked</a>, but the process
+never clicked. I&#39;ve also never quite gotten along with Ruby, so I didn&#39;t go
+far with scratching my own itches on Jekyll.</p>
+<p>On the other hand, WordPress has a nicer writing experience. But, it&#39;s clunky
+in other ways. I&#39;m always worried about all that PHP code sitting around
+frying up page views, hoping no one figures out how to get at the publishing
+machinery. I&#39;m also less interested in hacking on PHP for fun, these days.</p>
+<h2 id="gulp-is-great">Gulp is great</h2>
+<p>The place where I&#39;ve been having a lot of hacking fun over the past few years
+is in node.js. So, when I was thinking about trying static hosting for
+my blog again, I started looking into node.js-based Jekyll clones.</p>
+<p>But then, it occurred to me that <a href="http://gulpjs.com/">Gulp</a> would be a fine tool for the job. In
+a nutshell, like unix tools pipe character streams between tools, Gulp pipes
+streams of files between small utility functions. All I had to do was build up
+a small collection of file processing functions and glue them together. </p>
+<h2 id="copying-riokis-homework">Copying Rioki&#39;s homework</h2>
+<p>As it happens, <a href="http://www.rioki.org/2014/06/09/jekyll-to-gulp.html">someone else had already started that work for me</a>! The
+core of it, handling the posts, looks something <a href="https://github.com/lmorchard/blog.lmorchard.com/blob/master/lib/tasks/posts.js#L34">like this</a>:</p>
+<pre><code class="language-javascript">function posts (path) {
+  return gulp.src(path)
+    .pipe(frontMatter({property: &#39;page&#39;, remove: true}))
+    .pipe(taskUtils.filename2date())
+    .pipe(marked())
+    .pipe(taskUtils.summarize(&#39;&lt;!--more--&gt;&#39;))
+    .pipe(rename(taskUtils.postNameToDatePath))
+    .pipe(taskUtils.applyTemplate(&#39;design/layouts/post.html&#39;))
+    .pipe(gulp.dest(&#39;build&#39;));
+}</code></pre>
+<p>Pretty clean &amp; straightforward, at least to my eyes.</p>
+<p>Starting from <a href="https://github.com/rioki/www.rioki.org/blob/master/gulpfile.js">Rioki&#39;s gulpfile.js</a>, I hacked and iterated until I had
+a <a href="https://github.com/lmorchard/blog.lmorchard.com/blob/master/gulpfile.js">gulpfile.js</a> of my own, split into <a href="https://github.com/lmorchard/blog.lmorchard.com/blob/master/lib/tasks/posts.js#L34">a directory of small task
+modules</a>.  At this point, I&#39;ve got a bunch of in-memory post indexes,
+date &amp; tag based archive pages, RSS feeds, and a handful of other templated
+pages. I can push all the content to an Amazon S3 bucket <a href="https://github.com/lmorchard/blog.lmorchard.com/blob/master/gulpfile.js#L32">with one
+command</a>. </p>
+<p>Oh, and building the whole site only takes around 30 seconds. Still, that&#39;s
+not fast enough for running previews while writing. So, I&#39;ve broken things up so 
+<a href="https://github.com/lmorchard/blog.lmorchard.com/blob/master/lib/tasks/posts.js#L13">new &amp; draft posts lead to quick rebuilds when their files change</a> - and I even <a href="https://github.com/lmorchard/blog.lmorchard.com/blob/master/lib/tasks/posts.js#L29">trigger a LiveReload
+service</a>
+that keeps a browser tab updated as I make changes in Vim.</p>
+<p>And, best of all, I understand how the whole thing works. This stuff feels
+nicely maintainable and fun to expand in the future as a
+<a href="https://www.stephencovey.com/7habits/7habits-habit7.php">saw-sharpening</a> / yak-shaving opportunity. I might even take a shot
+at spinning off all the code from the content and release it as a standalone
+module installable from <a href="http://npmjs.org">NPM</a> in case anyone else wants to
+try it out.</p>
+<h2 id="from-wordpress-and-jekyll-to-gulp">From WordPress and Jekyll to Gulp</h2>
+<p>I found <a href="https://github.com/benbalter/wordpress-to-jekyll-exporter">a WordPress-to-Jekyll exporter plugin</a>. It
+generates a nice zip file download right from the site admin. That let me
+dump the 50 posts I&#39;ve accumulated since the last switch.</p>
+<p>And, a great thing about the YAML-and-markdown file format used by Jekyll is
+that I was able to merge my posts from both decafbad.com and
+blog.lmorchard.com just by copying them into the same directory. So, I&#39;m
+thinking that I&#39;ll revive my old blog by squashing it right on into the
+new, and set up a handful of redirects to unify the whole mess.</p>
+<h2 id="amazon-s3-deployment">Amazon S3 deployment</h2>
+<p><a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">Hosting a static website on Amazon S3</a> is cheap and fast and low
+maintenance. And, a module called <a href="https://github.com/pgherveou/gulp-awspublish">gulp-awspublish</a> can handle pushing this
+whole site to S3 <a href="https://github.com/lmorchard/blog.lmorchard.com/blob/master/gulpfile.js#L32">really easily</a>.</p>
+<p>Turns out I generate around 4750 files, between all the posts and tags and dates. 
+It takes about 30 minutes to upload the first time. But, <a href="https://github.com/pgherveou/gulp-awspublish">gulp-awspublish</a>
+keeps track of MD5 hashes. So, next time I generate and upload, it skips all the
+pages that haven&#39;t changed. That&#39;s just a handful of files, if
+all I&#39;m doing is publishing one new post.</p>
+<p>It also seems like this module uploads one file at a time. I wonder if I might
+hack it to queue up a few dozen or so in parallel to speed things up? I doubt
+that uploading thousands of files was the original use case, so it might do
+with some tweaking.</p>
+<h2 id="page-sections-loaded-via-ajax">Page sections loaded via AJAX</h2>
+<p>I&#39;ve got a simple template for this new blog, and I hope to keep it that way.
+But, there&#39;s a lot of stuff in that sidebar. Well, I decided to tweak a few
+things and suddenly I had 4750 files to upload to S3.</p>
+<p>Just because the site is statically published doesn&#39;t mean some parts
+can&#39;t be dynamic with the help of the client. Rather than put up wth
+regenerating &amp; uploading all the things in the future, I yanked the sidebar
+out of almost every page and generated it as <a href="https://github.com/lmorchard/blog.lmorchard.com/blob/master/design/sidebar.html">a separate resource</a>.</p>
+<p>Then, with <a href="https://github.com/lmorchard/blog.lmorchard.com/blob/master/design/js/main.js">a tiny bit of jQuery magic</a>, I load that sidebar into
+the page via AJAX. That shrank the size of the site overall, and it&#39;s so fast
+and cacheable that I never see any difference.</p>
+<p>I think this will be one of the little keys to maintaining the site: Try to
+extract any common element used throughout the site, and push it into a
+dynamically loaded asset. Not everything can be done that way, but I think
+plenty can.</p>
+<h2 id="disqus-and-comment-archival">Disqus and comment archival</h2>
+<p>I&#39;m also back to using Disqus for comments. They&#39;ve got a great service, and
+they&#39;re not a roach motel. They have a great API, and I even wrote a Python
+script for decafbad.com that <a href="https://github.com/lmorchard/blog.decafbad.com/blob/master/_bin/archive_disqus_comments.py">archives comments from closed
+threads</a> right into the blog post itself.</p>
+<p>At some point, I need to get that working again and maybe transliterate it
+over to node.js. </p>
+<h2 id="next-steps">Next steps</h2>
+<p>I&#39;ve got some more I&#39;d like to do with this stuff, but the main next steps are
+these:</p>
+<ul>
+<li>Write more often</li>
+<li>Write more consistently</li>
+</ul>
+<p>Of course, having skimmed through my posts over the years on this blog, I&#39;d
+estimate about 25% of the whole thing is me grousing out loud about the long
+stretches I spend neglecting this place. </p>
+<p>So, who knows? Maybe you&#39;ll see my
+next post show up sometime next June!</p>
+<!-- vim: set wrap wm=5 syntax=mkd textwidth=78: -->
+
+        </section>
+      </article>
+
+      <section class="comments" id="comments">
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+            var disqus_needs_loading = true;
+            var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com/";
+          </script>
+          <noscript
+            >Please enable JavaScript to view the
+            <a href="http://disqus.com/?ref_noscript"
+              >comments powered by Disqus.</a
+            ></noscript
+          >
+          <a href="http://disqus.com" class="dsq-brlink"
+            >blog comments powered by <span class="logo-disqus">Disqus</span></a
+          >
+        </section>
+        </section>
+
+        <footer>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

@@ -1,0 +1,3 @@
+<p>Hmm.  I think I need to snatch up some of <a href="http://radio.weblogs.com/0104487/">Marc Barrot's outline rendering code</a> and apply it to my Movable Type weblog.  Wrapping many of my front-page elements in outline wedges would be very nice.  I suppose I could swing back toward the Radio side of things and use it more, but I really need to find a machine to be its permanent home.  Eats too much CPU on the iBook, disrupts PVR functions on my Win2K box, and seems to work half-heartedly via <a href="http://www.decafbad.com/twiki/bin/view/Main/WINE">WINE</a> on my Linux box.</p>
+<!--more-->
+shortname=oooafd

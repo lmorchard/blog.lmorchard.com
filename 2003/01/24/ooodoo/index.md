@@ -1,0 +1,72 @@
+<blockquote cite="http://diveintomark.org/premium/">A new and better way to experience the "Dive Into" empire!  For only a few cents a day, you get fast, uncluttered access to your favorite "Dive Into" sites, with premium features available only to subscribers. </blockquote><div class="credit" align="right"><small>Source:<cite><a href="http://diveintomark.org/premium/">Dive Into Premium </a></cite>.</small></div>
+<p>Finally!  All of those pop-ups, pop-unders, DoubleClick cookies, and epilepsy-inducing banners were really getting to me.  And if Mark Pilgrim can do for full frontal nudity what he did for web accessibility, I'm sure we're seeing the start of something big here.</p>
+<!--more-->
+shortname=ooodoo
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221083601">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://webseitz.fluxent.com/wiki"><img src="http://www.gravatar.com/avatar.php?gravatar_id=5a70d939a73fa73603f2a9255ab81d21&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://webseitz.fluxent.com/wiki">BillSeitz</a>
+                </div>
+                <a href="#comment-221083601" class="permalink"><time datetime="2003-01-24T12:04:43">2003-01-24T12:04:43</time></a>
+            </div>
+            <div class="content">Is there a FOAF property for "URL of full frontal shot"?</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221083603">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://diveintomark.org/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2fc977e82d9f8395a0f49e6f4958bc84&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://diveintomark.org/">Mark</a>
+                </div>
+                <a href="#comment-221083603" class="permalink"><time datetime="2003-01-24T19:59:53">2003-01-24T19:59:53</time></a>
+            </div>
+            <div class="content">Yes, thank you, that's exactly what the Semantic Web needs to gain mainstream acceptable: machine-readable porn.  It's so obvious, I'm amazed no one at the W3C has thought of it yet.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221083605">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.decafbad.com">l.m.orchard</a>
+                </div>
+                <a href="#comment-221083605" class="permalink"><time datetime="2003-01-24T20:13:09">2003-01-24T20:13:09</time></a>
+            </div>
+            <div class="content">I've always said that porn is second only to the space program as a driver of technology.  The astronauts brought us Tang and space-age fibers, while porn brought us the age of streaming media.
+
+RDF NEEDS MORE PR0N!</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221083606">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://webseitz.fluxent.com/wiki"><img src="http://www.gravatar.com/avatar.php?gravatar_id=5a70d939a73fa73603f2a9255ab81d21&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://webseitz.fluxent.com/wiki">BillSeitz</a>
+                </div>
+                <a href="#comment-221083606" class="permalink"><time datetime="2003-01-26T11:56:26">2003-01-26T11:56:26</time></a>
+            </div>
+            <div class="content">The Spermatic Web</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

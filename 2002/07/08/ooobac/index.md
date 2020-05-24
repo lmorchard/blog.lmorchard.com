@@ -1,0 +1,46 @@
+<p>So last month, the crew at <a href="http://www.livejournal.com">LiveJournal</a> finally <a href="http://www.decafbad.com/news_archives/000178.phtml">fixed <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> feeds on all journals</a>.  This month, <a href="http://www.livejournal.com/talkread.bml?journal=news&amp;itemid=58000&amp;view=2371984#t2371984">LiveJournal becomes a centrallized news aggregator</a>.  Plenty of paths in and out of the LJ "gated community" now to wire everyone up into blogspace at large.  This kind of tweak-by-tweak improvement is one reason why I stick around <a href="http://www.livejournal.com">LiveJournal</a>.  (I just hope that they're polite about it and periodically poll <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> feeds sparsely for the entire userbase. :)  I assume they're smart enough to figure that out.)  </p>
+<p>Need to get back to that <a href="http://www.decafbad.com/news_archives/000203.phtml">LJ for K-Logs</a> project...</p>
+<!--more-->
+shortname=ooobac
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221089622">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://fyuze.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=85620d710ff846e0f38e3c27eaedad7e&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://fyuze.com">justin</a>
+                </div>
+                <a href="#comment-221089622" class="permalink"><time datetime="2002-07-09T03:45:55">2002-07-09T03:45:55</time></a>
+            </div>
+            <div class="content">for something similar, check out fyuze.com - an RSS aggregator designed to make it easy to monitor several sites at once. sans the LJ account.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221089624">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.decafbad.com">l.m.orchard</a>
+                </div>
+                <a href="#comment-221089624" class="permalink"><time datetime="2002-07-09T11:05:04">2002-07-09T11:05:04</time></a>
+            </div>
+            <div class="content">I think I visited fyuze.com before...  It doesn't provide a hosted blog or journal though, right?  It's just a nice centrallized news aggregator.
+
+The thing I really like about the LJ add-on isn't that it's the best bews aggregator in the world.  It's that the island nation of LJ can now pull in feeds from blogspace at large, and export feeds back to it.  It's like a free trade agreement or something :)
+
+I will have to check out fyuse.com again though.</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

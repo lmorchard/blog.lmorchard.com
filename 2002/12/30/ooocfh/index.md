@@ -1,0 +1,51 @@
+Continuing along with the <a href="http://www.decafbad.com/twiki/bin/view/Main/PersonalWebProxy">PersonalWebProxy</a> meme, <a href="http://www.russellbeattie.com/notebook/index.jsp?date=20021229#213649"><cite>Russell Beattie</cite> writes</a>:<blockquote><i>I have a lot of trouble with motivation on something like this. I get excited then I flip out because of how much something like this could entail and I find other stuff to do for a while to calm down. This has been going on for months. ;-)</i></blockquote>Yeah, and then there's that.  Seeing what people are wishing for out of this class of app, we could wish it into the outer reaches of tinkerer feasibility and then get fed up and go home.  That's what I'd like to avoid, personally.  
+<br /><br />
+I'm puttering around with a bit of a spec for myself today, laying out a limited wishlist drawn from mine and others' ponderings and rationing it out into chunks.  There's no way anyone could handle creating the perfect proxy/agent for the next millennia without descending into insanity and obscurity some 1% into the process.  But, if things can be worked out to where it's being cobbled together in a process of loosely structured madness, there just might be hope.
+<br /><br />
+The crucial thing is that it move forward in tinkerer-sized steps, remain understood and tested at each point, and do some reasonably useful new thing after each lurch in order to remain interesting.  The process should give tinkerers a chance to spend just a little bit of their non-copious free time to come up with something clever and nifty.  This is how the lazyweb works.
+<br /><br />
+Okay, before I start getting too pretentious here, I'd better get back to work.
+<!--more-->
+shortname=ooocfh
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221084900">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://radio.weblogs.com/0114241/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=527a02c0012ff2583c9e8654cd2bd97c&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://radio.weblogs.com/0114241/">Ray Grieselhuber</a>
+                </div>
+                <a href="#comment-221084900" class="permalink"><time datetime="2002-12-30T21:54:27">2002-12-30T21:54:27</time></a>
+            </div>
+            <div class="content">Absolutely. I guess that is kind of what I was trying to provide with my post (see my site). But even these chunks may be too big to start out with. It's clear that this is not going to be a small undertaking, in terms of its vision. It's also exactly the kind of project that could easily just become one big cluster_f.
+
+To me, it seems reasonable to define the base architecture for the peer or node. I think that something simple like an agent framework that sits operates as a localhost peer server would be an appropriate basis. This will allow us to add services as components, perhaps beginning with agents/bots or aggregators.
+
+What's cool about this, is that this meme is something that everybody is catching onto very quickly, so maybe the combined efforts of a bunch of busy people could lead to the first (that I am aware of) project born in blogspace!</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221084901">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.decafbad.com">l.m.orchard</a>
+                </div>
+                <a href="#comment-221084901" class="permalink"><time datetime="2002-12-31T16:52:35">2002-12-31T16:52:35</time></a>
+            </div>
+            <div class="content">This is a test comment</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

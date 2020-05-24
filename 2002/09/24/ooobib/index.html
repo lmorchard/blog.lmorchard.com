@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>Pingback may one-up TrackBack - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/blog.lmorchard.com/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="Pingback may one-up TrackBack" />
+        <meta
+          property="og:url"
+          content="https://lmorchard.github.io/blog.lmorchard.com//"
+        />
+        
+        <meta property="og:description" content="&lt;p&gt;I&amp;apos;ve got some further thoughts on &lt;a href=&quot;http://www.hixie.ch/specs/pingback/pingback-1.0&quot;&gt;Pingback&lt;/a&gt;, provided that my server humors me.&lt;br&gt;&lt;br&gt;&lt;br&gt;
+David Watson says, &amp;quot;&lt;a href=&quot;http://davidwatson.org:8086/archives/000610.html&quot;&gt;uh, no&lt;/a&gt;,&amp;quot; citing a horrible experience in actually trying to see the spec in the first place, and a lack of working code.  Not to mention that my site was having a seizure last night - not good things to recommend that one check out a new technology. 
+&lt;br&gt;&lt;br&gt;
+Well, I did manage to see the spec, but haven&amp;apos;t tried implementing it yet.  (Though it shouldn&amp;apos;t be too hard, given a few round tuits.)  A few things, in particular that I like about &lt;a href=&quot;http://www.hixie.ch/specs/pingback/pingback-1.0&quot;&gt;Pingback&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt; URIs are used to specify the source and target of the ping, no other information is involved in setting up the relation (ie. arbitrary IDs, etc).  This makes site-wide integration of Pingback drop-dead simple - everything&amp;apos;s already identifiable via URI.
+&lt;/li&gt;
+&lt;li&gt; If one implements Pingback HTTP headers, one can allow non-HTML resources to be pinged.  (ie. Ping my &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/FOAF&quot;&gt;FOAF&lt;/a&gt; file when you add me to yours, and I might add you to mine.  That might be pushing the spec a bit, though.)
+&lt;/li&gt;
+&lt;li&gt; The XML-RPC server is not tied to any sites it may serve.  I could offer one here, and you could point to it from your site, and if I allowed it I could record pings for you as a service.
+&lt;/li&gt;
+&lt;/ul&gt;
+All-in-all, Pingback just seems like a more direct, intentional form of referrer log.
+&lt;br&gt;&lt;br&gt;
+One thing I don&amp;apos;t like about Pingback, though (and the same for referrer logs):  It&amp;apos;s just about URIs and links between them.  It says nothing much about titles or excerpts or comment bodies.  The spec suggests that a Pingback server &lt;strong&gt;might&lt;/strong&gt; retrieve &amp;quot;other data required from the content of Alice&amp;apos;s new post,&amp;quot; but makes no statement on how this is to happen.  I like that &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/TrackBack&quot;&gt;TrackBack&lt;/a&gt; sets down how to provide a bit more information.
+&lt;br&gt;&lt;br&gt;
+I&amp;apos;ve got a vague idea in my little head, and I think it&amp;apos;s something &lt;a href=&quot;http://www.intertwingly.net&quot;&gt;Sam Ruby&lt;/a&gt; touched on:  &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/ShowReferers&quot;&gt;ShowReferers&lt;/a&gt;, form-submitted comments, &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/TrackBack&quot;&gt;TrackBack&lt;/a&gt;, and Pingback are all just different on-ramps to inviting open participation in discussion on one&amp;apos;s blog.  I want to take a shot at implementing Pingback very soon - but I might also try taking a shot at implementing a unified comment system that accepts comments for any URI from any of the aforementioned sources.  I&amp;apos;d also like something that scans a blog entry I post for links, then investigate those links for Pingback/TrackBack availability - all to make the system even &lt;strong&gt;more&lt;/strong&gt; automatic.  I doubt that it would be very difficult, though I am notoriously naive.  On the other hand, I&amp;apos;ve been on a run of making hard things simple lately.  :)
+&lt;br&gt;&lt;br&gt;
+But I sense my round tuits slipping away - back to work!
+" />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post "
+      >
+        <time
+          title="2002-09-24T10:37:23-07:00"
+          pubdate="2002-09-24T10:37:23-07:00"
+        >
+          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/blog.lmorchard.com/2002/"
+            >2002</a
+          >
+          &raquo;
+          <a href="/blog.lmorchard.com/2002/09/"
+            >September</a
+          >
+          &raquo;
+          <span>24</span>
+          &raquo;
+        </time>
+        <h1 class="title">Pingback may one-up TrackBack</h1>
+        
+        <section class="post-content">
+          <p>I&#39;ve got some further thoughts on <a href="http://www.hixie.ch/specs/pingback/pingback-1.0">Pingback</a>, provided that my server humors me.<br><br /><br />
+David Watson says, &quot;<a href="http://davidwatson.org:8086/archives/000610.html">uh, no</a>,&quot; citing a horrible experience in actually trying to see the spec in the first place, and a lack of working code.  Not to mention that my site was having a seizure last night - not good things to recommend that one check out a new technology. 
+<br /><br />
+Well, I did manage to see the spec, but haven&#39;t tried implementing it yet.  (Though it shouldn&#39;t be too hard, given a few round tuits.)  A few things, in particular that I like about <a href="http://www.hixie.ch/specs/pingback/pingback-1.0">Pingback</a>:</p>
+<ul>
+<li> URIs are used to specify the source and target of the ping, no other information is involved in setting up the relation (ie. arbitrary IDs, etc).  This makes site-wide integration of Pingback drop-dead simple - everything's already identifiable via URI.
+</li>
+<li> If one implements Pingback HTTP headers, one can allow non-HTML resources to be pinged.  (ie. Ping my <a href="http://www.decafbad.com/twiki/bin/view/Main/FOAF">FOAF</a> file when you add me to yours, and I might add you to mine.  That might be pushing the spec a bit, though.)
+</li>
+<li> The XML-RPC server is not tied to any sites it may serve.  I could offer one here, and you could point to it from your site, and if I allowed it I could record pings for you as a service.
+</li>
+</ul>
+All-in-all, Pingback just seems like a more direct, intentional form of referrer log.
+<br /><br />
+One thing I don't like about Pingback, though (and the same for referrer logs):  It's just about URIs and links between them.  It says nothing much about titles or excerpts or comment bodies.  The spec suggests that a Pingback server <strong>might</strong> retrieve "other data required from the content of Alice's new post," but makes no statement on how this is to happen.  I like that <a href="http://www.decafbad.com/twiki/bin/view/Main/TrackBack">TrackBack</a> sets down how to provide a bit more information.
+<br /><br />
+I've got a vague idea in my little head, and I think it's something <a href="http://www.intertwingly.net">Sam Ruby</a> touched on:  <a href="http://www.decafbad.com/twiki/bin/view/Main/ShowReferers">ShowReferers</a>, form-submitted comments, <a href="http://www.decafbad.com/twiki/bin/view/Main/TrackBack">TrackBack</a>, and Pingback are all just different on-ramps to inviting open participation in discussion on one's blog.  I want to take a shot at implementing Pingback very soon - but I might also try taking a shot at implementing a unified comment system that accepts comments for any URI from any of the aforementioned sources.  I'd also like something that scans a blog entry I post for links, then investigate those links for Pingback/TrackBack availability - all to make the system even <strong>more</strong> automatic.  I doubt that it would be very difficult, though I am notoriously naive.  On the other hand, I've been on a run of making hard things simple lately.  :)
+<br /><br />
+But I sense my round tuits slipping away - back to work!
+<!--more-->
+shortname=ooobib
+
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221090107">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://ln.hixie.ch/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=415e6b05a1e7e278ba8dedae90df8d8d&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://ln.hixie.ch/">Ian Hickson</a>
+</div>
+<a href="#comment-221090107" class="permalink"><time datetime="2002-09-24T14:05:20">2002-09-24T14:05:20</time></a>
+</div>
+<div class="content">"something that scans a blog entry I post for links, then investigate those links for Pingback/TrackBack availability" is exactly how most pingback clients work at the moment.</div>
+</li>
+<li class="comment" id="comment-221090109">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://mort.mine.nu:8080/b2/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=754d13c6eb258724a2137feb3ee1bad3&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://mort.mine.nu:8080/b2/">mort</a>
+</div>
+<a href="#comment-221090109" class="permalink"><time datetime="2002-09-26T14:14:30">2002-09-26T14:14:30</time></a>
+</div>
+<div class="content">" The spec suggests that a Pingback server might retrieve "other data required from the content of Alice's new post," but makes no statement on how this is to happen."
+Well, as the server scans the referrer for checking the authenticity of the ping, etc.. it can grab pretty much what it wants: lang attributes, page title, excerpts...</div>
+</li>
+<li class="comment" id="comment-221090110">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.decafbad.com">l.m.orchard</a>
+</div>
+<a href="#comment-221090110" class="permalink"><time datetime="2002-09-26T15:44:55">2002-09-26T15:44:55</time></a>
+</div>
+<div class="content">it can grab pretty much what it wants: lang attributes, page title, excerpts...
+How and where does the server scan the referrer for things?  I'd like that specced and defined.
+The answer now is "anyway you want to do it".  Yuck.  Regexes and matching and scraping, oh my.  Been there, done that.  :)
+I'd like some agreement on what my server should expect to find on the other end of an incoming Pingback ping.  Maybe some embedded RDF in the page, or some metatags in the header.  Something that says, "Title is [here], author is [here], exerpt is [here], language is [here]..."
+I don't want to do much work or digging or regexing or scraping or whatever from incoming ping to incoming ping.  Let's just agree on where to look for it.
+Of course, this whole wish falls apart if the incoming ping is not XML or HTML.</div>
+</li>
+<li class="comment" id="comment-221090111">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://ln.hixie.ch/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=415e6b05a1e7e278ba8dedae90df8d8d&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://ln.hixie.ch/">Ian Hickson</a>
+</div>
+<a href="#comment-221090111" class="permalink"><time datetime="2002-09-27T21:17:03">2002-09-27T21:17:03</time></a>
+</div>
+<div class="content">Assuming it's HTML or XHTML:
+The title is in the &lt;title&gt; element.
+The auther is in the &lt;meta name="author"&gt; element
+The content is everything in &lt;body&gt; unless there's a fragment identifier, in which case it's everything in the element that the fragment identifies.
+The language is the value of the lang attribute on the &lt;body&gt; or other element matched in 
+the previous step, after handling the language inheritance rules.
+This is all very well defined in the HTML specs. You can get more metadata out using Dublin Core metadata stored in &lt;meta&gt; tags.
+Why should the pingback spec attempt to redefine all this again, given that the information already exists?</div>
+</li>
+<li class="comment" id="comment-221090112">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://ln.hixie.ch/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=415e6b05a1e7e278ba8dedae90df8d8d&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://ln.hixie.ch/">Ian Hickson</a>
+</div>
+<a href="#comment-221090112" class="permalink"><time datetime="2002-09-27T21:20:42">2002-09-27T21:20:42</time></a>
+</div>
+<div class="content">er, your blog killed my comment! Bug! (The text word was angle-bracket-title-angle-bracket, for what it's worth.)</div>
+</li>
+<li class="comment" id="comment-221090113">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.decafbad.com">l.m.orchard</a>
+</div>
+<a href="#comment-221090113" class="permalink"><time datetime="2002-09-28T03:32:23">2002-09-28T03:32:23</time></a>
+</div>
+<div class="content">Ugh, yeah, have to look into that HTML cleaning plugin a bit more.  It should escape things like a title tag while allowing a bold tag.
+Ian:  No need to redefine all the above - just specify it.  State that in the spec, strongly suggest it or require some subset of DC in meta tags.  I want to know that, when I send a ping at a supporting (X)HTML page, I can expect to find some metadata in an agreed upon way.  If that's DC in meta tags, great.
+Just a matter of saying "this is what's done" rather than "you kinda could do this".</div>
+</li>
+<li class="comment" id="comment-221090114">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://ln.hixie.ch/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=415e6b05a1e7e278ba8dedae90df8d8d&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://ln.hixie.ch/">Ian Hickson</a>
+</div>
+<a href="#comment-221090114" class="permalink"><time datetime="2002-09-28T19:03:13">2002-09-28T19:03:13</time></a>
+</div>
+<div class="content">I don't think it's the place of the pingback spec to specify what metadata a document should contain. It would be like the URI or XLink specs requiring documents to contain metadata, or the PNG spec to require that images not contain red flowers -- it's not their place to worry about it.
+If the pingback spec required DC metadata, then it would just be adding one more dependency, one more spec that we'd have to monitor in case it affected pingback in some way.
+When you ping a page, you can expect to find all the metadata that the HTML spec says you can expect to find. If you want documents to have more, speak to the HTML working group. :-)</div>
+</li>
+<li class="comment" id="comment-221090115">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.decafbad.com">l.m.orchard</a>
+</div>
+<a href="#comment-221090115" class="permalink"><time datetime="2002-09-29T04:06:16">2002-09-29T04:06:16</time></a>
+</div>
+<div class="content">Yup - right you are.  The HTML spec is where metadata declaration belongs, and the DC-in-HTML spec I found today is the suggestion I was looking for.  I was just looking for love in all the wrong places, but the simplicity in Pingback is nice.</div>
+</li>
+</ul>
+</div>
+
+        </section>
+      </article>
+        </section>
+
+        <footer>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

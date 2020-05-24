@@ -1,0 +1,5 @@
+<p>So... has anyone gotten to making a Perl engine for the <a href="http://jakarta.apache.org/bsf/index.html" target="_top">Bean Scripting Framework</a>?  I can't seem to find a decent archive of the dev mailing lists, and the links from the Jakarta home page are broken.  And, of course, Google doesn't help me much except to point me at all sorts of pages saying that BSF supports scripting languages "like Python and Perl", but without actually showing me the Perl money.</p>
+<p>Well, if not, I have a horribly hackish and inefficient idea that might just work, involving either pipes or sockets to external perl daemons and extreme abuse of perl's AUTOLOAD and Java's reflection to build proxy objects.  Yeah, yeah, someone could maybe embed Perl in a JNI-ish thing, but I'm not at the level of wizardry to be mucking about with Perl guts - nor do I want to be.  But, I think this idea of mine just might work.</p>
+<p>Why bother?  Because it's depraved and possibly very fun.</p>
+<!--more-->
+shortname=ooodog

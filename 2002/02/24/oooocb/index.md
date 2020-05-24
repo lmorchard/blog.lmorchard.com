@@ -1,0 +1,31 @@
+Thinking that simple is better here, so I tossed out the big vertical sidebar navigation for a much simpler nav bar at the bottom.  Also playing around with putting wiki changes in the sidebar.
+<br /><br />
+Any thoughts?  I think I'll stop twiddling with that for now and play around with getting a few more things released.
+<br /><br />
+<i>Okay, maybe one more tweak.  This is not exactly like <a href="http://www.decafbad.com/twiki/bin/view/Main/OutOfBox">out-of-box</a> Movable Type, but hopefully not annoying.</i>
+<!--more-->
+shortname=oooocb
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221084691">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.decafbad.com">l.m.orchard</a>
+                </div>
+                <a href="#comment-221084691" class="permalink"><time datetime="2002-02-24T23:29:11">2002-02-24T23:29:11</time></a>
+            </div>
+            <div class="content">Once more.</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

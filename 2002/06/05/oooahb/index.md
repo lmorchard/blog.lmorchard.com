@@ -1,0 +1,55 @@
+<p>Whoa.  Rock on, <a href="http://scriptingnews.userland.com/backissues/2002/06/05#When:11:28:08AM">Dave</a>.  My <a href="http://www.decafbad.com/news_archives/000124.phtml">wish</a> for blog URLs as referrers in Radio while gathering <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> channels is now the default setting:<blockquote><i>A <a href="http://radio.userland.com/moreVisibleInRefererLogs">tiny change</a> in Radio's aggregator makes referer logs more interesting. Please read this if you provide an <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> source for Radio users, and you watch your referer logs.</i></blockquote>So what's next? :)</p>
+<!--more-->
+shortname=oooahb
+
+<div id="comments" class="comments archived-comments">
+            <h3>Archived Comments</h3>
+            
+        <ul class="comments">
+            
+        <li class="comment" id="comment-221086224">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://zymm.com/raster/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=f659bb22a2e62ccd2cd82c4b52f09ca9&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://zymm.com/raster/">Pete</a>
+                </div>
+                <a href="#comment-221086224" class="permalink"><time datetime="2002-06-06T15:52:56">2002-06-06T15:52:56</time></a>
+            </div>
+            <div class="content">What's next you ask? Getting other apps to support it! blo.gs, blogtracker, Amphetadesk, etc...</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221086226">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.decafbad.com">l.m.orchard</a>
+                </div>
+                <a href="#comment-221086226" class="permalink"><time datetime="2002-06-06T20:47:20">2002-06-06T20:47:20</time></a>
+            </div>
+            <div class="content">AmphetaDesk will support it in its next release :)  I was there when he made the improvement.</div>
+            
+        </li>
+    
+        <li class="comment" id="comment-221086227">
+            <div class="meta">
+                <div class="author">
+                    <a class="avatar image" rel="nofollow" 
+                       href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+                    <a class="avatar name" rel="nofollow" 
+                       href="http://www.decafbad.com">l.m.orchard</a>
+                </div>
+                <a href="#comment-221086227" class="permalink"><time datetime="2002-06-06T20:49:30">2002-06-06T20:49:30</time></a>
+            </div>
+            <div class="content">Actually, my AmphetaDesk install under OS X supports it right now, and I've probably been flooding referrers for RSS channels as I've been testing and ironing out bugs from the OS X launcher/wrapper I've been working on.</div>
+            
+        </li>
+    
+        </ul>
+    
+        </div>
+    

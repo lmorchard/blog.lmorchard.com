@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>Keyboard hacking seems like fun - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/blog.lmorchard.com/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="Keyboard hacking seems like fun" />
+        <meta
+          property="og:url"
+          content="https://lmorchard.github.io/blog.lmorchard.com//"
+        />
+        <meta
+            property="og:image"
+            content="https://lmorchard.github.io/blog.lmorchard.com//blog.lmorchard.com//uploads/2016/teensy-ps2-adapter/minikey.jpg"
+          />
+        <meta property="og:description" content="&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;: I think I&amp;apos;ve caught the DIY keyboard hacking bug, and I&amp;apos;ll probably
+end up building something weird.&lt;/p&gt;
+" />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post tag-diytag-keyboardstag-hardwaretag-teensytag-microcontrollerstag-electronics"
+      >
+        <time
+          title="2016-02-06T04:00:00-08:00"
+          pubdate="2016-02-06T04:00:00-08:00"
+        >
+          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/blog.lmorchard.com/2016/"
+            >2016</a
+          >
+          &raquo;
+          <a href="/blog.lmorchard.com/2016/02/"
+            >February</a
+          >
+          &raquo;
+          <span>06</span>
+          &raquo;
+        </time>
+        <h1 class="title">Keyboard hacking seems like fun</h1>
+        <ul class="tags">
+            <li>
+                  <a href="/blog.lmorchard.com/tag/diy/">diy</a>
+                </li><li>
+                  <a href="/blog.lmorchard.com/tag/keyboards/">keyboards</a>
+                </li><li>
+                  <a href="/blog.lmorchard.com/tag/hardware/">hardware</a>
+                </li><li>
+                  <a href="/blog.lmorchard.com/tag/teensy/">teensy</a>
+                </li><li>
+                  <a href="/blog.lmorchard.com/tag/microcontrollers/">microcontrollers</a>
+                </li><li>
+                  <a href="/blog.lmorchard.com/tag/electronics/">electronics</a>
+                </li>
+          </ul>
+        <section class="post-content">
+          <p><strong>TL;DR</strong>: I think I&#39;ve caught the DIY keyboard hacking bug, and I&#39;ll probably
+end up building something weird.</p>
+<!--more-->
+
+<p>I love tinkering and I love keyboards. But, I&#39;d never really tinkered with my
+keyboards - at least, not beyond <a href="http://blog.lmorchard.com/2006/07/31/i-heart-my-filthy-happy-hacking-keyboard/">disassembling &amp; cleaning them</a>.
+I&#39;d seen a smattering of crowdfunded projects over the years like the
+<a href="https://www.indiegogo.com/projects/ergodox-ez-an-incredible-mechanical-keyboard#/">ErgoDox</a> and <a href="http://shop.keyboard.io/">Keyboardio</a>. But, those seemed like complex design
+&amp; manufacturing efforts - not like, you know, something I&#39;d do for fun.</p>
+<p>But then, last summer, I ran across <a href="https://www.massdrop.com/">Massdrop</a> and saw the <a href="https://www.massdrop.com/buy/infinity-keyboard-kit">Infinity 60%
+Keyboard Kit</a>. From there, I ran across &quot;<a href="https://www.massdrop.com/article/introduction-to-keyboard-programming">Introduction to Keyboard
+Programming</a>&quot; and some rusty gears turned over in my brain. I
+discovered <a href="https://geekhack.org/">geekhack</a> and <a href="https://deskthority.net/">Deskthority</a> and fell down a dangerous
+rabbit hole of <a href="https://www.massdrop.com/buy/cherry-mx-red-key-switches-120-pack">switches</a> and <a href="https://geekhack.org/index.php?board=80.0">caps</a>, <a href="https://geekhack.org/index.php?topic=47133">layouts</a> and <a href="https://deskthority.net/workshop-f7/thkb-tiny-hacking-keyboard-40-t6455.html">plates</a>,
+<a href="https://www.pjrc.com/teensy/">microcontrollers</a> and <a href="https://geekhack.org/index.php?topic=41989.0">firmware</a>.</p>
+<p>Turns out there are a bunch of folks doing this stuff as a hobby, along with a
+niche industry to support it.</p>
+<p>After a few months of absorbing information and spectating on projects in
+forums, it occurred to me that this did in fact seem like something I&#39;d have
+fun doing. But, rather than just dive in, I decided to start small:</p>
+<p><a href="https://www.flickr.com/photos/deusx/24832952956/"><img class="fullwidth" id="thumbnail" src="/uploads/2016/teensy-ps2-adapter/minikey.jpg"></a></p>
+<p>Last weekend, I ran to my local <a href="http://www.microcenter.com/site/stores/madison-heights.aspx">Micro Center</a> and picked up a <a href="https://www.pjrc.com/teensy/">Teensy
+2.0</a>. That seems to be the microcontroller board a lot of keyboard
+projects have been using, so I figured getting acquainted with it would be
+handy. After the traditional &quot;hello world&quot; project of <a href="https://www.pjrc.com/teensy/tutorial.html">getting an LED to
+blink</a>, I wired up a pile of buttons on a breadboard and <a href="https://www.pjrc.com/teensy/td_keyboard.html">built the
+firmware to my first DIY USB keyboard</a>.</p>
+<p>Okay, so it was just a tutorial and no special effort on my part. But, the
+process was super easy, so the hacking possibilities started piling up in my
+head.</p>
+<p>Then, I discovered the <a href="https://geekhack.org/index.php?topic=41989.0">TMK keyboard firmware</a> on the
+<a href="https://geekhack.org/">geekhack</a> forums. Basically, all the software work had been done for me.
+The TMK firmware is a ready-made pile of code for translating from basically any
+matrix of switches or wire protocol to USB HID keyboard codes - complete with
+support for flexible key maps, mouse control, function-key layers, macros, and
+a bunch of other things. </p>
+<p>My little 10-key breadboard toy wasn&#39;t all that practical. But, I discovered
+that the TMK firmware also supported building keyboard <em>converters</em>. Of
+particular interest was the <a href="https://github.com/tmk/tmk_keyboard/blob/master/converter/ps2_usb/README.md">PS/2 to USB keyboard converter</a>, since I
+just happen to have a pile of older PS/2 keyboards lying around doing nothing.</p>
+<p>The converter only took 4 wires, so I sacrificed a PS/2 cable from the back of
+a drawer and came up with this:</p>
+<p><a href="https://www.flickr.com/photos/deusx/24832952956/"><img class="fullwidth" src="/uploads/2016/teensy-ps2-adapter/adapter.jpg"></a></p>
+<p>Coincidentally, the day after I built this, I got some IBM Model M keyboards
+from <a href="https://nuxx.net/blog/">a friend</a> of mine. I&#39;ve been wanting to fill my office with the
+sound of buckling springs for awhile, now. </p>
+<p><a href="https://www.flickr.com/photos/deusx/24685464831/"><img class="fullwidth" src="/uploads/2016/teensy-ps2-adapter/modelm.jpg"></a></p>
+<p>This is all hooked up to a modern MacBook Pro, but the IBM Model M is
+decidedly lacking in <a href="https://en.wikipedia.org/wiki/Command_key">Command (⌘) keys</a>. So, the DIY converter
+proved its worth immediately. </p>
+<p>I put together <a href="https://github.com/lmorchard/tmk_keyboard/blob/lmo-model-mac/converter/ps2_usb/keymap_modelmac.c">my own simple keymap</a> and spent a day with it,
+tweaking as I went.  I set up <a href="https://github.com/alloy/kicker">a file watcher</a> to rebuild the
+firmware whenever I changed the source. Along with that, the <a href="https://www.pjrc.com/teensy/loader.html">Teensy
+Loader</a> has an &quot;auto&quot; mode which reprograms the Teensy whenever I hit
+the reset button. </p>
+<p>At this point, I&#39;ve replaced the Caps Lock key with Control and changed Alt keys
+to Command keys.  Then, I turned the Print Screen / Caps Lock / Pause trio
+into volume control keys. After that, F10, F11, and F12 were pressed into
+service as previous, next, &amp; pause buttons for music. It was all a bit fiddly,
+but it&#39;s the kind of thing I enjoy.</p>
+<p>Overall, this all feels like a nice intro into a new hobby. Next, I&#39;m
+considering <a href="https://github.com/antonizoon/archivis.me/wiki/IBM-Model-M-USB-Controller">replacing the IBM Model M keyboard controller</a>
+altogether, which will embed the Teensy right in the case. </p>
+<p>After that, I&#39;m tempted to turn my screwdriver on that other keyboard on my
+desk - the Happy Hacking Keyboard Professional. There&#39;s a <a href="https://geekhack.org/index.php?topic=12047.0">Teensy-based
+alternative controller</a> option for it, also using the TMK firmware.</p>
+<p>Once I feel comfortable with all that, it might be time to build something of
+my own! <a href="http://www.keyboard-layout-editor.com/##@_name=noisy%20fat%20hacker%20keyboard&amp;author=lmorchard&amp;switchMount=cherry&amp;switchBrand=cherry&amp;plate:true%3B&amp;@=Esc&amp;=!%0A1&amp;=%2F@%0A2&amp;=%23%0A3&amp;=$%0A4&amp;=%25%0A5&amp;=%5E%0A6&amp;=%2F&amp;%0A7&amp;=*%0A8&amp;=%28%0A9&amp;=%29%0A0&amp;=%2F_%0A-&amp;=+%0A%2F=&amp;=%7C%0A%5C&amp;=~%0A%60&amp;_x:0.25%3B&amp;=Insert&amp;=Home&amp;=PgUp%3B&amp;@_w:1.5%3B&amp;=Tab&amp;=Q&amp;=W&amp;=E&amp;=R&amp;=T&amp;=Y&amp;=U&amp;=I&amp;=O&amp;=P&amp;=%7B%0A%5B&amp;=%7D%0A%5D&amp;_a:0&amp;w:1.5%3B&amp;=Delete%0A%0A%0A%0ABS&amp;_x:0.25&amp;a:4%3B&amp;=Delete&amp;=End&amp;=PgDn%3B&amp;@_w:1.75%3B&amp;=Control&amp;=A&amp;=S&amp;=D&amp;=F&amp;=G&amp;=H&amp;=J&amp;=K&amp;=L&amp;=%2F:%0A%2F%3B&amp;=%22%0A%27&amp;_w:2.25%3B&amp;=Enter&amp;_x:0.25%3B&amp;=Op1&amp;=Op2&amp;=Op3%3B&amp;@_w:2.25%3B&amp;=Shift&amp;=Z&amp;=X&amp;=C&amp;=V&amp;=B&amp;=N&amp;=M&amp;=%3C%0A,&amp;=%3E%0A.&amp;=%3F%0A%2F%2F&amp;_w:2.75%3B&amp;=Shift&amp;_x:1.25%3B&amp;=%E2%86%91%3B&amp;@_w:1.25%3B&amp;=Fn&amp;_w:1.25%3B&amp;=%3Ci%20class%2F=%27mss%20mss-Unicode-Option-3%27%3E%3C%2F%2Fi%3E&amp;_w:1.25%3B&amp;=%3Ci%20class%2F=%27kb%20kb-logo-apple-outline%27%3E%3C%2F%2Fi%3E&amp;_a:7&amp;w:6.25%3B&amp;=&amp;_a:4&amp;w:1.25%3B&amp;=%3Ci%20class%2F=%27kb%20kb-logo-apple%27%3E%3C%2F%2Fi%3E&amp;_w:1.25%3B&amp;=%3Ci%20class%2F=%27mss%20mss-Unicode-Option-3%27%3E%3C%2F%2Fi%3E&amp;_w:1.25%3B&amp;=%3Ci%20class%2F=%27kb%20kb-Hamburger-Menu%27%3E%3C%2F%2Fi%3E&amp;_w:1.25%3B&amp;=Fn&amp;_x:0.25%3B&amp;=%E2%86%90&amp;=%E2%86%93&amp;=%E2%86%92">I&#39;ve got a 75-key layout I&#39;m mulling over.</a> If I end up liking
+that, I can get a case &amp; mounting plate <a href="http://builder.swillkb.com/">designed</a> &amp;
+<a href="https://www.ponoko.com/">fabricated</a>. Then, I can buy all the <a href="https://www.massdrop.com/buy/cherry-mx-red-key-switches-120-pack">switches</a> and
+<a href="http://amzn.to/1UUHUu8">diodes</a>. And last, but not least, I&#39;ll have to design a circuit board &amp;
+<a href="https://oshpark.com/">get that fabricated</a>.</p>
+<p>Or, if I really want to go for that handcrafted artisan experience - which I
+just might, because I&#39;m a glutton for punishment - I&#39;ve got something like
+this in my future:</p>
+<div class="video-container"><iframe class="lazyload" width="560" height="315" src="" data-src="https://www.youtube.com/embed/MrokZ1afnVg" frameborder="0" allowfullscreen></iframe></div>
+
+<!-- vim: set wrap wm=5 syntax=markdown textwidth=78: -->
+
+        </section>
+      </article>
+
+      <section class="comments" id="comments">
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+            var disqus_needs_loading = true;
+            var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com/";
+          </script>
+          <noscript
+            >Please enable JavaScript to view the
+            <a href="http://disqus.com/?ref_noscript"
+              >comments powered by Disqus.</a
+            ></noscript
+          >
+          <a href="http://disqus.com" class="dsq-brlink"
+            >blog comments powered by <span class="logo-disqus">Disqus</span></a
+          >
+        </section>
+        </section>
+
+        <footer>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

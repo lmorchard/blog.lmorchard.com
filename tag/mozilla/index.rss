@@ -1,0 +1,1136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <rss version="2.0">
+    <channel>
+      <title>Tag: mozilla - blog.lmorchard.com</title>
+      <description>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</description>
+      <link>https://lmorchard.github.io/blog.lmorchard.com/</link>
+      <item>
+          <title>Fun with Themes in Firefox</title>
+          
+          <description>&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;: Last year, I started work on a new Test Pilot experiment playing with themes in Firefox. &lt;/p&gt;
+&lt;!--more--&gt;
+
+&lt;nav role=&quot;navigation&quot; class=&quot;table-of-contents&quot;&gt;&lt;/nav&gt;
+
+&lt;h2 id=&quot;new-theme-apis-are-fun&quot;&gt;New theme APIs are fun&lt;/h2&gt;
+&lt;p&gt;At the core of this experiment are &lt;a href=&quot;https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/theme&quot;&gt;new theme APIs for add-ons&lt;/a&gt; shipping with Firefox. &lt;/p&gt;
+&lt;p&gt;These APIs take inspiration &lt;a href=&quot;https://developer.chrome.com/apps/themes&quot;&gt;from static themes in Google Chrome&lt;/a&gt;, building from there to enable the creation of dynamic themes. &lt;/p&gt;
+&lt;p&gt;For example, &lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/quantum-lights-dynamic/&quot;&gt;Quantum Lights&lt;/a&gt; changes based on the time of day.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/quantum-lights-dynamic/&quot;&gt;&lt;img src=&quot;quantum-lights.png&quot; alt=&quot;Quantum Lights dynamic theme&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/vivaldifox/&quot;&gt;VivaldiFox&lt;/a&gt; reflects the sites you’re visiting.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/vivaldifox/&quot;&gt;&lt;img src=&quot;image_0.png&quot; alt=&quot;VivaldiFox dynamic theme&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You could even build themes that use data from external HTTP services - e.g. to change based on the weather.&lt;/p&gt;
+&lt;p&gt;To explore these new APIs, Firefox Themer consists of a website and a companion add-on for Firefox. The website offers a theme editor with a paper doll preview - you can click on parts of a simulated browser interface and dress it up however you like. The add-on grants special powers to the website, applying changes from the theme in the editor onto the browser itself.&lt;/p&gt;
+&lt;h2 id=&quot;editing-themes-on-the-web&quot;&gt;Editing themes on the web&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/mozilla/Themer/tree/5cdcb7e15d64934f0e71521512c74337dc58fa05/src/web&quot;&gt;The site&lt;/a&gt; is built &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/webpack.web.js&quot;&gt;using Webpack&lt;/a&gt;, React, and Redux. React offers a solid foundation for composing the editor. Personally, I really like working with &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/src/web/lib/components/SavedThemeSelector/index.js&quot;&gt;stateless functional components&lt;/a&gt; - they’re kind of what tipped me over into becoming a React convert a few years ago. I’m also a terrible visual designer with weak CSS-fu - but &lt;a href=&quot;https://simonsmith.io/using-webpack-to-build-react-components-and-their-assets/&quot;&gt;using Webpack to bundle assets from per-component directories&lt;/a&gt; makes it easier for teammates to step in where I fall short.&lt;/p&gt;
+&lt;img id=&quot;thumbnail&quot; title=&quot;An early snapshot of Themer in development&quot; alt=&quot;An early snapshot of Themer in development&quot; src=&quot;image_1.png&quot; /&gt;
+
+&lt;p&gt;Further under the hood, Redux offers a clean way to &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/src/lib/store.js&quot;&gt;manage theme data and UI state&lt;/a&gt;. Adding &lt;a href=&quot;https://github.com/mozilla/Themer/tree/5cdcb7e15d64934f0e71521512c74337dc58fa05/src/web/lib/components/UndoRedoButtons&quot;&gt;undo &amp;amp; redo buttons&lt;/a&gt; is easy, thanks to &lt;a href=&quot;https://github.com/omnidan/redux-undo/&quot;&gt;redux-undo&lt;/a&gt;. And, by way of some &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/src/web/index.js#L52&quot;&gt;simple Redux middleware&lt;/a&gt;, I was able to easily add a hook to push every theme changes into the browser via the add-on.&lt;/p&gt;
+&lt;p&gt;The website is just a static page - there’s no real server-side application. When you save a theme, &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/src/web/lib/storage.js&quot;&gt;it ends up in your browser’s localStorage&lt;/a&gt;. Though we plan to move to a Mozilla-owned production server on launch, I’ve been &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/package.json#L29&quot;&gt;deploying&lt;/a&gt; builds to &lt;a href=&quot;https://mozilla.github.io/Themer/&quot;&gt;GitHub Pages&lt;/a&gt; during development.&lt;/p&gt;
+&lt;p&gt;Another interesting feature of the website is that we encode themes as a parameter in the URL. Rather than come up with a bespoke scheme, I use &lt;a href=&quot;https://github.com/masotime/json-url&quot;&gt;this json-url module&lt;/a&gt; to compress JSON and encode it as Base64, which makes for a long URL but not unreasonably so. This approach enables folks to simply copy &amp;amp; paste a URL to share a theme they’ve made. You &lt;a href=&quot;https://mozilla.github.io/Themer/?theme=XQAAAAK6AAAAAAAAAABBKYhm849SCiaxqiaEGccwS-xNVABND6bPaWX82IACoyBXlMz-ogPQMZx8jZw0gi6ZqepxjZiNq3qtC6ReDugh0DJEIcc-6Ekd4BML5haoPqlXvTBKbEuN12ZBm-SJaWyB2b9GzX0tU6b_u9yjWO4ukTDkntTK440uf__ug8AA&quot;&gt;can&lt;/a&gt; &lt;a href=&quot;https://mozilla.github.io/Themer/?theme=XQAAAAK5AAAAAAAAAABBKYhm849SCiaxqiaEGccwS-xNVABNBRtj-x-Szc1kMeuEtwJYdDlHdJFchkY8sMP4iOzSOnr2vDVLFHcDTGfvoD2F-saWB-4Q-0HlUiMST82W8NTW8EedwTOfbOY_8T30w0e4gC9vlGFCU9f6FVIWiWSteBgU_b2G6fBR_7tUIAA&quot;&gt;even&lt;/a&gt; &lt;a href=&quot;https://mozilla.github.io/Themer/?theme=XQAAAAK8AAAAAAAAAABBKYhm849SCiaxqiaEGccwS-xNVABNKtQKc4Qr-u-HdLUSjaBjcrH658wB_k4I1-yfpFsfTFeutvkNHhJd47c-oR5Cmx-mMJXZ4Lq7R98D2PE8etCHIG-B5_8oTyfPCjY6DxXN-uebtBycPe1q5OYxejC4KXCppxfkfniiH__gvZgA&quot;&gt;link&lt;/a&gt; &lt;a href=&quot;https://mozilla.github.io/Themer/?theme=XQAAAAK7AAAAAAAAAABBKYhm849SCiaxqiaEGccwS-xNVABNC6bT6OtXpulKBw4DX1CffRksp6558s0k0DnUhq_LUMnHsWC8m0Ch34ivMZQ9sgV8nw4smjNTF6KwTBLBWoGene--BIiLoZeK7cfULCJbaoBYqyuNgz2tcB6oGDKcpyWUdMoffLb2h__-XfwA&quot;&gt;to&lt;/a&gt; &lt;a href=&quot;https://mozilla.github.io/Themer/?theme=XQAAAAK2AAAAAAAAAABBKYhm849SCiaxqiaEGccwS-xNVAAfaPFobPrtxqh09bZ0dFlllNZAoZN2KxC18prV-JbJ_OWRSXO_BkFys9aW3y-ZXvULv_v6dWy1x1lwnCABmI9hLlcXkVKtiPaJ2TBI4QUpuGXbvJ__-RkwAA&quot;&gt;themes&lt;/a&gt; from a blog post, if you wanted to!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;image_2.png&quot; alt=&quot;Copy themes as URLs&quot;&gt;&lt;/p&gt;
+&lt;p&gt;When the page loads and sees the ?theme URL, &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/src/web/index.js#L201&quot;&gt;it unpacks the data&lt;/a&gt; and &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/src/web/index.js#L204&quot;&gt;loads it into editor’s Redux store&lt;/a&gt;. I’ve also been able to work this into the location bar with the HTML5 History API and &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/src/web/index.js#L61&quot;&gt;Redux middleware&lt;/a&gt;. The browser location represents the current theme, while back &amp;amp; forward buttons double as undo &amp;amp; redo.&lt;/p&gt;
+&lt;h2 id=&quot;add-ons-can-be-expansion-cartridges&quot;&gt;Add-ons can be expansion cartridges&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.syntiac.com/chameleon.html&quot;&gt;&lt;img title=&quot;The Turbo Chameleon 64 cartridge adds many new capabilities to a Commodore 64&quot; class=&quot;inset wide right&quot; src=&quot;chameleon_housing_small.jpg&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/mozilla/Themer/tree/5cdcb7e15d64934f0e71521512c74337dc58fa05/src/extension&quot;&gt;The companion add-on&lt;/a&gt; is also built &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/webpack.extension.js&quot;&gt;using Webpack&lt;/a&gt; and acts as an &lt;a href=&quot;https://www.c64-wiki.com/wiki/Simons%27_BASIC&quot;&gt;expansion cartridge&lt;/a&gt; for the theme editor on the website. (Can you tell &lt;a href=&quot;https://blog.lmorchard.com/2018/03/01/sio2pi/&quot;&gt;I’ve had retro computers on the mind&lt;/a&gt;, lately?)&lt;/p&gt;
+&lt;p&gt;Add-ons in Firefox can install &lt;a href=&quot;https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Content_scripts&quot;&gt;content scripts&lt;/a&gt; that access content and data on web pages. Content scripts can communicate with the parent add-on &lt;a href=&quot;https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Content_scripts#Communicating_with_background_scripts&quot;&gt;by way of a message port&lt;/a&gt;. They can also communicate with a web page &lt;a href=&quot;https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Content_scripts#Communicating_with_the_web_page&quot;&gt;by way of synthetic events&lt;/a&gt;. Put the two together, and you’ve got &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/src/extension/contentScript.js&quot;&gt;a messaging channel&lt;/a&gt; between a web page and an add-on in Firefox.&lt;/p&gt;
+&lt;p&gt;Here&amp;#39;s the heart of &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/src/extension/contentScript.js&quot;&gt;that messaging bridge&lt;/a&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;import { CHANNEL_NAME } from &amp;quot;../lib/constants&amp;quot;;
+
+// Relay backend port messages to content
+let port;
+
+function connect() {
+  port = browser.runtime.connect({ name: CHANNEL_NAME });
+  port.onDisconnect.addListener(() =&amp;gt; {
+    port = null;
+    reconnect();
+  });
+  port.onMessage.addListener(message =&amp;gt; {
+    window.postMessage({ ...message, channel: `${CHANNEL_NAME}-web` }, &amp;quot;*&amp;quot;);
+  });
+}
+
+// Relay content messages to backend port if the channel name matches
+// (Not a security feature so much as a noise filter)
+window.addEventListener(&amp;quot;message&amp;quot;, event =&amp;gt; {
+  if (
+    port &amp;amp;&amp;amp;
+    event.source === window &amp;amp;&amp;amp;
+    event.data &amp;amp;&amp;amp;
+    event.data.channel === `${CHANNEL_NAME}-extension`
+  ) {
+    port.postMessage({ ...event.data, location: window.location.href });
+  }
+});
+
+connect();&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;With this approach, the web page doesn’t actually gain access to any Firefox APIs. &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/src/extension/background.js#L23&quot;&gt;The add-on can decide what to do with with messages it receives&lt;/a&gt;. If the page sends invalid data or asks to do something not supported - nothing happens. Here&amp;#39;s a snippet of that logic from the extension:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;const messageListener = port =&amp;gt; message =&amp;gt; {
+  let theme;
+  switch (message.type) {
+    case &amp;quot;fetchTheme&amp;quot;:
+      log(&amp;quot;fetchTheme&amp;quot;);
+      fetchTheme().then(({ theme: currentTheme }) =&amp;gt;
+        port.postMessage({ type: &amp;quot;fetchedTheme&amp;quot;, theme: currentTheme })
+      );
+      break;
+    case &amp;quot;setTheme&amp;quot;:
+      theme = normalizeTheme(message.theme);
+      log(&amp;quot;setTheme&amp;quot;, theme);
+      storeTheme({ theme });
+      applyTheme({ theme });
+      break;
+    case &amp;quot;ping&amp;quot;:
+      port.postMessage({ type: &amp;quot;pong&amp;quot; });
+      break;
+    default:
+      log(&amp;quot;unexpected message&amp;quot;, message);
+  }
+};&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And here&amp;#39;s a peek at &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/src/web/index.js#L52&quot;&gt;that Redux middleware I mentioned earlier&lt;/a&gt; which updates the add-on from the web:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;const postMessage = (type, data = {}) =&amp;gt;
+  window.postMessage(
+    { ...data, type, channel: `${CHANNEL_NAME}-extension` },
+    &amp;quot;*&amp;quot;
+  );
+
+const updateExtensionThemeMiddleware = ({ getState }) =&amp;gt; next =&amp;gt; action =&amp;gt; {
+  const returnValue = next(action);
+  const meta = action.meta || {};
+  if (!meta.skipAddon &amp;amp;&amp;amp; themeChangeActions.includes(action.type)) {
+    postMessage(&amp;quot;setTheme&amp;quot;, { theme: selectors.theme(getState()) });
+  }
+  return returnValue;
+};&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The add-on can also restrict the set of pages from which it will accept messages: We &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/webpack.extension.js#L55&quot;&gt;hardcode the URL for the theme editor&lt;/a&gt; into the add-on’s content script configuration at build time, which means no other web page should be able to ask the add-on to alter the theme in Firefox.&lt;/p&gt;
+&lt;h2 id=&quot;add-on-detection-is-hard&quot;&gt;Add-on detection is hard&lt;/h2&gt;
+&lt;img class=&quot;inset wide right&quot; src=&quot;loader.png&quot; title=&quot;The loading overlay that appears until the editor is visually stable&quot; /&gt;
+
+&lt;p&gt;There is a wrinkle to the relationship between website and add-on, though: A normal web page cannot detect whether or not a particular add-on has been installed. All the page can do is send a message. If the add-on responds, then we know the add-on is available.&lt;/p&gt;
+&lt;p&gt;Proving a negative, however, is impossible: the web page can’t know for sure that the addon is *not *available. Responses to asynchronous messages take time - not necessarily a long time, but more than zero time. &lt;/p&gt;
+&lt;p&gt;If the page sends a message and doesn’t get a response, that doesn’t mean the add-on is missing. It could just mean that the add-on is taking awhile to respond. So, we have to render the theme editor such that it starts off by assuming the add-on is not installed. If the add-on shows up, minutes or milliseconds later, the page can update itself to reflect the new state of things.&lt;/p&gt;
+&lt;p&gt;Left as-is, you’d see several flashes of color and elements on the page move as things settle. That seems unpleasant and possibly confusing, so we came up with a loading spinner: When the page loads, it displays the spinner and a timer starts. If that timer expires, we consider things ready and reveal the editor. But, if there’s any change to the Redux store while that timer is running, we restart the clock.&lt;/p&gt;
+&lt;p&gt;This is the gist of what that code does:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;const unsubscribeLoader = store.subscribe(() =&amp;gt; {
+  if (selectors.loaderDelayExpired(store.getState())) {
+    // State settled down long enough for timer to expire - stop listening.
+    unsubscribeLoader();
+  } else {
+    // Reset the timer again.
+    startLoaderDelay();
+  }
+});
+
+// Utility to (re)start up a timer to dismiss the loading indicator
+let loaderTimer = null;
+function startLoaderDelay() {
+  if (loaderTimer) {
+    clearTimeout(loaderTimer);
+  }
+  loaderTimer = setTimeout(
+    () =&amp;gt; store.dispatch(actions.ui.setLoaderDelayExpired(true)),
+    LOADER_DELAY_PERIOD
+  );
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Early changes to the store are driven by things like decoding a shared theme and responses from the add-on. Again, these are asynchronous and unpredictable. The timer duration is an arbitrary guess I made that seems to feel right. It’s a dirty hack, but it seems like a good enough effort for now.&lt;/p&gt;
+&lt;h2 id=&quot;using-npm-scripts-and-multiple-webpack-configs&quot;&gt;Using npm scripts and multiple Webpack configs&lt;/h2&gt;
+&lt;p&gt;One of the things that has worked nicely on this project is building everything in parallel with a single npm command. You can &lt;a href=&quot;https://github.com/mozilla/Themer/tree/5cdcb7e15d64934f0e71521512c74337dc58fa05#get-started&quot;&gt;clone the repo and kick things off for development&lt;/a&gt; with a simple &lt;code&gt;npm install &amp;amp;&amp;amp; npm start&lt;/code&gt; dance.&lt;/p&gt;
+&lt;p&gt;The add-on and the site both use Webpack. There’s &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/webpack.common.js&quot;&gt;a shared config&lt;/a&gt; as a base and then specific configurations with tweaks for &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/webpack.web.js&quot;&gt;the site&lt;/a&gt; and &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/webpack.extension.js&quot;&gt;the add-on&lt;/a&gt;. So, we want to run two separate instances of Webpack to build everything, watch files, and host the dev server.&lt;/p&gt;
+&lt;p&gt;This is where &lt;a href=&quot;https://www.npmjs.com/package/npm-run-all&quot;&gt;npm-run-all&lt;/a&gt; comes in: It’s a CLI tool that lets you run multiple npm scripts. I used to use gulp to orchestrate this sort of thing, but &lt;a href=&quot;https://www.npmjs.com/package/npm-run-all&quot;&gt;npm-run-all&lt;/a&gt; lets me arrange it all &lt;a href=&quot;https://docs.npmjs.com/misc/scripts&quot;&gt;in &lt;code&gt;package.json&lt;/code&gt;&lt;/a&gt;. It would be fine if this just enabled running scripts in series. But, npm-run-all also lets you run scripts* in parallel&lt;em&gt;. The cherry on top is that [this parallelization works on Linux, OS X, *and Windows&lt;/em&gt;](&lt;a href=&quot;https://www.npmjs.com/package/npm-run-all#%EF%B8%8F-motivation&quot;&gt;https://www.npmjs.com/package/npm-run-all#%EF%B8%8F-motivation&lt;/a&gt;).&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-json&quot;&gt;&amp;quot;scripts&amp;quot;: {
+  &amp;quot;start&amp;quot;: &amp;quot;npm-run-all --parallel server watch:extension watch:lint&amp;quot;,
+  &amp;quot;server&amp;quot;: &amp;quot;cross-env NODE_ENV=development webpack-dev-server --config webpack.web.js&amp;quot;,
+  &amp;quot;watch&amp;quot;: &amp;quot;npm-run-all --parallel watch:*&amp;quot;,
+  &amp;quot;watch:web&amp;quot;: &amp;quot;cross-env NODE_ENV=development webpack --watch --progress --colors --config webpack.web.js&amp;quot;,
+  &amp;quot;watch:extension&amp;quot;: &amp;quot;cross-env NODE_ENV=development webpack --watch --progress --colors --config webpack.extension.js&amp;quot;,
+  &amp;quot;watch:lint&amp;quot;: &amp;quot;onchange -p -v \&amp;quot;src/**/*.js\&amp;quot; -- npm run lint&amp;quot;,
+  &amp;quot;lint&amp;quot;: &amp;quot;eslint --color .&amp;quot;,
+},&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In past years, Windows support might have been an abstract novelty for me. But, in recent months, I’ve switched from Apple hardware to a PC laptop. I’ve found the new &lt;a href=&quot;https://docs.microsoft.com/en-us/windows/wsl/install-win10&quot;&gt;Windows Subsystem for Linux&lt;/a&gt; to be essential to that switch. But, sometimes it’s nice to just fire up a Node.js dev environment directly in PowerShell - &lt;a href=&quot;https://www.npmjs.com/package/npm-run-all&quot;&gt;npm-run-all&lt;/a&gt; lets me (and you) do that!&lt;/p&gt;
+&lt;p&gt;So, &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/package.json#L12&quot;&gt;the start script in our package.json&lt;/a&gt; is able to fire up both Webpack processes for the site and add-on. It can also &lt;a href=&quot;https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/package.json#L17&quot;&gt;start a file watcher to run linting&lt;/a&gt; and tests (when we have them) alongside. That simplifies using everything in a single shell window across platforms. &lt;a href=&quot;https://decafbad.com/2011/06/os-webdev-vm/slides.html#1&quot;&gt;I used to lean on Vagrant or Docker to offer something &amp;quot;simple&amp;quot; to folks interested in contributing to a project&lt;/a&gt;. But, though virtual machines and containers can hide apparent complexity in development, it’s hard to beat just running things in node on the native OS.&lt;/p&gt;
+&lt;h2 id=&quot;help-us-make-themes-more-fun&quot;&gt;Help us make themes more fun!&lt;/h2&gt;
+&lt;p&gt;We’re launching this experiment soon. And, though it only makes limited use of the new theme APIs for now, we’re hoping that the web-based editor and ease of sharing makes it fun &amp;amp; worth playing with. We’ve got some ideas on what to add over the course of the experiment and hope to get more from the community. &lt;/p&gt;
+&lt;p&gt;Whether you can offer code, give feedback, participate in discussions, or just let us watch how you use something - everyone has something valuable to offer. In fact, one of &lt;a href=&quot;https://wiki.mozilla.org/Test_Pilot/mission&quot;&gt;the overarching goals of Test Pilot&lt;/a&gt; is to expand channels of contribution for folks interested in helping us build Firefox.&lt;/p&gt;
+&lt;p&gt;As with all Test Pilot experiments, we’ll be watching how folks use this stuff as input for what happens next. We also encourage participation in our &lt;a href=&quot;https://discourse.mozilla.org/c/test-pilot&quot;&gt;Discourse forums&lt;/a&gt;. And finally, the project itself is &lt;a href=&quot;https://github.com/mozilla/Themer&quot;&gt;open source on Github&lt;/a&gt; and open to pull requests. &lt;/p&gt;
+&lt;p&gt;In the meantime, start collecting color swatches for your own theme. Personally, I might try my hand at &lt;a href=&quot;https://draculatheme.com/&quot;&gt;a Dracula theme&lt;/a&gt; or maybe raid my Vim config directory for some inspiration.&lt;/p&gt;
+</description>
+          <pubDate>Thu, 01 Mar 2018 12:00:00 GMT</pubDate>
+          <link>https://lmorchard.github.io/blog.lmorchard.com//2018/03/01/themesrfun/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2018/03/01/themesrfun/</guid>
+        </item><item>
+          <title>Firefox Test Pilot: The Flattening</title>
+          
+          <description>&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;: Firefox Test Pilot is becoming a statically-generated site from content in flat files. We&amp;#39;re moving away from Django and PostgreSQL, and it&amp;#39;s been a bit of a journey.&lt;/p&gt;
+&lt;!--more--&gt;
+
+&lt;img class=&quot;fullwidth&quot; src=&quot;/uploads/2016/tp-header.png&quot; /&gt;
+
+&lt;nav role=&quot;navigation&quot; class=&quot;table-of-contents&quot;&gt;&lt;/nav&gt;
+
+&lt;p&gt;I&amp;#39;ve been working on &lt;a href=&quot;https://testpilot.firefox.com/&quot;&gt;Firefox Test Pilot&lt;/a&gt; for over a year, but I haven&amp;#39;t written about it here before now. Mostly because I&amp;#39;ve been busy and lazy and &lt;a href=&quot;/2016/08/31/yak-shaving-habits/&quot;&gt;busily shaving yaks&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;But, there have been big things afoot lately, and I figured they were worth writing about - if only because they&amp;#39;re invisible, behind-the-scenes things that nonetheless took a lot of work to accomplish.&lt;/p&gt;
+&lt;h2 id=&quot;be-prepared---but-for-what&quot;&gt;Be prepared - but for what?&lt;/h2&gt;
+&lt;p&gt;When we started building Test Pilot last summer, we based the server-side on Django &amp;amp; PostgreSQL. We had assumptions about the future: &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;We&amp;#39;d need to collect measurements from experiments. &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;We thought experiments would need some active server-side resources provided by the mothership.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;We&amp;#39;d need to manage user profiles &amp;amp; preferences, so we required sign-in with a Firefox Account. &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A year later, these assumptions didn&amp;#39;t quite pan out: &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Rather than reinvent the wheel by collecting &amp;amp; analyzing measurements ourselves, we took advantage of Google Analytics and the efforts of &lt;a href=&quot;https://wiki.mozilla.org/Telemetry&quot;&gt;the Firefox Telemetry team&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;We found it&amp;#39;s best to stay out of the way of teams building Test Pilot experiments - let them manage their own services as necessary, rather than be tied to the delivery cadence of the core project.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The sign-in requirement turned away many potential users. But, we didn&amp;#39;t need accounts to facilitate experiment participation anyway. Our metrics are anonymous and a Firefox add-on manages opt-in.&lt;/p&gt;
+&lt;p&gt;Accounts ended up being private data we had to keep secure, but only used for email notifications. We have better ways to manage email subscriptions across Mozilla - so one less wheel to reinvent!&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;didnt-need-that-server-anyway&quot;&gt;Didn&amp;#39;t need that server anyway&lt;/h2&gt;
+&lt;p&gt;There was just one last reason to use Django &amp;amp; PostgreSQL on Test Pilot: A web-based content management system to update the site without heavyweight server deployments &amp;amp; database migrations. &lt;/p&gt;
+&lt;p&gt;But, wait a minute: If the other reasons for a server dropped away - why do we need complex deployments?&lt;/p&gt;
+&lt;p&gt;Furthermore, why maintain content &lt;a href=&quot;https://indieweb.org/database-antipattern&quot;&gt;in a database&lt;/a&gt; at all?&lt;/p&gt;
+&lt;p&gt;The whole Test Pilot team knows their way around text editors and GitHub - so let&amp;#39;s make that our CMS. We can &lt;a href=&quot;https://github.com/mozilla/testpilot/blob/master/frontend/tasks/pages.js&quot;&gt;bake the whole site&lt;/a&gt; from &lt;a href=&quot;https://github.com/mozilla/testpilot/tree/master/content-src/experiments&quot;&gt;flat files&lt;/a&gt;. Deployment is &lt;a href=&quot;https://github.com/mozilla/testpilot/blob/master/docs/development/deployment.md#producing-a-static-build&quot;&gt;running a build script&lt;/a&gt; and &lt;a href=&quot;https://github.com/mozilla/testpilot/blob/master/circle.yml#L71&quot;&gt;uploading the result&lt;/a&gt; to a web server. We get revision control &amp;amp; collaboration along with the rest of the project. And as a security bonus, we stop shipping the tools to change the site along with the deployed site itself.&lt;/p&gt;
+&lt;p&gt;None of this is revolutionary. Aaron Swartz&amp;#39;s &amp;quot;&lt;a href=&quot;http://www.aaronsw.com/weblog/000404&quot;&gt;Bake, Don&amp;#39;t Fry&lt;/a&gt;&amp;quot; is over 14 years old: Why fry up a new web page for every visit when you can pre-bake the whole site ahead of time? I used &lt;a href=&quot;http://blosxom.sourceforge.net/&quot;&gt;Bloxsom&lt;/a&gt; back in the day and &lt;a href=&quot;https://blog.lmorchard.com/2014/10/20/static-blog-generation-with-gulp/&quot;&gt;Gulp bakes this blog now&lt;/a&gt;. Static site generators &lt;a href=&quot;https://www.staticgen.com/&quot;&gt;are numerous &amp;amp; popular&lt;/a&gt; - GitHub itself offers &lt;a href=&quot;https://help.github.com/articles/using-jekyll-as-a-static-site-generator-with-github-pages/&quot;&gt;GitHub Pages&lt;/a&gt; powered by &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;It sounds obvious in retrospect, but it took awhile to realize our site could be stripped down to so little. We assumed we needed all those moving parts - or would need them someday. But, it appears that we can get away with being nearly serverless. And if someday a feature requires more, we can stand up some loosely-coupled microservices - or better yet, find that another team at Mozilla has already solved the problem.&lt;/p&gt;
+&lt;h2 id=&quot;the-show-must-go-on&quot;&gt;The show must go on&lt;/h2&gt;
+&lt;p&gt;But, having realized all of this, we couldn&amp;#39;t just burn down the site and start over. Because we&amp;#39;re working on a vehicle in motion, we&amp;#39;ve been doing this in increments over the summer: &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;A couple of months ago, &lt;a href=&quot;https://github.com/mozilla/testpilot/issues/1035&quot;&gt;we removed the Firefox Accounts requirement&lt;/a&gt; and then &lt;a href=&quot;https://github.com/mozilla/testpilot/issues/1034&quot;&gt;deleted the user data&lt;/a&gt; once we were sure we weren&amp;#39;t going back.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;We switched data sources for displaying the number of folks participating in experiments from our own Django API to &lt;a href=&quot;https://github.com/mozilla/testpilot/issues/1039&quot;&gt;a Telemetry-based resource&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;I wrote a task to &lt;a href=&quot;https://github.com/mozilla/testpilot/blob/master/frontend/tasks/content.js#L22&quot;&gt;import content from the current Django API&lt;/a&gt;. Then, I wrote &lt;a href=&quot;https://github.com/mozilla/testpilot/blob/master/frontend/tasks/content.js#L16&quot;&gt;a task to generate JSON&lt;/a&gt; from those imported files - a direct static replacement for the Django API.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Next, I implemented &lt;a href=&quot;https://github.com/mozilla/testpilot/blob/master/testpilot/experiments/views.py#L50&quot;&gt;a feature flag in Django&lt;/a&gt; to substitute static JSON for content from the database. Thus, we can start managing content in YAML now, maintaining our current infrastructure until we work out a new stripped-down deployment process.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Soon, we&amp;#39;ll be able to update the site by pushing to the appropriate branch on GitHub. We&amp;#39;ve got &lt;a href=&quot;https://github.com/mozilla/testpilot/blob/master/frontend/tasks/pages.js&quot;&gt;tasks to generate stub pages&lt;/a&gt; for all the front end app routes. We&amp;#39;re also looking into enforcing a requirement to &lt;a href=&quot;http://micropipes.com/blog//2016/08/31/signing-your-commits-on-github-with-a-gpg-key/&quot;&gt;sign our commits and tags&lt;/a&gt; on the way to release.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;After that, &lt;a href=&quot;https://github.com/mozilla/testpilot/issues/1306&quot;&gt;we plan to go even further with static site generation&lt;/a&gt;. Test Pilot is currently a single page app that pulls content from JSON. But, we can do better by pre-rendering those HTML pages in our build process ahead of time.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;whats-next&quot;&gt;What&amp;#39;s next?&lt;/h2&gt;
+&lt;p&gt;There&amp;#39;s a funny thing about all of this: If we&amp;#39;re successful, no one visiting the site should notice anything different. We&amp;#39;re developing some new features &amp;amp; experiments - but all this work to rid our infrastructure of Django &amp;amp; PostgreSQL should ideally be a non-event for anyone visiting the site. This is the least glamorous sort of work one occasionally has to do on a software project - change everything, but don&amp;#39;t break anything.&lt;/p&gt;
+&lt;p&gt;The real benefit will be that we&amp;#39;re able to do a lot of things faster and more easily. For instance, there are now fewer places that need changes to display a new piece of information on a page. We don&amp;#39;t have to monitor as many third-party dependencies - &lt;a href=&quot;https://github.com/mozilla/testpilot/issues/1116&quot;&gt;which we weren&amp;#39;t doing very well to begin with&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Our development stack shrinks from Docker containers with Django &amp;amp; PostgreSQL &amp;amp; Node.js - down to just Node.js v6.2.0. &lt;a href=&quot;https://github.com/mozilla/testpilot/blob/master/docs/development/quickstart.md&quot;&gt;The whole system has gotten simpler and more direct&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;But, wait, there&amp;#39;s more: Along with totally changing our server-side infrastructure, &lt;a href=&quot;https://github.com/mozilla/testpilot/issues/1307&quot;&gt;we&amp;#39;ve also rewritten the front end of the site to switch from Ampersand to React &amp;amp; Redux&lt;/a&gt;. It should make static site generation easier. It&amp;#39;s also eased development on a handful of new features in the past week or so.&lt;/p&gt;
+&lt;p&gt;It&amp;#39;s a big deal - and another thing that, in retrospect, seems more obvious now than it did a year ago. But, I&amp;#39;m going to save writing about that for my next post.&lt;/p&gt;
+&lt;!-- vim: set wrap linebreak nolist wrapmargin=0 textwidth=0 syntax=markdown formatoptions-=t: --&gt;
+</description>
+          <pubDate>Mon, 26 Sep 2016 12:00:00 GMT</pubDate>
+          <link>https://lmorchard.github.io/blog.lmorchard.com//2016/09/26/testpilot-static/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2016/09/26/testpilot-static/</guid>
+        </item><item>
+          <title>Adding Android to a multi-platform React app</title>
+          
+          <description>&lt;nav role=&quot;navigation&quot; class=&quot;table-of-contents&quot;&gt;&lt;/nav&gt;
+
+&lt;p&gt;TL;DR: A couple of months back, &lt;a href=&quot;http://blog.lmorchard.com/2015/07/22/react-multiplatform/&quot;&gt;I wrote about a TODO app built using React
+for web and React Native for iOS&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;Last week, the team at Facebook 
+&lt;a href=&quot;https://code.facebook.com/posts/1189117404435352/&quot;&gt;released React Native for Android&lt;/a&gt;. So, I circled back to add
+Android support and revisit how code sharing looks now.&lt;/p&gt;
+&lt;h2 id=&quot;getting-up-to-speed&quot;&gt;Getting up to speed&lt;/h2&gt;
+&lt;p&gt;With this &lt;a href=&quot;https://code.facebook.com/posts/1189117404435352/&quot;&gt;new release of React Native&lt;/a&gt;, I was able to add support
+for Android to &lt;a href=&quot;https://github.com/lmorchard/react-multiplatform&quot;&gt;my little TODO app&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The first task was to &lt;a href=&quot;https://github.com/lmorchard/react-multiplatform/commit/38fb7afe67f8c339b8d51c69a1f515a5a91e97c7&quot;&gt;shuffle directories &amp;amp; files around and add the base
+Android support&lt;/a&gt;. In general, the project layout is now cleaner.
+Assets for each platform now live in separate sub-directories.&lt;/p&gt;
+&lt;p&gt;Next, to start iterating &amp;amp; experimenting, I copied the code from the iOS app
+into Android-specific directories. I &lt;a href=&quot;https://github.com/lmorchard/react-multiplatform/commit/fd80e9859400744ac5fcffc8f7d75d6703a3856d&quot;&gt;only needed to make some small
+tweaks&lt;/a&gt; to account for differences in native component sets. That got my
+base app functionality working.&lt;/p&gt;
+&lt;p&gt;Then, &lt;a href=&quot;https://github.com/lmorchard/react-multiplatform/commit/dd8b6b307c31b67fde23c6b090e7b1f1d8b0f579&quot;&gt;I squashed the iOS &amp;amp; Android models together&lt;/a&gt; when I realized that
+code was identical between the React Native platforms. That could change in
+the future, but there&amp;#39;s no need for a difference right now.&lt;/p&gt;
+&lt;p&gt;After sleeping on it, &lt;a href=&quot;https://github.com/lmorchard/react-multiplatform/commit/ea7abb421b7e0486b2d3de42001724343f832901&quot;&gt;I refactored some common mixins&lt;/a&gt; to take advantage of
+additional sharing opportunities I found between iOS &amp;amp; Android views. That
+helped to further shrink the lines of duplicated code.&lt;/p&gt;
+&lt;p&gt;This added what amounts to a new category of code sharing in my project. So,
+&lt;a href=&quot;https://github.com/lmorchard/react-multiplatform/commit/cdbbff72cb941fac75f68c1c91279fa780997b26&quot;&gt;I separated that code into its own module&lt;/a&gt; to make the distinction easier
+to see &amp;amp; measure.  Now, I have code shared between web and native in general,
+and code shared between the iOS and Android native platforms.&lt;/p&gt;
+&lt;p&gt;Finally, in an attempt to start automating my code metrics, &lt;a href=&quot;https://github.com/lmorchard/react-multiplatform/commit/d5149768e116571d0a1a059d1ff16e1cfc45fcfd&quot;&gt;I added
+&lt;code&gt;loc-metrics.sh&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;visualizing-the-code-metrics&quot;&gt;Visualizing the code metrics&lt;/h2&gt;
+&lt;p&gt;So, I tried drawing some Venn diagrams in my notebook. But, I&amp;#39;m terrible at
+drawing. That&amp;#39;s when I remembered that SVG is a thing where I can draw by
+writing code. So, &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial&quot;&gt;I spent an afternoon teaching myself some SVG&lt;/a&gt;
+and &lt;a href=&quot;https://github.com/lmorchard/react-multiplatform/commit/0014232c9858e082414e094be021170fda19aab0&quot;&gt;reworked my metrics shell script&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I&amp;#39;m not going to bother trying to make the areas actually proportional to the
+lines of code. But, here&amp;#39;s a rough picture of code sharing:&lt;/p&gt;
+&lt;img style=&quot;width: 240px&quot; src=&quot;/uploads/2015/react-native-android/shared-overall.svg&quot;&gt;
+&lt;img style=&quot;width: 240px&quot; src=&quot;/uploads/2015/react-native-android/shared-models.svg&quot;&gt;
+&lt;img style=&quot;width: 240px&quot; src=&quot;/uploads/2015/react-native-android/shared-views.svg&quot;&gt;
+
+&lt;p&gt;If you can&amp;#39;t see those images, then you&amp;#39;ll need to find a browser that understands
+SVG until I can be bothered to convert to PNG. (Pull requests welcome!)&lt;/p&gt;
+&lt;h2 id=&quot;conclusions-revisited&quot;&gt;Conclusions revisited&lt;/h2&gt;
+&lt;p&gt;As before, most of the models code is shared between web and both native
+platforms. What&amp;#39;s unique is mostly boilerplate wrapping &lt;a href=&quot;http://blog.lmorchard.com/2015/07/22/react-multiplatform/#forking-sharing-model-code-for-persistence&quot;&gt;the localStorage /
+asyncStorage split between web and native&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;On the view side, however, things are a bit more spread out. In a nutshell,
+React patterns in general allow a decent chunk of code to be shared between
+web and native. And even more code can be shared between the iOS and Android
+platforms.&lt;/p&gt;
+&lt;p&gt;But, unique concerns in each platform - web, iOS, and Android - call for
+unique code for each case. This is not actually a failing, though: Varying the
+UX between web &amp;amp; iOS &amp;amp; Android is a flexibility you&amp;#39;ll probably appreciate. &lt;/p&gt;
+&lt;p&gt;In other words, use components &amp;amp; conventions unique to each
+platform without your app suffering from the lowest-common-denominator UX
+problem historically found in a lot of multi-platform apps. In the case of this
+TODO app, that just boils down to trivialities like checkboxes &amp;amp; switches &amp;amp;
+segmented controls. In a larger app, I&amp;#39;d expect this concern to grow.&lt;/p&gt;
+&lt;p&gt;I&amp;#39;m being lazy and not coding up the math in percentages. This approach shared
+about half the code from the web app, and even more than that for each of the
+native apps. I think that&amp;#39;s a significant advantage over writing separate
+apps.&lt;/p&gt;
+&lt;p&gt;Of course, &lt;a href=&quot;http://blog.lmorchard.com/2015/07/22/react-multiplatform/#conclusion&quot;&gt;all my caveats from the first go
+around&lt;/a&gt; still apply: This is a very simple app. The code devoted to
+doing interesting things versus React boilerplate is probably not at a good
+ratio. Also, as more view components arise, further overlap might be found.
+And, hopefully, common logic would remain the primary area of growth on the
+model site.&lt;/p&gt;
+&lt;p&gt;I think this approach toward building apps remains interesting &amp;amp; promising. &lt;/p&gt;
+&lt;!-- vim: set wrap wm=5 syntax=markdown textwidth=78: --&gt;
+</description>
+          <pubDate>Mon, 21 Sep 2015 12:00:00 GMT</pubDate>
+          <link>https://lmorchard.github.io/blog.lmorchard.com//2015/09/21/react-native-android/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2015/09/21/react-native-android/</guid>
+        </item><item>
+          <title>Experimenting with a multi-platform app using React</title>
+          
+          <description>&lt;nav role=&quot;navigation&quot; class=&quot;table-of-contents&quot;&gt;&lt;/nav&gt;
+
+&lt;p&gt;TL;DR: I built &lt;a href=&quot;https://github.com/lmorchard/react-multiplatform/&quot;&gt;a toy app using React for web and native&lt;/a&gt; to get a feel for whether this hybrid approach is worth using. I think the answer is &amp;quot;yes&amp;quot; - but mainly for apps whose business logic &amp;amp; data models are more complex than their views.&lt;/p&gt;
+&lt;!--more--&gt;
+
+&lt;h2 id=&quot;write-slightly-more-than-once-run-manywhere&quot;&gt;Write slightly more than once, run manywhere&lt;/h2&gt;
+&lt;p&gt;At Mozilla, one of the things we try to champion is the efficiency of writing one web app versus building many separate native apps. In practice, your mileage varies based on goals, priorities, platform capabilities, and a dozen other factors.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://facebook.github.io/react/&quot;&gt;React&lt;/a&gt; and &lt;a href=&quot;https://facebook.github.io/react-native/&quot;&gt;React Native&lt;/a&gt; seem to offer a middle ground: Given the shared conventions and patterns and language, it should be possible to share a lot of code between platforms while still taking advantage of native capabilities.&lt;/p&gt;
+&lt;p&gt;So, I figured I&amp;#39;d give it a shot and try measuring the common lines of code as a rough success metric.&lt;/p&gt;
+&lt;h2 id=&quot;great-another-todo-app&quot;&gt;Great, another Todo app&lt;/h2&gt;
+&lt;p&gt;I decided to build a Todo app, with lots of inspiration and a little code borrowed from &lt;a href=&quot;http://todomvc.com/&quot;&gt;TodoMVC&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;A basic Todo app demands just enough user interface and data management to get an initial feel for most app frameworks. Commit to something bigger and you may end up wasting your time. Build something smaller and you won&amp;#39;t have explored deep enough into the framework&amp;#39;s solution space.&lt;/p&gt;
+&lt;p&gt;I think I&amp;#39;ve erred on the shallow side, but that just gives me room to improve.&lt;/p&gt;
+&lt;h2 id=&quot;what-about-flux-vs-mvc&quot;&gt;What about Flux vs MVC?&lt;/h2&gt;
+&lt;p&gt;It&amp;#39;s said that React provides just the V in MVC (Model-View-Controller). But, there&amp;#39;s also &lt;a href=&quot;https://facebook.github.io/flux/docs/overview.html&quot;&gt;this Flux notion&lt;/a&gt;. It&amp;#39;s billed as an alternative to MVC, and React is intended to be a part of it. That said, I haven&amp;#39;t quite yet wrapped my head around Flux. Luckily, React is focused and useful in isolation. So, I can defer buying into the rest of the conceptual package as I learn.&lt;/p&gt;
+&lt;p&gt;In fact, I didn&amp;#39;t even really end up building a proper MVC app. The Controller role got distributed between Views &amp;amp; Models: UI event handlers in Views modify Models directly. Views subscribe to change events from Models to update their own state.&lt;/p&gt;
+&lt;p&gt;I expect that when I grok Flux better, it&amp;#39;s this reciprocal Model/View relationship that will get broken up &amp;amp; mediated by a Dispatcher. But, in the spirit of iterative hacking, I forged ahead with my terrible code &amp;amp; design.&lt;/p&gt;
+&lt;h2 id=&quot;building-shared-models&quot;&gt;Building shared Models&lt;/h2&gt;
+&lt;p&gt;For the Model layer, I took a look at &lt;a href=&quot;http://ampersandjs.com/&quot;&gt;Ampersand.js&lt;/a&gt;. Based originally on &lt;a href=&quot;http://backbonejs.org/&quot;&gt;Backbone.js&lt;/a&gt; - a library of which I&amp;#39;m a big fan - &lt;a href=&quot;http://ampersandjs.com/&quot;&gt;Ampersand.js&lt;/a&gt; breaks things up into a collection of small modules that work well together. But, like &lt;a href=&quot;https://facebook.github.io/react/&quot;&gt;React&lt;/a&gt;, most of the modules are handy in isolation or alongside substitutions from outside of the &lt;a href=&quot;http://ampersandjs.com/&quot;&gt;Ampersand.js&lt;/a&gt; family.&lt;/p&gt;
+&lt;p&gt;For managing a single todo item, I liked the looks of &lt;a href=&quot;https://github.com/AmpersandJS/ampersand-state&quot;&gt;ampersand-state&lt;/a&gt;. With it, you can build JavaScript objects with properties that can be watched for changes. This is what &lt;a href=&quot;https://github.com/lmorchard/react-multiplatform/blob/master/lib/models/Todo.js&quot;&gt;my todo item model&lt;/a&gt; looks like, using &lt;a href=&quot;https://github.com/tastejs/todomvc/blob/master/examples/ampersand/js/models/todo.js&quot;&gt;TodoMVC code&lt;/a&gt; as a starting point:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;var State = require(&amp;#39;ampersand-state&amp;#39;);
+module.exports = State.extend({
+  // Properties this model will store
+  props: {
+    title: { type: &amp;#39;string&amp;#39;, default: &amp;#39;&amp;#39; },
+    completed: { type: &amp;#39;boolean&amp;#39;, default: false }
+  },
+  // session properties are not included when serializing.
+  session: {
+    editing: { type: &amp;#39;boolean&amp;#39;, default: false }
+  },
+  destroy: function () {
+    if (this.collection) {
+      this.collection.remove(this);
+    }
+  }
+});&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;forking-the-views-by-platform&quot;&gt;Forking the Views by platform&lt;/h2&gt;
+&lt;p&gt;This Model code works on both the web and native sides of my app. So far, so good - and pretty straightforward.&lt;/p&gt;
+&lt;p&gt;However, getting down to actually rendering this data across platforms reveals where things start to vary. For example, &lt;a href=&quot;https://github.com/lmorchard/react-multiplatform/blob/3fd16fe31473f249d8a54020ef252f524dd17d70/lib/views/web/TodoItem.js#L34&quot;&gt;the JSX in the &lt;code&gt;render()&lt;/code&gt; method of my web view&lt;/a&gt; looks like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;return (
+  &amp;lt;li style={itemStyles.container}&amp;gt;
+    &amp;lt;input type=&amp;quot;checkbox&amp;quot;
+      style={itemStyles.completed}
+      onChange={(event) =&amp;gt; this.handleCompletedChange(event.target.checked)}
+      checked={this.state.item.completed} /&amp;gt;
+    {title}
+  &amp;lt;/li&amp;gt;
+);&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Meanwhile, &lt;a href=&quot;https://github.com/lmorchard/react-multiplatform/blob/3fd16fe31473f249d8a54020ef252f524dd17d70/lib/views/ios/TodoItem.js#L42&quot;&gt;the JSX in the &lt;code&gt;render()&lt;/code&gt; method of my iOS view&lt;/a&gt; looks like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;return (
+  &amp;lt;View style={styles.todoItem}&amp;gt;
+    &amp;lt;SwitchIOS
+      style={styles.todoCompleted}
+      onValueChange={this.handleCompletedChange}
+      value={this.state.item.completed} /&amp;gt;
+    {title}
+  &amp;lt;/View&amp;gt;
+);&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, if you take a longer peek at those views, you&amp;#39;ll see some slightly more complex JSX devoted to the &lt;code&gt;{title}&lt;/code&gt; placeholders where rendering changes based on whether the item is being edited.&lt;/p&gt;
+&lt;p&gt;It&amp;#39;s not radically different; it&amp;#39;s just enough to make things interesting.&lt;/p&gt;
+&lt;h2 id=&quot;code-sharing-with-react-mixins&quot;&gt;Code sharing with React mixins&lt;/h2&gt;
+&lt;p&gt;What you might notice about these two divergent views, though, is they both start like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;var TodoItem = module.exports = React.createClass({
+  mixins: [Views.TodoItemCommonMixin],
+  // ...&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It turns out that, thanks to &lt;a href=&quot;https://facebook.github.io/react/docs/reusable-components.html#mixins&quot;&gt;React mixins&lt;/a&gt;, I can write &lt;a href=&quot;https://github.com/lmorchard/react-multiplatform/blob/3fd16fe31473f249d8a54020ef252f524dd17d70/lib/views/index.js#L35&quot;&gt;the bulk of the View logic&lt;/a&gt; in a shared module. Since both sides use Models based on &lt;a href=&quot;https://github.com/AmpersandJS/ampersand-state&quot;&gt;ampersand-state&lt;/a&gt;, this includes subscribing to Model changes:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;getInitialState() {
+  return { editing: false, item: this.props.item };
+},
+componentDidMount() {
+  this.state.item.on(&amp;#39;change&amp;#39;, () =&amp;gt; this.forceUpdate(), this);
+},
+componentWillUnmount() {
+  this.state.item.off(null, null, this);
+},
+componentWillReceiveProps(props) {
+  this.setState({ item: props.item });
+},
+componentDidUpdate(prevProps, prevState) {
+  if (prevState.item !== this.state.item) {
+    prevState.item.off(null, null, this);
+    this.state.item.on(&amp;#39;change&amp;#39;, () =&amp;gt; this.forceUpdate(), this);
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, since both sides use Views based on &lt;a href=&quot;https://facebook.github.io/react/&quot;&gt;React&lt;/a&gt;, many UI event handlers can also be shared despite the difference in platform specific JSX and view elements.&lt;/p&gt;
+&lt;p&gt;(Of course, I recently learned that &lt;a href=&quot;https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750&quot;&gt;React mixins are dead&lt;/a&gt;, so I&amp;#39;m already behind the times. But, this code works for now. I&amp;#39;ll get around to burning that bridge when I learn more about Flux.)&lt;/p&gt;
+&lt;h2 id=&quot;forking--sharing-model-code-for-persistence&quot;&gt;Forking &amp;amp; sharing Model code for persistence&lt;/h2&gt;
+&lt;p&gt;For multiple todo items, &lt;a href=&quot;https://github.com/AmpersandJS/ampersand-collection&quot;&gt;ampersand-collection&lt;/a&gt; is handy. It manages arrays of &lt;a href=&quot;https://github.com/AmpersandJS/ampersand-state&quot;&gt;ampersand-state&lt;/a&gt; objects and emits events when the set changes. This is useful for keeping &lt;a href=&quot;https://github.com/lmorchard/react-multiplatform/blob/3fd16fe31473f249d8a54020ef252f524dd17d70/lib/views/web/TodoList.js&quot;&gt;list&lt;/a&gt; &lt;a href=&quot;https://github.com/lmorchard/react-multiplatform/blob/3fd16fe31473f249d8a54020ef252f524dd17d70/lib/views/ios/TodoList.js&quot;&gt;views&lt;/a&gt; updated.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/AmpersandJS/ampersand-collection&quot;&gt;ampersand-collection&lt;/a&gt; also offers methods for serializing &amp;amp; deserializing the models it contains. That&amp;#39;s just what I need, because I&amp;#39;d like to make my todo list items persistent between sessions with the app.&lt;/p&gt;
+&lt;p&gt;Apropos of that, we have some storage capabilities on each platform: &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API&quot;&gt;localStorage&lt;/a&gt; for modern browsers, and &lt;a href=&quot;https://facebook.github.io/react-native/docs/asyncstorage.html&quot;&gt;AsyncStorage&lt;/a&gt; for React Native. Both allow you to store small amounts of persistent data on a device. For the purposes of this toy app, these data stores are just about right.&lt;/p&gt;
+&lt;p&gt;But, these storage APIs differ. &lt;a href=&quot;https://github.com/lmorchard/react-multiplatform/blob/3fd16fe31473f249d8a54020ef252f524dd17d70/lib/models/web/TodoCollection.js#L14&quot;&gt;Using localStorage&lt;/a&gt; looks like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;readFromStorage: function () {
+  var existingData = localStorage[STORAGE_KEY];
+  if (existingData) {
+    this.set(JSON.parse(existingData));
+  }
+},
+writeToStorage: function () {
+  localStorage[STORAGE_KEY] = JSON.stringify(this);
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Meanwhile, &lt;a href=&quot;https://github.com/lmorchard/react-multiplatform/blob/3fd16fe31473f249d8a54020ef252f524dd17d70/lib/models/ios/TodoCollection.js#L9&quot;&gt;using AsyncStorage&lt;/a&gt; looks like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;readFromStorage() {
+  AsyncStorage.getItem(STORAGE_KEY).then((existingData) =&amp;gt; {
+    this.set(JSON.parse(existingData));
+  });
+},
+writeToStorage() {
+  AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(this));
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If you peek at those last two links, though, you might notice they both define classes that start like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;var TodoCollection = module.exports = BaseCollection.extend({&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Since &lt;a href=&quot;https://github.com/AmpersandJS/ampersand-collection&quot;&gt;ampersand-collection&lt;/a&gt; supports class inheritance, the bulk of the logic for these collections can be housed in &lt;a href=&quot;https://github.com/lmorchard/react-multiplatform/blob/3fd16fe31473f249d8a54020ef252f524dd17d70/lib/models/TodoCollection.js#L8&quot;&gt;a shared superclass&lt;/a&gt;. The subclasses just need to implement the platform-specific storage methods. A different mechanism than &lt;a href=&quot;https://facebook.github.io/react/docs/reusable-components.html#mixins&quot;&gt;React mixins&lt;/a&gt;, but for basically the same purpose.&lt;/p&gt;
+&lt;h2 id=&quot;sharing-by-the-numbers&quot;&gt;Sharing by the numbers&lt;/h2&gt;
+&lt;p&gt;The main goal of this experiment is to get a feel as to whether a hybrid React approach is worth considering versus building totally separate apps for native and web platforms. The metric I decided to use for this is counting lines of code (LoC), and this is what I found:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Overall, ~30% shared LoC (226 / 748).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;For Models, ~74% shared LoC (159 / 215).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;For Views, ~12% shared LoC (67 / 533).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Because I like showing my work, here&amp;#39;s how I came up with those numbers:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# Total LoC for models = 215
+$ cat lib/models/**/*.js | wc -l
+     215
+
+# ~74% common model code
+$ cat lib/models/*js | wc -l
+     159
+
+# ~12% iOS specific model code
+$ cat lib/models/ios/*js | wc -l
+      25
+
+# ~14% web specific model code
+$ cat lib/models/web/*js | wc -l
+      31
+
+# Total LoC for views = 533
+$ cat lib/views/**/*.js | wc -l
+     533
+
+# ~12% common view code
+$ cat lib/views/*js | wc -l
+      67
+
+# ~44% iOS specific view code
+$ cat lib/views/ios/*js | wc -l
+     235
+
+# ~43% web specific view code
+$ cat lib/views/web/*js | wc -l
+     231&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Using React for both web &amp;amp; native looks promising. However, the toy app I&amp;#39;ve built is too simple to present an overwhemingly compelling case.&lt;/p&gt;
+&lt;p&gt;What I tried to do here was get a quick feel for the shape of things and where the code multipliers can be found. Your mileage will vary on app features and code refactoring ability.&lt;/p&gt;
+&lt;p&gt;In particular, this toy app&amp;#39;s models are very simple. So, even though there&amp;#39;s a lot of sharing, it doesn&amp;#39;t make a big impact on the bottom line. In an app with more complex business logic, that could change favorably.&lt;/p&gt;
+&lt;p&gt;On the other hand, Views between platforms will have a greater impact as they get more complex in dealing with divergent UI elements. You could paper over many platform differences with reusable components that normalize APIs &amp;amp; usage patterns - hopefully while not squashing unique advantages of each platform. So far, this app is too simple to really expose those opportunities.&lt;/p&gt;
+&lt;p&gt;And, of course, all bets are off once you&amp;#39;ve left React for straight native development. My hunch is that there are qualitative &amp;amp; quantitative benefits to reducing context switching. You can focus development &amp;amp; testing efforts on JavaScript &amp;amp; React as opposed to multiple native &amp;amp; web toolkits (e.g. Objective-C &amp;amp; Swift &amp;amp; Java - oh my!). But, measuring that hunch is beyond the scope of what I tried doing here.&lt;/p&gt;
+&lt;p&gt;Hopefully, I&amp;#39;ve raised some interesting features of the terrain. But, I know this is a very shallow look at things and I&amp;#39;m learning as I go along. Feel free to poke holes in this stuff and throw some suggestions at me!&lt;/p&gt;
+</description>
+          <pubDate>Wed, 22 Jul 2015 12:00:00 GMT</pubDate>
+          <link>https://lmorchard.github.io/blog.lmorchard.com//2015/07/22/react-multiplatform/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2015/07/22/react-multiplatform/</guid>
+        </item><item>
+          <title>Looking for a Django app to manage Roles within Groups</title>
+          
+          <description>&lt;p&gt;I want to add some team-based features to &lt;a href=&quot;https://github.com/lmorchard/django-badger&quot;&gt;django-badger&lt;/a&gt;. I was hoping that someone had already built a reusable app to do most of the work for me. This happens quite a lot when I&amp;#8217;m working with Django. Unfortunately, I haven&amp;#8217;t &lt;em&gt;quite&lt;/em&gt; found what I&amp;#8217;m looking for yet. Consider this blog post either the product of my thinking out loud toward a rough spec, or a long-winded lazyweb search query.&lt;/p&gt;
+&lt;!--more--&gt;
+
+&lt;p&gt;First, what do I mean by a &amp;#8220;team&amp;#8221;? Well, a familiar example is &lt;a href=&quot;http://www.wowwiki.com/Guild_list_%28interface%29&quot;&gt;a guild in World of Warcraft&lt;/a&gt;: A group of people with access to shared resources, that access controlled by permissions bundled into ranks assigned to each member of the group.&lt;/p&gt;
+&lt;div style=&quot;width: 460px&quot; class=&quot;wp-caption aligncenter&quot;&gt;
+  &lt;a href=&quot;http://www.wowwiki.com/Guild_list_%28interface%29&quot;&gt;&lt;img alt=&quot;Guild management in WoW&quot; src=&quot;http://images2.wikia.nocookie.net/__cb20091106224144/wowwiki/images/thumb/3/3e/Guild_list_%28interface%29.png/450px-Guild_list_%28interface%29.png&quot; width=&quot;450&quot; height=&quot;324&quot; /&gt;&lt;/a&gt;&lt;p class=&quot;wp-caption-text&quot;&gt;
+    Guild management in WoW
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;While Django does come with Users, Groups, &amp;amp; Permissions, the concept of Roles within Groups to which Permissions can be attached seems missing.&lt;/p&gt;
+&lt;p&gt;If I try to extend the Django building blocks, maybe I could represent a &amp;#8220;Team&amp;#8221; as a bundle of Groups and treat those Groups as Roles? Or, maybe Groups should just become hierarchical &amp;#8211; make it &lt;a href=&quot;http://en.wikipedia.org/wiki/Turtles_all_the_way_down&quot;&gt;turtles all the way down&lt;/a&gt;. (I really like that expression, in case you can&amp;#8217;t tell.)&lt;/p&gt;
+&lt;p&gt;With respect to that last point, I found &lt;a href=&quot;https://github.com/rasca/django-hierarchical-auth&quot;&gt;django-hierarchical-auth&lt;/a&gt;. That seems like a good lead. But, I&amp;#8217;m having trouble finding other projects using it. There&amp;#8217;s &lt;a href=&quot;http://www.feincms.org/&quot;&gt;feinCMS&lt;/a&gt; &amp;#8211; I&amp;#8217;ve never heard of that before, but that&amp;#8217;s more my lack than theirs.&lt;/p&gt;
+&lt;p&gt;In the case of &lt;a href=&quot;https://github.com/lmorchard/django-badger&quot;&gt;django-badger&lt;/a&gt;, I&amp;#8217;d like to enable users to start teams, create badges that belong to the team, and allow other team members varying levels of control over those badges (e.g. creating, editing, awarding, approving nominations, etc).&lt;/p&gt;
+&lt;p&gt;So, there&amp;#8217;s the matter of user interface &amp;#8211; I&amp;#8217;d like any user (not just site-wide admins) to be able to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;create a team;&lt;/li&gt;
+&lt;li&gt;manage team profile information;&lt;/li&gt;
+&lt;li&gt;manage &amp;amp; grant roles based on a canned selection of permissions;&lt;/li&gt;
+&lt;li&gt;invite other users as members, remove members;&lt;/li&gt;
+&lt;li&gt;accept team invitations, request to join a team, remove oneself from a team.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The &lt;a href=&quot;https://github.com/rasca/django-hierarchical-auth&quot;&gt;django-hierarchical-auth&lt;/a&gt; app comes with no views; it&amp;#8217;s just a backend utility. So, if I grab that app, I&amp;#8217;ll still have to build the UI and supporting models myself (i.e. for team profiles and permission sets).&lt;/p&gt;
+&lt;p&gt;So, that leaves me wondering if there&amp;#8217;s some value in me building a reusable app atop &lt;a href=&quot;https://github.com/rasca/django-hierarchical-auth&quot;&gt;django-hierarchical-auth&lt;/a&gt; that basically implements what that WoW guild management interface offers? Ultimately, that&amp;#8217;s what I&amp;#8217;m really hoping someone else has built for me.&lt;/p&gt;
+</description>
+          <pubDate>Sat, 23 Feb 2013 12:00:00 GMT</pubDate>
+          <link>https://lmorchard.github.io/blog.lmorchard.com//2013/02/23/looking-for-a-django-app-to-manage-roles-within-groups/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2013/02/23/looking-for-a-django-app-to-manage-roles-within-groups/</guid>
+        </item><item>
+          <title>KumaScript: Bringing scripting to the wiki bears</title>
+          
+          <description>&lt;div id=&quot;toc_container&quot; class=&quot;toc_wrap_right no_bullets&quot;&gt;
+  &lt;p class=&quot;toc_title&quot;&gt;
+    Contents
+  &lt;/p&gt;
+
+  &lt;ul class=&quot;toc_list&quot;&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#Necessity_is_the_Mother_of_Invention&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;1&lt;/span&gt; Necessity is the Mother of Invention&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#What_Does_It_Look_Like&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;2&lt;/span&gt; What Does It Look Like?&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#Scripting_in_Wikis&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;3&lt;/span&gt; Scripting in Wikis&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#Why_JavaScript&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;4&lt;/span&gt; Why JavaScript?&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#Boring_Lets_Me_Sleep_at_Night&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;5&lt;/span&gt; Boring Lets Me Sleep at Night&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#HTTP_ALL_the_Things&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;6&lt;/span&gt; HTTP ALL the Things&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#Turtles_All_the_Way_Down&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;7&lt;/span&gt; Turtles All the Way Down&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#Security_Safety&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;8&lt;/span&gt; Security &amp; Safety&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#Scaling_Stability&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;9&lt;/span&gt; Scaling &amp; Stability&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#Maturity_THE_FUTURE&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;10&lt;/span&gt; Maturity &amp; THE FUTURE&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/mozilla/kumascript&quot;&gt;KumaScript&lt;/a&gt; turned &lt;a href=&quot;https://github.com/mozilla/kumascript/commit/0cb247eaac58cf00bb59e16d6b37a215484633b2&quot;&gt;one year old&lt;/a&gt; back at the end of January, and I&amp;#8217;m sad to say no one celebrated its birthday &amp;#8211; not even me. I&amp;#8217;m pretty sure very few people outside of the core team at the &lt;a target=&quot;_blank&quot; title=&quot;Mozilla Developer Network&quot; href=&quot;https://developer.mozilla.org/?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;Mozilla Developer Network&lt;/a&gt; even know what &lt;a href=&quot;https://github.com/mozilla/kumascript&quot;&gt;KumaScript&lt;/a&gt; is. So, I guess it&amp;#8217;s about time I do something about that.&lt;/p&gt;
+&lt;!--more--&gt;
+
+&lt;h3 id=&quot;necessity-is-the-mother-of-invention&quot;&gt;&lt;span id=&quot;Necessity_is_the_Mother_of_Invention&quot;&gt;Necessity is the Mother of Invention&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;The major focus of my workaday (and workanight) life last summer was the relaunch of the &lt;a target=&quot;_blank&quot; title=&quot;Mozilla Developer Network&quot; href=&quot;https://developer.mozilla.org/?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;Mozilla Developer Network&lt;/a&gt; wiki.&lt;/p&gt;
+&lt;p&gt;It had been close to 18 months in the making, which usually spells &lt;a href=&quot;http://blog.lmorchard.com/2012/09/17/on-the-other-end-of-a-self-imposed-death-march-project&quot;&gt;death march&lt;/a&gt; and disaster. But, against many expectations, we did finally arrive at something for launch that neither fell over in flames immediately nor jettisoned a significant number of features with respect to what it was replacing. I think this is the first time in my career something like this went off with as few hitches as it did.&lt;/p&gt;
+&lt;p&gt;Your first questions might go something along the lines of, &amp;#8220;18 months? For a &lt;em&gt;wiki&lt;/em&gt;? Are you insane or just incompetent?&amp;#8221; Well, it might help to note a few additional details:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;We call it a wiki, but it&amp;#8217;s really more of a content management system that anyone can edit. It supports translation from English to 34 other languages, tracks revisions &amp;amp; content hierarchies, accepts file attachments, and sings &amp;amp; dances in a variety of other annoying-to-implement ways.&lt;/li&gt;
+&lt;li&gt;At the time of switchover, we had over 50,000 documents to migrate with care from the old system to the new one. That body of content represents years of work, a non-trivial hunk of cruft and spam, and tickles a maddening array of edge cases.&lt;li style=&quot;text-align: left;&quot;&gt;
+The wiki we replaced—i.e. &lt;a href=&quot;http://www.mindtouch.com/&quot;&gt;MindTouch&lt;/a&gt;—supports server-side scripting in content with a language based on Lua—i.e. &lt;a href=&quot;http://developer.mindtouch.com/en/docs/DekiScript&quot;&gt;DekiScript&lt;/a&gt;.
+&lt;/li&gt;
+
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Each of the above points represents its own special mix of horror and challenge, and I took on the bulk of the last two. That caused me a lot of stress, and &lt;a href=&quot;http://blog.lmorchard.com/2012/09/17/on-the-other-end-of-a-self-imposed-death-march-project&quot;&gt;I blogged a bit about that&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This blog post, however, focuses on that last point: &lt;a href=&quot;https://github.com/mozilla/kumascript&quot;&gt;KumaScript&lt;/a&gt; was built by backing into a semi-compatible replacement for &lt;a href=&quot;http://developer.mindtouch.com/en/docs/DekiScript&quot;&gt;DekiScript&lt;/a&gt;. That&amp;#8217;s pretty much the worst way to go about building something, but it seems to have worked.&lt;/p&gt;
+&lt;h3 id=&quot;what-does-it-look-like&quot;&gt;&lt;span id=&quot;What_Does_It_Look_Like&quot;&gt;What Does It Look Like?&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;First, you might want to check out &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Project:Introduction_to_KumaScript&quot;&gt;&amp;#8220;Introduction to KumaScript&amp;#8221; on MDN&lt;/a&gt;. It&amp;#8217;s the best work in progress describing the ins-and-outs of the service. But for the sake of this blog post, consider &lt;a href=&quot;https://developer-new.mozilla.org/en-US/docs/KumaTests/hello_test?raw=1&quot;&gt;this wiki document&lt;/a&gt;:&lt;/p&gt;
+&lt;pre&gt;Here are three hellos:
+{{ hello(&#39;3&#39;) }}&lt;/pre&gt;
+
+&lt;p&gt;Now, consider &lt;a href=&quot;https://developer-new.mozilla.org/en-US/docs/Template:hello&quot;&gt;this KumaScript template&lt;/a&gt;, named &lt;code&gt;Template:hello&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&amp;lt;% for (var i = 0; i &amp;lt; $0; i++) { %&amp;gt;
+Hello #&amp;lt;%= i %&amp;gt;
+&amp;lt;% } %&amp;gt;&lt;/pre&gt;
+
+&lt;p&gt;Put the two of these together, and you get &lt;a href=&quot;https://developer-new.mozilla.org/en-US/docs/KumaTests/hello_test&quot;&gt;this output&lt;/a&gt;:&lt;/p&gt;
+&lt;pre&gt;Here are three hellos:
+Hello #0
+Hello #1
+Hello #2&lt;/pre&gt;
+
+&lt;p&gt;&lt;a target=&quot;_blank&quot; title=&quot;KumaScript&quot; href=&quot;https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;KumaScript&lt;/a&gt; on &lt;a target=&quot;_blank&quot; title=&quot;MDN&quot; href=&quot;https://developer.mozilla.org/?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;MDN&lt;/a&gt; consists mainly of the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Project:Introduction_to_KumaScript#Template_Syntax&quot;&gt;Templates implemented using Embedded JavaScript Templates&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Project:Introduction_to_KumaScript#Macro_Syntax&quot;&gt;Macros in wiki content that call templates with parameters&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Project:Introduction_to_KumaScript#Creating_modules&quot;&gt;Common JS inspired modules for reusable code used by templates&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This quick introduction glosses over interesting things you can do with &lt;a target=&quot;_blank&quot; title=&quot;KumaScript&quot; href=&quot;https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;KumaScript&lt;/a&gt;—e.g. accessing data from external sources via HTTP, fetching content from other documents (also via HTTP). But, again, you can dive deeper by reading &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Project:Introduction_to_KumaScript&quot;&gt;&amp;#8220;Introduction to Kumascript&amp;#8221; on MDN&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;scripting-in-wikis&quot;&gt;&lt;span id=&quot;Scripting_in_Wikis&quot;&gt;Scripting in Wikis&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;Why would one would even build such a thing as &lt;a target=&quot;_blank&quot; title=&quot;KumaScript&quot; href=&quot;https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;KumaScript&lt;/a&gt;? As it turns out, programmatically generating content is quite handy for composing documentation. Here are a few use cases:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Localized macros for often-repeated constructs such as &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Template:Warning&quot;&gt;warnings&lt;/a&gt;, notes, tips, &amp;amp; callouts.&lt;/li&gt;
+&lt;li&gt;Conditional content based on variables such as product, locale, &amp;amp; standards status.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Transclusion&quot;&gt;Transclusion&lt;/a&gt; of content, &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/XUL/button&quot;&gt;building documents from documents&lt;/a&gt;. (Try viewing &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/XUL/button?raw&quot;&gt;the raw source&lt;/a&gt; of that page.)&lt;/li&gt;
+&lt;li&gt;Mashups of data from &lt;a target=&quot;_blank&quot; title=&quot;MDN&quot; href=&quot;https://developer.mozilla.org/?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;MDN&lt;/a&gt; itself and from other sites and services like Bugzilla and Github. For example, here&amp;#8217;s &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Project:Changelog&quot;&gt;a self-updating Changelog of our code deployments on MDN&lt;/a&gt;. And, here&amp;#8217;s &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Template:KumaGithubChanges&quot;&gt;the template behind that page&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It&amp;#8217;s also worth pointing out that is different from scripting mixed with &lt;a target=&quot;_blank&quot; title=&quot;HTML&quot; href=&quot;https://developer.mozilla.org/docs/Web/HTML?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;HTML&lt;/a&gt; like you get from ASP or PHP: There, you can process forms, personalize responses, and generally build web applications.&lt;/p&gt;
+&lt;p&gt;In the world of &lt;a target=&quot;_blank&quot; title=&quot;KumaScript&quot; href=&quot;https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;KumaScript&lt;/a&gt;, content scripting is a heavily cached thing and not tied to the current HTTP request. It mostly runs only when the document itself is edited, but can also be executed when we think dependencies or external data sources have changed.&lt;/p&gt;
+&lt;p&gt;In fact, &lt;a target=&quot;_blank&quot; title=&quot;KumaScript&quot; href=&quot;https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;KumaScript&lt;/a&gt; code doesn&amp;#8217;t even have access to the incoming visitor&amp;#8217;s request data at all—i.e. username, cookies, referrer header, et al—and instead we operate mainly on the content and metadata of documents.&lt;/p&gt;
+&lt;h3 id=&quot;why-javascript&quot;&gt;&lt;span id=&quot;Why_JavaScript&quot;&gt;Why JavaScript?&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;As I mentioned earlier, &lt;a href=&quot;http://www.mindtouch.com/&quot;&gt;MindTouch&lt;/a&gt; provides for scripted content by way of the Lua-based &lt;a href=&quot;http://developer.mindtouch.com/en/docs/DekiScript&quot;&gt;DekiScript&lt;/a&gt;. It&amp;#8217;s also interesting to note that the Wikimedia Foundation is working on &lt;a href=&quot;http://www.mediawiki.org/wiki/Lua_scripting&quot;&gt;a Lua-based scripting system for MediaWiki and Wikipedia&lt;/a&gt;. So, scripted content in a wiki isn&amp;#8217;t an entirely crazy idea, in and of itself.&lt;/p&gt;
+&lt;p&gt;As for Lua, I think it&amp;#8217;s a nice little language. It&amp;#8217;s used in World of Warcraft and many other games. It&amp;#8217;s known for being easily embedded into applications to grant scriptability. I can totally see why one would reach for it.&lt;/p&gt;
+&lt;p&gt;But, at &lt;a target=&quot;_blank&quot; title=&quot;Mozilla&quot; href=&quot;https://www.mozilla.org/?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;Mozilla&lt;/a&gt;, we&amp;#8217;re all about the web. The lingua franca of programming on the web is &lt;a target=&quot;_blank&quot; title=&quot;JavaScript&quot; href=&quot;https://developer.mozilla.org/docs/JavaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;JavaScript&lt;/a&gt;. And, it doesn&amp;#8217;t hurt that &lt;a target=&quot;_blank&quot; title=&quot;MDN&quot; href=&quot;https://developer.mozilla.org/?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;MDN&lt;/a&gt; already has a huge body of &lt;a target=&quot;_blank&quot; title=&quot;JavaScript&quot; href=&quot;https://developer.mozilla.org/docs/JavaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;JavaScript&lt;/a&gt; documentation.&lt;/p&gt;
+&lt;p&gt;So, as far as harmonious language choices go, I can&amp;#8217;t think of a better one for scripting content on &lt;a target=&quot;_blank&quot; title=&quot;MDN&quot; href=&quot;https://developer.mozilla.org/?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;MDN&lt;/a&gt; than &lt;a target=&quot;_blank&quot; title=&quot;JavaScript&quot; href=&quot;https://developer.mozilla.org/docs/JavaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;JavaScript&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;boring-lets-me-sleep-at-night&quot;&gt;&lt;span id=&quot;Boring_Lets_Me_Sleep_at_Night&quot;&gt;Boring Lets Me Sleep at Night&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;There are some exciting things about embedding a Lua interpreter into a wiki platform, as MindTouch and MediaWiki have done. Even having chosen &lt;a target=&quot;_blank&quot; title=&quot;JavaScript&quot; href=&quot;https://developer.mozilla.org/docs/JavaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;JavaScript&lt;/a&gt; over Lua, I could have tried embedding a &lt;a target=&quot;_blank&quot; title=&quot;JS&quot; href=&quot;https://developer.mozilla.org/docs/JavaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;JS&lt;/a&gt; interpreter like &lt;a href=&quot;http://code.google.com/p/v8/&quot;&gt;V8&lt;/a&gt; or &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/SpiderMonkey&quot;&gt;SpiderMonkey&lt;/a&gt; into Python.&lt;/p&gt;
+&lt;p&gt;However, because I like to sleep at night and am not particularly clever about embedding languages within languages (&lt;a href=&quot;http://stackoverflow.com/questions/5099043/embedding-a-low-performance-scripting-language-in-python#comment5715808_5099043&quot;&gt;yo dawg&lt;/a&gt;), I want nothing to do with this brand of excitement. Consider me &lt;a href=&quot;http://en.wikipedia.org/wiki/Hobbit#Lifestyle&quot;&gt;a Hobbit&lt;/a&gt; among developers.&lt;/p&gt;
+&lt;p&gt;So, &lt;a target=&quot;_blank&quot; title=&quot;KumaScript&quot; href=&quot;https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;KumaScript&lt;/a&gt; is a standalone &lt;a href=&quot;http://nodejs.org/&quot;&gt;Node.js&lt;/a&gt; web service. That is, everything going into and coming out of &lt;a target=&quot;_blank&quot; title=&quot;KumaScript&quot; href=&quot;https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;KumaScript&lt;/a&gt; happens over HTTP. I understand HTTP a whole lot more than embedding language interpreters.&lt;/p&gt;
+&lt;p&gt;Don&amp;#8217;t get me wrong: Node.&lt;a target=&quot;_blank&quot; title=&quot;js&quot; href=&quot;https://developer.mozilla.org/docs/JavaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;js&lt;/a&gt; is an exciting piece of exotic matter in its own right. But, someone more clever than me maintains Node.&lt;a target=&quot;_blank&quot; title=&quot;js&quot; href=&quot;https://developer.mozilla.org/docs/JavaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;js&lt;/a&gt;. And, I&amp;#8217;m betting most of my co-workers and potential project contributors understand &lt;a target=&quot;_blank&quot; title=&quot;JavaScript&quot; href=&quot;https://developer.mozilla.org/docs/JavaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;JavaScript&lt;/a&gt;, Node.&lt;a target=&quot;_blank&quot; title=&quot;js&quot; href=&quot;https://developer.mozilla.org/docs/JavaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;js&lt;/a&gt;, and HTTP much better than embedding languages in other languages.&lt;/p&gt;
+&lt;p&gt;In fact, besides my overwrought glue code, &lt;a href=&quot;https://github.com/mozilla/kumascript/blob/master/package.json#L22&quot;&gt;KumaScript consists mainly of modules written &amp;amp; maintained by other people more clever than me&lt;/a&gt;. That&amp;#8217;s even less work for me. One of the few things I like as much as sleeping at night is when other people fix bugs and build things for me.&lt;/p&gt;
+&lt;h3 id=&quot;http-all-the-things&quot;&gt;&lt;span id=&quot;HTTP_ALL_the_Things&quot;&gt;HTTP ALL the Things&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;I really like HTTP. I&amp;#8217;ve spent a good chunk of my adult life learning to understand it—so by this point it might be Stockholm Syndrome, but I think it embeds a lot of cleverness and useful decisions.&lt;/p&gt;
+&lt;p&gt;HTTP gives you interesting system boundaries. You can cache, scale, and abstract using intermediaries. There are nice identifiers (ie. URLs), status codes, and a rich arsenal of means to transport data and metadata (ie. methods, headers, and content types).&lt;/p&gt;
+&lt;p&gt;Having made &lt;a target=&quot;_blank&quot; title=&quot;KumaScript&quot; href=&quot;https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;KumaScript&lt;/a&gt; an HTTP service also means that someone other than &lt;a target=&quot;_blank&quot; title=&quot;MDN&quot; href=&quot;https://developer.mozilla.org/?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;MDN&lt;/a&gt; could use it. The interface was not built specifically for &lt;a target=&quot;_blank&quot; title=&quot;MDN&quot; href=&quot;https://developer.mozilla.org/?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;MDN&lt;/a&gt;, it&amp;#8217;s neither dependent on Python nor Django. Fire up the processes and try running your web content through it—could be a wiki, could be a pile of static &lt;a target=&quot;_blank&quot; title=&quot;HTML&quot; href=&quot;https://developer.mozilla.org/docs/Web/HTML?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;HTML&lt;/a&gt;. There is, of course, slightly more to it than that—but not much.&lt;/p&gt;
+&lt;p&gt;In fact, I really &lt;em&gt;do&lt;/em&gt; hope someday someone beyond &lt;a target=&quot;_blank&quot; title=&quot;MDN&quot; href=&quot;https://developer.mozilla.org/?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;MDN&lt;/a&gt; tries using &lt;a target=&quot;_blank&quot; title=&quot;KumaScript&quot; href=&quot;https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;KumaScript&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;turtles-all-the-way-down&quot;&gt;&lt;span id=&quot;Turtles_All_the_Way_Down&quot;&gt;Turtles All the Way Down&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;So, the &lt;a target=&quot;_blank&quot; title=&quot;MDN&quot; href=&quot;https://developer.mozilla.org/?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;MDN&lt;/a&gt; wiki—&lt;a href=&quot;https://github.com/mozilla/kuma&quot;&gt;named Kuma&lt;/a&gt;, which means &lt;a href=&quot;http://en.wikipedia.org/wiki/Kuma#Animals&quot;&gt;&amp;#8220;bear&amp;#8221; in Japanese&lt;/a&gt;—talks to &lt;a target=&quot;_blank&quot; title=&quot;KumaScript&quot; href=&quot;https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;KumaScript&lt;/a&gt; via HTTP. And, in turn, &lt;a target=&quot;_blank&quot; title=&quot;KumaScript&quot; href=&quot;https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;KumaScript&lt;/a&gt; talks to the wiki with HTTP.&lt;/p&gt;
+&lt;p&gt;In fact, although the &lt;a target=&quot;_blank&quot; title=&quot;KumaScript&quot; href=&quot;https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;KumaScript&lt;/a&gt; service itself is hidden behind a firewall, &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Project:The_Kuma_API&quot;&gt;the wiki API used by KumaScript is open to the public&lt;/a&gt;. What&amp;#8217;s good for the goose is good for the gander, after all.&lt;/p&gt;
+&lt;p&gt;The typical document rendering process goes something like this:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a target=&quot;_blank&quot; title=&quot;Kuma&quot; href=&quot;https://developer.mozilla.org/docs/Project:Getting_started_with_Kuma?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;Kuma&lt;/a&gt; makes a GET request to &lt;a target=&quot;_blank&quot; title=&quot;KumaScript&quot; href=&quot;https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;KumaScript&lt;/a&gt; with the URL of a wiki document.&lt;/li&gt;
+&lt;li&gt;&lt;a target=&quot;_blank&quot; title=&quot;KumaScript&quot; href=&quot;https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;KumaScript&lt;/a&gt; makes a GET request to &lt;a target=&quot;_blank&quot; title=&quot;Kuma&quot; href=&quot;https://developer.mozilla.org/docs/Project:Getting_started_with_Kuma?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;Kuma&lt;/a&gt; for the raw source of the wiki document.&lt;/li&gt;
+&lt;li&gt;&lt;a target=&quot;_blank&quot; title=&quot;KumaScript&quot; href=&quot;https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;KumaScript&lt;/a&gt; parses the source, looking for macros &amp;amp; inventorying templates.&lt;/li&gt;
+&lt;li&gt;&lt;a target=&quot;_blank&quot; title=&quot;KumaScript&quot; href=&quot;https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;KumaScript&lt;/a&gt; makes a GET request to &lt;a target=&quot;_blank&quot; title=&quot;Kuma&quot; href=&quot;https://developer.mozilla.org/docs/Project:Getting_started_with_Kuma?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;Kuma&lt;/a&gt; for the source of each template needed.&lt;/li&gt;
+&lt;li&gt;&lt;a target=&quot;_blank&quot; title=&quot;KumaScript&quot; href=&quot;https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;KumaScript&lt;/a&gt; evaluates the macros by executing templates with the given parameters. This may kick off additional GET requests as needed by templates to load modules.&lt;/li&gt;
+&lt;li&gt;&lt;a target=&quot;_blank&quot; title=&quot;KumaScript&quot; href=&quot;https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;KumaScript&lt;/a&gt; responds to the initial request from &lt;a target=&quot;_blank&quot; title=&quot;Kuma&quot; href=&quot;https://developer.mozilla.org/docs/Project:Getting_started_with_Kuma?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;Kuma&lt;/a&gt; with the results of macro evaluation in the document.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;It&amp;#8217;s &lt;del&gt;turtles&lt;/del&gt; HTTP GET, &lt;a href=&quot;http://en.wikipedia.org/wiki/Turtles_all_the_way_down&quot;&gt;all the way down&lt;/a&gt;. Well, except for when we want to do a preview before saving: In that case it&amp;#8217;s an HTTP POST which kicks everything off at step #3, with raw source in the request body.&lt;/p&gt;
+&lt;p&gt;And though this might look like a Rube Goldberg machine, there are some nice qualities to all this HTTP GET traffic:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Each GET is susceptible to caching, via the usual headers and semantics.&lt;/li&gt;
+&lt;li&gt;Each GET can be serviced by a different process on a different machine.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I&amp;#8217;m sure I could come up with more items after I have lunch, but this is just HTTP.&lt;/p&gt;
+&lt;p&gt;Content flows through request and response bodies. And—though this part might be a bit of a hack—I encode document context, errors, and messages using custom HTTP headers as a side-channel &lt;a href=&quot;https://github.com/lmorchard/node-firelogger&quot;&gt;using the FireLogger protocol&lt;/a&gt; as an inspiration.&lt;/p&gt;
+&lt;h3 id=&quot;security--safety&quot;&gt;&lt;span id=&quot;Security_Safety&quot;&gt;Security &amp;amp; Safety&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;Something I could have done with &lt;a target=&quot;_blank&quot; title=&quot;KumaScript&quot; href=&quot;https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;KumaScript&lt;/a&gt; was to simply allow wiki authors to drop hunks of executable code into the middle of documents. DekiScript seems to allow for this. But, we never really used it that way on &lt;a target=&quot;_blank&quot; title=&quot;MDN&quot; href=&quot;https://developer.mozilla.org/?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;MDN&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Instead, what we have is a system of templates and macros:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Templates contain the &lt;a target=&quot;_blank&quot; title=&quot;JavaScript&quot; href=&quot;https://developer.mozilla.org/docs/JavaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;JavaScript&lt;/a&gt; code in the form of &lt;a href=&quot;https://github.com/visionmedia/ejs&quot;&gt;Embedded JavaScript Templates&lt;/a&gt;. At present, these can be authored only by a core of trusted &lt;a target=&quot;_blank&quot; title=&quot;MDN&quot; href=&quot;https://developer.mozilla.org/?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;MDN&lt;/a&gt; editors.&lt;/li&gt;
+&lt;li&gt;Macros call templates with parameters and dump the results of execution into the document. These can be used by anyone, and have &lt;a href=&quot;https://github.com/mozilla/kumascript/blob/master/lib/kumascript/parser.pegjs&quot;&gt;a very constrained syntax&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;The content resulting from macro evaluation &lt;a href=&quot;https://pypi.python.org/pypi/bleach&quot;&gt;is sanitized&lt;/a&gt; such that it&amp;#8217;s subject to the same constraints as hand-written markup.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Since &lt;a target=&quot;_blank&quot; title=&quot;KumaScript&quot; href=&quot;https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;KumaScript&lt;/a&gt; has no access to a user&amp;#8217;s request data, we&amp;#8217;re decently firewalled in terms of privacy and abusing the visitor. And, since &lt;a href=&quot;https://pypi.python.org/pypi/bleach&quot;&gt;the markup is filtered&lt;/a&gt;, it&amp;#8217;s difficult to inject nasty XSS exploits and the like.&lt;/p&gt;
+&lt;p&gt;So, when I say security and safety, I&amp;#8217;m thinking mainly about our servers: We want to sandbox this server-side &lt;a target=&quot;_blank&quot; title=&quot;JS&quot; href=&quot;https://developer.mozilla.org/docs/JavaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;JS&lt;/a&gt; such that it can&amp;#8217;t abuse CPU, memory, or network resources. At present, my approach to this is anemic: Restrict code authoring to trusted people, and impose impatient timeouts on macro execution.&lt;/p&gt;
+&lt;p&gt;I have thoughts about improving this situation in the future, and hopefully expanding the ability to author &lt;a target=&quot;_blank&quot; title=&quot;JS&quot; href=&quot;https://developer.mozilla.org/docs/JavaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;JS&lt;/a&gt; templates. Because, remember, &lt;a target=&quot;_blank&quot; title=&quot;MDN&quot; href=&quot;https://developer.mozilla.org/?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;MDN&lt;/a&gt; is a wiki—anyone and everyone can edit it. I&amp;#8217;d like that to include the &lt;a target=&quot;_blank&quot; title=&quot;JS&quot; href=&quot;https://developer.mozilla.org/docs/JavaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;JS&lt;/a&gt; code, if at all possible to do with relative safety.&lt;/p&gt;
+&lt;p&gt;Patches and pull requests are welcome, especially if you&amp;#8217;re smarter than me about these things. (It&amp;#8217;s not hard to be smarter than me about these things.)&lt;/p&gt;
+&lt;h3 id=&quot;scaling--stability&quot;&gt;&lt;span id=&quot;Scaling_Stability&quot;&gt;Scaling &amp;amp; Stability&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a target=&quot;_blank&quot; title=&quot;KumaScript&quot; href=&quot;https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;KumaScript&lt;/a&gt; scales like just about any web service. You can stick it behind a load balancer. Scale it horizontally by throwing more CPUs and processes at the problem. Cache the hell out of the responses. Throw a proxy in front of it to cache the hell out of outgoing requests to external services. Again, this is meant to be as boring as I can make it.&lt;/p&gt;
+&lt;p&gt;And, if a &lt;a target=&quot;_blank&quot; title=&quot;KumaScript&quot; href=&quot;https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;KumaScript&lt;/a&gt; process should happen to misbehave or starts having a seizure, just kill it and start another one. There should be no state to worry about, and the processes should start up really fast. Ideally, the logs will have recorded what went wrong and we end up with just a transient error.&lt;/p&gt;
+&lt;h3 id=&quot;maturity--the-future&quot;&gt;&lt;span id=&quot;Maturity_THE_FUTURE&quot;&gt;Maturity &amp;amp; THE FUTURE&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a target=&quot;_blank&quot; title=&quot;KumaScript&quot; href=&quot;https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;KumaScript&lt;/a&gt; turned a year old last month, has been in production since last summer, and had its last commit around 5 months ago. It has lots of tests, and it uses a version of Node.&lt;a target=&quot;_blank&quot; title=&quot;js&quot; href=&quot;https://developer.mozilla.org/docs/JavaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;js&lt;/a&gt; from early 2012.&lt;/p&gt;
+&lt;p&gt;That doesn&amp;#8217;t mean it&amp;#8217;s abandoned, though: &lt;a target=&quot;_blank&quot; title=&quot;KumaScript&quot; href=&quot;https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;KumaScript&lt;/a&gt; is a mature project by most definitions. It&amp;#8217;s been working well enough that I haven&amp;#8217;t wanted to touch it. Most of the work goes on within the wiki itself, and &lt;a target=&quot;_blank&quot; title=&quot;KumaScript&quot; href=&quot;https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;KumaScript&lt;/a&gt; is meant to be the smallest piece it can be.&lt;/p&gt;
+&lt;p&gt;And maturity doesn&amp;#8217;t mean I don&amp;#8217;t have notions about future work. Off the top of my head, I&amp;#8217;d like to get around things like the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Improve template execution &amp;amp; sandboxing. Currently, if any one thing misbehaves in the document, the whole process gets aborted. Maybe instead, I should &lt;a href=&quot;https://github.com/lloyd/node-compute-cluster&quot;&gt;spin up a pool of processes&lt;/a&gt;: Each them can take care of executing a single macro, while a master process watches for CPU / RAM / network abuse and kills anything that behaves badly.&lt;/li&gt;
+&lt;li&gt;Reconsider my possibly brain-dead approach to parsing source documents for macros using a PEG.&lt;a target=&quot;_blank&quot; title=&quot;js&quot; href=&quot;https://developer.mozilla.org/docs/JavaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;js&lt;/a&gt; grammar. Or, maybe it&amp;#8217;s good enough.&lt;/li&gt;
+&lt;li&gt;Need much better error trapping and reporting throughout everywhere.&lt;/li&gt;
+&lt;li&gt;Need much better use of &lt;a href=&quot;https://github.com/etsy/statsd/&quot;&gt;statsd&lt;/a&gt; for measuring timings and suchlike.&lt;/li&gt;
+&lt;li&gt;Maybe offer an HTTP proxy that runs all content through the service, for easier deployment atop existing sites beyond &lt;a target=&quot;_blank&quot; title=&quot;MDN&quot; href=&quot;https://developer.mozilla.org/?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;MDN&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And of course: Suggestions, patches, and pull requests are more than welcome!&lt;/p&gt;
+</description>
+          <pubDate>Thu, 21 Feb 2013 12:00:00 GMT</pubDate>
+          <link>https://lmorchard.github.io/blog.lmorchard.com//2013/02/21/kumascript/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2013/02/21/kumascript/</guid>
+        </item><item>
+          <title>My experience in becoming a FirefoxOS contributor</title>
+          
+          <description>&lt;div id=&quot;toc_container&quot; class=&quot;toc_wrap_right no_bullets&quot;&gt;
+  &lt;p class=&quot;toc_title&quot;&gt;
+    Contents
+  &lt;/p&gt;
+
+  &lt;ul class=&quot;toc_list&quot;&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#Finding_the_docs&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;1&lt;/span&gt; Finding the docs&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#Getting_the_source&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;2&lt;/span&gt; Getting the source&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#Running_the_project&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;3&lt;/span&gt; Running the project&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#Breaking_things&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;4&lt;/span&gt; Breaking things&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#Fixing_things&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;5&lt;/span&gt; Fixing things&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#Room_for_improvement&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;6&lt;/span&gt; Room for improvement&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#Still_digging&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;7&lt;/span&gt; Still digging&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Back in September, &lt;a href=&quot;http://blog.lmorchard.com/2012/09/17/on-the-other-end-of-a-self-imposed-death-march-project#p%5BBInCtb%5D&quot;&gt;I wrote that I wasn&amp;#8217;t leaving MDN&lt;/a&gt;. And, I&amp;#8217;m not, really. But, it turns out that &lt;a href=&quot;http://www.mozilla.org/firefoxos/&quot;&gt;FirefoxOS&lt;/a&gt; needs some help to reach its first release milestones. So, some of us &lt;a href=&quot;http://blog.mozilla.com/webdev/&quot;&gt;webdevs from around Mozilla&lt;/a&gt; are temporarily switching our daily efforts over to slay bugs on &lt;a href=&quot;https://github.com/mozilla-b2g/gaia&quot;&gt;Gaia&lt;/a&gt;. That&amp;#8217;s the layer of &lt;a href=&quot;http://www.mozilla.org/firefoxos/&quot;&gt;FirefoxOS&lt;/a&gt; which provides the overall system UI and core apps.&lt;/p&gt;
+&lt;!--more--&gt;
+
+&lt;p&gt;I&amp;#8217;m planning to return to primarily &lt;a href=&quot;https://developer.mozilla.org/&quot;&gt;MDN&lt;/a&gt; work in a few months &amp;#8211; but, right now, &lt;a href=&quot;http://www.mozilla.org/firefoxos/&quot;&gt;FirefoxOS&lt;/a&gt; is kind of a big deal.&lt;/p&gt;
+&lt;p&gt;Thus, like &lt;a href=&quot;http://blog.margaretleibovic.com/post/32836884540/challenges-getting-started-with-gaia&quot;&gt;some of&lt;/a&gt; my &lt;a href=&quot;http://bluesock.org/~willg/blog/gaia/gaia_onboarding.html&quot;&gt;other&lt;/a&gt; &lt;a href=&quot;http://schalk-neethling.com/2012/10/debugging-b2g-desktop-blank-screen-on-launch-gaia/&quot;&gt;colleagues&lt;/a&gt; in the past month, I&amp;#8217;ve gone from being a fully-operational battle coder on a project with which I have years of experience, to being a total noob with no idea how to find my way to &amp;#8220;Hello world&amp;#8221;. It&amp;#8217;s been awhile since I last parachuted into the middle of an open source combat zone, so I fell back to my training to get my bearings:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Find the docs&lt;/li&gt;
+&lt;li&gt;Get the source&lt;/li&gt;
+&lt;li&gt;Run the project&lt;/li&gt;
+&lt;li&gt;Break something, see what happens, fix it&lt;/li&gt;
+&lt;li&gt;Fix a known bug, submit a patch&lt;/li&gt;
+&lt;li&gt;Try to improve the process of fixing things&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;finding-the-docs&quot;&gt;&lt;span id=&quot;Finding_the_docs&quot;&gt;Finding the docs&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Oddly enough, &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Mozilla/Firefox_OS&quot;&gt;MDN was a good place to start for docs&lt;/a&gt;. Though, there are FirefoxOS docs spread between &lt;a target=&quot;_blank&quot; title=&quot;MDN&quot; href=&quot;https://developer.mozilla.org/?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;MDN&lt;/a&gt;, GitHub, and &lt;a href=&quot;https://wiki.mozilla.org/Gaia/Hacking&quot;&gt;wiki.mozilla.org&lt;/a&gt;. And, of course, they are each in various states of freshness and truthiness. Keep your wits about you; here be dragons.&lt;/p&gt;
+&lt;h2 id=&quot;getting-the-source&quot;&gt;&lt;span id=&quot;Getting_the_source&quot;&gt;Getting the source&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Getting the source for FirefoxOS is a bit of a trick question &amp;#8211; it depends on what you want to do, and how you want to contribute:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/mozilla-b2g/B2G&quot;&gt;mozilla-b2g/B2G&lt;/a&gt; is the mother of all repos. Only start there if you&amp;#8217;re brave &amp;amp; interested in the whole shebang. Fair warning, though: When the smoke cleared hours later, and the README was done with me, I had acquired 17G of new stuff in my dev directory. But, you&amp;#8217;ll have ALL the things, and you can flash FirefoxOS to compatible hardware. &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/mozilla-b2g/gaia&quot;&gt;mozilla-b2g/gaia&lt;/a&gt; will be the most interesting if you&amp;#8217;re like me and hoping to contribute as a webdev. That&amp;#8217;s chock full of &lt;a target=&quot;_blank&quot; title=&quot;HTML&quot; href=&quot;https://developer.mozilla.org/docs/Web/HTML?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;HTML&lt;/a&gt;, &lt;a target=&quot;_blank&quot; title=&quot;CSS&quot; href=&quot;https://developer.mozilla.org/docs/Web/CSS?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;CSS&lt;/a&gt;, and &lt;a target=&quot;_blank&quot; title=&quot;JavaScript&quot; href=&quot;https://developer.mozilla.org/docs/JavaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;JavaScript&lt;/a&gt;. It&amp;#8217;s also pretty much free of pesky kernel code or device drivers that hurt my brain, because I&amp;#8217;m not prepared to work at that low a level at this point in the morning. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There are other repos, for the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Mozilla/Firefox_OS/Gonk&quot;&gt;Gonk&lt;/a&gt; and &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Gecko&quot;&gt;Gecko&lt;/a&gt; layers of FirefoxOS. But, for the sake of my sanity, I&amp;#8217;m trying to avert my eyes for now.&lt;/p&gt;
+&lt;h2 id=&quot;running-the-project&quot;&gt;&lt;span id=&quot;Running_the_project&quot;&gt;Running the project&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;If you don&amp;#8217;t have a compatible mobile device (and few do), you need a &lt;a target=&quot;_blank&quot; title=&quot;B2G&quot; href=&quot;https://developer.mozilla.org/docs/Mozilla/Firefox_OS?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;B2G&lt;/a&gt; Desktop build. While it&amp;#8217;s true that many apps &lt;em&gt;will&lt;/em&gt; run in Firefox Nightly, and there is an emulator you can build from the &lt;a target=&quot;_blank&quot; title=&quot;b2g&quot; href=&quot;https://developer.mozilla.org/docs/Mozilla/Firefox_OS?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;b2g&lt;/a&gt; repo, most apps are presently problematic in Firefox Nightly, and I&amp;#8217;ve never gotten the emulator to build successfully.&lt;/p&gt;
+&lt;p&gt;You can either &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Mozilla/Boot_to_Gecko/Using_the_B2G_desktop_client#Building_the_desktop_client&quot;&gt;build your own B2G Desktop&lt;/a&gt;, or &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Mozilla/Boot_to_Gecko/Using_the_B2G_desktop_client#Download_a_nightly_build&quot;&gt;download a nightly build&lt;/a&gt;. I&amp;#8217;ve done both, and generally I recommend sticking with the nightly Aurora builds.&lt;/p&gt;
+&lt;p&gt;On OS X, I was able to download a nightly build and launch it with a double-click. That got things running &amp;#8211; hooray! But, it didn&amp;#8217;t get me productive straight away: The nightly build comes equipped with its own embedded build of Gaia, which makes it handy for trying out your own 3rd party apps but not-so-handy for hacking on Gaia itself.&lt;/p&gt;
+&lt;p&gt;To improve this situation, you need to do two things:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://wiki.mozilla.org/Gaia/Hacking#Nightly_Builds&quot;&gt;Build your own Gaia profile&lt;/a&gt; from your own clone of &lt;a href=&quot;https://github.com/mozilla-b2g/gaia&quot;&gt;mozilla-b2g/gaia&lt;/a&gt;. This is pretty much just running &lt;code&gt;make&lt;/code&gt; or &lt;code&gt;DEBUG=1 make&lt;/code&gt; from your git clone. &lt;/li&gt;
+&lt;li&gt;Run &lt;a target=&quot;_blank&quot; title=&quot;B2G&quot; href=&quot;https://developer.mozilla.org/docs/Mozilla/Firefox_OS?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;B2G&lt;/a&gt; Desktop from a terminal &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Mozilla/Boot_to_Gecko/Using_the_B2G_desktop_client#Running_the_desktop_client&quot;&gt;with command line options&lt;/a&gt; that tell it to use your new Gaia profile, rather than the built-in. &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;So, at this point, I have the Gaia source and a means by which to run it on my laptop.&lt;/p&gt;
+&lt;h2 id=&quot;breaking-things&quot;&gt;&lt;span id=&quot;Breaking_things&quot;&gt;Breaking things&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;After getting the project running as intended, I break something. And by that, I mean that I change a button title somewhere to &amp;#8220;LOL BUTTS&amp;#8221; or intentionally introduce an exception or syntax error somewhere. Then, I fix it. This is practice that exposes me to the guts of the thing; gets me into the edit/build/run cycle; shows me what it does when something goes wrong; and pushes me toward finding the tests.&lt;/p&gt;
+&lt;p&gt;But, I think I picked the wrong week to step into the arena, because everything came pre-broken. There were semi-known bugs preventing nightly builds of &lt;a target=&quot;_blank&quot; title=&quot;B2G&quot; href=&quot;https://developer.mozilla.org/docs/Mozilla/Firefox_OS?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;B2G&lt;/a&gt; Desktop from running my fresh clone of Gaia. It took me most of my first week to track down those bugs in bugzilla, find workarounds, and finally get something going. And then, it all broke again. And I found workarounds again.&lt;/p&gt;
+&lt;p&gt;Eventually, I was at a point where I built my own &lt;a target=&quot;_blank&quot; title=&quot;B2G&quot; href=&quot;https://developer.mozilla.org/docs/Mozilla/Firefox_OS?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;B2G&lt;/a&gt; Desktop from source with a particular patch from a particular bug applied, and &lt;em&gt;that&lt;/em&gt; got me to the point where I could &lt;a href=&quot;https://github.com/mozilla-b2g/gaia/commit/9f0129c7a5f04d58bbbe140de2b9562e3172d23c&quot;&gt;submit my first pull request&lt;/a&gt; to fix a broken test.&lt;/p&gt;
+&lt;p&gt;Happily, things seem to have stabilized since I started: &lt;a target=&quot;_blank&quot; title=&quot;B2G&quot; href=&quot;https://developer.mozilla.org/docs/Mozilla/Firefox_OS?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;B2G&lt;/a&gt; Desktop nightlies have been cooperating with bleeding-edge Gaia lately, so I&amp;#8217;ve been able to stop building my own. So, now, when I find a combination of &lt;a target=&quot;_blank&quot; title=&quot;B2G&quot; href=&quot;https://developer.mozilla.org/docs/Mozilla/Firefox_OS?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;B2G&lt;/a&gt; Desktop and phone and Gaia checkout that works, I cling to that for dear life until it&amp;#8217;s absolutely necessary for me to update one of the parts.&lt;/p&gt;
+&lt;p&gt;In short, FirefoxOS is very much in flux, right now. Bring a hard hat and expect delays.&lt;/p&gt;
+&lt;h2 id=&quot;fixing-things&quot;&gt;&lt;span id=&quot;Fixing_things&quot;&gt;Fixing things&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Once I&amp;#8217;ve broken something and then fixed it, I usually have a sense for how to get real work done. Since then, I&amp;#8217;ve been slowly wrapping my head around &lt;a href=&quot;https://github.com/mozilla-b2g/gaia/tree/master/apps/calendar&quot;&gt;the core Calendar app&lt;/a&gt;, and &lt;a href=&quot;https://github.com/mozilla-b2g/gaia/commits?author=lmorchard&quot;&gt;my bug fixes have finally started trickling in&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Cobbling together a reliable Gaia-hacking workflow is complicated, though:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Some Gaia apps work in Firefox Nightly, at least partially. This is great, because Firefox has all the great tools like the &lt;a target=&quot;_blank&quot; title=&quot;DOM&quot; href=&quot;https://developer.mozilla.org/docs/DOM?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;DOM&lt;/a&gt; inspector and web console. And, for the most part, you can just save-and-refresh to see changes. &lt;/li&gt;
+&lt;li&gt;All Gaia apps work in &lt;a target=&quot;_blank&quot; title=&quot;B2G&quot; href=&quot;https://developer.mozilla.org/docs/Mozilla/Firefox_OS?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;B2G&lt;/a&gt; Desktop, usually, though sometimes there are&amp;#8230; quirks. This is good for seeing how changes work in a closer-to-real environment. But, &lt;a target=&quot;_blank&quot; title=&quot;B2G&quot; href=&quot;https://developer.mozilla.org/docs/Mozilla/Firefox_OS?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;B2G&lt;/a&gt; Desktop has none of the web developer tools offered by Firefox. And, to see changes, I generally have to save, relaunch &lt;a target=&quot;_blank&quot; title=&quot;B2G&quot; href=&quot;https://developer.mozilla.org/docs/Mozilla/Firefox_OS?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;B2G&lt;/a&gt; Desktop, then relaunch the app within the simulator. That&amp;#8217;s pretty inconvenient.&lt;/li&gt;
+&lt;li&gt;All Gaia apps work on the &lt;a target=&quot;_blank&quot; title=&quot;Mozilla&quot; href=&quot;https://www.mozilla.org/?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;Mozilla&lt;/a&gt;-supplied dev phone &amp;#8211; which almost no one has. Well, they work more often than they do on &lt;a target=&quot;_blank&quot; title=&quot;B2G&quot; href=&quot;https://developer.mozilla.org/docs/Mozilla/Firefox_OS?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;B2G&lt;/a&gt; Desktop and Firefox, anyway. But, including a phone in the dev iteration loop is downright painful: As opposed to the usual webdev experience of save-and-refresh, the phone demands a save-build-flash-restart-relaunch cycle. &lt;/li&gt;
+&lt;li&gt;There is one awesome thing, at least for &lt;a href=&quot;https://github.com/mozilla-b2g/gaia/tree/master/apps/calendar&quot;&gt;the Calendar app&lt;/a&gt;: &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Mozilla/Boot_to_Gecko/Gaia_Unit_Tests&quot;&gt;There are unit tests which run in B2G Desktop, but are driven by a node.js controller in my shell&lt;/a&gt;. That lets me beat up on my code &amp;amp; logic in a &amp;#8220;headless&amp;#8221; context before jumping into Firefox, &lt;a target=&quot;_blank&quot; title=&quot;B2G&quot; href=&quot;https://developer.mozilla.org/docs/Mozilla/Firefox_OS?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;B2G&lt;/a&gt; Desktop, or the phone for a fuller integration test and a manual run-through. In fact, the unit testing framework even watches for file changes and will re-run tests right after a save, complete with a Growl notification of pass/fail.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;room-for-improvement&quot;&gt;&lt;span id=&quot;Room_for_improvement&quot;&gt;Room for improvement&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Slowly but surely, I&amp;#8217;ve gotten my minigun barrel spun up to start firing &lt;a href=&quot;http://techcrunch.com/2011/10/25/lead-bullets/&quot;&gt;piles of lead bullets&lt;/a&gt; at Gaia bugs. But, it has been and continues to be a challenge. I&amp;#8217;m hard-pressed to recommend it as a fun-time leisure project to anyone without a &lt;a target=&quot;_blank&quot; title=&quot;Mozilla&quot; href=&quot;https://www.mozilla.org/?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;Mozilla&lt;/a&gt; paycheck, or even as an off-hours interest for those who live-and-breathe Firefox. This is to be expected, since it&amp;#8217;s not even a v1.0 project yet &amp;#8211; but, I really, really hope things improve in the not-so-distant future.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;We need to make sure that new contributors can get quickly from cloning the source to running the code. And it should &lt;em&gt;always&lt;/em&gt; work &amp;#8211; as in big, noisy automated tests fail when it breaks. I don&amp;#8217;t care if it works fine on the phone if I can&amp;#8217;t hack on it, at least from a contributor perspective. &lt;/li&gt;
+&lt;li&gt;We need a consistent and convenient development environment for Gaia. All day, I bounce between things that are partly broken in Firefox, partly broken in &lt;a target=&quot;_blank&quot; title=&quot;B2G&quot; href=&quot;https://developer.mozilla.org/docs/Mozilla/Firefox_OS?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;B2G&lt;/a&gt; Desktop, and mostly working on the phone. This kills productivity and enthusiasm, all day. And, many times, no one else in the &lt;a href=&quot;irc://irc.mozilla.org/gaia&quot;&gt;#gaia channel on IRC&lt;/a&gt; knows what I&amp;#8217;m on about when I say something&amp;#8217;s broken &amp;#8211; because everyone&amp;#8217;s dev environment is a unique little snowflake. &lt;/li&gt;
+&lt;li&gt;My ideal workflow would never leave Firefox and my editor: Consider it a variant of the Responsive Design View, and ensure all the various APIs expected on a real phone are either working properly, polyfilled, or usefully stubbed out. Then, when it&amp;#8217;s perfect in my most comfy environment, I can try it on a phone or standalone simulator as an afterthought. The &lt;a href=&quot;http://www.blueskyonmars.com/2012/11/08/r2d2b2g-is-becoming-the-firefox-os-simulator/&quot;&gt;upcoming built-in Firefox OS Simulator&lt;/a&gt; (née &lt;a href=&quot;https://hacks.mozilla.org/2012/10/r2d2b2g-an-experimental-prototype-firefox-os-test-environment/&quot;&gt;r2d2b2g&lt;/a&gt;) looks promising, but it needs to be seamless. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;still-digging&quot;&gt;&lt;span id=&quot;Still_digging&quot;&gt;Still digging&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Even with the challenges, and even if my contributions are small, I&amp;#8217;m happy to have the opportunity to work on FirefoxOS. It&amp;#8217;s a big deal; it&amp;#8217;s the next Firefox. So, I plan to keep ramming my head against this stuff to help make it better, and I hope we can start taking time to make making it better better, too!&lt;/p&gt;
+</description>
+          <pubDate>Thu, 15 Nov 2012 12:00:00 GMT</pubDate>
+          <link>https://lmorchard.github.io/blog.lmorchard.com//2012/11/15/my-experience-in-becoming-a-firefoxos-contributor/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2012/11/15/my-experience-in-becoming-a-firefoxos-contributor/</guid>
+        </item><item>
+          <title>Privacy and Social Media</title>
+          
+          <description>&lt;div id=&quot;toc_container&quot; class=&quot;toc_wrap_right no_bullets&quot;&gt;
+  &lt;p class=&quot;toc_title&quot;&gt;
+    Contents
+  &lt;/p&gt;
+
+  &lt;ul class=&quot;toc_list&quot;&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#Assumed_rights&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;1&lt;/span&gt; Assumed rights&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#Darth_Zuckerberg&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;2&lt;/span&gt; Darth Zuckerberg?&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#It8217s_not_your_backyard&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;3&lt;/span&gt; It&amp;#8217;s not your backyard&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#The_cake_eating_vs_having_it&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;4&lt;/span&gt; The cake: eating vs having it&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#Where_to_go_from_here&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;5&lt;/span&gt; Where to go from here&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Somewhat apropos of &lt;a href=&quot;http://blog.lmorchard.com/2012/09/24/freedom-of-from-choice#p%5BDygtcp%5D&quot;&gt;what I posted recently about freedoms&lt;/a&gt;, there&amp;#8217;s been a kerfuffle about Facebook and privacy (again). A &lt;a href=&quot;http://www.readwriteweb.com/archives/yes-facebook-this-was-a-privacy-bungle-heres-what-you-shouldve-done.php#comment-667692804&quot;&gt;particular post&lt;/a&gt; I just read kind of set me off, so I decided to expand on a comment I left there.&lt;/p&gt;
+&lt;!--more--&gt;
+
+&lt;h2 id=&quot;assumed-rights&quot;&gt;&lt;span id=&quot;Assumed_rights&quot;&gt;Assumed rights&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;This started out as &lt;a href=&quot;http://www.readwriteweb.com/archives/yes-facebook-this-was-a-privacy-bungle-heres-what-you-shouldve-done.php#comment-667692804&quot;&gt;a comment&lt;/a&gt; in response to &lt;a href=&quot;http://www.readwriteweb.com/archives/yes-facebook-this-was-a-privacy-bungle-heres-what-you-shouldve-done.php&quot;&gt;Sorry Facebook, This Was A Privacy Bungle! Here&amp;#8217;s What You Should&amp;#8217;ve Done&lt;/a&gt;, over on &lt;a href=&quot;http://www.readwriteweb.com/&quot;&gt;ReadWriteWeb&lt;/a&gt;. The post wraps up like so:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;So this isn&amp;#8217;t the fault of Facebook&amp;#8217;s users. We knew what we were doing then, when we posted to our Walls. And we know what we&amp;#8217;re doing now. The lesson here is that Facebook should have given us the option of selecting the privacy setting for those old Wall posts. Or maybe even made those old posts available to &amp;#8220;Close Friends&amp;#8221; only, as the default. Then we could adjust if we wished.&lt;/p&gt;
+&lt;p&gt;Facebook&amp;#8217;s mistake was that it had no right to assume that our &amp;#8220;Friends&amp;#8221; of 2007-09 means the same thing as &amp;#8220;Friends&amp;#8221; in 2012.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Sorry, but no. The mistake was that &lt;em&gt;you&lt;/em&gt; could assume many rights over content you&amp;#8217;d submitted into Facebook&amp;#8217;s ownership. If you had assumptions of rights or ownership, then in fact you &lt;strong&gt;&lt;em&gt;did not know&lt;/em&gt;&lt;/strong&gt; what you were doing then when you posted to your Walls, then or now.&lt;/p&gt;
+&lt;h2 id=&quot;darth-zuckerberg&quot;&gt;&lt;span id=&quot;Darth_Zuckerberg&quot;&gt;Darth Zuckerberg?&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Maybe this whole thing seems a bit Vader-ish. (ie. &amp;#8220;&lt;a href=&quot;http://video.adultswim.com/robot-chicken/this-deals-getting-worse-all-the-time.html&quot;&gt;I am altering the deal. Pray I don&amp;#8217;t alter it any further.&lt;/a&gt;&amp;#8220;)&lt;/p&gt;
+&lt;p&gt;But, even if your impression was that what you posted back then was &amp;#8220;just between us&amp;#8221; &amp;#8211; the fact is that Facebook has always been well within their rights to alter the definition of &amp;#8220;us&amp;#8221; at any point they liked. I&amp;#8217;d be amazed if the terms of service (&lt;a href=&quot;http://tos-dr.info/&quot;&gt;which no one reads&lt;/a&gt;, of course) didn&amp;#8217;t give them plenty of room to do things just like this.&lt;/p&gt;
+&lt;p&gt;Of course, I&amp;#8217;m not a lawyer. But, I can imagine there are things companies put into terms of service that run afoul of actual laws. But, Facebook has lots of money, and that yields lots of incentive to look for legal exploits.&lt;/p&gt;
+&lt;p&gt;And, accordingly, &lt;a href=&quot;http://techcrunch.com/2012/06/21/sponsored-stories-lawsuit/&quot;&gt;people have sued and won&lt;/a&gt; where Facebook was vulnerable. But, I&amp;#8217;m reasonably convinced that voluntarily posting your secrets to Facebook doesn&amp;#8217;t come with a legal guarantee of privacy. Maybe a good lawyer (ie. better than those at Facebook) could prove me wrong on this. But otherwise&amp;#8230; umm&amp;#8230; don&amp;#8217;t do that.&lt;/p&gt;
+&lt;h2 id=&quot;its-not-your-backyard&quot;&gt;&lt;span id=&quot;It8217s_not_your_backyard&quot;&gt;It&amp;#8217;s not your backyard&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;You don&amp;#8217;t own the spaces you inhabit on Facebook. You&amp;#8217;re enjoying a party at someone&amp;#8217;s house, and you barely know the guy. In fact, your content is the currency that pays for the booze (ie. the privilege of using their servers). That&amp;#8217;s why it&amp;#8217;s &lt;a href=&quot;http://en.wikipedia.org/wiki/Gratis_versus_libre#.22Free_beer.22_vs_.22free_speech.22_distinction&quot;&gt;free-as-in-beer&lt;/a&gt;: You&amp;#8217;ve given them what you post, instead of money. That&amp;#8217;s valuable stuff, if they can ever quite figure out how to sell it.&lt;/p&gt;
+&lt;p&gt;You and your friends can tell yourselves that your little clique on the quiet patio is a private gathering. But, that&amp;#8217;s still not your house. Don&amp;#8217;t be surprised if gossip gets overheard.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.readwriteweb.com/archives/yes-facebook-this-was-a-privacy-bungle-heres-what-you-shouldve-done.php&quot;&gt;Richard MacManus&lt;/a&gt; wrote that &amp;#8220;[Facebook] has unilaterally decided to impose a new concept of privacy onto its users.&amp;#8221; But, that&amp;#8217;s like saying the homeowner unilaterally decided to put out the bonfire in the backyard. One might ask the guests&amp;#8217; opinion about the bonfire &amp;#8211; but that&amp;#8217;s just being a gracious host.&lt;/p&gt;
+&lt;p&gt;A better scenario might be if the homeowner decided to start filming a reality show. Still, I think you agreed to a release at the door. It might have even been printed the plastic cups, and drinking the beer sealed the deal. That release covered this contingency, no matter how intuitively distasteful it seems. (Sounds shady to me, but then so do terms of service pages.)&lt;/p&gt;
+&lt;h2 id=&quot;the-cake-eating-vs-having-it&quot;&gt;&lt;span id=&quot;The_cake_eating_vs_having_it&quot;&gt;The cake: eating vs having it&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;You can&amp;#8217;t both pay to party by supplying your content and then later claim ownership of the payment. You ate the cake; you can&amp;#8217;t take it home after. You can express your feelings of stomach ache (which is also content), but the lesson here is Facebook never was and never will be a private space. There might have been perceived partitions at one point, but those partitions can move whenever the homeowners want.&lt;/p&gt;
+&lt;h2 id=&quot;where-to-go-from-here&quot;&gt;&lt;span id=&quot;Where_to_go_from_here&quot;&gt;Where to go from here&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;As I see it, you have three options:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Pay to create your own private social spaces on the web. That, at least, &lt;a href=&quot;http://www.metafilter.com/95152/Userdriven-discontent#3256046&quot;&gt;makes you the customer&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Accept Facebook for what it is: A party in a stranger&amp;#8217;s backyard, at which you are both a guest and &lt;a href=&quot;http://www.metafilter.com/95152/Userdriven-discontent#3256046&quot;&gt;the product on sale&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Lobby your lawmakers to outlaw what Facebook does with your content. Good luck.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I&amp;#8217;m willing to bet #1 and #2 are cheaper and much more practical than #3.&lt;/p&gt;
+</description>
+          <pubDate>Mon, 01 Oct 2012 12:00:00 GMT</pubDate>
+          <link>https://lmorchard.github.io/blog.lmorchard.com//2012/10/01/privacy-and-social-media/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2012/10/01/privacy-and-social-media/</guid>
+        </item><item>
+          <title>Freedom to Change Your Mind</title>
+          
+          <description>&lt;div id=&quot;toc_container&quot; class=&quot;toc_wrap_right no_bullets&quot;&gt;
+  &lt;p class=&quot;toc_title&quot;&gt;
+    Contents
+  &lt;/p&gt;
+
+  &lt;ul class=&quot;toc_list&quot;&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#Fractal_of_choice&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;1&lt;/span&gt; Fractal of choice&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#Changing_your_mind&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;2&lt;/span&gt; Changing your mind&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#Intersection_of_axes&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;3&lt;/span&gt; Intersection of axes&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#Conclusion&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;4&lt;/span&gt; Conclusion&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;I posted a few days ago about &lt;a href=&quot;http://blog.lmorchard.com/2012/09/24/freedom-of-from-choice&quot;&gt;freedom of and from choice&lt;/a&gt;, but I think there&amp;#8217;s something &lt;a href=&quot;http://en.wikipedia.org/wiki/Orthogonality&quot;&gt;orthogonal&lt;/a&gt; to that spectrum: The freedom to change your mind, both figuratively and literally.&lt;/p&gt;
+&lt;!--more--&gt;
+
+&lt;h2 id=&quot;fractal-of-choice&quot;&gt;&lt;span id=&quot;Fractal_of_choice&quot;&gt;Fractal of choice&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;To sum up what I &lt;a href=&quot;http://blog.lmorchard.com/2012/09/24/freedom-of-from-choice&quot;&gt;wrote&lt;/a&gt; earlier, there&amp;#8217;s a spectrum of what choices you make and what choices you leave up to someone else:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You might choose to &lt;a href=&quot;http://store.apple.com/&quot;&gt;live entirely within the Apple ecosystem&lt;/a&gt;, relying on expert designers to provide elegant and beautiful experiences.&lt;/li&gt;
+&lt;li&gt;You might decide to &lt;a href=&quot;https://www.system76.com/&quot;&gt;buy a PC laptop with Ubuntu pre-installed&lt;/a&gt; and embrace the gritty world of open source software.&lt;/li&gt;
+&lt;li&gt;You might build a PC desktop from parts &lt;a href=&quot;http://newegg.com&quot;&gt;ordered ala carte&lt;/a&gt;—maybe even compile your OS and all applications from source, &lt;a href=&quot;http://www.gentoo.org/&quot;&gt;Gentoo&lt;/a&gt; or &lt;a href=&quot;http://freebsd.org&quot;&gt;FreeBSD&lt;/a&gt; style. &lt;/li&gt;
+&lt;li&gt;You might decide to construct &lt;a href=&quot;http://www.wired.com/gadgetlab/2009/05/homebrewed-cpu/&quot;&gt;an 8-bit CPU out of ICs and a big mess of wires&lt;/a&gt;, and cobble together &lt;a href=&quot;http://www.bigmessowires.com/2008/11/28/microsoft-basic/&quot;&gt;your own port of Microsoft BASIC&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;You could gather piles of various exotic materials and bake your own semiconductors and ICs at home—&lt;a href=&quot;http://www.youtube.com/watch?v=PdcKwOo7dmM&quot;&gt;but really, who does that&lt;/a&gt;?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There are many choices to make, and it&amp;#8217;s even your choice to decide at which fractal level of complexity you&amp;#8217;re most comfortable. So far, so good.&lt;/p&gt;
+&lt;h2 id=&quot;changing-your-mind&quot;&gt;&lt;span id=&quot;Changing_your_mind&quot;&gt;Changing your mind&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;But, what about after you&amp;#8217;ve made your choices about choices—can you change your mind later?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Can you take your tools with you to a new ecosystem? &lt;/li&gt;
+&lt;li&gt;If you can&amp;#8217;t take them with, can you find alternatives?&lt;/li&gt;
+&lt;li&gt;Are your thoughts and work expressed in ways that leave you free to change tools?&lt;/li&gt;
+&lt;li&gt;Can you take possession of the thoughts you&amp;#8217;ve poured into a tool or service?&lt;/li&gt;
+&lt;li&gt;What happens when your relied-upon experts go out of business?&lt;/li&gt;
+&lt;li&gt;Or, better yet, &lt;a href=&quot;http://techland.time.com/2012/07/20/why-google-or-facebook-buying-your-favorite-startup-means-its-probably-toast/&quot;&gt;what happens when they cash out to Google or Facebook or Yahoo&lt;/a&gt;?&lt;/li&gt;
+&lt;li&gt;Do you own the device in your hand? Or, have you just gotten a limited license to use it?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And, this is probably overly clever, but when I write &amp;#8220;change your mind&amp;#8221; I mean both:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;reconsidering your decisions and&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;altering your cognitive system&lt;/em&gt;. &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Because, as I&amp;#8217;ve written before, these things are &lt;a href=&quot;http://opinionator.blogs.nytimes.com/2010/12/12/out-of-our-brains/&quot;&gt;cognitive prosthetics&lt;/a&gt;—they&amp;#8217;re a part of your thinking apparatus. Again, it goes back to how much time you&amp;#8217;re willing to devote to &lt;a href=&quot;http://blog.lmorchard.com/2012/09/24/freedom-of-from-choice#p%5BHIgHca%5D&quot;&gt;sharpening your saw&lt;/a&gt; with intentional use of technology.&lt;/p&gt;
+&lt;p&gt;Personally, I resist the notion of allowing parts of my extended mind to be controlled more by third-party experts than me. Even if I choose &lt;em&gt;for now&lt;/em&gt; to leave myself in their hands, I want clearly marked exits and an escape plan.&lt;/p&gt;
+&lt;h2 id=&quot;intersection-of-axes&quot;&gt;&lt;span id=&quot;Intersection_of_axes&quot;&gt;Intersection of axes&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;So, if freedom {of,from} choice and freedom to change my mind are &lt;a href=&quot;http://en.wikipedia.org/wiki/Orthogonality&quot;&gt;orthogonal&lt;/a&gt;, what does that look like? (Maybe I&amp;#8217;ll come back to this post with a drawing.)&lt;/p&gt;
+&lt;p&gt;I would think that a high degree of freedom of choice would leave you quite free to change your mind later. But, I could imagine reworking that &lt;a href=&quot;http://www.bigmessowires.com/2009/02/02/wire-wrap-photos/&quot;&gt;Big Mess &amp;#8216;o Wires&lt;/a&gt; would be a huge pain. So, I probably wouldn&amp;#8217;t use a &lt;a href=&quot;http://www.bigmessowires.com/2009/02/02/wire-wrap-photos/&quot;&gt;BMOW&lt;/a&gt; as my daily workstation.&lt;/p&gt;
+&lt;p&gt;On the other hand, some of the best designed systems &lt;a href=&quot;http://tech.slashdot.org/story/04/03/04/1337259/your-future-cars-hood-will-be-welded-shut&quot;&gt;are trending&lt;/a&gt; toward &lt;a href=&quot;http://www.netc.org/openoptions/background/roadster.html&quot;&gt;hoods welded shut&lt;/a&gt;. Shouldn&amp;#8217;t it be possible to start from a product of expert design (an iPhone, for instance), only later to pop the cover off (literally or virtually) and do your own thing? There are jailbreaks—but why are you in a jail? And, doesn&amp;#8217;t it seem like they&amp;#8217;d make it airtight if they could?&lt;/p&gt;
+&lt;p&gt;Is it just that &lt;a href=&quot;http://www.imore.com/jailbreak-app-piracy-cost-theft&quot;&gt;app pirates are ruining it for the rest of us&lt;/a&gt;? I mean, it&amp;#8217;s mighty convenient to have your customers &lt;a href=&quot;http://scripting.com/davenet/2001/07/06/theMicroChannelArchitectur.html&quot;&gt;locked in the trunk&lt;/a&gt;: It&amp;#8217;s harder for them to hurt themselves or the upholstery, and they can&amp;#8217;t easily wander off if you make some turns they don&amp;#8217;t like. But, that&amp;#8217;s tinfoil-hat territory, and I could rant all day.&lt;/p&gt;
+&lt;p&gt;Android seems to be doing well, and it&amp;#8217;s &lt;em&gt;mostly&lt;/em&gt; open. I&amp;#8217;ve switched device vendors a few times, and all my apps have survived the changes. I&amp;#8217;ve flashed my own choice of firmware on a few of my phones, and have been pleased. I have a sense of deeper choices available, should I ever want to chase after them.&lt;/p&gt;
+&lt;p&gt;Palm&amp;#8217;s webOS devices were &lt;em&gt;crazy&lt;/em&gt; open—not open source per se, but &lt;a href=&quot;http://webos.org/2009/06/10/palm-pre-konami-code-dev-mode/&quot;&gt;you could unlock root with the Konami code&lt;/a&gt; and &lt;a href=&quot;http://www.webos-internals.org/wiki/Applying_Patches&quot;&gt;apply patches to core applications&lt;/a&gt;. Alas, webOS crashed and burned at HP. My hunch is that &lt;a href=&quot;http://www.theverge.com/2012/6/5/3062611/palm-webos-hp-inside-story-pre-postmortem&quot;&gt;being open isn&amp;#8217;t what did them in&lt;/a&gt;, though.&lt;/p&gt;
+&lt;p&gt;&lt;a target=&quot;_blank&quot; title=&quot;Mozilla&quot; href=&quot;https://www.mozilla.org/?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;Mozilla&lt;/a&gt; (disclaimer: my employer) is headed into that webOS territory with &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Mozilla/Firefox_OS&quot;&gt;FirefoxOS&lt;/a&gt;. In that currently-coalescing ecosystem, the &lt;a href=&quot;https://developer.mozilla.org/en-US/apps&quot;&gt;apps come from the open web&lt;/a&gt;, aren&amp;#8217;t gate-kept by a single &lt;a target=&quot;_blank&quot; title=&quot;marketplace&quot; href=&quot;https://developer.mozilla.org/Marketplace?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;marketplace&lt;/a&gt;, and can even run on non-FirefoxOS devices. I suspect it won&amp;#8217;t be as slick an ecosystem as Apple&amp;#8217;s, &lt;a href=&quot;http://blog.lmorchard.com/2012/09/24/freedom-of-from-choice#p%5BOtoFoc%5D&quot;&gt;because the loosely-coupled gates will let in more dirt&lt;/a&gt;. But, it will be high on the freedom-to-change axis, and the quality of freedom-from-choice options will limited only by the talent of the designers involved.&lt;/p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;&lt;span id=&quot;Conclusion&quot;&gt;Conclusion&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;So, I didn&amp;#8217;t &lt;em&gt;really&lt;/em&gt; mean to write an advertisement for &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Mozilla/Firefox_OS&quot;&gt;FirefoxOS&lt;/a&gt;—I work for &lt;a target=&quot;_blank&quot; title=&quot;Mozilla&quot; href=&quot;https://www.mozilla.org/?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;Mozilla&lt;/a&gt; because I love the mission, I&amp;#8217;m not trying to shill. Really, I just think it&amp;#8217;s very important to have a sense of your choices and freedoms when you accept technology into your life. And, of course, I have some very strong opinions, but this post and the one before it are intended as more about choice in general than my own choices or angst. If you&amp;#8217;re happy with your choices, even upon close examination, then that&amp;#8217;s great—just keep your wits about you.&lt;/p&gt;
+</description>
+          <pubDate>Thu, 27 Sep 2012 12:00:00 GMT</pubDate>
+          <link>https://lmorchard.github.io/blog.lmorchard.com//2012/09/27/freedom-to-change-your-mind/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2012/09/27/freedom-to-change-your-mind/</guid>
+        </item><item>
+          <title>Freedom {of,from} Choice</title>
+          
+          <description>&lt;div id=&quot;toc_container&quot; class=&quot;toc_wrap_right no_bullets&quot;&gt;
+  &lt;p class=&quot;toc_title&quot;&gt;
+    Contents
+  &lt;/p&gt;
+
+  &lt;ul class=&quot;toc_list&quot;&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#Tasting_menus_and_wine_pairings&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;1&lt;/span&gt; Tasting menus and wine pairings&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#Suds_and_swine&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;2&lt;/span&gt; Suds and swine&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#Power_and_ease_of_use&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;3&lt;/span&gt; Power and ease of use&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#Choose_not_to_decide_or_DIY&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;4&lt;/span&gt; Choose not to decide, or DIY&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#Sharpen_the_saw&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;5&lt;/span&gt; Sharpen the saw&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#Food_for_thought&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;6&lt;/span&gt; Food for thought&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Freedom &lt;em&gt;of&lt;/em&gt; choice and freedom &lt;em&gt;from&lt;/em&gt; choice lay on a spectrum. And, in technology, it&amp;#8217;s no coincidence that more choice tends to be messier and complex, less choice tends to be cleaner and simple. It&amp;#8217;s a trade-off between what you choose and what you leave up to an expert.&lt;/p&gt;
+&lt;!--more--&gt;
+
+&lt;h2 id=&quot;tasting-menus-and-wine-pairings&quot;&gt;&lt;span id=&quot;Tasting_menus_and_wine_pairings&quot;&gt;Tasting menus and wine pairings&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;My wife and I like to go out a few times a year on date nights to nice restaurants. These restaurants have &lt;a href=&quot;https://www.google.com/search?q=tasting+menu&quot;&gt;tasting menus&lt;/a&gt; with wine pairings. This is dinner on cruise control, and we let the chef drive. It&amp;#8217;s great when it works, because the chef makes expert choices.&lt;/p&gt;
+&lt;p&gt;Occasionally, it doesn&amp;#8217;t work. There might be something we don&amp;#8217;t like: Rabbit are pets, for instance. We&amp;#8217;re not fans of seafood, though some menus have surprised us. We also have food allergies. Usually—though not always—we can ask for a substitution. Otherwise, we chalk it up to adventure.&lt;/p&gt;
+&lt;p&gt;But, overall, ordering from the tasting menu and trying the wine pairings makes date night simple with a side of novelty. It&amp;#8217;s on the high end of freedom from choice. We choose to go out, and we choose the restaurant, but we leave the rest to experts.&lt;/p&gt;
+&lt;h2 id=&quot;suds-and-swine&quot;&gt;&lt;span id=&quot;Suds_and_swine&quot;&gt;Suds and swine&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;On the other end of things, I like to make homebrew—&lt;a href=&quot;http://www.alphadictionary.com/goodword/word/zymurgy&quot;&gt;zymurgy&lt;/a&gt;, not software. There&amp;#8217;s a spectrum of choice to be had here, too. But, even with &lt;a href=&quot;https://www.homebrewing.org/2-Hearted-Clone_p_518.html&quot;&gt;a kit&lt;/a&gt;, the process is much more involved than just ordering a pint. I also have &lt;a href=&quot;http://rogueestate.com/&quot;&gt;friends who are great cooks&lt;/a&gt;. When we all get together, &lt;a href=&quot;http://www.flickr.com/photos/k1ds3ns4t10n/6114071558/&quot;&gt;it&amp;#8217;s a party&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;But, that party is &lt;em&gt;about&lt;/em&gt; the food and drink, about sharing the process and the product. It&amp;#8217;s not a simple date night: The choices are the focus as much as the participants. It&amp;#8217;s a chance to show off and try new things, become experts ourselves.&lt;/p&gt;
+&lt;h2 id=&quot;power-and-ease-of-use&quot;&gt;&lt;span id=&quot;Power_and_ease_of_use&quot;&gt;Power and ease of use&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Where am I going with this? Well, &lt;a href=&quot;http://threads2.scripting.com/2012/september/todaysPodcast&quot;&gt;Dave Winer said this in a podcast&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In software, the tricky parts are where the power comes from, and the ease of use comes from where you limit the amount of options. The more limited the options, the easier it is, but the less powerful it is. It&amp;#8217;s just an engineering tradeoff there. It&amp;#8217;s like the tradeoff between heat and motion in physics.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The folks at Apple are masters of tasting menus and wine pairings when it comes to consumer electronics. You pick Apple because you don&amp;#8217;t want to think about most of the choices. They have experts in various forms of design, and their products are elegant, beautiful, and generally work great together. It&amp;#8217;s blindingly obvious from their bank balance that this is something people are more than happy to pay for.&lt;/p&gt;
+&lt;p&gt;Why? Because you have better things to do with your time than to futz with impedance mismatches and arcane interfaces. You know, like do the things for which you bought the gadgets in the first place (eg. work, play, communicate, etc).&lt;/p&gt;
+&lt;p&gt;On the other hand, you have something like the Linux ecosystem. Therein, many others have made choices for you. But, all the choices are still open to you—and many &lt;em&gt;must&lt;/em&gt; be made by you. The result is kind of a mess at times, with little or no top-down unifying vision. But, the grit and the loose coupling between the parts are the stuff of freedom. Freedom of choice is dirty and complex, especially when lots of players are involved.&lt;/p&gt;
+&lt;h2 id=&quot;choose-not-to-decide-or-diy&quot;&gt;&lt;span id=&quot;Choose_not_to_decide_or_DIY&quot;&gt;Choose not to decide, or DIY&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Here&amp;#8217;s the thing: &lt;a href=&quot;http://www.youtube.com/watch?feature=player_detailpage&amp;amp;v=OnxkfLe4G74#t=70s&quot;&gt;If you choose not to decide, you still have made a choice&lt;/a&gt;—you&amp;#8217;ve just chosen to let an expert make most of the choices for you.&lt;/p&gt;
+&lt;p&gt;What happens when disagree with some of those choices? If you&amp;#8217;re lucky, you can ask for substitutions (or tweak some options). But, you might have to go to a different restaurant (ie. another manufacturer). If you&amp;#8217;re really unlucky, you&amp;#8217;ll find that you disagree with &lt;em&gt;almost all of the restaurants and manufacturers&lt;/em&gt;. Sometimes, we just grin and bear it, because switching is too inconvenient.&lt;/p&gt;
+&lt;p&gt;And beyond switching, do-it-yourself is just plain hard. You can crawl up the spectrum toward greater freedom-of-choice—but that demands greater knowledge, skill, and attention. You have to discover the choices, make them, and then track what you&amp;#8217;ve done. In fact, it rises to the level of a &lt;em&gt;hobby&lt;/em&gt; at a certain point, and you spend as much time (or more) on the infrastructure as the things it&amp;#8217;s there to support.&lt;/p&gt;
+&lt;h2 id=&quot;sharpen-the-saw&quot;&gt;&lt;span id=&quot;Sharpen_the_saw&quot;&gt;Sharpen the saw&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Here, I guess, it&amp;#8217;s a personal decision: How much time are you willing to spend on the devices through which you do your thinking? Because, that&amp;#8217;s what computers, tablets, smartphones, and software are: They&amp;#8217;re &lt;a href=&quot;http://opinionator.blogs.nytimes.com/2010/12/12/out-of-our-brains/&quot;&gt;cognitive prosthetics&lt;/a&gt;, addons to your brain that expand your capabilities to think, remember, and communicate. How comfortable are you with the choices made by your chosen experts in shaping the patterns of your mind?&lt;/p&gt;
+&lt;p&gt;Me, I&amp;#8217;ve been a hobbyist in this field since very shortly after I learned how to read. My take on the power / ease-of-use spectrum was best put by Doug Engelbart, who asked &amp;#8220;&lt;a href=&quot;http://www.dougengelbart.org/history/pix.html#6a&quot;&gt;Would you rather ride a tricycle or a bicycle to get across town?&lt;/a&gt;&amp;#8221; I&amp;#8217;d rather have the freedom to program and recombine (and crash and twist my ankle), than take on an extra stabilizing wheel or slow down.&lt;/p&gt;
+&lt;p&gt;But, even if you&amp;#8217;re not willing to rise to the level of cognitive prosthetics hobbyist, think about &lt;a href=&quot;https://www.stephencovey.com/7habits/7habits-habit7.php&quot;&gt;sharpening the saw&lt;/a&gt;. Have you ever tried meditation? Written a journal? Taken training? Practiced a skill? Have you ever taken a critical look at the technology in your life and considered how it&amp;#8217;s serving you and your mind? It&amp;#8217;s all in the same category, to me. It&amp;#8217;s an effort, and it takes time—but it&amp;#8217;s self-investment.&lt;/p&gt;
+&lt;h2 id=&quot;food-for-thought&quot;&gt;&lt;span id=&quot;Food_for_thought&quot;&gt;Food for thought&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;In my head, earlier versions of this were more judgmental: &lt;em&gt;Holy crap how can so many people be so passive about the technology in their lives&lt;/em&gt;?&lt;/p&gt;
+&lt;p&gt;Of course, it&amp;#8217;s obvious: &lt;em&gt;People don&amp;#8217;t have time for this crap. You&amp;#8217;re the weirdo who&amp;#8217;s been doing it almost since birth.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Still, just like attention to diet and exercise (of which I need more, myself), I think intentional use of technology is crucial. Take stock of your choices and freedoms. Be mindful of where you are on the freedom-of / freedom-from spectrum.&lt;/p&gt;
+&lt;p&gt;Do your gadgets and services make you more free and capable in ways about which you care? Have you given up things you&amp;#8217;d rather not have given up (eg. time, cost, privacy, flexibility, lock-in, reliability, longevity)? Do you trust what your chosen experts are doing for you, are they working for your interests?&lt;/p&gt;
+&lt;p&gt;Of course, in my personal life, it&amp;#8217;s a hobby. And it&amp;#8217;s my job. And I spend way more time on mindful technology than I should, versus mindful eating and living. &lt;a href=&quot;http://blog.lmorchard.com/2012/09/17/on-the-other-end-of-a-self-imposed-death-march-project&quot;&gt;Like I said&lt;/a&gt;, I need to work on that. But, hopefully, I&amp;#8217;ve managed to lay out some ideas in this post about freedom, choice, and technology without coming off as a total angry nerd.&lt;/p&gt;
+</description>
+          <pubDate>Mon, 24 Sep 2012 12:00:00 GMT</pubDate>
+          <link>https://lmorchard.github.io/blog.lmorchard.com//2012/09/24/freedom-of-from-choice/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2012/09/24/freedom-of-from-choice/</guid>
+        </item><item>
+          <title>Developing Open Web Apps: First, get it onto the web</title>
+          
+          <description>&lt;div id=&quot;toc_container&quot; class=&quot;toc_wrap_right no_bullets&quot;&gt;
+  &lt;p class=&quot;toc_title&quot;&gt;
+    Contents
+  &lt;/p&gt;
+
+  &lt;ul class=&quot;toc_list&quot;&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#Start_on_the_web&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;1&lt;/span&gt; Start on the web&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#How_I_abuse_Github_Pages&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;2&lt;/span&gt; How I (ab)use Github Pages&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#How_I_abuse_Dropbox&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;3&lt;/span&gt; How I (ab)use Dropbox&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#How_I_use_Amazon_S3&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;4&lt;/span&gt; How I use Amazon S3&lt;/a&gt;&lt;ul&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;#How_I_make_Amazon_S3_work_like_Dropbox&quot;&gt;&lt;span class=&quot;toc_number toc_depth_2&quot;&gt;4.1&lt;/span&gt; How I make Amazon S3 work like Dropbox&lt;/a&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;li&amp;gt;
+  &amp;lt;a href=&amp;quot;#In_conclusion&amp;quot;&amp;gt;&amp;lt;span class=&amp;quot;toc_number toc_depth_1&amp;quot;&amp;gt;5&amp;lt;/span&amp;gt; In conclusion&amp;lt;/a&amp;gt;
+&amp;lt;/li&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;I&amp;#8217;ve been interested in developing &lt;a href=&quot;https://developer.mozilla.org/en-US/apps&quot;&gt;open web apps&lt;/a&gt; (aka the &lt;a href=&quot;http://en.wikipedia.org/wiki/Single-page_application&quot;&gt;single-page app&lt;/a&gt;) for years. But, it feels like the space is really on fire now, since the advent of &lt;a target=&quot;_blank&quot; title=&quot;HTML5&quot; href=&quot;https://developer.mozilla.org/html5?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;HTML5&lt;/a&gt; tech and the recent moves by &lt;a target=&quot;_blank&quot; title=&quot;Mozilla&quot; href=&quot;https://www.mozilla.org/?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;Mozilla&lt;/a&gt; and Google toward truly &amp;#8220;appifying&amp;#8221; these things to compete with offerings from iOS and Android. Lots of pieces have come into alignment, and &lt;a href=&quot;https://wiki.mozilla.org/Kilimanjaro&quot;&gt;great things are coming together&lt;/a&gt;—&lt;a href=&quot;http://groovecoder.com/2012/09/12/facebook-never-bet-on-html5/&quot;&gt;never mind what the folks at Facebook say&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;So, I think I&amp;#8217;m going to build a simple app and blog about it. And, these days, the first thing I think about when starting a web app is: How do I get it onto the web?&lt;/p&gt;
+&lt;!--more--&gt;
+
+&lt;h2 id=&quot;start-on-the-web&quot;&gt;&lt;span id=&quot;Start_on_the_web&quot;&gt;Start on the web&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Okay, so getting on the web is not the &lt;em&gt;first&lt;/em&gt; thing. The &lt;em&gt;very&lt;/em&gt; first thing is to create a new &lt;a href=&quot;http://github.com/lmorchard&quot;&gt;github.com&lt;/a&gt; repo (complete with &lt;code&gt;README.md&lt;/code&gt; and &lt;code&gt;.gitignore&lt;/code&gt;) and then:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd ~/Dropbox/Public/
+git clone git@github.com:lmorchard/my-project.git
+cd my-project&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And &lt;em&gt;then&lt;/em&gt;, I start thinking about getting it onto the web.&lt;/p&gt;
+&lt;p&gt;That might sound backward: If all I have is a &lt;code&gt;README&lt;/code&gt;, aren&amp;#8217;t I jumping the gun? Well, no—I like to iterate, especially when experimenting with something new. Start simple, try one little thing, repeat. And, because this is a new pan-device world we&amp;#8217;re living in, I&amp;#8217;m often sitting on my couch hacking with a laptop in front, tablet to the left, and phone to the right.&lt;/p&gt;
+&lt;p&gt;So, before I even write the first line of &amp;#8220;Hello world&amp;#8221; in &lt;a target=&quot;_blank&quot; title=&quot;HTML&quot; href=&quot;https://developer.mozilla.org/docs/Web/HTML?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;HTML&lt;/a&gt;, I want to have a way to get at it from all the gadgets. If it were just my laptop, I could open a &lt;code&gt;file://&lt;/code&gt; URL and be done with it. Oh, but not really: Many of the new &lt;a target=&quot;_blank&quot; title=&quot;HTML5&quot; href=&quot;https://developer.mozilla.org/html5?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;HTML5&lt;/a&gt;-and-friends technologies depend on things like domain origins and real HTTP connections.&lt;/p&gt;
+&lt;p&gt;I could &lt;a href=&quot;http://www.linuxjournal.com/content/tech-tip-really-simple-http-server-python&quot;&gt;start up a disposable HTTP server in the project directory&lt;/a&gt; on my laptop and point the other gadgets at that. That works, to some extent. But, that&amp;#8217;s limited to my LAN, I can&amp;#8217;t share it with others for quick alpha testing, and I can&amp;#8217;t check it out when I&amp;#8217;m away from home and the laptop is closed.&lt;/p&gt;
+&lt;p&gt;That leaves me with my own web server. But, you know, that&amp;#8217;s a pain in the butt and I&amp;#8217;m getting tired of being sysadmin to my own server. Let&amp;#8217;s take it to the cloud!&lt;/p&gt;
+&lt;h2 id=&quot;how-i-abuse-github-pages&quot;&gt;&lt;span id=&quot;How_I_abuse_Github_Pages&quot;&gt;How I (ab)use Github Pages&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Since I started with GitHub, &lt;em&gt;my project is already on the web&lt;/em&gt;. Or, mostly it is, but just not exactly how I&amp;#8217;d like it. To get the project published at a URL, this is what I do:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git co -b gh-pages
+git push origin gh-pages
+git co master&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Give it a few, and you&amp;#8217;ll receive an email from &lt;a href=&quot;http://pages.github.com/&quot;&gt;Github Pages&lt;/a&gt; (re: &lt;code&gt;[my-project] Page build successful&lt;/code&gt;). Give it a few more, since this is the first time for the project. Shortly, the &lt;code&gt;README&lt;/code&gt; shows up at an URL like the following:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;http://lmorchard.github.com/my-project/README.md&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;After that, whenever I want to publish updates to the app, this is what I do:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git co gh-pages
+git rebase master
+git push origin gh-pages
+git co master&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, within seconds (usually), my app is updated on the web. With free hosting, because the folks at GitHub are really nice.&lt;/p&gt;
+&lt;p&gt;But, though this works nicely for an app demo or beta, try not to abuse their hospitality by using your &lt;a href=&quot;http://pages.github.com/&quot;&gt;GitHub Pages&lt;/a&gt; URL as the official distribution point for your app.&lt;/p&gt;
+&lt;h2 id=&quot;how-i-abuse-dropbox&quot;&gt;&lt;span id=&quot;How_I_abuse_Dropbox&quot;&gt;How I (ab)use Dropbox&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;You know, all that committing and pushing and rebasing can really get tiresome. And, it craps up my commit history while I&amp;#8217;m just kind of twiddling some bits back and forth to see what happens. We&amp;#8217;re living in the future, damn it, I don&amp;#8217;t have to put up with this!&lt;/p&gt;
+&lt;p&gt;And, so, I don&amp;#8217;t. Maybe you noticed that I ran &lt;code&gt;git clone&lt;/code&gt; from inside my &lt;a href=&quot;https://www.dropbox.com/help/16/en&quot;&gt;Dropbox Public folder&lt;/a&gt;. Anything in that folder &lt;em&gt;is already on the web&lt;/em&gt;: Each file has a public URL, and I can acquire it with a right-click in Finder (ie. Dropbox &amp;gt; Copy Public Link). The result is something like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;https://dl.dropbox.com/u/279855/my-project/README.md&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It&amp;#8217;s a crufty URL, but an URL nonetheless. Dropbox public links also mirror the folder structure, so that an &lt;code&gt;index.html&lt;/code&gt; can load all the &lt;a target=&quot;_blank&quot; title=&quot;CSS&quot; href=&quot;https://developer.mozilla.org/docs/Web/CSS?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;CSS&lt;/a&gt; and &lt;a target=&quot;_blank&quot; title=&quot;JS&quot; href=&quot;https://developer.mozilla.org/docs/JavaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;JS&lt;/a&gt; it wants from relative URLs just like a normal web host.&lt;/p&gt;
+&lt;p&gt;With Dropbox, then, my hacking cycle with Dropbox looks like this:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Save in MacVim&lt;/li&gt;
+&lt;li&gt;Switch to Firefox&lt;/li&gt;
+&lt;li&gt;Refresh&lt;/li&gt;
+&lt;li&gt;Repeat&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;More often than not, my app has gotten updated on the Dropbox servers somewhere between steps #1 and #3. That&amp;#8217;s a much tighter iteration loop than doing the GitHub dance. In fact, it&amp;#8217;s pretty much indistinguishable from just working on my laptop with &lt;code&gt;file://&lt;/code&gt; URLs or a disposable HTTP server on my LAN.&lt;/p&gt;
+&lt;p&gt;There&amp;#8217;s some bad news, though. I&amp;#8217;ve just read that &lt;a href=&quot;https://www.dropbox.com/help/16/en&quot;&gt;new accounts created after 7/31/2012 no longer get a Public folder&lt;/a&gt;. So, it would seem that the days of carefree hosting-by-Public-folder are on the way out. But fret not: the folks at Dropbox have &lt;a href=&quot;https://tech.dropbox.com/?p=345&quot;&gt;provided an alternative for hosting static web apps under development&lt;/a&gt;. They&amp;#8217;ve also opened up their API for use by open &lt;a target=&quot;_blank&quot; title=&quot;web apps&quot; href=&quot;https://developer.mozilla.org/docs/Apps?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;web apps&lt;/a&gt; with &lt;a href=&quot;https://github.com/dropbox/dropbox-js&quot;&gt;dropbox-js&lt;/a&gt;. In fact, this API will play a part in the app about which I plan to blog.&lt;/p&gt;
+&lt;h2 id=&quot;how-i-use-amazon-s3&quot;&gt;&lt;span id=&quot;How_I_use_Amazon_S3&quot;&gt;How I use Amazon S3&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;So, (ab)using GitHub and Dropbox for hosting your app under development is fine and dandy. But, you definitely don&amp;#8217;t want to rely on them for publishing your app for wider distribution. &lt;a href=&quot;http://en.wikipedia.org/wiki/There_ain%27t_no_such_thing_as_a_free_lunch&quot;&gt;There ain&amp;#8217;t no such thing as a free lunch&lt;/a&gt; (TANSTAAFL), and someone&amp;#8217;s bound to shut you down or send you a bill—best to get that out of the way up front.&lt;/p&gt;
+&lt;p&gt;As it turns out, &lt;a href=&quot;http://aws.amazon.com/&quot;&gt;Amazon Web Services&lt;/a&gt; will happily accept &lt;a href=&quot;http://aws.amazon.com/s3/pricing/&quot;&gt;the change from your penny jar&lt;/a&gt; to serve up small collections of web content. Well, they will after you&amp;#8217;ve turned the physical pennies into numbers in a bank account, but my point is that Amazon S3 is *&lt;a href=&quot;http://aws.amazon.com/s3/pricing/&quot;&gt;super cheap&lt;/a&gt;*. And, since I&amp;#8217;m talking about a single-page web app here, &lt;a href=&quot;http://aws.amazon.com/about-aws/whats-new/2011/02/17/Amazon-S3-Website-Features/&quot;&gt;plain old static web hosting&lt;/a&gt; is all you need for now.&lt;/p&gt;
+&lt;p&gt;In fact, if you own a domain name, you can control the URL from which S3 serves up your content. Basically, you just:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;create a DNS record with a CNAME to S3 (eg. &lt;code&gt;my-project.lmorchard.com&lt;/code&gt; -&amp;gt; &lt;code&gt;s3-website-us-east-1.amazonaws.com&lt;/code&gt;);&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://console.aws.amazon.com/s3/home&quot;&gt;create a bucket named for your domain&lt;/a&gt; (eg. &lt;code&gt;my-project.lmorchard.com&lt;/code&gt;);&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://aws.typepad.com/aws/2011/02/host-your-static-website-on-amazon-s3.html&quot;&gt;check a box in the properties panel to enable static hosting&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The above is vaguely more advanced than either GitHub or Dropbox, but this is playing with power. And, with great power comes great responsibility to read the fine manual. Still, it&amp;#8217;s not that hard and it&amp;#8217;s not that spendy.&lt;/p&gt;
+&lt;h3 id=&quot;how-i-make-amazon-s3-work-like-dropbox&quot;&gt;&lt;span id=&quot;How_I_make_Amazon_S3_work_like_Dropbox&quot;&gt;How I make Amazon S3 work like Dropbox&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;So, great: You&amp;#8217;ve got Amazon S3 serving content at a URL of your choice. And, you can upload content using the &lt;a href=&quot;https://console.aws.amazon.com/s3/home&quot;&gt;control panel&lt;/a&gt; or one of the many fine desktop clients available. But, that sounds a bit like the GitHub deployment dance, just GUI-er. Not bad for Official Releases of your app—but what a pain for development!&lt;/p&gt;
+&lt;p&gt;Apropos of that, I have a small trick on OS X that makes Amazon S3 as convenient as Dropbox:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Install &lt;a href=&quot;https://rubygems.org/gems/kicker&quot;&gt;kicker&lt;/a&gt;;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Install &lt;a href=&quot;http://s3tools.org/s3cmd&quot;&gt;s3cmd&lt;/a&gt; and configure it with your S3 credentials;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Run &lt;a href=&quot;https://github.com/lmorchard/notational-vapor/blob/master/s3-sync.sh&quot;&gt;this&lt;/a&gt; from your project directory in a terminal: 
+kicker -c -e &amp;#8216;s3cmd -vfrP &amp;#8211;exclude=&amp;#8221;&lt;em&gt;swp&amp;#8221; &amp;#8211;exclude=&amp;#8221;.git&lt;/em&gt;&amp;#8221; sync . s3://my-project.lmorchard.com/&amp;#8217;&lt;/li&gt; &lt;/ul&gt; 
+What this does is start &lt;code&gt;kicker&lt;/code&gt; to monitor your files. Whenever anything changes, &lt;code&gt;s3cmd&lt;/code&gt; uploads the changes to Amazon S3. After the first run, my content shows up at an URL like:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;http://my-project.lmorchard.com/README.md&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So, again, my hacking cycle with Amazon S3 looks like this:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Save changes&lt;/li&gt;
+&lt;li&gt;Switch to browser&lt;/li&gt;
+&lt;li&gt;Refresh&lt;/li&gt;
+&lt;li&gt;Repeat&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Again, this turns out to be nearly indistinguishable from working on &lt;code&gt;localhost&lt;/code&gt; or with &lt;code&gt;file://&lt;/code&gt; URLs, because the kicker-s3cmd team has generally already shipped off my changes before I can get to the browser. I&amp;#8217;m sure something similar to the above can be cobbled together on Linux or Windows, but I don&amp;#8217;t work there so I&amp;#8217;ve not bothered to figure it out.&lt;/p&gt;
+&lt;h2 id=&quot;in-conclusion&quot;&gt;&lt;span id=&quot;In_conclusion&quot;&gt;In conclusion&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Developing open &lt;a target=&quot;_blank&quot; title=&quot;web apps&quot; href=&quot;https://developer.mozilla.org/docs/Apps?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;web apps&lt;/a&gt; on the open web can be fun, fast, cheap, and convenient. I&amp;#8217;ve got more posts forthcoming, at least in my head, but hopefully this one gives some starting points.&lt;/p&gt;
+&lt;p&gt;I may also revise and further develop this post, since I left quite a bit of reading to the reader with links to follow. There are also even more cheap and easy web hosts, so maybe I&amp;#8217;ll explore those as well. In the meantime, feel free to leave some comments!&lt;/p&gt;
+</description>
+          <pubDate>Tue, 18 Sep 2012 12:00:00 GMT</pubDate>
+          <link>https://lmorchard.github.io/blog.lmorchard.com//2012/09/18/first-get-it-onto-the-web/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2012/09/18/first-get-it-onto-the-web/</guid>
+        </item><item>
+          <title>On the other end of a self-imposed death march project</title>
+          
+          <description>&lt;p&gt;So, I&amp;#8217;m a couple of weeks back from a well-deserved vacation taken after the launch of a project well over 18 months in the making. I kind of overworked myself, voluntarily, and that needs to change.&lt;/p&gt;
+&lt;!--more--&gt;
+
+&lt;p&gt;What project? &lt;a href=&quot;https://github.com/mozilla/kuma&quot;&gt;Kuma&lt;/a&gt; on &lt;a href=&quot;https://developer.mozilla.org&quot;&gt;developer.mozilla.org&lt;/a&gt;. What&amp;#8217;s that? Well, it&amp;#8217;s generally described as a wiki, but though I think we&amp;#8217;ve gone a long way away from &amp;#8220;&lt;a href=&quot;http://www.wiki.org/wiki.cgi?WhatIsWiki&quot;&gt;The simplest online database that could possibly work&lt;/a&gt;&amp;#8220;. At this point, it&amp;#8217;s a content management system, complete with revision management, WYSIWYG, collaboration, community, and localization features. It&amp;#8217;s a wiki insofar as anyone can edit it, but &lt;a target=&quot;_blank&quot; title=&quot;Kuma&quot; href=&quot;https://developer.mozilla.org/docs/Project:Getting_started_with_Kuma?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;Kuma&lt;/a&gt;&amp;#8217;s not exactly simple.&lt;/p&gt;
+&lt;p&gt;The parts I had the heaviest hand in were:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/mozilla/kuma/blob/master/apps/dekicompat/management/commands/migrate_to_kuma_wiki.py&quot;&gt;Content migration from the previous incarnation&lt;/a&gt;, which employed the &lt;a href=&quot;http://www.mindtouch.com/&quot;&gt;MindTouch&lt;/a&gt; platform to a very full extent;&lt;/li&gt;
+&lt;li&gt;Development of &lt;a href=&quot;https://github.com/mozilla/kumascript&quot;&gt;KumaScript&lt;/a&gt;, a server-side &lt;a target=&quot;_blank&quot; title=&quot;JS&quot; href=&quot;https://developer.mozilla.org/docs/JavaScript?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;JS&lt;/a&gt; platform for dynamic content heavily inspired by (ie. cribbed entirely from) &lt;a href=&quot;http://developer.mindtouch.com/en/docs/DekiScript&quot;&gt;DekiScript&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;As it turns out, those were two of the hardest parts of the project. No, I wasn&amp;#8217;t alone: I&amp;#8217;m a member of a team, and my teammates did plenty of work themselves. But, I&amp;#8217;ve found that I have a lot in common with &lt;a href=&quot;http://masseffect.wikia.com/wiki/Mordin_Solus&quot;&gt;Mordin Solus&lt;/a&gt;, a fact that made me actually cry during this scene:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#39;embed-youtube&#39; style=&#39;text-align:center; display: block;&#39;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;(Spoiler alert: Mordin gets blown up.)&lt;/p&gt;
+&lt;p&gt;That&amp;#8217;s why I say this was a self-imposed &lt;a href=&quot;http://en.wikipedia.org/wiki/Death_march_%28project_management%29&quot;&gt;death march&lt;/a&gt;. No one nailed me to my desk, and no one on my team was a slacker. In fact, although there was a lot of pressure to get this project out the door ASAP, managers and others quite often told me to take it easier. And furthermore, working on myself to ease up on this particularly neurotic sentiment was a major theme of recent performance reviews.&lt;/p&gt;
+&lt;p&gt;So, to be clear: This is about me, and not my team. My team is awesome.&lt;/p&gt;
+&lt;p&gt;That said, my motivations for the work on &lt;a target=&quot;_blank&quot; title=&quot;MDN&quot; href=&quot;https://developer.mozilla.org/?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;MDN&lt;/a&gt; are pretty simple:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I think producing tech books online, collaboratively, is the future;&lt;/li&gt;
+&lt;li&gt;I love &lt;a target=&quot;_blank&quot; title=&quot;Mozilla&quot; href=&quot;https://www.mozilla.org/?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;Mozilla&lt;/a&gt; and the open web.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And, so it seems, &lt;a target=&quot;_blank&quot; title=&quot;Mozilla&quot; href=&quot;https://www.mozilla.org/?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;Mozilla&lt;/a&gt; loves me back. I got atta boys all around, from managers and awesome teammates alike. So, my efforts certainly didn&amp;#8217;t go unappreciated. In my experience &lt;a href=&quot;http://careers.mozilla.org/en-US/&quot;&gt;Mozilla is a brilliant place to work&lt;/a&gt; and is an organization that appreciates both smart and hard work in ways both conventional and unexpected.&lt;/p&gt;
+&lt;p&gt;All that said, though, I really do need to ease up. There are plenty of things in life at large that I&amp;#8217;ve been neglecting lately &amp;#8211; and that&amp;#8217;s not good: Those are the things that make my work possible to begin with.&lt;/p&gt;
+&lt;p&gt;But, I&amp;#8217;m not burnt out and I&amp;#8217;m not moving on. I didn&amp;#8217;t bust my ass on &lt;a target=&quot;_blank&quot; title=&quot;MDN&quot; href=&quot;https://developer.mozilla.org/?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;MDN&lt;/a&gt; just to wander off from it, and I can&amp;#8217;t think of a better place to be than at &lt;a target=&quot;_blank&quot; title=&quot;Mozilla&quot; href=&quot;https://www.mozilla.org/?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;Mozilla&lt;/a&gt; (&lt;a href=&quot;https://wiki.mozilla.org/Kilimanjaro&quot;&gt;especially right now&lt;/a&gt;). But, it&amp;#8217;s time to take a bit of a more human pace with things. Contribute, take breaks, trust my awesome teammates can kick as much ass as I demand from myself.&lt;/p&gt;
+&lt;p&gt;Because the &lt;a target=&quot;_blank&quot; title=&quot;MDN&quot; href=&quot;https://developer.mozilla.org/?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;MDN&lt;/a&gt; team totally does kick so much ass.&lt;/p&gt;
+</description>
+          <pubDate>Mon, 17 Sep 2012 12:00:00 GMT</pubDate>
+          <link>https://lmorchard.github.io/blog.lmorchard.com//2012/09/17/on-the-other-end-of-a-self-imposed-death-march-project/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2012/09/17/on-the-other-end-of-a-self-imposed-death-march-project/</guid>
+        </item><item>
+          <title>Note to self File a bug to get&amp;#8230;</title>
+          
+          <description>&lt;p&gt;Note to self: File a bug to get &lt;a href=&quot;http://blog.lmorchard.com/tag/mozilla/feed&quot;&gt;the Mozilla tag feed&lt;/a&gt; here added to Planet &lt;a target=&quot;_blank&quot; title=&quot;Mozilla&quot; href=&quot;https://www.mozilla.org/?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;Mozilla&lt;/a&gt;&lt;/p&gt;
+</description>
+          <pubDate>Tue, 10 Jul 2012 12:00:00 GMT</pubDate>
+          <link>https://lmorchard.github.io/blog.lmorchard.com//2012/07/10/note-to-self-file-a-bug-to-get/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2012/07/10/note-to-self-file-a-bug-to-get/</guid>
+        </item><item>
+          <title>How webdev is like space exploration</title>
+          
+          <description>&lt;p&gt;This isn&amp;#8217;t so much a complaint as a set of observations: Sometimes, as a webdev, diagnosing and fixing issues on a live site in production gives me sympathy for NASA scientists dealing with remote space probes. And, that&amp;#8217;s because I generally don&amp;#8217;t have direct access to the servers. Instead, my access is mediated through sysadmins whose primary communication channel is trouble tickets. (Occasionally, I&amp;#8217;ll be lucky enough to have someone I can pester more directly, but that&amp;#8217;s a privilege that I try really hard not to abuse.)&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://marsrovers.jpl.nasa.gov/home/index.html&quot;&gt;&lt;img src=&quot;http://marsrovers.jpl.nasa.gov/overview/rover_low_angle_200.jpg&quot; style=&quot;float:right; margin: 1em 0em 1em 1em&quot; /&gt;&lt;/a&gt; So, I build my own replicas of production sites, as best as I can. I deploy exploratory rovers into those environments, and try to account for what could happen based on everything I know up to this point. Once I&amp;#8217;ve done all I can to prepare, I fire up the comms dish and beam out a request to the distant probe. This takes time because I have to wait until the receiver is in alignment, and there&amp;#8217;s a transmission &amp;amp; reply delay due to distance. (&lt;em&gt;In other words, I file a bug and wait for someone to pick it up. That takes awhile, because we&amp;#8217;re all busy people, and I&amp;#8217;m a telecommuter who can&amp;#8217;t just go tap someone on the shoulder.&lt;/em&gt;)&lt;/p&gt;
+&lt;p&gt;I cross my fingers and hope I&amp;#8217;ve built up a good-enough model of the remote environment, and maybe I&amp;#8217;ll find that my hypothesis will be validated. If not, well, then I at least hope I haven&amp;#8217;t broken anything, and hope that there&amp;#8217;s new information in the reply that I can assimilate into my replica environment here back at home for an improved next attempt.&lt;/p&gt;
+&lt;p&gt;But, I&amp;#8217;m not entirely sure how to improve this situation. If I had direct access to production servers, I&amp;#8217;d be able to do more. However, if I had that access, I&amp;#8217;d be &lt;em&gt;expected&lt;/em&gt; to do more. You know, like wear a pager and wake up at 4am to fix an alarm condition. I&amp;#8217;ve done that job in the past, and I don&amp;#8217;t envy anyone who has it now.&lt;/p&gt;
+&lt;p&gt;There are also, I imagine, trust and confidentiality issues: even though I write the code, I&amp;#8217;m not necessarily qualified to be in contact with certain kinds of sensitive data on a daily basis. (And by not qualified, I mean not bound by a certain class of contractual or legal obligations and not subject to certain kinds of training. I&amp;#8217;ll say you can trust me, but trust is sometimes a formalized thing.)&lt;/p&gt;
+&lt;p&gt;Still, some days I like to imagine that what I&amp;#8217;m doing is trying to debug the behavior of a robot in orbit around Mars. It keeps me from putting too many dents into my desk with my forehead.&lt;/p&gt;
+</description>
+          <pubDate>Tue, 10 Jul 2012 12:00:00 GMT</pubDate>
+          <link>https://lmorchard.github.io/blog.lmorchard.com//2012/07/10/webdev-in-spac/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2012/07/10/webdev-in-spac/</guid>
+        </item><item>
+          <title>How webdev has been getting better</title>
+          
+          <description>&lt;p&gt;So, in the last thing I posted, I wrote about how fixing problems on live web sites &lt;a href=&quot;http://blog.lmorchard.com/2012/07/10/webdev-in-spac&quot;&gt;feels like fixing space robots&lt;/a&gt;. At &lt;a target=&quot;_blank&quot; title=&quot;Mozilla&quot; href=&quot;https://www.mozilla.org/?utm_source=wordpress%20blog&amp;utm_medium=content%20link&amp;utm_campaign=promote%20mdn&quot;&gt;Mozilla&lt;/a&gt;, though, things have been getting steadily better and more interesting:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.amazon.com/gp/product/B004D18MCK/ref=as_li_ss_il?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=390957&amp;amp;creativeASIN=B004D18MCK&amp;amp;linkCode=as2&amp;amp;tag=0xdecafbad01-20&quot;&gt;&lt;img src=&quot;http://ecx.images-amazon.com/images/I/41AvY4p2haL._SL160_.jpg&quot; style=&quot;float:left; margin: 1em 1em 1em 0&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;There&amp;#8217;s still the &lt;em&gt;sysadmin-as-remote-pair-of-hands-driven-by-trouble-tickets&lt;/em&gt; thing going on, but less so every day. More and more, we&amp;#8217;re getting into &lt;a href=&quot;http://www.slideshare.net/MattBrandt/mozilla-continuous-deploment-on-sumo&quot;&gt;continuous deployment&lt;/a&gt;. Our sysadmins are really smart cookies: They&amp;#8217;re steadily replacing themselves with scripts of varying sizes. That way, they can get on to more interesting things. In fact, just recently, they gave us a great Big Red Button that deploys code from a git repository to the live site on demand. And, for some reason, I&amp;#8217;m one of the people who got a key to it.&lt;/p&gt;
+&lt;p&gt;Okay, maybe not &lt;a href=&quot;http://www.amazon.com/gp/product/B004D18MCK/ref=as_li_ss_il?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=390957&amp;amp;creativeASIN=B004D18MCK&amp;amp;linkCode=as2&amp;amp;tag=0xdecafbad01-20&quot;&gt;&lt;em&gt;that&lt;/em&gt; exact button&lt;/a&gt;, but ours is very keen. Of course, when it broke once, I felt like the Pakled on the right (and not Geordi):&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#39;embed-youtube&#39; style=&#39;text-align:center; display: block;&#39;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;But, the Big Red Button hasn&amp;#8217;t broken very often. So, I&amp;#8217;d rather be a Pakled some of the time than pretend to be a rocket scientist all of the time.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://octodex.github.com/&quot;&gt;&lt;img src=&quot;http://octodex.github.com/images/twenty-percent-cooler-octocat.png&quot; style=&quot;width: 150px; float: right; margin: 1em 0 1em 1em&quot; /&gt;&lt;/a&gt; Oh yeah, and &lt;a href=&quot;https://github.com/mozilla/&quot;&gt;we&amp;#8217;re using GitHub a lot these days&lt;/a&gt;. It&amp;#8217;s crazypants awesome for collaboration, and it fits right in with our style because we want to do everything in the open anyway. We&amp;#8217;ve even somehow lured people who don&amp;#8217;t normally code into &lt;a href=&quot;https://github.com/mozilla/kuma/commit/1a8038215a2c4bb7fba5ff098875d034704d79bd&quot;&gt;submitting Pull Requests&lt;/a&gt;. And, it&amp;#8217;s amazingly powerful to refer to specific lines of code and commits by URL in IRC or email.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://vagrantup.com/&quot;&gt;&lt;img src=&quot;http://vagrantup.com/static/images/hippie.png&quot; style=&quot;width: 150px; float: left; margin: 1em 1em 1em 0&quot; /&gt;&lt;/a&gt; I&amp;#8217;ve also been getting a lot better at building development environments, &lt;a href=&quot;http://opensourcebridge.org/wiki/2011/Inviting_Contributors_to_Open_Source_Webdev_through_Virtualization&quot;&gt;using Puppet and Vagrant&lt;/a&gt; and Amazon EC2. I haven&amp;#8217;t quite gotten to the point where I can borrow IT&amp;#8217;s Puppet manifests directly &amp;#8211; ie. those scripts with which sysadmins are replacing themselves.&lt;/p&gt;
+&lt;p&gt;But, we are maintaining the recipes for spinning up dev servers right alongside the code. Our READMEs are shrinking, rather than growing &amp;#8211; and yet we&amp;#8217;re still adding more services and dependencies. I no longer really fear totally jack-knifing my dev rig, because I can just toss it and conjure up another in the time it takes me to run to lunch.&lt;/p&gt;
+&lt;p&gt;Let&amp;#8217;s see, what else? I&amp;#8217;m sure I&amp;#8217;ll think of something. Until then, SHIP IT. (The post, I mean.)&lt;/p&gt;
+</description>
+          <pubDate>Tue, 10 Jul 2012 12:00:00 GMT</pubDate>
+          <link>https://lmorchard.github.io/blog.lmorchard.com//2012/07/10/webdev-more-better/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2012/07/10/webdev-more-better/</guid>
+        </item>
+    </channel>
+  </rss>

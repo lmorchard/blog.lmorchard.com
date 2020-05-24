@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>A mini-scraper for the playlist at radioio Rock - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/blog.lmorchard.com/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="A mini-scraper for the playlist at radioio Rock" />
+        <meta
+          property="og:url"
+          content="https://lmorchard.github.io/blog.lmorchard.com//"
+        />
+        
+        <meta property="og:description" content="&lt;p&gt;Lately, my iTunes has been playing &lt;a href=&quot;http://www.radioio.com/radioiorock.php?stream=radioioRock&quot;&gt;radioio Rock&lt;/a&gt; almost exclusively lately, but one thing that peeves me is that I don&amp;apos;t seem to see the current song while the stream&amp;apos;s playing.  Instead, the &lt;a href=&quot;http://www.radioio.com/&quot;&gt;radioio&lt;/a&gt; site offers a pop-up window that displays the last few songs in the playlist.  However, I&amp;apos;m usually somewhere off in another window or a shell and don&amp;apos;t really feel like popping over to a browser and navigating to the playlist just to see what this song is.&lt;/p&gt;
+&lt;p&gt;So, I wrote myself a little mini-scraper script:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#!/bin/sh
+
+curl -s &amp;apos;http://player.radioio.com/player.php?b=614&amp;amp;#38;stream=radioioRock&amp;apos; | \
+    tidy -asxml --wrap 300 -q -f /dev/null | \
+    xml sel -t -m &amp;quot;//*[@class=&amp;apos;leadrock&amp;apos;]&amp;quot; -v &amp;apos;.&amp;apos; -n \
+        -o &amp;apos;    [http://www.radioio.com&amp;apos; -v &amp;apos;../@href&amp;apos; -o &amp;apos;]&amp;apos; -n &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The output looks something like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[06/29 11:01:08] deusx@Caffeina2:~ % radioio
+
+Vast - I Need To Say Goodbye
+    [http://www.radioio.com...]
+Cure - The End Of The World
+    [http://www.radioio.com...]
+Seachange - Avs Co 10
+    [http://www.radioio.com...]
+Pixies - Bam Thwok
+    [http://www.radioio.com...]
+Death Cab For Cutie - The New Year
+    [http://www.radioio.com...]
+Lovethugs - Drawing The Curtains
+    [http://www.radioio.com...]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Oh yeah, and to run this script, you will need these tools:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://curl.haxx.se/&quot;&gt;curl&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://tidy.sourceforge.net/&quot;&gt;HTML Tidy&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://xmlstar.sourceforge.net/&quot;&gt;XMLStarlet&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Personally, I like the included URLs (which I edited here for length) since they launch a search for CDs by the artist.  However, you can cut the output down to just the artist/title by removing the final line of the script and the backslash at the end of the line before.&lt;/p&gt;
+&lt;p&gt;If you like a different &lt;a href=&quot;http://www.radioio.com/&quot;&gt;radioio&lt;/a&gt; station, say &lt;a href=&quot;http://www.radioio.com/radioioeclectic.php?stream=radioioEclectic&quot;&gt;radioio Eclectic&lt;/a&gt;, you can change &lt;code&gt;stream=radioioRock&lt;/code&gt; to &lt;code&gt;stream=radioioEclectic&lt;/code&gt; in the URL above and change &lt;code&gt;class=&amp;apos;leadrock&amp;apos;&lt;/code&gt; to &lt;code&gt;class=&amp;apos;leadeclectic&amp;apos;&lt;/code&gt;.  I could have parameterized these, but I&amp;apos;m lazy, and that was the whole point!&lt;/p&gt;
+&lt;p&gt;ShareAndEnjoy!&lt;/p&gt;
+" />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post tag-hacks"
+      >
+        <time
+          title="2004-06-28T16:17:36-07:00"
+          pubdate="2004-06-28T16:17:36-07:00"
+        >
+          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/blog.lmorchard.com/2004/"
+            >2004</a
+          >
+          &raquo;
+          <a href="/blog.lmorchard.com/2004/06/"
+            >June</a
+          >
+          &raquo;
+          <span>28</span>
+          &raquo;
+        </time>
+        <h1 class="title">A mini-scraper for the playlist at radioio Rock</h1>
+        <ul class="tags">
+            <li>
+                  <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+                </li>
+          </ul>
+        <section class="post-content">
+          <p>Lately, my iTunes has been playing <a href="http://www.radioio.com/radioiorock.php?stream=radioioRock">radioio Rock</a> almost exclusively lately, but one thing that peeves me is that I don&#39;t seem to see the current song while the stream&#39;s playing.  Instead, the <a href="http://www.radioio.com/">radioio</a> site offers a pop-up window that displays the last few songs in the playlist.  However, I&#39;m usually somewhere off in another window or a shell and don&#39;t really feel like popping over to a browser and navigating to the playlist just to see what this song is.</p>
+<p>So, I wrote myself a little mini-scraper script:</p>
+<pre><code>#!/bin/sh
+
+curl -s &#39;http://player.radioio.com/player.php?b=614&amp;#38;stream=radioioRock&#39; | \
+    tidy -asxml --wrap 300 -q -f /dev/null | \
+    xml sel -t -m &quot;//*[@class=&#39;leadrock&#39;]&quot; -v &#39;.&#39; -n \
+        -o &#39;    [http://www.radioio.com&#39; -v &#39;../@href&#39; -o &#39;]&#39; -n </code></pre>
+<p>The output looks something like this:</p>
+<pre><code>[06/29 11:01:08] deusx@Caffeina2:~ % radioio
+
+Vast - I Need To Say Goodbye
+    [http://www.radioio.com...]
+Cure - The End Of The World
+    [http://www.radioio.com...]
+Seachange - Avs Co 10
+    [http://www.radioio.com...]
+Pixies - Bam Thwok
+    [http://www.radioio.com...]
+Death Cab For Cutie - The New Year
+    [http://www.radioio.com...]
+Lovethugs - Drawing The Curtains
+    [http://www.radioio.com...]</code></pre>
+<p>Oh yeah, and to run this script, you will need these tools:</p>
+<ul>
+<li><a href="http://curl.haxx.se/">curl</a></li>
+<li><a href="http://tidy.sourceforge.net/">HTML Tidy</a> </li>
+<li><a href="http://xmlstar.sourceforge.net/">XMLStarlet</a></li>
+</ul>
+<p>Personally, I like the included URLs (which I edited here for length) since they launch a search for CDs by the artist.  However, you can cut the output down to just the artist/title by removing the final line of the script and the backslash at the end of the line before.</p>
+<p>If you like a different <a href="http://www.radioio.com/">radioio</a> station, say <a href="http://www.radioio.com/radioioeclectic.php?stream=radioioEclectic">radioio Eclectic</a>, you can change <code>stream=radioioRock</code> to <code>stream=radioioEclectic</code> in the URL above and change <code>class=&#39;leadrock&#39;</code> to <code>class=&#39;leadeclectic&#39;</code>.  I could have parameterized these, but I&#39;m lazy, and that was the whole point!</p>
+<p>ShareAndEnjoy!</p>
+<!--more-->
+<p>shortname=radioiorock_scraper</p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221087229">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.bytecloud.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=7388f3fd9cfa9436c5282542aaccf4fd&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.bytecloud.com">Mike Carter</a>
+</div>
+<a href="#comment-221087229" class="permalink"><time datetime="2004-07-01T07:39:45">2004-07-01T07:39:45</time></a>
+</div>
+<div class="content">I was listening to some streams today for the first time in a while and I was thinking how annoying it was not to know the track names.  Thanks for posting this, it may come in handy!</div>
+</li>
+<li class="comment" id="comment-221087231">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://cpe000103c34069-cm014300001653.cpe.net.cable.rogers.com/weblogs/ben/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=871196de9b27ed994c30428eed59073c&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://cpe000103c34069-cm014300001653.cpe.net.cable.rogers.com/weblogs/ben/">Gnomon</a>
+</div>
+<a href="#comment-221087231" class="permalink"><time datetime="2004-07-01T18:31:58">2004-07-01T18:31:58</time></a>
+</div>
+<div class="content">How is this the first time I've ever found out about XML Starlet? It's magnificent!
+The application is cool, too, but /man/ - I'm going to have fun with XML Starlet. Thanks so very much for the pointer, Les!</div>
+</li>
+<li class="comment" id="comment-221087232">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" 
+href="http://www.radioio.com/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=0cfcb3aefaca714528c009a68810e8ec&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
+<a class="avatar name" rel="nofollow" 
+href="http://www.radioio.com/">Jesse</a>
+</div>
+<a href="#comment-221087232" class="permalink"><time datetime="2005-01-23T11:50:41">2005-01-23T11:50:41</time></a>
+</div>
+<div class="content">I was searching around with blowsearch.com today (which btw blows heheh) and found this entry.  This earl might be of interest to ya:
+http://69.28.133.51:1040/7.html
+The db for searchplay and our players is only updated every 30 seconds, 7.html is near reatime right from our playback software.  :)
+We used to have title streaming on our mp3 streams but are in transition of server and encoding software atm while we prepare to roll out our own software, and will be adding new formats such as heaac.  :)
+Too much to talk about, we have a LOT of stuff planned for 2005-2006 that we've been working on (and patent pending) for years now.  Definately going to be exciting time for net radio.  Thanks for your interest Leslie.
+jesse
+chief tinkerer of toys,
+radioio</div>
+</li>
+</ul>
+</div>
+
+        </section>
+      </article>
+        </section>
+
+        <footer>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

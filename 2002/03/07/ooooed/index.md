@@ -1,0 +1,7 @@
+In case you're all wondering what I'm doing, I'm moving over to using <a href="http://radio.userland.com">Radio <a href="http://www.decafbad.com/twiki/bin/view/Main/UserLand">UserLand</a></a> to manage my journal and weblogs.  I got a tool called <a href="http://www.cybersaps.co.uk/2002/02/20.html#a254">xManilaBloggerBridge</a> which binds my Radio <a href="http://www.decafbad.com/twiki/bin/view/Main/UserLand">UserLand</a> categories to sites that talk <a href="http://www.decafbad.com/twiki/bin/view/Main/BloggerAPI">BloggerAPI</a>, namely <a href="http://www.decafbad.com">0xDECAFBAD</a> and <a href="http://deus-x.livejournal.com">my <a href="http://www.decafbad.com/twiki/bin/view/Main/LiveJournal">LiveJournal</a> account</a> (via <a href="http://www.tswoam.co.uk/index.php?n_go=14">Blogger-2-LiveJournal</a> installed on my webserver).  Sound convoluted?  It is, and it's about to get even more convoluted.
+<br /><br />
+The end result, though, is that I can write from one spot and publish to many sites, and write some more neato things to automatically process my writing as it goes on its way.  (Such as, automatically create links to my <a href="http://www.decafbad.com/twiki/bin/view">wiki</a>, where I maintain pages on long running ideas.)
+<br /><br />
+I am a nerd.  I'll try to keep the high nerdity on <a href="http://www.decafbad.com">0xDECAFBAD</a> and not on <a href="http://deus-x.livejournal.com">my dreamspace</a>.  :)
+<!--more-->
+shortname=ooooed

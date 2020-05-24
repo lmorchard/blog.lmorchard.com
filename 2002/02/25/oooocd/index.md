@@ -1,0 +1,9 @@
+Even more twiddling.  Seriously thinking of moving <a href="http://www.decafbad.com/twiki/bin/view/Main/WebHome">the Wiki</a> over to <a href="http://www.decafbad.com/twiki/bin/view/Main/MoinMoin">MoinMoin</a> now that I&apos;ve had a better look.  It seems to support almost all of the features I use with TWiki, but looks to have a much cleaner design.
+<br /><br />
+Did some poking tonight, and it looks like I could have yet another implementation of the <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpcToWiki">XmlRpcToWiki</a> for <a href="http://www.decafbad.com/twiki/bin/view/Main/MoinMoin">MoinMoin</a>.  That would bring me up to a total of 3 supported wikis.  After that, I just need to keep them all in synch with the API as it shapes up over on the <a href="http://www.ecyrd.com/JSPWiki/Wiki.jsp?page=WikiRPCInterface">JspWiki</a> site.
+<br /><br />
+After I get the <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpcToWiki">XmlRpcToWiki</a> implemented for <a href="http://www.decafbad.com/twiki/bin/view/Main/MoinMoin">MoinMoin</a>, I can work on the <a href="http://www.decafbad.com/twiki/bin/view/Main/WikiWikiBridge">WikiWikiBridge</a> between TWiki and <a href="http://www.decafbad.com/twiki/bin/view/Main/MoinMoin">MoinMoin</a> to execute the conversion of content for migration.
+<br /><br />
+The side effect of moving to <a href="http://www.decafbad.com/twiki/bin/view/Main/MoinMoin">MoinMoin</a> in this way is that I&apos;ll end up with 3 wiki engines speaking XML-RPC, and one bridge between engines.  Sounds like fun to me.
+<!--more-->
+shortname=oooocd
