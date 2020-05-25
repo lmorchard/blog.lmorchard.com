@@ -11,7 +11,7 @@ module.exports = ({ site = {}, page = {} }, content) =>
         <meta property="og:title" content="${page.title}" />
         <meta
           property="og:url"
-          content="${site.absolute_baseurl}${page.url}/"
+          content="${site.absolute_baseurl}/${page.path}/"
         />
         ${page.thumbnail &&
         html`
@@ -87,7 +87,7 @@ module.exports = ({ site = {}, page = {} }, content) =>
           <div id="disqus_thread"></div>
           <script type="text/javascript">
             var disqus_needs_loading = true;
-            var disqus_url = "${site.absolute_baseurl}${page.url}";
+            var disqus_url = "${site.absolute_baseurl}/${page.path}";
           </script>
           <noscript
             >Please enable JavaScript to view the
