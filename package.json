@@ -13,7 +13,7 @@
     "stage": "npm-run-all --serial stage:build stage:deploy",
     "stage:build": "ABSOLUTE_BASE_URL=https://lmorchard.github.io/blog.lmorchard.com/ BASE_URL=/blog.lmorchard.com yarn build",
     "stage:deploy": "gh-pages -t -d build",
-    "drafts": "npm-run-all --parallel drafts:*",
+    "drafts": "yarn build && npm-run-all --parallel drafts:*",
     "drafts:watch": "onchange -v -i drafts -- node index.js build-posts 'drafts/*.md'",
     "drafts:serve": "reload -d build -p 9980"
   },
