@@ -7,7 +7,7 @@ tags:
   - webdev
 ---
 
-**TL;DR**: I made a new static site generator for my blog. It's not very clever. I've been calling it my "Easy-Blog Oven" and it seems to be working well so far.
+**TL;DR**: I made [a new static site generator for my blog](https://github.com/lmorchard/blog.lmorchard.com). It's not very clever. I've been calling it my "Easy-Blog Oven" and it seems to be working well so far.
 
 <!--more-->
 
