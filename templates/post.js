@@ -46,6 +46,23 @@ module.exports = ({ site = {}, page = {} }, content) =>
           <span>${moment(page.date).format("DD")}</span>
           &raquo;
         </time>
+
+        <nav class="post-links">
+          ${page.prevPostPath &&
+          html`
+            <a href="${site.baseurl}/${page.prevPostPath}/"
+              >&laquo; prev<a> </a
+            ></a>
+          `}
+          ${page.prevPostPath && page.nextPostPath && html`&nbsp;|&nbsp;`}
+          ${page.nextPostPath &&
+          html`
+            <a href="${site.baseurl}/${page.nextPostPath}/"
+              >next &raquo;<a> </a
+            ></a>
+          `}
+        </nav>
+
         <h1 class="title">${page.title}</h1>
         ${page.tags &&
         html`
