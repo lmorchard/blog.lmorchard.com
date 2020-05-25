@@ -22,7 +22,9 @@ But then, just this past week, I whipped up [a quick static site generator for a
 * Iterate through files and load them.
 * Render HTML using [tagged template literals][tagged-literals].
 
-After building that, it occurred to me: What if I just wrote a stupid simple script for my blog to iterate through all my entries? So, [I tried it in a real quick sketch of code][initial-commit]. Since it was about as 
+After building that, it occurred to me: What if I just wrote a stupid simple script for my blog to iterate through all my entries? So, [I tried it in a real quick sketch of code][initial-commit]. 
+
+It was Aaron Swartz' "[Bake, Don't Fry](http://www.aaronsw.com/weblog/000404)" blog post back in 2002 that first got me thinking about static site generators. Since this script started about as simple as a box with a light bulb in it, I started calling it my "Easy-Blog Oven".
 
 I've accumulated over 1000 posts in the 18 years since I started a blog. I expected this naive script to take an annoyingly long time to run. It took 2 seconds. Turns out computers and Node.js are fast, these days. Hell, there's probably more data dredged up from a typical `node_modules` folder than my entire blog.
 
