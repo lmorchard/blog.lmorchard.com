@@ -5,7 +5,7 @@ const rimraf = util.promisify(require("rimraf"));
 
 const config = require("./config");
 const { copyAssets } = require("./lib/assets");
-const { loadAllPosts, loadPost, buildAllPosts } = require("./lib/posts");
+const { loadAllPosts, buildAllPosts } = require("./lib/posts");
 const { buildAllIndexes } = require("./lib/indexes");
 
 const { Command } = require("commander");
@@ -41,7 +41,7 @@ async function buildAll() {
 }
 
 program
-  .command("build-posts [glob]")
+  .command("build-posts [globs...]")
   .description("build posts matching glob (or all posts if omitted)")
   .action(buildPosts);
 
@@ -50,7 +50,7 @@ async function buildPosts(postsGlob) {
 }
 
 program
-  .command("build-indexes [glob]")
+  .command("build-indexes [globs...]")
   .description(
     "build indexes for posts matching glob (or all posts if omitted)"
   )

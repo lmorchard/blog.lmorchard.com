@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm-run-all --parallel serve watch",
     "serve": "http-server -d true -i true -p 9980 build",
-    "watch": "onchange -v -i -d 5000 package.json index.js lib templates public -- yarn run build",
+    "watch": "onchange -v -i -d 5000 posts uploads package.json index.js lib templates public -- yarn run build",
     "build": "node index.js build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "snowpack",
@@ -14,8 +14,8 @@
     "stage:build": "ABSOLUTE_BASE_URL=https://lmorchard.github.io/blog.lmorchard.com/ BASE_URL=/blog.lmorchard.com yarn build",
     "stage:deploy": "gh-pages -t -d build",
     "drafts": "yarn build && npm-run-all --parallel drafts:*",
-    "drafts:watch": "onchange -v -i drafts -- node index.js build-posts 'drafts/*.md'",
-    "drafts:serve": "reload -d build -p 9980"
+    "drafts:watch": "onchange -v -i posts uploads -- node index.js build-posts 'posts/*-draft.md' 'posts/*-draft/index.md'",
+    "drafts:serve": "reload -w posts -w build -f index.html -d build -p 9980"
   },
   "author": "Les Orchard <me@lmorchard.com>",
   "license": "MIT",

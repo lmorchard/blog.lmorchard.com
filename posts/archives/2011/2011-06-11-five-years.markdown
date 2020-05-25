@@ -9,7 +9,7 @@ tags:
 - happiness
 title: Five years
 ---
-<a href="https://www.facebook.com/photo.php?fbid=10150188453817452&set=a.479596472451.261680.698502451&type=1" title="One of Matt Callow's old photos from Facebook, also our wedding"><img src="{{ site.baseurl }}/images/five_years.jpg" style="float:right; width: 50%; margin: 0 0 1em 1em;" /></a>
+<a href="https://www.facebook.com/photo.php?fbid=10150188453817452&set=a.479596472451.261680.698502451&type=1" title="One of Matt Callow's old photos from Facebook, also our wedding"><img src="https://decafbad.com/blog/images/five_years.jpg" style="float:right; width: 50%; margin: 0 0 1em 1em;" /></a>
 
 [I proposed to her][proposed] in front of the [Max &
 Ermas][maxandermas] where we'd had our first date. A year or so later,

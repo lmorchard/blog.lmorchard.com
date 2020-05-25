@@ -19,6 +19,12 @@ module.exports = {
       email: "l.m.orchard@pobox.com",
     },
   },
+  postCopyFilters: [
+    '!node_modules',
+    '!node_modules/**/*',
+    '!package-lock.json',
+    '!yarn.lock'    
+  ],
   fulltextTagFeeds: [
     'mozilla'
   ]  

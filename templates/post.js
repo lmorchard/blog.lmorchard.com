@@ -87,7 +87,7 @@ module.exports = ({ site = {}, page = {} }, content) =>
           <div id="disqus_thread"></div>
           <script type="text/javascript">
             var disqus_needs_loading = true;
-            var disqus_url = "${site.absolute_baseurl}/${page.path}";
+            var disqus_url = "${site.absolute_baseurl}/${page.path}/";
           </script>
           <noscript
             >Please enable JavaScript to view the
