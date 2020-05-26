@@ -20,4 +20,4 @@ jobs:
     - name: Build for staging
       run: yarn run stage:build
     - name: Deploy for staging
-      run: ./node_modules/.bin/gh-pages -t -d build -r https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+      run: npx gh-pages -t -d build -r https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
