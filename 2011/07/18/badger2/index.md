@@ -3,7 +3,7 @@ for the Mozilla community, so we could all celebrate how awesome we
 all are. Well, I putzed around and didn't get far, so I'm starting
 over with something more immediately useful.</em>
 
-<img src="{{ site.baseurl }}/images/badger-logo-working.png" style="width:98%; display: block" />
+<img src="https://decafbad.com/blog/images/badger-logo-working.png" style="width:98%; display: block" />
 
 <em>(This is an awesome illustration by [Sean
 Martell](http://seanmartell.com/), used entirely without permission.

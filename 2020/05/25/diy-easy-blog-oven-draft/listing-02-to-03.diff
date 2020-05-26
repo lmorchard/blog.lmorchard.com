@@ -1,0 +1,19 @@
+35a36
+>     const postHtml = templateBlogPost({ post });
+38c39
+<     await fs.writeFile(`${postPath}/index.html`, post.html);
+---
+>     await fs.writeFile(`${postPath}/index.html`, postHtml);
+40a42,53
+> 
+> const templateBlogPost = ({ post }) => `<!DOCTYPE html>
+> <html>
+>   <head>
+>     <title>Blog post<title>
+>   </head>
+>   <body>
+>     <h1>Blog post<h1>
+>     ${post.html}
+>   </body>
+> <html>
+> `;

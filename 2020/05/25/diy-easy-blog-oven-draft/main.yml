@@ -1,0 +1,23 @@
+name: Deploy to Github Pages
+on:
+  push:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js 14.2.0
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14.2.0
+    - name: Set git identity
+      run: |
+        git config --global user.email "you@example.com"
+        git config --global user.name "Your Name Here"        
+    - name: Install
+      run: yarn install
+    - name: Build
+      run: node index.js
+    - name: Deploy
+      run: npx gh-pages -t -d build -r https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git

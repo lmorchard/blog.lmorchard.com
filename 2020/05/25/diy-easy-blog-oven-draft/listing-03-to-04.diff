@@ -1,0 +1,26 @@
+11a12
+> const frontmatter = require("front-matter");
+24c25,26
+<     const body = await fs.readFile(file, "utf8");
+---
+>     const data = await fs.readFile(file, "utf8");
+>     const { attributes, body } = frontmatter(data);
+26a29,30
+>       // Copy all the front matter attributes into the post.
+>       ...attributes,
+46c50
+<     <title>Blog post<title>
+---
+>     <title>${post.title}<title>
+49c53,61
+<     <h1>Blog post<h1>
+---
+>     <h1>${post.title}<h1>
+>     ${
+>       post.tags &&
+>       `
+>       <ul>
+>         ${post.tags.map((tag) => `<li>${tag}</li>`).join("\n")}
+>       </ul>
+>     `
+>     }

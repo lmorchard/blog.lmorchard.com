@@ -1,6 +1,6 @@
 **TL;DR**: <em>At Mozilla, we're redoubling efforts to attract contributors. And, in the Webdev team, we're [using virtual machines][playdoh] to make it even easier to get started hacking. It makes no sense to demand that a JavaScript ninja or a CSS artisan also be a Python-wielding sysadmin, so we're trying to build [ready-baked VMs for our projects][devimages].</em>
 
-<a href="http://www.flickr.com/photos/erix/3998080471/" style="display: block; float: right; text-decoration: none; border: none; margin: 0 0 1em 1em"><img src="{{ site.baseurl }}/images/cloud-box.jpg" style="width: 300px" /><br /><small>Lieferung 3 by erix on Flickr</small></a>
+<a href="http://www.flickr.com/photos/erix/3998080471/" style="display: block; float: right; text-decoration: none; border: none; margin: 0 0 1em 1em"><img src="https://decafbad.com/blog/images/cloud-box.jpg" style="width: 300px" /><br /><small>Lieferung 3 by erix on Flickr</small></a>
 
 Firefox is more than just a desktop browser, and Mozilla is more than just Firefox. An ever-growing mass of our code is going toward building web sites and services that [build][releng], [ship][downloads], [update][aus], [support][sumo], [promote][promote], [augment][amo], [document][mdn], [sync][sync], [share][share], [identify][identity], and [report][socorro]. (And I'm sure I'm missing a further cast of hundreds, here.) 
 

@@ -35,7 +35,7 @@
       <meta property="og:title" content="On RSS and Namespaces" />
         <meta
           property="og:url"
-          content="https://lmorchard.github.io/blog.lmorchard.com//"
+          content="https://lmorchard.github.io/blog.lmorchard.com//2002/09/28/ooobii/"
         />
         
         <meta property="og:description" content="&lt;p&gt;Dave writes on &amp;quot;&lt;a href=&quot;http://scriptingnews.userland.com/stories/storyReader$1766&quot;&gt;RSS and Namespaces&lt;/a&gt;&amp;quot;:&lt;/p&gt;&lt;blockquote&gt;&lt;i&gt;... there are some XML parsers that don&amp;apos;t properly deal with namespace attributes on the top-level element of a source.&lt;/i&gt;&lt;/blockquote&gt;Agreed.  These parsers are often cheaper to deal with when you know that the format you&amp;apos;re expecting doesn&amp;apos;t involve namespaces.  You trade some flexibility for some ease of development.&lt;blockquote&gt;&lt;i&gt;For these guys, just introducing an xmlns attribute is enough to make them reject the feed. So while they could handle a 0.92 feed, as soon as we introduced the xmlns attribute, they gave up.&lt;/i&gt;&lt;/blockquote&gt;Yes, because they weren&amp;apos;t expecting to be fed something with namespaces, since they&amp;apos;d been designed around v0.92 and family, and had been fed v2.0 with the expectation that it was 100% backward-compatible.&lt;blockquote&gt;&lt;i&gt;...Presumably &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; 1.0 doesn&amp;apos;t have the same problem we tripped over yesterday with &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; 2.0. So I looked at a few &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; 1.0 feeds, and guess what, they do the same thing we were doing with the 2.0 feeds. ...  I conclude that the same broken parsers that didn&amp;apos;t like the 2.0 feeds with the xmlns attributes, must also not like the 1.0 feeds.&lt;/i&gt;&lt;/blockquote&gt;And your conclusion would likely be correct - because those parsers weren&amp;apos;t expecting to consume namespace-using XML, and they shouldn&amp;apos;t be expecting &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; v1.0.  If an application is designed with &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; 1.0 in mind, then the author should be using a namespace-aware parser and correctly handle the namespaces, since that&amp;apos;s the nature of the beast.  To neglect or mishandle namespaces in consuming &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; 1.0 is a mistake.&lt;br&gt;&lt;br&gt;&lt;br&gt;
@@ -97,6 +97,17 @@ So, again, I don&amp;apos;t think that this is a fundamental flaw with &lt;a hre
           <span>28</span>
           &raquo;
         </time>
+
+        <nav class="post-links">
+          <a href="/blog.lmorchard.com/2002/09/28/ooocoo/"
+              >&laquo; prev<a> </a
+            ></a>
+          &nbsp;|&nbsp;
+          <a href="/blog.lmorchard.com/2002/09/28/ooobih/"
+              >next &raquo;<a> </a
+            ></a>
+        </nav>
+
         <h1 class="title">On RSS and Namespaces</h1>
         
         <section class="post-content">

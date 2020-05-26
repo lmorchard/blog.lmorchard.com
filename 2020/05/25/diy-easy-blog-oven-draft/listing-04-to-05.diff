@@ -1,0 +1,45 @@
+12a13
+> const escapeHtml = require("escape-html");
+40c41
+<     const postHtml = templateBlogPost({ post });
+---
+>     const postHtml = templateBlogPost({ post })();
+47c48,69
+< const templateBlogPost = ({ post }) => `<!DOCTYPE html>
+---
+> const unescaped = (raw) => () => raw;
+> 
+> const html = (strings, ...values) =>
+>   unescaped(
+>     strings
+>       .reduce((result, string, i) => result + string + htmlValue(values[i]), "")
+>       .trim()
+>   );
+> 
+> const htmlValue = (value) => {
+>   if (typeof value == "undefined") {
+>     return "";
+>   } else if (typeof value === "function") {
+>     return value();
+>   } else if (Array.isArray(value)) {
+>     return value.map(htmlValue).join("");
+>   }
+>   return escapeHtml(value);
+> };
+> 
+> const templateBlogPost = ({ post }) => html`
+> <!DOCTYPE html>
+55a78,81
+>       html`
+>         <ul>
+>           ${post.tags.map((tag) => html`<li>${tag}</li>`)}
+>         </ul>
+57,60d82
+<       <ul>
+<         ${post.tags.map((tag) => `<li>${tag}</li>`).join("\n")}
+<       </ul>
+<     `
+62c84
+<     ${post.html}
+---
+>     ${unescaped(post.html)}

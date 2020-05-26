@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+  <html lang="en-us">
+    <head>
+      <title>How to build your own Easy-Blog Oven - blog.lmorchard.com</title>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="blog.lmorchard.com" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="author" content="Les Orchard" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      />
+      <link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/screen.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
+            type="text/css"
+            media="screen, projection"
+          /><link
+            rel="stylesheet"
+            href="/blog.lmorchard.com/css/vendor/prism.css"
+            type="text/css"
+            media="screen, projection"
+          />
+      <link
+              href="/blog.lmorchard.com/index.rss"
+              rel="alternate"
+              title="blog.lmorchard.com"
+              type="application/rss+xml"
+            />
+      <meta property="og:title" content="How to build your own Easy-Blog Oven" />
+        <meta
+          property="og:url"
+          content="https://lmorchard.github.io/blog.lmorchard.com//2020/05/25/diy-easy-blog-oven-draft/"
+        />
+        
+        <meta property="og:description" content="&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;: I wanted to write more about building my &lt;a href=&quot;/2020/05/24/easy-blog-oven/&quot;&gt;Easy-Blog Oven&lt;/a&gt;. I mainly glued together things I already knew, but I think I learned some things and had some surprises anyway.&lt;/p&gt;
+" />
+    </head>
+    <body>
+      <section class="main">
+        <header>
+          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
+          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <nav>
+            <label for="nav-trigger"></label>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+            <ul>
+              <li><a href="http://lmorchard.com/">about me</a></li>
+              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content">
+          <article
+        class="post tag-metabloggingtag-bloggingtag-nodetag-webdev"
+      >
+        <time
+          title="2020-05-25T12:00:00+00:00"
+          pubdate="2020-05-25T12:00:00+00:00"
+        >
+          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
+          &raquo;
+          <a href="/blog.lmorchard.com/2020/"
+            >2020</a
+          >
+          &raquo;
+          <a href="/blog.lmorchard.com/2020/05/"
+            >May</a
+          >
+          &raquo;
+          <span>25</span>
+          &raquo;
+        </time>
+
+        <nav class="post-links">
+          
+          
+          <a href="/blog.lmorchard.com/2020/05/24/easy-blog-oven/"
+              >next &raquo;<a> </a
+            ></a>
+        </nav>
+
+        <h1 class="title">How to build your own Easy-Blog Oven</h1>
+        <ul class="tags">
+            <li>
+                  <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+                </li><li>
+                  <a href="/blog.lmorchard.com/tag/blogging/">blogging</a>
+                </li><li>
+                  <a href="/blog.lmorchard.com/tag/node/">node</a>
+                </li><li>
+                  <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+                </li>
+          </ul>
+        <section class="post-content">
+          <p><strong>TL;DR</strong>: I wanted to write more about building my <a href="/2020/05/24/easy-blog-oven/">Easy-Blog Oven</a>. I mainly glued together things I already knew, but I think I learned some things and had some surprises anyway.</p>
+<!--more-->
+
+<nav role="navigation" class="table-of-contents"></nav>
+
+<p>While I was throwing together this new static site generator over the past couple of days, I kept thinking, &quot;I should build this as a reusable engine so other folks can use it.&quot;</p>
+<p>But, you know, I think I&#39;d rather write about how to make your own. That seems more interesting (to me, at least) than trying to generalize this thing outside of scratching my own itch. </p>
+<p>Also, I&#39;ve been meaning to write more anyway. So, here goes:</p>
+<h2 id="generating-a-static-site">Generating a static site</h2>
+<p>Let&#39;s say you have <a href="https://github.com/lmorchard/blog.lmorchard.com/tree/master/posts">a pile of Markdown files</a> lying around like I do. Consider <a href="./listing-01.js">this script as a start</a>:</p>
+<pre><code class="language-javascript">#!/usr/bin/env node
+const path = require(&quot;path&quot;);
+const globby = require(&quot;globby&quot;);
+const mkdirp = require(&quot;mkdirp&quot;);
+const util = require(&quot;util&quot;);
+const fsOrig = require(&quot;fs&quot;);
+const fs = {
+  readFile: util.promisify(fsOrig.readFile),
+  writeFile: util.promisify(fsOrig.writeFile),
+};
+
+const config = {
+  postsDir: &quot;../../posts&quot;,
+  buildDir: &quot;/tmp/blog-build&quot;,
+};
+
+async function main() {
+  const posts = [];
+
+  // Load all posts into memory
+  const files = globby.stream(`${config.postsDir}/**/*.{md,markdown}`);
+  for await (const file of files) {
+    posts.push({
+      path: file,
+      body: await fs.readFile(file, &quot;utf8&quot;),
+    });
+  }
+
+  // Write all posts to disk
+  for (const post of posts) {
+    const postPath = `${config.buildDir}/${path.basename(post.path)}`;
+    await mkdirp(postPath);
+    await fs.writeFile(`${postPath}/index.md`, post.body);
+  }
+}
+
+main().catch((err) =&gt; console.error(err));
+</code></pre>
+<p>This code only does a few things:</p>
+<ol>
+<li>Use the <a href="https://www.npmjs.com/package/globby">globby</a> module to find all the blog posts</li>
+<li>Read all of those files into an array in memory</li>
+<li>Write files to disk for each blog post</li>
+</ol>
+<p>So, we&#39;re done! A static site of Markdown files has been generated!</p>
+<h2 id="rendering-blog-posts-in-markdown">Rendering blog posts in Markdown</h2>
+<p>Oh, wait: Usually a website is made up of HTML pages. <a href="./listing-02.js">We&#39;ll want to render these Markdown files as HTML</a>:</p>
+<pre><code class="language-diff">10a11
+&gt; const marked = require(&quot;marked&quot;);
+22a24,25
+&gt;     const body = await fs.readFile(file, &quot;utf8&quot;);
+&gt;     const html = marked(body);
+25c28,29
+&lt;       body: await fs.readFile(file, &quot;utf8&quot;),
+---
+&gt;       body,
+&gt;       html,
+33a38
+&gt;     await fs.writeFile(`${postPath}/index.html`, post.html);
+</code></pre>
+<pre><code class="language-javascript">#!/usr/bin/env node
+const path = require(&quot;path&quot;);
+const globby = require(&quot;globby&quot;);
+const mkdirp = require(&quot;mkdirp&quot;);
+const util = require(&quot;util&quot;);
+const fsOrig = require(&quot;fs&quot;);
+const fs = {
+  readFile: util.promisify(fsOrig.readFile),
+  writeFile: util.promisify(fsOrig.writeFile),
+};
+const marked = require(&quot;marked&quot;);
+
+const config = {
+  postsDir: &quot;../../posts&quot;,
+  buildDir: &quot;/tmp/blog-build&quot;,
+};
+
+async function main() {
+  const posts = [];
+
+  // Load all posts into memory
+  const files = globby.stream(`${config.postsDir}/**/*.{md,markdown}`);
+  for await (const file of files) {
+    const body = await fs.readFile(file, &quot;utf8&quot;);
+    const html = marked(body);
+    posts.push({
+      path: file,
+      body,
+      html,
+    });
+  }
+
+  // Write all posts to disk
+  for (const post of posts) {
+    const postPath = `${config.buildDir}/${path.basename(post.path)}`;
+    await mkdirp(postPath);
+    await fs.writeFile(`${postPath}/index.md`, post.body);
+    await fs.writeFile(`${postPath}/index.html`, post.html);
+  }
+}
+
+main().catch((err) =&gt; console.error(err));
+</code></pre>
+<p>Here we add the <a href="https://www.npmjs.com/package/marked">marked</a> module to the mix - <a href="https://www.npmjs.com/package/marked">marked</a> is a fast Markdown-to-HTML renderer. Next, we create per-post directories and store <code>index.html</code> renderings of the Markdown files.</p>
+<p>Why create directories for the blog posts? This can help in producing clean URL paths - e.g. <code>/2020/05/25/diy-easy-blog-oven/</code> without a pesky <code>.html</code> at the end. <a href="https://www.w3.org/Provider/Style/URI.html">It&#39;s an old web tradition.</a></p>
+<h2 id="wrapping-rendered-blog-posts-in-page-templates">Wrapping rendered blog posts in page templates</h2>
+<p>We still don&#39;t quite have a <em>site</em> at this point. Those <code>index.html</code> files are just HTML fragments, not complete pages. We&#39;ll want to wrap the content of a blog post in a common page template - i.e. to frame the content, provide site navigation, etc.</p>
+<p>Okay, so let&#39;s render the blog post content within a page template:</p>
+<pre><code class="language-diff">35a36
+&gt;     const postHtml = templateBlogPost({ post });
+38c39
+&lt;     await fs.writeFile(`${postPath}/index.html`, post.html);
+---
+&gt;     await fs.writeFile(`${postPath}/index.html`, postHtml);
+40a42,53
+&gt; 
+&gt; const templateBlogPost = ({ post }) =&gt; `&lt;!DOCTYPE html&gt;
+&gt; &lt;html&gt;
+&gt;   &lt;head&gt;
+&gt;     &lt;title&gt;Blog post&lt;title&gt;
+&gt;   &lt;/head&gt;
+&gt;   &lt;body&gt;
+&gt;     &lt;h1&gt;Blog post&lt;h1&gt;
+&gt;     ${post.html}
+&gt;   &lt;/body&gt;
+&gt; &lt;html&gt;
+&gt; `;
+</code></pre>
+<pre><code class="language-javascript">#!/usr/bin/env node
+const path = require(&quot;path&quot;);
+const globby = require(&quot;globby&quot;);
+const mkdirp = require(&quot;mkdirp&quot;);
+const util = require(&quot;util&quot;);
+const fsOrig = require(&quot;fs&quot;);
+const fs = {
+  readFile: util.promisify(fsOrig.readFile),
+  writeFile: util.promisify(fsOrig.writeFile),
+};
+const marked = require(&quot;marked&quot;);
+
+const config = {
+  postsDir: &quot;../../posts&quot;,
+  buildDir: &quot;/tmp/blog-build&quot;,
+};
+
+async function main() {
+  const posts = [];
+
+  // Load all posts into memory
+  const files = globby.stream(`${config.postsDir}/**/*.{md,markdown}`);
+  for await (const file of files) {
+    const body = await fs.readFile(file, &quot;utf8&quot;);
+    const html = marked(body);
+    posts.push({
+      path: file,
+      body,
+      html,
+    });
+  }
+
+  // Write all posts to disk
+  for (const post of posts) {
+    const postPath = `${config.buildDir}/${path.basename(post.path)}`;
+    const postHtml = templateBlogPost({ post });
+    await mkdirp(postPath);
+    await fs.writeFile(`${postPath}/index.md`, post.body);
+    await fs.writeFile(`${postPath}/index.html`, postHtml);
+  }
+}
+
+const templateBlogPost = ({ post }) =&gt; `&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Blog post&lt;title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Blog post&lt;h1&gt;
+    ${post.html}
+  &lt;/body&gt;
+&lt;html&gt;
+`;
+
+main().catch((err) =&gt; console.error(err));
+</code></pre>
+<p>This is a dead simple page template using a function and a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals">template literal</a>. There&#39;s no site navigation, not even a proper title for each post. But, it&#39;s a start. Now we&#39;re building a collection of actual web pages!</p>
+<h2 id="adding-metadata-to-blog-posts">Adding metadata to blog posts</h2>
+<p>Speaking of blog post titles, there&#39;s usually more to a blog post than the body content. We usually want some metadata: a title, at least. Maybe also a date, some tags, a thumbnail image. </p>
+<p> The venerable <a href="https://jekyllrb.com/">Jekyll</a> static site generator support <a href="https://jekyllrb.com/docs/posts/">YAML &quot;front matter&quot;</a> added to the top of a Markdown document as a header of structured data. A blog post following this convention looks something like this:</p>
+<pre><code class="language-markdown">---
+title:  &quot;Welcome to My Blog &amp; Stuff!&quot;
+tags: [ &quot;foo&lt;something&gt;&quot;, &quot;bar&quot;, &quot;baz&quot; ]
+---
+
+# Welcome
+
+**Hello world**, this is my first blog post.
+</code></pre>
+<p>It really helps that this format is flexible and not particularly tied to <a href="https://jekyllrb.com/">Jekyll</a>. So, I&#39;ve found it handy to regard it as a defacto standard and keep all my blog posts in this format.</p>
+<p>It&#39;s also convenient that there&#39;s a <a href="https://www.npmjs.com/package/front-matter">front-matter</a> module on NPM to process this format. So, we can easily roll support for front matter into the site generator:</p>
+<pre><code class="language-diff">11a12
+&gt; const frontmatter = require(&quot;front-matter&quot;);
+24c25,26
+&lt;     const body = await fs.readFile(file, &quot;utf8&quot;);
+---
+&gt;     const data = await fs.readFile(file, &quot;utf8&quot;);
+&gt;     const { attributes, body } = frontmatter(data);
+26a29,30
+&gt;       // Copy all the front matter attributes into the post.
+&gt;       ...attributes,
+46c50
+&lt;     &lt;title&gt;Blog post&lt;title&gt;
+---
+&gt;     &lt;title&gt;${post.title}&lt;title&gt;
+49c53,61
+&lt;     &lt;h1&gt;Blog post&lt;h1&gt;
+---
+&gt;     &lt;h1&gt;${post.title}&lt;h1&gt;
+&gt;     ${
+&gt;       post.tags &amp;&amp;
+&gt;       `
+&gt;       &lt;ul&gt;
+&gt;         ${post.tags.map((tag) =&gt; `&lt;li&gt;${tag}&lt;/li&gt;`).join(&quot;\n&quot;)}
+&gt;       &lt;/ul&gt;
+&gt;     `
+&gt;     }
+</code></pre>
+<pre><code class="language-javascript">#!/usr/bin/env node
+const path = require(&quot;path&quot;);
+const globby = require(&quot;globby&quot;);
+const mkdirp = require(&quot;mkdirp&quot;);
+const util = require(&quot;util&quot;);
+const fsOrig = require(&quot;fs&quot;);
+const fs = {
+  readFile: util.promisify(fsOrig.readFile),
+  writeFile: util.promisify(fsOrig.writeFile),
+};
+const marked = require(&quot;marked&quot;);
+const frontmatter = require(&quot;front-matter&quot;);
+
+const config = {
+  postsDir: &quot;../../posts&quot;,
+  buildDir: &quot;/tmp/blog-build&quot;,
+};
+
+async function main() {
+  const posts = [];
+
+  // Load all posts into memory
+  const files = globby.stream(`${config.postsDir}/**/*.{md,markdown}`);
+  for await (const file of files) {
+    const data = await fs.readFile(file, &quot;utf8&quot;);
+    const { attributes, body } = frontmatter(data);
+    const html = marked(body);
+    posts.push({
+      // Copy all the front matter attributes into the post.
+      ...attributes,
+      path: file,
+      body,
+      html,
+    });
+  }
+
+  // Write all posts to disk
+  for (const post of posts) {
+    const postPath = `${config.buildDir}/${path.basename(post.path)}`;
+    const postHtml = templateBlogPost({ post });
+    await mkdirp(postPath);
+    await fs.writeFile(`${postPath}/index.md`, post.body);
+    await fs.writeFile(`${postPath}/index.html`, postHtml);
+  }
+}
+
+const templateBlogPost = ({ post }) =&gt; `&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;${post.title}&lt;title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;${post.title}&lt;h1&gt;
+    ${
+      post.tags &amp;&amp;
+      `
+      &lt;ul&gt;
+        ${post.tags.map((tag) =&gt; `&lt;li&gt;${tag}&lt;/li&gt;`).join(&quot;\n&quot;)}
+      &lt;/ul&gt;
+    `
+    }
+    ${post.html}
+  &lt;/body&gt;
+&lt;html&gt;
+`;
+
+main().catch((err) =&gt; console.error(err));
+</code></pre>
+<p>The <a href="https://www.npmjs.com/package/front-matter">front-matter</a> module neatly parses the blog post YAML header into an object and separates the Markdown content body that follows. This lets us easily include metadata from the post in the page template.</p>
+<h2 id="using-tagged-template-literals-to-make-html-easier">Using tagged template literals to make HTML easier</h2>
+<p>You may have noticed that I introduced a problem in that last section. Take another look at that example post:</p>
+<pre><code class="language-markdown">---
+title:  &quot;Welcome to My Blog &amp; Stuff!&quot;
+tags: [ &quot;foo&lt;something&gt;&quot;, &quot;bar&quot;, &quot;baz&quot; ]
+---
+
+# Welcome
+
+**Hello world**, this is my first blog post.
+</code></pre>
+<p>The title has an ampersand - i.e. <code>&amp;</code> - which <em>should</em> be encoded in HTML output as an <code>&amp;amp;</code> entity. But, worse than that, look at those tags. I included a weird one - i.e. <code>foo&lt;something&gt;</code> - which will produce invalid markup if included as-is.</p>
+<p>This wasn&#39;t a problem with the content body in Markdown. That&#39;s <em>supposed</em> to be treated as raw HTML. The metadata, though, needs to be encoded by escaping any characters or sequences that make trouble for HTML.</p>
+<h3 id="tagged-template-literals-in-a-nutshell">Tagged template literals in a nutshell</h3>
+<p>This is where I started having fun with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates">tagged template literals</a> in JavaScript. These are multi-line string literals that support variable substitutions and can be processed through a function of your choice.</p>
+<p>Here&#39;s an example of a tagged template literal function:</p>
+<pre><code class="language-javascript">const passthrough = (strings, ...values) =&gt;
+  strings.reduce(
+    (result, string, idx) =&gt;
+      result
+        + string
+        // There might not be a value at this idx, 
+        // if the template ends in a literal string
+        + (values[idx] ? values[idx] : &quot;&quot;),
+    &quot;&quot;
+  );
+const msg = &quot;test&quot;;
+const str = passthrough`
+  Hello world, this is a ${msg} of a tagged template.
+`;
+console.log(str);
+// Hello world, this is a test of a tagged template.
+</code></pre>
+<p>For what it&#39;s worth, I first found this example <a href="https://writingjavascript.org/posts/creating-functions-for-tagged-template-literals#minimal-example-of-a-tag-function">from a site called Writing JavaScript</a>. Your mileage may vary, so this might be a too-terse use of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce">Array.reduce()</a>. But, for some reason this was the first time it really clicked for me. So, kudos to <a href="https://sethvincent.com/">Seth Vincent</a> for putting that out there!</p>
+<p>Anyway, as the name <code>passthrough</code> suggests, this function just passes through the result of parsing the template literal. JavaScript splits the literal up into an array of strings, along with the result of resolving the variable substitutions as subsequent function parameters. The implementation of this <code>passthrough</code> function just glues all the strings together unchanged.</p>
+<h3 id="using-tagged-template-literals-for-html-encoding">Using tagged template literals for HTML encoding</h3>
+<p>But, rather than a simple passthrough, we <em>could</em> filter &amp; transform both the strings and variable substitutions. In fact, this is what I came up with to ease
+ producing HTML from template literals:</p>
+<pre><code class="language-diff">12a13
+&gt; const escapeHtml = require(&quot;escape-html&quot;);
+40c41
+&lt;     const postHtml = templateBlogPost({ post });
+---
+&gt;     const postHtml = templateBlogPost({ post })();
+47c48,69
+&lt; const templateBlogPost = ({ post }) =&gt; `&lt;!DOCTYPE html&gt;
+---
+&gt; const unescaped = (raw) =&gt; () =&gt; raw;
+&gt; 
+&gt; const html = (strings, ...values) =&gt;
+&gt;   unescaped(
+&gt;     strings
+&gt;       .reduce((result, string, i) =&gt; result + string + htmlValue(values[i]), &quot;&quot;)
+&gt;       .trim()
+&gt;   );
+&gt; 
+&gt; const htmlValue = (value) =&gt; {
+&gt;   if (typeof value == &quot;undefined&quot;) {
+&gt;     return &quot;&quot;;
+&gt;   } else if (typeof value === &quot;function&quot;) {
+&gt;     return value();
+&gt;   } else if (Array.isArray(value)) {
+&gt;     return value.map(htmlValue).join(&quot;&quot;);
+&gt;   }
+&gt;   return escapeHtml(value);
+&gt; };
+&gt; 
+&gt; const templateBlogPost = ({ post }) =&gt; html`
+&gt; &lt;!DOCTYPE html&gt;
+55a78,81
+&gt;       html`
+&gt;         &lt;ul&gt;
+&gt;           ${post.tags.map((tag) =&gt; html`&lt;li&gt;${tag}&lt;/li&gt;`)}
+&gt;         &lt;/ul&gt;
+57,60d82
+&lt;       &lt;ul&gt;
+&lt;         ${post.tags.map((tag) =&gt; `&lt;li&gt;${tag}&lt;/li&gt;`).join(&quot;\n&quot;)}
+&lt;       &lt;/ul&gt;
+&lt;     `
+62c84
+&lt;     ${post.html}
+---
+&gt;     ${unescaped(post.html)}
+</code></pre>
+<pre><code class="language-javascript">#!/usr/bin/env node
+const path = require(&quot;path&quot;);
+const globby = require(&quot;globby&quot;);
+const mkdirp = require(&quot;mkdirp&quot;);
+const util = require(&quot;util&quot;);
+const fsOrig = require(&quot;fs&quot;);
+const fs = {
+  readFile: util.promisify(fsOrig.readFile),
+  writeFile: util.promisify(fsOrig.writeFile),
+};
+const marked = require(&quot;marked&quot;);
+const frontmatter = require(&quot;front-matter&quot;);
+const escapeHtml = require(&quot;escape-html&quot;);
+
+const config = {
+  postsDir: &quot;../../posts&quot;,
+  buildDir: &quot;/tmp/blog-build&quot;,
+};
+
+async function main() {
+  const posts = [];
+
+  // Load all posts into memory
+  const files = globby.stream(`${config.postsDir}/**/*.{md,markdown}`);
+  for await (const file of files) {
+    const data = await fs.readFile(file, &quot;utf8&quot;);
+    const { attributes, body } = frontmatter(data);
+    const html = marked(body);
+    posts.push({
+      // Copy all the front matter attributes into the post.
+      ...attributes,
+      path: file,
+      body,
+      html,
+    });
+  }
+
+  // Write all posts to disk
+  for (const post of posts) {
+    const postPath = `${config.buildDir}/${path.basename(post.path)}`;
+    const postHtml = templateBlogPost({ post })();
+    await mkdirp(postPath);
+    await fs.writeFile(`${postPath}/index.md`, post.body);
+    await fs.writeFile(`${postPath}/index.html`, postHtml);
+  }
+}
+
+const unescaped = (raw) =&gt; () =&gt; raw;
+
+const html = (strings, ...values) =&gt;
+  unescaped(
+    strings
+      .reduce((result, string, i) =&gt; result + string + htmlValue(values[i]), &quot;&quot;)
+      .trim()
+  );
+
+const htmlValue = (value) =&gt; {
+  if (typeof value == &quot;undefined&quot;) {
+    return &quot;&quot;;
+  } else if (typeof value === &quot;function&quot;) {
+    return value();
+  } else if (Array.isArray(value)) {
+    return value.map(htmlValue).join(&quot;&quot;);
+  }
+  return escapeHtml(value);
+};
+
+const templateBlogPost = ({ post }) =&gt; html`
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;${post.title}&lt;title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;${post.title}&lt;h1&gt;
+    ${
+      post.tags &amp;&amp;
+      html`
+        &lt;ul&gt;
+          ${post.tags.map((tag) =&gt; html`&lt;li&gt;${tag}&lt;/li&gt;`)}
+        &lt;/ul&gt;
+      `
+    }
+    ${unescaped(post.html)}
+  &lt;/body&gt;
+&lt;html&gt;
+`;
+
+main().catch((err) =&gt; console.error(err));
+</code></pre>
+<h3 id="weird-quirks-of-my-html-templates">Weird quirks of my HTML templates</h3>
+<p>There are a few strange things going on here. (Or, at least, I thought they were strange.)</p>
+<p>First off, my <code>html</code> template function returns a function. <em>That</em> function returns the desired string content. </p>
+<p>This was weird to me when I first learned about tagged template literals: <em>The function that processes a tagged template literal doesn&#39;t have to return a string!</em> It really confused in using modules like <a href="https://www.npmjs.com/package/htm">HTM (Hyperscript Tagged Markup)</a> to create JSX-free components for <a href="https://preactjs.com/">Preact</a>. But, as it turns out, a tagged template string can result in essentially <em>anything</em> - not just a string.</p>
+<p>And here&#39;s why I built it that way: I&#39;m using a function as the mechanism to indicate which values <em>should not be encoded for HTML</em>. The <code>htmlValue</code> function checks for <code>(typeof value === &quot;function&quot;)</code>. Any variable substitutions of type function are called &amp; included without escaping. All others are escaped for HTML.</p>
+<p>This might be a terrible idea, but it means my <code>html</code> template tag has two important features:</p>
+<ol>
+<li><p>It supports leaving selective variable substitutions raw &amp; unencoded:</p>
+<pre><code class="language-javascript">html`
+  This variable ${() =&gt; &#39;&lt;b&gt;right here&lt;/b&gt;`} should be unescaped markup.
+`</code></pre>
+</li>
+<li><p>It supports templates-within-templates, since the <code>html</code> function itself returns a function:</p>
+<pre><code class="language-javascript">html`
+&lt;ul&gt;
+  ${post.tags.map((tag) =&gt; html`&lt;li&gt;${tag}&lt;/li&gt;`)}
+&lt;/ul&gt;
+`</code></pre>
+</li>
+</ol>
+<p>For another way to think about it, consider that <a href="https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml">React has a mechanism where unescaped markup is indicated</a> like so:</p>
+<pre><code class="language-html">&lt;span dangerouslySetInnerHTML={{ __html: &quot;&lt;b&gt;right here&lt;/b&gt;&quot; }} /&gt;</code></pre>
+<p>The approach here is to just use <code>typeof value === &#39;function&#39;</code> in a similar spirit.</p>
+<p>I&#39;ve been happy so far with how this template scheme has turned out. It just leaves an awkward aspect where the final consumer of the template has to call the return value to get the result:</p>
+<pre><code class="language-javascript">const postHtml = templateBlogPost({ post })();</code></pre>
+<p>But, this scheme has replaced a whole template engine dependency for me in <a href="https://github.com/lmorchard/blog.lmorchard.com/tree/master/templates">my blog&#39;s collection of templates</a>. So, that&#39;s pretty neat.</p>
+<h3 id="a-note-for-vscode-users">A note for VSCode users</h3>
+<p>Oh and there&#39;s one more benefit I found while using HTML in tagged templates: If you use VSCode as your editor, there&#39;s <a href="https://marketplace.visualstudio.com/items?itemName=bierner.lit-html">the lit-html extension</a> to help manage &amp; format markup within tagged templates.</p>
+<p>Sure, the extension is <em>intended</em> mainly to help working with <a href="https://github.com/Polymer/lit-html">lit-html</a> templates - but it works just as well for my tagged templates too!</p>
+<h2 id="improving-the-site-directory-layout">Improving the site directory layout</h2>
+<p>Okay, now we have blog posts with YAML metadata and Markdown content paired with an HTML template scheme for publishing web pages. I&#39;ll leave improving those web pages as an exercise to the reader. You can <a href="https://github.com/lmorchard/blog.lmorchard.com/tree/master/templates">peek at my templates</a> as an example, but you&#39;ll want your own look &amp; feel. Also my templates are terrible.</p>
+<p>Templates aside, the next improvement is around directory layout of the static web site. Earlier, I mentioned the &quot;<a href="https://www.w3.org/Provider/Style/URI.html">old web tradition</a>&quot; of producing clean URL paths - e.g. <code>/2020/05/25/diy-easy-blog-oven/</code>. Well, our URL paths are a mess at this point. </p>
+<p>So, let&#39;s improve that by using dates to build directory paths:</p>
+<pre><code class="language-diff">13a14
+&gt; const moment = require(&quot;moment&quot;);
+19a21,22
+&gt; const RE_POST_NAME = new RegExp(/(\d{4})-(\d{2})-(\d{2})-(.*)/);
+&gt; 
+28a32,42
+&gt; 
+&gt;     // Get the filename without .md or .markdown extension
+&gt;     const postName = path.basename(file).split(&quot;.&quot;)[0];
+&gt;     // Just skip any files that don&#39;t match the naming convention
+&gt;     const dateMatch = RE_POST_NAME.exec(postName);
+&gt;     if (!dateMatch) continue;
+&gt; 
+&gt;     const [, year, month, day, slug] = dateMatch;
+&gt;     const date = moment(attributes.date || `${year}-${month}-${day}T12:00:00Z`);
+&gt;     const postPath = `${date.format(&quot;YYYY/MM/DD&quot;)}/${slug}`;
+&gt; 
+32c46,51
+&lt;       path: file,
+---
+&gt;       path: postPath,
+&gt;       year,
+&gt;       month,
+&gt;       day,
+&gt;       date,
+&gt;       slug,
+40c59
+&lt;     const postPath = `${config.buildDir}/${path.basename(post.path)}`;
+---
+&gt;     const postPath = `${config.buildDir}/${post.path}`;
+75a95
+&gt;     &lt;h2&gt;${post.date.format(&quot;dddd, MMMM Do YYYY, h:mm:ss a&quot;)}&lt;/h2&gt;
+</code></pre>
+<pre><code class="language-javascript">#!/usr/bin/env node
+const path = require(&quot;path&quot;);
+const globby = require(&quot;globby&quot;);
+const mkdirp = require(&quot;mkdirp&quot;);
+const util = require(&quot;util&quot;);
+const fsOrig = require(&quot;fs&quot;);
+const fs = {
+  readFile: util.promisify(fsOrig.readFile),
+  writeFile: util.promisify(fsOrig.writeFile),
+};
+const marked = require(&quot;marked&quot;);
+const frontmatter = require(&quot;front-matter&quot;);
+const escapeHtml = require(&quot;escape-html&quot;);
+const moment = require(&quot;moment&quot;);
+
+const config = {
+  postsDir: &quot;../../posts&quot;,
+  buildDir: &quot;/tmp/blog-build&quot;,
+};
+
+const RE_POST_NAME = new RegExp(/(\d{4})-(\d{2})-(\d{2})-(.*)/);
+
+async function main() {
+  const posts = [];
+
+  // Load all posts into memory
+  const files = globby.stream(`${config.postsDir}/**/*.{md,markdown}`);
+  for await (const file of files) {
+    const data = await fs.readFile(file, &quot;utf8&quot;);
+    const { attributes, body } = frontmatter(data);
+    const html = marked(body);
+
+    // Get the filename without .md or .markdown extension
+    const postName = path.basename(file).split(&quot;.&quot;)[0];
+    // Just skip any files that don&#39;t match the naming convention
+    const dateMatch = RE_POST_NAME.exec(postName);
+    if (!dateMatch) continue;
+
+    const [, year, month, day, slug] = dateMatch;
+    const date = moment(attributes.date || `${year}-${month}-${day}T12:00:00Z`);
+    const postPath = `${date.format(&quot;YYYY/MM/DD&quot;)}/${slug}`;
+
+    posts.push({
+      // Copy all the front matter attributes into the post.
+      ...attributes,
+      path: postPath,
+      year,
+      month,
+      day,
+      date,
+      slug,
+      body,
+      html,
+    });
+  }
+
+  // Write all posts to disk
+  for (const post of posts) {
+    const postPath = `${config.buildDir}/${post.path}`;
+    const postHtml = templateBlogPost({ post })();
+    await mkdirp(postPath);
+    await fs.writeFile(`${postPath}/index.md`, post.body);
+    await fs.writeFile(`${postPath}/index.html`, postHtml);
+  }
+}
+
+const unescaped = (raw) =&gt; () =&gt; raw;
+
+const html = (strings, ...values) =&gt;
+  unescaped(
+    strings
+      .reduce((result, string, i) =&gt; result + string + htmlValue(values[i]), &quot;&quot;)
+      .trim()
+  );
+
+const htmlValue = (value) =&gt; {
+  if (typeof value == &quot;undefined&quot;) {
+    return &quot;&quot;;
+  } else if (typeof value === &quot;function&quot;) {
+    return value();
+  } else if (Array.isArray(value)) {
+    return value.map(htmlValue).join(&quot;&quot;);
+  }
+  return escapeHtml(value);
+};
+
+const templateBlogPost = ({ post }) =&gt; html`
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;${post.title}&lt;title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;${post.title}&lt;h1&gt;
+    &lt;h2&gt;${post.date.format(&quot;dddd, MMMM Do YYYY, h:mm:ss a&quot;)}&lt;/h2&gt;
+    ${
+      post.tags &amp;&amp;
+      html`
+        &lt;ul&gt;
+          ${post.tags.map((tag) =&gt; html`&lt;li&gt;${tag}&lt;/li&gt;`)}
+        &lt;/ul&gt;
+      `
+    }
+    ${unescaped(post.html)}
+  &lt;/body&gt;
+&lt;html&gt;
+`;
+
+main().catch((err) =&gt; console.error(err));
+</code></pre>
+<p>For my blog, I use a filename convention like this: <code>2020-05-25-diy-easy-blog-oven.md</code></p>
+<p>This code takes advantage of that naming convention with a regular expression to extract the date and slug for use in constructing the directory structure during the build. However, as an override, I can explicitly set a date via the <code>date</code> attribute in the post&#39;s front matter.</p>
+<h3 id="dates--names--files-oh-my">Dates &amp; names &amp; files, oh my!</h3>
+<p>Here&#39;s some context &amp; history behind that arrangement: Some file-based blogs I&#39;ve used read the file modification time as the source of the date. This could be nice, insofar as the date automatically updated as I edited the post. But, things fell apart if I backed up and restored the files while forgetting to preserve the timestamps. All the posts suddenly looked like they were published <em>today</em> - oops!</p>
+<p>I can also stash the date in a post&#39;s front matter as a <code>date</code> property. I&#39;ve done that in some places, occasionally as the result of an earlier database export from Movable Type or WordPress many years ago. I like to have it as an option.</p>
+<p>What I&#39;ve found works best, though, is to follow a naming convention for blog post filenames - i.e. <code>YYYY-MM-DD-slug.md</code>. This survives lots of mistakes in backup &amp; restore - and it gives me a natural sort order for listing files on disk.</p>
+<h3 id="an-aside-on-slugs">An aside on slugs</h3>
+<p>Oh yeah, and <a href="https://en.wikipedia.org/wiki/Slug_(publishing)">&quot;slug&quot; is a general term</a> for the ID or name of a blog post - independent from the title or headline of the post. A slug is what shows up in the URL to uniquely identify the post from others on the same day.</p>
+<p>Although slugs can be random IDs or automatically derived from titles, many web publishing systems treat the slug and title as separate properties managed by the author. A fun thing to watch for on news sites is when a draft of an article is submitted with an initial slug and title. Later, the title is changed but the slug is left untouched. This can result in some fun situations where the headline of an article has been made more subtle - but the slug retains some fairly blunt language.</p>
+<p>Anyway, I&#39;m getting punchy and I digress. In this system, the slug is derived from the filename of the blog post Markdown source file.</p>
+<h2 id="rendering-post-indexes-by-recent-date-and-tag">Rendering post indexes by recent, date, and tag</h2>
+<p>Now that we have a decent directory structure, it would be nice to have index pages to navigate around the blog.</p>
+<p>Up to this point, I&#39;ve been trying to keep the changes to the script small and relatively easy to explain. From here, though, I&#39;m just going to go for broke and spew some code:</p>
+<pre><code class="language-diff">64a65,118
+&gt; 
+&gt;   writeIndexPage({
+&gt;     title: &quot;Recent posts&quot;,
+&gt;     path: &quot;&quot;,
+&gt;     posts: posts.slice(0, 15),
+&gt;   });
+&gt; 
+&gt;   const postsByYear = indexBy(posts, ({ year }) =&gt; year);
+&gt;   for (const [year, posts] of Object.entries(postsByYear)) {
+&gt;     writeIndexPage({
+&gt;       title: `Year: ${year}`,
+&gt;       path: year,
+&gt;       posts,
+&gt;     });
+&gt;   }
+&gt; 
+&gt;   const postsByMonth = indexBy(posts, ({ year, month }) =&gt; `${year}/${month}`);
+&gt;   for (const [month, posts] of Object.entries(postsByMonth)) {
+&gt;     writeIndexPage({
+&gt;       title: `Month: ${month}`,
+&gt;       path: month,
+&gt;       posts,
+&gt;     });
+&gt;   }
+&gt; 
+&gt;   const postsByTag = indexBy(posts, ({ tags = [] }) =&gt; tags);
+&gt;   for (const [tag, posts] of Object.entries(postsByTag)) {
+&gt;     writeIndexPage({
+&gt;       title: `Tag: ${tag}`,
+&gt;       path: `tag/${tag}`,
+&gt;       posts,
+&gt;     });
+&gt;   }
+&gt; }
+&gt; 
+&gt; function indexBy(items, keyFn) {
+&gt;   const index = {};
+&gt;   for (const item of items) {
+&gt;     const key = keyFn(item);
+&gt;     const keys = Array.isArray(key) ? key : [key];
+&gt;     for (const k of keys) {
+&gt;       if (k) index[k] = [...(index[k] || []), item];
+&gt;     }
+&gt;   }
+&gt;   return index;
+&gt; }
+&gt; 
+&gt; async function writeIndexPage(indexProps) {
+&gt;   const indexPath = `${config.buildDir}/${indexProps.path}`;
+&gt;   await mkdirp(indexPath);
+&gt;   await fs.writeFile(
+&gt;     `${indexPath}/index.html`,
+&gt;     templateIndexPage(indexProps)()
+&gt;   );
+85a140,162
+&gt; 
+&gt; const templateIndexPage = ({ title, posts }) =&gt; html`
+&gt; &lt;!DOCTYPE html&gt;
+&gt; &lt;html&gt;
+&gt;   &lt;head&gt;
+&gt;     &lt;title&gt;${title}&lt;title&gt;
+&gt;   &lt;/head&gt;
+&gt;   &lt;body&gt;
+&gt;     &lt;h1&gt;${title}&lt;h1&gt;
+&gt;     &lt;ul&gt;
+&gt;       ${posts.map(
+&gt;         (post) =&gt; html`
+&gt;           &lt;li&gt;
+&gt;             &lt;a href=&quot;/${post.path}/&quot;&gt;
+&gt;               ${post.date.format(&quot;dddd, MMMM Do YYYY&quot;)}: ${post.title}
+&gt;             &lt;/a&gt;
+&gt;           &lt;/li&gt;
+&gt;         `
+&gt;       )}
+&gt;     &lt;/ul&gt;
+&gt;   &lt;/body&gt;
+&gt; &lt;html&gt;
+&gt; `;
+</code></pre>
+<pre><code class="language-javascript">#!/usr/bin/env node
+const path = require(&quot;path&quot;);
+const globby = require(&quot;globby&quot;);
+const mkdirp = require(&quot;mkdirp&quot;);
+const util = require(&quot;util&quot;);
+const fsOrig = require(&quot;fs&quot;);
+const fs = {
+  readFile: util.promisify(fsOrig.readFile),
+  writeFile: util.promisify(fsOrig.writeFile),
+};
+const marked = require(&quot;marked&quot;);
+const frontmatter = require(&quot;front-matter&quot;);
+const escapeHtml = require(&quot;escape-html&quot;);
+const moment = require(&quot;moment&quot;);
+
+const config = {
+  postsDir: &quot;../../posts&quot;,
+  buildDir: &quot;/tmp/blog-build&quot;,
+};
+
+const RE_POST_NAME = new RegExp(/(\d{4})-(\d{2})-(\d{2})-(.*)/);
+
+async function main() {
+  const posts = [];
+
+  // Load all posts into memory
+  const files = globby.stream(`${config.postsDir}/**/*.{md,markdown}`);
+  for await (const file of files) {
+    const data = await fs.readFile(file, &quot;utf8&quot;);
+    const { attributes, body } = frontmatter(data);
+    const html = marked(body);
+
+    // Get the filename without .md or .markdown extension
+    const postName = path.basename(file).split(&quot;.&quot;)[0];
+    // Just skip any files that don&#39;t match the naming convention
+    const dateMatch = RE_POST_NAME.exec(postName);
+    if (!dateMatch) continue;
+
+    const [, year, month, day, slug] = dateMatch;
+    const date = moment(attributes.date || `${year}-${month}-${day}T12:00:00Z`);
+    const postPath = `${date.format(&quot;YYYY/MM/DD&quot;)}/${slug}`;
+
+    posts.push({
+      // Copy all the front matter attributes into the post.
+      ...attributes,
+      path: postPath,
+      year,
+      month,
+      day,
+      date,
+      slug,
+      body,
+      html,
+    });
+  }
+
+  // Write all posts to disk
+  for (const post of posts) {
+    const postPath = `${config.buildDir}/${post.path}`;
+    const postHtml = templateBlogPost({ post })();
+    await mkdirp(postPath);
+    await fs.writeFile(`${postPath}/index.md`, post.body);
+    await fs.writeFile(`${postPath}/index.html`, postHtml);
+  }
+
+  writeIndexPage({
+    title: &quot;Recent posts&quot;,
+    path: &quot;&quot;,
+    posts: posts.slice(0, 15),
+  });
+
+  const postsByYear = indexBy(posts, ({ year }) =&gt; year);
+  for (const [year, posts] of Object.entries(postsByYear)) {
+    writeIndexPage({
+      title: `Year: ${year}`,
+      path: year,
+      posts,
+    });
+  }
+
+  const postsByMonth = indexBy(posts, ({ year, month }) =&gt; `${year}/${month}`);
+  for (const [month, posts] of Object.entries(postsByMonth)) {
+    writeIndexPage({
+      title: `Month: ${month}`,
+      path: month,
+      posts,
+    });
+  }
+
+  const postsByTag = indexBy(posts, ({ tags = [] }) =&gt; tags);
+  for (const [tag, posts] of Object.entries(postsByTag)) {
+    writeIndexPage({
+      title: `Tag: ${tag}`,
+      path: `tag/${tag}`,
+      posts,
+    });
+  }
+}
+
+function indexBy(items, keyFn) {
+  const index = {};
+  for (const item of items) {
+    const key = keyFn(item);
+    const keys = Array.isArray(key) ? key : [key];
+    for (const k of keys) {
+      if (k) index[k] = [...(index[k] || []), item];
+    }
+  }
+  return index;
+}
+
+async function writeIndexPage(indexProps) {
+  const indexPath = `${config.buildDir}/${indexProps.path}`;
+  await mkdirp(indexPath);
+  await fs.writeFile(
+    `${indexPath}/index.html`,
+    templateIndexPage(indexProps)()
+  );
+}
+
+const unescaped = (raw) =&gt; () =&gt; raw;
+
+const html = (strings, ...values) =&gt;
+  unescaped(
+    strings
+      .reduce((result, string, i) =&gt; result + string + htmlValue(values[i]), &quot;&quot;)
+      .trim()
+  );
+
+const htmlValue = (value) =&gt; {
+  if (typeof value == &quot;undefined&quot;) {
+    return &quot;&quot;;
+  } else if (typeof value === &quot;function&quot;) {
+    return value();
+  } else if (Array.isArray(value)) {
+    return value.map(htmlValue).join(&quot;&quot;);
+  }
+  return escapeHtml(value);
+};
+
+const templateIndexPage = ({ title, posts }) =&gt; html`
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;${title}&lt;title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;${title}&lt;h1&gt;
+    &lt;ul&gt;
+      ${posts.map(
+        (post) =&gt; html`
+          &lt;li&gt;
+            &lt;a href=&quot;/${post.path}/&quot;&gt;
+              ${post.date.format(&quot;dddd, MMMM Do YYYY&quot;)}: ${post.title}
+            &lt;/a&gt;
+          &lt;/li&gt;
+        `
+      )}
+    &lt;/ul&gt;
+  &lt;/body&gt;
+&lt;html&gt;
+`;
+
+const templateBlogPost = ({ post }) =&gt; html`
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;${post.title}&lt;title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;${post.title}&lt;h1&gt;
+    &lt;h2&gt;${post.date.format(&quot;dddd, MMMM Do YYYY, h:mm:ss a&quot;)}&lt;/h2&gt;
+    ${
+      post.tags &amp;&amp;
+      html`
+        &lt;ul&gt;
+          ${post.tags.map((tag) =&gt; html`&lt;li&gt;${tag}&lt;/li&gt;`)}
+        &lt;/ul&gt;
+      `
+    }
+    ${unescaped(post.html)}
+  &lt;/body&gt;
+&lt;html&gt;
+`;
+
+main().catch((err) =&gt; console.error(err));
+</code></pre>
+<p>There&#39;s a lot of repetition here, but I tried to keep it <a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY</a>. </p>
+<p>The gist is that, since we&#39;re loading all the blog posts into memory, we can easily collate posts into groupings based on attributes like year, month, and tags. The new <code>indexBy</code> utility function takes care of that.</p>
+<p>Once collated into convenient groupings, we can use the <code>writeIndexPage</code> utility function to build each index page via <code>templateIndexPage</code> and then write to disk at the approriate paths in the directory structure.</p>
+<p>This, by the way, is one of the things that surprised me: My blog has over 1000 posts, accumulated over the course of 18 years. I expected the execution time of this script to be impracticably slow.</p>
+<p>Well, the script at this point takes about 2 seconds on my computer:</p>
+<pre><code class="language-shell">$ time node listing-07.js 
+real    0m1.646s
+user    0m2.056s
+sys     0m0.305s</code></pre>
+<p>This was one of the big surprises I found when I started playing with this idea. I&#39;m used to thinking about databases and indexes and threads and clusters of servers when it comes to churning through lots of content. But, even if it looks like a lot of content to me as the author, it&#39;s not much at all to a modern computer.</p>
+<p>To be fair, I&#39;ve added complications to the code that <em>actually</em> publishes this blog versus the script I&#39;ve built up for this post. But, my &quot;production&quot; code still builds this whole site in under 7 seconds. And, if I feel like tinkering some more, I could probably optimize and bring that time back down again.</p>
+<h2 id="publishing-to-github-pages-via-actions">Publishing to GitHub Pages via Actions</h2>
+<p>This is the final stretch. We&#39;ve got a script that generates a static site from blog posts - including indexes listing posts by year, month, and tag. The last thing is to get all of this content onto the web.</p>
+<p>When I last built a static site generator for my blog, <a href="https://blog.lmorchard.com/2015/10/22/blogging-via-travis/">I hooked it up</a> to <a href="https://travis-ci.org/">Travis CI</a> as a learning project. It was also convenient: When I pushed new content to GitHub, it eventually ended up on Amazon S3. Back in 2015, it was neat to see the Rube Goldberg machine kick into action without me having to run any code on my laptop.</p>
+<p>Since then, GitHub themselves have come up with their own offering in the workflow automation market with <a href="https://help.github.com/en/actions">GitHub Actions</a>. It&#39;s worth reading the docs, but I don&#39;t want to sidetrack too far into a general tutorial. </p>
+<p>Long story short, building &amp; publishing a static site to <a href="https://pages.github.com/">GitHub Pages</a> via Actions boils down to dropping a file like this as <a href="https://github.com/lmorchard/blog.lmorchard.com/blob/master/.github/workflows/stage.yml"><code>.github/workflows/main.yml</code></a> in my GitHub repository:</p>
+<pre><code class="language-yaml">name: Deploy to Github Pages
+on:
+  push:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js 14.2.0
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14.2.0
+    - name: Set git identity
+      run: |
+        git config --global user.email &quot;you@example.com&quot;
+        git config --global user.name &quot;Your Name Here&quot;        
+    - name: Install
+      run: yarn install
+    - name: Build
+      run: node index.js
+    - name: Deploy
+      run: npx gh-pages -t -d build -r https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+</code></pre>
+<p>If you&#39;ve got experience with other workflow automation tools like <a href="https://travis-ci.org/">Travis CI</a> or <a href="https://circleci.com/">CircleCI</a>, this might look familiar. That is, this configuration file instructs <a href="https://help.github.com/en/actions">GitHub Actions</a> to do stuff on every push to <code>master</code> branch:</p>
+<ul>
+<li>Fire up a virtual machine running Ubuntu Linux.</li>
+<li>Check out my repository.</li>
+<li>Set up Node.js v14.2.0.</li>
+<li>Configure git with my details - you&#39;ll want to customize this.</li>
+<li>Installs Node packages for the blog.</li>
+<li>Run the build script for the blog.</li>
+</ul>
+<p>Finally, in the most complicated line of the file, it runs a <code>gh-pages</code> command from NPM to push the built content into the <code>gh-pages</code> branch of the repo <a href="https://help.github.com/en/actions/configuring-and-managing-workflows/authenticating-with-the-github_token">using secret credentials</a> injected into the environment. The nice thing about this last bit is that it adapts to whatever repository in which it&#39;s used, thanks to the variables.</p>
+<p>With a bit more research, this could probably be done even more simply. <a href="https://help.github.com/en/actions">GitHub Actions</a> offers a marketplace of ready-made actions that you can drop into a workflow like this. What I&#39;ve got works for now, <a href="https://github.com/marketplace?type=actions&amp;query=github+pages">but there&#39;s probably a tidier option available</a>.</p>
+<p>In any case, the end result of all of this should be an unexpectedly fast static site generator for a blog that self-publishes to <a href="https://pages.github.com/">GitHub Pages</a> web hosting on pushes to a GitHub repository. As a bonus, since GitHub supports editing files directly from the web interface, you can even write blog posts in Markdown right from there and even preview your content!</p>
+<h2 id="next-steps">Next steps</h2>
+<p>The script I built up in this post looks a lot like where I started with all of this at the start of the weekend. I&#39;ve since done a lot of complication, refactoring, and code golfing that probably wouldn&#39;t improve this post to explain. You can come take a peek at <a href="https://github.com/lmorchard/blog.lmorchard.com/">my &quot;production&quot; code</a>, if you like. <a href="https://github.com/lmorchard/blog.lmorchard.com/">It&#39;s all in GitHub</a>!</p>
+<p>Left as an exercise to the reader of this post are activities like the following:</p>
+<ul>
+<li>Refactor, clean, and <a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY</a> things up for yourself.</li>
+<li>Improve and customize the HTML templates, add your own CSS &amp; JS.</li>
+<li>Add comments - for example, <a href="https://disqus.com/admin/install/platforms/universalcode/">Disqus is pretty convenient to add to a static site</a>.</li>
+<li>Better error handling - this script will just bail out if anything goes wrong.</li>
+<li>Publish to another web host - I use Amazon S3 &amp; CloudFront for my own domains.</li>
+<li>Try indexing some different collections of posts - e.g. it wouldn&#39;t be hard to add a <code>featured: true</code> flag to front matter and build a page of featured posts!</li>
+<li>Support directory-based posts - I do this to bundle the post Markdown along with associated images and other assets.</li>
+</ul>
+<p>In any case, I hope this walkthrough was worth the time to walk through. Feel free to do whatever you want with the code, whether you start a fabulous new blog or ignore it completely. Let me know what you thought, either in the comments or wherever else you might find me!</p>
+
+        </section>
+      </article>
+
+      <section class="comments" id="comments">
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+            var disqus_needs_loading = true;
+            var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com//2020/05/25/diy-easy-blog-oven-draft/";
+          </script>
+          <noscript
+            >Please enable JavaScript to view the
+            <a href="http://disqus.com/?ref_noscript"
+              >comments powered by Disqus.</a
+            ></noscript
+          >
+          <a href="http://disqus.com" class="dsq-brlink"
+            >blog comments powered by <span class="logo-disqus">Disqus</span></a
+          >
+        </section>
+        </section>
+
+        <footer>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+        </footer>
+      </section>
+
+      <section id="javascript">
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        
+      </section>
+    </body>
+  </html>

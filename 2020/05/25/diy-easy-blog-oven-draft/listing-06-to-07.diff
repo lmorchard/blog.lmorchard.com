@@ -1,0 +1,79 @@
+64a65,118
+> 
+>   writeIndexPage({
+>     title: "Recent posts",
+>     path: "",
+>     posts: posts.slice(0, 15),
+>   });
+> 
+>   const postsByYear = indexBy(posts, ({ year }) => year);
+>   for (const [year, posts] of Object.entries(postsByYear)) {
+>     writeIndexPage({
+>       title: `Year: ${year}`,
+>       path: year,
+>       posts,
+>     });
+>   }
+> 
+>   const postsByMonth = indexBy(posts, ({ year, month }) => `${year}/${month}`);
+>   for (const [month, posts] of Object.entries(postsByMonth)) {
+>     writeIndexPage({
+>       title: `Month: ${month}`,
+>       path: month,
+>       posts,
+>     });
+>   }
+> 
+>   const postsByTag = indexBy(posts, ({ tags = [] }) => tags);
+>   for (const [tag, posts] of Object.entries(postsByTag)) {
+>     writeIndexPage({
+>       title: `Tag: ${tag}`,
+>       path: `tag/${tag}`,
+>       posts,
+>     });
+>   }
+> }
+> 
+> function indexBy(items, keyFn) {
+>   const index = {};
+>   for (const item of items) {
+>     const key = keyFn(item);
+>     const keys = Array.isArray(key) ? key : [key];
+>     for (const k of keys) {
+>       if (k) index[k] = [...(index[k] || []), item];
+>     }
+>   }
+>   return index;
+> }
+> 
+> async function writeIndexPage(indexProps) {
+>   const indexPath = `${config.buildDir}/${indexProps.path}`;
+>   await mkdirp(indexPath);
+>   await fs.writeFile(
+>     `${indexPath}/index.html`,
+>     templateIndexPage(indexProps)()
+>   );
+85a140,162
+> 
+> const templateIndexPage = ({ title, posts }) => html`
+> <!DOCTYPE html>
+> <html>
+>   <head>
+>     <title>${title}<title>
+>   </head>
+>   <body>
+>     <h1>${title}<h1>
+>     <ul>
+>       ${posts.map(
+>         (post) => html`
+>           <li>
+>             <a href="/${post.path}/">
+>               ${post.date.format("dddd, MMMM Do YYYY")}: ${post.title}
+>             </a>
+>           </li>
+>         `
+>       )}
+>     </ul>
+>   </body>
+> <html>
+> `;
