@@ -1,0 +1,12 @@
+10a11
+> const marked = require("marked");
+22a24,25
+>     const body = await fs.readFile(file, "utf8");
+>     const html = marked(body);
+25c28,29
+<       body: await fs.readFile(file, "utf8"),
+---
+>       body,
+>       html,
+33a38
+>     await fs.writeFile(`${postPath}/index.html`, post.html);

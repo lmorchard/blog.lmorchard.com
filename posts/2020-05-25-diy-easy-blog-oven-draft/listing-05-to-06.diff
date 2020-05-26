@@ -1,0 +1,32 @@
+13a14
+> const moment = require("moment");
+19a21,22
+> const RE_POST_NAME = new RegExp(/(\d{4})-(\d{2})-(\d{2})-(.*)/);
+> 
+28a32,42
+> 
+>     // Get the filename without .md or .markdown extension
+>     const postName = path.basename(file).split(".")[0];
+>     // Just skip any files that don't match the naming convention
+>     const dateMatch = RE_POST_NAME.exec(postName);
+>     if (!dateMatch) continue;
+> 
+>     const [, year, month, day, slug] = dateMatch;
+>     const date = moment(attributes.date || `${year}-${month}-${day}T12:00:00Z`);
+>     const postPath = `${date.format("YYYY/MM/DD")}/${slug}`;
+> 
+32c46,51
+<       path: file,
+---
+>       path: postPath,
+>       year,
+>       month,
+>       day,
+>       date,
+>       slug,
+40c59
+<     const postPath = `${config.buildDir}/${path.basename(post.path)}`;
+---
+>     const postPath = `${config.buildDir}/${post.path}`;
+75a95
+>     <h2>${post.date.format("dddd, MMMM Do YYYY, h:mm:ss a")}</h2>
