@@ -31,8 +31,8 @@ module.exports = ({
             html` <description>${post.html}</description> `
           }
           <pubDate>${new Date(post.date).toUTCString()}</pubDate>
-          <link>${site.absolute_baseurl}${post.path}/</link>
-          <guid isPermaLink="true">${site.absolute_baseurl}${post.path}/</guid>
+          <link>${site.absolute_baseurl}/${post.path}/</link>
+          <guid isPermaLink="true">${site.absolute_baseurl}/${post.path}/</guid>
         </item>
       `
       )}
