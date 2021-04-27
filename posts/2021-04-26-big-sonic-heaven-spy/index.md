@@ -130,6 +130,8 @@ At this point, the playlist is up to 2177 songs - 160 hours and 39 minutes of mu
 
 Dang, this DJ's repetoire is ridiculous!
 
+<iframe class="lazyload fullwidth" data-src="https://open.spotify.com/embed/playlist/1xBbvEJrf5HycEZbwn04o1" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
 ## What next?
 
 I don't really have any next steps for this thing. It turned a year old just a few days ago and it's done it's job far better than I'd imagined it would. I wanted to collect all the songs - and that's what it did! The only thing I can think of doing is to maybe tweak the script to stash a local backup of the playlist.
