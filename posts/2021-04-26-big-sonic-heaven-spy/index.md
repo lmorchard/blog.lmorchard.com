@@ -18,7 +18,7 @@ tags:
 
 <!--more-->
 
-![Big Sonic Heaven Spy playlist](./feature-image.png)
+<img src="./feature-image.png" class="fullwidth" />
 
 <nav role="navigation" class="table-of-contents"></nav>
 
@@ -26,13 +26,19 @@ tags:
 
 Back in the mid-90s, a Detroit-area radio DJ named Darren Revell started a show called [Big Sonic Heaven][bsh-wikipedia]. It aired every Sunday night for "four sonic hours" on 96.3 FM with playlists full of shoegaze, dream pop, trip hop, and Britpop. Some electronica and Goth tunes often found their way into rotation, too.
 
-It ran for about 8 years until 2003 and covered an interesting chunk of my life: from mid-college, through my first years as a bachelor, and ending around when I met the girl who [I'd later marry][wedding]. So, not only does the general musical space of Big Sonic Heaven claim enormous tracts of my psyche, but I have a lot of life events scored by it as well.
+It ran for about 8 years until 2003 and covered an interesting chunk of my life: from mid-college, through my first years as a bachelor, and ending around when I met the girl who [I'd later marry][wedding].
+
+So, not only does the general musical space of Big Sonic Heaven claim enormous tracts of my psyche, but I have a lot of life events scored by it as well.
 
 [wedding]: https://blog.lmorchard.com/2006/06/09/wedding-day-is-today/
+
+<img src="./boombox.jpg" class="inset right wide" />
 
 Early on, I would often set up a boombox with a kitchen timer to record the show. With having to get up early for class or work on Monday mornings, I usually couldn't catch it live. But, I'd have at least part of the show ready on tape for the next day.
 
 In the early period of the show, internet radio and MP3 downloads from the web weren't really things yet. If I recall, I could sometimes find someone posting playlists from the show on LiveJournal, so I took notes on what to dig for whenever I hit the record store.
+
+<img src="./fm-tuner.jpg" class="inset left wide" />
 
 At some point after college, I managed to acquire a USB FM radio. That let me upgrade my recording rig to .wav files dumped to my hard drive. For awhile, I had some automation to burn the show overnight as a set of 30-minute-long .mp3s to a CD-RW that I could play in the car on the way to work and on my PC at my desk.
 
@@ -42,19 +48,25 @@ I really wish I had saved more of those recordings, though: I tended to reuse th
 
 And then, the show was off the air. I think Darren still ran some club nights in the Detroit area for a few years, but eventually he moved off to California and I lost track of him for a long while.
 
+<img src="./strangeways.jpg" class="inset left" />
+<img src="./bigsonicheaven-indie.png" class="inset left" />
+<img src="./bsh-radio.jpg" class="inset right" />
+
 The Big Sonic Heaven shaped hole in my life kind of got filled by a few streaming stations, some of which were themselves inspired by the original. Podcasts appeared as that started to become a thing, some also inspired by Big Sonic Heaven.
 
-In particular, I remember [Strangeways Radio] and I think some stations on [RadioIO] before it became whatever it is now.
+In particular, I remember [Strangeways Radio], Auralgasms Radio ([now defunct](auralgasms)), and I think some stations on [RadioIO] before it became whatever it is now.
 
 Around 2007, I heard that Big Sonic Heaven was back on the radio on Indie 103.1 out in Los Angeles. By this point, you could stream just about any terrestrial station, so it was really cool to catch the show again! Then, that station went dark.
 
-A year or so later, in a neat little twist, Big Sonic Heaven resurfaced briefly on [Strangeways Radio]. After that, it rebooted as a podcast for awhile before fading.
+A year or so later, in a neat little twist, Big Sonic Heaven [resurfaced briefly][bsh-strangeways] on [Strangeways Radio]. After that, it rebooted as a podcast for awhile before fading.
 
 Then, last year - just in time for our pandemic lockdown - Darren Revell's [Big Sonic Heaven re-emerged as a 24/7 streaming radio station][Big Sonic Heaven].
 
+[auralgasms]: https://twitter.com/auralgasms/status/7106192490
 [radioio]: https://en.wikipedia.org/wiki/Radioio
 [strangeways radio]: https://www.strangewaysradio.com/
 [bsh-wikipedia]: https://en.wikipedia.org/wiki/Big_Sonic_Heaven
+[bsh-strangeways]: http://motorcityblog.blogspot.com/2010/07/big-sonic-heaven-returns.html
 
 ## Picking up old packrat habits
 
@@ -62,9 +74,11 @@ Probably sounds a bit dramatic, but this music has kind of gotten me through the
 
 The neat thing about all the returns of Big Sonic Heaven over the years has always been that Darren doesn't just lean on old playlists. Every version of the show has been a mix of classics and new stuff he's found. Given the past few years of Big Sonic Heaven revivals never quite lasting long, I started to get kind of itchy again in an amateur-archivist way.
 
-As it turns out, it's really impractical to try recording & squirreling away a 24/7 radio stream. But, I've spent years now [playing with Spotify playlists][my-playlists] like they're mixtapes. I even threw one together [based on old copies of Big Sonic Heaven playlists][bsh-manual-playlist] that I'd dug up, years ago. Not a perfect substitute, but it worked pretty well.
+<img src="./old-bsh-playlist.png" class="inset right wide" />
 
-With [this new streaming station][big sonic heaven], though, I noticed that the website added [a "Recently Played" widget][recently-played]. I could watch that to expand my playlist with new music.
+As it turns out, it's really impractical to try recording & squirreling away a 24/7 radio stream. But, I've spent years now [playing with Spotify playlists][my-playlists] like they're mixtapes.
+
+I even threw one together [based on old copies of Big Sonic Heaven playlists][bsh-manual-playlist] that I'd dug up, years ago. Not a perfect substitute, but it worked pretty well.
 
 [spotify-api-search]: https://developer.spotify.com/documentation/web-api/reference/#category-search
 [spotify-api-playlists]: https://developer.spotify.com/documentation/web-api/reference/#category-playlists
@@ -75,14 +89,16 @@ With [this new streaming station][big sonic heaven], though, I noticed that the 
 
 ## I miss the age of Mashups
 
-Oh, but wait. Why build a playlist by hand? I can make a robot do it for me!
+With [this new streaming station][big sonic heaven], though, I noticed that the website added [a "Recently Played" widget][recently-played]. I could watch that to expand my old playlist with new music. But, oh wait: Why build a playlist by hand? I can make a robot do it for me!
+
+Some things occurred to me:
 
 1. Spotify has an API that includes [search][spotify-api-search] and [playlist management][spotify-api-playlists]
 1. I am [well versed in the ways of web scraping][scraping].
 
-Along with all this nostalgia about Big Sonic Heaven, I kind of miss [the Age of Web 2.0 Mashups from 2006 or so][web20-mashups]. So, I decided to spend a little time tinkering.
+Along with all this audio nostalgia, I also kind of miss [the Age of Web 2.0 Mashups from 2006 or so][web20-mashups]. So, I decided to spend a little time tinkering.
 
-[What I came up with is a big hairball of JavaScript][bsh-scraper] which does the following every minute or so:
+What I came up with is [a big hairball of JavaScript][bsh-scraper]. It does the following every minute or so:
 
 1. [loads the contents of a Spotify playlist into memory](https://github.com/lmorchard/bsh-now-playing-scraper/blob/6495dd737a196498b2d82e745d58cef8006e1b81/scrape-now-playing-into-playlist.js#L26)
 1. [fetches the Big Sonic Heaven "Recently Played" widget](https://github.com/lmorchard/bsh-now-playing-scraper/blob/6495dd737a196498b2d82e745d58cef8006e1b81/scrape-now-playing-into-playlist.js#L51)
@@ -97,6 +113,8 @@ Along with all this nostalgia about Big Sonic Heaven, I kind of miss [the Age of
 [web20-mashups]: https://www.windley.com/archives/2006/05/mashups_web_dat.shtml
 
 After just a few hours of tinkering and refinement, the thing was working well enough to set to running on a Raspberry PI in a tmux session and forget about it. I figured it wouldn't be too rude to either the Big Sonic Heaven web servers or the Spotify API, seeing as it only does its thing every minute.
+
+<img src="./script-run.png" class="fullwidth" />
 
 I checked in on it after a week or so - and I was shocked to find it had assembled a playlist of over 1000 unique songs!
 
