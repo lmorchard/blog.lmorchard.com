@@ -36,7 +36,9 @@ So, not only does the general musical space of Big Sonic Heaven claim enormous t
 
 Early on, I would often set up a boombox with a kitchen timer to record the show. With having to get up early for class or work on Monday mornings, I usually couldn't catch it live. But, I'd have at least part of the show ready on tape for the next day.
 
-In the early period of the show, internet radio and MP3 downloads from the web weren't really things yet. If I recall, I could sometimes find someone posting playlists from the show on LiveJournal, so I took notes on what to dig for whenever I hit the record store.
+In the early period of the show, internet radio and MP3 downloads from the web weren't really things yet. I could sometimes find someone posting playlists from the show [on LiveJournal][bsh-livejournal], so I took notes on what to dig for whenever I hit the record store.
+
+[bsh-livejournal]: https://bigsonic-heaven.livejournal.com/
 
 <img src="./fm-tuner.jpg" class="inset left wide" />
 
@@ -46,7 +48,9 @@ I really wish I had saved more of those recordings, though: I tended to reuse th
 
 ## Revivals of Big Sonic Heaven
 
-And then, the show was off the air. I think Darren still ran some club nights in the Detroit area for a few years, but eventually he moved off to California and I lost track of him for a long while.
+And then, [the show was off the air][bsh-gone]. I think Darren still ran some club nights in the Detroit area for a few years, but eventually he moved off to California and I lost track of him for a long while.
+
+[bsh-gone]: https://bigsonic-heaven.livejournal.com/5625.html
 
 <img src="./strangeways.jpg" class="inset left" />
 <img src="./bigsonicheaven-indie.png" class="inset left" />
@@ -54,7 +58,7 @@ And then, the show was off the air. I think Darren still ran some club nights in
 
 The Big Sonic Heaven shaped hole in my life kind of got filled by a few streaming stations, some of which were themselves inspired by the original. Podcasts appeared as that started to become a thing, some also inspired by Big Sonic Heaven.
 
-In particular, I remember [Strangeways Radio], Auralgasms Radio ([now defunct](auralgasms)), and I think some stations on [RadioIO] before it became whatever it is now.
+In particular, I remember [Strangeways Radio], Auralgasms Radio ([now defunct][auralgasms]), and I think some stations on [RadioIO] before it became whatever it is now.
 
 Around 2007, I heard that Big Sonic Heaven was back on the radio on Indie 103.1 out in Los Angeles. By this point, you could stream just about any terrestrial station, so it was really cool to catch the show again! Then, that station went dark.
 
