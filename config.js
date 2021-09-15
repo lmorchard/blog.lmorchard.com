@@ -7,7 +7,7 @@ module.exports = {
   site: {
     title: "blog.lmorchard.com",
     subtitle:
-      "It's all spinning wheels and self-doubt until the first pot of coffee.",
+      "It's all spinning wheels & self-doubt until the first pot of coffee.",
     language: "en",
     baseurl: process.env.BASE_URL || "",
     absolute_baseurl: process.env.ABSOLUTE_BASE_URL || "https://blog.lmorchard.com",
