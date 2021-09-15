@@ -35,14 +35,14 @@
       <meta property="og:title" content="Microsummaries and Content-Type Mysteries" />
         <meta
           property="og:url"
-          content="https://lmorchard.github.io/blog.lmorchard.com//2006/10/29/microsummaries-and-content-type-mysteries/"
+          content="https://lmorchard.github.io/blog.lmorchard.com/2006/10/29/microsummaries-and-content-type-mysteries/"
         />
     </head>
     <body>
       <section class="main">
         <header>
           <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
           <nav>
             <label for="nav-trigger"></label>
             <input type="checkbox" id="nav-trigger" class="nav-trigger" />
@@ -101,7 +101,8 @@
         <section class="post-content">
           <p>One of my favorite features of the new Firefox are <a href="http://microsummaries.org/">Microsummaries</a>.  They&#39;re like RSS-lite: one-liner summaries of web pages that can be used to keep bookmark titles up to date and get succinct info about a page.  For example, you could get the latest temperature from the title of a weather report bookmark, or the most recent bid price from an auction page.</p>
 <p>But, there&#39;s one thing that rubs me the wrong way, and it&#39;s this:</p>
-<pre><code>&lt;link rel=&quot;microsummary&quot; href=&quot;microsummary.txt&quot;&gt;</code></pre>
+<pre><code>&lt;link rel=&quot;microsummary&quot; href=&quot;microsummary.txt&quot;&gt;
+</code></pre>
 <p>That&#39;s how you clue a client into finding the microsummary for a given HTML page.  Stick that in your head tag, and you&#39;re off.  It&#39;s just like <a href="http://diveintomark.org/archives/2002/05/30/rss_autodiscovery">RSS autodiscovery</a>.  Well it is, except for an important detail: What&#39;s the Content-Type I should expect at that URL?</p>
 <p>You see, microsummaries can be provided as either a direct URL to a plain text summary of the page, or a URL to an XML-based generator providing the means to extract that plain text summary from the page.  But, as spec&#39;ed, you never know which you&#39;re going to get until you fetch the URL.  So, when trying to handle a <a href="http://wiki.mozilla.org/Microsummaries">microsummary</a>, I never know whether to just use the fetched content directly as plain text or whether it&#39;s time to fire up the XSL machinery.</p>
 <p>I&#39;ve seen some sites toss in a type=&quot;text/plain&quot; or type=&quot;application/xml&quot; attribute - which is very helpful and what I really want to see - but it&#39;s not in <a href="http://wiki.mozilla.org/Microsummaries">the spec</a>.  From a cursory perusal of Firefox source code, it looks like the browser tries to sniff the Content-Type header returned by the web server - but that sucks, because web servers often lie or are confused about Content-Type.  I need to read more into that source code, so I can at least do as well as Firefox does.</p>

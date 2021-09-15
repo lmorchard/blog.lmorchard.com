@@ -2,62 +2,63 @@
   <rss version="2.0">
     <channel>
       <title>blog.lmorchard.com</title>
-      <description>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</description>
-      <link>https://lmorchard.github.io/blog.lmorchard.com/</link>
+      <description>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</description>
+      <link>https://lmorchard.github.io/blog.lmorchard.com</link>
       <item>
           <title>My brain&#39;s full of fog</title>
           
           
           <pubDate>Thu, 25 Aug 2005 20:37:43 GMT</pubDate>
-          <link>https://lmorchard.github.io/blog.lmorchard.com//2005/08/25/my-brains-full-of-fog/</link>
-          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2005/08/25/my-brains-full-of-fog/</guid>
+          <link>https://lmorchard.github.io/blog.lmorchard.com/2005/08/25/my-brains-full-of-fog/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2005/08/25/my-brains-full-of-fog/</guid>
         </item><item>
           <title>Super-fast DummyPants Addressbarlet for del.icio.us</title>
-          <description>&lt;p&gt;Okay, so lately I&amp;apos;ve switched to using &amp;quot;&lt;a href=&quot;http://naeblis.cx/rtomayko/2004/08/09/DeliciousAddresslets&quot;&gt;addressbarlets&lt;/a&gt;&amp;quot; for my &lt;a href=&quot;http://del.icio.us&quot;&gt;del.icio.us&lt;/a&gt; posting needs.  In particular, I&amp;apos;ve been using the &lt;a href=&quot;http://ejohn.org/blog/super-fast-delicious-bookmarklet/&quot;&gt;Super-Fast variety&lt;/a&gt;.  I cannot stress how much better these are than clicking links in the bookmark toolbar.  My &lt;a href=&quot;http://del.icio.us&quot;&gt;del.icio.us&lt;/a&gt; posting has converged that much closer to command-line / QuickSilver perfection.  &lt;/p&gt;
-&lt;p&gt;But, I just noticed that in my &lt;a href=&quot;http://del.icio.us&quot;&gt;del.icio.us&lt;/a&gt; RSS feed, the title &amp;quot;&lt;strong&gt;del.icio.us warning: non-utf8 string! (sorry)&lt;/strong&gt;&amp;quot; has been popping up--especially on &lt;a href=&quot;http://dev.upian.com/hotlinks/&quot;&gt;Hot Links&lt;/a&gt;, which includes my links on a regular basis.  &lt;/p&gt;
-&lt;p&gt;Well, although I&amp;apos;m not really all that hip to unicode and non-ASCII characters, it appears that things like &lt;a href=&quot;http://daringfireball.net/projects/smartypants/&quot;&gt;SmartyPants&lt;/a&gt; and the &lt;a href=&quot;http://www.365tomorrows.com/08/19/deo%e2%80%99s-hole/&quot;&gt;use of chevrons in page titles&lt;/a&gt; are throwing the monkey wrench for me when the addressbarlet picks up the &lt;code&gt;document.title&lt;/code&gt;.  So, I decided to do a little sloppy butchery in my bookmarklet code to wrestle these titles into something acceptable.&lt;/p&gt;
-&lt;p&gt;After you&amp;apos;ve had a chance to try out / comprehend &lt;a href=&quot;http://ejohn.org/blog/super-fast-delicious-bookmarklet/&quot;&gt;the original versions&lt;/a&gt;, take a look at this revised addressbarlet:&lt;/p&gt;
+          <description>&lt;p&gt;Okay, so lately I&#39;ve switched to using &quot;&lt;a href=&quot;http://naeblis.cx/rtomayko/2004/08/09/DeliciousAddresslets&quot;&gt;addressbarlets&lt;/a&gt;&quot; for my &lt;a href=&quot;http://del.icio.us&quot;&gt;del.icio.us&lt;/a&gt; posting needs.  In particular, I&#39;ve been using the &lt;a href=&quot;http://ejohn.org/blog/super-fast-delicious-bookmarklet/&quot;&gt;Super-Fast variety&lt;/a&gt;.  I cannot stress how much better these are than clicking links in the bookmark toolbar.  My &lt;a href=&quot;http://del.icio.us&quot;&gt;del.icio.us&lt;/a&gt; posting has converged that much closer to command-line / QuickSilver perfection.  &lt;/p&gt;
+&lt;p&gt;But, I just noticed that in my &lt;a href=&quot;http://del.icio.us&quot;&gt;del.icio.us&lt;/a&gt; RSS feed, the title &quot;&lt;strong&gt;del.icio.us warning: non-utf8 string! (sorry)&lt;/strong&gt;&quot; has been popping up--especially on &lt;a href=&quot;http://dev.upian.com/hotlinks/&quot;&gt;Hot Links&lt;/a&gt;, which includes my links on a regular basis.  &lt;/p&gt;
+&lt;p&gt;Well, although I&#39;m not really all that hip to unicode and non-ASCII characters, it appears that things like &lt;a href=&quot;http://daringfireball.net/projects/smartypants/&quot;&gt;SmartyPants&lt;/a&gt; and the &lt;a href=&quot;http://www.365tomorrows.com/08/19/deo%e2%80%99s-hole/&quot;&gt;use of chevrons in page titles&lt;/a&gt; are throwing the monkey wrench for me when the addressbarlet picks up the &lt;code&gt;document.title&lt;/code&gt;.  So, I decided to do a little sloppy butchery in my bookmarklet code to wrestle these titles into something acceptable.&lt;/p&gt;
+&lt;p&gt;After you&#39;ve had a chance to try out / comprehend &lt;a href=&quot;http://ejohn.org/blog/super-fast-delicious-bookmarklet/&quot;&gt;the original versions&lt;/a&gt;, take a look at this revised addressbarlet:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;javascript:u=%22CHANGEME%22;us=[[&amp;apos;\u201C&amp;apos;,&amp;apos;%22&amp;apos;],[&amp;apos;\u201D&amp;apos;,&amp;apos;%22&amp;apos;],[&amp;apos;\u2019&amp;apos;,%22&amp;apos;%22],[&amp;apos;\u2018&amp;apos;,%22&amp;apos;%22],[&amp;apos;\u2026&amp;apos;,%22...%22],[&amp;apos;\u00BB&amp;apos;,&amp;apos;-&amp;apos;]];function es(p){for(var i=0;i&amp;lt;us.length;i++){p=p.replace(us[i][0],us[i][1])};p=p.replace(/[\u0080-\uFFFF]/g,&amp;apos;&amp;apos;);return encodeURIComponent(p);};q=location.href;e=%22%22+(window.getSelection?window.getSelection():document.getSelection?document.getSelection():document.selection.createRange().text);p=document.title;window.location.href=%22http://del.icio.us/%22+u+%22?jump=doclose&amp;amp;tags=%22+es(%22%s%22)+%22&amp;amp;url=%22+es(q)+%22&amp;amp;description=%22+es(p)+%22&amp;amp;extended=%22+es(&amp;apos;%22&amp;apos;+e+&amp;apos;%22&amp;apos;).replace(/ /g,%22+%22);&quot;&gt;Post to del.icio.us and close&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;javascript:u=%22CHANGEME%22;us=[[&#39;\u201C&#39;,&#39;%22&#39;],[&#39;\u201D&#39;,&#39;%22&#39;],[&#39;\u2019&#39;,%22&#39;%22],[&#39;\u2018&#39;,%22&#39;%22],[&#39;\u2026&#39;,%22...%22],[&#39;\u00BB&#39;,&#39;-&#39;]];function es(p){for(var i=0;i&lt;us.length;i++){p=p.replace(us[i][0],us[i][1])};p=p.replace(/[\u0080-\uFFFF]/g,&#39;&#39;);return encodeURIComponent(p);};q=location.href;e=%22%22+(window.getSelection?window.getSelection():document.getSelection?document.getSelection():document.selection.createRange().text);p=document.title;window.location.href=%22http://del.icio.us/%22+u+%22?jump=doclose&amp;amp;tags=%22+es(%22%s%22)+%22&amp;amp;url=%22+es(q)+%22&amp;amp;description=%22+es(p)+%22&amp;amp;extended=%22+es(&#39;%22&#39;+e+&#39;%22&#39;).replace(/ /g,%22+%22);&quot;&gt;Post to del.icio.us and close&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;In case, for some reason, that doesn&amp;apos;t come through in this entry, here&amp;apos;s the code which should appear in the HREF:&lt;/p&gt;
-&lt;textarea rows=&quot;10&quot; cols=&quot;65&quot; name=&quot;code&quot; class=&quot;javascript&quot;&gt;    javascript:u=%22CHANGEME%22;us=[[&amp;apos;\u201C&amp;apos;,&amp;apos;%22&amp;apos;],[&amp;apos;\u201D&amp;apos;,&amp;apos;%22&amp;apos;],[&amp;apos;\u2019&amp;apos;,%22&amp;apos;%22],[&amp;apos;\u2018&amp;apos;,%22&amp;apos;%22],[&amp;apos;\u2026&amp;apos;,%22...%22],[&amp;apos;\u00BB&amp;apos;,&amp;apos;-&amp;apos;]];function es(p){for(var i=0;i&amp;lt;us .length;i++){p=p.replace(us[i][0],us[i][1])};p=p.replace(/[\u0080-\uFFFF]/g,&amp;apos;&amp;apos;);return encodeURIComponent(p);};q=location.href;e=%22%22+(window.getSelection?window.getSelection():document.getSelection?document.getSelection():document.selection.createRange().text);p=document.title;window.location.href=%22http://del.icio.us/%22+u+%22?jump=doclose&amp;amp;tags=%22+es(%22%s%22)+%22&amp;amp;url=%22+es(q)+%22&amp;amp;description=%22+es(p)+%22&amp;amp;extended=%22+es(&amp;apos;%22&amp;apos;+e+&amp;apos;%22&amp;apos;).replace(/ /g,%22+%22);&lt;/textarea&gt;
+&lt;p&gt;In case, for some reason, that doesn&#39;t come through in this entry, here&#39;s the code which should appear in the HREF:&lt;/p&gt;
+&lt;textarea rows=&quot;10&quot; cols=&quot;65&quot; name=&quot;code&quot; class=&quot;javascript&quot;&gt;    javascript:u=%22CHANGEME%22;us=[[&#39;\u201C&#39;,&#39;%22&#39;],[&#39;\u201D&#39;,&#39;%22&#39;],[&#39;\u2019&#39;,%22&#39;%22],[&#39;\u2018&#39;,%22&#39;%22],[&#39;\u2026&#39;,%22...%22],[&#39;\u00BB&#39;,&#39;-&#39;]];function es(p){for(var i=0;i&amp;lt;us .length;i++){p=p.replace(us[i][0],us[i][1])};p=p.replace(/[\u0080-\uFFFF]/g,&#39;&#39;);return encodeURIComponent(p);};q=location.href;e=%22%22+(window.getSelection?window.getSelection():document.getSelection?document.getSelection():document.selection.createRange().text);p=document.title;window.location.href=%22http://del.icio.us/%22+u+%22?jump=doclose&amp;amp;tags=%22+es(%22%s%22)+%22&amp;amp;url=%22+es(q)+%22&amp;amp;description=%22+es(p)+%22&amp;amp;extended=%22+es(&#39;%22&#39;+e+&#39;%22&#39;).replace(/ /g,%22+%22);&lt;/textarea&gt;
+    
+I&#39;m sure I have a few nasty bugs lurking in there, but basically I&#39;m trying to reverse [SmartyPants][]--DummyPants, if you will--and crudely hack out everything that&#39;s not the usual ASCII.
 
-&lt;p&gt;I&amp;apos;m sure I have a few nasty bugs lurking in there, but basically I&amp;apos;m trying to reverse &lt;a href=&quot;http://daringfireball.net/projects/smartypants/&quot;&gt;SmartyPants&lt;/a&gt;--DummyPants, if you will--and crudely hack out everything that&amp;apos;s not the usual ASCII.&lt;/p&gt;
 &lt;p&gt;If you happen to be having this problem, let me know if this code works for you.&lt;/p&gt;
 </description>
           
           <pubDate>Fri, 19 Aug 2005 21:32:12 GMT</pubDate>
-          <link>https://lmorchard.github.io/blog.lmorchard.com//2005/08/19/dummypants/</link>
-          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2005/08/19/dummypants/</guid>
+          <link>https://lmorchard.github.io/blog.lmorchard.com/2005/08/19/dummypants/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2005/08/19/dummypants/</guid>
         </item><item>
           <title>Quick and Random Thoughts</title>
           
           
           <pubDate>Sat, 13 Aug 2005 03:57:03 GMT</pubDate>
-          <link>https://lmorchard.github.io/blog.lmorchard.com//2005/08/13/quick-and-random-thoughts/</link>
-          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2005/08/13/quick-and-random-thoughts/</guid>
+          <link>https://lmorchard.github.io/blog.lmorchard.com/2005/08/13/quick-and-random-thoughts/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2005/08/13/quick-and-random-thoughts/</guid>
         </item><item>
           <title>Quick Thoughts for a Thursday</title>
           
           
           <pubDate>Thu, 11 Aug 2005 15:37:26 GMT</pubDate>
-          <link>https://lmorchard.github.io/blog.lmorchard.com//2005/08/11/quick-thoughts-for-a-thursday/</link>
-          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2005/08/11/quick-thoughts-for-a-thursday/</guid>
+          <link>https://lmorchard.github.io/blog.lmorchard.com/2005/08/11/quick-thoughts-for-a-thursday/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2005/08/11/quick-thoughts-for-a-thursday/</guid>
         </item><item>
           <title>Homebrew Productivity via Rube Goldberg</title>
           
           
           <pubDate>Tue, 09 Aug 2005 13:59:00 GMT</pubDate>
-          <link>https://lmorchard.github.io/blog.lmorchard.com//2005/08/09/homebrew-productivity-via-rube-goldberg/</link>
-          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2005/08/09/homebrew-productivity-via-rube-goldberg/</guid>
+          <link>https://lmorchard.github.io/blog.lmorchard.com/2005/08/09/homebrew-productivity-via-rube-goldberg/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2005/08/09/homebrew-productivity-via-rube-goldberg/</guid>
         </item><item>
           <title>Quick Brain Burps</title>
           
           
           <pubDate>Mon, 08 Aug 2005 17:17:03 GMT</pubDate>
-          <link>https://lmorchard.github.io/blog.lmorchard.com//2005/08/08/quick-brain-burps/</link>
-          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2005/08/08/quick-brain-burps/</guid>
+          <link>https://lmorchard.github.io/blog.lmorchard.com/2005/08/08/quick-brain-burps/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2005/08/08/quick-brain-burps/</guid>
         </item>
     </channel>
   </rss>

@@ -2,29 +2,29 @@
   <rss version="2.0">
     <channel>
       <title>blog.lmorchard.com</title>
-      <description>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</description>
-      <link>https://lmorchard.github.io/blog.lmorchard.com/</link>
+      <description>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</description>
+      <link>https://lmorchard.github.io/blog.lmorchard.com</link>
       <item>
           <title>Kibo Kibo Kibo</title>
           
           
           <pubDate>Fri, 30 Jul 2004 03:22:32 GMT</pubDate>
-          <link>https://lmorchard.github.io/blog.lmorchard.com//2004/07/30/kibo-kibo-kibo/</link>
-          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2004/07/30/kibo-kibo-kibo/</guid>
+          <link>https://lmorchard.github.io/blog.lmorchard.com/2004/07/30/kibo-kibo-kibo/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2004/07/30/kibo-kibo-kibo/</guid>
         </item><item>
           <title>Use Control-Click for button3 in Apple&#39;s X11</title>
           
           
           <pubDate>Thu, 22 Jul 2004 05:03:27 GMT</pubDate>
-          <link>https://lmorchard.github.io/blog.lmorchard.com//2004/07/22/use-control-click-for-button3-in-apples-x11/</link>
-          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2004/07/22/use-control-click-for-button3-in-apples-x11/</guid>
+          <link>https://lmorchard.github.io/blog.lmorchard.com/2004/07/22/use-control-click-for-button3-in-apples-x11/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2004/07/22/use-control-click-for-button3-in-apples-x11/</guid>
         </item><item>
           <title>Dork Funk</title>
           
           
           <pubDate>Thu, 15 Jul 2004 02:32:55 GMT</pubDate>
-          <link>https://lmorchard.github.io/blog.lmorchard.com//2004/07/15/dork-funk/</link>
-          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2004/07/15/dork-funk/</guid>
+          <link>https://lmorchard.github.io/blog.lmorchard.com/2004/07/15/dork-funk/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2004/07/15/dork-funk/</guid>
         </item><item>
           <title>Wish-of-the-Month Club, Part 3 of 3</title>
           <description>&lt;p&gt;&lt;i&gt;This is the exciting conclusion of the Wish-of-the-Month Club.  Before continuing on, you may want to catch up with parts &lt;a href=&quot;http://www.decafbad.com/blog/2004/06/16/wishofthemonthclub1&quot;&gt;one&lt;/a&gt; and &lt;a href=&quot;http://www.decafbad.com/blog/2004/06/27/wishofthemonthclub2&quot;&gt;two&lt;/a&gt;.&lt;/i&gt;&lt;/p&gt;
@@ -34,88 +34,98 @@
 &lt;li&gt;&lt;a href=&quot;http://www.decafbad.com/cvs/*checkout*/hacks/wishes/wishes-ex5.xsl&quot;&gt;&lt;code&gt;wishes-ex5.xsl&lt;/code&gt;&lt;/a&gt;: The fifth iteration of the stylesheet in development.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.decafbad.com/cvs/*checkout*/hacks/wishes/wishes.html&quot;&gt;&lt;code&gt;wishes.html&lt;/code&gt;&lt;/a&gt;: Sample output in HTML&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;We&amp;apos;ve finally gotten together all the bits of information we need--wishlists have been queried; random items have been selected; and a shopping cart has been prepared.  Now we just have to present the selections and a link to check out with the shopping cart.&lt;/p&gt;
+&lt;p&gt;We&#39;ve finally gotten together all the bits of information we need--wishlists have been queried; random items have been selected; and a shopping cart has been prepared.  Now we just have to present the selections and a link to check out with the shopping cart.&lt;/p&gt;
 &lt;p&gt;First, locate the following line toward the end of the stylesheet as we left it in the last section:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;    &amp;lt;xsl:copy-of select=&amp;quot;$shopping_cart&amp;quot; /&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Delete this, and let&amp;apos;s replace it by building some HTML:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;    &amp;lt;xsl:variable name=&amp;quot;shopping_cart_purchase_url&amp;quot; 
-                  select=&amp;quot;exsl:node-set($shopping_cart)//PurchaseUrl&amp;quot; /&amp;gt;
-
-    &amp;lt;html xmlns=&amp;quot;http://www.w3.org/1999/xhtml&amp;quot;&amp;gt;
+&lt;pre&gt;&lt;code&gt;    &amp;lt;xsl:copy-of select=&quot;$shopping_cart&quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Delete this, and let&#39;s replace it by building some HTML:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    &amp;lt;xsl:variable name=&quot;shopping_cart_purchase_url&quot; 
+                  select=&quot;exsl:node-set($shopping_cart)//PurchaseUrl&quot; /&amp;gt;
+    
+    &amp;lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&amp;gt;
       &amp;lt;head&amp;gt;&amp;lt;title&amp;gt;Wishlist Shopping Cart&amp;lt;/title&amp;gt;\&amp;lt;/head&amp;gt;
       &amp;lt;body&amp;gt;
-        &amp;lt;p class=&amp;quot;title&amp;quot;&amp;gt;
+        &amp;lt;p class=&quot;title&quot;&amp;gt;
           Here are your wishlist items
-          &amp;lt;a href=&amp;quot;{$shopping_cart_purchase_url}&amp;quot;&amp;gt;
-            &amp;lt;img src=&amp;quot;http://g-images.amazon.com/images/G/01/detail/shoppingcart-header-02.gif&amp;quot; /&amp;gt;
+          &amp;lt;a href=&quot;{$shopping_cart_purchase_url}&quot;&amp;gt;
+            &amp;lt;img src=&quot;http://g-images.amazon.com/images/G/01/detail/shoppingcart-header-02.gif&quot; /&amp;gt;
           &amp;lt;/a&amp;gt; 
           items:
-        &amp;lt;/p&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We&amp;apos;re using the &lt;code&gt;exsl:note-set&lt;/code&gt; function again to access the contents of &lt;code&gt;$shopping_cart&lt;/code&gt; with an XPath expression.  We pluck out the value of the &lt;code&gt;PurchaseUrl&lt;/code&gt; in the shopping cart and place it in the variable &lt;code&gt;shopping_cart_purchase_url&lt;/code&gt;.  Then, after a bit of HTML preamble, we borrow a shopping cart icon from Amazon itself to construct a link to which we can browse later to purchase the selected items.  This HTML is very simple so far; it&amp;apos;s likely too simple, so eventually you may like to toss some CSS in here to improve the looks of things.  But, I&amp;apos;ll leave that as an exercise for the reader.  &lt;/p&gt;
-&lt;p&gt;Next, let&amp;apos;s build a display of the items selected by iterating first through the wishlists:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;        &amp;lt;xsl:for-each select=&amp;quot;exsl:node-set($random_products)/wishes:wishitem&amp;quot;&amp;gt;
-          &amp;lt;div class=&amp;quot;Detail&amp;quot;&amp;gt;
+        &amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We&#39;re using the &lt;code&gt;exsl:note-set&lt;/code&gt; function again to access the contents of &lt;code&gt;$shopping_cart&lt;/code&gt; with an XPath expression.  We pluck out the value of the &lt;code&gt;PurchaseUrl&lt;/code&gt; in the shopping cart and place it in the variable &lt;code&gt;shopping_cart_purchase_url&lt;/code&gt;.  Then, after a bit of HTML preamble, we borrow a shopping cart icon from Amazon itself to construct a link to which we can browse later to purchase the selected items.  This HTML is very simple so far; it&#39;s likely too simple, so eventually you may like to toss some CSS in here to improve the looks of things.  But, I&#39;ll leave that as an exercise for the reader.  &lt;/p&gt;
+&lt;p&gt;Next, let&#39;s build a display of the items selected by iterating first through the wishlists:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;        &amp;lt;xsl:for-each select=&quot;exsl:node-set($random_products)/wishes:wishitem&quot;&amp;gt;
+          &amp;lt;div class=&quot;Detail&quot;&amp;gt;
 
-            &amp;lt;p class=&amp;quot;wishlistLabel&amp;quot;&amp;gt;
-              &amp;lt;xsl:value-of select=&amp;quot;wishes:wishlist/@label&amp;quot; /&amp;gt;
-            &amp;lt;/p&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This begins a block for each wishlist, starting off with a paragraph containing the label we gave each wishlist.  Next, let&amp;apos;s include a few details about the product chosen.  Again, all of the bits of data included for each product are described in the AWS documentation in the &lt;em&gt;Overview&lt;/em&gt; under &lt;em&gt;Amazon Web Services Data Model&lt;/em&gt;.  Checking that out, we can see that the data includes a URL to images of several sizes representing the product.  Let&amp;apos;s include the medium-sized image as a link to the product&amp;apos;s detail page:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;            &amp;lt;p class=&amp;quot;Product&amp;quot;&amp;gt;
-              &amp;lt;a href=&amp;quot;{Details/@url}&amp;quot;&amp;gt;
-                &amp;lt;img src=&amp;quot;{Details/ImageUrlMedium}&amp;quot; /&amp;gt;
+            &amp;lt;p class=&quot;wishlistLabel&quot;&amp;gt;
+              &amp;lt;xsl:value-of select=&quot;wishes:wishlist/@label&quot; /&amp;gt;
+            &amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This begins a block for each wishlist, starting off with a paragraph containing the label we gave each wishlist.  Next, let&#39;s include a few details about the product chosen.  Again, all of the bits of data included for each product are described in the AWS documentation in the &lt;em&gt;Overview&lt;/em&gt; under &lt;em&gt;Amazon Web Services Data Model&lt;/em&gt;.  Checking that out, we can see that the data includes a URL to images of several sizes representing the product.  Let&#39;s include the medium-sized image as a link to the product&#39;s detail page:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;            &amp;lt;p class=&quot;Product&quot;&amp;gt;
+              &amp;lt;a href=&quot;{Details/@url}&quot;&amp;gt;
+                &amp;lt;img src=&quot;{Details/ImageUrlMedium}&quot; /&amp;gt;
               &amp;lt;/a&amp;gt;
-              &amp;lt;br /&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We can also include the product&amp;apos;s name as a link:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;              &amp;lt;span class=&amp;quot;ProductName&amp;quot;&amp;gt;
-                &amp;lt;a href=&amp;quot;{Details/@url}&amp;quot;&amp;gt;
-                  &amp;lt;xsl:value-of select=&amp;quot;Details/ProductName&amp;quot; /&amp;gt;
+              &amp;lt;br /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can also include the product&#39;s name as a link:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;              &amp;lt;span class=&quot;ProductName&quot;&amp;gt;
+                &amp;lt;a href=&quot;{Details/@url}&quot;&amp;gt;
+                  &amp;lt;xsl:value-of select=&quot;Details/ProductName&quot; /&amp;gt;
                 &amp;lt;/a&amp;gt;
               &amp;lt;/span&amp;gt;
-              &amp;lt;br /&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+              &amp;lt;br /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;And, it would be nice to provide a listing of people involved in creating the product (ie. the artists and/or authors):&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;          &amp;lt;xsl:for-each select=&amp;quot;./Details/Artists/Artist | 
-                                ./Details/Authors/Author&amp;quot;&amp;gt;
-            &amp;lt;span class=&amp;quot;Author&amp;quot;&amp;gt;by &amp;lt;xsl:value-of select=&amp;quot;.&amp;quot; /&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;br /&amp;gt;
-          &amp;lt;/xsl:for-each&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Note that here, the XPath selecting the data is just a bit more involved, since this information can be found in both &lt;code&gt;Artist&lt;/code&gt; and &lt;code&gt;Author&lt;/code&gt; elements.  In another case, we might care to make a distinction, but it really isn&amp;apos;t all that important for this project.  The data model also provides an indication of from which catalog this product came, as well as its date of release.  Let&amp;apos;s include that for good measure:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;          &amp;lt;xsl:for-each select=&quot;./Details/Artists/Artist | 
+                                ./Details/Authors/Author&quot;&amp;gt;
+            &amp;lt;span class=&quot;Author&quot;&amp;gt;by &amp;lt;xsl:value-of select=&quot;.&quot; /&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;br /&amp;gt;
+          &amp;lt;/xsl:for-each&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note that here, the XPath selecting the data is just a bit more involved, since this information can be found in both &lt;code&gt;Artist&lt;/code&gt; and &lt;code&gt;Author&lt;/code&gt; elements.  In another case, we might care to make a distinction, but it really isn&#39;t all that important for this project.  The data model also provides an indication of from which catalog this product came, as well as its date of release.  Let&#39;s include that for good measure:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;          (
-          &amp;lt;xsl:value-of select=&amp;quot;Details/Catalog&amp;quot; /&amp;gt; -
-          &amp;lt;span class=&amp;quot;ReleaseDate&amp;quot;&amp;gt;
-            &amp;lt;xsl:value-of select=&amp;quot;Details/ReleaseDate&amp;quot; /&amp;gt;
+          &amp;lt;xsl:value-of select=&quot;Details/Catalog&quot; /&amp;gt; -
+          &amp;lt;span class=&quot;ReleaseDate&quot;&amp;gt;
+            &amp;lt;xsl:value-of select=&quot;Details/ReleaseDate&quot; /&amp;gt;
           &amp;lt;/span&amp;gt;
           )
           &amp;lt;br /&amp;gt;
-        &amp;lt;/p&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Another thing that would be nice to know is how much this thing costs--we&amp;apos;ve got this information provided in the XML data as well, so let&amp;apos;s include it:&lt;/p&gt;
+        &amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Another thing that would be nice to know is how much this thing costs--we&#39;ve got this information provided in the XML data as well, so let&#39;s include it:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;        &amp;lt;p&amp;gt;
-          &amp;lt;span class=&amp;quot;PriceLabel&amp;quot;&amp;gt;List Price:&amp;lt;/span&amp;gt; 
-          &amp;lt;span class=&amp;quot;ListPrice&amp;quot;&amp;gt;
-            &amp;lt;xsl:value-of select=&amp;quot;Details/ListPrice&amp;quot; /&amp;gt;
+          &amp;lt;span class=&quot;PriceLabel&quot;&amp;gt;List Price:&amp;lt;/span&amp;gt; 
+          &amp;lt;span class=&quot;ListPrice&quot;&amp;gt;
+            &amp;lt;xsl:value-of select=&quot;Details/ListPrice&quot; /&amp;gt;
+          &amp;lt;/span&amp;gt;
+          &amp;lt;br /&amp;gt;
+          
+          &amp;lt;span class=&quot;PriceLabel&quot;&amp;gt;Our Price:&amp;lt;/span&amp;gt;
+          &amp;lt;span class=&quot;OurPrice&quot;&amp;gt;
+            &amp;lt;xsl:value-of select=&quot;Details/OurPrice&quot; /&amp;gt;
           &amp;lt;/span&amp;gt;
           &amp;lt;br /&amp;gt;
 
-          &amp;lt;span class=&amp;quot;PriceLabel&amp;quot;&amp;gt;Our Price:&amp;lt;/span&amp;gt;
-          &amp;lt;span class=&amp;quot;OurPrice&amp;quot;&amp;gt;
-            &amp;lt;xsl:value-of select=&amp;quot;Details/OurPrice&amp;quot; /&amp;gt;
+          &amp;lt;span class=&quot;PriceLabel&quot;&amp;gt;Used Price:&amp;lt;/span&amp;gt; 
+          &amp;lt;span class=&quot;UsedPrice&quot;&amp;gt;
+            &amp;lt;xsl:value-of select=&quot;Details/UsedPrice&quot; /&amp;gt;
           &amp;lt;/span&amp;gt;
           &amp;lt;br /&amp;gt;
-
-          &amp;lt;span class=&amp;quot;PriceLabel&amp;quot;&amp;gt;Used Price:&amp;lt;/span&amp;gt; 
-          &amp;lt;span class=&amp;quot;UsedPrice&amp;quot;&amp;gt;
-            &amp;lt;xsl:value-of select=&amp;quot;Details/UsedPrice&amp;quot; /&amp;gt;
-          &amp;lt;/span&amp;gt;
-          &amp;lt;br /&amp;gt;
-        &amp;lt;/p&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Something to note about these prices, too, is that although the used price is listed, the shopping cart will contain new items from Amazon&amp;apos;s shelves.  You might want to compare these prices though, and make a change to the shopping cart when you get there, if a used item is acceptable.  (Another good reason for manual intervention in our Wish-of-the-Month club.)&lt;/p&gt;
+        &amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Something to note about these prices, too, is that although the used price is listed, the shopping cart will contain new items from Amazon&#39;s shelves.  You might want to compare these prices though, and make a change to the shopping cart when you get there, if a used item is acceptable.  (Another good reason for manual intervention in our Wish-of-the-Month club.)&lt;/p&gt;
 &lt;p&gt;Oh yeah, and we should include one other bit of information:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;        &amp;lt;p&amp;gt;(&amp;lt;xsl:value-of select=&amp;quot;Details/Availability&amp;quot; /&amp;gt;)&amp;lt;/p&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;        &amp;lt;p&amp;gt;(&amp;lt;xsl:value-of select=&quot;Details/Availability&quot; /&amp;gt;)&amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;This tells us whether or not this item can actually be bought, at present.  Although we used this data earlier to try to filter out unavailable items, we should still display this information just in case we missed something.&lt;/p&gt;
-&lt;p&gt;Finally, let&amp;apos;s clean up and finish the HTML:&lt;/p&gt;
+&lt;p&gt;Finally, let&#39;s clean up and finish the HTML:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;      &amp;lt;/div&amp;gt;
     &amp;lt;/xsl:for-each&amp;gt;
-
+    
   &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Running this stylesheet (&lt;a href=&quot;http://www.decafbad.com/cvs/*checkout*/hacks/wishes/wishes-ex5.xsl&quot;&gt;wishes-ex5.xsl&lt;/a&gt;) should give you a page that looks something like this in a browser:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://www.decafbad.com/cvs/*checkout*/hacks/wishes/wishes.jpg&quot; alt=&quot;Wishlist HTML screenshot&quot;&gt;&lt;/p&gt;
 &lt;h3 id=&quot;scheduling-monthly-emails&quot;&gt;Scheduling Monthly Emails&lt;/h3&gt;
@@ -123,12 +133,12 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.decafbad.com/cvs/*checkout*/hacks/wishes/wishes-ex6.xsl&quot;&gt;&lt;code&gt;wishes-ex6.xsl&lt;/code&gt;&lt;/a&gt;: The sixth (and final) iteration of the stylesheet in development.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;That HTML we&amp;apos;re producing is fine, but what we really want to do is get it delivered to us.  We could set up a scheduled run that would periodically generate a page for us to visit, but the whole point of this is laziness.  How about firing off an email with this content?  There are two things to help us with this: &lt;a href=&quot;http://www.faqs.org/rfcs/rfc1521.html&quot; title=&quot;RFC 1521&quot;&gt;RFC 1521&lt;/a&gt; shows us how to construct email messages with a variety of content types; and &lt;a href=&quot;http://www.hmug.org/man/8/sendmail.html&quot; title=&quot;man: sendmail&quot;&gt;&lt;code&gt;sendmail&lt;/code&gt;&lt;/a&gt; will let us send these messages out.  And then, with the help of &lt;code&gt;cron&lt;/code&gt;, we can fire up this process every month.&lt;/p&gt;
-&lt;p&gt;Along with producing XML, XSLT can also construct plain text output--which is just what we need to create MIME email messages.  &lt;a href=&quot;http://www.faqs.org/rfcs/rfc1521.html&quot; title=&quot;RFC 1521&quot;&gt;RFC 1521&lt;/a&gt; doesn&amp;apos;t make for the most thrilling reading, but there are a few articles to be found that summarize things (such as &lt;a href=&quot;http://www.abiglime.com/webmaster/articles/cgi/010698.htm&quot; title=&quot;How to encapsulate HTML in an email message&quot;&gt;this article&lt;/a&gt; and &lt;a href=&quot;http://www.wilsonweb.com/wmt5/html-email-multi.htm&quot; title=&quot;Sending HTML and Plain Text E-Mail Simultaneously&quot;&gt;this article&lt;/a&gt;).   To make a long story short, a basic shell for an email message using MIME to include an HTML part and a plain text part looks something like this:&lt;/p&gt;
+&lt;p&gt;That HTML we&#39;re producing is fine, but what we really want to do is get it delivered to us.  We could set up a scheduled run that would periodically generate a page for us to visit, but the whole point of this is laziness.  How about firing off an email with this content?  There are two things to help us with this: &lt;a href=&quot;http://www.faqs.org/rfcs/rfc1521.html&quot; title=&quot;RFC 1521&quot;&gt;RFC 1521&lt;/a&gt; shows us how to construct email messages with a variety of content types; and &lt;a href=&quot;http://www.hmug.org/man/8/sendmail.html&quot; title=&quot;man: sendmail&quot;&gt;&lt;code&gt;sendmail&lt;/code&gt;&lt;/a&gt; will let us send these messages out.  And then, with the help of &lt;code&gt;cron&lt;/code&gt;, we can fire up this process every month.&lt;/p&gt;
+&lt;p&gt;Along with producing XML, XSLT can also construct plain text output--which is just what we need to create MIME email messages.  &lt;a href=&quot;http://www.faqs.org/rfcs/rfc1521.html&quot; title=&quot;RFC 1521&quot;&gt;RFC 1521&lt;/a&gt; doesn&#39;t make for the most thrilling reading, but there are a few articles to be found that summarize things (such as &lt;a href=&quot;http://www.abiglime.com/webmaster/articles/cgi/010698.htm&quot; title=&quot;How to encapsulate HTML in an email message&quot;&gt;this article&lt;/a&gt; and &lt;a href=&quot;http://www.wilsonweb.com/wmt5/html-email-multi.htm&quot; title=&quot;Sending HTML and Plain Text E-Mail Simultaneously&quot;&gt;this article&lt;/a&gt;).   To make a long story short, a basic shell for an email message using MIME to include an HTML part and a plain text part looks something like this:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;To: someone@example.org
 Subject: Some useful email subject
 MIME-Version: 1.0
-Content-Type: multipart/alternative; boundary=&amp;quot;theBoundaryString&amp;quot;
+Content-Type: multipart/alternative; boundary=&quot;theBoundaryString&quot;
 
 --theBoundaryString
 Content-Type: text/plain
@@ -139,119 +149,130 @@ Some plain text representation goes here...
 Content-Type: text/html
 Content-Transfer-Encoding: 7bit
 Content-Disposition: inline
-Content-Base: &amp;quot;http://www.decafbad.com/&amp;quot;
+Content-Base: &quot;http://www.decafbad.com/&quot;
 
-&amp;lt;html xmlns=&amp;quot;http://www.w3.org/1999/xhtml&amp;quot;&amp;gt;
+&amp;lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&amp;gt;
     &amp;lt;p&amp;gt;Some HTML representation goes here...&amp;lt;/p&amp;gt;
 &amp;lt;/html&amp;gt;
 
---theBoundaryString--&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;I&amp;apos;ve snuck in the idea of providing both an HTML version (which we&amp;apos;ve already done) and a new plain text version.  Depending on your email program and your preferences, one type might be more useful than the other.  In any case, it&amp;apos;s not all that hard to offer both here.  To start sending these email messages, though, we&amp;apos;ll need an email address.  So, add that as an element in &lt;a href=&quot;http://www.decafbad.com/cvs/*checkout*/hacks/wishes/wishes.xml&quot;&gt;wishes.xml&lt;/a&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;wishes xmlns=&amp;quot;http://www.decafbad.com/2004/05/wishes&amp;quot;&amp;gt;
+--theBoundaryString--
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I&#39;ve snuck in the idea of providing both an HTML version (which we&#39;ve already done) and a new plain text version.  Depending on your email program and your preferences, one type might be more useful than the other.  In any case, it&#39;s not all that hard to offer both here.  To start sending these email messages, though, we&#39;ll need an email address.  So, add that as an element in &lt;a href=&quot;http://www.decafbad.com/cvs/*checkout*/hacks/wishes/wishes.xml&quot;&gt;wishes.xml&lt;/a&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;wishes xmlns=&quot;http://www.decafbad.com/2004/05/wishes&quot;&amp;gt;
   &amp;lt;email&amp;gt;deus_x@pobox.com&amp;lt;/email&amp;gt;
   &amp;lt;maxprice&amp;gt;15.00&amp;lt;/maxprice&amp;gt;
   &amp;lt;associate&amp;gt;0xdecafbad-20&amp;lt;/associate&amp;gt;
   &amp;lt;devtoken&amp;gt;D8HVH869XA0NP&amp;lt;/devtoken&amp;gt;
   &amp;lt;wishlists&amp;gt;
-    &amp;lt;wishlist label=&amp;quot;Me&amp;quot;&amp;gt;1QWYI6P2JF3Q5&amp;lt;/wishlist&amp;gt;
-    &amp;lt;wishlist label=&amp;quot;The Girl&amp;quot;&amp;gt;35OIOYWQ9XQAE&amp;lt;/wishlist&amp;gt;
+    &amp;lt;wishlist label=&quot;Me&quot;&amp;gt;1QWYI6P2JF3Q5&amp;lt;/wishlist&amp;gt;
+    &amp;lt;wishlist label=&quot;The Girl&quot;&amp;gt;35OIOYWQ9XQAE&amp;lt;/wishlist&amp;gt;
   &amp;lt;/wishlists&amp;gt;
-&amp;lt;/wishes&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Let&amp;apos;s extract this data into a global variable near the start of the stylesheet:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;  &amp;lt;xsl:variable name=&amp;quot;email_to&amp;quot;  select=&amp;quot;/wishes:wishes/wishes:email&amp;quot; /&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&amp;lt;/wishes&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let&#39;s extract this data into a global variable near the start of the stylesheet:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  &amp;lt;xsl:variable name=&quot;email_to&quot;  select=&quot;/wishes:wishes/wishes:email&quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Start editing the final template of the stylesheet, inserting before the start of HTML content:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;    &amp;lt;!-- Eat all the line breaks generated so far --&amp;gt;
-    &amp;lt;xsl:text&amp;gt;To: &amp;lt;/xsl:text&amp;gt;&amp;lt;xsl:value-of select=&amp;quot;$email_to&amp;quot; /&amp;gt;   
-Subject: 0xDECAFBAD&amp;apos;s Amazon Wish-of-the-Month Club
+    &amp;lt;xsl:text&amp;gt;To: &amp;lt;/xsl:text&amp;gt;&amp;lt;xsl:value-of select=&quot;$email_to&quot; /&amp;gt;   
+Subject: 0xDECAFBAD&#39;s Amazon Wish-of-the-Month Club
 MIME-Version: 1.0
-Content-Type: multipart/alternative; boundary=&amp;quot;theBoundaryString&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This is the header for the email.  Up until now, we&amp;apos;ve been generating XML with the stylesheet and haven&amp;apos;t cared very much about any extra whitespace or line breaks which might sneak into the output.  However, in an email header, whitespace is important since a blank line is what&amp;apos;s used to separate the headers from the body of the email message.  So, any stray blank lines will cause what we might have meant to be headers to be interpreted as part of the message instead.  Producing the first header in the email with &lt;code&gt;xsl:text&lt;/code&gt; tags causes the XSL processor to throw away any leading whitespace which would have appeared before the first header.&lt;/p&gt;
+Content-Type: multipart/alternative; boundary=&quot;theBoundaryString&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This is the header for the email.  Up until now, we&#39;ve been generating XML with the stylesheet and haven&#39;t cared very much about any extra whitespace or line breaks which might sneak into the output.  However, in an email header, whitespace is important since a blank line is what&#39;s used to separate the headers from the body of the email message.  So, any stray blank lines will cause what we might have meant to be headers to be interpreted as part of the message instead.  Producing the first header in the email with &lt;code&gt;xsl:text&lt;/code&gt; tags causes the XSL processor to throw away any leading whitespace which would have appeared before the first header.&lt;/p&gt;
 &lt;p&gt;Other than this little twist, the email header looks pretty much like the shell.  We fill in the &lt;code&gt;To&lt;/code&gt; address from the global variable &lt;code&gt;$email_to&lt;/code&gt; and define a &lt;code&gt;Subject&lt;/code&gt; line.  The &lt;code&gt;MIME-Version&lt;/code&gt; and &lt;code&gt;Content-Type&lt;/code&gt; headers are what enable us to include both text and HTML versions in one email.&lt;/p&gt;
 &lt;p&gt;Now we can start into one of the parts:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;--theBoundaryString
-Content-Type: text/plain&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This begins the plain text section of the email, using the &lt;em&gt;boundary string&lt;/em&gt; as defined in the headers to delinieate the section&amp;apos;s beginning.  The section can also have its own set of headers, of which we use only one: &lt;code&gt;Content-Type&lt;/code&gt;.  Moving along, let&amp;apos;s work on the text content itself.&lt;/p&gt;
+Content-Type: text/plain
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This begins the plain text section of the email, using the &lt;em&gt;boundary string&lt;/em&gt; as defined in the headers to delinieate the section&#39;s beginning.  The section can also have its own set of headers, of which we use only one: &lt;code&gt;Content-Type&lt;/code&gt;.  Moving along, let&#39;s work on the text content itself.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;Here are your wishlist items:
 
-&amp;lt;xsl:value-of select=&amp;quot;$shopping_cart_purchase_url&amp;quot; /&amp;gt;&amp;lt;xsl:text&amp;gt;
-&amp;lt;/xsl:text&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;No shopping cart image here, but this includes the human-viewable URL which leads to a shopping cart on Amazon.com.  The usage of &lt;code&gt;xsl:text&lt;/code&gt; here forces a line break where there otherwise wouldn&amp;apos;t have been one with the usage of &lt;code&gt;xsl:value-of&lt;/code&gt;.  Now, let&amp;apos;s iterate through each of the wishlists and list out the product details:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;xsl:for-each select=&amp;quot;exsl:node-set($random_products)/wishes:wishitem&amp;quot;&amp;gt;
+&amp;lt;xsl:value-of select=&quot;$shopping_cart_purchase_url&quot; /&amp;gt;&amp;lt;xsl:text&amp;gt;
+&amp;lt;/xsl:text&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;No shopping cart image here, but this includes the human-viewable URL which leads to a shopping cart on Amazon.com.  The usage of &lt;code&gt;xsl:text&lt;/code&gt; here forces a line break where there otherwise wouldn&#39;t have been one with the usage of &lt;code&gt;xsl:value-of&lt;/code&gt;.  Now, let&#39;s iterate through each of the wishlists and list out the product details:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;xsl:for-each select=&quot;exsl:node-set($random_products)/wishes:wishitem&quot;&amp;gt;
 ---------------------------------------------------------------------------
-&amp;lt;xsl:value-of select=&amp;quot;wishes:wishlist/@label&amp;quot; 
-       disable-output-escaping=&amp;quot;yes&amp;quot; /&amp;gt;
+&amp;lt;xsl:value-of select=&quot;wishes:wishlist/@label&quot; 
+       disable-output-escaping=&quot;yes&quot; /&amp;gt;
 ---------------------------------------------------------------------------
 
-&amp;lt;xsl:value-of select=&amp;quot;Details/ProductName&amp;quot; 
-       disable-output-escaping=&amp;quot;yes&amp;quot; /&amp;gt;
+&amp;lt;xsl:value-of select=&quot;Details/ProductName&quot; 
+       disable-output-escaping=&quot;yes&quot; /&amp;gt;
 
-&amp;lt;xsl:for-each select=&amp;quot;./Details/Artists/Artist | 
-                      ./Details/Authors/Author&amp;quot;&amp;gt;
-by &amp;lt;xsl:value-of select=&amp;quot;.&amp;quot;  
-   disable-output-escaping=&amp;quot;yes&amp;quot;/&amp;gt;
+&amp;lt;xsl:for-each select=&quot;./Details/Artists/Artist | 
+                      ./Details/Authors/Author&quot;&amp;gt;
+by &amp;lt;xsl:value-of select=&quot;.&quot;  
+   disable-output-escaping=&quot;yes&quot;/&amp;gt;
 &amp;lt;/xsl:for-each&amp;gt;
 
-Catalog:      &amp;lt;xsl:value-of select=&amp;quot;Details/Catalog&amp;quot; 
-   disable-output-escaping=&amp;quot;yes&amp;quot; /&amp;gt;
-Released:     &amp;lt;xsl:value-of select=&amp;quot;Details/ReleaseDate&amp;quot; 
-   disable-output-escaping=&amp;quot;yes&amp;quot; /&amp;gt;
+Catalog:      &amp;lt;xsl:value-of select=&quot;Details/Catalog&quot; 
+   disable-output-escaping=&quot;yes&quot; /&amp;gt;
+Released:     &amp;lt;xsl:value-of select=&quot;Details/ReleaseDate&quot; 
+   disable-output-escaping=&quot;yes&quot; /&amp;gt;
 
-List Price:   &amp;lt;xsl:value-of select=&amp;quot;Details/ListPrice&amp;quot;  
-     disable-output-escaping=&amp;quot;yes&amp;quot;/&amp;gt; 
-Our  Price:   &amp;lt;xsl:value-of select=&amp;quot;Details/UsedPrice&amp;quot;  
-     disable-output-escaping=&amp;quot;yes&amp;quot;/&amp;gt; 
-Used Price:   &amp;lt;xsl:value-of select=&amp;quot;Details/OurPrice&amp;quot;  
-     disable-output-escaping=&amp;quot;yes&amp;quot;/&amp;gt; 
-
-Availability: &amp;lt;xsl:value-of select=&amp;quot;Details/Availability&amp;quot;  
-       disable-output-escaping=&amp;quot;yes&amp;quot;/&amp;gt;
+List Price:   &amp;lt;xsl:value-of select=&quot;Details/ListPrice&quot;  
+     disable-output-escaping=&quot;yes&quot;/&amp;gt; 
+Our  Price:   &amp;lt;xsl:value-of select=&quot;Details/UsedPrice&quot;  
+     disable-output-escaping=&quot;yes&quot;/&amp;gt; 
+Used Price:   &amp;lt;xsl:value-of select=&quot;Details/OurPrice&quot;  
+     disable-output-escaping=&quot;yes&quot;/&amp;gt; 
+        
+Availability: &amp;lt;xsl:value-of select=&quot;Details/Availability&quot;  
+       disable-output-escaping=&quot;yes&quot;/&amp;gt;
 &amp;lt;xsl:text&amp;gt;
 
 &amp;lt;/xsl:text&amp;gt;
-&amp;lt;xsl:value-of select=&amp;quot;Details/@url&amp;quot;  
-       disable-output-escaping=&amp;quot;yes&amp;quot;/&amp;gt;
+&amp;lt;xsl:value-of select=&quot;Details/@url&quot;  
+       disable-output-escaping=&quot;yes&quot;/&amp;gt;
 &amp;lt;xsl:text&amp;gt;
 &amp;lt;/xsl:text&amp;gt;
 
-&amp;lt;/xsl:for-each&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Most everything in this stretch should look very similar to the HTML version we just finished.  The biggest difference is that every bit of information pulled in using &lt;code&gt;xsl:value-of&lt;/code&gt; is done using the &lt;code&gt;disable-output-escaping&lt;/code&gt; option.  When this is &lt;code&gt;yes&lt;/code&gt;, things like ampersands are no longer escaped for valid XML output.  Since this bit of the email is plain text, we don&amp;apos;t want to see &lt;code&gt;&amp;amp;amp;&lt;/code&gt; in album titles, so this will cause ampersands to appear unmolested.&lt;/p&gt;
-&lt;p&gt;That&amp;apos;s the plain text version finished.  Now let&amp;apos;s create the HTML version:&lt;/p&gt;
+&amp;lt;/xsl:for-each&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Most everything in this stretch should look very similar to the HTML version we just finished.  The biggest difference is that every bit of information pulled in using &lt;code&gt;xsl:value-of&lt;/code&gt; is done using the &lt;code&gt;disable-output-escaping&lt;/code&gt; option.  When this is &lt;code&gt;yes&lt;/code&gt;, things like ampersands are no longer escaped for valid XML output.  Since this bit of the email is plain text, we don&#39;t want to see &lt;code&gt;&amp;amp;amp;&lt;/code&gt; in album titles, so this will cause ampersands to appear unmolested.&lt;/p&gt;
+&lt;p&gt;That&#39;s the plain text version finished.  Now let&#39;s create the HTML version:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;--theBoundaryString
 Content-Type: text/html
 Content-Transfer-Encoding: 7bit
 Content-Disposition: inline
-Content-Base: &amp;quot;http://www.decafbad.com/2004/05/wishes&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The boundary string appears again, signifying the end of the plain text section and the start of the HTML section.  Headers appear here which specify that what follows is HTML; that it&amp;apos;s encoded in 7-bit characters; that it should be included in the message display itself (rather than presented as an attachment to be saved); and that all relative URLs which might appear in the HTML should be treated as having a base URL as specified.  This last part allows HTML in email to refer to images and other pages on another site without making all the URLs absolute.&lt;/p&gt;
-&lt;p&gt;We don&amp;apos;t need to make any modifications to the HTML as we built it in the last iteration of the stylesheet, so we can just include it unchanged:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;html xmlns=&amp;quot;http://www.w3.org/1999/xhtml&amp;quot;&amp;gt;
+Content-Base: &quot;http://www.decafbad.com/2004/05/wishes&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The boundary string appears again, signifying the end of the plain text section and the start of the HTML section.  Headers appear here which specify that what follows is HTML; that it&#39;s encoded in 7-bit characters; that it should be included in the message display itself (rather than presented as an attachment to be saved); and that all relative URLs which might appear in the HTML should be treated as having a base URL as specified.  This last part allows HTML in email to refer to images and other pages on another site without making all the URLs absolute.&lt;/p&gt;
+&lt;p&gt;We don&#39;t need to make any modifications to the HTML as we built it in the last iteration of the stylesheet, so we can just include it unchanged:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&amp;gt;
 ...
 &amp;lt;/html&amp;gt;
 
---theBoundaryString--&lt;/code&gt;&lt;/pre&gt;
+--theBoundaryString--
+&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;This final appearance of the boundary string is bracketed on both sides by dashes, which indicates the end of the final section of the document.  We should be ready to try this in combination with &lt;code&gt;sendmail&lt;/code&gt; in a shell:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ xsltproc wishes-ex6.xsl wishes.xml | sendmail -it&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;If everything has worked correctly, there should be an email arriving in your mailbox sometime soon.  (Or in my inbox, if you followed the directions literally and didn&amp;apos;t supply your own email address.)  The options supplied to &lt;code&gt;sendmail&lt;/code&gt; are fairly basic: &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ xsltproc wishes-ex6.xsl wishes.xml | sendmail -it
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If everything has worked correctly, there should be an email arriving in your mailbox sometime soon.  (Or in my inbox, if you followed the directions literally and didn&#39;t supply your own email address.)  The options supplied to &lt;code&gt;sendmail&lt;/code&gt; are fairly basic: &lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;-i&lt;/code&gt; causes lines consisting solely of &lt;code&gt;.&lt;/code&gt; &lt;em&gt;not&lt;/em&gt; to be treated as an end-of-input signal.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;-t&lt;/code&gt; causes &lt;code&gt;sendmail&lt;/code&gt; to look in the message headers (ie. &lt;code&gt;To:&lt;/code&gt;) for a list of recipients.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;If you don&amp;apos;t happen to have have &lt;code&gt;sendmail&lt;/code&gt; available, you might want to look into what local mail programs you have available which can accept the output from the stylesheet.&lt;/p&gt;
-&lt;p&gt;Once you have this working, the final task is to schedule its monthly execution with your local &lt;code&gt;cron&lt;/code&gt; installation.  If you haven&amp;apos;t played with &lt;code&gt;cron&lt;/code&gt; before, there are many resources and tutorials available (&lt;a href=&quot;http://www.lysator.liu.se/~forsberg/linux/cron.html&quot; title=&quot;Doing things periodically - Using CRON&quot;&gt;here&amp;apos;s one&lt;/a&gt; and &lt;a href=&quot;http://www.itworld.com/Comp/2378/swol-0825-unix101/&quot; title=&quot;Using cron basics&quot;&gt;here&amp;apos;s another&lt;/a&gt;).  You should add something like the following to your user account&amp;apos;s &lt;code&gt;crontab&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;0 0 * 1 *  (cd /your/working/path; xsltproc wishes.xsl wishes.xml | sendmail -it)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The &amp;quot;&lt;code&gt;0 0 * 1 *&lt;/code&gt;&amp;quot; indicates to &lt;code&gt;cron&lt;/code&gt; that this set of commands should be run at midnight on the first of every months.  Note also that &lt;code&gt;/your/working/path&lt;/code&gt; should be replaced by the path to where you&amp;apos;ve been working during this project.  And finally, I&amp;apos;ve renamed the final iteration of the stylesheet file to simply &lt;code&gt;wishes.xsl&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;If you don&#39;t happen to have have &lt;code&gt;sendmail&lt;/code&gt; available, you might want to look into what local mail programs you have available which can accept the output from the stylesheet.&lt;/p&gt;
+&lt;p&gt;Once you have this working, the final task is to schedule its monthly execution with your local &lt;code&gt;cron&lt;/code&gt; installation.  If you haven&#39;t played with &lt;code&gt;cron&lt;/code&gt; before, there are many resources and tutorials available (&lt;a href=&quot;http://www.lysator.liu.se/~forsberg/linux/cron.html&quot; title=&quot;Doing things periodically - Using CRON&quot;&gt;here&#39;s one&lt;/a&gt; and &lt;a href=&quot;http://www.itworld.com/Comp/2378/swol-0825-unix101/&quot; title=&quot;Using cron basics&quot;&gt;here&#39;s another&lt;/a&gt;).  You should add something like the following to your user account&#39;s &lt;code&gt;crontab&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;0 0 * 1 *  (cd /your/working/path; xsltproc wishes.xsl wishes.xml | sendmail -it)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &quot;&lt;code&gt;0 0 * 1 *&lt;/code&gt;&quot; indicates to &lt;code&gt;cron&lt;/code&gt; that this set of commands should be run at midnight on the first of every months.  Note also that &lt;code&gt;/your/working/path&lt;/code&gt; should be replaced by the path to where you&#39;ve been working during this project.  And finally, I&#39;ve renamed the final iteration of the stylesheet file to simply &lt;code&gt;wishes.xsl&lt;/code&gt;.&lt;/p&gt;
 &lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
-&lt;p&gt;So that&amp;apos;s it--we have an XSL stylesheet which queries Amazon Web Services for products contained in multiple wishlists; selects a random item from each; prepares a shopping cart containing those items; and finally generates an email message containing both plain text and HTML presentations of the shopping cart and selected items.&lt;/p&gt;
+&lt;p&gt;So that&#39;s it--we have an XSL stylesheet which queries Amazon Web Services for products contained in multiple wishlists; selects a random item from each; prepares a shopping cart containing those items; and finally generates an email message containing both plain text and HTML presentations of the shopping cart and selected items.&lt;/p&gt;
 &lt;p&gt;Though this implementation serves the purpose I wrote about at the start of this article, there are definitely many areas where this can be improved upon or expanded:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Many people think Amazon is an evil company for their use of patents.  I can&amp;apos;t say that I&amp;apos;m entirely happy with them for this myself, but their AWS offering is just too nice to resist tinkering with.  It might be interesting to investigate other retailers&amp;apos; wishlist offerings, where they exist, and to see how this idea might be made to work with other (or even multiple) retailers.  Even better, come up with your own wishlist system, and a cross-retailer shopping cart.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Many people think Amazon is an evil company for their use of patents.  I can&#39;t say that I&#39;m entirely happy with them for this myself, but their AWS offering is just too nice to resist tinkering with.  It might be interesting to investigate other retailers&#39; wishlist offerings, where they exist, and to see how this idea might be made to work with other (or even multiple) retailers.  Even better, come up with your own wishlist system, and a cross-retailer shopping cart.&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;I chose XSLT as the implementation technology because I thought it would be more natural to deal with Amazon&amp;apos;s XML this way.  There are, admittedly, a few awkward parts in the resulting stylesheet however.  Sometimes it&amp;apos;s good to see a project like this through, just to get a sense for where things do go awkward with a technology or my understanding of it.  It could be interesting to transliterate this into a scripting language like Python or Perl, perhaps using the &lt;a href=&quot;http://xmlsoft.org/python.html&quot;&gt;libxml bindings&lt;/a&gt; to do so.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;I chose XSLT as the implementation technology because I thought it would be more natural to deal with Amazon&#39;s XML this way.  There are, admittedly, a few awkward parts in the resulting stylesheet however.  Sometimes it&#39;s good to see a project like this through, just to get a sense for where things do go awkward with a technology or my understanding of it.  It could be interesting to transliterate this into a scripting language like Python or Perl, perhaps using the &lt;a href=&quot;http://xmlsoft.org/python.html&quot;&gt;libxml bindings&lt;/a&gt; to do so.&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;The error and failure handling in this implementation are all but non-existent.  Should anything unexpected happen while dealing with Amazon Web Services, the results aren&amp;apos;t likely to be very pretty.  You may want to consider improving in this area.  One instance I identified was to report when the sanity limit was hit in looping through wishlist pages, versus an actual end of pages.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;The error and failure handling in this implementation are all but non-existent.  Should anything unexpected happen while dealing with Amazon Web Services, the results aren&#39;t likely to be very pretty.  You may want to consider improving in this area.  One instance I identified was to report when the sanity limit was hit in looping through wishlist pages, versus an actual end of pages.&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;If you play around with making more wishlist queries using the techniques here, you might want to consider caching the full set of data pulled in by the multiple-page calls to AWS, in order to prevent hammering Amazon&amp;apos;s servers with repeated requests for the same data, likely unchanged.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;If you play around with making more wishlist queries using the techniques here, you might want to consider caching the full set of data pulled in by the multiple-page calls to AWS, in order to prevent hammering Amazon&#39;s servers with repeated requests for the same data, likely unchanged.&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;I still don&amp;apos;t know why &lt;code&gt;exsl:random&lt;/code&gt; doesn&amp;apos;t work for me.  Although I thought using a web service for random numbers was intereting, it would be very nice if I didn&amp;apos;t have to use it.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;I still don&#39;t know why &lt;code&gt;exsl:random&lt;/code&gt; doesn&#39;t work for me.  Although I thought using a web service for random numbers was intereting, it would be very nice if I didn&#39;t have to use it.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;The HTML presentation could certainly use some good CSS to make it more attractive.&lt;/p&gt;
 &lt;/li&gt;
@@ -260,8 +281,8 @@ Content-Base: &amp;quot;http://www.decafbad.com/2004/05/wishes&amp;quot;&lt;/cod
 </description>
           
           <pubDate>Tue, 06 Jul 2004 21:05:45 GMT</pubDate>
-          <link>https://lmorchard.github.io/blog.lmorchard.com//2004/07/06/wishofthemonthclub3/</link>
-          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2004/07/06/wishofthemonthclub3/</guid>
+          <link>https://lmorchard.github.io/blog.lmorchard.com/2004/07/06/wishofthemonthclub3/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2004/07/06/wishofthemonthclub3/</guid>
         </item>
     </channel>
   </rss>

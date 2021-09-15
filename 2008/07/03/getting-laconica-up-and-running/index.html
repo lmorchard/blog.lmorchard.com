@@ -35,14 +35,14 @@
       <meta property="og:title" content="Getting Laconica up and running" />
         <meta
           property="og:url"
-          content="https://lmorchard.github.io/blog.lmorchard.com//2008/07/03/getting-laconica-up-and-running/"
+          content="https://lmorchard.github.io/blog.lmorchard.com/2008/07/03/getting-laconica-up-and-running/"
         />
         
         <meta property="og:description" content="&lt;p&gt;&lt;em&gt;Update, 30 Sep 2008&lt;/em&gt;: &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;You don&amp;apos;t want to follow the directions on this page&amp;#x2014;instead, leave this page and read this:&lt;/strong&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;You don&#39;t want to follow the directions on this page—instead, leave this page and read this:&lt;/strong&gt;  &lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;http://laconi.ca/darcs/README&quot;&gt;http://laconi.ca/darcs/README&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;At one point, very early on in Laconica-time, this blog post offered useful information on getting Laconica up and running.  But since then, my time has taken me away from playing with Laconica and thus this guide has fallen far behind.  Hopefully soon I&amp;apos;ll get back around to Laconica hacking, but not today.&lt;/p&gt;
-&lt;p&gt;I&amp;apos;m leaving the original text of this post here for posterity, but this is &lt;em&gt;no longer current&lt;/em&gt; and following this guide will &lt;em&gt;do more harm than good&lt;/em&gt; in confusing you about Laconica installation!&lt;/p&gt;
+&lt;p&gt;At one point, very early on in Laconica-time, this blog post offered useful information on getting Laconica up and running.  But since then, my time has taken me away from playing with Laconica and thus this guide has fallen far behind.  Hopefully soon I&#39;ll get back around to Laconica hacking, but not today.&lt;/p&gt;
+&lt;p&gt;I&#39;m leaving the original text of this post here for posterity, but this is &lt;em&gt;no longer current&lt;/em&gt; and following this guide will &lt;em&gt;do more harm than good&lt;/em&gt; in confusing you about Laconica installation!&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Again, to learn about getting Laconica up and running, leave this page and read this&lt;/strong&gt;:&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;http://laconi.ca/darcs/README&quot;&gt;http://laconi.ca/darcs/README&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The latest mini-sensations to arrive through my firehoses are &lt;a href=&quot;http://identi.ca&quot;&gt;identi.ca&lt;/a&gt;, a Twitter-clone / microblogging site, and the Open Source software &lt;a href=&quot;http://laconi.ca&quot;&gt;Laconica&lt;/a&gt;, which powers the aforementioned site.&lt;/p&gt;
@@ -51,15 +51,15 @@
 &lt;li&gt;&lt;a href=&quot;http://decafbad.com/laconica&quot;&gt;decafbad.com/laconica&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://lmorchard.com/laconica&quot;&gt;lmorchard.com/laconica&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;See, the interesting thing promised by &lt;a href=&quot;http://laconi.ca&quot;&gt;Laconica&lt;/a&gt;&amp;#x2014;and something I wanted in my own clones&amp;#x2014;is the ability to federate instances of the software.  That is, users on one &lt;a href=&quot;http://laconi.ca&quot;&gt;Laconica&lt;/a&gt;-based site should be able to subscribe to the updates from users on another site, by way of the &lt;a href=&quot;http://openmicroblogging.org/&quot;&gt;OpenMicroblogging specification&lt;/a&gt;.  Although federation isn&amp;apos;t a silver bullet to a web-scale Twitter clone, I do think it&amp;apos;s one of the most important bootstrap steps&amp;#x2014;but that&amp;apos;s another blog post entirely.&lt;/p&gt;
-&lt;p&gt;Thus, since I&amp;apos;d like to see &lt;em&gt;you&lt;/em&gt; run a Laconica site (or something like it) for mine to talk to, I figured I&amp;apos;d document how I got the thing running.  My server is running Ubuntu Gutsy, so your mileage may vary.  This is a long one, so check out the how-to after the jump...&lt;/p&gt;
+&lt;p&gt;See, the interesting thing promised by &lt;a href=&quot;http://laconi.ca&quot;&gt;Laconica&lt;/a&gt;—and something I wanted in my own clones—is the ability to federate instances of the software.  That is, users on one &lt;a href=&quot;http://laconi.ca&quot;&gt;Laconica&lt;/a&gt;-based site should be able to subscribe to the updates from users on another site, by way of the &lt;a href=&quot;http://openmicroblogging.org/&quot;&gt;OpenMicroblogging specification&lt;/a&gt;.  Although federation isn&#39;t a silver bullet to a web-scale Twitter clone, I do think it&#39;s one of the most important bootstrap steps—but that&#39;s another blog post entirely.&lt;/p&gt;
+&lt;p&gt;Thus, since I&#39;d like to see &lt;em&gt;you&lt;/em&gt; run a Laconica site (or something like it) for mine to talk to, I figured I&#39;d document how I got the thing running.  My server is running Ubuntu Gutsy, so your mileage may vary.  This is a long one, so check out the how-to after the jump...&lt;/p&gt;
 " />
     </head>
     <body>
       <section class="main">
         <header>
           <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
           <nav>
             <label for="nav-trigger"></label>
             <input type="checkbox" id="nav-trigger" class="nav-trigger" />
@@ -138,17 +138,20 @@
 <h2 id="get-the-laconica-code">Get the Laconica code</h2>
 <p>I got my copy of the code by using <a href="http://darcs.net/"><code>darcs</code></a>, as described on <a href="http://laconi.ca/Main/Source">the Laconica source page</a>, like so:</p>
 <pre><code>sudo apt-get install darcs
-darcs get --partial http://laconi.ca/darcs/</code></pre>
+darcs get --partial http://laconi.ca/darcs/
+</code></pre>
 <p>But, if you can&#39;t or don&#39;t want to use <code>darcs</code> right now, you can <a href="http://laconi.ca/laconica-0.4.1.tar.gz">grab a Laconica tarball</a> to get started.</p>
 <h2 id="get-modules-and-third-party-prerequisites">Get modules and third-party prerequisites</h2>
 <p>I had already installed PHP and Apache, along with lighttpd, on my server.  But, I found I needed a few more things.  So, here&#39;s a slew of packages you may or may not already have:</p>
-<pre><code>sudo apt-get install libapache2-mod-php5 php5-cgi php5-cli php-pear php5-gd php5-mysql</code></pre>
+<pre><code>sudo apt-get install libapache2-mod-php5 php5-cgi php5-cli php-pear php5-gd php5-mysql
+</code></pre>
 <p>Next, now that you&#39;ve got PHP and PEAR, you can install some of the PEAR-based prerequisites:</p>
 <pre><code>sudo pear channel-update pear.php.net
 sudo pear install channel://pear.php.net/Validate-0.8.1
 sudo pear install DB_DataObject
 sudo pear install Mail
-sudo pear install Net_SMTP</code></pre>
+sudo pear install Net_SMTP
+</code></pre>
 <p>After this, there are a few libraries that need to be downloaded by hand.  For this, I created an <code>extlib/</code> directory to keep them in, separate from Laconica&#39;s own <code>lib/</code> which will be subject to updates to the software itself:</p>
 <pre><code>mkdir extlib xfers
 cd xfers
@@ -164,19 +167,22 @@ cp OAuth.php ../extlib/
 tar -zxf xmpphp-0.1beta-r21.tar.gz
 cp xmpphp/*.php ../extlib/
 cd ..
-rm -rf xfers</code></pre>
+rm -rf xfers
+</code></pre>
 <h2 id="set-up-mysql-tables">Set up MySQL tables</h2>
 <p>I&#39;ll assume you already have MySQL installed.  To set up a database for Laconica, I did the following:</p>
 <pre><code>mysql -uroot -p -e &#39;create database laconica&#39;;
 mysql -uroot -p -e &quot;grant all privileges on laconica.* to laconica@localhost identified by &#39;PASSWORD&#39;&quot;;
-mysql -uroot -p laconica &lt; db/laconica.sql</code></pre>
+mysql -uroot -p laconica &lt; db/laconica.sql
+</code></pre>
 <h2 id="configure-laconica">Configure Laconica</h2>
 <p>So far, I&#39;ve found at least two config files that need tweaking—namely <code>config.php</code> and <code>dataobject.ini</code>.</p>
 <p>The first thing I did to <code>config.php</code> was to add the following at around line 6 to account for my <code>extlib/</code> directory:</p>
 <pre><code>#If you have downloaded libraries in random little places, you
 #can add the paths here
 define(&#39;INSTALLDIR&#39;, dirname(__FILE__));
-set_include_path(get_include_path() . PATH_SEPARATOR . INSTALLDIR . &#39;/extlib&#39;);</code></pre>
+set_include_path(get_include_path() . PATH_SEPARATOR . INSTALLDIR . &#39;/extlib&#39;);
+</code></pre>
 <p>The rest of the settings in <code>config.php</code> are somewhat self-explanatory.  These are the ones I changed for my installation:</p>
 <pre><code>$config[&#39;site&#39;][&#39;name&#39;] = &#39;cafeonica&#39;;
 $config[&#39;site&#39;][&#39;server&#39;] = &#39;decafbad.com&#39;;
@@ -187,15 +193,18 @@ $config[&#39;site&#39;][&#39;email&#39;] = &#39;l.m.orchard@pobox.com&#39;;
 $config[&#39;site&#39;][&#39;broughtby&#39;] = &#39;0xDECAFBAD&#39;;
 $config[&#39;site&#39;][&#39;broughtbyurl&#39;] = &#39;http://decafbad.com/&#39;;
 $config[&#39;db&#39;][&#39;database&#39;] = &#39;mysql://laconica:PASSWORD@localhost/laconica&#39;;
-$config[&#39;db&#39;][&#39;ini_laconica&#39;] = $config[&#39;db&#39;][&#39;schema_location&#39;].&#39;/stoica.ini&#39;;</code></pre>
+$config[&#39;db&#39;][&#39;ini_laconica&#39;] = $config[&#39;db&#39;][&#39;schema_location&#39;].&#39;/stoica.ini&#39;;
+</code></pre>
 <p>After this, I tweaked the first few settings of <code>dataobject.ini</code> to the following: </p>
 <pre><code>database = mysql://laconica:PASSWORD@localhost/laconica 
 schema_location = /www/decafbad.com/docs/laconica/classes 
 class_location = /www/decafbad.com/docs/laconica/classes 
-require_prefix = /www/decafbad.com/docs/laconica/classes/ </code></pre>
+require_prefix = /www/decafbad.com/docs/laconica/classes/ 
+</code></pre>
 <p>Be sure to substitute your own web server paths and passwords in all the above.  And finally, in order to allow the upload of avatar images, you&#39;ll need to tweak the permissions on the <code>avatar/</code> directory, like so:</p>
 <pre><code>sudo chown -R www-data avatar
-sudo chmod -R ug+rw avatar/</code></pre>
+sudo chmod -R ug+rw avatar/
+</code></pre>
 <h2 id="configure-web-server">Configure Web Server</h2>
 <p>There isn&#39;t really much to configure if you&#39;re using Apache.  There&#39;s a file <code>htaccess.sample</code> that needs to be copied to <code>.htaccess</code>—this will put in place all the <code>mod_rewrite</code> rules necessary to support &quot;fancy&quot; URLs.</p>
 <p>On the other hand, if you&#39;re okay with uglier URLs with query parameters and whatnot, leave <code>.htaccess</code> alone and use <code>$config[&#39;site&#39;][&#39;fancy&#39;] = false</code> in your <code>config.php</code>.  </p>
@@ -258,7 +267,8 @@ sudo chmod -R ug+rw avatar/</code></pre>
     &quot;^/laconica/(\w+)/foaf$&quot; =&gt; &quot;/laconica/index.php?action=foaf&amp;nickname=$1&quot;,
 
     &quot;^/laconica/(\w+)$&quot; =&gt; &quot;/laconica/index.php?action=showstream&amp;nickname=$1&quot;
-)</code></pre>
+)
+</code></pre>
 <h2 id="thats-it-for-now">That&#39;s it (for now)</h2>
 <p>And that&#39;s all I&#39;ve got for you for now.  At this point, it looks like my two Laconica installs are mostly working.  I&#39;ve not yet played with the XMPP bot, nor have I been able to see the <a href="http://openmicroblogging.org/">OpenMicroblogging</a> stuff working with remore subscriptions.  However, I have been able to log in via OpenID, so that&#39;s something.</p>
 <div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>

@@ -35,11 +35,11 @@
       <meta property="og:title" content="An example of an RSS 2.0 namespace versus RSS-Data usage" />
         <meta
           property="og:url"
-          content="https://lmorchard.github.io/blog.lmorchard.com//2003/10/02/rss-data-versus-namespace/"
+          content="https://lmorchard.github.io/blog.lmorchard.com/2003/10/02/rss-data-versus-namespace/"
         />
         
         <meta property="og:description" content="&lt;p&gt;
-Okay, just for the sake of tinkering, I&amp;apos;m poking at embedding data
+Okay, just for the sake of tinkering, I&#39;m poking at embedding data
 from the
 &lt;a href=&quot;http://www.amazon.com/gp/browse.html/002-4832258-8958444?node=3435361&quot;&gt;Amazon Web Services&lt;/a&gt;
 into an RSS 2.0 feed.  On one hand, I just shoehorned the Amazon
@@ -51,9 +51,9 @@ structures.
 &lt;/p&gt;
 &lt;p&gt;
 To resolve my own love/hate of this RSS-Data idea,
-I&amp;apos;m planning to keep going from here and work up some simple Python
+I&#39;m planning to keep going from here and work up some simple Python
 scripts to produce and consume data along the lines of both examples,
-then to comment on the experience.  (This is assuming I don&amp;apos;t run out
+then to comment on the experience.  (This is assuming I don&#39;t run out
 of round tuits.)  Some things to note:
 &lt;/p&gt;&lt;ul&gt;
 
@@ -63,8 +63,8 @@ so please feel free to correct me.&lt;/li&gt;
 &lt;li&gt;Although I created the RSS-Data example by hand, it would
 otherwise be completely produced and consumed by machine.&lt;/li&gt;
 
-&lt;li&gt;Since it&amp;apos;s at the root of a few things I&amp;apos;m thinking,
-it&amp;apos;s worth restating:  RSS-Data is intended to be produced and
+&lt;li&gt;Since it&#39;s at the root of a few things I&#39;m thinking,
+it&#39;s worth restating:  RSS-Data is intended to be produced and
 consumed by machine, not by humans.  This means that the XML
 data needs not look pretty or elegant to you, but to your machine.&lt;/li&gt;
 
@@ -77,11 +77,11 @@ So, on with the XML.  First, I
 from Amazon and got the following:
 &lt;/p&gt;
 
-&lt;pre&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;
+&lt;pre&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;
 &amp;lt;ProductInfo
-  xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;
-  xsi:noNamespaceSchemaLocation=&amp;quot;http://xml.amazon.com/schemas3/dev-lite.xsd&amp;quot;&amp;gt;
-  &amp;lt;Details url=&amp;quot;http://www.amazon.com/exec/obidos/ASIN/0439139597/0xdecafbad-20&amp;quot;&amp;gt;
+  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+  xsi:noNamespaceSchemaLocation=&quot;http://xml.amazon.com/schemas3/dev-lite.xsd&quot;&amp;gt;
+  &amp;lt;Details url=&quot;http://www.amazon.com/exec/obidos/ASIN/0439139597/0xdecafbad-20&quot;&amp;gt;
     &amp;lt;Asin&amp;gt;0439139597&amp;lt;/Asin&amp;gt;
     &amp;lt;ProductName&amp;gt;Harry Potter and the Goblet of Fire (Book 4)&amp;lt;/ProductName&amp;gt;
     &amp;lt;Catalog&amp;gt;Book&amp;lt;/Catalog&amp;gt;
@@ -102,21 +102,21 @@ from Amazon and got the following:
 &amp;lt;/ProductInfo&amp;gt;&lt;/pre&gt;
 
 &lt;p&gt;
-From this, I cooked up an example RSS feed with Amazon&amp;apos;s XML
+From this, I cooked up an example RSS feed with Amazon&#39;s XML
 schema shoehorned in as a namespace:
 &lt;/p&gt;
-&lt;pre&gt;&amp;lt;rss version=&amp;quot;2.0&amp;quot;
-  xmlns=&amp;quot;http://blogs.law.harvard.edu/tech/rss&amp;quot;
-  xmlns:az=&amp;quot;http://www.amazon.com/gp/aws/landing.html&amp;quot;
-  xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;
-  xsi:schemaLocation=&amp;quot;http://www.amazon.com/gp/aws/landing.html
-                      http://xml.amazon.com/schemas3/dev-lite.xsd&amp;quot;&amp;gt;
+&lt;pre&gt;&amp;lt;rss version=&quot;2.0&quot;
+  xmlns=&quot;http://blogs.law.harvard.edu/tech/rss&quot;
+  xmlns:az=&quot;http://www.amazon.com/gp/aws/landing.html&quot;
+  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+  xsi:schemaLocation=&quot;http://www.amazon.com/gp/aws/landing.html
+                      http://xml.amazon.com/schemas3/dev-lite.xsd&quot;&amp;gt;
   &amp;lt;channel&amp;gt;
     &amp;lt;title&amp;gt;Testing Amazon Namespace&amp;lt;/title&amp;gt;   
     &amp;lt;item&amp;gt;
       &amp;lt;title&amp;gt;Harry Potter and the Goblet of Fire (Book 4)&amp;lt;/title&amp;gt;
       &amp;lt;az:ProductInfo&amp;gt;
-        &amp;lt;az:Details url=&amp;quot;http://www.amazon.com/exec/obidos/ASIN/0439139597/0xdecafbad-20&amp;quot;&amp;gt;
+        &amp;lt;az:Details url=&quot;http://www.amazon.com/exec/obidos/ASIN/0439139597/0xdecafbad-20&quot;&amp;gt;
           &amp;lt;az:Asin&amp;gt;0439139597&amp;lt;/az:Asin&amp;gt;
           &amp;lt;az:ProductName&amp;gt;Harry Potter and the Goblet of Fire (Book 4)&amp;lt;/az:ProductName&amp;gt;
           &amp;lt;az:Catalog&amp;gt;Book&amp;lt;/az:Catalog&amp;gt;
@@ -142,9 +142,9 @@ schema shoehorned in as a namespace:
 &lt;p&gt;
 Then, I transliterated things into what I understand of RSS-Data:
 &lt;/p&gt;
-&lt;pre&gt;&amp;lt;rss version=&amp;quot;2.0&amp;quot;
-  xmlns=&amp;quot;http://blogs.law.harvard.edu/tech/rss&amp;quot;
-  xmlns:sdl=&amp;quot;http://radio.weblogs.com/0113297/2003/10/01.html#a237&amp;quot;&amp;gt;
+&lt;pre&gt;&amp;lt;rss version=&quot;2.0&quot;
+  xmlns=&quot;http://blogs.law.harvard.edu/tech/rss&quot;
+  xmlns:sdl=&quot;http://radio.weblogs.com/0113297/2003/10/01.html#a237&quot;&amp;gt;
   &amp;lt;channel&amp;gt;
     &amp;lt;title&amp;gt;Testing Amazon Namespace&amp;lt;/title&amp;gt;   
     &amp;lt;item&amp;gt;   
@@ -239,7 +239,7 @@ Then, I transliterated things into what I understand of RSS-Data:
       <section class="main">
         <header>
           <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
           <nav>
             <label for="nav-trigger"></label>
             <input type="checkbox" id="nav-trigger" class="nav-trigger" />

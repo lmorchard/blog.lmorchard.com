@@ -48,9 +48,15 @@ Oh, wait: Usually a website is made up of HTML pages. [We'll want to render thes
 ```diff
 {{listing-01-to-02.diff}}
 ```
+
+<details>
+<summary>Full listing-02.js</summary>
+
 ```javascript
 {{listing-02.js}}
 ```
+
+</details>
 
 Here we add the [marked][] module to the mix - [marked][] is a fast Markdown-to-HTML renderer. Next, we create per-post directories and store `index.html` renderings of the Markdown files.
 
@@ -68,9 +74,15 @@ Okay, so let's render the blog post content within a page template:
 ```diff
 {{listing-02-to-03.diff}}
 ```
+
+<details>
+<summary>Full listing-03.js</summary>
+
 ```javascript
 {{listing-03.js}}
 ```
+
+</details>
 
 This is a dead simple page template using a function and a [template literal][]. There's no site navigation, not even a proper title for each post. But, it's a start. Now we're building a collection of actual web pages!
 
@@ -99,9 +111,15 @@ It's also convenient that there's a [front-matter][] module on NPM to process th
 ```diff
 {{listing-03-to-04.diff}}
 ```
+
+<details>
+<summary>Full listing-04.js</summary>
+
 ```javascript
 {{listing-04.js}}
 ```
+
+</details>
 
 The [front-matter][] module neatly parses the blog post YAML header into an object and separates the Markdown content body that follows. This lets us easily include metadata from the post in the page template.
 
@@ -146,9 +164,15 @@ But, rather than a simple passthrough, we *could* filter & transform both the st
 ```diff
 {{listing-04-to-05.diff}}
 ```
+
+<details>
+<summary>Full listing-05.js</summary>
+
 ```javascript
 {{listing-05.js}}
 ```
+
+</details>
 
 ### Weird quirks of my HTML templates
 
@@ -220,9 +244,15 @@ So, let's improve that by using dates to build directory paths:
 ```diff
 {{listing-05-to-06.diff}}
 ```
+
+<details>
+<summary>Full listing-06.js</summary>
+
 ```javascript
 {{listing-06.js}}
 ```
+
+</details>
 
 For my blog, I use a filename convention like this: `2020-05-25-diy-easy-blog-oven.md`
 
@@ -255,9 +285,15 @@ Up to this point, I've been trying to keep the changes to the script small and r
 ```diff
 {{listing-06-to-07.diff}}
 ```
+
+<details>
+<summary>Full listing-07.js</summary>
+
 ```javascript
 {{listing-07.js}}
 ```
+
+</details>
 
 There's a lot of repetition here, but I tried to keep it [DRY][]. 
 

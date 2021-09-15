@@ -35,7 +35,7 @@
       <meta property="og:title" content="How to build your own Easy-Blog Oven" />
         <meta
           property="og:url"
-          content="https://lmorchard.github.io/blog.lmorchard.com//2020/05/25/diy-easy-blog-oven-draft/"
+          content="https://lmorchard.github.io/blog.lmorchard.com/2020/05/25/diy-easy-blog-oven/"
         />
         
         <meta property="og:description" content="&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;: I wanted to write more about building my &lt;a href=&quot;/2020/05/24/easy-blog-oven/&quot;&gt;Easy-Blog Oven&lt;/a&gt;. I mainly glued together things I already knew, but I think I learned some things and had some surprises anyway.&lt;/p&gt;
@@ -45,7 +45,7 @@
       <section class="main">
         <header>
           <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
           <nav>
             <label for="nav-trigger"></label>
             <input type="checkbox" id="nav-trigger" class="nav-trigger" />
@@ -80,8 +80,10 @@
         </time>
 
         <nav class="post-links">
-          
-          
+          <a href="/blog.lmorchard.com/2021/04/26/big-sonic-heaven-spy/"
+              >&laquo; prev<a> </a
+            ></a>
+          &nbsp;|&nbsp;
           <a href="/blog.lmorchard.com/2020/05/24/easy-blog-oven/"
               >next &raquo;<a> </a
             ></a>
@@ -170,6 +172,9 @@ main().catch((err) =&gt; console.error(err));
 33a38
 &gt;     await fs.writeFile(`${postPath}/index.html`, post.html);
 </code></pre>
+<details>
+<summary>Full listing-02.js</summary>
+
 <pre><code class="language-javascript">#!/usr/bin/env node
 const path = require(&quot;path&quot;);
 const globby = require(&quot;globby&quot;);
@@ -213,6 +218,8 @@ async function main() {
 
 main().catch((err) =&gt; console.error(err));
 </code></pre>
+</details>
+
 <p>Here we add the <a href="https://www.npmjs.com/package/marked">marked</a> module to the mix - <a href="https://www.npmjs.com/package/marked">marked</a> is a fast Markdown-to-HTML renderer. Next, we create per-post directories and store <code>index.html</code> renderings of the Markdown files.</p>
 <p>Why create directories for the blog posts? This can help in producing clean URL paths - e.g. <code>/2020/05/25/diy-easy-blog-oven/</code> without a pesky <code>.html</code> at the end. <a href="https://www.w3.org/Provider/Style/URI.html">It&#39;s an old web tradition.</a></p>
 <h2 id="wrapping-rendered-blog-posts-in-page-templates">Wrapping rendered blog posts in page templates</h2>
@@ -238,6 +245,9 @@ main().catch((err) =&gt; console.error(err));
 &gt; &lt;html&gt;
 &gt; `;
 </code></pre>
+<details>
+<summary>Full listing-03.js</summary>
+
 <pre><code class="language-javascript">#!/usr/bin/env node
 const path = require(&quot;path&quot;);
 const globby = require(&quot;globby&quot;);
@@ -294,6 +304,8 @@ const templateBlogPost = ({ post }) =&gt; `&lt;!DOCTYPE html&gt;
 
 main().catch((err) =&gt; console.error(err));
 </code></pre>
+</details>
+
 <p>This is a dead simple page template using a function and a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals">template literal</a>. There&#39;s no site navigation, not even a proper title for each post. But, it&#39;s a start. Now we&#39;re building a collection of actual web pages!</p>
 <h2 id="adding-metadata-to-blog-posts">Adding metadata to blog posts</h2>
 <p>Speaking of blog post titles, there&#39;s usually more to a blog post than the body content. We usually want some metadata: a title, at least. Maybe also a date, some tags, a thumbnail image. </p>
@@ -336,6 +348,9 @@ tags: [ &quot;foo&lt;something&gt;&quot;, &quot;bar&quot;, &quot;baz&quot; ]
 &gt;     `
 &gt;     }
 </code></pre>
+<details>
+<summary>Full listing-04.js</summary>
+
 <pre><code class="language-javascript">#!/usr/bin/env node
 const path = require(&quot;path&quot;);
 const globby = require(&quot;globby&quot;);
@@ -404,6 +419,8 @@ const templateBlogPost = ({ post }) =&gt; `&lt;!DOCTYPE html&gt;
 
 main().catch((err) =&gt; console.error(err));
 </code></pre>
+</details>
+
 <p>The <a href="https://www.npmjs.com/package/front-matter">front-matter</a> module neatly parses the blog post YAML header into an object and separates the Markdown content body that follows. This lets us easily include metadata from the post in the page template.</p>
 <h2 id="using-tagged-template-literals-to-make-html-easier">Using tagged template literals to make HTML easier</h2>
 <p>You may have noticed that I introduced a problem in that last section. Take another look at that example post:</p>
@@ -489,6 +506,9 @@ console.log(str);
 ---
 &gt;     ${unescaped(post.html)}
 </code></pre>
+<details>
+<summary>Full listing-05.js</summary>
+
 <pre><code class="language-javascript">#!/usr/bin/env node
 const path = require(&quot;path&quot;);
 const globby = require(&quot;globby&quot;);
@@ -579,6 +599,8 @@ const templateBlogPost = ({ post }) =&gt; html`
 
 main().catch((err) =&gt; console.error(err));
 </code></pre>
+</details>
+
 <h3 id="weird-quirks-of-my-html-templates">Weird quirks of my HTML templates</h3>
 <p>There are a few strange things going on here. (Or, at least, I thought they were strange.)</p>
 <p>First off, my <code>html</code> template function returns a function. <em>That</em> function returns the desired string content. </p>
@@ -589,21 +611,25 @@ main().catch((err) =&gt; console.error(err));
 <li><p>It supports leaving selective variable substitutions raw &amp; unencoded:</p>
 <pre><code class="language-javascript">html`
   This variable ${() =&gt; &#39;&lt;b&gt;right here&lt;/b&gt;`} should be unescaped markup.
-`</code></pre>
+`
+</code></pre>
 </li>
 <li><p>It supports templates-within-templates, since the <code>html</code> function itself returns a function:</p>
 <pre><code class="language-javascript">html`
 &lt;ul&gt;
   ${post.tags.map((tag) =&gt; html`&lt;li&gt;${tag}&lt;/li&gt;`)}
 &lt;/ul&gt;
-`</code></pre>
+`
+</code></pre>
 </li>
 </ol>
 <p>For another way to think about it, consider that <a href="https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml">React has a mechanism where unescaped markup is indicated</a> like so:</p>
-<pre><code class="language-html">&lt;span dangerouslySetInnerHTML={{ __html: &quot;&lt;b&gt;right here&lt;/b&gt;&quot; }} /&gt;</code></pre>
+<pre><code class="language-html">&lt;span dangerouslySetInnerHTML={{ __html: &quot;&lt;b&gt;right here&lt;/b&gt;&quot; }} /&gt;
+</code></pre>
 <p>The approach here is to just use <code>typeof value === &#39;function&#39;</code> in a similar spirit.</p>
 <p>I&#39;ve been happy so far with how this template scheme has turned out. It just leaves an awkward aspect where the final consumer of the template has to call the return value to get the result:</p>
-<pre><code class="language-javascript">const postHtml = templateBlogPost({ post })();</code></pre>
+<pre><code class="language-javascript">const postHtml = templateBlogPost({ post })();
+</code></pre>
 <p>But, this scheme has replaced a whole template engine dependency for me in <a href="https://github.com/lmorchard/blog.lmorchard.com/tree/master/templates">my blog&#39;s collection of templates</a>. So, that&#39;s pretty neat.</p>
 <h3 id="a-note-for-vscode-users">A note for VSCode users</h3>
 <p>Oh and there&#39;s one more benefit I found while using HTML in tagged templates: If you use VSCode as your editor, there&#39;s <a href="https://marketplace.visualstudio.com/items?itemName=bierner.lit-html">the lit-html extension</a> to help manage &amp; format markup within tagged templates.</p>
@@ -645,6 +671,9 @@ main().catch((err) =&gt; console.error(err));
 75a95
 &gt;     &lt;h2&gt;${post.date.format(&quot;dddd, MMMM Do YYYY, h:mm:ss a&quot;)}&lt;/h2&gt;
 </code></pre>
+<details>
+<summary>Full listing-06.js</summary>
+
 <pre><code class="language-javascript">#!/usr/bin/env node
 const path = require(&quot;path&quot;);
 const globby = require(&quot;globby&quot;);
@@ -755,6 +784,8 @@ const templateBlogPost = ({ post }) =&gt; html`
 
 main().catch((err) =&gt; console.error(err));
 </code></pre>
+</details>
+
 <p>For my blog, I use a filename convention like this: <code>2020-05-25-diy-easy-blog-oven.md</code></p>
 <p>This code takes advantage of that naming convention with a regular expression to extract the date and slug for use in constructing the directory structure during the build. However, as an override, I can explicitly set a date via the <code>date</code> attribute in the post&#39;s front matter.</p>
 <h3 id="dates--names--files-oh-my">Dates &amp; names &amp; files, oh my!</h3>
@@ -848,6 +879,9 @@ main().catch((err) =&gt; console.error(err));
 &gt; &lt;html&gt;
 &gt; `;
 </code></pre>
+<details>
+<summary>Full listing-07.js</summary>
+
 <pre><code class="language-javascript">#!/usr/bin/env node
 const path = require(&quot;path&quot;);
 const globby = require(&quot;globby&quot;);
@@ -1035,6 +1069,8 @@ const templateBlogPost = ({ post }) =&gt; html`
 
 main().catch((err) =&gt; console.error(err));
 </code></pre>
+</details>
+
 <p>There&#39;s a lot of repetition here, but I tried to keep it <a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY</a>. </p>
 <p>The gist is that, since we&#39;re loading all the blog posts into memory, we can easily collate posts into groupings based on attributes like year, month, and tags. The new <code>indexBy</code> utility function takes care of that.</p>
 <p>Once collated into convenient groupings, we can use the <code>writeIndexPage</code> utility function to build each index page via <code>templateIndexPage</code> and then write to disk at the approriate paths in the directory structure.</p>
@@ -1043,7 +1079,8 @@ main().catch((err) =&gt; console.error(err));
 <pre><code class="language-shell">$ time node listing-07.js 
 real    0m1.646s
 user    0m2.056s
-sys     0m0.305s</code></pre>
+sys     0m0.305s
+</code></pre>
 <p>This was one of the big surprises I found when I started playing with this idea. I&#39;m used to thinking about databases and indexes and threads and clusters of servers when it comes to churning through lots of content. But, even if it looks like a lot of content to me as the author, it&#39;s not much at all to a modern computer.</p>
 <p>To be fair, I&#39;ve added complications to the code that <em>actually</em> publishes this blog versus the script I&#39;ve built up for this post. But, my &quot;production&quot; code still builds this whole site in under 7 seconds. And, if I feel like tinkering some more, I could probably optimize and bring that time back down again.</p>
 <h2 id="publishing-to-github-pages-via-actions">Publishing to GitHub Pages via Actions</h2>
@@ -1108,7 +1145,7 @@ jobs:
           <div id="disqus_thread"></div>
           <script type="text/javascript">
             var disqus_needs_loading = true;
-            var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com//2020/05/25/diy-easy-blog-oven-draft/";
+            var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com/2020/05/25/diy-easy-blog-oven/";
           </script>
           <noscript
             >Please enable JavaScript to view the

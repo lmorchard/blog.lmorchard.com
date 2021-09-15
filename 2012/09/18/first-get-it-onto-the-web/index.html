@@ -35,20 +35,20 @@
       <meta property="og:title" content="Developing Open Web Apps: First, get it onto the web" />
         <meta
           property="og:url"
-          content="https://lmorchard.github.io/blog.lmorchard.com//2012/09/18/first-get-it-onto-the-web/"
+          content="https://lmorchard.github.io/blog.lmorchard.com/2012/09/18/first-get-it-onto-the-web/"
         />
         
         <meta property="og:description" content="
 
-&lt;p&gt;I&amp;#x2019;ve been interested in developing &lt;a href=&quot;https://developer.mozilla.org/en-US/apps&quot;&gt;open web apps&lt;/a&gt; (aka the &lt;a href=&quot;http://en.wikipedia.org/wiki/Single-page_application&quot;&gt;single-page app&lt;/a&gt;) for years. But, it feels like the space is really on fire now, since the advent of &lt;a target=&quot;_blank&quot; title=&quot;HTML5&quot; href=&quot;https://developer.mozilla.org/html5?utm_source=wordpress%20blog&amp;amp;utm_medium=content%20link&amp;amp;utm_campaign=promote%20mdn&quot;&gt;HTML5&lt;/a&gt; tech and the recent moves by &lt;a target=&quot;_blank&quot; title=&quot;Mozilla&quot; href=&quot;https://www.mozilla.org/?utm_source=wordpress%20blog&amp;amp;utm_medium=content%20link&amp;amp;utm_campaign=promote%20mdn&quot;&gt;Mozilla&lt;/a&gt; and Google toward truly &amp;#x201C;appifying&amp;#x201D; these things to compete with offerings from iOS and Android. Lots of pieces have come into alignment, and &lt;a href=&quot;https://wiki.mozilla.org/Kilimanjaro&quot;&gt;great things are coming together&lt;/a&gt;&amp;#x2014;&lt;a href=&quot;http://groovecoder.com/2012/09/12/facebook-never-bet-on-html5/&quot;&gt;never mind what the folks at Facebook say&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;So, I think I&amp;#x2019;m going to build a simple app and blog about it. And, these days, the first thing I think about when starting a web app is: How do I get it onto the web?&lt;/p&gt;
+&lt;p&gt;I’ve been interested in developing &lt;a href=&quot;https://developer.mozilla.org/en-US/apps&quot;&gt;open web apps&lt;/a&gt; (aka the &lt;a href=&quot;http://en.wikipedia.org/wiki/Single-page_application&quot;&gt;single-page app&lt;/a&gt;) for years. But, it feels like the space is really on fire now, since the advent of &lt;a target=&quot;_blank&quot; title=&quot;HTML5&quot; href=&quot;https://developer.mozilla.org/html5?utm_source=wordpress%20blog&amp;amp;utm_medium=content%20link&amp;amp;utm_campaign=promote%20mdn&quot;&gt;HTML5&lt;/a&gt; tech and the recent moves by &lt;a target=&quot;_blank&quot; title=&quot;Mozilla&quot; href=&quot;https://www.mozilla.org/?utm_source=wordpress%20blog&amp;amp;utm_medium=content%20link&amp;amp;utm_campaign=promote%20mdn&quot;&gt;Mozilla&lt;/a&gt; and Google toward truly “appifying” these things to compete with offerings from iOS and Android. Lots of pieces have come into alignment, and &lt;a href=&quot;https://wiki.mozilla.org/Kilimanjaro&quot;&gt;great things are coming together&lt;/a&gt;—&lt;a href=&quot;http://groovecoder.com/2012/09/12/facebook-never-bet-on-html5/&quot;&gt;never mind what the folks at Facebook say&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;So, I think I’m going to build a simple app and blog about it. And, these days, the first thing I think about when starting a web app is: How do I get it onto the web?&lt;/p&gt;
 " />
     </head>
     <body>
       <section class="main">
         <header>
           <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
           <nav>
             <label for="nav-trigger"></label>
             <input type="checkbox" id="nav-trigger" class="nav-trigger" />
@@ -109,7 +109,7 @@
   <p class="toc_title">
     Contents
   </p>
-
+  
   <ul class="toc_list">
     <li>
       <a href="#Start_on_the_web"><span class="toc_number toc_depth_1">1</span> Start on the web</a>
@@ -127,10 +127,10 @@
         </li>
       </ul>
     </li>
-
-<pre><code>&lt;li&gt;
-  &lt;a href=&quot;#In_conclusion&quot;&gt;&lt;span class=&quot;toc_number toc_depth_1&quot;&gt;5&lt;/span&gt; In conclusion&lt;/a&gt;
-&lt;/li&gt;</code></pre>
+    
+    <li>
+      <a href="#In_conclusion"><span class="toc_number toc_depth_1">5</span> In conclusion</a>
+    </li>
   </ul>
 </div>
 
@@ -142,7 +142,8 @@
 <p>Okay, so getting on the web is not the <em>first</em> thing. The <em>very</em> first thing is to create a new <a href="http://github.com/lmorchard">github.com</a> repo (complete with <code>README.md</code> and <code>.gitignore</code>) and then:</p>
 <pre><code>cd ~/Dropbox/Public/
 git clone git@github.com:lmorchard/my-project.git
-cd my-project</code></pre>
+cd my-project
+</code></pre>
 <p>And <em>then</em>, I start thinking about getting it onto the web.</p>
 <p>That might sound backward: If all I have is a <code>README</code>, aren&#8217;t I jumping the gun? Well, no—I like to iterate, especially when experimenting with something new. Start simple, try one little thing, repeat. And, because this is a new pan-device world we&#8217;re living in, I&#8217;m often sitting on my couch hacking with a laptop in front, tablet to the left, and phone to the right.</p>
 <p>So, before I even write the first line of &#8220;Hello world&#8221; in <a target="_blank" title="HTML" href="https://developer.mozilla.org/docs/Web/HTML?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">HTML</a>, I want to have a way to get at it from all the gadgets. If it were just my laptop, I could open a <code>file://</code> URL and be done with it. Oh, but not really: Many of the new <a target="_blank" title="HTML5" href="https://developer.mozilla.org/html5?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">HTML5</a>-and-friends technologies depend on things like domain origins and real HTTP connections.</p>
@@ -152,60 +153,62 @@ cd my-project</code></pre>
 <p>Since I started with GitHub, <em>my project is already on the web</em>. Or, mostly it is, but just not exactly how I&#8217;d like it. To get the project published at a URL, this is what I do:</p>
 <pre><code>git co -b gh-pages
 git push origin gh-pages
-git co master</code></pre>
+git co master
+</code></pre>
 <p>Give it a few, and you&#8217;ll receive an email from <a href="http://pages.github.com/">Github Pages</a> (re: <code>[my-project] Page build successful</code>). Give it a few more, since this is the first time for the project. Shortly, the <code>README</code> shows up at an URL like the following:</p>
-<pre><code>http://lmorchard.github.com/my-project/README.md</code></pre>
+<pre><code>http://lmorchard.github.com/my-project/README.md
+</code></pre>
 <p>After that, whenever I want to publish updates to the app, this is what I do:</p>
 <pre><code>git co gh-pages
 git rebase master
 git push origin gh-pages
-git co master</code></pre>
+git co master
+</code></pre>
 <p>And, within seconds (usually), my app is updated on the web. With free hosting, because the folks at GitHub are really nice.</p>
 <p>But, though this works nicely for an app demo or beta, try not to abuse their hospitality by using your <a href="http://pages.github.com/">GitHub Pages</a> URL as the official distribution point for your app.</p>
 <h2 id="how-i-abuse-dropbox"><span id="How_I_abuse_Dropbox">How I (ab)use Dropbox</span></h2>
 <p>You know, all that committing and pushing and rebasing can really get tiresome. And, it craps up my commit history while I&#8217;m just kind of twiddling some bits back and forth to see what happens. We&#8217;re living in the future, damn it, I don&#8217;t have to put up with this!</p>
 <p>And, so, I don&#8217;t. Maybe you noticed that I ran <code>git clone</code> from inside my <a href="https://www.dropbox.com/help/16/en">Dropbox Public folder</a>. Anything in that folder <em>is already on the web</em>: Each file has a public URL, and I can acquire it with a right-click in Finder (ie. Dropbox &gt; Copy Public Link). The result is something like this:</p>
-<pre><code>https://dl.dropbox.com/u/279855/my-project/README.md</code></pre>
+<pre><code>https://dl.dropbox.com/u/279855/my-project/README.md
+</code></pre>
 <p>It&#8217;s a crufty URL, but an URL nonetheless. Dropbox public links also mirror the folder structure, so that an <code>index.html</code> can load all the <a target="_blank" title="CSS" href="https://developer.mozilla.org/docs/Web/CSS?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">CSS</a> and <a target="_blank" title="JS" href="https://developer.mozilla.org/docs/JavaScript?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">JS</a> it wants from relative URLs just like a normal web host.</p>
 <p>With Dropbox, then, my hacking cycle with Dropbox looks like this:</p>
 <ol>
-<li>Save in MacVim</li>
-<li>Switch to Firefox</li>
-<li>Refresh</li>
-<li>Repeat</li>
+<li> Save in MacVim</li>
+<li> Switch to Firefox</li>
+<li> Refresh</li>
+<li> Repeat</li>
 </ol>
 <p>More often than not, my app has gotten updated on the Dropbox servers somewhere between steps #1 and #3. That&#8217;s a much tighter iteration loop than doing the GitHub dance. In fact, it&#8217;s pretty much indistinguishable from just working on my laptop with <code>file://</code> URLs or a disposable HTTP server on my LAN.</p>
 <p>There&#8217;s some bad news, though. I&#8217;ve just read that <a href="https://www.dropbox.com/help/16/en">new accounts created after 7/31/2012 no longer get a Public folder</a>. So, it would seem that the days of carefree hosting-by-Public-folder are on the way out. But fret not: the folks at Dropbox have <a href="https://tech.dropbox.com/?p=345">provided an alternative for hosting static web apps under development</a>. They&#8217;ve also opened up their API for use by open <a target="_blank" title="web apps" href="https://developer.mozilla.org/docs/Apps?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">web apps</a> with <a href="https://github.com/dropbox/dropbox-js">dropbox-js</a>. In fact, this API will play a part in the app about which I plan to blog.</p>
 <h2 id="how-i-use-amazon-s3"><span id="How_I_use_Amazon_S3">How I use Amazon S3</span></h2>
 <p>So, (ab)using GitHub and Dropbox for hosting your app under development is fine and dandy. But, you definitely don&#8217;t want to rely on them for publishing your app for wider distribution. <a href="http://en.wikipedia.org/wiki/There_ain%27t_no_such_thing_as_a_free_lunch">There ain&#8217;t no such thing as a free lunch</a> (TANSTAAFL), and someone&#8217;s bound to shut you down or send you a bill—best to get that out of the way up front.</p>
-<p>As it turns out, <a href="http://aws.amazon.com/">Amazon Web Services</a> will happily accept <a href="http://aws.amazon.com/s3/pricing/">the change from your penny jar</a> to serve up small collections of web content. Well, they will after you&#8217;ve turned the physical pennies into numbers in a bank account, but my point is that Amazon S3 is *<a href="http://aws.amazon.com/s3/pricing/">super cheap</a>*. And, since I&#8217;m talking about a single-page web app here, <a href="http://aws.amazon.com/about-aws/whats-new/2011/02/17/Amazon-S3-Website-Features/">plain old static web hosting</a> is all you need for now.</p>
+<p>As it turns out, <a href="http://aws.amazon.com/">Amazon Web Services</a> will happily accept <a href="http://aws.amazon.com/s3/pricing/">the change from your penny jar</a> to serve up small collections of web content. Well, they will after you&#8217;ve turned the physical pennies into numbers in a bank account, but my point is that Amazon S3 is <em><a href="http://aws.amazon.com/s3/pricing/">super cheap</a></em>. And, since I&#8217;m talking about a single-page web app here, <a href="http://aws.amazon.com/about-aws/whats-new/2011/02/17/Amazon-S3-Website-Features/">plain old static web hosting</a> is all you need for now.</p>
 <p>In fact, if you own a domain name, you can control the URL from which S3 serves up your content. Basically, you just:</p>
 <ol>
-<li>create a DNS record with a CNAME to S3 (eg. <code>my-project.lmorchard.com</code> -&gt; <code>s3-website-us-east-1.amazonaws.com</code>);</li>
-<li><a href="https://console.aws.amazon.com/s3/home">create a bucket named for your domain</a> (eg. <code>my-project.lmorchard.com</code>);</li>
-<li><a href="http://aws.typepad.com/aws/2011/02/host-your-static-website-on-amazon-s3.html">check a box in the properties panel to enable static hosting</a>.</li>
+<li> create a DNS record with a CNAME to S3 (eg. <code>my-project.lmorchard.com</code> -&gt; <code>s3-website-us-east-1.amazonaws.com</code>);</li>
+<li> <a href="https://console.aws.amazon.com/s3/home">create a bucket named for your domain</a> (eg. <code>my-project.lmorchard.com</code>);</li>
+<li> <a href="http://aws.typepad.com/aws/2011/02/host-your-static-website-on-amazon-s3.html">check a box in the properties panel to enable static hosting</a>.</li>
 </ol>
 <p>The above is vaguely more advanced than either GitHub or Dropbox, but this is playing with power. And, with great power comes great responsibility to read the fine manual. Still, it&#8217;s not that hard and it&#8217;s not that spendy.</p>
 <h3 id="how-i-make-amazon-s3-work-like-dropbox"><span id="How_I_make_Amazon_S3_work_like_Dropbox">How I make Amazon S3 work like Dropbox</span></h3>
 <p>So, great: You&#8217;ve got Amazon S3 serving content at a URL of your choice. And, you can upload content using the <a href="https://console.aws.amazon.com/s3/home">control panel</a> or one of the many fine desktop clients available. But, that sounds a bit like the GitHub deployment dance, just GUI-er. Not bad for Official Releases of your app—but what a pain for development!</p>
 <p>Apropos of that, I have a small trick on OS X that makes Amazon S3 as convenient as Dropbox:</p>
 <ul>
-<li><p>Install <a href="https://rubygems.org/gems/kicker">kicker</a>;</p>
-</li>
-<li><p>Install <a href="http://s3tools.org/s3cmd">s3cmd</a> and configure it with your S3 credentials;</p>
-</li>
-<li><p>Run <a href="https://github.com/lmorchard/notational-vapor/blob/master/s3-sync.sh">this</a> from your project directory in a terminal: 
-kicker -c -e &#8216;s3cmd -vfrP &#8211;exclude=&#8221;<em>swp&#8221; &#8211;exclude=&#8221;.git</em>&#8221; sync . s3://my-project.lmorchard.com/&#8217;</li> </ul> 
-What this does is start <code>kicker</code> to monitor your files. Whenever anything changes, <code>s3cmd</code> uploads the changes to Amazon S3. After the first run, my content shows up at an URL like:</p>
-<pre><code>http://my-project.lmorchard.com/README.md</code></pre>
+<li>  Install <a href="https://rubygems.org/gems/kicker">kicker</a>;</li>
+<li>  Install <a href="http://s3tools.org/s3cmd">s3cmd</a> and configure it with your S3 credentials;</li>
+<li>Run <a href="https://github.com/lmorchard/notational-vapor/blob/master/s3-sync.sh">this</a> from your project directory in a terminal: 
+  kicker -c -e &#8216;s3cmd -vfrP &#8211;exclude=&#8221;<em>swp&#8221; &#8211;exclude=&#8221;.git</em>&#8221; sync . s3://my-project.lmorchard.com/&#8217;</li> </ul> 
+  What this does is start <code>kicker</code> to monitor your files. Whenever anything changes, <code>s3cmd</code> uploads the changes to Amazon S3. After the first run, my content shows up at an URL like:<pre><code>  http://my-project.lmorchard.com/README.md
+</code></pre>
 </li>
 </ul>
 <p>So, again, my hacking cycle with Amazon S3 looks like this:</p>
 <ol>
-<li>Save changes</li>
-<li>Switch to browser</li>
-<li>Refresh</li>
-<li>Repeat</li>
+<li> Save changes</li>
+<li> Switch to browser</li>
+<li> Refresh</li>
+<li> Repeat</li>
 </ol>
 <p>Again, this turns out to be nearly indistinguishable from working on <code>localhost</code> or with <code>file://</code> URLs, because the kicker-s3cmd team has generally already shipped off my changes before I can get to the browser. I&#8217;m sure something similar to the above can be cobbled together on Linux or Windows, but I don&#8217;t work there so I&#8217;ve not bothered to figure it out.</p>
 <h2 id="in-conclusion"><span id="In_conclusion">In conclusion</span></h2>
@@ -219,7 +222,7 @@ What this does is start <code>kicker</code> to monitor your files. Whenever anyt
           <div id="disqus_thread"></div>
           <script type="text/javascript">
             var disqus_needs_loading = true;
-            var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com//2012/09/18/first-get-it-onto-the-web/";
+            var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com/2012/09/18/first-get-it-onto-the-web/";
           </script>
           <noscript
             >Please enable JavaScript to view the

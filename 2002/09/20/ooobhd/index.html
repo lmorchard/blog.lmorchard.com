@@ -35,10 +35,10 @@
       <meta property="og:title" content="I&#39;m finally timeshifting radio again" />
         <meta
           property="og:url"
-          content="https://lmorchard.github.io/blog.lmorchard.com//2002/09/20/ooobhd/"
+          content="https://lmorchard.github.io/blog.lmorchard.com/2002/09/20/ooobhd/"
         />
         
-        <meta property="og:description" content="&lt;p&gt;Today&amp;apos;s bundle of little discoveries:
+        <meta property="og:description" content="&lt;p&gt;Today&#39;s bundle of little discoveries:
 &lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt; &lt;a href=&quot;http://www.pth.com/DSBRTuner/&quot;&gt;DSBRTuner&lt;/a&gt; has been updated to support &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/AppleScript&quot;&gt;AppleScript&lt;/a&gt; since last I downloaded it.
@@ -53,7 +53,7 @@
 &lt;br&gt;&lt;br&gt;
 Given these discoveries, I was able to cobble together a quick pair of scripts with which to schedule recording radio broadcasts to MP3 via cron.
 &lt;br&gt;&lt;br&gt;
-Wow.  Another little project that became, all of a sudden, so much easier than I thought.  I love Unix and OS X.  Before this, I&amp;apos;d been looking high and low for all the parts:  a scheduler, a sound recorder, an app controller, etc &amp;amp; so forth.  Given the source code to DSBRTuner, I was almost about to hack some solutions into it, but I&amp;apos;d never gotten the time.
+Wow.  Another little project that became, all of a sudden, so much easier than I thought.  I love Unix and OS X.  Before this, I&#39;d been looking high and low for all the parts:  a scheduler, a sound recorder, an app controller, etc &amp;amp; so forth.  Given the source code to DSBRTuner, I was almost about to hack some solutions into it, but I&#39;d never gotten the time.
 &lt;br&gt;&lt;br&gt;
 Now, I can happily record and listen to my favorite late Sunday night radio show during the week again!
 &lt;br&gt;&lt;br&gt;
@@ -62,29 +62,29 @@ Oh yeah, and the ugly scripts:
 1) dsbr_start_recording
 &lt;pre&gt;#!/bin/sh
 FREQ=$1
-MP3_FN=&amp;quot;$2-`date &amp;quot;+%Y%m%dT%H%M%S&amp;quot;`.mp3&amp;quot;
+MP3_FN=&quot;$2-`date &quot;+%Y%m%dT%H%M%S&quot;`.mp3&quot;
 OSA=/usr/bin/osascript
-TELL=&amp;apos;tell application &amp;quot;DSBRTUNER&amp;quot; to&amp;apos;
+TELL=&#39;tell application &quot;DSBRTUNER&quot; to&#39;
 
 &lt;p&gt;open /Applications/DSBRTuner.app
-$OSA -e &amp;quot;$TELL set frequency to $FREQ&amp;quot;
-$OSA -e &amp;quot;$TELL record to file &amp;quot;$MP3_FN&amp;quot;&amp;quot;
+$OSA -e &quot;$TELL set frequency to $FREQ&quot;
+$OSA -e &quot;$TELL record to file &quot;$MP3_FN&quot;&quot;&lt;/p&gt;&lt;/pre&gt;
 &lt;br&gt;&lt;br&gt;
-2) dsbr_stop_recording&lt;/p&gt;
+2) dsbr_stop_recording&lt;p&gt;&lt;/p&gt;
 &lt;pre&gt;#!/bin/sh
 OSA=/usr/bin/osascript
-TELL=&amp;apos;tell application &amp;quot;DSBRTUNER&amp;quot; to&amp;apos;
+TELL=&#39;tell application &quot;DSBRTUNER&quot; to&#39;
 
 open /Applications/DSBRTuner.app
-$OSA -e &amp;quot;$TELL stop recording&amp;quot;
-$OSA -e &amp;quot;$TELL quit&amp;quot;&lt;/pre&gt;
-&lt;/pre&gt;" />
+$OSA -e &quot;$TELL stop recording&quot;
+$OSA -e &quot;$TELL quit&quot;&lt;/pre&gt;
+" />
     </head>
     <body>
       <section class="main">
         <header>
           <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
           <nav>
             <label for="nav-trigger"></label>
             <input type="checkbox" id="nav-trigger" class="nav-trigger" />

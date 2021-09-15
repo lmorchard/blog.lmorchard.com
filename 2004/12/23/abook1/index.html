@@ -35,7 +35,7 @@
       <meta property="og:title" content="Building an Address Book as a Modern Web App" />
         <meta
           property="og:url"
-          content="https://lmorchard.github.io/blog.lmorchard.com//2004/12/23/abook1/"
+          content="https://lmorchard.github.io/blog.lmorchard.com/2004/12/23/abook1/"
         />
         <meta
             property="og:image"
@@ -43,8 +43,8 @@
           />
         <meta property="og:description" content="&lt;img src=&quot;http://www.decafbad.com/2004/12/abook-architecture.jpg&quot; align=&quot;right&quot;&gt;
 
-&lt;p&gt;So, in the spirit of &lt;a href=&quot;http://www.decafbad.com/blog/2004/11/30/picoprojects_and_trepanation&quot;&gt;pico-projects&lt;/a&gt;, I&amp;apos;ve started building &lt;a href=&quot;http://www.decafbad.com/blog/2004/11/30/nextgenwebapps&quot;&gt;that address book application&lt;/a&gt; I mentioned awhile ago and I want to start writing about it as I go.&lt;/p&gt;
-&lt;p&gt;First off, hopefully you&amp;apos;ll notice the quick diagram I threw together in OmniGraffle.  This is a sort of rough sketch of the loosely-joined architecture I want to explore with this thing.  &lt;/p&gt;
+&lt;p&gt;So, in the spirit of &lt;a href=&quot;http://www.decafbad.com/blog/2004/11/30/picoprojects_and_trepanation&quot;&gt;pico-projects&lt;/a&gt;, I&#39;ve started building &lt;a href=&quot;http://www.decafbad.com/blog/2004/11/30/nextgenwebapps&quot;&gt;that address book application&lt;/a&gt; I mentioned awhile ago and I want to start writing about it as I go.&lt;/p&gt;
+&lt;p&gt;First off, hopefully you&#39;ll notice the quick diagram I threw together in OmniGraffle.  This is a sort of rough sketch of the loosely-joined architecture I want to explore with this thing.  &lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Data&lt;/em&gt;: This is where address book entries live.&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Model&lt;/em&gt;: A set of objects encapsulating the data, this is how address book entries will be accessed.&lt;/li&gt;
@@ -55,9 +55,9 @@
 &lt;li&gt;&lt;em&gt;Web Browser Client&lt;/em&gt;: ...and everything is viewed in a web browser.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Now, I call this a loosely-joined architecture because I want to stress that you should be able to swap out just about any part of this whenever you want.  &lt;/p&gt;
-&lt;p&gt;Want the &lt;em&gt;Data&lt;/em&gt; to be in MySQL?  Fine.  Want it to be in flat files?  Fine.  Just make sure the &lt;em&gt;Model&lt;/em&gt; can cope while maintaining a consistent interface for the &lt;em&gt;REST API*.  Want to change the user interface in the browser?  Great-- ideally, all you have to do is change some XSLT files.  I&amp;apos;m writing everything from the *XSLT Filter&lt;/em&gt; down to the &lt;em&gt;Model&lt;/em&gt; in Python.  Don&amp;apos;t like that?  Fine.  Rewrite it all in Perl, and hopefully everything from the XSLT up to the browser will still be useful to you.&lt;/p&gt;
-&lt;p&gt;At some point, you might even want to ditch the browser for a native desktop client.  Fabulous! Just ignore everything past the &lt;em&gt;REST API&lt;/em&gt; and &lt;em&gt;HTTP&lt;/em&gt;, don&amp;apos;t use any XSLT in the &lt;em&gt;Filter&lt;/em&gt;, and use the API and XML directly.&lt;/p&gt;
-&lt;p&gt;I don&amp;apos;t think any of this is particularly revolutionary-- although I thought it was when I first saw Amazon Web Services doing some of this, and I hope to throw a little GMail in as well.  I hope that this will all be useful as I muddle through explaining what I&amp;apos;m doing.  In the meantime, you can see me getting the stage set as I start checking things into my Subversion repository over here:&lt;/p&gt;
+&lt;p&gt;Want the &lt;em&gt;Data&lt;/em&gt; to be in MySQL?  Fine.  Want it to be in flat files?  Fine.  Just make sure the &lt;em&gt;Model&lt;/em&gt; can cope while maintaining a consistent interface for the &lt;em&gt;REST API&lt;/em&gt;.  Want to change the user interface in the browser?  Great-- ideally, all you have to do is change some XSLT files.  I&#39;m writing everything from the &lt;em&gt;XSLT Filter&lt;/em&gt; down to the &lt;em&gt;Model&lt;/em&gt; in Python.  Don&#39;t like that?  Fine.  Rewrite it all in Perl, and hopefully everything from the XSLT up to the browser will still be useful to you.&lt;/p&gt;
+&lt;p&gt;At some point, you might even want to ditch the browser for a native desktop client.  Fabulous! Just ignore everything past the &lt;em&gt;REST API&lt;/em&gt; and &lt;em&gt;HTTP&lt;/em&gt;, don&#39;t use any XSLT in the &lt;em&gt;Filter&lt;/em&gt;, and use the API and XML directly.&lt;/p&gt;
+&lt;p&gt;I don&#39;t think any of this is particularly revolutionary-- although I thought it was when I first saw Amazon Web Services doing some of this, and I hope to throw a little GMail in as well.  I hope that this will all be useful as I muddle through explaining what I&#39;m doing.  In the meantime, you can see me getting the stage set as I start checking things into my Subversion repository over here:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.decafbad.com/svn/trunk/hacks/abook/&quot;&gt;http://www.decafbad.com/svn/trunk/hacks/abook/&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;" />
     </head>
@@ -65,7 +65,7 @@
       <section class="main">
         <header>
           <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
           <nav>
             <label for="nav-trigger"></label>
             <input type="checkbox" id="nav-trigger" class="nav-trigger" />
@@ -132,7 +132,7 @@
 <li><em>Web Browser Client</em>: ...and everything is viewed in a web browser.</li>
 </ul>
 <p>Now, I call this a loosely-joined architecture because I want to stress that you should be able to swap out just about any part of this whenever you want.  </p>
-<p>Want the <em>Data</em> to be in MySQL?  Fine.  Want it to be in flat files?  Fine.  Just make sure the <em>Model</em> can cope while maintaining a consistent interface for the <em>REST API*.  Want to change the user interface in the browser?  Great-- ideally, all you have to do is change some XSLT files.  I&#39;m writing everything from the *XSLT Filter</em> down to the <em>Model</em> in Python.  Don&#39;t like that?  Fine.  Rewrite it all in Perl, and hopefully everything from the XSLT up to the browser will still be useful to you.</p>
+<p>Want the <em>Data</em> to be in MySQL?  Fine.  Want it to be in flat files?  Fine.  Just make sure the <em>Model</em> can cope while maintaining a consistent interface for the <em>REST API</em>.  Want to change the user interface in the browser?  Great-- ideally, all you have to do is change some XSLT files.  I&#39;m writing everything from the <em>XSLT Filter</em> down to the <em>Model</em> in Python.  Don&#39;t like that?  Fine.  Rewrite it all in Perl, and hopefully everything from the XSLT up to the browser will still be useful to you.</p>
 <p>At some point, you might even want to ditch the browser for a native desktop client.  Fabulous! Just ignore everything past the <em>REST API</em> and <em>HTTP</em>, don&#39;t use any XSLT in the <em>Filter</em>, and use the API and XML directly.</p>
 <p>I don&#39;t think any of this is particularly revolutionary-- although I thought it was when I first saw Amazon Web Services doing some of this, and I hope to throw a little GMail in as well.  I hope that this will all be useful as I muddle through explaining what I&#39;m doing.  In the meantime, you can see me getting the stage set as I start checking things into my Subversion repository over here:</p>
 <ul>

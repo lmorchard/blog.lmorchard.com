@@ -35,21 +35,21 @@
       <meta property="og:title" content="Writing a Delicious command for Ubiquity" />
         <meta
           property="og:url"
-          content="https://lmorchard.github.io/blog.lmorchard.com//2008/09/01/writing-a-delicious-command-for-ubiquity/"
+          content="https://lmorchard.github.io/blog.lmorchard.com/2008/09/01/writing-a-delicious-command-for-ubiquity/"
         />
         <meta
             property="og:image"
-            content="https://lmorchard.github.io/blog.lmorchard.com//blog.lmorchard.com/2008/ubiq-share-on-delicious-list.jpg"
+            content="https://lmorchard.github.io/blog.lmorchard.com/blog.lmorchard.com/2008/ubiq-share-on-delicious-list.jpg"
           />
-        <meta property="og:description" content="&lt;p&gt;In my &lt;a href=&quot;http://decafbad.com/blog/2008/08/31/ubiquity-cracks-open-personal-mashup-tinkering&quot; title=&quot;Ubiquity cracks open personal mashup tinkering&quot;&gt;last post&lt;/a&gt;, I got all fluffy about how cool &lt;a href=&quot;http://labs.mozilla.com/2008/08/introducing-ubiquity/&quot;&gt;Ubiquity&lt;/a&gt; is but didn&amp;apos;t share any code to prove the point.  As it happens, I have come up with at least one useful command that I&amp;apos;m starting to use habitually in posting bookmarks to Delicious.  You can &lt;a href=&quot;http://decafbad.com/UbiquityCommands/&quot;&gt;subscribe to my command&lt;/a&gt; or &lt;a href=&quot;http://decafbad.com/hg/UbiquityCommands/file/tip/delicious.ubiq.js&quot;&gt;check out the full source&lt;/a&gt;&amp;#x2014;this post will serve as a dissection of the thing.  Since this will be fairly lengthy, follow along after the jump.&lt;/p&gt;
-&lt;p&gt;Oh, and it&amp;apos;s been awhile since I posted something this in-depth around here, so feel free to let me know how this first draft works.  And, bug reports and patches are of course welcome.&lt;/p&gt;
+        <meta property="og:description" content="&lt;p&gt;In my &lt;a href=&quot;http://decafbad.com/blog/2008/08/31/ubiquity-cracks-open-personal-mashup-tinkering&quot; title=&quot;Ubiquity cracks open personal mashup tinkering&quot;&gt;last post&lt;/a&gt;, I got all fluffy about how cool &lt;a href=&quot;http://labs.mozilla.com/2008/08/introducing-ubiquity/&quot;&gt;Ubiquity&lt;/a&gt; is but didn&#39;t share any code to prove the point.  As it happens, I have come up with at least one useful command that I&#39;m starting to use habitually in posting bookmarks to Delicious.  You can &lt;a href=&quot;http://decafbad.com/UbiquityCommands/&quot;&gt;subscribe to my command&lt;/a&gt; or &lt;a href=&quot;http://decafbad.com/hg/UbiquityCommands/file/tip/delicious.ubiq.js&quot;&gt;check out the full source&lt;/a&gt;—this post will serve as a dissection of the thing.  Since this will be fairly lengthy, follow along after the jump.&lt;/p&gt;
+&lt;p&gt;Oh, and it&#39;s been awhile since I posted something this in-depth around here, so feel free to let me know how this first draft works.  And, bug reports and patches are of course welcome.&lt;/p&gt;
 " />
     </head>
     <body>
       <section class="main">
         <header>
           <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
           <nav>
             <label for="nav-trigger"></label>
             <input type="checkbox" id="nav-trigger" class="nav-trigger" />
@@ -137,7 +137,7 @@ var cookie_mgr = Components.classes["@mozilla.org/cookiemanager;1"]
 <p>Now, check out this next chunk of code, which begins the construction of an Ubiquity command:</p>
 <pre lang="javascript" line="13">
 CmdUtils.CreateCommand({
-
+    
     name:        
         'share-on-delicious',
     icon:
@@ -178,14 +178,16 @@ CmdUtils.CreateCommand({
 
 <p>Like smart keyword shortcut bookmarks, Ubiquity commands accept user-supplied input.  But, what&#39;s unique to Ubiquity is that it employs a parser whose goal is to support something approximating natural language.  At present, this results in commands that support a single primary argument—declared above with the <code>takes</code> property—and any number of additional keyword modifiers—declared above by the <code>modifiers</code> property.</p>
 <p>For the command under construction here, this establishes a pattern something like the following:</p>
-<pre><code>share-on-delicious {notes} [tagged {tags} entitled {title}]</code></pre>
+<pre><code>share-on-delicious {notes} [tagged {tags} entitled {title}]
+</code></pre>
 <p>Content for the <code>{notes}</code> argument can either be typed directly by hand, or it can be supplied by text highlighted on the page.  To use highlighted text, you can either issue the command alone, or use the word <code>this</code> for the <code>{notes}</code> argument before including further modifiers.</p>
 <p>The modifiers <code>tagged</code> and <code>entitled</code> are optional, and can be used in any order.  Each of these keywords signifies the start of a different argument—which unfortunately can collide with the literal data supplied for notes, which will hopefully be a rare occurrence.</p>
 <p>All of this adds up command invocations including the following:</p>
 <pre><code>share-on-delicious
 share-on-delicious I really like this page tagged nifty amusing
 share-on-delicious this entitled This bookmark has no tags
-sh this tagged osx software apple entitled This is good OS X software</code></pre>
+sh this tagged osx software apple entitled This is good OS X software
+</code></pre>
 <p>That last example is important—since I have no other commands starting with &quot;<code>sh</code>&quot;, I can abbreviate the full command.  Ubiquity only requires enough of a command name to disambiguate it within your collection of commands.</p>
 <p>Another thing to note is the use of the constant value <code>noun_arb_text</code>, which declares that these arguments should expect any arbitrary text as input.  </p>
 <p>This facility is not exploited for the present command, but Ubiquity defines <a href="http://hg.toolness.com/ubiquity-firefox/file/tip/ubiquity/chrome/content/nlparser/en/nountypes.js">noun types</a>.  These include concepts such as plain text, dates, address book contacts, browser tabs, bookmark tags, and more.  You can define your own noun types, as well as implement suggestion schemes that help guide the user toward constructing useful input values in the command interface.  You can <a href="https://wiki.mozilla.org/Labs/Ubiquity/Ubiquity_0.1_Author_Tutorial#Introduction_to_Noun_Types">read more about this</a> in the official author tutorial.</p>

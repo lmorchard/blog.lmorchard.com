@@ -35,14 +35,14 @@
       <meta property="og:title" content="The Blogosphere as a Tuple Space" />
         <meta
           property="og:url"
-          content="https://lmorchard.github.io/blog.lmorchard.com//2005/01/12/the-blogosphere-as-a-tuple-space/"
+          content="https://lmorchard.github.io/blog.lmorchard.com/2005/01/12/the-blogosphere-as-a-tuple-space/"
         />
     </head>
     <body>
       <section class="main">
         <header>
           <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
           <nav>
             <label for="nav-trigger"></label>
             <input type="checkbox" id="nav-trigger" class="nav-trigger" />
@@ -100,19 +100,23 @@
 (&quot;foo&quot;, 7, 2, &quot;xyzzy&quot;, 89)
 (&quot;foo&quot;, 9, 2, &quot;xyzzy&quot;, 100.3)
 (ExampleObject(&quot;wheee&quot;), 123, None)
-(23,)</code></pre>
+(23,)
+</code></pre>
 <p>Imagine the magic bag is a heap of these tuples.  You ask for tuples by <em>pattern</em>, like this:</p>
-<pre><code>(&quot;foo&quot;, ?int, 2, ?str, ?float)</code></pre>
+<pre><code>(&quot;foo&quot;, ?int, 2, ?str, ?float)
+</code></pre>
 <p>And the bag would give you the tuples which match the pattern:</p>
 <pre><code>(&quot;foo&quot;, 1, 2, &quot;baz&quot;, 23.2)
-(&quot;foo&quot;, 9, 2, &quot;xyzzy&quot;, 100.3)</code></pre>
+(&quot;foo&quot;, 9, 2, &quot;xyzzy&quot;, 100.3)
+</code></pre>
 <p>The thing that makes this even more abstract than a bag of marbles is that these tuples are just ordered collections of data items.  They&#39;re not labeled as properties like &quot;color&quot;, &quot;size&quot;, &quot;shape&quot;, or &quot;material&quot;.  Where the data items within tuples pick up meaning is through agreement amongst users of the tuple space.  </p>
 <p>Tuple spaces get really interesting, though, because different collectives of users of the tuple space can each agree upon different sets of meanings for tuples--and the agreements exist outside of tuple space, so the space doesn&#39;t need reconfiguration for any particular new use.  Meanwhile, the infrastructure supporting the sharing of the tuple space remains simple, and the interface remains the same.  Because they don&#39;t know any better, tuple spaces can allow for all kinds of sharing and coordination that no one necessarily has to plan for ahead of time.</p>
 <p>For example, want to send instant messages?  Fill space with tuples like this:</p>
 <pre><code>(&quot;TIM-Msg&quot;, &quot;Joe&quot;, &quot;Frank&quot;, &quot;2004-01-12T15:49:00&quot;, &quot;Hi there, Joe.&quot;)
 (&quot;TIM-Msg&quot;, &quot;Frank&quot;, &quot;Joe&quot;, &quot;2004-01-12T15:52:00&quot;, &quot;Hey Frank, how&#39;s it going?&quot;)
 (&quot;TIM-Msg&quot;, &quot;Joe&quot;, &quot;Frank&quot;, &quot;2004-01-12T16:01:00&quot;, &quot;Good, good.&quot;)
-(&quot;TIM-Msg&quot;, &quot;Frank&quot;, &quot;Joe&quot;, &quot;2004-01-12T16:12:00&quot;, &quot;Glad to hear it!&quot;)</code></pre>
+(&quot;TIM-Msg&quot;, &quot;Frank&quot;, &quot;Joe&quot;, &quot;2004-01-12T16:12:00&quot;, &quot;Glad to hear it!&quot;)
+</code></pre>
 <p>You can probably figure out what meanings the &quot;TupleIM&quot; client would assign to tuple elements.  If you were Joe, your client might leave a running query in space for tuples like <code>(&quot;TIM-Msg&quot;, &quot;Joe&quot;, ?, ?, ?)</code>, where as Frank would subscribe to a query like <code>(&quot;TIM-Msg&quot;, &quot;Frank&quot;, ?, ?, ?)</code> .  </p>
 <h2 id="what-do-tuples-have-to-do-with-blogs">What Do Tuples Have to Do with Blogs?</h2>
 <p>Well, we&#39;re not really there yet, but the parallels between blogs, the web, REST APIs, and tuple spaces are many.  The web sounds an awful lot like a potential tuple space to me, although it needs a lot of work to become one.  Resources accessible by URL are kind of like tuples, though Google doesn&#39;t make quite as universal a tuple-finder as we&#39;d like.  Syndication feeds, however, and the metadata they carry causes the data items to be better exposed to a potential tuple-finder.</p>

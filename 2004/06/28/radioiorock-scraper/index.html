@@ -35,17 +35,18 @@
       <meta property="og:title" content="A mini-scraper for the playlist at radioio Rock" />
         <meta
           property="og:url"
-          content="https://lmorchard.github.io/blog.lmorchard.com//2004/06/28/radioiorock-scraper/"
+          content="https://lmorchard.github.io/blog.lmorchard.com/2004/06/28/radioiorock-scraper/"
         />
         
-        <meta property="og:description" content="&lt;p&gt;Lately, my iTunes has been playing &lt;a href=&quot;http://www.radioio.com/radioiorock.php?stream=radioioRock&quot;&gt;radioio Rock&lt;/a&gt; almost exclusively lately, but one thing that peeves me is that I don&amp;apos;t seem to see the current song while the stream&amp;apos;s playing.  Instead, the &lt;a href=&quot;http://www.radioio.com/&quot;&gt;radioio&lt;/a&gt; site offers a pop-up window that displays the last few songs in the playlist.  However, I&amp;apos;m usually somewhere off in another window or a shell and don&amp;apos;t really feel like popping over to a browser and navigating to the playlist just to see what this song is.&lt;/p&gt;
+        <meta property="og:description" content="&lt;p&gt;Lately, my iTunes has been playing &lt;a href=&quot;http://www.radioio.com/radioiorock.php?stream=radioioRock&quot;&gt;radioio Rock&lt;/a&gt; almost exclusively lately, but one thing that peeves me is that I don&#39;t seem to see the current song while the stream&#39;s playing.  Instead, the &lt;a href=&quot;http://www.radioio.com/&quot;&gt;radioio&lt;/a&gt; site offers a pop-up window that displays the last few songs in the playlist.  However, I&#39;m usually somewhere off in another window or a shell and don&#39;t really feel like popping over to a browser and navigating to the playlist just to see what this song is.&lt;/p&gt;
 &lt;p&gt;So, I wrote myself a little mini-scraper script:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;#!/bin/sh
 
-curl -s &amp;apos;http://player.radioio.com/player.php?b=614&amp;amp;#38;stream=radioioRock&amp;apos; | \
+curl -s &#39;http://player.radioio.com/player.php?b=614&amp;amp;#38;stream=radioioRock&#39; | \
     tidy -asxml --wrap 300 -q -f /dev/null | \
-    xml sel -t -m &amp;quot;//*[@class=&amp;apos;leadrock&amp;apos;]&amp;quot; -v &amp;apos;.&amp;apos; -n \
-        -o &amp;apos;    [http://www.radioio.com&amp;apos; -v &amp;apos;../@href&amp;apos; -o &amp;apos;]&amp;apos; -n &lt;/code&gt;&lt;/pre&gt;
+    xml sel -t -m &quot;//*[@class=&#39;leadrock&#39;]&quot; -v &#39;.&#39; -n \
+        -o &#39;    [http://www.radioio.com&#39; -v &#39;../@href&#39; -o &#39;]&#39; -n 
+&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The output looks something like this:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;[06/29 11:01:08] deusx@Caffeina2:~ % radioio
 
@@ -60,7 +61,8 @@ Pixies - Bam Thwok
 Death Cab For Cutie - The New Year
     [http://www.radioio.com...]
 Lovethugs - Drawing The Curtains
-    [http://www.radioio.com...]&lt;/code&gt;&lt;/pre&gt;
+    [http://www.radioio.com...]
+&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Oh yeah, and to run this script, you will need these tools:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://curl.haxx.se/&quot;&gt;curl&lt;/a&gt;&lt;/li&gt;
@@ -68,7 +70,7 @@ Lovethugs - Drawing The Curtains
 &lt;li&gt;&lt;a href=&quot;http://xmlstar.sourceforge.net/&quot;&gt;XMLStarlet&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Personally, I like the included URLs (which I edited here for length) since they launch a search for CDs by the artist.  However, you can cut the output down to just the artist/title by removing the final line of the script and the backslash at the end of the line before.&lt;/p&gt;
-&lt;p&gt;If you like a different &lt;a href=&quot;http://www.radioio.com/&quot;&gt;radioio&lt;/a&gt; station, say &lt;a href=&quot;http://www.radioio.com/radioioeclectic.php?stream=radioioEclectic&quot;&gt;radioio Eclectic&lt;/a&gt;, you can change &lt;code&gt;stream=radioioRock&lt;/code&gt; to &lt;code&gt;stream=radioioEclectic&lt;/code&gt; in the URL above and change &lt;code&gt;class=&amp;apos;leadrock&amp;apos;&lt;/code&gt; to &lt;code&gt;class=&amp;apos;leadeclectic&amp;apos;&lt;/code&gt;.  I could have parameterized these, but I&amp;apos;m lazy, and that was the whole point!&lt;/p&gt;
+&lt;p&gt;If you like a different &lt;a href=&quot;http://www.radioio.com/&quot;&gt;radioio&lt;/a&gt; station, say &lt;a href=&quot;http://www.radioio.com/radioioeclectic.php?stream=radioioEclectic&quot;&gt;radioio Eclectic&lt;/a&gt;, you can change &lt;code&gt;stream=radioioRock&lt;/code&gt; to &lt;code&gt;stream=radioioEclectic&lt;/code&gt; in the URL above and change &lt;code&gt;class=&#39;leadrock&#39;&lt;/code&gt; to &lt;code&gt;class=&#39;leadeclectic&#39;&lt;/code&gt;.  I could have parameterized these, but I&#39;m lazy, and that was the whole point!&lt;/p&gt;
 &lt;p&gt;ShareAndEnjoy!&lt;/p&gt;
 " />
     </head>
@@ -76,7 +78,7 @@ Lovethugs - Drawing The Curtains
       <section class="main">
         <header>
           <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
           <nav>
             <label for="nav-trigger"></label>
             <input type="checkbox" id="nav-trigger" class="nav-trigger" />
@@ -134,7 +136,8 @@ Lovethugs - Drawing The Curtains
 curl -s &#39;http://player.radioio.com/player.php?b=614&amp;#38;stream=radioioRock&#39; | \
     tidy -asxml --wrap 300 -q -f /dev/null | \
     xml sel -t -m &quot;//*[@class=&#39;leadrock&#39;]&quot; -v &#39;.&#39; -n \
-        -o &#39;    [http://www.radioio.com&#39; -v &#39;../@href&#39; -o &#39;]&#39; -n </code></pre>
+        -o &#39;    [http://www.radioio.com&#39; -v &#39;../@href&#39; -o &#39;]&#39; -n 
+</code></pre>
 <p>The output looks something like this:</p>
 <pre><code>[06/29 11:01:08] deusx@Caffeina2:~ % radioio
 
@@ -149,7 +152,8 @@ Pixies - Bam Thwok
 Death Cab For Cutie - The New Year
     [http://www.radioio.com...]
 Lovethugs - Drawing The Curtains
-    [http://www.radioio.com...]</code></pre>
+    [http://www.radioio.com...]
+</code></pre>
 <p>Oh yeah, and to run this script, you will need these tools:</p>
 <ul>
 <li><a href="http://curl.haxx.se/">curl</a></li>

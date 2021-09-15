@@ -35,7 +35,7 @@
       <meta property="og:title" content="Using web services and XSLT to scrape RSS from HTML" />
         <meta
           property="og:url"
-          content="https://lmorchard.github.io/blog.lmorchard.com//2003/09/02/xsl-scraper/"
+          content="https://lmorchard.github.io/blog.lmorchard.com/2003/09/02/xsl-scraper/"
         />
         <meta
             property="og:image"
@@ -46,22 +46,22 @@
 After tinkering a bit with
 &lt;a href=&quot;http://www.decafbad.com/blog/geek/rss_scrape_urls2.html&quot; target=&quot;_top&quot;&gt;web services and XSLT-based scraping&lt;/a&gt;
 last week for generating &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; from HTML, I ripped out some work I was
-doing for &lt;a href=&quot;http://www.decafbad.com/cvs/XPathScraper/&quot; target=&quot;_top&quot;&gt;a Java-based scraper&lt;/a&gt; I&amp;apos;d started
+doing for &lt;a href=&quot;http://www.decafbad.com/cvs/XPathScraper/&quot; target=&quot;_top&quot;&gt;a Java-based scraper&lt;/a&gt; I&#39;d started
 working on &lt;a href=&quot;http://www.decafbad.com/blog/tech/old/ooobca.html&quot; target=&quot;_top&quot;&gt;last year&lt;/a&gt; and
 threw together a kit of XSLT files that does most everything I was trying
 to do.
 &lt;/p&gt;&lt;p&gt;
-I&amp;apos;m calling this kit &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XslScraper&quot;&gt;XslScraper&lt;/a&gt;, and there&amp;apos;s further blurbage and download links
-avaiable in the Wiki.  Check it out.  I&amp;apos;ve got shell scripts to run the stuff
+I&#39;m calling this kit &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XslScraper&quot;&gt;XslScraper&lt;/a&gt;, and there&#39;s further blurbage and download links
+avaiable in the Wiki.  Check it out.  I&#39;ve got shell scripts to run the stuff
 from as a cron job, and CGI scripts to run it all from web services.
 &lt;/p&gt;&lt;p&gt;
 For quick gratification, check out these feeds:
 &lt;/p&gt;&lt;ul&gt;
-&lt;li&gt; &lt;a href=&quot;http://www.decafbad.com/2003/08/tidyxslt?xsl=http%3A%2F%2Fwww.whump.com%2Fdropbox%2Fnationrss%2Fnation.xsl&amp;amp;doc=http%3A%2F%2Fwww.thenation.com&quot;&gt;&lt;img src=&quot;http://www.decafbad.com/images/xml.gif&quot; border=&quot;0&quot;&gt;&lt;/a&gt; - &lt;a href=&quot;http://www.thenation.com&quot;&gt;The Nation&lt;/a&gt; (using &lt;a href=&quot;http://www.whump.com/moreLikeThis/date/21/08/2003&quot; target=&quot;_top&quot;&gt;Bill Humphries&amp;apos; XSL&lt;/a&gt;) 
+&lt;li&gt; &lt;a href=&quot;http://www.decafbad.com/2003/08/tidyxslt?xsl=http%3A%2F%2Fwww.whump.com%2Fdropbox%2Fnationrss%2Fnation.xsl&amp;amp;doc=http%3A%2F%2Fwww.thenation.com&quot;&gt;&lt;img src=&quot;http://www.decafbad.com/images/xml.gif&quot; border=&quot;0&quot;&gt;&lt;/a&gt; - &lt;a href=&quot;http://www.thenation.com&quot;&gt;The Nation&lt;/a&gt; (using &lt;a href=&quot;http://www.whump.com/moreLikeThis/date/21/08/2003&quot; target=&quot;_top&quot;&gt;Bill Humphries&#39; XSL&lt;/a&gt;) 
 &lt;/li&gt;
 &lt;li&gt; &lt;a href=&quot;http://www.decafbad.com/2003/08/tidyxslt?xsl=http%3A%2F%2Fwww.decafbad.com%2F2003%2F08%2Fxsl_scraper%2Fscrapers%2Fkurzweilai.xsl&amp;amp;doc=http%3A%2F%2Fwww.kurzweilai.net%2Findex.html%3Fflash%3D1&quot;&gt;&lt;img src=&quot;http://www.decafbad.com/images/xml.gif&quot; border=&quot;0&quot;&gt;&lt;/a&gt; - &lt;a href=&quot;http://www.kurzweilai.net/index.html?flash=1&quot;&gt;KurzweilAI.net&lt;/a&gt;
 &lt;/li&gt;
-&lt;li&gt; &lt;a href=&quot;http://www.decafbad.com/2003/08/tidyxslt?xsl=http%3A%2F%2Fwww.decafbad.com%2F2003%2F08%2Fxsl_scraper%2Fscrapers%2Fjlist.xsl&amp;amp;doc=http%3A%2F%2Fwww.jlist.com%2FUPDATES%2FPG%2F7%2F&quot;&gt;&lt;img src=&quot;http://www.decafbad.com/images/xml.gif&quot; border=&quot;0&quot;&gt;&lt;/a&gt; - &lt;a href=&quot;http://www.jlist.com/&quot;&gt;J-List -- You&amp;apos;ve got a friend in Japan!&lt;/a&gt;
+&lt;li&gt; &lt;a href=&quot;http://www.decafbad.com/2003/08/tidyxslt?xsl=http%3A%2F%2Fwww.decafbad.com%2F2003%2F08%2Fxsl_scraper%2Fscrapers%2Fjlist.xsl&amp;amp;doc=http%3A%2F%2Fwww.jlist.com%2FUPDATES%2FPG%2F7%2F&quot;&gt;&lt;img src=&quot;http://www.decafbad.com/images/xml.gif&quot; border=&quot;0&quot;&gt;&lt;/a&gt; - &lt;a href=&quot;http://www.jlist.com/&quot;&gt;J-List -- You&#39;ve got a friend in Japan!&lt;/a&gt;
 &lt;/li&gt;
 &lt;li&gt; &lt;a href=&quot;http://www.decafbad.com/2003/08/tidyxslt?xsl=http%3A%2F%2Fwww.decafbad.com%2F2003%2F08%2Fxsl_scraper%2Fscrapers%2Fumich-jobs.xsl&amp;amp;doc=http%3A%2F%2Fwebsvcs.itd.umich.edu%2Fjobnet%2Fnew_postings_byjobfamily.php&quot;&gt;&lt;img src=&quot;http://www.decafbad.com/images/xml.gif&quot; border=&quot;0&quot;&gt;&lt;/a&gt; - &lt;a href=&quot;http://websvcs.itd.umich.edu/jobnet/&quot;&gt;New JOBS at the University of Michigan (By Job Family)&lt;/a&gt;
 &lt;/li&gt;
@@ -73,7 +73,7 @@ For quick gratification, check out these feeds:
       <section class="main">
         <header>
           <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
           <nav>
             <label for="nav-trigger"></label>
             <input type="checkbox" id="nav-trigger" class="nav-trigger" />

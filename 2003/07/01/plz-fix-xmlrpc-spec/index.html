@@ -35,52 +35,52 @@
       <meta property="og:title" content="Please fix the XML-RPC spec" />
         <meta
           property="og:url"
-          content="https://lmorchard.github.io/blog.lmorchard.com//2003/07/01/plz-fix-xmlrpc-spec/"
+          content="https://lmorchard.github.io/blog.lmorchard.com/2003/07/01/plz-fix-xmlrpc-spec/"
         />
         
-        <meta property="og:description" content="&lt;p&gt;I&amp;apos;ve written before that &lt;a href=&quot;http://www.decafbad.com/blog/tech/old/oooccb.html&quot; target=&quot;_top&quot;&gt;I love XML-RPC&lt;/a&gt;, and
-that it has served me well in the past couple of years.  I think it&amp;apos;s the right tool for a broad
+        <meta property="og:description" content="&lt;p&gt;I&#39;ve written before that &lt;a href=&quot;http://www.decafbad.com/blog/tech/old/oooccb.html&quot; target=&quot;_top&quot;&gt;I love XML-RPC&lt;/a&gt;, and
+that it has served me well in the past couple of years.  I think it&#39;s the right tool for a broad
 range of jobs.  But, after having studied the spec, and after having implemented it in a handful
 of languages for a handful of well-used apps, I think the spec needs just a bit of fixing.
 &lt;br&gt;&lt;br&gt;
-In particular, the spec needs a tweak with regards to this &amp;quot;ASCII limitation&amp;quot;.  There is confusion
-about this, period.  I&amp;apos;ve had to hash this out with clients before, this 
+In particular, the spec needs a tweak with regards to this &quot;ASCII limitation&quot;.  There is confusion
+about this, period.  I&#39;ve had to hash this out with clients before, this 
 &lt;a href=&quot;http://www.jspwiki.org/Wiki.jsp?page=WikiRPCInterfaceUTF8VsBase64&quot; target=&quot;_top&quot;&gt;was an issue of note&lt;/a&gt; while
 working out an &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpcToWiki&quot; target=&quot;_top&quot;&gt;XML-RPC based Wiki API&lt;/a&gt;,
-and it&amp;apos;s obviously an issue in many other projects.  This, of course, includes the current
+and it&#39;s obviously an issue in many other projects.  This, of course, includes the current
 &lt;a href=&quot;http://www.sixapart.com/log/2003/06/why_we_need_ech.shtml&quot; target=&quot;_top&quot;&gt;hubbub surrounding weblog APIs and whatnot&lt;/a&gt;.
 &lt;br&gt;&lt;br&gt;
-So, please fix the spec.  It shouldn&amp;apos;t take long to make this issue a non-issue by some simple
+So, please fix the spec.  It shouldn&#39;t take long to make this issue a non-issue by some simple
 clarification in the main &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpc&quot;&gt;XmlRpc&lt;/a&gt; to which everyone refers.
 &lt;br&gt;&lt;br&gt;
-Yes, I know there&amp;apos;s a bit of clarification at the end of the spec, involving escaping (
+Yes, I know there&#39;s a bit of clarification at the end of the spec, involving escaping (
 &lt;a href=&quot;http://tbray.org/ongoing/When/200x/2003/06/28/Learning&quot; target=&quot;_top&quot;&gt;not encoding&lt;/a&gt;) &amp;lt; and &amp;amp; along
-with the statement that &amp;quot;A string can be used to encode binary data.&amp;quot;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+with the statement that &quot;A string can be used to encode binary data.&quot;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 Well, yeah, I do that
 all the time with &lt;a href=&quot;http://www.fourmilab.ch/webtools/base64/rfc1341.html&quot; target=&quot;_top&quot;&gt;Base64&lt;/a&gt;.  And, since
-the spec earlier had called for &amp;quot;ASCII&amp;quot;, I assume that&amp;apos;s what &lt;a href=&quot;http://dictionary.reference.com/search?q=encoding&quot; target=&quot;_top&quot;&gt;encoding&lt;/a&gt;
+the spec earlier had called for &quot;ASCII&quot;, I assume that&#39;s what &lt;a href=&quot;http://dictionary.reference.com/search?q=encoding&quot; target=&quot;_top&quot;&gt;encoding&lt;/a&gt;
 binary data means in the context of this spec.  To me, encoding implies a transformation 
 from original form to some other form later requiring decoding.
 &lt;br&gt;&lt;br&gt;
 But, apparently, my interpretation and 
 &lt;a href=&quot;http://www.intertwingly.net/blog/1498.html#c1056921193&quot; target=&quot;_top&quot;&gt;the interpretation of others&lt;/a&gt;
-is wrong on that score.  But still, I&amp;apos;ve been confused, and so have others.  Consider this a bug report.
+is wrong on that score.  But still, I&#39;ve been confused, and so have others.  Consider this a bug report.
 &lt;br&gt;&lt;br&gt;
-I&amp;apos;ve been referred &lt;a href=&quot;http://www.effbot.org/zone/xmlrpc-ascii.htm&quot; target=&quot;_top&quot;&gt;by Fredrik Lundh&lt;/a&gt; (&lt;a href=&quot;http://scriptingnews.userland.com/2003/06/29#When:6:21:27AM&quot; target=&quot;_top&quot;&gt;via Dave Winer&lt;/a&gt;), 
-to &amp;quot;private conversations&amp;quot;,
-&amp;quot;various public fora&amp;quot;, and &amp;quot;early archives for the XML-RPC mailing list&amp;quot;.  And, again by Fredrik Lundh,
-&lt;a href=&quot;http://www.effbot.org/zone/xmlrpc-ascii.htm&quot; target=&quot;_top&quot;&gt;I&amp;apos;m told&lt;/a&gt;:&lt;/p&gt;
-&lt;blockquote&gt;&lt;i&gt;But even if you don&amp;apos;t know all this, it&amp;apos;s not that hard to figure it out for
+I&#39;ve been referred &lt;a href=&quot;http://www.effbot.org/zone/xmlrpc-ascii.htm&quot; target=&quot;_top&quot;&gt;by Fredrik Lundh&lt;/a&gt; (&lt;a href=&quot;http://scriptingnews.userland.com/2003/06/29#When:6:21:27AM&quot; target=&quot;_top&quot;&gt;via Dave Winer&lt;/a&gt;), 
+to &quot;private conversations&quot;,
+&quot;various public fora&quot;, and &quot;early archives for the XML-RPC mailing list&quot;.  And, again by Fredrik Lundh,
+&lt;a href=&quot;http://www.effbot.org/zone/xmlrpc-ascii.htm&quot; target=&quot;_top&quot;&gt;I&#39;m told&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;&lt;i&gt;But even if you don&#39;t know all this, it&#39;s not that hard to figure it out for
 yourself. Just make sure you read and digest the entire specification, apply some common sense
-to sort out the contradictions, and you&amp;apos;ll find that it&amp;apos;s pretty obvious that the intent is that
+to sort out the contradictions, and you&#39;ll find that it&#39;s pretty obvious that the intent is that
 you can use any character allowed by XML.&lt;/i&gt;&lt;/blockquote&gt;
 &lt;br&gt;&lt;br&gt;
-Well, let&amp;apos;s see.  I read the whole spec, more than once, and what I figured out for myself with my 
-&amp;quot;common sense&amp;quot; is what I wrote above.  I thought
+Well, let&#39;s see.  I read the whole spec, more than once, and what I figured out for myself with my 
+&quot;common sense&quot; is what I wrote above.  I thought
 the spec called for ASCII (as in: &lt;a href=&quot;http://www.asciitable.com/&quot; target=&quot;_top&quot;&gt;ASCII&lt;/a&gt;), and assumed that
 encoding binary data called for something like Base64.  Yes, I realize that &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpc&quot;&gt;XmlRpc&lt;/a&gt; is XML, but
-when a spec calls for ASCII as a particular part, I assume that there&amp;apos;s a reason for it
-since that&amp;apos;s what the specification specified.  
+when a spec calls for ASCII as a particular part, I assume that there&#39;s a reason for it
+since that&#39;s what the specification specified.  
 &lt;br&gt;&lt;br&gt;
 In my experience, specifications are not about common sense, figuring it out, and
 &lt;a href=&quot;http://dictionary.reference.com/search?q=connotation&quot; target=&quot;_top&quot;&gt;connotation&lt;/a&gt;.  Specifications are
@@ -89,38 +89,38 @@ about declaration, clarity, and
 &lt;br&gt;&lt;br&gt;
 Yes, I understand that no
 spec is perfect, and that many are steaming piles meeting none of the criteria I just mentioned,
-but that doesn&amp;apos;t alter the goal.  A spec can always be made better by revising 
+but that doesn&#39;t alter the goal.  A spec can always be made better by revising 
 with these things in mind, given the input of consumers of the spec.  This is what a process
 of communication is all about, and specifications are intended as a form of communication.
 &lt;br&gt;&lt;br&gt;
 So, instead of talking about &lt;i&gt;intent&lt;/i&gt; and things that have been talked about somewhere
 at some time, with the implication that I should just go off and search for these things, can 
-we just get a clarifying fix to the &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpc&quot;&gt;XmlRpc&lt;/a&gt; spec?  I don&amp;apos;t want to send my clients off to 
+we just get a clarifying fix to the &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpc&quot;&gt;XmlRpc&lt;/a&gt; spec?  I don&#39;t want to send my clients off to 
 mailing list and discussion archives, or present &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpc&quot;&gt;XmlRpc&lt;/a&gt; with any corrections or caveats.  I
-want to say, as I have been, &amp;quot;Here, go to xmlrpc.com, read the spec, implement to the API
-I emailed you, and get back to me.&amp;quot;  Only, it&amp;apos;d be nice if the first question is about my API, 
+want to say, as I have been, &quot;Here, go to xmlrpc.com, read the spec, implement to the API
+I emailed you, and get back to me.&quot;  Only, it&#39;d be nice if the first question is about my API, 
 not about character encoding.
 &lt;br&gt;&lt;br&gt;
-I&amp;apos;ve been confused, and so have others.  I consider myself a smart person, and I consider most
-of the others who have been confused as even smarter.  I apologize if my &amp;quot;common sense&amp;quot; is of a
-different sort, but that&amp;apos;s what you have to deal with in the world of people.  As young as I am,
-even I&amp;apos;ve discovered this already.
+I&#39;ve been confused, and so have others.  I consider myself a smart person, and I consider most
+of the others who have been confused as even smarter.  I apologize if my &quot;common sense&quot; is of a
+different sort, but that&#39;s what you have to deal with in the world of people.  As young as I am,
+even I&#39;ve discovered this already.
 &lt;br&gt;&lt;br&gt;
 So, can we just get a clarifying revision of the spec?  And if not, why not?
 &lt;br&gt;&lt;br&gt;
 &lt;b&gt;Update:&lt;/b&gt; Rock on.  After &lt;a href=&quot;http://www.intertwingly.net/blog/1498.html#c1056890028&quot; target=&quot;_top&quot;&gt;catching up&lt;/a&gt; 
-on a bit of banter over at &lt;a href=&quot;http://www.intertwingly.net/blog/1498.htm&quot; target=&quot;_top&quot;&gt;Sam&amp;apos;s place&lt;/a&gt;, I see that
+on a bit of banter over at &lt;a href=&quot;http://www.intertwingly.net/blog/1498.htm&quot; target=&quot;_top&quot;&gt;Sam&#39;s place&lt;/a&gt;, I see that
 the same Fredrik Lundh I quoted before has already begun an
 &lt;a href=&quot;http://effbot.org/zone/xmlrpc-errata.htm&quot; target=&quot;_top&quot;&gt;XML-RPC errata&lt;/a&gt; page with the goal of clarification.
 (I just missed it in my daily reading thus far.)  As 
 &lt;a href=&quot;http://www.intertwingly.net/blog/1498.html#c1056904400&quot; target=&quot;_top&quot;&gt;Mark comments&lt;/a&gt;, I fear bumps in the
-road as any confused implementors find things weren&amp;apos;t what they thought, but I&amp;apos;m happy to see
+road as any confused implementors find things weren&#39;t what they thought, but I&#39;m happy to see
 the clarification accepted.
 &lt;br&gt;&lt;br&gt;
-&lt;b&gt;Update again:&lt;/b&gt; If you&amp;apos;ve stopped rocking, resume.  Dave Winer 
+&lt;b&gt;Update again:&lt;/b&gt; If you&#39;ve stopped rocking, resume.  Dave Winer 
 &lt;a href=&quot;http://scriptingnews.userland.com/2003/06/30#When:11:41:21AM&quot; target=&quot;_top&quot;&gt;updated the XML-RPC spec&lt;/a&gt;.
 It was a small change, could have been more, but had not been done at all until now.  I
-doubt that my asking please really had much to do with it, but I couldn&amp;apos;t guess that it 
+doubt that my asking please really had much to do with it, but I couldn&#39;t guess that it 
 hurt.  Thanks!
 " />
     </head>
@@ -128,7 +128,7 @@ hurt.  Thanks!
       <section class="main">
         <header>
           <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
           <nav>
             <label for="nav-trigger"></label>
             <input type="checkbox" id="nav-trigger" class="nav-trigger" />

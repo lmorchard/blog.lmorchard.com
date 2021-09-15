@@ -2,14 +2,14 @@
   <rss version="2.0">
     <channel>
       <title>blog.lmorchard.com</title>
-      <description>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</description>
-      <link>https://lmorchard.github.io/blog.lmorchard.com/</link>
+      <description>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</description>
+      <link>https://lmorchard.github.io/blog.lmorchard.com</link>
       <item>
           <title>Building an Address Book as a Modern Web App</title>
           <description>&lt;img src=&quot;http://www.decafbad.com/2004/12/abook-architecture.jpg&quot; align=&quot;right&quot;&gt;
 
-&lt;p&gt;So, in the spirit of &lt;a href=&quot;http://www.decafbad.com/blog/2004/11/30/picoprojects_and_trepanation&quot;&gt;pico-projects&lt;/a&gt;, I&amp;apos;ve started building &lt;a href=&quot;http://www.decafbad.com/blog/2004/11/30/nextgenwebapps&quot;&gt;that address book application&lt;/a&gt; I mentioned awhile ago and I want to start writing about it as I go.&lt;/p&gt;
-&lt;p&gt;First off, hopefully you&amp;apos;ll notice the quick diagram I threw together in OmniGraffle.  This is a sort of rough sketch of the loosely-joined architecture I want to explore with this thing.  &lt;/p&gt;
+&lt;p&gt;So, in the spirit of &lt;a href=&quot;http://www.decafbad.com/blog/2004/11/30/picoprojects_and_trepanation&quot;&gt;pico-projects&lt;/a&gt;, I&#39;ve started building &lt;a href=&quot;http://www.decafbad.com/blog/2004/11/30/nextgenwebapps&quot;&gt;that address book application&lt;/a&gt; I mentioned awhile ago and I want to start writing about it as I go.&lt;/p&gt;
+&lt;p&gt;First off, hopefully you&#39;ll notice the quick diagram I threw together in OmniGraffle.  This is a sort of rough sketch of the loosely-joined architecture I want to explore with this thing.  &lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Data&lt;/em&gt;: This is where address book entries live.&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Model&lt;/em&gt;: A set of objects encapsulating the data, this is how address book entries will be accessed.&lt;/li&gt;
@@ -20,15 +20,15 @@
 &lt;li&gt;&lt;em&gt;Web Browser Client&lt;/em&gt;: ...and everything is viewed in a web browser.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Now, I call this a loosely-joined architecture because I want to stress that you should be able to swap out just about any part of this whenever you want.  &lt;/p&gt;
-&lt;p&gt;Want the &lt;em&gt;Data&lt;/em&gt; to be in MySQL?  Fine.  Want it to be in flat files?  Fine.  Just make sure the &lt;em&gt;Model&lt;/em&gt; can cope while maintaining a consistent interface for the &lt;em&gt;REST API*.  Want to change the user interface in the browser?  Great-- ideally, all you have to do is change some XSLT files.  I&amp;apos;m writing everything from the *XSLT Filter&lt;/em&gt; down to the &lt;em&gt;Model&lt;/em&gt; in Python.  Don&amp;apos;t like that?  Fine.  Rewrite it all in Perl, and hopefully everything from the XSLT up to the browser will still be useful to you.&lt;/p&gt;
-&lt;p&gt;At some point, you might even want to ditch the browser for a native desktop client.  Fabulous! Just ignore everything past the &lt;em&gt;REST API&lt;/em&gt; and &lt;em&gt;HTTP&lt;/em&gt;, don&amp;apos;t use any XSLT in the &lt;em&gt;Filter&lt;/em&gt;, and use the API and XML directly.&lt;/p&gt;
-&lt;p&gt;I don&amp;apos;t think any of this is particularly revolutionary-- although I thought it was when I first saw Amazon Web Services doing some of this, and I hope to throw a little GMail in as well.  I hope that this will all be useful as I muddle through explaining what I&amp;apos;m doing.  In the meantime, you can see me getting the stage set as I start checking things into my Subversion repository over here:&lt;/p&gt;
+&lt;p&gt;Want the &lt;em&gt;Data&lt;/em&gt; to be in MySQL?  Fine.  Want it to be in flat files?  Fine.  Just make sure the &lt;em&gt;Model&lt;/em&gt; can cope while maintaining a consistent interface for the &lt;em&gt;REST API&lt;/em&gt;.  Want to change the user interface in the browser?  Great-- ideally, all you have to do is change some XSLT files.  I&#39;m writing everything from the &lt;em&gt;XSLT Filter&lt;/em&gt; down to the &lt;em&gt;Model&lt;/em&gt; in Python.  Don&#39;t like that?  Fine.  Rewrite it all in Perl, and hopefully everything from the XSLT up to the browser will still be useful to you.&lt;/p&gt;
+&lt;p&gt;At some point, you might even want to ditch the browser for a native desktop client.  Fabulous! Just ignore everything past the &lt;em&gt;REST API&lt;/em&gt; and &lt;em&gt;HTTP&lt;/em&gt;, don&#39;t use any XSLT in the &lt;em&gt;Filter&lt;/em&gt;, and use the API and XML directly.&lt;/p&gt;
+&lt;p&gt;I don&#39;t think any of this is particularly revolutionary-- although I thought it was when I first saw Amazon Web Services doing some of this, and I hope to throw a little GMail in as well.  I hope that this will all be useful as I muddle through explaining what I&#39;m doing.  In the meantime, you can see me getting the stage set as I start checking things into my Subversion repository over here:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.decafbad.com/svn/trunk/hacks/abook/&quot;&gt;http://www.decafbad.com/svn/trunk/hacks/abook/&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description>
           
           <pubDate>Thu, 23 Dec 2004 05:58:41 GMT</pubDate>
-          <link>https://lmorchard.github.io/blog.lmorchard.com//2004/12/23/abook1/</link>
-          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2004/12/23/abook1/</guid>
+          <link>https://lmorchard.github.io/blog.lmorchard.com/2004/12/23/abook1/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2004/12/23/abook1/</guid>
         </item><item>
           <title>Synchronet BBS Software, Tidal Pools, and On-Ramps</title>
           <description>&lt;blockquote&gt;Synchronet Bulletin Board System Software is a free software package that can turn your personal computer into your own custom online service supporting multiple simultaneous users with hierarchical message and file areas, multi-user chat, and the ever-popular BBS door games.
@@ -38,105 +38,105 @@
 In November of 1999, the author found a renewed interest in further developing Synchronet, specifically for the Internet community, embracing and integrating standard Internet protocols such as Telnet, FTP, SMTP, POP3, IRC, NNTP, and HTTP. Synchronet has since been substantially redesigned as an Internet-only BBS package for Win32 and Unix-x86 platforms and is an Open Source project under continuous development.&lt;/blockquote&gt;
 &lt;div align=&quot;right&quot;&gt;&lt;small&gt;Source: &lt;cite&gt;&lt;a href=&quot;http://www.synchro.net/&quot;&gt;Synchronet BBS Software&lt;/a&gt;&lt;/cite&gt;&lt;/small&gt;&lt;/div&gt;
 
-&lt;p&gt;This software deserves &lt;em&gt;so&lt;/em&gt; much more attention.  It&amp;apos;s like an old-school BBS, complete with ASCII/ANSI menu screens and everything, but it&amp;apos;s been modernized:  It offers a slew of Internet protocols integrated with the message bases and file areas.  It&amp;apos;s got an HTTP daemon with server-side JavaScript.  It works on Win32 and various Unix platforms.  Everything above is true.  And it&amp;apos;s open source.&lt;/p&gt;
-&lt;p&gt;In the 90&amp;apos;s, I would have expected software like this to be at the core of a startup company stuffed with superfluous and overpaid code monkeys.  It would have turned into an Enterprise Application Server or Intranet Knowledge Management Solution-- a mini Domino or Lotus Notes.  And, in fact, I seem to remember seeing a few old-school BBS packages get mutated and gigantified by the dot-com radiation in this way.&lt;/p&gt;
+&lt;p&gt;This software deserves &lt;em&gt;so&lt;/em&gt; much more attention.  It&#39;s like an old-school BBS, complete with ASCII/ANSI menu screens and everything, but it&#39;s been modernized:  It offers a slew of Internet protocols integrated with the message bases and file areas.  It&#39;s got an HTTP daemon with server-side JavaScript.  It works on Win32 and various Unix platforms.  Everything above is true.  And it&#39;s open source.&lt;/p&gt;
+&lt;p&gt;In the 90&#39;s, I would have expected software like this to be at the core of a startup company stuffed with superfluous and overpaid code monkeys.  It would have turned into an Enterprise Application Server or Intranet Knowledge Management Solution-- a mini Domino or Lotus Notes.  And, in fact, I seem to remember seeing a few old-school BBS packages get mutated and gigantified by the dot-com radiation in this way.&lt;/p&gt;
 &lt;p&gt;I &lt;a href=&quot;http://www.decafbad.com/blog/2002/02/15/ooooai&quot;&gt;keep meaning&lt;/a&gt; to get a Synchronet BBS up and keep it up, and maybe get a few interested users logging in, if only for the retro-gaming experience for things like &lt;a href=&quot;http://www.eisonline.com/TradeWars/&quot;&gt;Trade Wars&lt;/a&gt;, &lt;a href=&quot;http://www.johndaileysoftware.com/products/bbsdoors/barrenrealmselite/index.asp&quot;&gt;Barrent Realms Elite&lt;/a&gt;, &lt;a href=&quot;http://www.gameport.com/bbs/lord.html&quot;&gt;Legend of the Red Dragon&lt;/a&gt;, &lt;a href=&quot;http://www.johndaileysoftware.com/products/bbsdoors/globalwar/&quot;&gt;Global War&lt;/a&gt;, and anything else I can find.&lt;/p&gt;
 &lt;p&gt;I really miss the tidal-pool effect BBSes had back in the day, when in my area they were the first and best gateways to the Internet.  Direct SLIP and PPP access to the net were rare things still and, before the web took off, Usenet and IRC were some of the best things around.  But, anyone who wanted to get the the net had to wander through the local BBS first.  &lt;/p&gt;
-&lt;p&gt;It was really neat to see the mish-mash of people all drawn together by geographic areas denoted by telco area codes.  The degree of Aspergers affliction and just plain dysfunctional nerdity gradually decreased as sisters and friends-of-sisters were introduced to terminal programs and teleconference.  It was sad to see all of this gradually die off as more and more callers came in via SLIP/PPP dialers and headed straight for the information superhighway on-ramps.  All the gift shops closed up and no one showed up in the caf&amp;#xE9; anymore.&lt;/p&gt;
+&lt;p&gt;It was really neat to see the mish-mash of people all drawn together by geographic areas denoted by telco area codes.  The degree of Aspergers affliction and just plain dysfunctional nerdity gradually decreased as sisters and friends-of-sisters were introduced to terminal programs and teleconference.  It was sad to see all of this gradually die off as more and more callers came in via SLIP/PPP dialers and headed straight for the information superhighway on-ramps.  All the gift shops closed up and no one showed up in the café anymore.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Sigh.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;But, at least Finland isn&amp;apos;t a long distance call these days.&lt;/p&gt;
+&lt;p&gt;But, at least Finland isn&#39;t a long distance call these days.&lt;/p&gt;
 </description>
           
           <pubDate>Thu, 16 Dec 2004 15:19:03 GMT</pubDate>
-          <link>https://lmorchard.github.io/blog.lmorchard.com//2004/12/16/synchronet/</link>
-          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2004/12/16/synchronet/</guid>
+          <link>https://lmorchard.github.io/blog.lmorchard.com/2004/12/16/synchronet/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2004/12/16/synchronet/</guid>
         </item><item>
           <title>Miscellaneous Thoughts about Exploded PCs</title>
           
           
           <pubDate>Mon, 13 Dec 2004 21:31:30 GMT</pubDate>
-          <link>https://lmorchard.github.io/blog.lmorchard.com//2004/12/13/miscellaneous-thoughts-about-exploded-pcs/</link>
-          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2004/12/13/miscellaneous-thoughts-about-exploded-pcs/</guid>
+          <link>https://lmorchard.github.io/blog.lmorchard.com/2004/12/13/miscellaneous-thoughts-about-exploded-pcs/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2004/12/13/miscellaneous-thoughts-about-exploded-pcs/</guid>
         </item><item>
           <title>On Exploding PCs and Appliance Relationships</title>
           
           
           <pubDate>Mon, 13 Dec 2004 20:28:56 GMT</pubDate>
-          <link>https://lmorchard.github.io/blog.lmorchard.com//2004/12/13/on-exploding-pcs-and-appliance-relationships/</link>
-          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2004/12/13/on-exploding-pcs-and-appliance-relationships/</guid>
+          <link>https://lmorchard.github.io/blog.lmorchard.com/2004/12/13/on-exploding-pcs-and-appliance-relationships/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2004/12/13/on-exploding-pcs-and-appliance-relationships/</guid>
         </item><item>
           <title>The Meta Lathe</title>
           
           
           <pubDate>Mon, 13 Dec 2004 18:26:45 GMT</pubDate>
-          <link>https://lmorchard.github.io/blog.lmorchard.com//2004/12/13/the-meta-lathe/</link>
-          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2004/12/13/the-meta-lathe/</guid>
+          <link>https://lmorchard.github.io/blog.lmorchard.com/2004/12/13/the-meta-lathe/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2004/12/13/the-meta-lathe/</guid>
         </item><item>
           <title>Security and the State of the Computer</title>
           
           
           <pubDate>Mon, 13 Dec 2004 18:23:46 GMT</pubDate>
-          <link>https://lmorchard.github.io/blog.lmorchard.com//2004/12/13/security-and-the-state-of-the-computer/</link>
-          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2004/12/13/security-and-the-state-of-the-computer/</guid>
+          <link>https://lmorchard.github.io/blog.lmorchard.com/2004/12/13/security-and-the-state-of-the-computer/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2004/12/13/security-and-the-state-of-the-computer/</guid>
         </item><item>
           <title>Mr. Gruff</title>
           
           
           <pubDate>Wed, 08 Dec 2004 03:08:46 GMT</pubDate>
-          <link>https://lmorchard.github.io/blog.lmorchard.com//2004/12/08/mr-gruff/</link>
-          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2004/12/08/mr-gruff/</guid>
+          <link>https://lmorchard.github.io/blog.lmorchard.com/2004/12/08/mr-gruff/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2004/12/08/mr-gruff/</guid>
         </item><item>
           <title>Further musings toward smarter aggregators</title>
-          <description>&lt;p&gt;I&amp;apos;m a complete neophyte when it comes to machine learning, but I&amp;apos;d like to get into learning more about the field in general.  In particular, I&amp;apos;d like to make my news aggregator smarter.  I&amp;apos;ve &lt;a href=&quot;http://www.decafbad.com/blog/2003/08/16/bayes_agg_one&quot;&gt;already tried using SpamBayes&lt;/a&gt;, but that didn&amp;apos;t make me happy.  Whether it was my approach or whether it was that Bayes itself is not suited toward this task, I&amp;apos;m not sure, though I suspect it&amp;apos;s a little of both.&lt;/p&gt;
-&lt;p&gt;It seems like the magic Bayesian pixie dust works well for spam-vs-ham in my email box, so why shouldn&amp;apos;t the magic for interesting-vs-yawn work for my aggregator firehose?    Well, here are the issues I&amp;apos;m guessing at:&lt;/p&gt;
+          <description>&lt;p&gt;I&#39;m a complete neophyte when it comes to machine learning, but I&#39;d like to get into learning more about the field in general.  In particular, I&#39;d like to make my news aggregator smarter.  I&#39;ve &lt;a href=&quot;http://www.decafbad.com/blog/2003/08/16/bayes_agg_one&quot;&gt;already tried using SpamBayes&lt;/a&gt;, but that didn&#39;t make me happy.  Whether it was my approach or whether it was that Bayes itself is not suited toward this task, I&#39;m not sure, though I suspect it&#39;s a little of both.&lt;/p&gt;
+&lt;p&gt;It seems like the magic Bayesian pixie dust works well for spam-vs-ham in my email box, so why shouldn&#39;t the magic for interesting-vs-yawn work for my aggregator firehose?    Well, here are the issues I&#39;m guessing at:&lt;/p&gt;
 &lt;p&gt;In the case of spam-vs-ham, you want to classify things into this or that-- that which is kept, and that which is tossed away.  But in the case of items in my aggregator, I want a relative sort order or a score.  I want a fuzzy guess toward my interest with which to inform presentation of items.  Interesting-vs-yawn is more of a continuum than a pair of buckets.&lt;/p&gt;
-&lt;p&gt;And then, there&amp;apos;s the passive gathering of behavioral data from my interactions with the aggregator, because I&amp;apos;m sure as hell not going to click ratings or thumbs-up/down all day.  In spam-vs-ham, I could build up two clean mailboxes for training the categorizer, with one containing all spam and the other all ham.  But, in the case of my aggregator, the only thing I&amp;apos;m tracking are items in which I showed interest by revealing more information or by clicking through.  &lt;/p&gt;
-&lt;p&gt;So, I can say that a particular pile of items are all interesting.  But, my interest level for the rest of the items received is a complete unknown-- maybe I&amp;apos;m vehemently disinterested in those 50 items, but maybe I just never got around to looking at those other 20 and just let them fall off my date range for display.  Thus, I have a pile of ham, and a pile of undifferentiated unknown.  I&amp;apos;m not bothering to provide any cues as to whether I &lt;em&gt;don&amp;apos;t&lt;/em&gt; like something, because that&amp;apos;d be boring work-- I mean, I &lt;em&gt;am&lt;/em&gt; disinterested in those items, after all.  So, I&amp;apos;d like to leverage what the system knows from what I care to provide, but not jump to any conclusions about the items in the unknown pile.  There is no spam, only various flavors of ham.&lt;/p&gt;
+&lt;p&gt;And then, there&#39;s the passive gathering of behavioral data from my interactions with the aggregator, because I&#39;m sure as hell not going to click ratings or thumbs-up/down all day.  In spam-vs-ham, I could build up two clean mailboxes for training the categorizer, with one containing all spam and the other all ham.  But, in the case of my aggregator, the only thing I&#39;m tracking are items in which I showed interest by revealing more information or by clicking through.  &lt;/p&gt;
+&lt;p&gt;So, I can say that a particular pile of items are all interesting.  But, my interest level for the rest of the items received is a complete unknown-- maybe I&#39;m vehemently disinterested in those 50 items, but maybe I just never got around to looking at those other 20 and just let them fall off my date range for display.  Thus, I have a pile of ham, and a pile of undifferentiated unknown.  I&#39;m not bothering to provide any cues as to whether I &lt;em&gt;don&#39;t&lt;/em&gt; like something, because that&#39;d be boring work-- I mean, I &lt;em&gt;am&lt;/em&gt; disinterested in those items, after all.  So, I&#39;d like to leverage what the system knows from what I care to provide, but not jump to any conclusions about the items in the unknown pile.  There is no spam, only various flavors of ham.&lt;/p&gt;
 &lt;p&gt;Given all this, then, is there anyone out there who knows more about machine learning than me who could maybe point me toward a better approach or algorithm that fits this profile?&lt;/p&gt;
 </description>
           
           <pubDate>Tue, 07 Dec 2004 21:37:08 GMT</pubDate>
-          <link>https://lmorchard.github.io/blog.lmorchard.com//2004/12/07/further-smart-aggregator-musings/</link>
-          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2004/12/07/further-smart-aggregator-musings/</guid>
+          <link>https://lmorchard.github.io/blog.lmorchard.com/2004/12/07/further-smart-aggregator-musings/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2004/12/07/further-smart-aggregator-musings/</guid>
         </item><item>
           <title>Unopened Apple iPod 20GB for sale</title>
           
           
           <pubDate>Sun, 05 Dec 2004 05:13:36 GMT</pubDate>
-          <link>https://lmorchard.github.io/blog.lmorchard.com//2004/12/05/unopened-apple-ipod-20gb-for-sale/</link>
-          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2004/12/05/unopened-apple-ipod-20gb-for-sale/</guid>
+          <link>https://lmorchard.github.io/blog.lmorchard.com/2004/12/05/unopened-apple-ipod-20gb-for-sale/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2004/12/05/unopened-apple-ipod-20gb-for-sale/</guid>
         </item><item>
           <title>If you snore, get tested for sleep apnea.  Now.</title>
           
           
           <pubDate>Fri, 03 Dec 2004 17:09:39 GMT</pubDate>
-          <link>https://lmorchard.github.io/blog.lmorchard.com//2004/12/03/if-you-snore-get-tested-for-sleep-apnea-now/</link>
-          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2004/12/03/if-you-snore-get-tested-for-sleep-apnea-now/</guid>
+          <link>https://lmorchard.github.io/blog.lmorchard.com/2004/12/03/if-you-snore-get-tested-for-sleep-apnea-now/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2004/12/03/if-you-snore-get-tested-for-sleep-apnea-now/</guid>
         </item><item>
           <title>Cross-breeding XSLT and ZPT</title>
-          <description>&lt;p&gt;I&amp;apos;ve recently been doing some side work involving Zope and, along with the rest of the suite of technologies it offers, I&amp;apos;ve been happy to be working with &lt;a href=&quot;http://dev.zope.org/Wikis/DevSite/Projects/ZPT/FrontPage&quot;&gt;Zope Page Templates&lt;/a&gt; again.  I dabbled with them a bit when they first came out, and a Zope-free implementation named &lt;a href=&quot;http://www.owlfish.com/software/simpleTAL/&quot;&gt;SimpleTAL&lt;/a&gt; was one of the core components of the iteration of my news aggregator which came before FeedReactor.&lt;/p&gt;
-&lt;p&gt;Out of all the templating and content generation approaches I&amp;apos;ve used, Zope Page Templates are my favorite yet.  Pretty expressive, yet unobtrusive; nicely powerful, yet not quite something with which you&amp;apos;d want to write an entire application (&lt;a href=&quot;http://naeblis.cx/rtomayko/2004/12/02/a-note-on-template-design&quot;&gt;and that&amp;apos;s a feature, not a bug&lt;/a&gt;).  &lt;/p&gt;
-&lt;p&gt;I&amp;apos;ve yet to be in a work-a-day team that uses ZPT-- but I can see where a lot of production, delegation, and integration issues would have gone much smoother had I used ZPT instead of &lt;a href=&quot;http://www.template-toolkit.org/&quot;&gt;Template Toolkit&lt;/a&gt; for the web app framework I created at a previous company.  (Though I do have to say TT2 is &lt;em&gt;very&lt;/em&gt; nicely done!)  And where I am now, I spend most of my days trying to pummel ASP 3.0 pages into some semblance of logic/presentation separation-- I would certainly dive at the chance to dump VBScript and &lt;code&gt;&amp;lt;% cruft %&amp;gt;&lt;/code&gt; for a bit of Python and ZPT.  (But, you know, &lt;em&gt;it&amp;apos;s a living&lt;/em&gt;.)&lt;/p&gt;
-&lt;p&gt;A close second favorite is XSLT.  I&amp;apos;ve really been hot on it lately, having worked it into the core of FeedReactor in place of SimpleTAL.  And in &lt;a href=&quot;http://www.decafbad.com/blog/2003/09/02/xsl_scraper&quot;&gt;other&lt;/a&gt; &lt;a href=&quot;http://www.decafbad.com/blog/2004/06/16/wishofthemonthclub1&quot;&gt;hacks&lt;/a&gt;, I&amp;apos;ve really come to appreciate it&amp;apos;s role as a filter segment in pipelines between REST web services and &lt;a href=&quot;http://udell.roninhouse.com/bytecols/2001-08-15.html&quot;&gt;URL-as-command-line&lt;/a&gt; invocations.&lt;/p&gt;
-&lt;p&gt;Granted, both ZPT and XSLT very different technologies, but they are often used in similar contexts.  More than once, I&amp;apos;ve wished that XSLT was as simple as ZPT (i.e. less verbose and intrusive, more document centered), and I&amp;apos;ve wished that ZPT had some of the features of XSLT (i.e. ability to be used as a transforming filter).&lt;/p&gt;
-&lt;p&gt;Reading &lt;a href=&quot;http://naeblis.cx/rtomayko/2004/11/30/pythonic-xml-based-templating-language&quot;&gt;Ryan Tomayko&amp;apos;s description of Kid&lt;/a&gt; got me thinking, and googling.  One thing I turned up from a mailing list archive asked about an &amp;#x201C;&lt;a href=&quot;http://mail.zope.org/pipermail/zpt/2002-January/002651.html&quot;&gt;XSL implementation of TAL?&lt;/a&gt;&amp;#x201D;  It struck me as a tad nutty at first, but then I started having inklings that just maybe it could be done.  (Whether it &lt;em&gt;should&lt;/em&gt; be done, well...)  But the kernel of the idea grabbed me: Instead of using &lt;a href=&quot;http://zope.org/Wikis/DevSite/Projects/ZPT/TALES%20Specification%201.3&quot;&gt;TALES path expressions&lt;/a&gt; to look up values in Pythonic space, why not use XPath expressions to look up values from a supplied XML document?&lt;/p&gt;
-&lt;p&gt;This strikes me as such an obvious idea that someone has to already have done it and possibly rejected it for good reason.  On the other hand, maybe this is the sort of thing Ryan&amp;apos;s thinking about-- I wonder how hard it would be to hack this into Kid?  It would give only a subset of XSLT&amp;apos;s capabilities in trade for simplicity, and would only offer the &amp;#x201C;&lt;a href=&quot;http://www.dpawson.co.uk/xsl/sect2/pushpull.html&quot;&gt;pull&lt;/a&gt;&amp;#x201D; approach, but it would give XML-pipelining to a ZPT-ish technology.&lt;/p&gt;
+          <description>&lt;p&gt;I&#39;ve recently been doing some side work involving Zope and, along with the rest of the suite of technologies it offers, I&#39;ve been happy to be working with &lt;a href=&quot;http://dev.zope.org/Wikis/DevSite/Projects/ZPT/FrontPage&quot;&gt;Zope Page Templates&lt;/a&gt; again.  I dabbled with them a bit when they first came out, and a Zope-free implementation named &lt;a href=&quot;http://www.owlfish.com/software/simpleTAL/&quot;&gt;SimpleTAL&lt;/a&gt; was one of the core components of the iteration of my news aggregator which came before FeedReactor.&lt;/p&gt;
+&lt;p&gt;Out of all the templating and content generation approaches I&#39;ve used, Zope Page Templates are my favorite yet.  Pretty expressive, yet unobtrusive; nicely powerful, yet not quite something with which you&#39;d want to write an entire application (&lt;a href=&quot;http://naeblis.cx/rtomayko/2004/12/02/a-note-on-template-design&quot;&gt;and that&#39;s a feature, not a bug&lt;/a&gt;).  &lt;/p&gt;
+&lt;p&gt;I&#39;ve yet to be in a work-a-day team that uses ZPT-- but I can see where a lot of production, delegation, and integration issues would have gone much smoother had I used ZPT instead of &lt;a href=&quot;http://www.template-toolkit.org/&quot;&gt;Template Toolkit&lt;/a&gt; for the web app framework I created at a previous company.  (Though I do have to say TT2 is &lt;em&gt;very&lt;/em&gt; nicely done!)  And where I am now, I spend most of my days trying to pummel ASP 3.0 pages into some semblance of logic/presentation separation-- I would certainly dive at the chance to dump VBScript and &lt;code&gt;&amp;lt;% cruft %&amp;gt;&lt;/code&gt; for a bit of Python and ZPT.  (But, you know, &lt;em&gt;it&#39;s a living&lt;/em&gt;.)&lt;/p&gt;
+&lt;p&gt;A close second favorite is XSLT.  I&#39;ve really been hot on it lately, having worked it into the core of FeedReactor in place of SimpleTAL.  And in &lt;a href=&quot;http://www.decafbad.com/blog/2003/09/02/xsl_scraper&quot;&gt;other&lt;/a&gt; &lt;a href=&quot;http://www.decafbad.com/blog/2004/06/16/wishofthemonthclub1&quot;&gt;hacks&lt;/a&gt;, I&#39;ve really come to appreciate it&#39;s role as a filter segment in pipelines between REST web services and &lt;a href=&quot;http://udell.roninhouse.com/bytecols/2001-08-15.html&quot;&gt;URL-as-command-line&lt;/a&gt; invocations.&lt;/p&gt;
+&lt;p&gt;Granted, both ZPT and XSLT very different technologies, but they are often used in similar contexts.  More than once, I&#39;ve wished that XSLT was as simple as ZPT (i.e. less verbose and intrusive, more document centered), and I&#39;ve wished that ZPT had some of the features of XSLT (i.e. ability to be used as a transforming filter).&lt;/p&gt;
+&lt;p&gt;Reading &lt;a href=&quot;http://naeblis.cx/rtomayko/2004/11/30/pythonic-xml-based-templating-language&quot;&gt;Ryan Tomayko&#39;s description of Kid&lt;/a&gt; got me thinking, and googling.  One thing I turned up from a mailing list archive asked about an “&lt;a href=&quot;http://mail.zope.org/pipermail/zpt/2002-January/002651.html&quot;&gt;XSL implementation of TAL?&lt;/a&gt;”  It struck me as a tad nutty at first, but then I started having inklings that just maybe it could be done.  (Whether it &lt;em&gt;should&lt;/em&gt; be done, well...)  But the kernel of the idea grabbed me: Instead of using &lt;a href=&quot;http://zope.org/Wikis/DevSite/Projects/ZPT/TALES%20Specification%201.3&quot;&gt;TALES path expressions&lt;/a&gt; to look up values in Pythonic space, why not use XPath expressions to look up values from a supplied XML document?&lt;/p&gt;
+&lt;p&gt;This strikes me as such an obvious idea that someone has to already have done it and possibly rejected it for good reason.  On the other hand, maybe this is the sort of thing Ryan&#39;s thinking about-- I wonder how hard it would be to hack this into Kid?  It would give only a subset of XSLT&#39;s capabilities in trade for simplicity, and would only offer the “&lt;a href=&quot;http://www.dpawson.co.uk/xsl/sect2/pushpull.html&quot;&gt;pull&lt;/a&gt;” approach, but it would give XML-pipelining to a ZPT-ish technology.&lt;/p&gt;
 &lt;p&gt;I think this is something I want to look into a bit further at some point.&lt;/p&gt;
 </description>
           
           <pubDate>Fri, 03 Dec 2004 01:15:52 GMT</pubDate>
-          <link>https://lmorchard.github.io/blog.lmorchard.com//2004/12/03/crossbreedingxsltzpt/</link>
-          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2004/12/03/crossbreedingxsltzpt/</guid>
+          <link>https://lmorchard.github.io/blog.lmorchard.com/2004/12/03/crossbreedingxsltzpt/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2004/12/03/crossbreedingxsltzpt/</guid>
         </item><item>
           <title>Where&#39;s the Froogle API?</title>
-          <description>&lt;p&gt;You know what I was just thinking?  Why doesn&amp;apos;t &lt;a href=&quot;http://froogle.google.com/&quot;&gt;Froogle&lt;/a&gt; have an API like Amazon?  It&amp;apos;s nearing Christmas again, and other than my &lt;a href=&quot;http://www.decafbad.com/blog/2004/06/16/wishofthemonthclub1&quot;&gt;occasional hacking activities&lt;/a&gt;, now is when my Amazon wishlist gets the most play.  Well, that and on my birthday.&lt;/p&gt;
-&lt;p&gt;But, since my mind&amp;apos;s been on shopping a bit, I&amp;apos;ve been checking out Froogle.  Did you know that Froogle has wishlists?  Man.  I knew that back in the mid-90&amp;apos;s I should have gone with that great business idea I had for making a site devoted to wishlists and aggregated shopping, maybe make some cash off affiliate fees.  But anyway, now that I see Froogle&amp;apos;s doing it, I have the notion to migrate my &lt;a href=&quot;http://www.amazon.com/gp/registry/registry.html/103-2224698-6674213?%5Fencoding=UTF8&amp;amp;id=1QWYI6P2JF3Q5&quot;&gt;eight pages&lt;/a&gt; of wishlist items &lt;a href=&quot;http://froogle.google.com/shoppinglist?action=FindOthersWishList&amp;amp;email=l.m.orchard%40gmail.com&amp;amp;Find=Find&quot;&gt;over to Froogle&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;But, no!  There&amp;apos;s no API, and I&amp;apos;m feeling too lazy to hack any screen scraper web robots together.  So.  I&amp;apos;m probably weird for this being the deciding factor, but for now, Amazon retains my patronage.  Funny thing is, although it&amp;apos;s a mild form of data lock-in, Amazon &lt;em&gt;does&lt;/em&gt; have an API and I can scoop up my wishlist items whenever I feel like it.  It&amp;apos;s just that there&amp;apos;d be no convenient place to put them right now.&lt;/p&gt;
+          <description>&lt;p&gt;You know what I was just thinking?  Why doesn&#39;t &lt;a href=&quot;http://froogle.google.com/&quot;&gt;Froogle&lt;/a&gt; have an API like Amazon?  It&#39;s nearing Christmas again, and other than my &lt;a href=&quot;http://www.decafbad.com/blog/2004/06/16/wishofthemonthclub1&quot;&gt;occasional hacking activities&lt;/a&gt;, now is when my Amazon wishlist gets the most play.  Well, that and on my birthday.&lt;/p&gt;
+&lt;p&gt;But, since my mind&#39;s been on shopping a bit, I&#39;ve been checking out Froogle.  Did you know that Froogle has wishlists?  Man.  I knew that back in the mid-90&#39;s I should have gone with that great business idea I had for making a site devoted to wishlists and aggregated shopping, maybe make some cash off affiliate fees.  But anyway, now that I see Froogle&#39;s doing it, I have the notion to migrate my &lt;a href=&quot;http://www.amazon.com/gp/registry/registry.html/103-2224698-6674213?%5Fencoding=UTF8&amp;amp;id=1QWYI6P2JF3Q5&quot;&gt;eight pages&lt;/a&gt; of wishlist items &lt;a href=&quot;http://froogle.google.com/shoppinglist?action=FindOthersWishList&amp;amp;email=l.m.orchard%40gmail.com&amp;amp;Find=Find&quot;&gt;over to Froogle&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;But, no!  There&#39;s no API, and I&#39;m feeling too lazy to hack any screen scraper web robots together.  So.  I&#39;m probably weird for this being the deciding factor, but for now, Amazon retains my patronage.  Funny thing is, although it&#39;s a mild form of data lock-in, Amazon &lt;em&gt;does&lt;/em&gt; have an API and I can scoop up my wishlist items whenever I feel like it.  It&#39;s just that there&#39;d be no convenient place to put them right now.&lt;/p&gt;
 </description>
           
           <pubDate>Thu, 02 Dec 2004 14:48:38 GMT</pubDate>
-          <link>https://lmorchard.github.io/blog.lmorchard.com//2004/12/02/nofroogleapi/</link>
-          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com//2004/12/02/nofroogleapi/</guid>
+          <link>https://lmorchard.github.io/blog.lmorchard.com/2004/12/02/nofroogleapi/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2004/12/02/nofroogleapi/</guid>
         </item>
     </channel>
   </rss>

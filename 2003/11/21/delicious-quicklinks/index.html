@@ -35,7 +35,7 @@
       <meta property="og:title" content="Publishing Quick Links in blosxom with del.icio.us via xmlstarlet" />
         <meta
           property="og:url"
-          content="https://lmorchard.github.io/blog.lmorchard.com//2003/11/21/delicious-quicklinks/"
+          content="https://lmorchard.github.io/blog.lmorchard.com/2003/11/21/delicious-quicklinks/"
         />
         
         <meta property="og:description" content="&lt;p&gt;
@@ -44,16 +44,16 @@ In case anyone is interested in using &lt;a href=&quot;http://del.icio.us/&quot;
 &lt;textarea rows=&quot;14&quot; cols=&quot;70&quot;&gt;#!/bin/bash
 
 &amp;lt;p&amp;gt;DATE=${1-&amp;lt;code&amp;gt;date +%Y-%m-%d&amp;lt;/code&amp;gt;}
-BLOG=&amp;quot;/Users/deusx/desktop/decafbad-entries/links&amp;quot;
-FN=&amp;quot;${BLOG}/&amp;quot;&amp;lt;code&amp;gt;echo ${DATE} | sed -e &amp;apos;y/0123456789-/oabcdefghij/&amp;apos;&amp;lt;/code&amp;gt;&amp;quot;.txt&amp;quot;&amp;lt;/p&amp;gt;
-&amp;lt;p&amp;gt;curl -s -u deusx:HAHAHA &amp;apos;&amp;lt;a href=&amp;quot;http://del.icio.us/api/posts/get?dt=&amp;apos;$%7BDATE%7D&amp;quot;&amp;gt;http://del.icio.us/api/posts/get?dt=&amp;apos;${DATE}&amp;lt;/a&amp;gt; |&amp;lt;br&amp;gt;    tidy -xml -asxml -q -f /dev/null |&amp;lt;br&amp;gt;    xml sel -t -o &amp;quot;Quick Links&amp;quot; -n &amp;lt;br&amp;gt;            -e &amp;apos;ul&amp;apos;  -m &amp;apos;//post&amp;apos; &amp;lt;br&amp;gt;            -e &amp;apos;li&amp;apos;  -e &amp;apos;a&amp;apos; -a &amp;apos;href&amp;apos; -v &amp;apos;@href&amp;apos; &amp;lt;br&amp;gt;            -b -v &amp;apos;text()&amp;apos; -n  &amp;gt; ${FN}&amp;lt;/p&amp;gt;
-&amp;lt;p&amp;gt;touch -d &amp;quot;${DATE} 23:59&amp;quot; ${FN}
+BLOG=&quot;/Users/deusx/desktop/decafbad-entries/links&quot;
+FN=&quot;${BLOG}/&quot;&amp;lt;code&amp;gt;echo ${DATE} | sed -e &#39;y/0123456789-/oabcdefghij/&#39;&amp;lt;/code&amp;gt;&quot;.txt&quot;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;curl -s -u deusx:HAHAHA &#39;&amp;lt;a href=&quot;http://del.icio.us/api/posts/get?dt=&#39;$%7BDATE%7D&quot;&amp;gt;http://del.icio.us/api/posts/get?dt=&#39;${DATE}&amp;lt;/a&amp;gt; |&amp;lt;br&amp;gt;    tidy -xml -asxml -q -f /dev/null |&amp;lt;br&amp;gt;    xml sel -t -o &quot;Quick Links&quot; -n &amp;lt;br&amp;gt;            -e &#39;ul&#39;  -m &#39;//post&#39; &amp;lt;br&amp;gt;            -e &#39;li&#39;  -e &#39;a&#39; -a &#39;href&#39; -v &#39;@href&#39; &amp;lt;br&amp;gt;            -b -v &#39;text()&#39; -n  &amp;gt; ${FN}&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;touch -d &quot;${DATE} 23:59&quot; ${FN}
 &lt;/textarea&gt;&lt;p&gt;&lt;/p&gt;
 &lt;p&gt;
 You could do this with XSLT, but hacking with a REST-ish &amp;amp; XML producing web service entirely in a shell script seemed oddly appealing to me that week.  Extending this sort of thing to blogging systems other than blosxom is left as an exercise to the reader.
 &lt;/p&gt;
 &lt;p&gt;
-&lt;b&gt;Update:&lt;/b&gt; Hmm, looks like one of the blosxom plugins I&amp;apos;m using hates the variables in my code above.  So I stuck curly braces in, which seem to get through okay.
+&lt;b&gt;Update:&lt;/b&gt; Hmm, looks like one of the blosxom plugins I&#39;m using hates the variables in my code above.  So I stuck curly braces in, which seem to get through okay.
 &lt;/p&gt;
 " />
     </head>
@@ -61,7 +61,7 @@ You could do this with XSLT, but hacking with a REST-ish &amp;amp; XML producing
       <section class="main">
         <header>
           <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
           <nav>
             <label for="nav-trigger"></label>
             <input type="checkbox" id="nav-trigger" class="nav-trigger" />

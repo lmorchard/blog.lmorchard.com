@@ -35,20 +35,20 @@
       <meta property="og:title" content="Dynamic polling times for news aggregators, II" />
         <meta
           property="og:url"
-          content="https://lmorchard.github.io/blog.lmorchard.com//2003/09/29/dynamic-polling-freq-too/"
+          content="https://lmorchard.github.io/blog.lmorchard.com/2003/09/29/dynamic-polling-freq-too/"
         />
         
         <meta property="og:description" content="&lt;p&gt;
 Okay, so that &lt;a href=&quot;http://www.decafbad.com/blog/tech/dynamic_feed_scan_times.html&quot;&gt;thing with the SQL&lt;/a&gt; I did Friday?
-I&amp;apos;m not exactly sure what I was thinking with it.  I was doing something
+I&#39;m not exactly sure what I was thinking with it.  I was doing something
 that seems really odd now, trying to collect counts of new items together
-by hour, then averaging those hourly counts across a week.  Instead, I&amp;apos;m
+by hour, then averaging those hourly counts across a week.  Instead, I&#39;m
 trying this now:
 &lt;/p&gt;
 
 &lt;pre&gt;SELECT
   source,
-  &amp;apos;update_period&amp;apos; AS name,
+  &#39;update_period&#39; AS name,
   round(min(24,max(1,(max(1,(iso8601_to_epoch(max(created)) -
     max(now() - (7*24*60*60), iso8601_to_epoch(min(created)))) /
    (60*60))) / count(id))),2) AS value
@@ -69,10 +69,10 @@ seems to be working much better.
 &lt;/p&gt;
 
 &lt;p&gt;
-An alternate algorithm I&amp;apos;ve been playing with was suggested in
+An alternate algorithm I&#39;ve been playing with was suggested in
 &lt;a href=&quot;http://www.decafbad.com/comments/tech/dynamic_feed_scan_times/#comment-aofdehdefioofcb&quot;&gt;a comment&lt;/a&gt;
 by &lt;a href=&quot;http://24.102.209.201/weblogs/ben/&quot;&gt;Gnomon&lt;/a&gt;,
-inspired by TCP/IP&amp;apos;s Additive Increase / Multiplicative Decrease.
+inspired by TCP/IP&#39;s Additive Increase / Multiplicative Decrease.
 With this, I subtract an hour from the time between polls when a
 poll finds new items, and then multiply by 2 every time a poll
 comes up with nothing new.
@@ -81,18 +81,18 @@ comes up with nothing new.
 &lt;p&gt;
 Using the average of new items over time lessens my pummeling
 of servers per hour, but the second approach is even lighter
-on polling since it&amp;apos;s biased toward large leaps backing off
-from polling when new items are not found.  I&amp;apos;ll likely be trading
+on polling since it&#39;s biased toward large leaps backing off
+from polling when new items are not found.  I&#39;ll likely be trading
 off between the two to see which one seems to work best.
 &lt;/p&gt;
 
 &lt;p&gt;
-Hoping that, after playing a bit, I&amp;apos;ll settle on one and my
+Hoping that, after playing a bit, I&#39;ll settle on one and my
 aggregator will play much nicer with feeds, especially once
 I get the HTTP client usage to correctly use things like
-last-modified headers and ETags.  There&amp;apos;s absolutely no reason
+last-modified headers and ETags.  There&#39;s absolutely no reason
 for a news aggregator to poll a feed every single hour of a day,
-unless you&amp;apos;re monitoring a feed that&amp;apos;s mostly quiet, except
+unless you&#39;re monitoring a feed that&#39;s mostly quiet, except
 for emergencies.  In that case, well, a different polling
 algorithm is needed, or maybe an instant messaging or pub/sub
 architecture is required.
@@ -100,27 +100,27 @@ architecture is required.
 
 &lt;p&gt;
 &lt;b&gt;Update:&lt;/b&gt; As &lt;a href=&quot;http://24.102.209.201/weblogs/ben/&quot;&gt;Gnomon&lt;/a&gt;
-has corrected me in comments, I&amp;apos;ve got the AIMD algorithm mixed up.
+has corrected me in comments, I&#39;ve got the AIMD algorithm mixed up.
 What I really should be doing is making quick jumps up in polling
 frequency in response to new items (multiplicative decrease of
 polling period) and creeping away in response to no new items
 (additive increase of polling period).  As he notes, this approach
 should make an aggregator jump to attention when clumps of new
 posts come in, and gradually get bored over periods of silence.
-I&amp;apos;ve adjusted my code and will be tinkering with it.
+I&#39;ve adjusted my code and will be tinkering with it.
 &lt;/p&gt;
 
 &lt;p&gt;
 Also, although &lt;a href=&quot;http://24.102.209.201/weblogs/ben/&quot;&gt;Gnomon&lt;/a&gt; makes
 a good point that bloggers and their posting habits are not easily
 subject to statistical analysis,
-I&amp;apos;ve further refined my little SQL query to catch sources
-which haven&amp;apos;t seen any updates during the week (or ever):
+I&#39;ve further refined my little SQL query to catch sources
+which haven&#39;t seen any updates during the week (or ever):
 &lt;/p&gt;
 
 &lt;pre&gt;SELECT 
   id as source,
-  &amp;apos;update_period&amp;apos; AS name,
+  &#39;update_period&#39; AS name,
   round(min(24,max(1,coalesce(update_period,24)))) AS value
 FROM sources
 LEFT JOIN (
@@ -139,8 +139,8 @@ LEFT JOIN (
 ) ON sources.id=source_id&lt;/pre&gt;
 
 &lt;p&gt;
-Also, in case anyone&amp;apos;s interested, I&amp;apos;ve checked &lt;a href=&quot;http://www.decafbad.com/cvs/dbagg/lib/dbagg/scan.py?rev=HEAD&amp;amp;content-type=text/vnd.viewcvs-markup&quot;&gt;all the above&lt;/a&gt;
-into CVS.  This beastie&amp;apos;s far from ready for prime time, but it
+Also, in case anyone&#39;s interested, I&#39;ve checked &lt;a href=&quot;http://www.decafbad.com/cvs/dbagg/lib/dbagg/scan.py?rev=HEAD&amp;amp;content-type=text/vnd.viewcvs-markup&quot;&gt;all the above&lt;/a&gt;
+into CVS.  This beastie&#39;s far from ready for prime time, but it
 might be interesting to someone.
 &lt;/p&gt;
 " />
@@ -149,7 +149,7 @@ might be interesting to someone.
       <section class="main">
         <header>
           <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
           <nav>
             <label for="nav-trigger"></label>
             <input type="checkbox" id="nav-trigger" class="nav-trigger" />

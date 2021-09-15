@@ -35,14 +35,14 @@
       <meta property="og:title" content="Time-release Syndication" />
         <meta
           property="og:url"
-          content="https://lmorchard.github.io/blog.lmorchard.com//2005/10/21/time-release-syndication/"
+          content="https://lmorchard.github.io/blog.lmorchard.com/2005/10/21/time-release-syndication/"
         />
     </head>
     <body>
       <section class="main">
         <header>
           <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
           <nav>
             <label for="nav-trigger"></label>
             <input type="checkbox" id="nav-trigger" class="nav-trigger" />
@@ -109,7 +109,7 @@
 <p>I&#39;ve been toying around with a few ideas for something like this for a few years, but have never bothered to finish any of them.  <a href="http://www.russellbeattie.com/notebook/1008220.html">Russell Beattie</a> had an interesting implementation of this too.</p>
 <p>But, just in case I never actually <em>do</em> anything with this notion, here&#39;s a free idea—I wonder how many aggregators actually obey a <code>301 Moved Permanently</code> HTTP status code?  </p>
 <p><a href="http://simon.incutio.com/archive/2004/09/01/track">Simon Willison wrote about this notion</a>: A reader subscribes using a clean and simple feed URL, but the aggregator receives a <code>301</code> redirect upon the first <code>GET</code>.  This redirect shifts the subscription over to a new feed URL with a unique ID for the reader, thereby uniquely tagging every new subscription to the feed.  The aggregator should then continue to use this tagged URL for all future requests.</p>
-<p>However, tagging a subscriber with an RSS radio collar implies that you&#39;ll have a database on the server maintaining notes tied to those IDs.  That might be cool if I&#39;m trying to gather some metrics, but for simple time-release syndication I don&#39;t really care about tracking a <em>person*.  I want to track a *start time</em>.  </p>
+<p>However, tagging a subscriber with an RSS radio collar implies that you&#39;ll have a database on the server maintaining notes tied to those IDs.  That might be cool if I&#39;m trying to gather some metrics, but for simple time-release syndication I don&#39;t really care about tracking a <em>person</em>.  I want to track a <em>start time</em>.  </p>
 <p>What if this post-redirect feed URL had the time of initial redirect in it, and the time release was just a function of the duration since that initial redirect?  Anonymous and no need for a database.  My notion is that I&#39;ll just need a PHP script and a fully-formed &quot;master feed&quot; on which the time-release feed will be a time-bounded &quot;viewport&quot; informed by a little date math.  </p>
 <p>Or, maybe I&#39;ll have a pile of pre-prepared content in a folder and munge that into a feed.  Imagine a podcast like <a href="http://www.project-daemon.net/">Scott Sigler&#39;s Ancestor</a>, all queued up and ready on the server, but doled out automatically on a weekly basis from the beginning from the point you subscribed.  I&#39;ll leave as exercises for the reader issues of &quot;obfuscating&quot; URLs so that people can&#39;t easily skip ahead through the story.</p>
 <!-- tags: rss atom syndication rest http podcasting -->

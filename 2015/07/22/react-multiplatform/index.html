@@ -35,19 +35,19 @@
       <meta property="og:title" content="Experimenting with a multi-platform app using React" />
         <meta
           property="og:url"
-          content="https://lmorchard.github.io/blog.lmorchard.com//2015/07/22/react-multiplatform/"
+          content="https://lmorchard.github.io/blog.lmorchard.com/2015/07/22/react-multiplatform/"
         />
         
         <meta property="og:description" content="&lt;nav role=&quot;navigation&quot; class=&quot;table-of-contents&quot;&gt;&lt;/nav&gt;
 
-&lt;p&gt;TL;DR: I built &lt;a href=&quot;https://github.com/lmorchard/react-multiplatform/&quot;&gt;a toy app using React for web and native&lt;/a&gt; to get a feel for whether this hybrid approach is worth using. I think the answer is &amp;quot;yes&amp;quot; - but mainly for apps whose business logic &amp;amp; data models are more complex than their views.&lt;/p&gt;
+&lt;p&gt;TL;DR: I built &lt;a href=&quot;https://github.com/lmorchard/react-multiplatform/&quot;&gt;a toy app using React for web and native&lt;/a&gt; to get a feel for whether this hybrid approach is worth using. I think the answer is &quot;yes&quot; - but mainly for apps whose business logic &amp;amp; data models are more complex than their views.&lt;/p&gt;
 " />
     </head>
     <body>
       <section class="main">
         <header>
           <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
           <nav>
             <label for="nav-trigger"></label>
             <input type="checkbox" id="nav-trigger" class="nav-trigger" />
@@ -146,7 +146,8 @@ module.exports = State.extend({
       this.collection.remove(this);
     }
   }
-});</code></pre>
+});
+</code></pre>
 <h2 id="forking-the-views-by-platform">Forking the Views by platform</h2>
 <p>This Model code works on both the web and native sides of my app. So far, so good - and pretty straightforward.</p>
 <p>However, getting down to actually rendering this data across platforms reveals where things start to vary. For example, <a href="https://github.com/lmorchard/react-multiplatform/blob/3fd16fe31473f249d8a54020ef252f524dd17d70/lib/views/web/TodoItem.js#L34">the JSX in the <code>render()</code> method of my web view</a> looks like this:</p>
@@ -158,7 +159,8 @@ module.exports = State.extend({
       checked={this.state.item.completed} /&gt;
     {title}
   &lt;/li&gt;
-);</code></pre>
+);
+</code></pre>
 <p>Meanwhile, <a href="https://github.com/lmorchard/react-multiplatform/blob/3fd16fe31473f249d8a54020ef252f524dd17d70/lib/views/ios/TodoItem.js#L42">the JSX in the <code>render()</code> method of my iOS view</a> looks like this:</p>
 <pre><code class="language-javascript">return (
   &lt;View style={styles.todoItem}&gt;
@@ -168,14 +170,16 @@ module.exports = State.extend({
       value={this.state.item.completed} /&gt;
     {title}
   &lt;/View&gt;
-);</code></pre>
+);
+</code></pre>
 <p>And, if you take a longer peek at those views, you&#39;ll see some slightly more complex JSX devoted to the <code>{title}</code> placeholders where rendering changes based on whether the item is being edited.</p>
 <p>It&#39;s not radically different; it&#39;s just enough to make things interesting.</p>
 <h2 id="code-sharing-with-react-mixins">Code sharing with React mixins</h2>
 <p>What you might notice about these two divergent views, though, is they both start like this:</p>
 <pre><code class="language-javascript">var TodoItem = module.exports = React.createClass({
   mixins: [Views.TodoItemCommonMixin],
-  // ...</code></pre>
+  // ...
+</code></pre>
 <p>It turns out that, thanks to <a href="https://facebook.github.io/react/docs/reusable-components.html#mixins">React mixins</a>, I can write <a href="https://github.com/lmorchard/react-multiplatform/blob/3fd16fe31473f249d8a54020ef252f524dd17d70/lib/views/index.js#L35">the bulk of the View logic</a> in a shared module. Since both sides use Models based on <a href="https://github.com/AmpersandJS/ampersand-state">ampersand-state</a>, this includes subscribing to Model changes:</p>
 <pre><code class="language-javascript">getInitialState() {
   return { editing: false, item: this.props.item };
@@ -194,7 +198,8 @@ componentDidUpdate(prevProps, prevState) {
     prevState.item.off(null, null, this);
     this.state.item.on(&#39;change&#39;, () =&gt; this.forceUpdate(), this);
   }
-}</code></pre>
+}
+</code></pre>
 <p>And, since both sides use Views based on <a href="https://facebook.github.io/react/">React</a>, many UI event handlers can also be shared despite the difference in platform specific JSX and view elements.</p>
 <p>(Of course, I recently learned that <a href="https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750">React mixins are dead</a>, so I&#39;m already behind the times. But, this code works for now. I&#39;ll get around to burning that bridge when I learn more about Flux.)</p>
 <h2 id="forking--sharing-model-code-for-persistence">Forking &amp; sharing Model code for persistence</h2>
@@ -210,7 +215,8 @@ componentDidUpdate(prevProps, prevState) {
 },
 writeToStorage: function () {
   localStorage[STORAGE_KEY] = JSON.stringify(this);
-}</code></pre>
+}
+</code></pre>
 <p>Meanwhile, <a href="https://github.com/lmorchard/react-multiplatform/blob/3fd16fe31473f249d8a54020ef252f524dd17d70/lib/models/ios/TodoCollection.js#L9">using AsyncStorage</a> looks like this:</p>
 <pre><code class="language-javascript">readFromStorage() {
   AsyncStorage.getItem(STORAGE_KEY).then((existingData) =&gt; {
@@ -219,9 +225,11 @@ writeToStorage: function () {
 },
 writeToStorage() {
   AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(this));
-}</code></pre>
+}
+</code></pre>
 <p>If you peek at those last two links, though, you might notice they both define classes that start like this:</p>
-<pre><code class="language-javascript">var TodoCollection = module.exports = BaseCollection.extend({</code></pre>
+<pre><code class="language-javascript">var TodoCollection = module.exports = BaseCollection.extend({
+</code></pre>
 <p>Since <a href="https://github.com/AmpersandJS/ampersand-collection">ampersand-collection</a> supports class inheritance, the bulk of the logic for these collections can be housed in <a href="https://github.com/lmorchard/react-multiplatform/blob/3fd16fe31473f249d8a54020ef252f524dd17d70/lib/models/TodoCollection.js#L8">a shared superclass</a>. The subclasses just need to implement the platform-specific storage methods. A different mechanism than <a href="https://facebook.github.io/react/docs/reusable-components.html#mixins">React mixins</a>, but for basically the same purpose.</p>
 <h2 id="sharing-by-the-numbers">Sharing by the numbers</h2>
 <p>The main goal of this experiment is to get a feel as to whether a hybrid React approach is worth considering versus building totally separate apps for native and web platforms. The metric I decided to use for this is counting lines of code (LoC), and this is what I found:</p>
@@ -264,7 +272,8 @@ $ cat lib/views/ios/*js | wc -l
 
 # ~43% web specific view code
 $ cat lib/views/web/*js | wc -l
-     231</code></pre>
+     231
+</code></pre>
 <h2 id="conclusion">Conclusion</h2>
 <p>Using React for both web &amp; native looks promising. However, the toy app I&#39;ve built is too simple to present an overwhemingly compelling case.</p>
 <p>What I tried to do here was get a quick feel for the shape of things and where the code multipliers can be found. Your mileage will vary on app features and code refactoring ability.</p>
@@ -280,7 +289,7 @@ $ cat lib/views/web/*js | wc -l
           <div id="disqus_thread"></div>
           <script type="text/javascript">
             var disqus_needs_loading = true;
-            var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com//2015/07/22/react-multiplatform/";
+            var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com/2015/07/22/react-multiplatform/";
           </script>
           <noscript
             >Please enable JavaScript to view the

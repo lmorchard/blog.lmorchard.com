@@ -35,11 +35,11 @@
       <meta property="og:title" content="Fun with Themes in Firefox" />
         <meta
           property="og:url"
-          content="https://lmorchard.github.io/blog.lmorchard.com//2018/03/01/themesrfun/"
+          content="https://lmorchard.github.io/blog.lmorchard.com/2018/03/01/themesrfun/"
         />
         <meta
             property="og:image"
-            content="https://lmorchard.github.io/blog.lmorchard.com//blog.lmorchard.com/2018/03/01/themesrfun/image_1.png"
+            content="https://lmorchard.github.io/blog.lmorchard.com/blog.lmorchard.com/2018/03/01/themesrfun/image_1.png"
           />
         <meta property="og:description" content="&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;: Last year, I started work on a new Test Pilot experiment playing with themes in Firefox. &lt;/p&gt;
 " />
@@ -48,7 +48,7 @@
       <section class="main">
         <header>
           <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
           <nav>
             <label for="nav-trigger"></label>
             <input type="checkbox" id="nav-trigger" class="nav-trigger" />
@@ -172,7 +172,8 @@ window.addEventListener(&quot;message&quot;, event =&gt; {
   }
 });
 
-connect();</code></pre>
+connect();
+</code></pre>
 <p>With this approach, the web page doesn’t actually gain access to any Firefox APIs. <a href="https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/src/extension/background.js#L23">The add-on can decide what to do with with messages it receives</a>. If the page sends invalid data or asks to do something not supported - nothing happens. Here&#39;s a snippet of that logic from the extension:</p>
 <pre><code class="language-javascript">const messageListener = port =&gt; message =&gt; {
   let theme;
@@ -195,7 +196,8 @@ connect();</code></pre>
     default:
       log(&quot;unexpected message&quot;, message);
   }
-};</code></pre>
+};
+</code></pre>
 <p>And here&#39;s a peek at <a href="https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/src/web/index.js#L52">that Redux middleware I mentioned earlier</a> which updates the add-on from the web:</p>
 <pre><code class="language-javascript">const postMessage = (type, data = {}) =&gt;
   window.postMessage(
@@ -210,7 +212,8 @@ const updateExtensionThemeMiddleware = ({ getState }) =&gt; next =&gt; action =&
     postMessage(&quot;setTheme&quot;, { theme: selectors.theme(getState()) });
   }
   return returnValue;
-};</code></pre>
+};
+</code></pre>
 <p>The add-on can also restrict the set of pages from which it will accept messages: We <a href="https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/webpack.extension.js#L55">hardcode the URL for the theme editor</a> into the add-on’s content script configuration at build time, which means no other web page should be able to ask the add-on to alter the theme in Firefox.</p>
 <h2 id="add-on-detection-is-hard">Add-on detection is hard</h2>
 <img class="inset wide right" src="loader.png" title="The loading overlay that appears until the editor is visually stable" />
@@ -240,12 +243,13 @@ function startLoaderDelay() {
     () =&gt; store.dispatch(actions.ui.setLoaderDelayExpired(true)),
     LOADER_DELAY_PERIOD
   );
-}</code></pre>
+}
+</code></pre>
 <p>Early changes to the store are driven by things like decoding a shared theme and responses from the add-on. Again, these are asynchronous and unpredictable. The timer duration is an arbitrary guess I made that seems to feel right. It’s a dirty hack, but it seems like a good enough effort for now.</p>
 <h2 id="using-npm-scripts-and-multiple-webpack-configs">Using npm scripts and multiple Webpack configs</h2>
 <p>One of the things that has worked nicely on this project is building everything in parallel with a single npm command. You can <a href="https://github.com/mozilla/Themer/tree/5cdcb7e15d64934f0e71521512c74337dc58fa05#get-started">clone the repo and kick things off for development</a> with a simple <code>npm install &amp;&amp; npm start</code> dance.</p>
 <p>The add-on and the site both use Webpack. There’s <a href="https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/webpack.common.js">a shared config</a> as a base and then specific configurations with tweaks for <a href="https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/webpack.web.js">the site</a> and <a href="https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/webpack.extension.js">the add-on</a>. So, we want to run two separate instances of Webpack to build everything, watch files, and host the dev server.</p>
-<p>This is where <a href="https://www.npmjs.com/package/npm-run-all">npm-run-all</a> comes in: It’s a CLI tool that lets you run multiple npm scripts. I used to use gulp to orchestrate this sort of thing, but <a href="https://www.npmjs.com/package/npm-run-all">npm-run-all</a> lets me arrange it all <a href="https://docs.npmjs.com/misc/scripts">in <code>package.json</code></a>. It would be fine if this just enabled running scripts in series. But, npm-run-all also lets you run scripts* in parallel<em>. The cherry on top is that [this parallelization works on Linux, OS X, *and Windows</em>](<a href="https://www.npmjs.com/package/npm-run-all#%EF%B8%8F-motivation">https://www.npmjs.com/package/npm-run-all#%EF%B8%8F-motivation</a>).</p>
+<p>This is where <a href="https://www.npmjs.com/package/npm-run-all">npm-run-all</a> comes in: It’s a CLI tool that lets you run multiple npm scripts. I used to use gulp to orchestrate this sort of thing, but <a href="https://www.npmjs.com/package/npm-run-all">npm-run-all</a> lets me arrange it all <a href="https://docs.npmjs.com/misc/scripts">in <code>package.json</code></a>. It would be fine if this just enabled running scripts in series. But, npm-run-all also lets you run scripts* in parallel*. The cherry on top is that <a href="https://www.npmjs.com/package/npm-run-all#%EF%B8%8F-motivation">this parallelization works on Linux, OS X, <em>and Windows</em></a>.</p>
 <pre><code class="language-json">&quot;scripts&quot;: {
   &quot;start&quot;: &quot;npm-run-all --parallel server watch:extension watch:lint&quot;,
   &quot;server&quot;: &quot;cross-env NODE_ENV=development webpack-dev-server --config webpack.web.js&quot;,
@@ -254,7 +258,8 @@ function startLoaderDelay() {
   &quot;watch:extension&quot;: &quot;cross-env NODE_ENV=development webpack --watch --progress --colors --config webpack.extension.js&quot;,
   &quot;watch:lint&quot;: &quot;onchange -p -v \&quot;src/**/*.js\&quot; -- npm run lint&quot;,
   &quot;lint&quot;: &quot;eslint --color .&quot;,
-},</code></pre>
+},
+</code></pre>
 <p>In past years, Windows support might have been an abstract novelty for me. But, in recent months, I’ve switched from Apple hardware to a PC laptop. I’ve found the new <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">Windows Subsystem for Linux</a> to be essential to that switch. But, sometimes it’s nice to just fire up a Node.js dev environment directly in PowerShell - <a href="https://www.npmjs.com/package/npm-run-all">npm-run-all</a> lets me (and you) do that!</p>
 <p>So, <a href="https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/package.json#L12">the start script in our package.json</a> is able to fire up both Webpack processes for the site and add-on. It can also <a href="https://github.com/mozilla/Themer/blob/5cdcb7e15d64934f0e71521512c74337dc58fa05/package.json#L17">start a file watcher to run linting</a> and tests (when we have them) alongside. That simplifies using everything in a single shell window across platforms. <a href="https://decafbad.com/2011/06/os-webdev-vm/slides.html#1">I used to lean on Vagrant or Docker to offer something &quot;simple&quot; to folks interested in contributing to a project</a>. But, though virtual machines and containers can hide apparent complexity in development, it’s hard to beat just running things in node on the native OS.</p>
 <h2 id="help-us-make-themes-more-fun">Help us make themes more fun!</h2>
@@ -270,7 +275,7 @@ function startLoaderDelay() {
           <div id="disqus_thread"></div>
           <script type="text/javascript">
             var disqus_needs_loading = true;
-            var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com//2018/03/01/themesrfun/";
+            var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com/2018/03/01/themesrfun/";
           </script>
           <noscript
             >Please enable JavaScript to view the

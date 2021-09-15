@@ -35,7 +35,7 @@
       <meta property="og:title" content="Parsec Patrol Diaries: How To Avoid Smashing Into Things" />
         <meta
           property="og:url"
-          content="https://lmorchard.github.io/blog.lmorchard.com//2014/01/18/ppd-avoidance/"
+          content="https://lmorchard.github.io/blog.lmorchard.com/2014/01/18/ppd-avoidance/"
         />
         <meta
             property="og:image"
@@ -50,7 +50,7 @@
       <section class="main">
         <header>
           <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
           <nav>
             <label for="nav-trigger"></label>
             <input type="checkbox" id="nav-trigger" class="nav-trigger" />
@@ -109,7 +109,7 @@
   <p class="toc_title">
     Contents
   </p>
-
+  
   <ul class="toc_list">
     <li>
       <a href="#Where_to_start"><span class="toc_number toc_depth_1">1</span> Where to start?</a>
@@ -142,7 +142,7 @@
 <h3 id="where-to-start"><span id="Where_to_start">Where to start?</span></h3>
 <p>From years of playing &amp; tinkering with shooters like Unreal &amp; Quake, I had a vague notion of bots needing &#8220;pathfinding&#8221; algorithms to find their way around levels. So, I started hitting Google, looking to see what I could find and understand just well enough to eliminate from consideration or flag for a deeper dive.</p>
 <h3 id="waypoint-graphs--navigation-meshes"><span id="Waypoint_Graphs_Navigation_Meshes">Waypoint Graphs &amp; Navigation Meshes</span></h3>
-<p>Some of the first pathfinding tools I started reading about were <em>waypoint graphs *and *navigation meshes</em>. It turns out that some bots rely on cheat sheets: map-specific and manually placed points or polygons, traversed to get from point A to point B. Generally it&#8217;s a cheap way to make bots seem like they know where they&#8217;re going, because a human being does most of the work up front.</p>
+<p>Some of the first pathfinding tools I started reading about were *waypoint graphs *and <em>navigation meshes</em>. It turns out that some bots rely on cheat sheets: map-specific and manually placed points or polygons, traversed to get from point A to point B. Generally it&#8217;s a cheap way to make bots seem like they know where they&#8217;re going, because a human being does most of the work up front.</p>
 <div style="width: 322px" class="wp-caption alignleft">
   <a href="http://www.ai-blog.net/archives/000152.html"><img class="    " alt="" src="http://i252.photobucket.com/albums/hh9/PaulTozour/Halaa_waypoints2_AB.jpg" width="312" height="250" /></a><p class="wp-caption-text">
     Waypoint graph
@@ -216,10 +216,10 @@
 <p><code>U = (-A/Math.pow(d,n)) + (B/Math.pow(d,m))</code></p>
 <p>There are 4 constants in this function:</p>
 <ul>
-<li><code>A</code> &#8211; magnitude of attraction</li>
-<li><code>n</code> &#8211; attenuation of attraction over distance</li>
-<li><code>B</code> &#8211; magnitude of repulsion</li>
-<li><code>m</code> &#8211; attenuation of repulsion over distance</li>
+<li>  <code>A</code> &#8211; magnitude of attraction</li>
+<li>  <code>n</code> &#8211; attenuation of attraction over distance</li>
+<li>  <code>B</code> &#8211; magnitude of repulsion</li>
+<li>  <code>m</code> &#8211; attenuation of repulsion over distance</li>
 </ul>
 <p>Pick values for these constants, and you&#8217;ve got a function that yields a positive (repulsion) or negative (attraction) value for any given distance (<code>d</code>). So far, <a href="https://github.com/lmorchard/parsec-patrol/blob/2e3f9afa2404fee54b09152e3d5746c4c4a2b4ca/app/scripts/sketches/steering.coffee#L85">I&#8217;ve just used trial &amp; error to find values for these constants</a>.</p>
 <p>To apply this function, <a href="https://github.com/lmorchard/parsec-patrol/blob/2e3f9afa2404fee54b09152e3d5746c4c4a2b4ca/app/scripts/systems.coffee#L904">I search for obstacles within a certain radius of the ship</a>. That limits the number of calculations, because far-flung obstacles have no significant influence. For each nearby obstacle, <a href="https://github.com/lmorchard/parsec-patrol/blob/2e3f9afa2404fee54b09152e3d5746c4c4a2b4ca/app/scripts/systems.coffee#L868">I calculate distance and apply the potential function</a>. I then <a href="https://github.com/lmorchard/parsec-patrol/blob/2e3f9afa2404fee54b09152e3d5746c4c4a2b4ca/app/scripts/systems.coffee#L877">calculate a unit vector from each obstacle to the ship and multiply by the result of the potential function</a>.</p>
@@ -246,7 +246,7 @@
           <div id="disqus_thread"></div>
           <script type="text/javascript">
             var disqus_needs_loading = true;
-            var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com//2014/01/18/ppd-avoidance/";
+            var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com/2014/01/18/ppd-avoidance/";
           </script>
           <noscript
             >Please enable JavaScript to view the

@@ -35,19 +35,19 @@
       <meta property="og:title" content="RSS 2.0 namespace versus RSS-Data, Part 2: First impressions" />
         <meta
           property="og:url"
-          content="https://lmorchard.github.io/blog.lmorchard.com//2003/10/02/rss-data-versus-namespace-2/"
+          content="https://lmorchard.github.io/blog.lmorchard.com/2003/10/02/rss-data-versus-namespace-2/"
         />
         
         <meta property="og:description" content="&lt;p&gt;
 Okay, I got
 &lt;a href=&quot;http://www.decafbad.com/blog/tech/rss_data_versus_namespace.html&quot;&gt;the example data&lt;/a&gt; out there.
-Here&amp;apos;s what&amp;apos;s first on my mind about it:
+Here&#39;s what&#39;s first on my mind about it:
 &lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;
 Man, that RSS-Data is one verbose piece of XML.  The Amazon-specific
-namespace version looks much more compact and readable; I&amp;apos;d rather
+namespace version looks much more compact and readable; I&#39;d rather
 &lt;a href=&quot;http://backend.userland.com/davesRss2PoliticalFaq&quot;&gt;View Source&lt;/a&gt;
 on that one.
 &lt;/p&gt;
@@ -56,10 +56,10 @@ on that one.
 &lt;p&gt;
 Python comes out of the box with
 &lt;a href=&quot;http://www.python.org/doc/current/lib/module-xmlrpclib.html&quot;&gt;xmlrpclib&lt;/a&gt;,
-and other languages have XML-RPC facilities available as well.  I can&amp;apos;t imagine
-it&amp;apos;d be too hard to get a hold of the core of it and employ it in
+and other languages have XML-RPC facilities available as well.  I can&#39;t imagine
+it&#39;d be too hard to get a hold of the core of it and employ it in
 unmarshalling the RSS-Data straight into idiomatic Python structures.
-On the other hand, I&amp;apos;ll need to write my own handlers for the Amazon XML
+On the other hand, I&#39;ll need to write my own handlers for the Amazon XML
 using the XML parser modules that come with Python.
 &lt;/p&gt;
 &lt;/li&gt;
@@ -72,28 +72,28 @@ in a document, I could yank out all their images with something like:
 &lt;/p&gt;
 &lt;p&gt;
 Using the RSS-Data
-example, it&amp;apos;d probably be something more like:
-&lt;code&gt;//sdl:data/sdl:struct/sdl:member/sdl:name[@text=&amp;apos;ImageUrlSmall&amp;apos;]/../sdl:value&lt;/code&gt;,
-and that&amp;apos;s not considering if I have mixed kinds of RSS-Data schema represented in the
+example, it&#39;d probably be something more like:
+&lt;code&gt;//sdl:data/sdl:struct/sdl:member/sdl:name[@text=&#39;ImageUrlSmall&#39;]/../sdl:value&lt;/code&gt;,
+and that&#39;s not considering if I have mixed kinds of RSS-Data schema represented in the
 feed.
 &lt;/p&gt;
 &lt;p&gt;
 I suppose I could help this out by surrounding the struct with another
-struct, containing one member named &amp;apos;AzProductInfo&amp;apos;, making the path something
+struct, containing one member named &#39;AzProductInfo&#39;, making the path something
 like so:
-&lt;code&gt;//sdl:data/sdl:struct/sdl:member/sdl:name[@text=&amp;apos;AzProductInfo&amp;apos;]&lt;br&gt;
-/../sdl:value/sdl:struct/sdl:member/sdl:name[@text=&amp;apos;ImageUrlSmall&amp;apos;]/../sdl:value&lt;/code&gt;.
+&lt;code&gt;//sdl:data/sdl:struct/sdl:member/sdl:name[@text=&#39;AzProductInfo&#39;]&lt;br&gt;
+/../sdl:value/sdl:struct/sdl:member/sdl:name[@text=&#39;ImageUrlSmall&#39;]/../sdl:value&lt;/code&gt;.
 &lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;
-And these are the conclusions I&amp;apos;m jumping to at the moment, before experimenting:
+And these are the conclusions I&#39;m jumping to at the moment, before experimenting:
 &lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;
-RSS-Data&amp;apos;s convenience to script authors is at odds with the RSS 2.0
+RSS-Data&#39;s convenience to script authors is at odds with the RSS 2.0
 spirit of View Source.
 &lt;/li&gt;
 &lt;li&gt;
@@ -101,15 +101,15 @@ Producing and consuming RSS-Data could be easier than handling
 purpose-specific XML schema in scripts.
 &lt;/li&gt;
 &lt;li&gt;
-Since RSS-Data doesn&amp;apos;t follow in the spirit of XML specs and schema,
+Since RSS-Data doesn&#39;t follow in the spirit of XML specs and schema,
 using formal XML tools to handle this stuff will give you
 nothing but headaches.  (Then again, it seems like some of the
-stuff that&amp;apos;s fully in the spirit of XML yields headaches just
+stuff that&#39;s fully in the spirit of XML yields headaches just
 the same.)
 &lt;/li&gt;
 &lt;li&gt;
 RSS-Data might catch on and spread nonetheless, because lots
-of people don&amp;apos;t read XML, don&amp;apos;t use formal XML tools, and just
+of people don&#39;t read XML, don&#39;t use formal XML tools, and just
 write scripts to get their jobs done.
 &lt;/li&gt;
 &lt;/ol&gt;
@@ -119,7 +119,7 @@ write scripts to get their jobs done.
       <section class="main">
         <header>
           <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
           <nav>
             <label for="nav-trigger"></label>
             <input type="checkbox" id="nav-trigger" class="nav-trigger" />

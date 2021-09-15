@@ -35,19 +35,19 @@
       <meta property="og:title" content="KumaScript: Bringing scripting to the wiki bears" />
         <meta
           property="og:url"
-          content="https://lmorchard.github.io/blog.lmorchard.com//2013/02/21/kumascript/"
+          content="https://lmorchard.github.io/blog.lmorchard.com/2013/02/21/kumascript/"
         />
         
         <meta property="og:description" content="
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/mozilla/kumascript&quot;&gt;KumaScript&lt;/a&gt; turned &lt;a href=&quot;https://github.com/mozilla/kumascript/commit/0cb247eaac58cf00bb59e16d6b37a215484633b2&quot;&gt;one year old&lt;/a&gt; back at the end of January, and I&amp;#x2019;m sad to say no one celebrated its birthday &amp;#x2013; not even me. I&amp;#x2019;m pretty sure very few people outside of the core team at the &lt;a target=&quot;_blank&quot; title=&quot;Mozilla Developer Network&quot; href=&quot;https://developer.mozilla.org/?utm_source=wordpress%20blog&amp;amp;utm_medium=content%20link&amp;amp;utm_campaign=promote%20mdn&quot;&gt;Mozilla Developer Network&lt;/a&gt; even know what &lt;a href=&quot;https://github.com/mozilla/kumascript&quot;&gt;KumaScript&lt;/a&gt; is. So, I guess it&amp;#x2019;s about time I do something about that.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/mozilla/kumascript&quot;&gt;KumaScript&lt;/a&gt; turned &lt;a href=&quot;https://github.com/mozilla/kumascript/commit/0cb247eaac58cf00bb59e16d6b37a215484633b2&quot;&gt;one year old&lt;/a&gt; back at the end of January, and I’m sad to say no one celebrated its birthday – not even me. I’m pretty sure very few people outside of the core team at the &lt;a target=&quot;_blank&quot; title=&quot;Mozilla Developer Network&quot; href=&quot;https://developer.mozilla.org/?utm_source=wordpress%20blog&amp;amp;utm_medium=content%20link&amp;amp;utm_campaign=promote%20mdn&quot;&gt;Mozilla Developer Network&lt;/a&gt; even know what &lt;a href=&quot;https://github.com/mozilla/kumascript&quot;&gt;KumaScript&lt;/a&gt; is. So, I guess it’s about time I do something about that.&lt;/p&gt;
 " />
     </head>
     <body>
       <section class="main">
         <header>
           <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels and self-doubt until the first pot of coffee.</h2>
+          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
           <nav>
             <label for="nav-trigger"></label>
             <input type="checkbox" id="nav-trigger" class="nav-trigger" />
@@ -106,7 +106,7 @@
   <p class="toc_title">
     Contents
   </p>
-
+  
   <ul class="toc_list">
     <li>
       <a href="#Necessity_is_the_Mother_of_Invention"><span class="toc_number toc_depth_1">1</span> Necessity is the Mother of Invention</a>
@@ -149,12 +149,10 @@
 <p>It had been close to 18 months in the making, which usually spells <a href="http://blog.lmorchard.com/2012/09/17/on-the-other-end-of-a-self-imposed-death-march-project">death march</a> and disaster. But, against many expectations, we did finally arrive at something for launch that neither fell over in flames immediately nor jettisoned a significant number of features with respect to what it was replacing. I think this is the first time in my career something like this went off with as few hitches as it did.</p>
 <p>Your first questions might go something along the lines of, &#8220;18 months? For a <em>wiki</em>? Are you insane or just incompetent?&#8221; Well, it might help to note a few additional details:</p>
 <ul>
-<li>We call it a wiki, but it&#8217;s really more of a content management system that anyone can edit. It supports translation from English to 34 other languages, tracks revisions &amp; content hierarchies, accepts file attachments, and sings &amp; dances in a variety of other annoying-to-implement ways.</li>
+<li>  We call it a wiki, but it&#8217;s really more of a content management system that anyone can edit. It supports translation from English to 34 other languages, tracks revisions &amp; content hierarchies, accepts file attachments, and sings &amp; dances in a variety of other annoying-to-implement ways.</li>
 <li>At the time of switchover, we had over 50,000 documents to migrate with care from the old system to the new one. That body of content represents years of work, a non-trivial hunk of cruft and spam, and tickles a maddening array of edge cases.<li style="text-align: left;">
 The wiki we replaced—i.e. <a href="http://www.mindtouch.com/">MindTouch</a>—supports server-side scripting in content with a language based on Lua—i.e. <a href="http://developer.mindtouch.com/en/docs/DekiScript">DekiScript</a>.
-</li>
-
-</li>
+</li></li>
 </ul>
 <p>Each of the above points represents its own special mix of horror and challenge, and I took on the bulk of the last two. That caused me a lot of stress, and <a href="http://blog.lmorchard.com/2012/09/17/on-the-other-end-of-a-self-imposed-death-march-project">I blogged a bit about that</a>.</p>
 <p>This blog post, however, focuses on that last point: <a href="https://github.com/mozilla/kumascript">KumaScript</a> was built by backing into a semi-compatible replacement for <a href="http://developer.mindtouch.com/en/docs/DekiScript">DekiScript</a>. That&#8217;s pretty much the worst way to go about building something, but it seems to have worked.</p>
@@ -176,18 +174,18 @@ Hello #2</pre>
 
 <p><a target="_blank" title="KumaScript" href="https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">KumaScript</a> on <a target="_blank" title="MDN" href="https://developer.mozilla.org/?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">MDN</a> consists mainly of the following:</p>
 <ul>
-<li><a href="https://developer.mozilla.org/en-US/docs/Project:Introduction_to_KumaScript#Template_Syntax">Templates implemented using Embedded JavaScript Templates</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Project:Introduction_to_KumaScript#Macro_Syntax">Macros in wiki content that call templates with parameters</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Project:Introduction_to_KumaScript#Creating_modules">Common JS inspired modules for reusable code used by templates</a></li>
+<li>  <a href="https://developer.mozilla.org/en-US/docs/Project:Introduction_to_KumaScript#Template_Syntax">Templates implemented using Embedded JavaScript Templates</a></li>
+<li>  <a href="https://developer.mozilla.org/en-US/docs/Project:Introduction_to_KumaScript#Macro_Syntax">Macros in wiki content that call templates with parameters</a></li>
+<li>  <a href="https://developer.mozilla.org/en-US/docs/Project:Introduction_to_KumaScript#Creating_modules">Common JS inspired modules for reusable code used by templates</a></li>
 </ul>
 <p>This quick introduction glosses over interesting things you can do with <a target="_blank" title="KumaScript" href="https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">KumaScript</a>—e.g. accessing data from external sources via HTTP, fetching content from other documents (also via HTTP). But, again, you can dive deeper by reading <a href="https://developer.mozilla.org/en-US/docs/Project:Introduction_to_KumaScript">&#8220;Introduction to Kumascript&#8221; on MDN</a>.</p>
 <h3 id="scripting-in-wikis"><span id="Scripting_in_Wikis">Scripting in Wikis</span></h3>
 <p>Why would one would even build such a thing as <a target="_blank" title="KumaScript" href="https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">KumaScript</a>? As it turns out, programmatically generating content is quite handy for composing documentation. Here are a few use cases:</p>
 <ul>
-<li>Localized macros for often-repeated constructs such as <a href="https://developer.mozilla.org/en-US/docs/Template:Warning">warnings</a>, notes, tips, &amp; callouts.</li>
-<li>Conditional content based on variables such as product, locale, &amp; standards status.</li>
-<li><a href="http://en.wikipedia.org/wiki/Transclusion">Transclusion</a> of content, <a href="https://developer.mozilla.org/en-US/docs/XUL/button">building documents from documents</a>. (Try viewing <a href="https://developer.mozilla.org/en-US/docs/XUL/button?raw">the raw source</a> of that page.)</li>
-<li>Mashups of data from <a target="_blank" title="MDN" href="https://developer.mozilla.org/?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">MDN</a> itself and from other sites and services like Bugzilla and Github. For example, here&#8217;s <a href="https://developer.mozilla.org/en-US/docs/Project:Changelog">a self-updating Changelog of our code deployments on MDN</a>. And, here&#8217;s <a href="https://developer.mozilla.org/en-US/docs/Template:KumaGithubChanges">the template behind that page</a>.</li>
+<li>  Localized macros for often-repeated constructs such as <a href="https://developer.mozilla.org/en-US/docs/Template:Warning">warnings</a>, notes, tips, &amp; callouts.</li>
+<li>  Conditional content based on variables such as product, locale, &amp; standards status.</li>
+<li>  <a href="http://en.wikipedia.org/wiki/Transclusion">Transclusion</a> of content, <a href="https://developer.mozilla.org/en-US/docs/XUL/button">building documents from documents</a>. (Try viewing <a href="https://developer.mozilla.org/en-US/docs/XUL/button?raw">the raw source</a> of that page.)</li>
+<li>  Mashups of data from <a target="_blank" title="MDN" href="https://developer.mozilla.org/?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">MDN</a> itself and from other sites and services like Bugzilla and Github. For example, here&#8217;s <a href="https://developer.mozilla.org/en-US/docs/Project:Changelog">a self-updating Changelog of our code deployments on MDN</a>. And, here&#8217;s <a href="https://developer.mozilla.org/en-US/docs/Template:KumaGithubChanges">the template behind that page</a>.</li>
 </ul>
 <p>It&#8217;s also worth pointing out that is different from scripting mixed with <a target="_blank" title="HTML" href="https://developer.mozilla.org/docs/Web/HTML?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">HTML</a> like you get from ASP or PHP: There, you can process forms, personalize responses, and generally build web applications.</p>
 <p>In the world of <a target="_blank" title="KumaScript" href="https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">KumaScript</a>, content scripting is a heavily cached thing and not tied to the current HTTP request. It mostly runs only when the document itself is edited, but can also be executed when we think dependencies or external data sources have changed.</p>
@@ -213,18 +211,18 @@ Hello #2</pre>
 <p>In fact, although the <a target="_blank" title="KumaScript" href="https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">KumaScript</a> service itself is hidden behind a firewall, <a href="https://developer.mozilla.org/en-US/docs/Project:The_Kuma_API">the wiki API used by KumaScript is open to the public</a>. What&#8217;s good for the goose is good for the gander, after all.</p>
 <p>The typical document rendering process goes something like this:</p>
 <ol>
-<li><a target="_blank" title="Kuma" href="https://developer.mozilla.org/docs/Project:Getting_started_with_Kuma?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">Kuma</a> makes a GET request to <a target="_blank" title="KumaScript" href="https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">KumaScript</a> with the URL of a wiki document.</li>
-<li><a target="_blank" title="KumaScript" href="https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">KumaScript</a> makes a GET request to <a target="_blank" title="Kuma" href="https://developer.mozilla.org/docs/Project:Getting_started_with_Kuma?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">Kuma</a> for the raw source of the wiki document.</li>
-<li><a target="_blank" title="KumaScript" href="https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">KumaScript</a> parses the source, looking for macros &amp; inventorying templates.</li>
-<li><a target="_blank" title="KumaScript" href="https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">KumaScript</a> makes a GET request to <a target="_blank" title="Kuma" href="https://developer.mozilla.org/docs/Project:Getting_started_with_Kuma?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">Kuma</a> for the source of each template needed.</li>
-<li><a target="_blank" title="KumaScript" href="https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">KumaScript</a> evaluates the macros by executing templates with the given parameters. This may kick off additional GET requests as needed by templates to load modules.</li>
-<li><a target="_blank" title="KumaScript" href="https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">KumaScript</a> responds to the initial request from <a target="_blank" title="Kuma" href="https://developer.mozilla.org/docs/Project:Getting_started_with_Kuma?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">Kuma</a> with the results of macro evaluation in the document.</li>
+<li> <a target="_blank" title="Kuma" href="https://developer.mozilla.org/docs/Project:Getting_started_with_Kuma?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">Kuma</a> makes a GET request to <a target="_blank" title="KumaScript" href="https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">KumaScript</a> with the URL of a wiki document.</li>
+<li> <a target="_blank" title="KumaScript" href="https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">KumaScript</a> makes a GET request to <a target="_blank" title="Kuma" href="https://developer.mozilla.org/docs/Project:Getting_started_with_Kuma?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">Kuma</a> for the raw source of the wiki document.</li>
+<li> <a target="_blank" title="KumaScript" href="https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">KumaScript</a> parses the source, looking for macros &amp; inventorying templates.</li>
+<li> <a target="_blank" title="KumaScript" href="https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">KumaScript</a> makes a GET request to <a target="_blank" title="Kuma" href="https://developer.mozilla.org/docs/Project:Getting_started_with_Kuma?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">Kuma</a> for the source of each template needed.</li>
+<li> <a target="_blank" title="KumaScript" href="https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">KumaScript</a> evaluates the macros by executing templates with the given parameters. This may kick off additional GET requests as needed by templates to load modules.</li>
+<li> <a target="_blank" title="KumaScript" href="https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">KumaScript</a> responds to the initial request from <a target="_blank" title="Kuma" href="https://developer.mozilla.org/docs/Project:Getting_started_with_Kuma?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">Kuma</a> with the results of macro evaluation in the document.</li>
 </ol>
 <p>It&#8217;s <del>turtles</del> HTTP GET, <a href="http://en.wikipedia.org/wiki/Turtles_all_the_way_down">all the way down</a>. Well, except for when we want to do a preview before saving: In that case it&#8217;s an HTTP POST which kicks everything off at step #3, with raw source in the request body.</p>
 <p>And though this might look like a Rube Goldberg machine, there are some nice qualities to all this HTTP GET traffic:</p>
 <ul>
-<li>Each GET is susceptible to caching, via the usual headers and semantics.</li>
-<li>Each GET can be serviced by a different process on a different machine.</li>
+<li>  Each GET is susceptible to caching, via the usual headers and semantics.</li>
+<li>  Each GET can be serviced by a different process on a different machine.</li>
 </ul>
 <p>I&#8217;m sure I could come up with more items after I have lunch, but this is just HTTP.</p>
 <p>Content flows through request and response bodies. And—though this part might be a bit of a hack—I encode document context, errors, and messages using custom HTTP headers as a side-channel <a href="https://github.com/lmorchard/node-firelogger">using the FireLogger protocol</a> as an inspiration.</p>
@@ -232,9 +230,9 @@ Hello #2</pre>
 <p>Something I could have done with <a target="_blank" title="KumaScript" href="https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">KumaScript</a> was to simply allow wiki authors to drop hunks of executable code into the middle of documents. DekiScript seems to allow for this. But, we never really used it that way on <a target="_blank" title="MDN" href="https://developer.mozilla.org/?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">MDN</a>.</p>
 <p>Instead, what we have is a system of templates and macros:</p>
 <ul>
-<li>Templates contain the <a target="_blank" title="JavaScript" href="https://developer.mozilla.org/docs/JavaScript?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">JavaScript</a> code in the form of <a href="https://github.com/visionmedia/ejs">Embedded JavaScript Templates</a>. At present, these can be authored only by a core of trusted <a target="_blank" title="MDN" href="https://developer.mozilla.org/?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">MDN</a> editors.</li>
-<li>Macros call templates with parameters and dump the results of execution into the document. These can be used by anyone, and have <a href="https://github.com/mozilla/kumascript/blob/master/lib/kumascript/parser.pegjs">a very constrained syntax</a>.</li>
-<li>The content resulting from macro evaluation <a href="https://pypi.python.org/pypi/bleach">is sanitized</a> such that it&#8217;s subject to the same constraints as hand-written markup.</li>
+<li>  Templates contain the <a target="_blank" title="JavaScript" href="https://developer.mozilla.org/docs/JavaScript?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">JavaScript</a> code in the form of <a href="https://github.com/visionmedia/ejs">Embedded JavaScript Templates</a>. At present, these can be authored only by a core of trusted <a target="_blank" title="MDN" href="https://developer.mozilla.org/?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">MDN</a> editors.</li>
+<li>  Macros call templates with parameters and dump the results of execution into the document. These can be used by anyone, and have <a href="https://github.com/mozilla/kumascript/blob/master/lib/kumascript/parser.pegjs">a very constrained syntax</a>.</li>
+<li>  The content resulting from macro evaluation <a href="https://pypi.python.org/pypi/bleach">is sanitized</a> such that it&#8217;s subject to the same constraints as hand-written markup.</li>
 </ul>
 <p>Since <a target="_blank" title="KumaScript" href="https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">KumaScript</a> has no access to a user&#8217;s request data, we&#8217;re decently firewalled in terms of privacy and abusing the visitor. And, since <a href="https://pypi.python.org/pypi/bleach">the markup is filtered</a>, it&#8217;s difficult to inject nasty XSS exploits and the like.</p>
 <p>So, when I say security and safety, I&#8217;m thinking mainly about our servers: We want to sandbox this server-side <a target="_blank" title="JS" href="https://developer.mozilla.org/docs/JavaScript?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">JS</a> such that it can&#8217;t abuse CPU, memory, or network resources. At present, my approach to this is anemic: Restrict code authoring to trusted people, and impose impatient timeouts on macro execution.</p>
@@ -248,11 +246,11 @@ Hello #2</pre>
 <p>That doesn&#8217;t mean it&#8217;s abandoned, though: <a target="_blank" title="KumaScript" href="https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">KumaScript</a> is a mature project by most definitions. It&#8217;s been working well enough that I haven&#8217;t wanted to touch it. Most of the work goes on within the wiki itself, and <a target="_blank" title="KumaScript" href="https://developer.mozilla.org/docs/Project:Introduction_to_KumaScript?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">KumaScript</a> is meant to be the smallest piece it can be.</p>
 <p>And maturity doesn&#8217;t mean I don&#8217;t have notions about future work. Off the top of my head, I&#8217;d like to get around things like the following:</p>
 <ul>
-<li>Improve template execution &amp; sandboxing. Currently, if any one thing misbehaves in the document, the whole process gets aborted. Maybe instead, I should <a href="https://github.com/lloyd/node-compute-cluster">spin up a pool of processes</a>: Each them can take care of executing a single macro, while a master process watches for CPU / RAM / network abuse and kills anything that behaves badly.</li>
-<li>Reconsider my possibly brain-dead approach to parsing source documents for macros using a PEG.<a target="_blank" title="js" href="https://developer.mozilla.org/docs/JavaScript?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">js</a> grammar. Or, maybe it&#8217;s good enough.</li>
-<li>Need much better error trapping and reporting throughout everywhere.</li>
-<li>Need much better use of <a href="https://github.com/etsy/statsd/">statsd</a> for measuring timings and suchlike.</li>
-<li>Maybe offer an HTTP proxy that runs all content through the service, for easier deployment atop existing sites beyond <a target="_blank" title="MDN" href="https://developer.mozilla.org/?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">MDN</a>.</li>
+<li>  Improve template execution &amp; sandboxing. Currently, if any one thing misbehaves in the document, the whole process gets aborted. Maybe instead, I should <a href="https://github.com/lloyd/node-compute-cluster">spin up a pool of processes</a>: Each them can take care of executing a single macro, while a master process watches for CPU / RAM / network abuse and kills anything that behaves badly.</li>
+<li>  Reconsider my possibly brain-dead approach to parsing source documents for macros using a PEG.<a target="_blank" title="js" href="https://developer.mozilla.org/docs/JavaScript?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">js</a> grammar. Or, maybe it&#8217;s good enough.</li>
+<li>  Need much better error trapping and reporting throughout everywhere.</li>
+<li>  Need much better use of <a href="https://github.com/etsy/statsd/">statsd</a> for measuring timings and suchlike.</li>
+<li>  Maybe offer an HTTP proxy that runs all content through the service, for easier deployment atop existing sites beyond <a target="_blank" title="MDN" href="https://developer.mozilla.org/?utm_source=wordpress%20blog&utm_medium=content%20link&utm_campaign=promote%20mdn">MDN</a>.</li>
 </ul>
 <p>And of course: Suggestions, patches, and pull requests are more than welcome!</p>
 
@@ -263,7 +261,7 @@ Hello #2</pre>
           <div id="disqus_thread"></div>
           <script type="text/javascript">
             var disqus_needs_loading = true;
-            var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com//2013/02/21/kumascript/";
+            var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com/2013/02/21/kumascript/";
           </script>
           <noscript
             >Please enable JavaScript to view the
