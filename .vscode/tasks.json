@@ -1,0 +1,45 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "start",
+			"problemMatcher": [],
+			"label": "npm: start dev server",
+			"detail": "npm-run-all --parallel serve watch",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"type": "npm",
+			"script": "build",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "npm: build blog",
+			"detail": "node index.js build"
+		},
+		{
+			"type": "npm",
+			"script": "drafts",
+			"problemMatcher": [],
+			"label": "npm: start drafts-only dev server",
+			"detail": "yarn build && npm-run-all --parallel drafts:*"
+		},
+		{
+			"type": "npm",
+			"script": "stage:deploy",
+			"problemMatcher": [],
+			"label": "npm: stage deploy",
+			"detail": "gh-pages -t -d build"
+		},
+		{
+			"type": "npm",
+			"script": "stage",
+			"problemMatcher": [],
+			"label": "npm: stage local preview",
+			"detail": "npm-run-all --serial stage:build stage:deploy"
+		}
+	]
+}
