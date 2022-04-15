@@ -44,8 +44,8 @@ Finley chuckled. "Anyway, what was I saying?"
 
 The third time, Charley passed. 
 
-## prompt
-![](7D667128-5617-4234-B627-B01813470BA6.jpeg)
-![](61D7D750-C188-4008-8B3A-30E297545C5B.jpeg)
-![](B3F49BF3-0B4A-42A1-8012-87EC3167B0BF.jpeg)
-![](2E977232-EF07-4FFE-8920-FD9FF1F40C80.jpeg)
+## Prompt
+
+[Take a look at my Labyrinthos Tarot Reading!](https://app.labyrinthos.co/reading/daily/SSTRWS/62,32,21)
+
+![](20220414223345.png)
