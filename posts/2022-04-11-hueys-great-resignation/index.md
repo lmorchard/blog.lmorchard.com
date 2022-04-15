@@ -88,6 +88,4 @@ The face laughed and hands reached up to push the floor panel aside. "A little h
 
 [Take a look at my Labyrinthos Tarot Reading!](https://app.labyrinthos.co/reading/daily/SSTRWS/-76,64,43)
 
-![](4AE08411-2EBF-4B31-AF79-9E28A43AD374.png)
-![](EEE0D921-9335-4558-A4C2-A0C4D932044E.png)
-![](C522BCCD-0C21-4CB5-8767-7DC699C1832A.png)
+![](20220414223737.png)
