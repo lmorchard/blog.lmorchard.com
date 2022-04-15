@@ -9,6 +9,7 @@ categories:
   - Uncategorized
 tags:
   - fiction
+  - flash
   - future
   - scifi
 ---

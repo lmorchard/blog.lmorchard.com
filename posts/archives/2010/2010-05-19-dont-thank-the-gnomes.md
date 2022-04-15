@@ -1,5 +1,5 @@
 ---
-title: 'Don&#8217;t Thank the Gnomes'
+title: Don't Thank the Gnomes
 author: lmorchard
 layout: post
 permalink: /2010/05/19/dont-thank-the-gnomes
@@ -11,6 +11,7 @@ tags:
   - fantasy
   - ficly
   - fiction
+  - flash
   - gnomes
   - kindness
   - urban

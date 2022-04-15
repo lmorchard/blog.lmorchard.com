@@ -7,7 +7,6 @@ tags:
 - scifi
 - podcasts
 - podcasting
-- fiction
 title: Spaceship Radio is nifty
 wordpress_id: 738
 wordpress_slug: spaceship-radio-is-nifty

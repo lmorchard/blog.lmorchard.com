@@ -9,6 +9,7 @@ categories:
   - Uncategorized
 tags:
   - fiction
+  - flash
   - NaFicWriMo
   - scifi
   - stuxnet

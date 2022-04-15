@@ -11,6 +11,7 @@ tags:
   - ai
   - ficly
   - fiction
+  - flash
   - scifi
   - transhuman
 ---
