@@ -4,6 +4,7 @@ tags:
   - fiction
   - flash
   - scifi
+  - tarot
 ---
 
 Fawn sat at the dining room table, wedged between her brothers Glen and Lonnie. Her parents, Barbara and Stuart, sat opposite. On the wall hung a banner of shiny metallic letters that read "Welcome Home Space Girl!"

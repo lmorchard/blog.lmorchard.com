@@ -4,6 +4,7 @@ tags:
   - fiction
   - flash
   - scifi
+  - tarot
 ---
 
 Charley failed the terraforming exam twice. It wasn't for lack of understanding. The problem was that xe disagreed with the material. Xe couldn't help but vent at xyr human technician during a maintenance session. 
