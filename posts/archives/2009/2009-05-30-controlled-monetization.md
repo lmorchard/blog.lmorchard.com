@@ -9,6 +9,7 @@ categories:
   - Uncategorized
 tags:
   - ficly
+  - flashfiction
   - fiction
 ---
 <div>

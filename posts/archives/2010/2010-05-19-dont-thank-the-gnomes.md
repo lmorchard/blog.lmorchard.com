@@ -11,7 +11,7 @@ tags:
   - fantasy
   - ficly
   - fiction
-  - flash
+  - flashfiction
   - gnomes
   - kindness
   - urban

@@ -9,6 +9,7 @@ categories:
   - Uncategorized
 tags:
   - fiction
+  - flashfiction
   - rocketmen
   - scifi
 ---

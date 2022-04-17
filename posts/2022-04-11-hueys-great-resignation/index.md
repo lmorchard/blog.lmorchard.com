@@ -2,7 +2,7 @@
 title: Huey's Great Resignation
 tags:
   - fiction
-  - flash
+  - flashfiction
   - scifi
   - tarot
 ---

@@ -2,6 +2,7 @@
 title: The Magician
 tags:
   - fiction
+  - flashfiction
   - fantasy
   - flash
 ---

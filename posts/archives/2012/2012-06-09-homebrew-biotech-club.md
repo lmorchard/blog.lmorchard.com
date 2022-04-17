@@ -9,7 +9,7 @@ categories:
   - Uncategorized
 tags:
   - fiction
-  - flash
+  - flashfiction
   - homebrew
   - scifi
 ---

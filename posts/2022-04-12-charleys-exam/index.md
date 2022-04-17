@@ -2,7 +2,7 @@
 title: Charley's exam
 tags:
   - fiction
-  - flash
+  - flashfiction
   - scifi
   - tarot
 ---

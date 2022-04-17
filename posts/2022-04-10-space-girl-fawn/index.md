@@ -2,7 +2,7 @@
 title: Space Girl Fawn
 tags:
   - fiction
-  - flash
+  - flashfiction
   - scifi
   - tarot
 ---

@@ -2,6 +2,7 @@
 title: Fiona's Folly
 tags:
   - fiction
+  - flashfiction
   - flash
   - scifi
 ---

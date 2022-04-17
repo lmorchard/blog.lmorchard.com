@@ -9,6 +9,7 @@ categories:
   - Uncategorized
 tags:
   - fiction
+  - flashfiction
   - future
   - moving
   - NaFicWriMo

@@ -9,6 +9,7 @@ categories:
   - Uncategorized
 tags:
   - fiction
+  - flashfiction
   - moravec
   - robots
   - vats

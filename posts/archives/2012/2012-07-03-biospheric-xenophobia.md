@@ -10,7 +10,7 @@ categories:
 tags:
   - aliens
   - fiction
-  - flash
+  - flashfiction
   - scifi
   - xenophobia
 ---
