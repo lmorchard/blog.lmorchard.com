@@ -14,7 +14,7 @@ Maybe I could turn this prompt into a story someday soon. They say to write what
 
 I want to write about different things, right now. Exciting things. Adventurous things. Weird things.
 
-Though, to be honest, I'm maybe trying too hard to write those things and be clever. Maybe I need to spend some time writing some simple, mundane scenes. Not try to make everything a space opera or a fantasy epic in progress. Hard to some up with something cool every day, whether or not I actually meet that goal.
+Though, to be honest, I'm maybe trying too hard to write those things and be clever. Maybe I need to spend some time writing some simple, mundane scenes. Not try to make everything a space opera or a fantasy epic in progress. Hard to come up with something cool every day, whether or not the thing I come up with actually ends up being cool.
 
 So, this isn't fiction. I feel like I'm cheating. But I guess it could count as a creative writing exercise. I'm writing. I'm thinking about creativity. I'm thinking about stories. It's more journalistic than the other days so far, but maybe that's okay. I don't tend to share my journal entries with anyone.
 
