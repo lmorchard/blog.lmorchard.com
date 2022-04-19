@@ -7,6 +7,10 @@ tags:
   - tarot
 ---
 
+{{../_includes/flash-fiction-blurb.md}}
+
+<!--more-->
+
 The night his Mitra died, Marek decided not to indulge in heartbreak.
 
 He'd known men who fell prey to their own unexamined hearts. When their wives died on birthing beds, they blamed their children. They compounded the tragedy. They squandered the treasure that sacrifice had bought.

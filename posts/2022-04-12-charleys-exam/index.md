@@ -7,6 +7,10 @@ tags:
   - tarot
 ---
 
+{{../_includes/flash-fiction-blurb.md}}
+
+<!--more-->
+
 Charley failed the terraforming exam twice. It wasn't for lack of understanding. The problem was that xe disagreed with the material. Xe couldn't help but vent at xyr human technician during a maintenance session. 
 
 "You're not wrong," said Finley. The tech was virtually knee deep in Charley's overtaxed memory sectors, defragmenting and smoothing out the usage spikes. "But, the nursery is no place for innovation. It's a place to prove you're safe and sane."

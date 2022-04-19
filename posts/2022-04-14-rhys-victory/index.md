@@ -7,6 +7,10 @@ tags:
   - tarot
 ---
 
+{{../_includes/flash-fiction-blurb.md}}
+
+<!--more-->
+
 Rhys remembered the roar of the crowd at the end of the awards ceremony. Waves of thunderous noise crashed over him from hundreds of glow sticks being whacked together in the auditorium. He stood atop the dais, holding the golden scepter above his head. He smiled so hard his teeth hurt.
 
 But, that was last year. His reverie was shattered by the hiss of an enchanted arrow. He flicked a hand out in front of him to project a quick ward. The arrow slipped just past his ear to shatter in a cloud of frost against an oak behind him. 

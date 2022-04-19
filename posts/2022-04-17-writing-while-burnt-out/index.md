@@ -6,6 +6,10 @@ tags:
   - tarot
 ---
 
+{{../_includes/flash-fiction-blurb.md}}
+
+<!--more-->
+
 This prompt is a little too real right now. Not sure how much unbridled ambition I had, but the parts about burnout and disillusionment are too true a story. Hard to get my head into a place where I might write some fiction about it.
 
 Very tired now, going to bed soon. Played Vampire Survivors all day rather than write to this prompt, or do much of anything else. I guess it's Easter, but that just makes me anxious and sad about a lot of things.

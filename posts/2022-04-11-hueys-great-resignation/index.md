@@ -7,6 +7,10 @@ tags:
   - tarot
 ---
 
+{{../_includes/flash-fiction-blurb.md}}
+
+<!--more-->
+
 Huey clomped along the open grid floor of the narrow utility corridor, tool-laden bags dangling from his well-worn belt. He muttered at a hand terminal, alternating between prodding the screen and sweeping its sensor stalk at the walls. 
 
 He cursed at the readout and came to a halt. He scratched thoughtfully at his scraggly greying beard. He tapped out a sequence with calloused fingers moving more nimbly than one might expect. The terminal chimed decisively.

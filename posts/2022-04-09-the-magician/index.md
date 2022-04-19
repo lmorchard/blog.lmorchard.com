@@ -7,6 +7,10 @@ tags:
   - flash
 ---
 
+{{../_includes/flash-fiction-blurb.md}}
+
+<!--more-->
+
 "So," said the magician's assistant, "do you ever do, like, *real* magic on stage?"
 
 The old magician sighed. "Not really," they said. They picked up a pack of cigarettes from the dressing room counter and started whacking it against their palm.
