@@ -13,7 +13,6 @@ const jsAssets = [
   //'vendor/lodash.js',
   //'vendor/async.js',
   "toc.js",
-  "analytics.js",
   "main.js",
 ];
 
