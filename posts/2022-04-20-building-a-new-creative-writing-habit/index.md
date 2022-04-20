@@ -24,4 +24,4 @@ So, that's why I'm trying to establish a habit with a daily goal of at least 300
 
 And, speaking of finishing something big: If I keep it up for 6 months, I'll have accumulated enough words for a novel. Of course, to be fair, a lot of those words are going to be throwaway garbage. But, what if just through sheer volume and writing practice, I could extract sufficient good-enough words to produce a few short stories or novellas? That would be more than I've managed to achieve in literally decades.
 
-In closing, I don't really know if it's going to work. However, I *do* know that nothing else has worked to help me follow through on this intention. This habit thing seems like a new angle on the problem than just shaming myself for not having been telling stories for years. If it doesn't work out, well I guess I tried. If it does work, well I guess that'll be pretty cool.
+In closing, I don't really know if it's going to work. However, I *do* know that nothing else *has* worked. This habit thing seems like a new angle on the problem. If it doesn't work out, well I guess I tried. If it does work, well I guess that'll be pretty cool.
