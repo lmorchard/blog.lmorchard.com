@@ -17,7 +17,7 @@ He'd known men who fell prey to their own unexamined hearts. When their wives di
 
 Mitra had been his everything. But, it was a capricious universe that bore responsibility for the exchange that delivered little wailing Korrine into his arms. He couldn't alter it. Korrine hadn't caused it. His best vengance would be to ensure his daughter grew brilliant and strong.
 
-Years passed and Marek never took another wife. He and Mitra had lived far from far from crowds. Her passing hadn't left him inclined to change that. It was hard tending the land and animals by himself. But, as Korrine grew, he saw an uncanny spark grow in her eyes. She watched him and wanted to do what he did. He indulged her and taught her everything he knew.
+Years passed and Marek never took another wife. He and Mitra had lived far from crowds. Her passing hadn't left him inclined to change that. It was hard tending the land and animals by himself. But, as Korrine grew, he saw an uncanny spark grow in her eyes. She watched him and wanted to do what he did. He indulged her and taught her everything he knew.
 
 In time, and to his delight, she surpassed him far earlier than he thought possible. Not even half his height and she had the goats and chickens and horses all heeding and adoring her. She had more than doubled the yield of their crops with her attention. He thought they might soon even find a surplus on their hands worth the trek to town for trade.
 
