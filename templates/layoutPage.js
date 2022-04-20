@@ -13,7 +13,6 @@ const jsAssets = [
   //'vendor/lodash.js',
   //'vendor/async.js',
   "toc.js",
-  "analytics.js",
   "main.js",
 ];
 
@@ -33,6 +32,7 @@ module.exports = (
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
       />
+      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
       ${cssAssets.map(
         (css) => html`
           <link
