@@ -6,7 +6,7 @@ tags:
   - habits
 ---
 
-**TL;DR:** I'm trying to build a new creative writing habit. The immediate form that this has taken is a goal of writing [300 words of fiction per day](https://blog.lmorchard.com/tag/fiction/) that I post to my blog. I've been using 3-card spreads from a Tarot deck to supply a writing prompts. I'm hoping I keep it up.
+**TL;DR:** I'm trying to build a new creative writing habit. The immediate form that this has taken is a goal of writing [300 words of fiction per day](https://blog.lmorchard.com/tag/fiction/) that I post to my blog. I've been using 3-card spreads from a Tarot deck to supply writing prompts. I'm hoping I keep it up.
 
 <!--more-->
 
