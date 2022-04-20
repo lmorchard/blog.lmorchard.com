@@ -21,7 +21,7 @@ Years passed and Marek never took another wife. He and Mitra had lived far from 
 
 In time, and to his delight, she surpassed him far earlier than he thought possible. Not even half his height and she had the goats and chickens and horses all heeding and adoring her. She had more than doubled the yield of their crops with her attention. He thought they might soon even find a surplus on their hands worth the trek to town for trade.
 
-As Korrine approached the cusp of leaving childhood behind, he began to suspect that her talents weren't entirely his doing. She had insights into living things that couldn't quite be explained by the lessons and experience he shared. With a glance, she could charm crows and squirrels out of the trees to sit at her feet. She could reverse wilt and blight on crops in just a few days. Neither he nor she ever got sick wih the seasons.
+As Korrine approached the cusp of leaving childhood behind, he began to suspect that her talents weren't entirely his doing. She had insights into living things that couldn't quite be explained by the lessons and experience he shared. With a glance, she could charm crows and squirrels out of the trees to sit at her feet. She could reverse wilt and blight on crops in just a few days. Neither he nor she ever got sick with the seasons.
 
 The day that convinced him that he was raising a witch was the day he broke his arm. He'd been on the roof of their little cabin patching leaks, when his footing slipped and he landed badly. He felt the forearm break against a rock. Saw the limb bent disastrously. Though shocked, he knew what had happened to him.
 
