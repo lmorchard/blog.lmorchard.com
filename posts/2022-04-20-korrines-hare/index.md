@@ -19,9 +19,9 @@ She'd spent long hours alone, out in the woods, where she thought Marek couldn't
 
 Once, a hare had crawled into her lap. Docile and trusting but very ill. She stroked the hare's ears and looked inside. Life's pattern within was tangled. Sluggish and blocked. 
 
-Korrine teased the snags apart like brushing a horse's mane. The hare's pulse quickened. Life bloomed within the little creature - the doe's own and seven more sparks all brightening. When Korrine opened her eyes, the pregnant doe bolted. She sprang into the air and scampered around Korrine in a circle before sprinting off into the trees. 
+Korrine teased the snags apart like brushing a horse's mane. The hare's pulse quickened. Life bloomed within the little creature - the doe's own and seven more sparks all brightening. When the girl opened her eyes, the pregnant doe sprang into the air and scampered around Korrine in a circle before sprinting off into the trees. 
 
-Korrine had felt an urge to hide what she could do. She barely understood it. She couldn't have imagined that stern Marek would've looked upon it kindly.
+She felt an urge to hide what she could do. She barely understood it. She couldn't have imagined that stern Marek would look upon it kindly.
 
 And yet, his arm healed, Marek smiled. He laughed. He even began to cry. That scared her more that anything.
 
