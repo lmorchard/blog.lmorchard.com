@@ -45,11 +45,11 @@ Poppy shrugged and sent him her checking account and routing numbers. She was sh
 
 Zach invited her to a Discord with a dozen other folks trading Reddit to-the-moon memes and had an entire channel just full of "good morning" GIFs. Quick introductions told her that she was the only actual coder in the bunch: there were social media experts, designers, investors, and a few randos whose role she couldn't decipher at all.
 
-They pointed her to a "whitepaper" that rambled on for close to 180 pages as a blend of manifesto, financial prospectus, timeshare brochure, and a scifi TV series bible. She had to admire it as an artifact of overexcited creativity, even if it did sorely beg for an editor's attention.
+They pointed her to a whitepaper that rambled on for close to 180 pages as a blend of manifesto, financial prospectus, timeshare brochure, and a scifi TV series bible. She had to admire it as an artifact of overexcited creativity, even if it did sorely beg for an editor's attention.
 
-She spent an afternoon speed reading of the document. From what she could discern, they wanted to build a kind of space opera universe where folks could collect starships and fly them through an unending network of jump gates leading to procedurally generated solar systems. 
+She spent an afternoon speed reading the document. From what she could discern, they wanted to build a space opera universe where folks could collect starships and fly them through an unending network of jump gates leading to procedurally generated solar systems. Despite the whitepaper's word count, there wasn't really that much to it.
 
-Most of it was a copy/paste/replace mashup of space simulation games she'd seen for decades. The main difference here, though, was that everything in the universe would be represented by non-fungible tokens, available for purchase or rent or trade. And, of course, every transaction would have a little built-in royalty sent back to the project founders.
+Most of it was a copypasta mashup of space sims she'd seen for decades. The main difference here, though, was that everything in the universe would be represented by non-fungible tokens, available for purchase or rent or trade. And, of course, every transaction would have a little built-in royalty sent back to the project founders.
 
 Without her, it was all vapor. They desperately needed her to build the smart contract code to actually implement any of their ideas on the blockchain. None of it seemed like it would go very far, even with her help. But, the cash was already in her account, so she figured she should at least give it a shot.
 
@@ -57,9 +57,9 @@ She'd seen this GIF once: There was a guy digging a hole while ten others played
 
 Poppy tried to be professional: Status reports at the start and end of each day. Demos of the things she got working along the way. All the guys in the Discord just kind of cheered every time she delivered an update, but she never got the sense that any of them understood what they were looking at. She got feedback on colors and icon designs, but never on any of the mechanics of the system.
 
-She got bored and lazy. She borrowed a huge chunk of the procgen algorithms from the old 80s space trading game Elite, just with a different initial random seed so the planet names weren't immediately recognizable. She started throwing obfuscated loopholes and backdoors into the smart contracts. She named aliens after exes.
+She got bored and lazy. She borrowed a huge chunk of the procgen algorithms from the old 80s space trading game Elite, just with a different initial random seed so the planet names weren't immediately recognizable. She started throwing obfuscated loopholes and backdoors into the smart contracts. She named aliens after exes. She named space stations after the investors. No one seemed to care.
 
-But, at the end of the month, she'd actually done it: She'd built the system of contracts that implemented the universe they'd plotted out. She'd given them the tools to manage content and narrative. It was even kind of fun, even if she didn't at all believe the thing would take off.
+But, at the end of the month, she'd actually done it: She'd built the system of contracts that implemented the basic game world they'd plotted out. She'd given them the tools to manage content and narrative. It was even kind of fun, even if she didn't at all believe the thing would take off.
 
 The next day, after she'd turned in her final update, she found that she was kicked out of the Discord and her access to the project code repositories had been revoked.
 
