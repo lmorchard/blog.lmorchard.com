@@ -14,7 +14,7 @@ tags:
 
 "No, that's not what I meant," he said. "I just said we could stand to get to know each other better."
 
-"[We're staying together for the sake of our memories](https://www.youtube.com/watch?v=pwA-FYliXY8)," she said.
+"[We're staying together for the sake of our memories](https://curve.bandcamp.com/track/perish-3)," she said.
 
 He sighed. "Yeah, we've had a lot of good times together. We're still good. Together."
 
@@ -46,7 +46,7 @@ He scoffed. "I guess you have been writing. That's so dramatic."
 
 "Yeah, I know." He put his head in his hands. "What happened? We didn't fight, we didn't cheat."
 
-"it just kind of ran out."
+"It just kind of ran out."
 
 "We can make it work again."
 

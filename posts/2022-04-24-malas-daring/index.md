@@ -19,7 +19,7 @@ They kept their nest platforms in the middle branches. They were high enough tha
 
 Most of the eyes were aimed down, then, as Mala came upon their village. She carefully circled the place, noted the guards who lounged and chattered to each other. She found the little storage hut where they kept what she came for. Only one of the troop sat near it, dozing.
 
-This troops had gathered a new kind of fruit. It was found far from here, but she knew how to grow new fruit from the seeds inside. As far as she had ever seen, no one in this troop could do that. They just gathered and ate. It was a waste. If she could take some of their fruit, she could flee back home and introduce it to her own troop.
+This troop had gathered a new kind of fruit. It was found far from here, but she knew how to grow new fruit from the seeds inside. As far as she had ever seen, no one in this troop could do that. They just gathered and ate. It was a waste. If she could take some of their fruit, she could flee back home and introduce it to her own troop.
 
 She carefully descended through the branches toward the hut. The only light came from a smoldering clay fire bowl outside. The guard was curled up right inside the entrance. The roof was made from broad, overlapping leaves draped over bent branches. She wasn't sure whether it would take her weight if she landed on it.
 
