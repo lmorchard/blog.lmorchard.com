@@ -29,7 +29,7 @@ The guard's eyes opened and met hers. She tried a smile. He smiled back, drowsil
 
 Mala scrabbled back and cast her gaze around the space. Just behind her, a net of woven vines held a generous pile of the fruit. She snatched it, slung it onto her back. She heard others scampering toward the hut. The walls were made of woven twigs and branches, not much more substantial than the roof.
 
-Screaming, she turned and dashed into the back wall of the hut and burst out into open space beyond. Her limbs flailed as she cast around for anything to grasp. She fell and fell - and finally, one hand caught a branch, breaking her fall with a wrench of her shoulder. Joints throbbing, she swing up and sought greater height. 
+Screaming, she turned and dashed into the back wall of the hut and burst out into open space beyond. Her limbs flailed as she cast around for anything to grasp. She fell and fell - and finally, one hand caught a branch, breaking her fall with a wrench of her shoulder. Joints throbbing, she swung up and sought greater height. 
 
 No need for stealth, Mala reached the high canopy and put on as much speed as she could muster. Behind her, she heard hoots and screams in pursuit. The huffing of her own breath began to drown them out. Soon, she could hear them no longer and home was in sight.
 
