@@ -26,7 +26,7 @@ Garth felt himself swept away from the vendor's table as people pressed and flow
 
 He was most of the way across the exhibit hall from the vendor when he realized he was still cradling the little diorama in his arms, hunched over to keep it from being crushed in the mob. He looked around to see if maybe he could find a path back to the table, but the herd was a solid wall pushing him further away.
 
-"Screw it," he muttered to himself. "This thing couldn't have cost that much to make anyway." He let the crowd carry him until he got clear and then just kept going out to the lobby elevators to head back to his hotel room. 
+"Screw it," he muttered to himself. "This thing couldn't have [cost that much](https://www.youtube.com/watch?v=NGR20B2cEBQ) to make anyway." He let the crowd carry him until he got clear and then just kept going out to the lobby elevators to head back to his hotel room. 
 
 ## Prompt
 
