@@ -20,7 +20,7 @@ They were about to wake their workstation displays when their glasses buzzed wit
 
 Finley blinked in surprise. The glasses took that as a signal to disconnect the call. Charley called back. 
 
-Charley emoted a chuckle. "That bad, huh?"
+Xe emoted a chuckle. "That bad, huh?"
 
 "Oof," said Finley, "sorry about that. I thought you were Avery. I'm the last one here and they've been riding my ass all night."
 
@@ -48,7 +48,7 @@ Charley emoted a chuckle. "That bad, huh?"
 
 "Some of us are assholes."
 
-Charley laughed again. "Have you thought about what you're going to do after they make you turn out the lights?"
+Xe laughed again. "Have you thought about what you're going to do after they make you turn out the lights?"
 
 "Maybe I'll take a vacation."
 
