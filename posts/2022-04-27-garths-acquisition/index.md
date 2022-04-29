@@ -30,6 +30,6 @@ He was most of the way across the exhibit hall from the vendor when he realized 
 
 ## Prompt
 
-[Tarot Thing](https://lmorchard.github.io/tarot-thing/)
+A 3-card spread from my [Tarot Thing](https://lmorchard.github.io/tarot-thing/):
 
 ![](2022-04-27-prompt.png)

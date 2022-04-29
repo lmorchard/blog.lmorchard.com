@@ -14,6 +14,6 @@ Story goes here
 
 ## Prompt
 
-[Take a look at my Labyrinthos Tarot Reading!](https://app.labyrinthos.co/reading/ppf/SSTRWS/47,69,14)
+A 3-card spread from my [Tarot Thing](https://lmorchard.github.io/tarot-thing/):
 
 ![](20220416155859.png)
