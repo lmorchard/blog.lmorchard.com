@@ -1,5 +1,5 @@
 ---
-title: Writing Habit Recap #1
+title: Writing Habit Recap No. 1
 tags:
   - writing
   - metablogging
