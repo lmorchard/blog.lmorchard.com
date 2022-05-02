@@ -13,11 +13,11 @@ Last month, I started [trying to build a daily creative writing habit](/2022/04/
 
 As of Thursday, I've gotten through twenty days of writing here. After that, I decided to take a couple of days off. And rather than jumping right back into it, I figured I might write a little status report.
 
-When I first started, I wanted to establish this as a *Thing I Do* - just a regular, everyday fixture. I figured that I really needed to make it happen *every single day* in order to lay down the grooves of the habit. But, I've started feeling a little crispy around the edges trying to muster daily motivation wthout fail.
+When I first started, I wanted to establish this as a *Thing I Do* - just a regular, everyday fixture. I figured that I really needed to make it happen *every single day* in order to lay down the grooves of the habit. But, I've started feeling a little crispy around the edges trying to muster daily motivation without fail.
 
-By now, I'm very familiar with the signs of burning out an enthusiasm. So, some regular breaks sound good for the sake of sustainability. I'm just going to have to trust myself - which is a hard thing - to start the habit back up next week. That said, the other regular writing habit I've managed to establish - i.e. morning journal pages - only happens 5 days a week. Maybe I should take the hint from that.
+By now, I'm very familiar with the signs of burning out [an enthusiasm](https://blog.lmorchard.com/2006/05/26/confessions-of-a-serial-enthusiast/). So, some regular breaks sound good for the sake of sustainability. I'm just going to have to trust myself - which is a hard thing - to start the habit back up next week. That said, the other regular writing habit I've managed to establish - i.e. morning journal pages - only happens 5 days a week. Maybe I should take the hint from that?
 
-I also thought it might be worth recapping the last few things I managed to post:
+With that reflection out of the way, I also thought it might be worth recapping the last few things I posted here:
 
 - "[Mala's Daring](https://blog.lmorchard.com/2022/04/24/malas-daring/)"
   
