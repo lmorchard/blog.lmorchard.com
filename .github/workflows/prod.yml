@@ -1,44 +1,35 @@
 name: Production deploy to Amazon S3
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js 14.2.0
-      uses: actions/setup-node@v1
-      with:
-        node-version: 14.2.0
-    - name: Yarn install
-      run: yarn install
-    - name: Build for production
-      run: yarn run build  
-    - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1
-    - uses: badsyntax/github-action-aws-s3@master
-      name: Sync to S3
-      id: sync-s3
-      with:
-        bucket: ${{ secrets.AWS_S3_BUCKET }}
-        aws-region: 'us-east-1'
-        action: 'sync' # sync|clean
-        src-dir: 'build' # required only if action is sync
-        files-glob: '**/*' # required only if action is sync
-        sync-strategy: |
-          ETag
-          Content-Type
-          Cache-Control              
-    - name: Invalidate Cloudfront
-      uses: chetan/invalidate-cloudfront-action@master
-      env:
-        DISTRIBUTION: ${{ secrets.DISTRIBUTION }}
-        PATHS: '/*'
-        AWS_REGION: 'us-east-1'
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14.2.0
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.2.0
+      - name: Yarn install
+        run: yarn install
+      - name: Build for production
+        run: yarn run build
+      - name: Publish to S3
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --acl public-read --follow-symlinks --delete --size-only
+        env:
+          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: "us-east-1"
+          SOURCE_DIR: "build"
+      - name: Invalidate Cloudfront
+        uses: chetan/invalidate-cloudfront-action@master
+        env:
+          DISTRIBUTION: ${{ secrets.DISTRIBUTION }}
+          PATHS: "/*"
+          AWS_REGION: "us-east-1"
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
