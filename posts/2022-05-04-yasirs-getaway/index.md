@@ -27,7 +27,7 @@ But he worked and hustled - and even after paying his share of the rent and food
 
 And now, this was all and only his. It was small, as ships went - only about 1000 square meters of interior space. And yet, it was luxurious compared to the old bunk he'd shared with his older brother and the one corner of the living room they'd sometimes allowed him. Even just the corridor in which he sprawled was a decadence. 
 
-And the ship's basic systems: It had heat and light and adjustable gravity. It had an internal reactor that would keep it running for weeks without refueling from the corona of a star. 
+And the ship's basic systems: It had heat and light and adjustable gravity. It had an internal reactor that would keep it running for weeks without refueling from the corona of a star. And, if he conserved power, he could keep it going longer just on photovoltaic panels and capacitor charge.
 
 The memory banks were loaded with more books and music and videos than he could consume in a lifetime. It had fresh, clean air without the perpetual stink of kin and last week's cooking. And when he got hungry, it had an automatic kitchen with supplies that should last for years. Granted, the food would be much blander than he was used to, but he found it hard to care.
 
