@@ -11,11 +11,12 @@ module.exports = ({
   fullText = false,
 }) => html`
   <?xml version="1.0" encoding="UTF-8"?>
-  <rss version="2.0">
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
       <title>${tag && `Tag: ${tag} - `}${site.title}</title>
       <description>${site.subtitle}</description>
       <link>${site.absolute_baseurl}</link>
+      <atom:link href="${site.absolute_baseurl}/index.rss" rel="self" type="application/rss+xml" />      
       ${posts.slice(0, maxItems).map(
         (post) => html`
       <item>

@@ -9,8 +9,6 @@ tags:
 
 {{../_includes/flash-fiction-blurb.md}}
 
-This is a test to see if the RSS feed changes, please ignore.
-
 <!--more-->
 
 The starport salesman handed Yasir the ship's access fob along with the little packet of antiquated manuals made of glossy paper and card stock.
