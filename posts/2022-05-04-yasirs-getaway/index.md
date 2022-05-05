@@ -1,5 +1,5 @@
 ---
-title: Yassir's Getaway
+title: Yasir's Getaway
 tags:
   - fiction
   - flashfiction
