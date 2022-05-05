@@ -9,6 +9,8 @@ tags:
 
 {{../_includes/flash-fiction-blurb.md}}
 
+What would you do if you finally got the keys to a shiny new starship?
+
 <!--more-->
 
 The starport salesman handed Yasir the ship's access fob along with the little packet of antiquated manuals made of glossy paper and card stock.
