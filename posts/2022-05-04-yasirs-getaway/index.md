@@ -19,7 +19,7 @@ The starport salesman handed Yasir the ship's access fob along with the little p
 
 The salesman nodded, shook Yasir's hand, then spun on his heel and departed through the midship airlock. Yasir clicked the fob and locked up the ship behind him. He closed his eyes and sighed. 
 
-Then, Yasir proceeded to strip naked and dropped to the floor. For several minutes, he just rolled back and forth like a cat on the crimson plush carpeting of the short hall between the bridge and his new quarters. It smelled of chemical cleansers and offgassing polymers - so clean and new. He laughed and laughed. 
+Then, Yasir proceeded to strip naked and drop to the floor. For several minutes, he just rolled back and forth like a cat on the crimson plush carpeting of the short hall between the bridge and his new quarters. It smelled of chemical cleansers and offgassing polymers - so clean and new. He laughed and laughed. 
 
 He'd spent a decade squirreling away the money for this ship until he could buy it outright. Living with three generations of family in an apartment built for two, it hadn't been easy to keep it this plan private. 
 
