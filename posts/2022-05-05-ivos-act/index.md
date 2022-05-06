@@ -10,7 +10,7 @@ tags:
 
 <!--more-->
 
-Ivo found himself onstage, wearing a coprophagous grin in the dark. He flexed his fingers. In response, lasers and spotlight beams in colors from all across the visible spectrum danced over him in response.
+Ivo found himself onstage, wearing a coprophagous grin in the dark. He flexed his fingers. Lasers and spotlight beams from all across the visible spectrum danced over him in response.
 
 The crowd responded, too: 100,000 voices gone up in a titanic roar of approval and anticipation. He roared back. Even with the amplification of the venue's sound system, he struggled to match their zeal. He laughed and flung his hands out to send the lights across the audience. They screamed louder. 
 
