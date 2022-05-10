@@ -14,7 +14,7 @@ Jae had walked through that park for years. It was on the way between work and h
 
 As a creature of habit, Jae became accustomed to a lot of the same faces every day. Mostly just passing by in mutual oblivion, but there were always a few habitual nods or smiles.
 
-When the pandemic hit and Jae hunkered down into a lonely work-at-home hermitage. It hadn't even occurred to them that they'd miss all those faces in the park. But, as the languishing stretched into days and months and years, they found themselves sometimes dreaming of strangers. 
+When the pandemic hit, Jae hunkered down into a lonely work-at-home hermitage. It hadn't even occurred to them that they'd miss all those faces in the park. But, as the languishing stretched into weeks and months, they found themselves sometimes dreaming of strangers. 
 
 When they had left the house over the interminable span of days, it was always away from the city center and away from people. The more deserted the route the better. They crossed the street whenever someone else appeared on the sidewalk, no nods or smiles.
 
