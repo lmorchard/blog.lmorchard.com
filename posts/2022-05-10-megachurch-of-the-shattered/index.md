@@ -21,7 +21,7 @@ He swept both arms toward the congregation with palms upturned, baring his chest
 
 Scattered boos and hisses came in response. He smiled magnanimously and, after a few beats, waved the tumult down. 
 
-"Yes, yes," he said, nodding and catching a few eyes. He knew the holograms above were augmented with lenticular effects that made many folks feel like he saw them each, personally. Happy murmurs rose. 
+"Yes, yes," he said, nodding and catching a few eyes. He knew the holograms above were augmented with effects to make folks feel like he saw them each, personally. Happy murmurs rose. 
 
 "It is true: there are folks out there who do not share in our work. But, my friends, they harbor precious immortal Shards just as we all do.
 
