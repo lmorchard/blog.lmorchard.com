@@ -9,11 +9,11 @@ tags:
 
 <!--more-->
 
-I've been working on this writing habit for just over a month. It seems to be a thing, now. I'm starting to think about what I want to do next. These exercises are like marathon training—and at some point, I want to try an proper marathon.
+I've been working on this writing habit for just over a month. It seems to be a thing, now. I'm starting to think about what I want to do next. These exercises are like marathon training—and at some point, I want to try a proper marathon.
 
 It's also occurred to me that doing fresh characters & settings every day—even if they're just over 300 words—might be harder than building momentum with an established story. 
 
-I'm thinking about sustainability. Over a decade ago, I did the 4am wake-up and butt-in-chair thing. That let me crank out a few thousand words before the day job on a regular basis. But, while I did finish a few books that way, I feel like I've fully burnt out the mechanism. The notion of writing a book that way again just seems like a nonstarter. 
+I'm thinking about sustainability. Over a decade ago, I did the 4am wake-up and butt-in-chair thing. That let me crank out a few thousand words before the day job on a regular basis. But, while I did finish a few books that way, I feel like I've fully burnt out that mechanism. The notion of writing a book that way again just seems like a nonstarter. 
 
 This drumbeat of a small habit feels more reliable than expecting to browbeat myself into a writing flow by sheer willpower.
 
