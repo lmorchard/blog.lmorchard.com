@@ -44,11 +44,11 @@ Korrine looked to Marek and he shrugged.
 
 "I don't think I could stop her," said Marek.
 
-"Pour a little of this on your hands and rub it around. Be careful not to touch anything but what I tell you after that." The man handed her a bottle with a rubber stopper. She did—it was both cold and burned at the same time. She could sense little things fizzing and dying on her skin.
+"Pour a little of this on your hands and rub it around. Be careful not to touch anything but what I tell you after that." The man handed her a bottle with a rubber stopper. She did as he asked—it was both cold and burned at the same time. She could sense little things fizzing and dying on her skin.
 
 He pulled a hand drill from a bag by his knee. "Carefully, but firmly: hold his head still. He's out cold, but the pain might wake him."
 
-She crouched down and did as he said. He carefully positioned the drill near the boy's temple and began to crank. A woman behind Korrine began to weep, but no one protested otherwise. 
+She crouched down and steadied the boy's head. He positioned the drill above the boy's temple and began to crank. A woman behind Korrine began to weep, but no one protested otherwise. 
 
 Marek expected trouble, but somehow these people trusted this man. He didn't quite relax, but he did take a hand away from the small of his back. 
 
