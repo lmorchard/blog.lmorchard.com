@@ -32,7 +32,7 @@ The man looked up, surprised. He was young: older than Korrine, but not by much.
 
 Marek appeared behind her, put a warning hand on her shoulder. She stiffened.
 
-"She saved my favorite horse with bloodletting from the head," said Marek. "It had suffered a knock to the head. She is very good with livestock."
+"She saved my favorite horse with bloodletting," said Marek. "It had suffered a knock to the head. She is very good with livestock."
 
 The man chuckled. "Many folks I've met would have just eaten the horse."
 
