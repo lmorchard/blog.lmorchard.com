@@ -10,8 +10,6 @@ tags:
 
 {{../_includes/flash-fiction-blurb.md}}
 
-*This is a continuation of [Marek and Korrine](/2022/04/16/marek-and-korrine/).*
-
 <!--more-->
 
 Without thinking, Korrine made her father's bones whole. Only after did it occur to her that she might have made a mistake. 
