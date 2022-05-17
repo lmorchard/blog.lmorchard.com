@@ -52,7 +52,7 @@ She crouched down and steadied the boy's head. He positioned the drill above the
 
 Marek expected trouble, but somehow these people trusted this man. He didn't quite relax, but he did take a hand away from the small of his back. 
 
-Korrine reached into the boy's head. She couldn't quite fix what was wrong by herself, but she could ease the drill's passage. She pulled blood flow away from the new wound, convinced tiny things not to intrude. He man kept drilling and she heard the scrape of bone.
+Korrine reached into the boy's head. She couldn't quite fix what was wrong by herself, but she could ease the drill's passage. She pulled blood flow away from the new wound, convinced tiny things not to intrude. The man kept drilling and she heard the scrape of metal against bone.
 
 She could feel when the drill tip made contact with the delicate tissue beneath. It seemed the man could, too, because he stopped immediately. She felt the pressure inside ease. She helped it ease by coaxing some of the excess fluid toward the new exit as the man withdrew the drill.
 
