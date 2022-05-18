@@ -1,5 +1,5 @@
 ---
-title: Exchange
+title: Exchanges
 tags:
   - fiction
   - flashfiction
