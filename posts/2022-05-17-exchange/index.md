@@ -26,7 +26,7 @@ Marek noticed Danijel's hands had eased from behind his back as he spoke, mirror
 
 "I hate to ask more of you," said Anton, "but the sooner we can get Sebastijan to a clean bed back at the house, the better I can ensure he heals well. You have an intact wagon—is there any way you could lend us a ride?"
 
-Marek stroked his beard. "I'd gladly offer," he said, gesturing to their wagon, "but as you can see we are heavy with cargo bound for the market and have no room for passengers."
+Marek stroked his beard. "I'd gladly offer," he said, gesturing to their wagon, "but as you can see we're heavy with cargo bound for the market and we've no room for passengers."
 
 Korrine gave her father a sharp glance, but Danijel just laughed.
 
@@ -36,17 +36,17 @@ Korrine gave her father a sharp glance, but Danijel just laughed.
 
 "I'll buy it all right now. And your wagon outright. Name a price."
 
-Marek's brows shot up. "And the wagon? I couldn't part with it all it for less than—" Marek paused to gaze upward, muttering some calculation to himself. "—at least 25 aureus." Korrine's glance turned to a stormy glare. 
+Marek's brows shot up. "And the wagon? I couldn't part with it all it for less than—" He paused to gaze upward, muttering some calculation to himself. "—at least 25 aureus." Korrine's glance turned to a stormy glare. 
 
 Danijel shook his head and sadly said, "Not good enough, my friend."
 
 "But I built that wagon with my own hands—"
 
-Danijel cut Marek off with a gesture. "You misunderstand: you ask too little. I will pay no less than 100 aureus for all this."
+Danijel cut Marek off with a gesture. "You misunderstand me: you've asked for too little. I will pay no less than 100 aureus for all this."
 
 Korrine gaped. Anton smiled. Marek blinked and held out a hand to Danijel. "I'd be a fool to argue. For that price, I'll build you a new wagon from scratch."
 
-"I didn't take you for a fool," said Danijel. "Some help fixing our old  wagon would be appreciated, though."
+"I didn't take you for a fool," said Danijel, grasping Marek's hand. "Some help fixing our old wagon would be appreciated, though."
 
 "One more thing," said Anton, sheepishly. "I'd very much appreciate it if Miss Korrine could accompany us to help keep Sebastijan stable on the trip."
 
@@ -58,13 +58,13 @@ Marek darkened. "Absolutely not."
 
 "These are good people," she said, "and this boy still needs help."
 
-Marek drew a breath to speak, but Danijel interrupted: "How about this—10 aureus in wages for Korrine's service to us today and 10 more to you, Marek, for your service while they're on their way. We will join them when we've finished here."
+Marek drew a breath to speak, but Danijel interrupted: "How about this—10 aureus in wages for Korrine's service to us today and 10 more to you, Marek, for your service while they're on their way. We will join them when we've finished here. I'll feed you both and make sure you get back home safely afterward."
 
 Marek sighed. "That's more than fair and I don't think I could hold her back anyway." 
 
-He reached behind himself and unbuckled one of his knives. Korrine's face displayed a measure of horror as he handed it to her. Somehow she hadn't realized it was there.
+He reached under his jacket and unbuckled one of his knives. Korrine's face displayed a measure of horror as he handed it to her. Somehow she hadn't realized it was there.
 
-"Take it," said Marek. "While we are apart, use this if you find yourself not among good people." Korrine took the sheathed knife and buckled it across her back.
+"Take it," said Marek. "While we are apart, use this if you find yourself not among good people." Korrine took the sheath and buckled it across her back.
 
 "Very good," said Danijel, with a clap. "Men, let's get to work unloading my beer so we can get my grandson home before sunset."
 
