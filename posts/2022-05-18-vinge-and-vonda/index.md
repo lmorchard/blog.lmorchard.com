@@ -53,7 +53,7 @@ Vinge sighed and intoned the words:
 
 "Are you aware that you are in violation of that oath?"
 
-"No, I am not, Laika. I am clearlly escewing complacency and have committed the full produce of my labors to redirecting the path of human life away from death."
+"No, I am not, Laika. I am clearly escewing complacency and have committed the full produce of my labors to redirecting the path of human life away from death."
 
 "Ah," said Laika, waggling a finger, "but you skipped over some big parts there. In particular, the bits about necessary leisure and its relationship to your health and happiness."
 
@@ -71,7 +71,7 @@ Vinge sighed and intoned the words:
 
 Vinge sighed again. "Seriously, I'm fine."
 
-"Seriously, you're not. In fact, as evidence, consider that you have not considered the utility of your previous work to the problem."
+"Seriously, you're not. In fact, as evidence, consider that *you* have not considered the utility of your previous work to the problem."
 
 Their brow furrowed. "What do you mean?"
 
