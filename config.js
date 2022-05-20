@@ -1,7 +1,7 @@
 module.exports = {
-  postsPath: "../blog.lmorchard.com/posts",
+  postsPath: "./posts",
   buildPath: "./build",
-  assetPaths: ["./public", "../blog.lmorchard.com/uploads"],
+  assetPaths: ["./public", "./uploads"],
   commonmarkParserOptions: {},
   commonmarkRendererOptions: {},
   site: {
