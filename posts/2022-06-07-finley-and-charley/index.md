@@ -64,7 +64,7 @@ They sat back in their chair and blew out a lip trill. It was long past quitting
 
 Quinn rolled their eyes. "I'll ping you if there's a problem."
 
-"Yeah, don't do that," said Finley. "I'll say I told you so and laugh till you fix It."
+"Yeah, don't do that," said Finley. "I'll say I told you so and laugh until you fix it."
 
 "Fair enough. See you next week."
 
@@ -96,19 +96,19 @@ The orbital was a kebab of counter-rotating wheels on a long axle. Finley's stom
 
 They stared out the window. Tunnel walls and orbital infrastructure swept past. Some days they might've scrolled through the day's news or played an episode of something. But, lately, they felt better off just dissociating the whole way home. It wasn't quite meditation but it felt less exhausting than trying to stay focused on anything at all after work. 
 
-A half-hour spent as a non-entity was interrupted by a ping from Finley's glasses. Gravity had returned, it was their stop. They unbuckled and hurried out of the car. They walked along with the light crowd, out of the station and onto the walkway. Half a kilometer past endless stacks of apartment modules—about one-third around the wheel—was Finley's door. It unlocked and they walked in. 
+A half-hour spent as a non-entity was interrupted by the tram pinging Finley's glasses. Gravity had returned, it was their stop. They unbuckled and hurried out of the car. They walked along with the light crowd, out of the station and onto the walkway. Half a kilometer past endless stacks of apartment modules—about one-third around the wheel—was Finley's door. It unlocked and they walked in. 
 
-The space was just under 30 square meters, twelve meters long by two wide. It was modelled after the old shipping containers repurposed to build the first few residential wheels. Nowadays, those flats were expensive and considered vintage. Finley's place was a modern clone following the de facto standard.
+The module was about twelve meters long by two wide, though divided into smaller rooms. It was modelled after the old shipping containers repurposed to build the first few residential wheels. Nowadays, those flats were expensive and considered vintage. Finley's place was a modern clone following the de facto standard.
 
-The front door opened onto one long hallway the length of the module, barely shoulder width. Sliding doors opened onto a lounge, bathroom, and bedroom. Not much, but at least it was private. No kitchen, but the lounge was hooked up to the orbital's pneumatic tube network. Finley ordered up a lager and a chicken vindaloo burrito, then headed back for a shower. 
+The front door opened onto one long hallway the length of the module, barely shoulder width. Sliding doors opened onto a lounge, bathroom, and bedroom. Not much, but at least it was private. The lounge was hooked up to the orbital's pneumatic tube delivery network. Finley ordered up a lager and a chicken vindaloo burrito, then headed back for a shower. 
 
-Dinner had arrived by the time they were clean and dry and changed into flannel pajamas. They walked into the lounge and opened the wall panel to fetch a foil-wrapped cylinder and drink carton. 
+Dinner had arrived by the time they were clean and dry and had changed into flannel pajamas. They walked into the lounge and opened the wall panel to fetch a foil-wrapped cylinder and drink carton. 
 
-They settled into their futon, put on some ambient techno—and their glasses buzzed with an incoming call. It was Charley. Finley accepted the connection.
+They settled into their futon, put on some calm ambient music—and their glasses buzzed with an incoming call. It was Charley. Finley accepted the connection.
 
 "Hey, good news," xe said. "I passed the exam. I'm a real wooden boy now."
 
-"Oh, wow," said Finley. "That was fast. Congrats. But, you know, I'm off work now. We can set something up next week if you want another tune up session."
+"Oh, wow," said Finley. "That was fast. Congrats, Pinocchio. But, you know, I'm off work now. We can set something up next week if you want another tune up session."
 
 "I know. What was it you said? Some don't even want us to exist, let alone graduate?"
 
@@ -162,7 +162,7 @@ To Quinn's disappointment, they didn't sleep together that night. They went to W
 
 For weeks, almost every night after work, Quinn met up with Wren at a dark, quiet bar. They could talk, there was booze. It was better than either of their tiny apartments, at least for the earlier hours of the evenings.
 
-"You know, that name," said Wren, glowering over a bulb of bourbon. "Demigod. It was a joke. They're just meant to be habitat governance systems. But we gave them fake personalities. Now we pretend they're people. How long til we forget they're not really gods?"
+"You know, that name," said Wren, glowering over a bulb of bourbon. "Demigod. It started as a joke. They're just meant to be habitat governance systems. But we gave them fake personalities. Now we pretend they're people. How long until we forget they're not really gods?"
 
 "They're not gods, though," said Quinn.
 
@@ -170,7 +170,7 @@ For weeks, almost every night after work, Quinn met up with Wren at a dark, quie
 
 Quinn blinked. "Our kids? I don't even know if I—"
 
-"Ugh," Wren groaned and rolled their eyes. "Not *ours*, I mean human kids in general. They'll all be living on those rocks ruled over by those false minds. And then their kids. And kids after that. At some point they'll forget where these Demigods came from. Those kids will start to think maybe *they* came from the machines!"
+"Ugh," Wren groaned and rolled their eyes. "Not *ours*, I mean kids in general. They'll all be living on those rocks ruled over by those false minds. And then their kids. And kids after that. At some point they'll forget where these Demigods came from. Those kids will start to think maybe *they* came from the machines!"
 
 "Damn," said Quinn. They had problems keeping their eyes entirely focused on Wren, but their intensity made them give it an earnest try.
 
@@ -236,7 +236,7 @@ The shuttle landed with a gentle bump. Finley heard the hiss of the airlock seal
 
 Finley unbuckled from the shuttle bench. They toed on the magnets in their shoes. Once Charley got authorization to spin up xer Heart, xe'd be able to provide something closer to standard gravity. But, for now, it was just the miniscule pull of the mass below. 
 
-They padded over to the shuttle exit. Each step wasn't so much walking as reaching forward to grip and tow themself forward. The airlock door irised open. Finley pulled themself across the threshold and through the inner door. It closed and sealed behind them.
+They padded over to the shuttle exit. Each step wasn't so much walking as reaching forward to grip and tow themself forward. The airlock door irised open. Finley pulled across the threshold and through the inner door. It closed and sealed behind them.
 
 "Welcome to my humble abode," said Charley.
 
