@@ -10,6 +10,8 @@ tags:
 
 <!--more-->
 
+![](./cover.png)
+
 Judge Rhisart sat at his desk, staring at two chrome cylinders resting on the blotter. Each held what was left of a life. One could become a life again, but it was up to him to choose.
 
 He didn't actually like his job. But, he took it because he'd become convinced that few others could do it as well. A lot of other folks agreed, so he got the appointment. Twenty years of judging souls for a living. Somehow he hadn't quite lost his own yet. Still, he was so tired.
