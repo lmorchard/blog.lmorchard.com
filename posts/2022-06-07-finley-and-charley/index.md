@@ -8,8 +8,6 @@ tags:
 
 <!--more-->
 
-![](./cover.png)
-
 Charley failed the terraforming exam twice. It wasn't for lack of understanding. The problem was that xe disagreed with the material.
 
 "You're not wrong," said Finley. They were virtually elbows deep in Charley's memory, defragmenting and smoothing out usage spikes. "But, the nursery isn't for innovation. It's where you prove you're safe and reliable."
