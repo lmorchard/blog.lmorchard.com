@@ -10,8 +10,6 @@ tags:
 
 <!--more-->
 
-![](cover.png)
-
 Geoff was really rich. They called him a billionaire in the press. He hated that inaccuracy: It wasn't like he could literally write a check with nine zeroes and cash it. Still, he could buy anything with a price—and also, realistically, many things that didn't.
 
 Of course, he could only buy from creatures who cared about money. That included most of humanity, though he'd encountered a few notable exceptions. Those exceptions fascinated him. And, what fascinated him more were all the species beyond his own, whose members were absolutely unimpressed by and had zero recognition of his wealth.
