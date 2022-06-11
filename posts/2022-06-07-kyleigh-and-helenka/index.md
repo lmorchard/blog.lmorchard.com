@@ -10,6 +10,8 @@ tags:
 
 <!--more-->
 
+![](./cover.png)
+
 Kyleigh cackled uncontrollably. With wild sweeps of her arms and spiraling flourishes of wrists and fingers, she channeled exuberant life into vines that sprang from the soil to ascend the surrounding oaks. Ferns unfurled from fiddleheads to broad fronds with dozens of miniature thunderclaps. Troops of mushrooms popped up in rapid fire cascades from fallen logs and leaf piles all around. 
 
 "Not too much, now," said Helenka. She raised a wizened finger. 

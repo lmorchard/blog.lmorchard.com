@@ -10,6 +10,8 @@ tags:
 
 <!--more-->
 
+![](./cover.png)
+
 When Radmilo was a boy, he talked to fireflies. He didn't know any better, it was just something he did. He had no brothers or sisters, only himself to play with in the fields and woods around the house. He'd stay out through all the days of summer, until dusk came and he had to run home. 
 
 The fireflies didn't talk back, not exactly. But, when he talked, they seemed to like to be around him. They followed him in swarms and swirls—not crowding, not pestering, just there around him and reacting to his voice. Sometimes he thought they made shapes that almost made sense. Sometimes he thought they were telling him stories. 

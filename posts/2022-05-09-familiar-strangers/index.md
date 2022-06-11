@@ -10,6 +10,8 @@ tags:
 
 <!--more-->
 
+![](./cover.png)
+
 Jae had walked through that park for years. It was on the way between work and home, and the pod of food carts across the way never got old for lunch.
 
 As a creature of habit, Jae became accustomed to a lot of the same faces every day. Mostly just passing by in mutual oblivion, but there were always a few habitual nods or smiles.

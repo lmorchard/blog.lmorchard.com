@@ -10,6 +10,8 @@ tags:
 
 <!--more-->
 
+![](cover.png)
+
 "Heavenly fires do not fall to earth," said the senior astronomer.
 
 "This one will," said the intern. 

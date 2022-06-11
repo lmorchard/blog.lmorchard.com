@@ -11,6 +11,8 @@ tags:
 
 <!--more-->
 
+![](cover.png)
+
 Rowan stood behind the pulpit, gazing out at 50,000 packed seats arranged in section after section radiating away from the amphitheater stage in semi-circular tiers rising to the rafters. He took an amplified breath and the crowd dropped to near silence in an instant. When he smiled, he knew even the nosebleed seats could see his head and shoulders projected as gigantic twin holograms above the stage.
 
 "Welcome, friends," he boomed. "It heartens me so, seeing you all gathered here today as we continue the work of preparing the immortal Shards we all harbor for Reunion Day."

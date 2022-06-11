@@ -12,6 +12,8 @@ tags:
 
 <!--more-->
 
+![](cover.png)
+
 The man broke eye contact with Korrine and snapped his gaze to Marek as that man's fingers brushed the handles of concealed knives.  
 
 "I've been rude," he said. "In all the excitement, none of us have introduced ourselves. My name is Anton. I'm studying to be a physician. And you are?" He smiled and extended an open hand up to Marek from where he crouched.

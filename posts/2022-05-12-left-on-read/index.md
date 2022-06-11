@@ -10,6 +10,8 @@ tags:
 
 <!--more-->
 
+![](cover.png)
+
 "I didn't even know we were dating anymore," said Allyn. "I just thought you ghosted me."
 
 Michael sighed. "I told you this was going to be a busy week at work."

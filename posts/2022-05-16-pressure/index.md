@@ -12,6 +12,8 @@ tags:
 
 <!--more-->
 
+![](cover.png)
+
 In early Spring, just after the first thaw, Marek and Korrine loaded up a wagon and set out for the nearby city. Their cargo was mainly barrels of beer made from last year's harvest of wheat and rye. 
 
 Marek had been dabbling with brewing for years. But, this year, Korrine turned her attention to herbs and yeast and managed to do something wonderful. They kept a good number of barrels in their own cellar, but that left plenty of surplus. 

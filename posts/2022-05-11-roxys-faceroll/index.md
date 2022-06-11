@@ -10,6 +10,8 @@ tags:
 
 <!--more-->
 
+![](cover.png)
+
 Roxy stared out the window, watching a squirrel traverse a wire between poles. She had no real idea how long she'd been watching, but it was mesmerizing to watch the little critter scamper along at speed. 
 
 She'd told herself it was just a pause to let her brain simmer. But, deep down, she knew that there was nothing going on in there. This was just pure dissociation. But even knowing that, she couldn't tear herself away until the squirrel descended another pole and scurried out of sight. 

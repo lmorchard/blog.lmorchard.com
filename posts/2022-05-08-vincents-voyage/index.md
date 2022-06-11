@@ -11,6 +11,8 @@ tags:
 
 <!--more-->
 
+![](./cover.png)
+
 Vincent had chased rumors across light years, scoured wrecks for lingering traces of data. He'd sifted through myths and legends for scraps of reality filtered through planet-bound generations of storytelling. He'd almost given up believing in the theory that humanity had had a single planetary origin in the deep, deep past.
 
 Like tracing shrapnel to find the source of an explosion, Vincent chased backward through all the tangled paths of the human galactic diaspora. He hopped from garden worlds hosting billions to struggling settlements to long-dead wastes.
