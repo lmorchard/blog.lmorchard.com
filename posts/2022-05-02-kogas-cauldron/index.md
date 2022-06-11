@@ -11,6 +11,8 @@ tags:
 
 <!--more-->
 
+![](./cover.png)
+
 *Amari could only convey portents and omens to the little primates. Just one of them seemed to be paying any attention. But, even then, few of the messages really got through. Xe had to keep trying.*
 
 Koga poured the water into the fire bowl, quenching the flames and flooding the hut with steam and smoke. Shafts of afternoon light pierced through the gloom and illuminated the murky liquid. She squinted at the grime and ash swirling across the surface. Her apprentice, Miko, peered over her shoulder and made a little inquisitive grunt.

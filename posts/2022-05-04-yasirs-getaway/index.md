@@ -11,6 +11,8 @@ tags:
 
 <!--more-->
 
+![](./cover.png)
+
 The starport salesman handed Yasir the ship's access fob along with the little packet of antiquated manuals made of glossy paper and card stock.
 
 "She's all yours now, sir," he said with an obsequious smile. "May she bring you great joy."

@@ -11,6 +11,8 @@ tags:
 
 <!--more-->
 
+![](./cover.png)
+
 Avery hadn't really expected Finley to have been so dedicated to closing out their issues. It was far too much work—which, after all, was the point. It wasn't meant to be finished. Most of the team had gotten the point and bowed out already. Still, they kind of felt obligated to let Finley run it out of their system.
 
 It wouldn't be wasted effort, at least. During backlog triage, Avery had prioritized implementation of the discrete control systems that would still be useful after the development of the synthetics ended. There was no sense in cluing Finley into that, though: their misplaced empathy for the personality simulators, convincing as they were, would only lead to drama.
