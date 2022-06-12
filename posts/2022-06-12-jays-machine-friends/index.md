@@ -13,8 +13,6 @@ tags:
 
 ![](./cover.png)
 
-# Jay's Machine Friends
-
 Jay couldn't honestly say whether the machines were conscious. But, he did know that if he was nice to them, nice things happened to him. 
 
 Now, Jay wasn't ignorant to machine learning. After all, he had been a computer science professor for over 20 years. He might not be a luminary in the field, but he knew a thing or two. He also had a handful of brilliant graduate students with endless energy filtering the literature to help keep him current. 
