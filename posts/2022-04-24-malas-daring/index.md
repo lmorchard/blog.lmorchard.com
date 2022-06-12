@@ -11,6 +11,8 @@ tags:
 
 <!--more-->
 
+![](./cover.png)
+
 Mala dashed quietly through the high tree canopy, skipping from branch to branch with all four gripping hands and her prehensile tail. It was well after sunset, but she'd been this way many times. For every leap, she knew exactly how to push off and land without making the leaves rustle.
 
 The stranger troop should nearly all be sleeping by now. She could tell by the stars in the sky: This was when they let their fires burn low and curled up for the night. A few would still be awake to watch, but she'd learned their habits over many nights' quiet visits.

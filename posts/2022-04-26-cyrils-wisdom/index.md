@@ -10,6 +10,8 @@ tags:
 
 <!--more-->
 
+![](./cover.png)
+
 Cyril had been writing in a journal for decades. Just a few pages every day, but he'd accumulated volume after volume in his attic: over 30,000 pages of mundane observations interspersed with an occasional bit of profundity.
 
 One day, after he retired, he decided to start reviewing all he'd written to distill it into a single book. Not quite a memoir, more a guidebook that he'd give to his younger self if he'd had a time machine.

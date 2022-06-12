@@ -10,6 +10,8 @@ tags:
 
 <!--more-->
 
+![](./cover.png)
+
 Staring at his monitor, Jacob fought to stay awake, to appear engaged. His face appeared alongside seven other teammates in a column along the right of his screen. The bulk of the screen was occupied by a spreadsheet listing work items for the week. Document conversions, metadata updates, quality checks - none of it particularly hard or exciting. 
 
 Jacob's boss, Frank, was presenting. His voice was an endless drone, explaining every row of the sheet in great detail.  He occasionally called out names on the call, expecting folks to unmute and acknowledge having been assigned a task by repeating the description of the work involved. 

@@ -10,6 +10,8 @@ tags:
 
 <!--more-->
 
+![](./cover.png)
+
 "You were right, we don't know each other."
 
 "No, that's not what I meant," he said. "I just said we could stand to get to know each other better."

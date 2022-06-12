@@ -11,6 +11,8 @@ tags:
 
 <!--more-->
 
+![](./cover.png)
+
 Asceline crept through the caverns. Her elfin boots deadened the sound of her footfalls and any errant pebble that she might disturb. And, though her ultrablack cloak never failed to divert all light from her form, she took special care to stick to the shadows.
 
 She passed a handful of torch-bearing humans patrolling the tunnels, but none of them took the slightest notice. Before long, she'd reached the magma chamber of the dormant volcano. The magma had been drained long ago by unnatural means, but the air remained sulfrous and searing.

@@ -10,6 +10,8 @@ tags:
 
 <!--more-->
 
+![](./cover.png)
+
 Garth wandered the exhibit hall, weaving through the convention crowd. It was overwhelming. He wanted everything. Spread out on the tables, he saw old memorabilia and signed copies, handcrafted tchotchkes and prints of original artwork. He even saw an original screen-ready uniform, but it wasn't his size. 
 
 He had a running list in his head of things and prices. He also had an undeniable awareness of the lightness of his wallet versus the heaviness of his credit card balances. He'd really blown through his savings on this trip. But, he'd been cooped up at home for nearly three years, thanks to the pandemic. 

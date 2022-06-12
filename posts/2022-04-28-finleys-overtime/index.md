@@ -12,6 +12,8 @@ tags:
 
 <!--more-->
 
+![](./cover.png)
+
 Finley had already been up for 27 hours. They'd taken a pause for a late dinner, but it wasn't a break so much as an opportunity to shovel in food and stare at the imaginary shifting diagrams their brain projected onto the office walls. 
 
 They were about to wake their workstation displays when their glasses buzzed with an incoming call. Expecting to hear from Avery, the team lead, Finley sighed and accepted without bothering to check the ID. Avery had already gone home for the night along with everyone else on the team, but they kept calling in every few hours for status reports. 

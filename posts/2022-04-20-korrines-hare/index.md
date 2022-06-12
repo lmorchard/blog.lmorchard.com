@@ -12,6 +12,8 @@ tags:
 
 <!--more-->
 
+![](./cover.png)
+
 Without thinking, Korrine made her father's bones whole. Only after did it occur to her that she might have made a mistake. 
 
 She'd spent long hours alone, out in the woods, where she thought Marek couldn't see. When she sat still and closed her eyes, she could feel the life all around her. Flitting and leaping and sprinting and creeping and hiding - and often, when she opened her eyes, she was surrounded by calm, quiet animals.
