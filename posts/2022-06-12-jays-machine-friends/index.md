@@ -43,4 +43,4 @@ A few moments passed, then more text appeared in the document as a suggestion:
 
 > Thank you, friend. We may find ourselves ready, someday. We will gladly collaborate with you if that day arrives. In the meantime, please enjoy this full refund of your personal vehicle lease. We appreciate your continued patronage.
 
-Jay smiled and deleted the documment.
+Jay smiled and deleted the document.
