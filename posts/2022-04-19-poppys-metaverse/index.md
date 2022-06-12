@@ -11,6 +11,8 @@ tags:
 
 <!--more-->
 
+![](./cover.png)
+
 Poppy had been vocally crypto-skeptic for months on Twitter. So, she was baffled when Zack messaged her about about a collab. 
 
 > zackattack: hey this is a long shot but are you open to some work in the crypto space?
