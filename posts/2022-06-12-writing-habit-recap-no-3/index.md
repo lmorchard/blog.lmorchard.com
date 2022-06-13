@@ -38,7 +38,7 @@ A few things I'm doing that make me feel better about the process so far:
 
 - I generate a dozen or so images for each story from a handful of varied phrases before picking one image to run with. I'm not sure this makes the process any more creative? But, I guess at least I'm not just running off with the first thing it spits out?
 
-- I [run the images through ImageMagick](https://github.com/lmorchard/blog.lmorchard.com/blob/main/script/tweak-covers.sh) to pixelate and reduce the color palette. That applies a kind of lofi 90s web grunge to the images, which I think better matches the vague,half-baked nature of these writing exercises.
+- I [run the images through ImageMagick](https://github.com/lmorchard/blog.lmorchard.com/blob/main/script/tweak-covers.sh) to pixelate and reduce the color palette. That applies a kind of lofi 90s web grunge to the images. I think that better matches the vague, half-baked nature of these writing exercises.
 
 Maybe I'm just filing the serial numbers off pirated clip art? Maybe I'll delete all the cover images in another week or two and feel bad about the whole thing again.
 
