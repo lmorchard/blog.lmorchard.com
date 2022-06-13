@@ -13,17 +13,23 @@ tags:
 
 ## Finley and Charley, a short story
 
-[<img src="https://blog.lmorchard.com/2022/06/07/finley-and-charley/cover.png" width="150" />](https://blog.lmorchard.com/2022/06/07/finley-and-charley/)
+[<img src="https://blog.lmorchard.com/2022/06/07/finley-and-charley/cover.png" width="150" style="width: 128px; float: left; padding: 1em 1em" />](https://blog.lmorchard.com/2022/06/07/finley-and-charley/)
 
 It took me about two weeks, but I took a break from daily writing exercises and finished a 5,359 word short story called "[Finley and Charley](https://blog.lmorchard.com/2022/06/07/finley-and-charley/)".
 
 It's neither the story I started with, nor the story I expected to end up with. But, it's a finished story, and that's more than I've managed in years.
 
-In short, it's the story of a human named Finley and an asteroid terraforming AI named Charley. There are also humans named Quinn and Wren who make things complicated. Hopefully it's a decent story. I have half a hope to write more about these folks.
+In short, it's the story of a human named Finley and an asteroid terraforming AI named Charley. There are also humans named Quinn and Wren who make things complicated.
+
+Hopefully it's a decent story. I also have half a hope to write more about these folks.
 
 ## DALL·E Mini
 
-First quick thing is that—along with what seems like the rest of the internet—I've started playing with [DALL·E Mini](https://github.com/borisdayma/dalle-mini). It's turning out very handy to generate little cover images for my writing exercises. It also feels like it's got some promise to use in story prompts, where I generate the image first before diving into the writing exercise proper.
+[<img src="dalle-logo.png" style="width: 128px; float: right; padding: 1em" />](https://github.com/borisdayma/dalle-mini)
+
+First quick thing is that—along with what seems like the rest of the internet—I've started playing with [DALL·E Mini](https://github.com/borisdayma/dalle-mini).
+
+It's turning out very handy to generate little cover images for my writing exercises. It also feels like it's got some promise to use in story prompts, where I generate the image first before diving into the writing exercise proper.
 
 [Initially, I felt squicky about it possibly ripping off images from the internet](https://twitter.com/lmorchard/status/1534952790698577920). But, as I've played with it and read about it more, the squick factor is fading a bit. 
 
