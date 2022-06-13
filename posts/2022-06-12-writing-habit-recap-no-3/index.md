@@ -9,7 +9,7 @@ tags:
 
 <!--more-->
 
-![](cover.png)
+![Maybe a pair of witches? Who knows.](cover.png)
 
 ## Finley and Charley, a short story
 
@@ -25,18 +25,56 @@ In short, it's the story of a human named Finley and an asteroid terraforming AI
 
 First quick thing is that—along with what seems like the rest of the internet—I've started playing with [DALL·E Mini](https://github.com/borisdayma/dalle-mini). It's turning out very handy to generate little cover images for my writing exercises. It also feels like it's got some promise to use in story prompts, where I generate the image first before diving into the writing exercise proper.
 
-[Initially, I felt squicky about it possibly ripping off images from the internet](https://twitter.com/lmorchard/status/1534952790698577920). But, as I've played with it and read about it more, the squick factor is fading a bit. I've got it running on my own hardware now. And, rather than just directly using the first thing it comes up with, I'm trying to tinker a bit to add my own tweaks. Maybe I'm just filing the serial numbers off clip art? Feels like more than that, but I might be fooling myself to play with a new toy.
+[Initially, I felt squicky about it possibly ripping off images from the internet](https://twitter.com/lmorchard/status/1534952790698577920). But, as I've played with it and read about it more, the squick factor is fading a bit. 
 
-Who knows? Maybe I'll delete all the cover images in another week or two and feel bad about the whole thing again.
+A few things I'm doing that make me feel better about the process so far:
+
+- I'm running the image generation on my own hardware. I'd like to train my own model at some point, but personal understanding of the process and insufficient hardware blocks that for now.
+
+- I generate a dozen or so images for each story from a handful of varied phrases before picking one image to run with. I'm not sure this makes the process any more creative? But, I guess at least I'm not just running off with the first thing it spits out?
+
+- I run the images through Imagemagick to reduce the resolution and color palette. That applies a kind of lofi 90s web style to the images, which I think better matches the half-baked nature of these writing exercises.
+
+Maybe I'm just filing the serial numbers off pirated clip art? Maybe I'll delete all the cover images in another week or two and feel bad about the whole thing again.
 
 ## Moar writing exercises
 
-- <img src="https://blog.lmorchard.com/2022/05/16/pressure/cover.png" width="50" /> "[Pressure](https://blog.lmorchard.com/2022/05/16/pressure/)" - beer, witchcraft, trepanation - more writing toward toward the [Marek and Korrine](https://blog.lmorchard.com/tag/marekandkorrine/) story, which I have a notion to continue into something bigger
-- <img src="https://blog.lmorchard.com/2022/05/17/exchange/cover.png" width="50" /> "[Exchange](https://blog.lmorchard.com/2022/05/17/exchange/)" - a quick follow-on to "Pressure" to follow some more story threads
-- <img src="https://blog.lmorchard.com/2022/05/18/vinge-and-vonda/cover.png" width="50" /> "[Vinge and Vonda](https://blog.lmorchard.com/2022/05/18/vinge-and-vonda/)" - fanfic in [Ada Palmer's Terra Ignota universe](https://adapalmer.com/series/terra-ignota/), because I was thinking about [the Utopian Hive](https://terra-ignota.fandom.com/wiki/Utopia)
-- <img src="https://blog.lmorchard.com/2022/05/19/making-friends-with-peanuts/cover.png" width="50" /> "[Making Friends with Peanuts"](https://blog.lmorchard.com/2022/05/19/making-friends-with-peanuts/) - I keep wanting to make friends with the crows in my yard with peanuts. Progress is slow, although I have already made inroads with the squirrels and a blue jay.
-- <img src="https://blog.lmorchard.com/2022/06/07/kyleigh-and-helenka/cover.png" width="50" /> "[Kyleigh and Helenka](https://blog.lmorchard.com/2022/06/07/kyleigh-and-helenka/)" - more witches in the forest, maybe in the same world as [Marek and Korrine](https://blog.lmorchard.com/tag/marekandkorrine/)? 
-- <img src="https://blog.lmorchard.com/2022/06/08/judge-rhisart/cover.png" width="50" /> "[Judge Rhisart](https://blog.lmorchard.com/2022/06/08/judge-rhisart/)" - a judge spends a few hours in other folks' shoes
-- <img src="https://blog.lmorchard.com/2022/06/09/radmilo-and-dominik/cover.png" width="50" /> "[Radmilo and Dominik](https://blog.lmorchard.com/2022/06/09/radmilo-and-dominik/)" - talking to fireflies and an angry dad
-- <img src="https://blog.lmorchard.com/2022/06/10/konnors-first-paycheck/cover.png" width="50" /> "[Konnor's First Paycheck](https://blog.lmorchard.com/2022/06/10/konnors-first-paycheck/)" - I just kind of wandered around with dialogue in this one
-- <img src="https://blog.lmorchard.com/2022/06/12/jays-machine-friends/cover.png" width="50" /> "[Jay's Machine Friends](https://blog.lmorchard.com/2022/06/12/jays-machine-friends/)" - be nice to machines and they might reciprocate
+I also managed to get through a few more writing exercises. Some of these feel like they could grow into parts of longer stories, which is definitely a goal of doing these.
+
+- <img src="https://blog.lmorchard.com/2022/05/16/pressure/cover.png" width="25" /> — "[Pressure](https://blog.lmorchard.com/2022/05/16/pressure/)"
+  
+  Beer, witchcraft, trepanation - more writing toward toward the [Marek and Korrine](https://blog.lmorchard.com/tag/marekandkorrine/) story, which I have a notion to continue into something bigger
+
+- <img src="https://blog.lmorchard.com/2022/05/17/exchange/cover.png" width="25" /> — "[Exchange](https://blog.lmorchard.com/2022/05/17/exchange/)"
+  
+  This is a quick follow-on to "Pressure" to follow some more story threads.
+
+- <img src="https://blog.lmorchard.com/2022/05/18/vinge-and-vonda/cover.png" width="25" /> — "[Vinge and Vonda](https://blog.lmorchard.com/2022/05/18/vinge-and-vonda/)"
+
+  Fanfic in [Ada Palmer's Terra Ignota universe](https://adapalmer.com/series/terra-ignota/), because I was thinking about [the Utopian Hive](https://terra-ignota.fandom.com/wiki/Utopia) and burnout.
+
+- <img src="https://blog.lmorchard.com/2022/05/19/making-friends-with-peanuts/cover.png" width="25" /> — "[Making Friends with Peanuts"](https://blog.lmorchard.com/2022/05/19/making-friends-with-peanuts/)
+  
+  I keep wanting to make friends with the crows in my yard with peanuts. Progress is slow, although I have already made inroads with the squirrels and a blue jay.
+
+- <img src="https://blog.lmorchard.com/2022/06/07/kyleigh-and-helenka/cover.png" width="25" /> — "[Kyleigh and Helenka](https://blog.lmorchard.com/2022/06/07/kyleigh-and-helenka/)"
+
+  More witches in the forest, maybe in the same world as [Marek and Korrine](https://blog.lmorchard.com/tag/marekandkorrine/)? 
+
+- <img src="https://blog.lmorchard.com/2022/06/08/judge-rhisart/cover.png" width="25" /> — "[Judge Rhisart](https://blog.lmorchard.com/2022/06/08/judge-rhisart/)"
+
+  A judge spends a few hours in other folks' shoes
+
+- <img src="https://blog.lmorchard.com/2022/06/09/radmilo-and-dominik/cover.png" width="25" /> — "[Radmilo and Dominik](https://blog.lmorchard.com/2022/06/09/radmilo-and-dominik/)"
+
+  Talking to fireflies and an angry dad, possibly also [Marek and Korrine](https://blog.lmorchard.com/tag/marekandkorrine/) adjacent.
+
+- <img src="https://blog.lmorchard.com/2022/06/10/konnors-first-paycheck/cover.png" width="25" /> — "[Konnor's First Paycheck](https://blog.lmorchard.com/2022/06/10/konnors-first-paycheck/)"
+
+  I just kind of wandered around with bantering open office dialogue in this one.
+
+- <img src="https://blog.lmorchard.com/2022/06/12/jays-machine-friends/cover.png" width="25" /> — "[Jay's Machine Friends](https://blog.lmorchard.com/2022/06/12/jays-machine-friends/)"
+
+  Be nice to machines and they might reciprocate?
+
+And that's all for now for this recap. Hopefully I'll be back sooner with a few more exercises to talk about. Aiming to take another swing at a short story in the next few weeks.
