@@ -11,6 +11,8 @@ tags:
 
 <!--more-->
 
+![](./cover.png)
+
 Fiona worked the problem. She almost had it. Exploit, escalate, breach, and pivot. Layer after layer subverted, barriers falliing to grant her deeper access to the storage array. Her goal was so close. 
 
 It wasn't easy. In fact, the puzzle of it made her feel clever, competent, clear. But, in the back of her mind, a distant warning rang. Too few dead ends. A vulnerability that felt like an intentional puzzle, rather than an unforced error. 

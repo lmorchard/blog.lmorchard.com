@@ -11,6 +11,8 @@ tags:
 
 <!--more-->
 
+![](./cover.png)
+
 Fawn sat at the dining room table, wedged between her brothers Glen and Lonnie. Her parents, Barbara and Stuart, sat opposite. On the wall hung a banner of shiny metallic letters that read "Welcome Home Space Girl!"
 
 With a plastic fork, she prodded gently at a slice of chocolate cake merging into mush with the scoop of vanilla ice cream melting next to it. Her favorites. She felt 14 again.

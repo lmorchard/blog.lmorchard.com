@@ -11,6 +11,8 @@ tags:
 
 <!--more-->
 
+![](./cover.png)
+
 Alexi had spent a decade and the bulk of his fortune chasing down scraps and clues. He had a network of machines and men crunching away at translations and correlations. Through diligent compartmentalization, he ensured that only he had access to the complete pattern.
 
 And finally, it had paid off: He alone stood within the heart of Atlantis, the first visitor since it had been lost by ancient humanity. Beneath the waves of the Atlantic, deeper than the ocean floor, the Earth was hollow. In that space, Alexi found the greatest city-state the world had ever known. 

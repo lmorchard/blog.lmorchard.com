@@ -10,6 +10,8 @@ tags:
 
 <!--more-->
 
+![](./cover.png)
+
 Sorrel had a small plot at the community garden. For years, he had luck growing basics like tomatoes and basil, lettuce and beets. Mostly, it was stuff that got along together and didn't take much effort. He watered a little, weeded a little, but mostly he just played in the dirt. 
 
 Sage showed up one spring at the plot next to him. She dove into growing more ambitious things like cauliflower and onions and carrots and celery. But, her efforts just left her frustrated. Too much sun and water or not enough. Harvested too early or too late. 
