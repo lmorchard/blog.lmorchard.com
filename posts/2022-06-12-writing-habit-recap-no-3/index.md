@@ -27,7 +27,7 @@ First quick thing is thatâ€”along with what seems like the rest of the internetâ
 
 Who knows? Maybe I'll delete all the cover images in another week or two and feel bad about the whole thing again.
 
-# Moar writing exercises
+## Moar writing exercises
 - <img src="https://blog.lmorchard.com/2022/05/16/pressure/cover.png" width="50" /> "[Pressure](https://blog.lmorchard.com/2022/05/16/pressure/)" - beer, witchcraft, trepanation - more writing toward toward the [Marek and Korrine](https://blog.lmorchard.com/tag/marekandkorrine/) story, which I have a notion to continue into something bigger
 - <img src="https://blog.lmorchard.com/2022/05/17/exchange/cover.png" width="50" /> "[Exchange](https://blog.lmorchard.com/2022/05/17/exchange/)" - a quick follow-on to "Pressure" to follow some more story threads
 - <img src="https://blog.lmorchard.com/2022/05/18/vinge-and-vonda/cover.png" width="50" /> "[Vinge and Vonda](https://blog.lmorchard.com/2022/05/18/vinge-and-vonda/)" - fanfic in [Ada Palmer's Terra Ignota universe](https://adapalmer.com/series/terra-ignota/), because I was thinking about [the Utopian Hive](https://terra-ignota.fandom.com/wiki/Utopia)
