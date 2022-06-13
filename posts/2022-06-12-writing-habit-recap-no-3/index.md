@@ -26,9 +26,9 @@ Hopefully it's a decent story. I also have half a hope to write more about these
 
 [<img src="dalle-logo.png" class="inset right" />](https://github.com/borisdayma/dalle-mini)
 
-First quick thing is that—along with what seems like the rest of the internet—I've started playing with [DALL·E Mini](https://github.com/borisdayma/dalle-mini).
+Next thing is that—along with what seems like the rest of the internet—I've started playing with [DALL·E Mini](https://github.com/borisdayma/dalle-mini).
 
-It's turning out very handy to generate little cover images for my writing exercises. It also feels like it's got some promise to use in story prompts, where I generate the image first before diving into the writing exercise proper.
+It's turning out very handy to generate cover images for my writing exercises. It also feels like it could work for story prompts, where I generate the image first before diving into the writing exercise proper.
 
 [Initially, I felt squicky about it possibly ripping off images from the internet](https://twitter.com/lmorchard/status/1534952790698577920). But, as I've played with it and read about it more, the squick factor is fading a bit. 
 
@@ -38,7 +38,7 @@ A few things I'm doing that make me feel better about the process so far:
 
 - I generate a dozen or so images for each story from a handful of varied phrases before picking one image to run with. I'm not sure this makes the process any more creative? But, I guess at least I'm not just running off with the first thing it spits out?
 
-- I run the images through Imagemagick to reduce the resolution and color palette. That applies a kind of lofi 90s web style to the images, which I think better matches the half-baked nature of these writing exercises.
+- I [run the images through ImageMagick](https://github.com/lmorchard/blog.lmorchard.com/blob/main/script/tweak-covers.sh) to pixelate and reduce the color palette. That applies a kind of lofi 90s web grunge to the images, which I think better matches the vague,half-baked nature of these writing exercises.
 
 Maybe I'm just filing the serial numbers off pirated clip art? Maybe I'll delete all the cover images in another week or two and feel bad about the whole thing again.
 
