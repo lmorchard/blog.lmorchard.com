@@ -13,7 +13,7 @@ tags:
 
 ## Finley and Charley, a short story
 
-<img src="https://blog.lmorchard.com/2022/06/07/finley-and-charley/cover.png" width="150" />
+[<img src="https://blog.lmorchard.com/2022/06/07/finley-and-charley/cover.png" width="150" />](https://blog.lmorchard.com/2022/06/07/finley-and-charley/)
 
 It took me about two weeks, but I took a break from daily writing exercises and finished a 5,359 word short story called "[Finley and Charley](https://blog.lmorchard.com/2022/06/07/finley-and-charley/)".
 
