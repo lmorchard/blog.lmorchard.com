@@ -12,7 +12,7 @@ tags:
 
 <!--more-->
 
-![](cover.png)
+<img src="./cover.png" class="fullwidth" />
 
 The man broke eye contact with Korrine and snapped his gaze to Marek as that man's fingers brushed the handles of concealed knives.  
 

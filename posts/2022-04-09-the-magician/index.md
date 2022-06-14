@@ -11,7 +11,7 @@ tags:
 
 <!--more-->
 
-![](./cover.png)
+<img src="./cover.png" class="fullwidth" />
 
 "So," said the magician's assistant, "do you ever do, like, *real* magic on stage?"
 

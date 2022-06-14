@@ -11,7 +11,7 @@ tags:
 
 <!--more-->
 
-![](./cover.png)
+<img src="./cover.png" class="fullwidth" />
 
 Huey clomped along the open grid floor of the narrow utility corridor, tool-laden bags dangling from his well-worn belt. He muttered at a hand terminal, alternating between prodding the screen and sweeping its sensor stalk at the walls. 
 

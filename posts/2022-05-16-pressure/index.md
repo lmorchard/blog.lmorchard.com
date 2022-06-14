@@ -12,7 +12,7 @@ tags:
 
 <!--more-->
 
-![](cover.png)
+<img src="./cover.png" class="fullwidth" />
 
 In early Spring, just after the first thaw, Marek and Korrine loaded up a wagon and set out for the nearby city. Their cargo was mainly barrels of beer made from last year's harvest of wheat and rye. 
 

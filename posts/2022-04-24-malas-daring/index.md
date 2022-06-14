@@ -11,7 +11,7 @@ tags:
 
 <!--more-->
 
-![](./cover.png)
+<img src="./cover.png" class="fullwidth" />
 
 Mala dashed quietly through the high tree canopy, skipping from branch to branch with all four gripping hands and her prehensile tail. It was well after sunset, but she'd been this way many times. For every leap, she knew exactly how to push off and land without making the leaves rustle.
 

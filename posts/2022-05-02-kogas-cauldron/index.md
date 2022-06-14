@@ -11,7 +11,7 @@ tags:
 
 <!--more-->
 
-![](./cover.png)
+<img src="./cover.png" class="fullwidth" />
 
 *Amari could only convey portents and omens to the little primates. Just one of them seemed to be paying any attention. But, even then, few of the messages really got through. Xe had to keep trying.*
 

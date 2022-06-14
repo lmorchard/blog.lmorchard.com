@@ -12,7 +12,7 @@ tags:
 
 <!--more-->
 
-![](./cover.png)
+<img src="./cover.png" class="fullwidth" />
 
 Without thinking, Korrine made her father's bones whole. Only after did it occur to her that she might have made a mistake. 
 

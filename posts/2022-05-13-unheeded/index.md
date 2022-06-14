@@ -10,7 +10,7 @@ tags:
 
 <!--more-->
 
-![](cover.png)
+<img src="./cover.png" class="fullwidth" />
 
 "Heavenly fires do not fall to earth," said the senior astronomer.
 

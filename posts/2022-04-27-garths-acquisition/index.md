@@ -10,7 +10,7 @@ tags:
 
 <!--more-->
 
-![](./cover.png)
+<img src="./cover.png" class="fullwidth" />
 
 Garth wandered the exhibit hall, weaving through the convention crowd. It was overwhelming. He wanted everything. Spread out on the tables, he saw old memorabilia and signed copies, handcrafted tchotchkes and prints of original artwork. He even saw an original screen-ready uniform, but it wasn't his size. 
 

@@ -10,7 +10,7 @@ tags:
 
 <!--more-->
 
-![](./cover.png)
+<img src="./cover.png" class="fullwidth" />
 
 Judge Rhisart sat at his desk, staring at two chrome cylinders resting on the blotter. Each held what was left of a life. One could become a life again, but it was up to him to choose.
 

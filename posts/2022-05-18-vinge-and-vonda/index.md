@@ -13,7 +13,7 @@ tags:
 
 <!--more-->
 
-![](cover.png)
+<img src="./cover.png" class="fullwidth" />
 
 On the day that Vonda Kroeber died, Vinge Banks' cloak of griffincloth faded to velvet black. They became just a humaniform void moving through the world, their visor offering a face that was recognizably alive but conveyed no other information. Their u-beast was a lithe cat covered in oil-slick black sequins. Once lively prancing alongside when they walked, it had taken to draping listlessly across Vinge's shoulders.
 

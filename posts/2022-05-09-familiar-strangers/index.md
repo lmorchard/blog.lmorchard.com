@@ -10,7 +10,7 @@ tags:
 
 <!--more-->
 
-![](./cover.png)
+<img src="./cover.png" class="fullwidth" />
 
 Jae had walked through that park for years. It was on the way between work and home, and the pod of food carts across the way never got old for lunch.
 

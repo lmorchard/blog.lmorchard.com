@@ -10,7 +10,7 @@ tags:
 
 <!--more-->
 
-![](./cover.png)
+<img src="./cover.png" class="fullwidth" />
 
 "You were right, we don't know each other."
 

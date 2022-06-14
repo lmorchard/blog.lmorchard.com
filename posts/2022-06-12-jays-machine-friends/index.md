@@ -11,7 +11,7 @@ tags:
 
 <!--more-->
 
-![](./cover.png)
+<img src="./cover.png" class="fullwidth" />
 
 Jay couldn't honestly say whether the machines were conscious. But, he did know that if he was nice to them, nice things happened to him. 
 

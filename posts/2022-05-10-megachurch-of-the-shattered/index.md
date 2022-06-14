@@ -11,7 +11,7 @@ tags:
 
 <!--more-->
 
-![](cover.png)
+<img src="./cover.png" class="fullwidth" />
 
 Rowan stood behind the pulpit, gazing out at 50,000 packed seats arranged in section after section radiating away from the amphitheater stage in semi-circular tiers rising to the rafters. He took an amplified breath and the crowd dropped to near silence in an instant. When he smiled, he knew even the nosebleed seats could see his head and shoulders projected as gigantic twin holograms above the stage.
 

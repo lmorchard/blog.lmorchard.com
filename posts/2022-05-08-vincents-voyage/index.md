@@ -11,7 +11,7 @@ tags:
 
 <!--more-->
 
-![](./cover.png)
+<img src="./cover.png" class="fullwidth" />
 
 Vincent had chased rumors across light years, scoured wrecks for lingering traces of data. He'd sifted through myths and legends for scraps of reality filtered through planet-bound generations of storytelling. He'd almost given up believing in the theory that humanity had had a single planetary origin in the deep, deep past.
 

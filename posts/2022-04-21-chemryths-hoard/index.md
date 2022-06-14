@@ -11,7 +11,7 @@ tags:
 
 <!--more-->
 
-![](./cover.png)
+<img src="./cover.png" class="fullwidth" />
 
 Asceline crept through the caverns. Her elfin boots deadened the sound of her footfalls and any errant pebble that she might disturb. And, though her ultrablack cloak never failed to divert all light from her form, she took special care to stick to the shadows.
 
