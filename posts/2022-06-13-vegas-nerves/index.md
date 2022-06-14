@@ -78,11 +78,11 @@ Thyra groaned. "Vagus, not Vegas. Anyway, the bacteria, they affect how you feel
 
 Kelan's brow furrowed. "Wait, do you like get high on kombucha?"
 
-"No, no—well, sort of maybe you could—but no. Look, you remember my last job was in biotech before this?"
+"No, no—well, sort of maybe you could—but no. Look, you remember my last job before this was in biotech?"
 
 "Yeah. Wait, is this like GMO kombucha?"
 
-"Actually, yes! I absconded with some cultures when I quit. I've been tinkering with breeding some bacteria that a bunch of studies say can be used to treat performance anxiety and social sensitivity."
+"Actually, yes! I absconded with some cultures when I quit. I've been tinkering with some bacteria that a bunch of studies say could be used to treat performance anxiety and social sensitivity."
 
 "So you're going to brew me up a nasty potion and I won't die on stage after I drink it."
 
@@ -96,4 +96,4 @@ Kelan's brow furrowed. "Wait, do you like get high on kombucha?"
 
 "Excellent. I promise not to turn you into a newt."
 
-"You'll have to, if this doesn't work. That way, I'll have a good excuse to skip this keynote thing."
+"Promise me you will, if this doesn't work. That way, I'll have a good excuse to skip this keynote thing."
