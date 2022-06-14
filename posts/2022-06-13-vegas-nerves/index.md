@@ -10,7 +10,7 @@ tags:
 
 <!--more-->
 
-<img src="./cover.png" class="fullwidth" />
+<img title="Is it a guy or bacteria giving a presentation?" src="./cover.png" class="fullwidth" />
 
 "No, you don't understand," said Kelan. "They want me to give a talk."
 
