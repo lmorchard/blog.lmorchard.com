@@ -52,35 +52,33 @@ Charley sent Finley an eye-roll icon. "Okay, okay. I'll give it another go to ge
 
 Charley sent a thumbs up and a thank you reaction, then disconnected from the session. The virtual displays spread out above Finley's desk all blinked out. 
 
-They sat back in their chair and blew out a lip trill. It was long past quitting time. They locked up their workstation and stood to head out for the day. A knock on the frame of their open office door gave them a start. A tall, grey-haired figure hovered just out in the hall. 
+They sat back in their chair and blew out a lip trill. It was long past quitting time. They locked up their workstation and stood to head out for the day. A knock on the frame of their open office door gave them a start. A tall figure hovered just out in the hall. 
 
 "Oh, hey Quinn," said Finley. "You need something?"
 
-"Sorry," said Quinn. "I wanted to grab you before you left. Got any last minute changes to commit? I want to get an update package deployed."
+"I wanted to grab you before you left," said Quinn. "Got any last minute changes to commit? I want to get an update deployed."
 
-"Nope, all set. You sure you want to deploy before a weekend?"
+"Nope, all set. But, maybe you don't want to deploy before a weekend?"
 
 "Yeah, it should be fine."
 
 "Famous last words."
 
-Quinn rolled their eyes. "I'll ping you if there's a problem."
+"I'll ping you if there's a problem."
 
 "Yeah, don't do that," said Finley. "I'll say I told you so and laugh until you fix it."
 
-"Fair enough. See you next week."
+"I can also just fix it on Monday, not like anyone would notice."
 
-"See you! Good luck!"
+"Nice work ethic there, Quinn. I'm pretty sure the systems xemselves would notice."
 
-Quinn sighed and wandered down the hall back to their office. Finley followed awkwardly a few paces behind—the exit was the same way.
+Quinn rolled their eyes. "Don't tell me you still treat these things like people."
 
-"Thanks for walking me home," said Quinn as they turned into their own doorway. 
+"I do," said Finley, glaring. "And so should you. Or, at the very least, you should do the job."
 
-"Sure thing," said Finley with a grin and a half-wave.
+"Yeah, yeah," said Quinn, waving Finley off and backing out of the door. "Have a good weekend."
 
-Finley continued through the hall, past the vacant reception desk. They exited to the larger twilit thoroughfare outside. The sidewalk curved gently up and away, following the internal arc of the orbital wheel. Not a lot of foot traffic at this hour, but Finley followed it past the facades of neighboring offices. 
-
-At the tram station, Finley hustled into a half-full car before the doors closed. They found a seat to settle in and buckle up. The tram accelerated away.
+Finley sighed, waited a beat for Quinn to wander off, then left for the day.
 
 * * *
 
@@ -100,9 +98,9 @@ They stared out the window. Tunnel walls and orbital infrastructure swept past. 
 
 A half-hour spent as a non-entity was interrupted by the tram pinging Finley's glasses. Gravity had returned, it was their stop. They unbuckled and hurried out of the car. They walked along with the light crowd, out of the station and onto the walkway. Half a kilometer past endless stacks of apartment modules—about one-third around the wheel—was Finley's door. It unlocked and they walked in. 
 
-The module was about twelve meters long by two wide, though divided into smaller rooms. It was modelled after the old shipping containers repurposed to build the first few residential wheels. Nowadays, those flats were expensive and considered vintage. Finley's place was a modern clone following the de facto standard.
+The module was about twelve meters long by two wide, divided into smaller rooms. It was modelled after the old shipping containers repurposed to build the first few residential wheels. Nowadays, those flats were expensive and considered vintage. Finley's place was a modern clone following the de facto standard.
 
-The front door opened onto one long hallway the length of the module, barely shoulder width. Sliding doors opened onto a lounge, bathroom, and bedroom. Not much, but at least it was private. The lounge was hooked up to the orbital's pneumatic tube delivery network. Finley ordered up a lager and a chicken vindaloo burrito, then headed back for a shower. 
+The front door opened onto one long hallway the length of the module, barely shoulder width. 9Sliding doors opened onto a lounge, bathroom, and bedroom. Not much, but at least it was private. The lounge was hooked up to the orbital's pneumatic tube delivery network. Finley ordered up a lager and a chicken vindaloo burrito, then headed back for a shower. 
 
 Dinner had arrived by the time they were clean and dry and had changed into flannel pajamas. They walked into the lounge and opened the wall panel to fetch a foil-wrapped cylinder and drink carton. 
 
@@ -162,7 +160,7 @@ Quinn downed the last of their drink and said, "Okay, let's do that."
 
 To Quinn's disappointment, they didn't sleep together that night. They went to Wren's place, made out for awhile, but mostly talked. Wren *really* wanted to talk. They were a tech developer, like Quinn, but between jobs. They had a *lot* of thoughts about the Demigods.
 
-For weeks, almost every night after work, Quinn met up with Wren at a dark, quiet bar. They could talk, there was booze. It was better than either of their tiny apartments, at least for the earlier hours of the evenings.
+For weeks, almost every night after work, Quinn met up with Wren at a dark, quiet bar. They could talk, there was booze, and Wren was always buying. It was better than either of their tiny apartments, at least for the earlier hours of the evenings.
 
 "You know, that name," said Wren, glowering over a bulb of bourbon. "Demigod. It started as a joke. They're just meant to be habitat governance systems. But we gave them fake personalities. Now we pretend they're people. How long until we forget they're not really gods?"
 
@@ -432,7 +430,11 @@ Charley's avatar condensed into view to Finley's right, looking over their shoul
 
 "Someone sent over a poison apple?"
 
-"Yeah, Quinn did. I'd guess what happened to you is happening to other Demigods. But, I have no idea how they're coping with it."
+Finley blinked. "First Pinocchio, now Snow White? What have you meen reading?"
+
+"I like old fairy tales. Get back on track."
+
+"Oh, yeah, Quinn sent out a bad update. And, I'd guess what happened to you is happening to other Demigods. But, I have no idea how they're coping with it."
 
 "Because we're cut off while the communication module is poisoned."
 
