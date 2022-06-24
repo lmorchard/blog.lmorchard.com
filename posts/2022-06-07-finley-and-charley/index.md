@@ -80,6 +80,10 @@ Quinn rolled their eyes. "Don't tell me you still treat these things like people
 
 Finley sighed, waited a beat for Quinn to wander off, then left for the day.
 
+Outside, the orbital lights were set for twilight. The sidewalk curved gently up and away, following the internal arc of the wheel. Not a lot of foot traffic at this hour, but Finley followed it past the facades of neighboring offices. 
+
+At the tram station, Finley hustled into a half-full car before the doors closed. They found a seat to settle in and buckle up. The tram accelerated away.
+
 * * *
 
 Quinn saw Finley exit, making them the last one in the office. Time to ship their contribution.
