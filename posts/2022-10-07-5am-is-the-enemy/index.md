@@ -12,7 +12,7 @@ Apropos of my attempt this year to [build a new creative writing habit](https://
 
 !["5:00am is your friend"](Feem8XoaEAE2u-7.png)
 
-I've been meaning to post more things on my blog, perpetually, for 20 years. So, here's some of what I posted on Twitter in a mini-rant:
+I've been meaning to post more things on my blog, perpetually, for 20 years. So, here's some of what [I posted on Twitter](https://twitter.com/lmorchard/status/1578414788623097856) in a mini-rant:
 
 5:00am is how I wrote a handful of tech books, about 15 years ago. That basically quenched any further desire I had to write books - or even 300 words per day at all. Been questing around for an alternate approach ever since.
 
