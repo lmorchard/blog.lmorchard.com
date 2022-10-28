@@ -21,7 +21,7 @@ I often consider ditching Twitter. [Of course](https://www.theverge.com/2022/10/
 
 For lack of a better description, Twitter is a comfy place for me to be a social coward. I can launch missives into the ether and retreat. Sometimes, when I come back, responses have arrived.
 
-It's all very indirect and deferred, like a play-by-mail game. Or like the discussion forums of single-line dial-up BBSes from when I was a pre-teen. I don't have to address anyone in particular or engage with the exhausting phenomenon of having drawn immediate, in-the-moment attention. (It bears saying, of course, that this is a description of my experience from a position of privilege and luck. Mileage varies dramatically for others.)
+It's all very indirect and deferred, like [a play-by-mail game](https://www.wired.com/story/multiplayer-gaming-envelopes-stamps-play-by-mail-history/). Or like the discussion forums of single-line [dial-up BBSes](https://www.vintagecomputing.com/index.php/archives/category/computers/bbs-history) from when I was a pre-teen. I don't have to address anyone in particular or engage with [the exhausting phenomenon](https://blog.lmorchard.com/2017/02/02/operation-anxiety/) of having drawn immediate, in-the-moment attention. (It bears saying, of course, that this is a description of my experience from a position of privilege and luck. Mileage varies dramatically for others.)
 
 I don't have any particularly strong bonds via Twitter. How could I, considering my nebula of [~4,500 followers](https://twitter.com/lmorchard/followers) and [~4,900 followed](https://twitter.com/lmorchard/following)? This is not an achievement, it's just impulsive accumulation from over a decade-and-a-half on the site.
 
@@ -38,4 +38,4 @@ I mean, sure. But, that sounds like a lot of fraught work. I prefer to avoid it.
 
 If I knew how to be an effective social human, I wouldn't need to lean on Twitter. My social life has been mediated by computers since I first used a modem in the 80s. I don't think that, for me, making friends in the offline world is an atrophied skill. Rather, I think it's that [I've never really had the knack](https://blog.lmorchard.com/2005/03/22/online-social-skills/).
 
-Anyway, I have no conclusions. I just wanted to write into a different part of the ether for a change. Comment, if you like. I'll be here brooding over whether I feel like rewriting my blog build system from scratch yet again.
+Anyway, I have no conclusions. I just wanted to write into a different part of the ether for a change. Comment, if you like. I'll be here brooding over whether I feel like [rewriting my blog build system from scratch](https://blog.lmorchard.com/2020/05/24/easy-blog-oven/) yet again.
