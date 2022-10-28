@@ -15,7 +15,9 @@ tags:
 
 I've been on Twitter since October 2006 - 16 years, as of this month. It replaced the social writing I used to do here, to my great shame as a proponent of the DIY web.
 
-In the beginning, it was a watercooler for Silicon Valley folks. Being [a Silicon Valley transplant at the time](https://blog.lmorchard.com/2006/06/24/go-west-young-man/), this was handy for me. When [we replanted to the midwest](https://blog.lmorchard.com/2008/05/14/go-midwest-young-man/), it helped me stay in touch with distant acquaintances. Since then, it's become a place where I eavesdrop on interesting strangers and occasionally try to say something amusing. For a while, [it turned into a rage room](https://blog.lmorchard.com/2016/11/11/heartbroken/) to vent about the world's manifold fuckery. But, with the exception of occasional relapses, I've tried to lighten up.
+In the beginning, it was a watercooler for Silicon Valley folks. Being [a Silicon Valley transplant at the time](https://blog.lmorchard.com/2006/06/24/go-west-young-man/), this was handy for me. When [we replanted to the midwest](https://blog.lmorchard.com/2008/05/14/go-midwest-young-man/), it helped me stay in touch with distant acquaintances. Since then, it's become a place where I eavesdrop on interesting strangers and occasionally try to say something amusing. For a while, [it turned into a rage room](https://blog.lmorchard.com/2016/11/11/heartbroken/) to vent about the world's manifold fuckery. But, with the exception of occasional relapses, [I've tried to lighten up](https://twitter.com/lmorchard/status/1508492761690869760).
+
+![Let the hot take float away](twitter-hot-takes.png)
 
 I often consider ditching Twitter. [Of course](https://www.theverge.com/2022/10/28/23428132/elon-musk-twitter-acquisition-problems-speech-moderation), I'm considering it again. Like [Dread Pirate Roberts](https://www.youtube.com/watch?v=aHZGqBVBCRw), I say "Good night, Twitter. Good work. Sleep well. I'll most likely quit you in the morning."
 
