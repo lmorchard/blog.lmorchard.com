@@ -142,7 +142,7 @@ Here's the quick & dirty page I came up with:
 </html>
 ```
 
-Not award-winning code, but it does the job. And, for me at least, this JS hackery ended up being simpler than whatever shenanigans I'd considered with regards to `<canvas>` or CSS or SVG animations.
+Not award-winning code, but it does the job. And, for me at least, this JS hackery ended up being simpler than whatever shenanigans I'd considered with regards to `<canvas>` or CSS or SVG animations. (And yet, you may notice that I accomplished the most dangerous trick in all of web development - i.e. vertically centering content on a web page.)
 
 And, while I guess I could have used the screen recording hotkey built into macOS, I was just really set on producing a GIF.
 
