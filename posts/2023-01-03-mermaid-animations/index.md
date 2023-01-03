@@ -32,7 +32,7 @@ Luckily, I managed to pull myself back from the event horizon of that yak-shavin
 
 So, given that, I could compose a sequence of changing diagrams in one Markdown file:
 
-<pre class="language-md">
+<pre class="language-markdown">
 ## 1
 
 ```mermaid
