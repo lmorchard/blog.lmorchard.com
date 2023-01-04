@@ -4,6 +4,7 @@ tags:
  - hacks
  - mermaid
  - gifs
+ - webdev
 ---
 
 So, I wanted to produce a GIF animation of a graph diagram changing over time. What I came up with wasn't the slickest result, but it's close enough to what I'd initially imagined.
@@ -16,7 +17,7 @@ One of [my earlier notions](https://hackers.town/@lmorchard/109507942547830293) 
 
 Then I remembered that [Mermaid diagrams](https://mermaid.js.org/) are a thing. I decided what I really wanted to do was tap out some quick symbolic descriptions and let the computer do the drawing and animating for me.
 
-```
+<pre class="language-markdown">
 graph TD
 
 A[Tracking Issue]
@@ -24,7 +25,7 @@ B[Tasklist]
 
 A -- tracks --> B
 B -- trackedBy --> A
-```
+</pre>
 
 But, it wasn't that simple. Mermaid doesn't do animations. I scratched my head on this for awhile and felt [a growing urge to hop down a rabbit hole](https://hackers.town/@lmorchard/109508030036042755) of browser APIs to render Mermaid diagrams in a `<canvas>` and compose a GIF in a web page. And I could do it, too, you know - I can totally see those APIs all glued together and dancing in my head.
 
