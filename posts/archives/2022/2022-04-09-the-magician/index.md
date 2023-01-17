@@ -7,7 +7,7 @@ tags:
   - flash
 ---
 
-{{../_includes/flash-fiction-blurb.md}}
+{{../../_includes/flash-fiction-blurb.md}}
 
 <!--more-->
 
