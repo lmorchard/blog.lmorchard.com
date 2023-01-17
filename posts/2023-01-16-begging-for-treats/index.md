@@ -76,7 +76,7 @@ A series of discordant scrapes and squeals issued from the bridge audio monitors
 
 Sizzling warbles cross-faded into a cluster of resonant pongs. The bass frequencies rattled in the crew's lungs.
 
-"Contact at 212-mark-8, 3 kicks out."
+"Contact at 212-mark-8, 3 klicks out."
 
 "Ooh, a bit close for nukes," said the Captain. "Helm, vector away from that position. Weapons, fire on that position. Let's hope we can outrun our own adorable fission detonation."
 
@@ -146,7 +146,7 @@ The Captain sank back into her seat. "So, that was the mission. How's the head, 
 
 "Pretty much."
 
-"Seems kind of undignified, if you ask me."
+"Seems undignified, if you ask me."
 
 "Ensign," she said, "Leviathan 12 has encompassed over fifty stars in Dyson spheres. They've rearranged a few hundred planetary systems for what we can only interpret as aesthetic preference. I don't think we're well served by gravitas, here. Just be glad they didn't decide to take us home with them."
 
