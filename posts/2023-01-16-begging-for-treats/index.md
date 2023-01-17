@@ -6,7 +6,7 @@ tags:
   - scifi
 ---
 
-**TL;DR**: The creative writing habit never formed. But, this scene popped into my head, so I wrote it down and decided to post it here. Ever wonder what would happen if a [Kardashev Type II civilization](https://en.wikipedia.org/wiki/Kardashev_scale#Type_II) found us cute?
+**TL;DR**: Ever wonder what would happen if a [Kardashev Type II civilization](https://en.wikipedia.org/wiki/Kardashev_scale#Type_II) found us cute?
 
 <!--more-->
 
