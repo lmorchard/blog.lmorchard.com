@@ -16,7 +16,7 @@ Over the past couple of decades, I've had a Linux box kicking around on a baseme
 
 <img src="./vscode-ds210j-nas.png" alt="Synology DS210j" class="inset left" />
 
-Enter my discovery of low-end Synology NAS devices: They're tidy little things, like two Nintendo Wii taped together.
+Enter my discovery of low-end Synology NAS devices: They're tidy little things, like the size of two Nintendo Wii taped together.
 
 My first was a [DS210j](https://global.download.synology.com/download/Document/Hardware/DataSheet/DiskStation/10-year/DS210j/enu/Synology_DS210j_Data_Sheet_enu.pdf) in 2010, followed by a [DS214play](https://global.download.synology.com/download/Document/Hardware/DataSheet/DiskStation/14-year/DS214play/enu/Synology_DS214play_Data_Sheet_enu.pdf) in 2015. They reliably take on the boring jobs that I've gotten tired of maintaining on my perpetually janky hobby server.
 
@@ -26,7 +26,7 @@ And then, just this week, I acquired a [DS723+](https://global.download.synology
 
 Beyond backups and media storage, why bother with all that for just a NAS? Well, this one supports Docker. And, as it turns out, a great many of my tinkering projects fit nicely into Docker containers.
 
-So, in other words, it appears that this latest NAS can even take on the boring job of hosting *many* janky little hobby servers. This, while continuing to reliably do everything else a Synology NAS does. 
+So, in other words, it appears that this latest NAS can even take on the boring job of hosting *many* janky little hobby servers - virtually! This, while continuing to reliably do everything else a Synology NAS does. 
 
 ![](./vscode-docker-web-ui-3.png)
 
