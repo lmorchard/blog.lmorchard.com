@@ -30,9 +30,9 @@ So, in other words, it appears that this latest NAS can even take on the boring 
 
 ![](./vscode-docker-web-ui-3.png)
 
-With Docker containers, I don't have to try crapping up the Synology host OS with attempts at installing assorted programming languages and tools (ahem, [optware](https://en.wikipedia.org/wiki/Optware)). And if I crap up a Docker container, I can toss it and rebuild without disturbing, say, [the DVR](https://www.silicondust.com/dvr-service/) for my TV antenna or [the self-hosted RSS reader](https://tt-rss.org/) we use at home.
+With Docker containers, I don't have to try crapping up the Synology host OS with attempts at installing assorted programming languages and tools (ahem, [optware](https://en.wikipedia.org/wiki/Optware)). 
 
-I have a long history of ill-advised attempts to turn a NAS into a dev machine, going all the way back to the [Linksys NSLU2](https://en.wikipedia.org/wiki/NSLU2), circa 2004. But, this time seems different and easier not to crap up.
+I have a long history of ill-advised attempts to turn a NAS into a dev machine, going all the way back to the [Linksys NSLU2](https://en.wikipedia.org/wiki/NSLU2), circa 2004. But, if I crap up a Docker container, I can toss it and rebuild without disturbing, say, [the DVR](https://www.silicondust.com/dvr-service/) for my TV antenna or [the self-hosted RSS reader](https://tt-rss.org/) we use at home.
 
 ![](./vscode-devel-container.png)
 
