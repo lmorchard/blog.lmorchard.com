@@ -47,7 +47,7 @@ He nodded. "I think I see where you're going. It's like when folks grieve for a 
 
 She nodded back. "I'm not sure how the orchestrator got its initial training before we installed it. If the corpus covered human behavior in caring for sick animals, for example, then it could follow a process modelled after that."
 
-He sighed. "I figured, back when I switched into management, that I'd have help some folks through some rough times. But, it never occurred to me that the definition of 'folks' might expand to include pieces of data center infrastructure."
+He sighed. "I figured, back when I switched into management, that I'd have to help some folks through rough times. But, it never occurred to me that the definition of 'folks' might expand to include pieces of data center infrastructure."
 
 She laughed. "Well, there's a reason I double-majored in compsci and psychology."
 
