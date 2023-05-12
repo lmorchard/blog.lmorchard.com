@@ -159,6 +159,6 @@ Since I'm able to use `json_extract()` in a select statement, that gives me acce
 
 ## Next steps
 
-From here, I started tinkering with [a more complex node.js web app](https://github.com/lmorchard/masto-recall) to build a user interface for search queries and bunch more. But, I'll save talking about that for future blog posts that I'll hopefully write.
+From here, I started tinkering with [a more complex node.js web app](https://github.com/lmorchard/masto-recall) to build a user interface for search queries and a bunch more. (Maybe too much more!) But, I'll save talking about that for future blog posts that I'll hopefully write.
 
 For this post, I just wanted to try jotting down the core ideas of shoehorning a pile of JSON data into a SQLite database. I've got a bunch more to learn about what I can do with this and where I might run into limits. But, in the meantime, this feels like a nicely lightweight way to play with a bunch of my data from the fediverse.
