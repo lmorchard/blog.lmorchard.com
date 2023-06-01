@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   postsPath: "./content/posts",
   buildPath: "./build",
   assetPaths: ["./content/public", "./content/uploads"],

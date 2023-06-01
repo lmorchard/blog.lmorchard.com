@@ -1,8 +1,8 @@
-const { html } = require("../lib/html");
-const layoutPage = require("./layoutPage");
-const postList = require("./postList");
+import { html } from "../lib/html.js";
+import layoutPage from "./layoutPage.js";
+import postList from "./postList.js";
 
-module.exports = ({ site = {}, page = {}, posts = [] }) =>
+export default ({ site = {}, page = {}, posts = [] }) =>
   layoutPage(
     {
       site,

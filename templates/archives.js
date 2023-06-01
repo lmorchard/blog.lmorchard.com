@@ -1,5 +1,5 @@
-const { html } = require("../lib/html");
-const layoutPage = require("./layoutPage");
+import { html } from "../lib/html.js";
+import layoutPage from "./layoutPage.js";
 
 const omitTags = ["asides", "entries", "Header"];
 const allMonths = {
@@ -17,7 +17,7 @@ const allMonths = {
   "12": "dec",
 };
 
-module.exports = ({ site = {}, page = {}, posts }) => {
+export default ({ site = {}, page = {}, posts }) => {
   const tagsWithCounts = posts.reduce(
     (acc, { tags = [] }) =>
       tags.reduce(

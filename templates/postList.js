@@ -1,7 +1,7 @@
-const { html } = require("../lib/html");
-const moment = require("moment");
+import { html } from "../lib/html.js";
+import moment from "moment";
 
-module.exports = ({ site, posts }, content) => html`
+export default ({ site, posts }, content) => html`
   <section class="post-list">
     <ul class="posts">
       ${posts.map(

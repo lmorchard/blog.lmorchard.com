@@ -1,4 +1,4 @@
-const { html } = require("../lib/html");
+import { html } from "../lib/html.js";
 
 // TODO: use a bundler again someday for CSS & JS?
 const cssAssets = ["screen.css", "vendor/font-awesome.css", "vendor/prism.css"];
@@ -16,7 +16,7 @@ const jsAssets = [
   "main.js",
 ];
 
-module.exports = (
+export default (
   { site = {}, page = {}, head = "", js = "" },
   content
 ) => html`

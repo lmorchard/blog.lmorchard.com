@@ -1,8 +1,8 @@
-const { html, unescaped } = require("../lib/html");
-const layoutPage = require("./layoutPage");
-const moment = require("moment");
+import { html, unescaped } from "../lib/html.js";
+import layoutPage from "./layoutPage.js";
+import moment from "moment";
 
-module.exports = ({ site = {}, page = {} }, content) =>
+export default ({ site = {}, page = {} }, content) =>
   layoutPage(
     {
       site,

@@ -1,14 +1,15 @@
 #!/usr/bin/env node
-const util = require("util");
-const mkdirp = require("mkdirp");
-const rimraf = util.promisify(require("rimraf"));
+import util from "util";
+import mkdirp from "mkdirp";
+import rimrafOrig from "rimraf";
+import { Command } from "commander";
 
-const config = require("./config");
-const { copyAssets } = require("./lib/assets");
-const { loadAllPosts, buildAllPosts } = require("./lib/posts");
-const { buildAllIndexes } = require("./lib/indexes");
+import config from "./config.js";
+import { copyAssets } from "./lib/assets.js";
+import { loadAllPosts, buildAllPosts } from "./lib/posts.js";
+import { buildAllIndexes } from "./lib/indexes.js";
 
-const { Command } = require("commander");
+const rimraf = util.promisify(rimrafOrig);
 
 const program = new Command();
 program.version("0.0.1");

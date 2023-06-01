@@ -1,9 +1,9 @@
-const { html } = require("../lib/html");
+import { html } from "../lib/html.js";
 
 // TODO: Use an RSS generating module? This template is just copied
 // over from my old blog generator for initial consistency
 
-module.exports = ({
+export default ({
   site = {},
   posts = [],
   tag = "",
