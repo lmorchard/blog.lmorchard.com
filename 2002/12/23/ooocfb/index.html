@@ -10,6 +10,8 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
       />
+      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
+      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
       <link
             rel="stylesheet"
             href="/blog.lmorchard.com/css/screen.css"
@@ -38,19 +40,18 @@
           content="https://lmorchard.github.io/blog.lmorchard.com/2002/12/23/ooocfb/"
         />
         
-        <meta property="og:description" content="&lt;p&gt;Matt Griffith &lt;a href=&quot;http://matt.griffith.com/weblog/stories/2002/12/22/jogMyPersonalGoogleampWaybackMachine.html&quot;&gt;proposes a virtual project&lt;/a&gt;: Jog.  For the most part, what he wants is what I want from my &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/PersonalWebProxy&quot;&gt;PersonalWebProxy&lt;/a&gt;, and more.&lt;br&gt;&lt;br&gt;&lt;br&gt;
+        <meta property="og:description" content="Matt Griffith proposes a virtual project: Jog.  For the most part, what he wants is what I want from my PersonalWebProxy, and more.
 The big difference in the writing, though, is that Matt writes from features and what he wants, where I&#39;m already describing things in terms of implementation.  That is, I started talking about &quot;proxy&quot; where he&#39;s talking about &quot;my personal Google and Wayback machine&quot;.  I think looking at it that way makes a more compelling case for this thing being generally useful, rather than just some nerdy toy.
-&lt;br&gt;&lt;br&gt;
-Another way I&#39;m looking at this &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/PersonalWebProxy&quot;&gt;PersonalWebProxy&lt;/a&gt; is as an assistant in a sidecar attached to my browser.  I want this assistant to watch me, learn, and pipe up from time to time with suggestions.  I also want to be able to ask questions and to remind me of things I vaguely remember.  Eventually, I&#39;d like this assistant to be able to drive for me from time to time, doing some info hunter-gatherer work for me while I do other things.
-&lt;br&gt;&lt;br&gt;
-I&#39;m still working on this thing.  So far I&#39;ve got a proxy in Python and a simple-minded plugin framework.  Two plugins so far: one is a cookie jar separated from any browser - that is, cookies are managed in the proxy, not in the browser; the other is a little thing based on Mark Pilgrim&#39;s &lt;a href=&quot;http://diveintomark.org/archives/2002/08/15.html&quot;&gt;rssfinder.py&lt;/a&gt; that quietly seeks out and gathers &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; links from every text/* resource I view.  It seems to be standing up fairly well.
-&lt;br&gt;&lt;br&gt;
-My next steps are something along these lines:  Should I continue in Python?  To do so means delving deeper into Twisted, using their web app framework for the management UI and staying within their event-driven paradigm in lieu of threading.  The reason I first chose Python is because I wanted something that was quickly and easily hackable and fun to contribute plugins for.  Does this still apply, if things are deep in the Twisted mindset which is not &lt;strong&gt;quite&lt;/strong&gt; straightforward?
-&lt;br&gt;&lt;br&gt;
-On the other hand, I took a peek at &lt;a href=&quot;http://jetty.mortbay.org/jetty/&quot;&gt;Jetty&lt;/a&gt; in Java, which also comes with a simple and hackable HTTP proxy implementation.  I could easily cobble together in Java what I have in Python using this.  I would also say that I could easily make it compatible with whatever plugins were written for the Python version, using Jython, but there&#39;s also a paradigmatic difference were I to go with Java:  Threads in lieu of event-driven design.
-&lt;br&gt;&lt;br&gt;
-Maybe I&#39;m thinking too much about this and should just keep doing what I&#39;m doing.  I&#39;m trying to think and second guess a lot about what anyone who might care to play with this thing would actually care about.   As for myself, I seem to be having fun with things as is.&lt;/p&gt;
-" />
+
+Another way I&#39;m looking at this PersonalWebProxy is as an assistant in a sidecar attached to my browser.  I want this assistant to watch me, learn, and pipe up from time to time with suggestions.  I also want to be able to ask questions and to remind me of things I vaguely remember.  Eventually, I&#39;d like this assistant to be able to drive for me from time to time, doing some info hunter-gatherer work for me while I do other things.
+
+I&#39;m still working on this thing.  So far I&#39;ve got a proxy in Python and a simple-minded plugin framework.  Two plugins so far: one is a cookie jar separated from any browser - that is, cookies are managed in the proxy, not in the browser; the other is a little thing based on Mark Pilgrim&#39;s rssfinder.py that quietly seeks out and gathers RSS links from every text/* resource I view.  It seems to be standing up fairly well.
+
+My next steps are something along these lines:  Should I continue in Python?  To do so means delving deeper into Twisted, using their web app framework for the management UI and staying within their event-driven paradigm in lieu of threading.  The reason I first chose Python is because I wanted something that was quickly and easily hackable and fun to contribute plugins for.  Does this still apply, if things are deep in the Twisted mindset which is not quite straightforward?
+
+On the other hand, I took a peek at Jetty in Java, which also comes with a simple and hackable HTTP proxy implementation.  I could easily cobble together in Java what I have in Python using this.  I would also say that I could easily make it compatible with whatever plugins were written for the Python version, using Jython, but there&#39;s also a paradigmatic difference were I to go with Java:  Threads in lieu of event-driven design.
+
+Maybe I&#39;m thinking too much about this and should just keep doing what I&#39;m doing.  I&#39;m trying to think and second guess a lot about what anyone who might care to play with this thing would actually care about.   As for myself, I seem to be having fun with things as is." />
     </head>
     <body>
       <section class="main">
@@ -209,7 +210,7 @@ http://webseitz.fluxent.com/wiki/OSAF</div>
       </section>
 
       <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
       </section>
     </body>

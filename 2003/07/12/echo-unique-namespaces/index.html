@@ -10,6 +10,8 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
       />
+      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
+      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
       <link
             rel="stylesheet"
             href="/blog.lmorchard.com/css/screen.css"
@@ -38,8 +40,7 @@
           content="https://lmorchard.github.io/blog.lmorchard.com/2003/07/12/echo-unique-namespaces/"
         />
         
-        <meta property="og:description" content="&lt;blockquote cite=&quot;http://radio.userland.com/stories/storyReader$26234&quot;&gt;
-&quot;feed&quot; is not a very unique name, and if another format were to come
+        <meta property="og:description" content="&quot;feed&quot; is not a very unique name, and if another format were to come
 along with the same top level element we would not be able to write a
 format driver for it. Our architecture keys off the top-level
 element. I suggest changing the top-level element to indicate the
@@ -47,20 +48,20 @@ format, and also add a version number so that aggregators can have an
 idea of what spec the content provider is using. I imagine Radio is
 not the only aggregator that would like to key off the name of the
 top-level element.
-&lt;/blockquote&gt;
-&lt;div class=&quot;credit&quot; align=&quot;right&quot;&gt;&lt;small&gt;Source:&lt;cite&gt;&lt;a href=&quot;http://radio.userland.com/stories/storyReader$26234&quot;&gt;Radio UserLand: Radio gets some kind of Echo support&lt;/a&gt;&lt;/cite&gt;&lt;/small&gt;&lt;/div&gt;
-&lt;br&gt;&lt;br&gt;
+
+Source:Radio UserLand: Radio gets some kind of Echo support
+
 Nope, &quot;feed&quot; seems like a pretty poor choice as a name if the goal was
 uniqueness in the tag name itself.  But, since we have XML namespaces
 to ensure uniqueness between vocabularies, we can instead focus on a
-clear and simple name that only needs to be unique &lt;strong&gt;within&lt;/strong&gt; the
+clear and simple name that only needs to be unique within the
 vocabulary.  And as for versioning, why not consider different
 versions of a namespace to be entirely different vocabularies,
 each with different namespaces?
-&lt;br&gt;&lt;br&gt;
-I did some &lt;a href=&quot;http://www.google.com/search?q=xml+namespaces&amp;amp;ie=UTF-8&amp;amp;oe=UTF-8&quot; target=&quot;_top&quot;&gt;quick&lt;/a&gt; &lt;a href=&quot;http://www.google.com/search?hl=en&amp;amp;lr=&amp;amp;ie=UTF-8&amp;amp;oe=UTF-8&amp;amp;q=xml+namespaces+versioning&amp;amp;btnG=Google+Search&quot; target=&quot;_top&quot;&gt;Googling&lt;/a&gt; and found the following:
-&lt;br&gt;&lt;br&gt;
-&lt;blockquote cite=&quot;http://www.w3.org/TR/1999/REC-xml-names-19990114/Overview.html&quot;&gt;
+
+I did some quick Googling and found the following:
+
+
 ... documents, containing multiple markup vocabularies, pose problems
 of recognition and collision.  Software modules need to be able to
 recognize the tags and attributes which they are designed to process,
@@ -71,10 +72,10 @@ These considerations require that document constructs should have
 universal names, whose scope extends beyond their containing document.
 This specification describes a mechanism, XML namespaces, which
 accomplishes this.
-&lt;/blockquote&gt;
-&lt;div class=&quot;credit&quot; align=&quot;right&quot;&gt;&lt;small&gt;Source:&lt;cite&gt;&lt;a href=&quot;http://www.w3.org/TR/1999/REC-xml-names-19990114/Overview.html&quot;&gt;Namespaces in XML&lt;/a&gt;&lt;/cite&gt;&lt;/small&gt;&lt;/div&gt;
-&lt;br&gt;&lt;br&gt;
-&lt;blockquote cite=&quot;http://www-106.ibm.com/developerworks/xml/library/x-tipnamsp.html&quot;&gt;
+
+Source:Namespaces in XML
+
+
 One of the core features of XML is its ability to deal with changes in
 the rules for data (hence the extensible in its name -- Extensible
 Markup Language).  As changes are made to XML vocabularies, the
@@ -82,16 +83,15 @@ creation of multiple versions is inevitable.  This makes it necessary
 to mark the versions clearly, for human and machine information.  The
 clear marking of versions can be used for driving validation, or for
 branch processing according to the requirements of each version.
-&lt;br&gt;&lt;br&gt;
+
 You can mark the version of an XML vocabulary in many ways.  This
 discussion focuses on the use of XML namespaces for marking versions.
-&lt;/blockquote&gt;
-&lt;div class=&quot;credit&quot; align=&quot;right&quot;&gt;&lt;small&gt;Source:&lt;cite&gt;&lt;a href=&quot;http://www-106.ibm.com/developerworks/xml/library/x-tipnamsp.html&quot;&gt;Tip: Namespaces and versioning&lt;/a&gt;&lt;/cite&gt;&lt;/small&gt;&lt;/div&gt;
-&lt;br&gt;&lt;br&gt;
-I haven&#39;t looked into &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RadioUserLand&quot;&gt;RadioUserLand&lt;/a&gt; feed handling architecture,
+
+Source:Tip: Namespaces and versioning
+
+I haven&#39;t looked into RadioUserLand feed handling architecture,
 but how difficult would it be to use the namespace and tag together
-as key, rather than the tag alone?
-" />
+as key, rather than the tag alone?" />
     </head>
     <body>
       <section class="main">
@@ -240,7 +240,7 @@ So, while I haven't looked at how Radio parses stuff either, I think it wouldn't
       </section>
 
       <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
       </section>
     </body>

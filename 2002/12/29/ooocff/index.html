@@ -10,6 +10,8 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
       />
+      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
+      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
       <link
             rel="stylesheet"
             href="/blog.lmorchard.com/css/screen.css"
@@ -38,14 +40,13 @@
           content="https://lmorchard.github.io/blog.lmorchard.com/2002/12/29/ooocff/"
         />
         
-        <meta property="og:description" content="&lt;p&gt;&lt;cite&gt;Russell Beattie&lt;/cite&gt; &lt;a href=&quot;http://www.russellbeattie.com/notebook/index.jsp?date=20021227#160210&quot; target=&quot;_top&quot;&gt;writes&lt;/a&gt;:&lt;/p&gt;&lt;blockquote&gt;&lt;i&gt; The idea in my mind is for a project that would be a universal personal proxy (UPP) that sits between you and the internet. It would be a web proxy, email filter, spam cop, a place for agents and schedule tasks to run and more. It would be responsible for both receiving and sending of information - as web pages, emails, web services requests, ftp file postings, etc. In the middle it would do analysis like for Spam or &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; autodiscovery, intelligent bookmark history, etc. ...  This sort of app would be for people like myself who spend an innordinate amount of time on the internet.&lt;/i&gt;&lt;/blockquote&gt;Precisely.  Exactly.  Even down to the combination of P2P and desktop-to-server mix he writes about.  I think we&#39;re starting to ride a meme here.  This is what I want from a &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/PersonalWebProxy&quot;&gt;PersonalWebProxy&lt;/a&gt;.  I&#39;ve been trying to think of a better name for this class of app - it&#39;s more than a literal web proxy.  I want an agent and an assistant - something that sits shotgun with me while I putter around and can help me study what I do and see.  I want something that can eventually do things in my name for me, if I allow it.  I want basically all the things Russell wants, along with everything agents do for the characters in David Brin&#39;s &lt;i&gt;Earth&lt;/i&gt;.
-&lt;br&gt;&lt;br&gt;
-So.  How to &lt;strong&gt;do&lt;/strong&gt; this?  I think I need to spend some more time fleshing out a spec before I do much more in terms of putting gadgets together.  Need to reign in the fantasy, lay out some feasible first revision features, and start.  I want it all, but I want to start out with something hackable, useful, and inviting for collaboration.
-&lt;br&gt;&lt;br&gt;
-Still probably too early to be thinking about implementation language, but I have been experimenting and expect some of these things to become the base for my development.  My ideas on choices have become less clear-cut now.  When last &lt;a href=&quot;http://www.decafbad.com/news_archives/000362.phtml&quot; target=&quot;_top&quot;&gt;I wrote&lt;/a&gt; about this topic, and languages, &lt;a href=&quot;http://www.ulaluma.com/pyx&quot; target=&quot;_top&quot;&gt;Donovan Preston&lt;/a&gt; left a comment enlightening me with regards to my Python/Twisted vs Java/Threads consideration.  In fact, threads are available in the Python/Twisted environment as well.  So, now I&#39;m back to thinking about things like free library availability, environment maturity, possible collaborators, and my own comfort level in each.
-&lt;br&gt;&lt;br&gt;
-Bah.  At this point, I think I know all I need to know about what various environment choices can do in order to come up with a set of features that can be reasonably implemented in either or any environment.  Need to solidify this wishlist into a task list and design and get going.&lt;p&gt;&lt;/p&gt;
-" />
+        <meta property="og:description" content="Russell Beattie writes: The idea in my mind is for a project that would be a universal personal proxy (UPP) that sits between you and the internet. It would be a web proxy, email filter, spam cop, a place for agents and schedule tasks to run and more. It would be responsible for both receiving and sending of information - as web pages, emails, web services requests, ftp file postings, etc. In the middle it would do analysis like for Spam or RSS autodiscovery, intelligent bookmark history, etc. ...  This sort of app would be for people like myself who spend an innordinate amount of time on the internet.Precisely.  Exactly.  Even down to the combination of P2P and desktop-to-server mix he writes about.  I think we&#39;re starting to ride a meme here.  This is what I want from a PersonalWebProxy.  I&#39;ve been trying to think of a better name for this class of app - it&#39;s more than a literal web proxy.  I want an agent and an assistant - something that sits shotgun with me while I putter around and can help me study what I do and see.  I want something that can eventually do things in my name for me, if I allow it.  I want basically all the things Russell wants, along with everything agents do for the characters in David Brin&#39;s Earth.
+
+So.  How to do this?  I think I need to spend some more time fleshing out a spec before I do much more in terms of putting gadgets together.  Need to reign in the fantasy, lay out some feasible first revision features, and start.  I want it all, but I want to start out with something hackable, useful, and inviting for collaboration.
+
+Still probably too early to be thinking about implementation language, but I have been experimenting and expect some of these things to become the base for my development.  My ideas on choices have become less clear-cut now.  When last I wrote about this topic, and languages, Donovan Preston left a comment enlightening me with regards to my Python/Twisted vs Java/Threads consideration.  In fact, threads are available in the Python/Twisted environment as well.  So, now I&#39;m back to thinking about things like free library availability, environment maturity, possible collaborators, and my own comfort level in each.
+
+Bah.  At this point, I think I know all I need to know about what various environment choices can do in order to come up with a set of features that can be reasonably implemented in either or any environment.  Need to solidify this wishlist into a task list and design and get going." />
     </head>
     <body>
       <section class="main">
@@ -259,7 +260,7 @@ http://webseitz.fluxent.com/wiki/DavidBrin</div>
       </section>
 
       <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
       </section>
     </body>

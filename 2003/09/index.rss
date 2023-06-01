@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <rss version="2.0">
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
       <title>blog.lmorchard.com</title>
       <description>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</description>
       <link>https://lmorchard.github.io/blog.lmorchard.com</link>
+      <atom:link href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" rel="self" type="application/rss+xml" />      
       <item>
           <title>Dynamic polling times for news aggregators, II</title>
-          <description>&lt;p&gt;
-Okay, so that &lt;a href=&quot;http://www.decafbad.com/blog/tech/dynamic_feed_scan_times.html&quot;&gt;thing with the SQL&lt;/a&gt; I did Friday?
+          <description>Okay, so that thing with the SQL I did Friday?
 I&#39;m not exactly sure what I was thinking with it.  I was doing something
 that seems really odd now, trying to collect counts of new items together
 by hour, then averaging those hourly counts across a week.  Instead, I&#39;m
 trying this now:
-&lt;/p&gt;
 
-&lt;pre&gt;SELECT
+
+SELECT
   source,
   &#39;update_period&#39; AS name,
   round(min(24,max(1,(max(1,(iso8601_to_epoch(max(created)) -
@@ -23,38 +23,38 @@ trying this now:
 FROM
   items
 WHERE
-  created &amp;gt;= epoch_to_iso8601(now() - (7*24*60*60)) 
+  created &gt;= epoch_to_iso8601(now() - (7*24*60*60)) 
 GROUP BY
-  source&lt;/pre&gt;
+  source
 
-&lt;p&gt;
+
 This bit of SQL, though still ugly, is much simpler.  This leaves out
 the subselect, which I think I might have been playing with in order
 to build a little graph display of new items over time by source.  What
 the above does now is to get an average time between new items for the
 past week, with a minimum of an hour, and a maximum of a day.  This
 seems to be working much better.
-&lt;/p&gt;
 
-&lt;p&gt;
+
+
 An alternate algorithm I&#39;ve been playing with was suggested in
-&lt;a href=&quot;http://www.decafbad.com/comments/tech/dynamic_feed_scan_times/#comment-aofdehdefioofcb&quot;&gt;a comment&lt;/a&gt;
-by &lt;a href=&quot;http://24.102.209.201/weblogs/ben/&quot;&gt;Gnomon&lt;/a&gt;,
+a comment
+by Gnomon,
 inspired by TCP/IP&#39;s Additive Increase / Multiplicative Decrease.
 With this, I subtract an hour from the time between polls when a
 poll finds new items, and then multiply by 2 every time a poll
 comes up with nothing new.
-&lt;/p&gt;
 
-&lt;p&gt;
+
+
 Using the average of new items over time lessens my pummeling
 of servers per hour, but the second approach is even lighter
 on polling since it&#39;s biased toward large leaps backing off
 from polling when new items are not found.  I&#39;ll likely be trading
 off between the two to see which one seems to work best.
-&lt;/p&gt;
 
-&lt;p&gt;
+
+
 Hoping that, after playing a bit, I&#39;ll settle on one and my
 aggregator will play much nicer with feeds, especially once
 I get the HTTP client usage to correctly use things like
@@ -64,10 +64,10 @@ unless you&#39;re monitoring a feed that&#39;s mostly quiet, except
 for emergencies.  In that case, well, a different polling
 algorithm is needed, or maybe an instant messaging or pub/sub
 architecture is required.
-&lt;/p&gt;
 
-&lt;p&gt;
-&lt;b&gt;Update:&lt;/b&gt; As &lt;a href=&quot;http://24.102.209.201/weblogs/ben/&quot;&gt;Gnomon&lt;/a&gt;
+
+
+Update: As Gnomon
 has corrected me in comments, I&#39;ve got the AIMD algorithm mixed up.
 What I really should be doing is making quick jumps up in polling
 frequency in response to new items (multiplicative decrease of
@@ -76,17 +76,17 @@ polling period) and creeping away in response to no new items
 should make an aggregator jump to attention when clumps of new
 posts come in, and gradually get bored over periods of silence.
 I&#39;ve adjusted my code and will be tinkering with it.
-&lt;/p&gt;
 
-&lt;p&gt;
-Also, although &lt;a href=&quot;http://24.102.209.201/weblogs/ben/&quot;&gt;Gnomon&lt;/a&gt; makes
+
+
+Also, although Gnomon makes
 a good point that bloggers and their posting habits are not easily
 subject to statistical analysis,
 I&#39;ve further refined my little SQL query to catch sources
 which haven&#39;t seen any updates during the week (or ever):
-&lt;/p&gt;
 
-&lt;pre&gt;SELECT 
+
+SELECT 
   id as source,
   &#39;update_period&#39; AS name,
   round(min(24,max(1,coalesce(update_period,24)))) AS value
@@ -102,26 +102,24 @@ LEFT JOIN (
             ) / (60*60) / count(id)
         AS update_period
     FROM items
-    WHERE created &amp;gt;= epoch_to_iso8601(now() - (7*24*60*60)) 
+    WHERE created &gt;= epoch_to_iso8601(now() - (7*24*60*60)) 
     GROUP BY source
-) ON sources.id=source_id&lt;/pre&gt;
+) ON sources.id=source_id
 
-&lt;p&gt;
-Also, in case anyone&#39;s interested, I&#39;ve checked &lt;a href=&quot;http://www.decafbad.com/cvs/dbagg/lib/dbagg/scan.py?rev=HEAD&amp;amp;content-type=text/vnd.viewcvs-markup&quot;&gt;all the above&lt;/a&gt;
+
+Also, in case anyone&#39;s interested, I&#39;ve checked all the above
 into CVS.  This beastie&#39;s far from ready for prime time, but it
-might be interesting to someone.
-&lt;/p&gt;
-</description>
+might be interesting to someone.</description>
           
           <pubDate>Mon, 29 Sep 2003 17:48:28 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/09/29/dynamic-polling-freq-too/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/09/29/dynamic-polling-freq-too/</guid>
         </item><item>
           <title>Dynamic feed polling times for news aggregators</title>
-          <description>&lt;p&gt;Today, &lt;a href=&quot;http://www.decafbad.com/cvs/dbagg/&amp;quot;&quot;&gt;my aggregator&lt;/a&gt; got
-the following SQL worked into its &lt;a href=&quot;http://www.decafbad.com/cvs/dbagg/lib/dbagg/scan.py?rev=HEAD&amp;amp;content-type=text/vnd.viewcvs-markup&quot;&gt;feed poll scheduling machinery&lt;/a&gt;:&lt;/p&gt;
+          <description>Today, my aggregator got
+the following SQL worked into its feed poll scheduling machinery:
 
-&lt;pre&gt;SELECT id as source,
+SELECT id as source,
        &#39;update_period&#39; as name,
        max(1, 1/max((1.0/24.0),
                     sum(update_count)/(7*24))) AS value 
@@ -131,131 +129,125 @@ LEFT JOIN (
                 round(iso8601_to_epoch(created)/(60*60)) AS hour, 
                 count(id) AS update_count 
     FROM items 
-    WHERE created&amp;gt;epoch_to_iso8601(now()-(7*(24*60*60))) 
+    WHERE created&gt;epoch_to_iso8601(now()-(7*(24*60*60))) 
     GROUP BY hour
 ) ON id=count_id
 GROUP BY source
-ORDER BY value&lt;/pre&gt;
+ORDER BY value
 
-&lt;p&gt;
+
 It&#39;s likely that this is really nasty, but I have only a street-level
 working knowledge of SQL.  Also, a few of the date functions are
-specific to how I&#39;ve &lt;a href=&quot;http://pysqlite.sourceforge.net/documentation/pysqlite/node10.html#SECTION004231000000000000000&quot;&gt;extended sqlite in Python&lt;/a&gt;.  It works though, and
+specific to how I&#39;ve extended sqlite in Python.  It works though, and
 what it does is this:
-&lt;/p&gt;
 
-&lt;p&gt;
+
+
 For each feed to which I&#39;m subscribed, work out
 an average time between updates for the past week, with a maximum
 period of 24 hours and a minimum of 1 hour.
-&lt;/p&gt;
 
-&lt;p&gt;
+
+
 My aggregator does this daily, and uses the results to determine how
 frequently to schedule scans.  In this way, it automatically backs off
 on checking feeds which update infrequently, and ramps up its polling
 of more active feeds.  This shortens my feed downloading and scanning
 time, and is kinder in general to everyone on my subscription list.
-&lt;/p&gt;
 
-&lt;p&gt;
+
+
 Next, among other things, I have to look into making sure that the
 HTTP client parts of this beast pass all the
-&lt;a href=&quot;http://diveintomark.org/tests/client/http/&quot;&gt;aggregator client
-HTTP tests&lt;/a&gt; that &lt;a href=&quot;http://diveintomark.org/&quot;&gt;Mark
-Pilgrim&lt;/a&gt; put together.
-&lt;/p&gt;
+aggregator client
+HTTP tests that Mark
+Pilgrim put together.
 
-&lt;p&gt;
-&lt;b&gt;Update&lt;/b&gt;: Well, it seemed like a good idea, anyway.  But, on
+
+
+Update: Well, it seemed like a good idea, anyway.  But, on
 further examination, it has flaws.  The most notable is that it
 assumes a polling frequency of once per hour.  This works right up
 until I start changing the polling frequency with the results of the
 calculation.  I haven&#39;t poked at it yet, but maybe if I take this
 into account, it&#39;ll be more accurate.
-&lt;/p&gt;
 
-&lt;p&gt;
+
+
 On the other hand, I&#39;ve also been thinking about a much simpler
 approach to ramping polling frequency up and down:  Start out at
 a poll every hour.  If, after a poll, no new items are found,
 double the time until the next poll.  If new items were found,
-halve the time until the next poll.&lt;/p&gt;
+halve the time until the next poll.
 
-&lt;p&gt;
+
 Provide lower and upper limits to this, say between 1 hour and 1
 week.  Also, consider the ramp up and ramp down factor as a variable
 setting too.  Instead of a factor of 2, maybe try 1.5 or even 1.25 for
 a more gradual change.  To go even further, I wonder if it would be
 valuable to dynamically alter this factor itself, to try to get the
 polling time zeroed in on a realistic polling time.
-&lt;/p&gt;
 
-&lt;p&gt;
+
+
 Okay.  There the simpler approach leaves simplicity.  I&#39;m sure there&#39;s
-some decently elegant math that could be pulled in here.  :)
-&lt;/p&gt;
-</description>
+some decently elegant math that could be pulled in here.  :)</description>
           
           <pubDate>Fri, 26 Sep 2003 02:45:29 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/09/26/dynamic-feed-scan-times/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/09/26/dynamic-feed-scan-times/</guid>
         </item><item>
           <title>Atom is its Name-O?</title>
-          <description>&lt;blockquote cite=&quot;http://www.imc.org/atom-syntax/mail-archive/msg00571.html&quot;&gt;I would like to propose, nay, admonish, that the name of the format and spec
+          <description>I would like to propose, nay, admonish, that the name of the format and spec
 should be Atom, that the current naming vote should be killed, and we should
 move on to grander things without the auspices of &quot;what&#39;s it called?!&quot; over
-our heads. This has been going on far too long.&lt;/blockquote&gt;
-&lt;div class=&quot;credit&quot; align=&quot;right&quot;&gt;&lt;small&gt;Source:&lt;cite&gt;&lt;a href=&quot;http://www.imc.org/atom-syntax/mail-archive/msg00571.html&quot;&gt;Morbus Iff: &#39;Atom&#39; Should Be It&#39;s Name, and It&#39;s Name Was Atom&lt;/a&gt;&lt;/cite&gt;&lt;/small&gt;&lt;/div&gt;
+our heads. This has been going on far too long.
+Source:Morbus Iff: &#39;Atom&#39; Should Be It&#39;s Name, and It&#39;s Name Was Atom
 
-&lt;p&gt;I haven&#39;t been anywhere near the epicenter of Atom/Pie/Echo much,
+I haven&#39;t been anywhere near the epicenter of Atom/Pie/Echo much,
 so this is mostly a &#39;me too&#39; kind of posting.  But, you know, as an
 interested hacker waiting for dust to settle before I start paying
 much attention, the decision on a name, as superficial as it is,
-seems telling to me.&lt;/p&gt;
+seems telling to me.
 
-&lt;p&gt;On one hand, I could take it to be representative of what&#39;s going
+On one hand, I could take it to be representative of what&#39;s going
 on inside the project as a whole.  (If they can&#39;t settle on a name,
 how can they settle on what&#39;s included in the spec?)  On the other hand,
 it could just be that naming the thing is the least interesting aspect
 of the project.  But I consider that because I&#39;m a nerd, I&#39;ve been
 there, and I want to see the project thrive.  Others might not be so
-charitable or patient. :)&lt;/p&gt;
+charitable or patient. :)
 
-&lt;p&gt;&lt;i&gt;So just name the dang thing Atom already.&lt;/i&gt;&lt;/p&gt;
-</description>
+So just name the dang thing Atom already.</description>
           
           <pubDate>Thu, 25 Sep 2003 13:31:01 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/09/25/atom-is-its-name-o/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/09/25/atom-is-its-name-o/</guid>
         </item><item>
           <title>Feedback loops and syndication</title>
-          <description>&lt;blockquote cite=&quot;http://www.crn.com/weblogs/stevegillmor/2003/09/20/20.asp&quot;&gt;&lt;i&gt;Enter attention.xml. Of course it monitors my attention list, noting what feeds are in what order. Then it pays attention to what items I read, in what order, or if not, then what feeds I scan, and for how long. The results are packaged up in an attention.xml file and shipped via some transport (RSS, FTP, whatever) to Technorati. Dave has some ideas about what he will provide in return: &quot;If you liked these feeds and items, then here are some ones you don&#39;t know about that you may want to add to your list.&quot;
+          <description>Enter attention.xml. Of course it monitors my attention list, noting what feeds are in what order. Then it pays attention to what items I read, in what order, or if not, then what feeds I scan, and for how long. The results are packaged up in an attention.xml file and shipped via some transport (RSS, FTP, whatever) to Technorati. Dave has some ideas about what he will provide in return: &quot;If you liked these feeds and items, then here are some ones you don&#39;t know about that you may want to add to your list.&quot;
 
-&lt;/i&gt;&lt;p&gt;&lt;i&gt;But the real power comes in a weighted return feed that works like this: OK, I see who you think is important and what posts are most relevant to your interests. Then we factor in their attention.xml lists weighted by their location on your list, average the newly weighted list based on this trusted group of &quot;advisors&quot;, and return it to your aggregator, which rewrites the list accordingly.&lt;/i&gt;&lt;/p&gt;&lt;/blockquote&gt;&lt;div class=&quot;credit&quot; align=&quot;right&quot;&gt;&lt;small&gt;Source: &lt;cite&gt;&lt;a href=&quot;http://www.crn.com/weblogs/stevegillmor/2003/09/20/20.asp&quot;&gt;Steve Gillmor&#39;s Emerging Opps&lt;/a&gt;&lt;/cite&gt;&lt;/small&gt;&lt;/div&gt;    &lt;p&gt;&lt;a href=&quot;http://scriptingnews.userland.com/2003/09/21#When:10:08:20AM&quot;&gt;Dave Winer says&lt;/a&gt; this guy’s full of shit.  I’m not sure why, or it if’s sarcasm.  In a lot of ways, what Steve Gilmore wrote about sounds like &lt;a href=&quot;http://www.decafbad.com/blog/geek/syndicated_whuffie.html&quot;&gt;syndicating whuffie&lt;/a&gt; and what &lt;a href=&quot;http://www.teledyn.com/mt/archives/001055.html&quot;&gt;Gary Lawrence Murphy of TeledyN wrote&lt;/a&gt; about republishing &lt;span class=&quot;caps&quot;&gt;RSS&lt;/span&gt; items read and rated from one’s news aggregator.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;Sounds like the next one of the next steps this tech needs to take to hit a new level of intelligence, forming a minimum-effort feedback loop from writers to readers and between readers themselves.  What did I read today, and was it interesting? What did you read today, and was it interesting?  What did we both read and both find interesting?  What did you read, and find interesting, that I didn&amp;amp;#8217;t read and &amp;lt;strong&amp;gt;might&amp;lt;/strong&amp;gt; find interesting?  And then, back around to the author again, what of your writings was found very interesting, and (maybe) by whom?&amp;lt;/p&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+But the real power comes in a weighted return feed that works like this: OK, I see who you think is important and what posts are most relevant to your interests. Then we factor in their attention.xml lists weighted by their location on your list, average the newly weighted list based on this trusted group of &quot;advisors&quot;, and return it to your aggregator, which rewrites the list accordingly.Source: Steve Gillmor&#39;s Emerging Opps	Dave Winer says this guy’s full of shit.  I’m not sure why, or it if’s sarcasm.  In a lot of ways, what Steve Gilmore wrote about sounds like syndicating whuffie and what Gary Lawrence Murphy of TeledyN wrote about republishing RSS items read and rated from one’s news aggregator.
+&lt;p&gt;Sounds like the next one of the next steps this tech needs to take to hit a new level of intelligence, forming a minimum-effort feedback loop from writers to readers and between readers themselves.  What did I read today, and was it interesting? What did you read today, and was it interesting?  What did we both read and both find interesting?  What did you read, and find interesting, that I didn&amp;#8217;t read and &lt;strong&gt;might&lt;/strong&gt; find interesting?  And then, back around to the author again, what of your writings was found very interesting, and (maybe) by whom?&lt;/p&gt;</description>
           
           <pubDate>Sun, 21 Sep 2003 19:54:42 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/09/21/rss-feedback/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/09/21/rss-feedback/</guid>
         </item><item>
           <title>Flash MX Hates Progressive JPEGs</title>
-          <description>&lt;p&gt;
-Okay, I may be the last person fiddling with Flash to
+          <description>Okay, I may be the last person fiddling with Flash to
 discover this, but here&#39;s what I&#39;ve learned today:
-&lt;/p&gt;
-&lt;p&gt;
-&lt;a href=&quot;http://www.macromedia.com/support/flash/ts/documents/cant_load_jpg.htm&quot;&gt;&lt;b&gt;Flash MX hates progressive JPEGs.&lt;/b&gt;&lt;/a&gt;
-&lt;/p&gt;
-&lt;p&gt;
-From the above: &quot;&lt;i&gt;The Macromedia Flash Player does not have a
+
+
+Flash MX hates progressive JPEGs.
+
+
+From the above: &quot;The Macromedia Flash Player does not have a
 decompressor for progressive JPEG images, therefore files of this type
 cannot be loaded dynamically and will not display when using the
-loadMovie action.&lt;/i&gt;&quot;
-&lt;/p&gt;
-&lt;p&gt;
+loadMovie action.&quot;
+
+
 This would have been nice to know, hours ago.  Or maybe fixed in
 the past year or so since the above linked tech note.  See, although
 I&#39;m a Jack of a lot of Trades, I don&#39;t really pay attention much
@@ -263,20 +255,20 @@ to things like JPEGs and their progressive natures.  It wasn&#39;t
 until I finally started randomly clicking buttons on and off in
 Macromedia Fireworks while exporting a test JPEG that I finally
 narrowed down the problem.
-&lt;/p&gt;
-&lt;p&gt;
+
+
 This was after a day worth of examining ActionScript, XML data,
 HTTP headers, and a mess of other random dead ends.  And a lot of
 last-ditch random and exhaustive twiddling of checkboxes and
 options.
-&lt;/p&gt;
-&lt;p&gt;
-&lt;b&gt;Then&lt;/b&gt;, once I had the words I
+
+
+Then, once I had the words I
 wouldn&#39;t have had unless I already knew what my problem was, a Google search for
-&quot;&lt;a href=&quot;http://www.google.com/search?q=flash+progressive+jpeg&amp;amp;ie=UTF-8&amp;amp;oe=UTF-8&quot;&gt;flash progressive jpeg&lt;/a&gt;&quot;
+&quot;flash progressive jpeg&quot;
 got me all kinds of info.
-&lt;/p&gt;
-&lt;p&gt;
+
+
 Problem is, the JPEGs supplied to the particular Flash app on which
 I&#39;m hacking come from a random assortment of people working through
 a content management system on the backend.  They upload them
@@ -284,133 +276,126 @@ with a form in their browser, and this Flash app gets a URL to the
 image via an XML doc it loads.  Me, I&#39;m probably in bed when this
 happens.  I&#39;d love to have tested every one... er, rather, no I
 wouldn&#39;t.
-&lt;/p&gt;
-&lt;p&gt;
+
+
 So... Now I just have to figure out how to get all these people
 to start making sure that their JPEGs aren&#39;t progressive.  Hmph.
-&lt;/p&gt;
-&lt;p&gt;
+
+
 I can only hope that this message gets indexed and maybe provides
-more triangulation for some other poor sucker in the future.
-&lt;/p&gt;
-</description>
+more triangulation for some other poor sucker in the future.</description>
           
           <pubDate>Fri, 19 Sep 2003 18:28:23 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/09/19/flash-hates-progressive-jpeg/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/09/19/flash-hates-progressive-jpeg/</guid>
         </item><item>
           <title>Don&#39;t copy that floppy, or cracked software strikes back</title>
-          <description>&lt;pre&gt;* Orangerobot uses cracked software.  I will respond to the following
-commands: !ame &amp;lt;msg&amp;gt;, !amsg &amp;lt;msg&amp;gt;, !quit &amp;lt;msg&amp;gt;,
+          <description>* Orangerobot uses cracked software.  I will respond to the following
+commands: !ame &lt;msg&gt;, !amsg &lt;msg&gt;, !quit &lt;msg&gt;,
 !open_cd, !switch_my_mouse_buttons
 
-&amp;lt;deusx&amp;gt; Hmm.  If what Orangerobot just emoted is true, that&#39;s
+&lt;deusx&gt; Hmm.  If what Orangerobot just emoted is true, that&#39;s
 funny as hell.
 
-&amp;lt;deusx&amp;gt; !amsg Wang!
+&lt;deusx&gt; !amsg Wang!
 
-&amp;lt;Orangerobot&amp;gt; Wang!
+&lt;Orangerobot&gt; Wang!
 
-&amp;lt;AnitaR&amp;gt; and what&#39;s the purpose?
+&lt;AnitaR&gt; and what&#39;s the purpose?
 
-&amp;lt;deusx&amp;gt; AnitaR: Of the message from Orangerobot?
+&lt;deusx&gt; AnitaR: Of the message from Orangerobot?
 
-&amp;lt;AnitaR&amp;gt; yes
+&lt;AnitaR&gt; yes
 
-&amp;lt;AnitaR&amp;gt; must be part of the joke I&#39;m not getting
+&lt;AnitaR&gt; must be part of the joke I&#39;m not getting
 
-&amp;lt;AnitaR&amp;gt; yet
+&lt;AnitaR&gt; yet
 
 * Orangerobot uses cracked software.  I will respond to the following
-commands: !ame &amp;lt;msg&amp;gt;, !amsg &amp;lt;msg&amp;gt;, !quit &amp;lt;msg&amp;gt;,
+commands: !ame &lt;msg&gt;, !amsg &lt;msg&gt;, !quit &lt;msg&gt;,
 !open_cd, !switch_my_mouse_buttons
 
-&amp;lt;deusx&amp;gt; AnitaR: Could be a joke, but it appears that this person
+&lt;deusx&gt; AnitaR: Could be a joke, but it appears that this person
 is using pirated software that&#39;s detected its illegitimacy and is
 allowing us to manipulate that user&#39;s computer.
 
-&amp;lt;adamhill&amp;gt; or its a social experiment by the person behind OR :)
+&lt;adamhill&gt; or its a social experiment by the person behind OR :)
 
-&amp;lt;deusx&amp;gt; adamhill: Or that. :)  Either way, it&#39;s fun
+&lt;deusx&gt; adamhill: Or that. :)  Either way, it&#39;s fun
 
-&amp;lt;AnitaR&amp;gt; I&#39;m glad it isn&#39;t one of those experiments that tests
+&lt;AnitaR&gt; I&#39;m glad it isn&#39;t one of those experiments that tests
 how strong a shock we&#39;ll give the owner
 
-&amp;lt;Argyle&amp;gt; ?def orangerobot
+&lt;Argyle&gt; ?def orangerobot
 
-&amp;lt;deusx&amp;gt; Some googling points to this software:
+&lt;deusx&gt; Some googling points to this software:
 http://www.klient.com
 
-&amp;lt;deusx&amp;gt; !switch_my_mouse_buttons
+&lt;deusx&gt; !switch_my_mouse_buttons
 
-&amp;lt;deusx&amp;gt; !ame likes cheddar cheese.
+&lt;deusx&gt; !ame likes cheddar cheese.
 
 * Orangerobot likes cheddar cheese.
 
-&amp;lt;adamhill&amp;gt; ?learn Orangerobot is either a person using cracked
+&lt;adamhill&gt; ?learn Orangerobot is either a person using cracked
 software or a social experiment by a demented psych student
 
-&amp;lt;jibot&amp;gt; I understand now, Dr. Chandra; orangerobot is either a
+&lt;jibot&gt; I understand now, Dr. Chandra; orangerobot is either a
 person using cracked software or a social experiment by a demented
 psych student
 
-&amp;lt;deusx&amp;gt; !open_cd
+&lt;deusx&gt; !open_cd
 
-&amp;lt;deusx&amp;gt; okay, I&#39;m done.
+&lt;deusx&gt; okay, I&#39;m done.
 
 * Orangerobot uses cracked software.  I will respond to the following
-commands: !ame &amp;lt;msg&amp;gt;, !amsg &amp;lt;msg&amp;gt;, !quit &amp;lt;msg&amp;gt;,
+commands: !ame &lt;msg&gt;, !amsg &lt;msg&gt;, !quit &lt;msg&gt;,
 !open_cd, !switch_my_mouse_buttons
 
-&amp;lt;deusx&amp;gt; !quit hush.
+&lt;deusx&gt; !quit hush.
 
-&amp;lt;-- Orangerobot has quit (&quot;hush.&quot;)&lt;/pre&gt;
-</description>
+&lt;-- Orangerobot has quit (&quot;hush.&quot;)</description>
           
           <pubDate>Fri, 12 Sep 2003 19:35:25 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/09/12/dont-copy-software/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/09/12/dont-copy-software/</guid>
         </item><item>
           <title>An API for Wikis?  Here&#39;s one.</title>
-          <description>&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;blockquote&gt;&lt;i&gt;Some folks are experimenting with using Wiki to build websites.  I particularly like what Matt Haughey did with PHPWiki and a bit of &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/CSS&quot;&gt;CSS&lt;/a&gt; magic dust.  Looks nice, eh?  [Via Seb&#39;s Wikis are Ugly? post at Corante]
-&lt;br&gt;&lt;br&gt;
-Janne Jalkanen&#39;s Wiki-based Weblog is interesting too.  Hmm.  Maybe blog API(s) can be used for Wikis too.  That reminds me, shouldn&#39;t Wiki formatted text have their own MIME type?  Is there one?  &quot;text/wiki&quot;?  For now, different dialects of Wiki formatting rules will have to be accounted for like &quot;text/wiki+moinmoin&quot;.&lt;/i&gt;&lt;/blockquote&gt;&lt;div class=&quot;credit&quot; align=&quot;right&quot;&gt;&lt;small&gt;Source: &lt;cite&gt;&lt;a href=&quot;http://www.docuverse.com/blog/donpark/2003/09/05.html#a859&quot;&gt;Don Park&#39;s Daily Habit&lt;/a&gt;&lt;/cite&gt;&lt;/small&gt;&lt;/div&gt;&lt;a href=&quot;http://www.docuverse.com/blog/donpark/2003/09/05.html#a859&quot;&gt;
-&lt;br&gt;&lt;br&gt;
+          <description>Some folks are experimenting with using Wiki to build websites.  I particularly like what Matt Haughey did with PHPWiki and a bit of CSS magic dust.  Looks nice, eh?  [Via Seb&#39;s Wikis are Ugly? post at Corante]
+
+Janne Jalkanen&#39;s Wiki-based Weblog is interesting too.  Hmm.  Maybe blog API(s) can be used for Wikis too.  That reminds me, shouldn&#39;t Wiki formatted text have their own MIME type?  Is there one?  &quot;text/wiki&quot;?  For now, different dialects of Wiki formatting rules will have to be accounted for like &quot;text/wiki+moinmoin&quot;.Source: Don Park&#39;s Daily Habit
+
 It&#39;s been a while since I last worked on it, but I did implement an
-XML-RPC API on a few wikis, called &lt;/a&gt;&lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpcToWiki&quot;&gt;XmlRpcToWiki&lt;/a&gt;.  Janne Jalkanen
+XML-RPC API on a few wikis, called XmlRpcToWiki.  Janne Jalkanen
 did a lot of work toward the same interface with JSPWiki.  I use this API
 in the linkage between my blog and the wiki on this site.  Now that
-I&#39;ve drifted away from &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpc&quot;&gt;XmlRpc&lt;/a&gt; a bit and am more in favor of simpler
-&lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/REST&quot;&gt;REST&lt;/a&gt;-ish web service APIs, I&#39;d like to see something more toward that
+I&#39;ve drifted away from XmlRpc a bit and am more in favor of simpler
+REST-ish web service APIs, I&#39;d like to see something more toward that
 end.  Seems like a lot of people are discovering or rediscovering
 wikis since the introduction of Sam Ruby&#39;s wiki for Atom/Echo/Pie
 work, so it&#39;s interesting to see a lot of things come up again like
-grousing about APIs and mutant wiki-format offshoots and standards.
-</description>
+grousing about APIs and mutant wiki-format offshoots and standards.</description>
           
           <pubDate>Sat, 06 Sep 2003 17:50:45 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/09/06/wiki-apis/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/09/06/wiki-apis/</guid>
         </item><item>
           <title>White Hat Worms and robots.txt?</title>
-          <description>&lt;blockquote cite=&quot;http://www.gulufuture.com/superworm.htm&quot;&gt;&lt;i&gt;Or maybe it&#39;s time to release our own Defender.A worm which could invasively close down the relevant &quot;holes&quot; in Internet security. A defensive worm could use standard intrusion tactics for benign result. For example, it could worm it&#39;s way into Windows XP computers and get the owner&#39;s permission to turn their firewalls on. It could survey open TCP/IP ports and offer to close them.&lt;/i&gt;&lt;/blockquote&gt;&lt;div class=&quot;credit&quot; align=&quot;right&quot;&gt;&lt;small&gt;Source: &lt;cite&gt;&lt;a href=&quot;http://www.gulufuture.com/superworm.htm&quot;&gt;Superworm To Storm The Net On 9/11&lt;/a&gt;&lt;/cite&gt; (via &lt;a href=&quot;http://www.kurzweilai.net/news/news_single.html?id=2398&quot;&gt;KurzweilAI&lt;/a&gt;)&lt;/small&gt;&lt;/div&gt;    &lt;p&gt;So, anger is my first reaction to the idea of any unwelcome visitors on any of my machines, well intentioned or not.  I’m sure that there aren’t many who wouldn’t feel the same way.  But, although a lot of us try to keep up on patches and maintain decent security, there’s the “great unwashed masses” who just want to “do email“.&lt;/p&gt;
+          <description>Or maybe it&#39;s time to release our own Defender.A worm which could invasively close down the relevant &quot;holes&quot; in Internet security. A defensive worm could use standard intrusion tactics for benign result. For example, it could worm it&#39;s way into Windows XP computers and get the owner&#39;s permission to turn their firewalls on. It could survey open TCP/IP ports and offer to close them.Source: Superworm To Storm The Net On 9/11 (via KurzweilAI)	So, anger is my first reaction to the idea of any unwelcome visitors on any of my machines, well intentioned or not.  I’m sure that there aren’t many who wouldn’t feel the same way.  But, although a lot of us try to keep up on patches and maintain decent security, there’s the “great unwashed masses” who just want to “do email“.
 
-&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;On one hand, it&amp;amp;#8217;s easy to say, &amp;amp;#8220;Tough.  Learn the care &amp;amp;#38; feeding of your equipment.&amp;amp;#8221;  Yeah, as if that will help or get any response from all the people who&amp;amp;#8217;ve bought into &amp;lt;span class=&quot;caps&quot;&amp;gt;AOL&amp;lt;/span&amp;gt; and have been reassured for years that computers are friendly and easy beasts (despite their intuitions to the contrary).  Hell, I&amp;amp;#8217;d bet that, more often than not, the same person who gets regular oil changes and tune-ups for the car has no idea how to do the equivalent for a computer (or that it even needs it).  Cars have been positioned differently than computers.  No one expects a Spanish Inquisition when they live in a virtual preschool of a user interface with large and colorful buttons and happy smiling faces.  They know there&amp;amp;#8217;s some voodoo going on underneath, but the UI tells them that it&amp;amp;#8217;s nothing to worry about (until &amp;lt;a href=&quot;http://www.decafbad.com/blog/geek/not_working.html&quot;&amp;gt;it isn&amp;amp;#8217;t working&amp;lt;/a&amp;gt;).&amp;lt;/p&amp;gt;
+&lt;p&gt;On one hand, it&amp;#8217;s easy to say, &amp;#8220;Tough.  Learn the care &amp;#38; feeding of your equipment.&amp;#8221;  Yeah, as if that will help or get any response from all the people who&amp;#8217;ve bought into &lt;span class=&quot;caps&quot;&gt;AOL&lt;/span&gt; and have been reassured for years that computers are friendly and easy beasts (despite their intuitions to the contrary).  Hell, I&amp;#8217;d bet that, more often than not, the same person who gets regular oil changes and tune-ups for the car has no idea how to do the equivalent for a computer (or that it even needs it).  Cars have been positioned differently than computers.  No one expects a Spanish Inquisition when they live in a virtual preschool of a user interface with large and colorful buttons and happy smiling faces.  They know there&amp;#8217;s some voodoo going on underneath, but the UI tells them that it&amp;#8217;s nothing to worry about (until &lt;a href=&quot;http://www.decafbad.com/blog/geek/not_working.html&quot;&gt;it isn&amp;#8217;t working&lt;/a&gt;).&lt;/p&gt;
 
-&amp;lt;p&amp;gt;Now if the problem was just that stupid users ended up with broken computers, there&amp;amp;#8217;d be no problem.  But, like cars with problems waiting to happen (like worn down tires), their users become a hazard to others.  Unlike cars, however, the problems of stupid users&amp;amp;#8217; computers are contagious and self-replicating: every tire blowout becomes a 1000 car pileup.&amp;lt;/p&amp;gt;
+&lt;p&gt;Now if the problem was just that stupid users ended up with broken computers, there&amp;#8217;d be no problem.  But, like cars with problems waiting to happen (like worn down tires), their users become a hazard to others.  Unlike cars, however, the problems of stupid users&amp;#8217; computers are contagious and self-replicating: every tire blowout becomes a 1000 car pileup.&lt;/p&gt;
 
-&amp;lt;p&amp;gt;It&amp;amp;#8217;s like everyone sits on their recliners watching TV in their houses; not even realizing that there are doors to lock; not even hearing the intruders rummaging through the fridge in the kitchen; and certainly not knowing that there&amp;amp;#8217;s a guy sleeping on the sofa at night working by day to let his army of clones into the neighbor&amp;amp;#8217;s houses.&amp;lt;/p&amp;gt;
+&lt;p&gt;It&amp;#8217;s like everyone sits on their recliners watching TV in their houses; not even realizing that there are doors to lock; not even hearing the intruders rummaging through the fridge in the kitchen; and certainly not knowing that there&amp;#8217;s a guy sleeping on the sofa at night working by day to let his army of clones into the neighbor&amp;#8217;s houses.&lt;/p&gt;
 
-&amp;lt;p&amp;gt;So, about what about vigilante &amp;amp;#8220;white hat&amp;amp;#8221; worms?  Wouldn&amp;amp;#8217;t it be nice if there was a guy wandering the neighborhood locking door for the ignorant?  Wouldn&amp;amp;#8217;t it be nice if there was a truck driver on the road that forced cars with bald tires off to the side for free tire replacement?  Okay, maybe that&amp;amp;#8217;s a bit whacky, but then again, people with bald tires aren&amp;amp;#8217;t causing 1000 car pileups.&amp;lt;/p&amp;gt;
+&lt;p&gt;So, about what about vigilante &amp;#8220;white hat&amp;#8221; worms?  Wouldn&amp;#8217;t it be nice if there was a guy wandering the neighborhood locking door for the ignorant?  Wouldn&amp;#8217;t it be nice if there was a truck driver on the road that forced cars with bald tires off to the side for free tire replacement?  Okay, maybe that&amp;#8217;s a bit whacky, but then again, people with bald tires aren&amp;#8217;t causing 1000 car pileups.&lt;/p&gt;
 
-&amp;lt;p&amp;gt;I&amp;amp;#8217;m thinking that &amp;amp;#8220;white hat&amp;amp;#8221; virii and worms are one of the only things that will work, since I&amp;amp;#8217;m very pessimistic about the user culture changing to be more responsible.  Though, what about a compromise?  Install a service or some indicator on every network-connected machine, somewhat like &amp;lt;a href=&quot;http://www.robotstxt.org/wc/robots.html&quot;&amp;gt;robots.txt&amp;lt;/a&amp;gt; , which tells friendly robots where they&amp;amp;#8216;re welcome and where they&amp;amp;#8216;re not.  Set this to maximum permissiveness for white hat worms as a default.  The good guys infect, fix, and self-destruct unless this indicator tells them to stay out.  Then, all of us who want to take maintenance into our own hands can turn away the friendly assistance of white hat worms.  It&amp;amp;#8217;s an honor system, but the white hats should be the honorable ones anyway.  The ones which ignore the no-worms-allowed indicator are hostile by definition.&amp;lt;/p&amp;gt;
+&lt;p&gt;I&amp;#8217;m thinking that &amp;#8220;white hat&amp;#8221; virii and worms are one of the only things that will work, since I&amp;#8217;m very pessimistic about the user culture changing to be more responsible.  Though, what about a compromise?  Install a service or some indicator on every network-connected machine, somewhat like &lt;a href=&quot;http://www.robotstxt.org/wc/robots.html&quot;&gt;robots.txt&lt;/a&gt; , which tells friendly robots where they&amp;#8216;re welcome and where they&amp;#8216;re not.  Set this to maximum permissiveness for white hat worms as a default.  The good guys infect, fix, and self-destruct unless this indicator tells them to stay out.  Then, all of us who want to take maintenance into our own hands can turn away the friendly assistance of white hat worms.  It&amp;#8217;s an honor system, but the white hats should be the honorable ones anyway.  The ones which ignore the no-worms-allowed indicator are hostile by definition.&lt;/p&gt;
 
-&amp;lt;p&amp;gt;So, then, the internet develops an immune system.  Anyone can release a white hat worm as soon as they find an exploit to be nullified, and I&amp;amp;#8217;m sure there are lots of geeks out there who&amp;amp;#8217;d jump at the chance to play with worms and virii in a constructive way.  And if you want to opt-out of the system, go for it.  Hell&amp;amp;#8230;  think of this on a smaller scale as a next-gen anti-virus software.  Instead of internet-wide, just support &amp;lt;span class=&quot;caps&quot;&amp;gt;P2P&amp;lt;/span&amp;gt; networks between installations of your anti-virus product.  When it&amp;amp;#8217;s time to close a hole, infect your network with a vaccinating update.  I doubt this would work as well as a fully open system, but might have less controversy.&amp;lt;/p&amp;gt;
+&lt;p&gt;So, then, the internet develops an immune system.  Anyone can release a white hat worm as soon as they find an exploit to be nullified, and I&amp;#8217;m sure there are lots of geeks out there who&amp;#8217;d jump at the chance to play with worms and virii in a constructive way.  And if you want to opt-out of the system, go for it.  Hell&amp;#8230;  think of this on a smaller scale as a next-gen anti-virus software.  Instead of internet-wide, just support &lt;span class=&quot;caps&quot;&gt;P2P&lt;/span&gt; networks between installations of your anti-virus product.  When it&amp;#8217;s time to close a hole, infect your network with a vaccinating update.  I doubt this would work as well as a fully open system, but might have less controversy.&lt;/p&gt;
 
-&amp;lt;p&amp;gt;Anyway, it&amp;amp;#8217;s a whacky idea to a whacky problem that just might work.&amp;lt;/p&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+&lt;p&gt;Anyway, it&amp;#8217;s a whacky idea to a whacky problem that just might work.&lt;/p&gt;</description>
           
           <pubDate>Fri, 05 Sep 2003 15:10:53 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/09/05/superworm/</link>
@@ -424,87 +409,76 @@ grousing about APIs and mutant wiki-format offshoots and standards.
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/09/04/litany-meetings/</guid>
         </item><item>
           <title>Jibot and purl, distant cousins?</title>
-          <description>&lt;blockquote cite=&quot;http://epeus.blogspot.com/2003_09_01_epeus_archive.html#106267649855792923&quot;&gt;&lt;i&gt;&lt;a href=&quot;http://jibot.joi.ito.com:8080/braindump.rpy&quot;&gt;What the #joiito bot knows.&lt;/a&gt; I&#39;m dumping it out dynamically with the Twisted webserver, which is all Python too.&lt;/i&gt;&lt;/blockquote&gt;&lt;div class=&quot;credit&quot; align=&quot;right&quot;&gt;&lt;small&gt;Source: &lt;cite&gt;&lt;a href=&quot;http://epeus.blogspot.com/2003_09_01_epeus_archive.html#106267649855792923&quot;&gt;Epeus&#39; epigone - Kevin Marks weblog&lt;/a&gt;&lt;/cite&gt;&lt;/small&gt;&lt;/div&gt;    &lt;p&gt;While the &lt;a href=&quot;irc://irc.freenode.org/%23joiito&quot;&gt;#joiito&lt;/a&gt; bot is looking pretty keen, I keep wondering if anyone hacking on it has seen &lt;a href=&quot;http://www.infobot.org/&quot;&gt;Infobot&lt;/a&gt; ?  It’s the brains behind purl, the bot serving #perl channels on a few &lt;span class=&quot;caps&quot;&gt;IRC&lt;/span&gt; networks.  Jibot seems to have some funky punctuation-based commands, but purl accepts commands in formulatic english and even picks a few things up from normal channel chatter.  When I look at Kevin Marks’ dump of Jibot’s brains, I can’t help but think of the gigantic &lt;a href=&quot;http://www.infobot.org/factpacks/&quot;&gt;factoid packs&lt;/a&gt; available for Infobot.&lt;/p&gt;
-</description>
+          <description>What the #joiito bot knows. I&#39;m dumping it out dynamically with the Twisted webserver, which is all Python too.Source: Epeus&#39; epigone - Kevin Marks weblog	While the #joiito bot is looking pretty keen, I keep wondering if anyone hacking on it has seen Infobot ?  It’s the brains behind purl, the bot serving #perl channels on a few IRC networks.  Jibot seems to have some funky punctuation-based commands, but purl accepts commands in formulatic english and even picks a few things up from normal channel chatter.  When I look at Kevin Marks’ dump of Jibot’s brains, I can’t help but think of the gigantic factoid packs available for Infobot.</description>
           
           <pubDate>Thu, 04 Sep 2003 12:57:55 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/09/04/jibot-and-purl/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/09/04/jibot-and-purl/</guid>
         </item><item>
           <title>Another BookmarkBlogger in Python</title>
-          <description>&lt;p&gt;&lt;br&gt;&lt;br&gt;
-I haven&#39;t been paying attention to my referrers as much lately,
+          <description>I haven&#39;t been paying attention to my referrers as much lately,
 but I probably should.  Because, when I do, I find things like
-&lt;a href=&quot;http://www.hollytree-house.co.uk/twiki/bin/view/Main/BmBlog&quot; target=&quot;_top&quot;&gt;another implementation&lt;/a&gt;
-of &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/BookmarkBlogger&quot;&gt;BookmarkBlogger&lt;/a&gt; in Python, this one by
-&lt;a href=&quot;http://www.hollytree-house.co.uk/dme/cgi-bin/blosxom.cgi/web&quot; target=&quot;_top&quot;&gt;David Edmondson&lt;/a&gt;.
-&lt;br&gt;&lt;br&gt;
+another implementation
+of BookmarkBlogger in Python, this one by
+David Edmondson.
+
 His version has many fewer requirements, using only core Python
 libraries as far as I can see.  One of these which I hadn&#39;t any idea
 existed is
-&lt;a href=&quot;http://www.usatlas.bnl.gov/~fisyak/star/public/WWW/sources/Python-2.3a1/Lib/plat-mac/plistlib.py&quot; target=&quot;_top&quot;&gt;plistlib&lt;/a&gt;,
-&quot;a tool to generate and parse &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/MacOSX&quot;&gt;MacOSX&lt;/a&gt; .plist files&quot;.  When I get
+plistlib,
+&quot;a tool to generate and parse MacOSX .plist files&quot;.  When I get
 another few round tuits, I&#39;ll likely tear out all the XPath use
 in my version and replace it with this.  Bummer.  And here I thought
-I was all clever using the XPaths like that in Python :)&lt;/p&gt;
-</description>
+I was all clever using the XPaths like that in Python :)</description>
           
           <pubDate>Wed, 03 Sep 2003 14:59:31 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/09/03/another-bmblogger/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/09/03/another-bmblogger/</guid>
         </item><item>
           <title>ChangeLog to RSS web service</title>
-          <description>&lt;p&gt;&lt;br&gt;&lt;br&gt;
-Hanging out on &lt;a href=&quot;irc://irc.freenode.org/joiito&quot;&gt;joiito on IRC&lt;/a&gt; today,
-I read &lt;a href=&quot;http://www.jspwiki.org/Wiki.jsp?page=JanneJalkanen&quot; target=&quot;_top&quot;&gt;Ecyrd&lt;/a&gt; asking
-around about any tools to present &lt;a href=&quot;http://www.gnu.org/prep/standards_42.html&quot; target=&quot;_top&quot;&gt;GNU-style changelogs&lt;/a&gt;
-as an &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; feed.  I couldn&#39;t find any, but I did find
-&lt;a href=&quot;http://people.redhat.com/jrb/files/changelog2.py&quot; target=&quot;_top&quot;&gt;this changelog parser&lt;/a&gt;, apparently
-by &lt;a href=&quot;http://people.redhat.com/jrb/&quot; target=&quot;_top&quot;&gt;Jonathan Blandford&lt;/a&gt;.  So,
+          <description>Hanging out on joiito on IRC today,
+I read Ecyrd asking
+around about any tools to present GNU-style changelogs
+as an RSS feed.  I couldn&#39;t find any, but I did find
+this changelog parser, apparently
+by Jonathan Blandford.  So,
 when I had a few free minutes, I took some parts I had laying around, along
-with this parser, and made this:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt; &lt;a href=&quot;http://www.decafbad.com/2003/08/cl2rss?cl=http%3A%2F%2Fwww.ecyrd.com%2F%7Ejalkanen%2FJSPWiki%2Fnightly%2FChangeLog&quot;&gt;&lt;img src=&quot;http://www.decafbad.com/images/xml.gif&quot; border=&quot;0&quot;&gt;&lt;/a&gt; - &lt;a href=&quot;http://www.ecyrd.com/~jalkanen/JSPWiki/nightly/ChangeLog&quot;&gt;Changelog for JSPWiki&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt; &lt;a href=&quot;http://www.decafbad.com/2003/08/cl2rss.txt&quot; target=&quot;_top&quot;&gt;Source code for cl2rss&lt;/a&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+with this parser, and made this:
+
+  - Changelog for JSPWiki
+
+ Source code for cl2rss
+
+
 This is at the &quot;it works&quot; stage.  It needs much work in what it presents
-in an &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; feed, so feel free to suggest changes!
-</description>
+in an RSS feed, so feel free to suggest changes!</description>
           
           <pubDate>Tue, 02 Sep 2003 17:44:18 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/09/02/cl-to-rss/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/09/02/cl-to-rss/</guid>
         </item><item>
           <title>Using web services and XSLT to scrape RSS from HTML</title>
-          <description>&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;
-After tinkering a bit with
-&lt;a href=&quot;http://www.decafbad.com/blog/geek/rss_scrape_urls2.html&quot; target=&quot;_top&quot;&gt;web services and XSLT-based scraping&lt;/a&gt;
-last week for generating &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; from HTML, I ripped out some work I was
-doing for &lt;a href=&quot;http://www.decafbad.com/cvs/XPathScraper/&quot; target=&quot;_top&quot;&gt;a Java-based scraper&lt;/a&gt; I&#39;d started
-working on &lt;a href=&quot;http://www.decafbad.com/blog/tech/old/ooobca.html&quot; target=&quot;_top&quot;&gt;last year&lt;/a&gt; and
+          <description>After tinkering a bit with
+web services and XSLT-based scraping
+last week for generating RSS from HTML, I ripped out some work I was
+doing for a Java-based scraper I&#39;d started
+working on last year and
 threw together a kit of XSLT files that does most everything I was trying
 to do.
-&lt;/p&gt;&lt;p&gt;
-I&#39;m calling this kit &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XslScraper&quot;&gt;XslScraper&lt;/a&gt;, and there&#39;s further blurbage and download links
+
+I&#39;m calling this kit XslScraper, and there&#39;s further blurbage and download links
 avaiable in the Wiki.  Check it out.  I&#39;ve got shell scripts to run the stuff
 from as a cron job, and CGI scripts to run it all from web services.
-&lt;/p&gt;&lt;p&gt;
+
 For quick gratification, check out these feeds:
-&lt;/p&gt;&lt;ul&gt;
-&lt;li&gt; &lt;a href=&quot;http://www.decafbad.com/2003/08/tidyxslt?xsl=http%3A%2F%2Fwww.whump.com%2Fdropbox%2Fnationrss%2Fnation.xsl&amp;amp;doc=http%3A%2F%2Fwww.thenation.com&quot;&gt;&lt;img src=&quot;http://www.decafbad.com/images/xml.gif&quot; border=&quot;0&quot;&gt;&lt;/a&gt; - &lt;a href=&quot;http://www.thenation.com&quot;&gt;The Nation&lt;/a&gt; (using &lt;a href=&quot;http://www.whump.com/moreLikeThis/date/21/08/2003&quot; target=&quot;_top&quot;&gt;Bill Humphries&#39; XSL&lt;/a&gt;) 
-&lt;/li&gt;
-&lt;li&gt; &lt;a href=&quot;http://www.decafbad.com/2003/08/tidyxslt?xsl=http%3A%2F%2Fwww.decafbad.com%2F2003%2F08%2Fxsl_scraper%2Fscrapers%2Fkurzweilai.xsl&amp;amp;doc=http%3A%2F%2Fwww.kurzweilai.net%2Findex.html%3Fflash%3D1&quot;&gt;&lt;img src=&quot;http://www.decafbad.com/images/xml.gif&quot; border=&quot;0&quot;&gt;&lt;/a&gt; - &lt;a href=&quot;http://www.kurzweilai.net/index.html?flash=1&quot;&gt;KurzweilAI.net&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt; &lt;a href=&quot;http://www.decafbad.com/2003/08/tidyxslt?xsl=http%3A%2F%2Fwww.decafbad.com%2F2003%2F08%2Fxsl_scraper%2Fscrapers%2Fjlist.xsl&amp;amp;doc=http%3A%2F%2Fwww.jlist.com%2FUPDATES%2FPG%2F7%2F&quot;&gt;&lt;img src=&quot;http://www.decafbad.com/images/xml.gif&quot; border=&quot;0&quot;&gt;&lt;/a&gt; - &lt;a href=&quot;http://www.jlist.com/&quot;&gt;J-List -- You&#39;ve got a friend in Japan!&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt; &lt;a href=&quot;http://www.decafbad.com/2003/08/tidyxslt?xsl=http%3A%2F%2Fwww.decafbad.com%2F2003%2F08%2Fxsl_scraper%2Fscrapers%2Fumich-jobs.xsl&amp;amp;doc=http%3A%2F%2Fwebsvcs.itd.umich.edu%2Fjobnet%2Fnew_postings_byjobfamily.php&quot;&gt;&lt;img src=&quot;http://www.decafbad.com/images/xml.gif&quot; border=&quot;0&quot;&gt;&lt;/a&gt; - &lt;a href=&quot;http://websvcs.itd.umich.edu/jobnet/&quot;&gt;New JOBS at the University of Michigan (By Job Family)&lt;/a&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;/p&gt;
-</description>
+
+  - The Nation (using Bill Humphries&#39; XSL) 
+
+  - KurzweilAI.net
+
+  - J-List -- You&#39;ve got a friend in Japan!
+
+  - New JOBS at the University of Michigan (By Job Family)</description>
           
           <pubDate>Tue, 02 Sep 2003 04:22:53 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/09/02/xsl-scraper/</link>

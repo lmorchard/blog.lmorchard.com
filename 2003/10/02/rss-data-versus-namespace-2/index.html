@@ -10,6 +10,8 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
       />
+      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
+      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
       <link
             rel="stylesheet"
             href="/blog.lmorchard.com/css/screen.css"
@@ -38,82 +40,78 @@
           content="https://lmorchard.github.io/blog.lmorchard.com/2003/10/02/rss-data-versus-namespace-2/"
         />
         
-        <meta property="og:description" content="&lt;p&gt;
-Okay, I got
-&lt;a href=&quot;http://www.decafbad.com/blog/tech/rss_data_versus_namespace.html&quot;&gt;the example data&lt;/a&gt; out there.
+        <meta property="og:description" content="Okay, I got
+the example data out there.
 Here&#39;s what&#39;s first on my mind about it:
-&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;
+
+
+
+
 Man, that RSS-Data is one verbose piece of XML.  The Amazon-specific
 namespace version looks much more compact and readable; I&#39;d rather
-&lt;a href=&quot;http://backend.userland.com/davesRss2PoliticalFaq&quot;&gt;View Source&lt;/a&gt;
+View Source
 on that one.
-&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;
+
+
+
+
 Python comes out of the box with
-&lt;a href=&quot;http://www.python.org/doc/current/lib/module-xmlrpclib.html&quot;&gt;xmlrpclib&lt;/a&gt;,
+xmlrpclib,
 and other languages have XML-RPC facilities available as well.  I can&#39;t imagine
 it&#39;d be too hard to get a hold of the core of it and employ it in
 unmarshalling the RSS-Data straight into idiomatic Python structures.
 On the other hand, I&#39;ll need to write my own handlers for the Amazon XML
 using the XML parser modules that come with Python.
-&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;
+
+
+
+
 With its clean, almost self-documenting structure, the Amazon XML is easily
 handled with XPath and XSL.  If I had a pile of ProductInfo elements
 in a document, I could yank out all their images with something like:
-&lt;code&gt;//az:ProductInfo/az:Details/az:ImageUrlSmall&lt;/code&gt;
-&lt;/p&gt;
-&lt;p&gt;
+//az:ProductInfo/az:Details/az:ImageUrlSmall
+
+
 Using the RSS-Data
 example, it&#39;d probably be something more like:
-&lt;code&gt;//sdl:data/sdl:struct/sdl:member/sdl:name[@text=&#39;ImageUrlSmall&#39;]/../sdl:value&lt;/code&gt;,
+//sdl:data/sdl:struct/sdl:member/sdl:name[@text=&#39;ImageUrlSmall&#39;]/../sdl:value,
 and that&#39;s not considering if I have mixed kinds of RSS-Data schema represented in the
 feed.
-&lt;/p&gt;
-&lt;p&gt;
+
+
 I suppose I could help this out by surrounding the struct with another
 struct, containing one member named &#39;AzProductInfo&#39;, making the path something
 like so:
-&lt;code&gt;//sdl:data/sdl:struct/sdl:member/sdl:name[@text=&#39;AzProductInfo&#39;]&lt;br&gt;
-/../sdl:value/sdl:struct/sdl:member/sdl:name[@text=&#39;ImageUrlSmall&#39;]/../sdl:value&lt;/code&gt;.
-&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
+//sdl:data/sdl:struct/sdl:member/sdl:name[@text=&#39;AzProductInfo&#39;]
+/../sdl:value/sdl:struct/sdl:member/sdl:name[@text=&#39;ImageUrlSmall&#39;]/../sdl:value.
 
-&lt;p&gt;
+
+
+
+
 And these are the conclusions I&#39;m jumping to at the moment, before experimenting:
-&lt;/p&gt;
 
-&lt;ol&gt;
-&lt;li&gt;
+
+
+
 RSS-Data&#39;s convenience to script authors is at odds with the RSS 2.0
 spirit of View Source.
-&lt;/li&gt;
-&lt;li&gt;
+
+
 Producing and consuming RSS-Data could be easier than handling
 purpose-specific XML schema in scripts.
-&lt;/li&gt;
-&lt;li&gt;
+
+
 Since RSS-Data doesn&#39;t follow in the spirit of XML specs and schema,
 using formal XML tools to handle this stuff will give you
 nothing but headaches.  (Then again, it seems like some of the
 stuff that&#39;s fully in the spirit of XML yields headaches just
 the same.)
-&lt;/li&gt;
-&lt;li&gt;
+
+
 RSS-Data might catch on and spread nonetheless, because lots
 of people don&#39;t read XML, don&#39;t use formal XML tools, and just
-write scripts to get their jobs done.
-&lt;/li&gt;
-&lt;/ol&gt;
-" />
+write scripts to get their jobs done." />
     </head>
     <body>
       <section class="main">
@@ -254,7 +252,7 @@ shortname=rss_data_versus_namespace_2
       </section>
 
       <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
       </section>
     </body>

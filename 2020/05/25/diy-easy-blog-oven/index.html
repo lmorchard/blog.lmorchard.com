@@ -10,6 +10,8 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
       />
+      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
+      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
       <link
             rel="stylesheet"
             href="/blog.lmorchard.com/css/screen.css"
@@ -38,8 +40,7 @@
           content="https://lmorchard.github.io/blog.lmorchard.com/2020/05/25/diy-easy-blog-oven/"
         />
         
-        <meta property="og:description" content="&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;: I wanted to write more about building my &lt;a href=&quot;/2020/05/24/easy-blog-oven/&quot;&gt;Easy-Blog Oven&lt;/a&gt;. I mainly glued together things I already knew, but I think I learned some things and had some surprises anyway.&lt;/p&gt;
-" />
+        <meta property="og:description" content="TL;DR: I wanted to write more about building my Easy-Blog Oven. I mainly glued together things I already knew, but I think I learned some things and had some surprises anyway." />
     </head>
     <body>
       <section class="main">
@@ -1122,7 +1123,7 @@ jobs:
 <li>Run the build script for the blog.</li>
 </ul>
 <p>Finally, in the most complicated line of the file, it runs a <code>gh-pages</code> command from NPM to push the built content into the <code>gh-pages</code> branch of the repo <a href="https://help.github.com/en/actions/configuring-and-managing-workflows/authenticating-with-the-github_token">using secret credentials</a> injected into the environment. The nice thing about this last bit is that it adapts to whatever repository in which it&#39;s used, thanks to the variables.</p>
-<p>With a bit more research, this could probably be done even more simply. <a href="https://help.github.com/en/actions">GitHub Actions</a> offers a marketplace of ready-made actions that you can drop into a workflow like this. What I&#39;ve got works for now, <a href="https://github.com/marketplace?type=actions&amp;query=github+pages">but there&#39;s probably a tidier option available</a>.</p>
+<p>With a bit more research, this could probably be done even more simply. <a href="https://help.github.com/en/actions">GitHub Actions</a> offers a marketplace of ready-made actions that you can drop into a workflow like this. What I&#39;ve got works for now, <a href="https://github.com/marketplace?type=actions&query=github+pages">but there&#39;s probably a tidier option available</a>.</p>
 <p>In any case, the end result of all of this should be an unexpectedly fast static site generator for a blog that self-publishes to <a href="https://pages.github.com/">GitHub Pages</a> web hosting on pushes to a GitHub repository. As a bonus, since GitHub supports editing files directly from the web interface, you can even write blog posts in Markdown right from there and even preview your content!</p>
 <h2 id="next-steps">Next steps</h2>
 <p>The script I built up in this post looks a lot like where I started with all of this at the start of the weekend. I&#39;ve since done a lot of complication, refactoring, and code golfing that probably wouldn&#39;t improve this post to explain. You can come take a peek at <a href="https://github.com/lmorchard/blog.lmorchard.com/">my &quot;production&quot; code</a>, if you like. <a href="https://github.com/lmorchard/blog.lmorchard.com/">It&#39;s all in GitHub</a>!</p>
@@ -1165,7 +1166,7 @@ jobs:
       </section>
 
       <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
       </section>
     </body>

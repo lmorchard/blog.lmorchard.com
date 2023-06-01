@@ -110,7 +110,7 @@ I thought the whole episode was cruel horror. But I did internalize something: I
 
 That realization itself didn’t make anything easier. It just convinced me of the need to reach out, despite the ease of curling up.
 
-So, I think I need to de-volvate. It was meant to be temporary, anyway. Like what a hedgehog would do until it’s safe enough to resume snuffling through the world. It’s not entirely safe, but it never is. So it goes.
+So, I think I need to de-volvate. It was meant to be temporary, anyway. Like what a hedgehog would do until it’s safe enough to resume snuffling through the world. It’s not entirely safe, but it never is. [So it goes.](https://www.theguardian.com/books/2007/apr/15/fiction.kurtvonnegut)
 
 I’d like to write an optimistic conclusion here. Next steps in a decisive action plan. But, I don’t have a transformative one-weird-trick to resolve everything.
 

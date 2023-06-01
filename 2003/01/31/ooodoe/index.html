@@ -10,6 +10,8 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
       />
+      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
+      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
       <link
             rel="stylesheet"
             href="/blog.lmorchard.com/css/screen.css"
@@ -38,39 +40,38 @@
           content="https://lmorchard.github.io/blog.lmorchard.com/2003/01/31/ooodoe/"
         />
         
-        <meta property="og:description" content="&lt;blockquote cite=&quot;http://kalsey.com/blog/2003/01/referral_abuse/index.html&quot;&gt;Amen. I’ve always found it irritating that news aggregators insert their URL into the referrer field. ... It would be nice if there was some sort of browser header the aggregator could send to identify itself instead of using the referrer field. Oh, that’s right, there is. It’s called User-Agent. 
-&lt;p&gt;The user agent field is designed for browsers, robots, and other user agents to identify themselves to the Web server. You can even add additional information, like a contact URL or email address. I’d like to see aggregators start using it. &lt;br&gt;
-&lt;/p&gt;&lt;/blockquote&gt;&lt;div class=&quot;credit&quot; align=&quot;right&quot;&gt;&lt;small&gt;Source:&lt;cite&gt;&lt;a href=&quot;http://kalsey.com/blog/2003/01/referral_abuse/index.html&quot;&gt;Kalsey Consulting Group: Referral Abuse&lt;/a&gt;&lt;/cite&gt;.&lt;/small&gt;&lt;/div&gt;&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;Hmm, being mostly a standards neophyte, I &lt;a href=&quot;http://www.decafbad.com/news_archives/000185.phtml#000185&quot; target=&quot;_top&quot;&gt;thought this was a great idea&lt;/a&gt;, you know, &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/NeatLikeDigitalWatches&quot;&gt;NeatLikeDigitalWatches&lt;/a&gt;.  I thought this was more a semi-clever &lt;strong&gt;overloading&lt;/strong&gt; of the referer, rather than outright abuse.  And this, I thought, was reasonably okay since there wasn&#39;t, I thought, anywhere else to stick a backlink to myself while consuming &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; feeds.&lt;/p&gt;
-&lt;p&gt;Well, yeah, now that I read some of the complaints against this use of referers, I agree.  And, yes, now that I read the fine RFC, I see that the User-Agent string is more appropriate for this purpose.&lt;/p&gt;
-&lt;p&gt;So!  From now on, hits from my copy of &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/AmphetaDesk&quot;&gt;AmphetaDesk&lt;/a&gt; will leave behind a User-Agent string similar to this:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;&quot;AmphetaDesk/0.93 (darwin; http: //www.disobey.com/amphetadesk/; http: //www.decafbad.com/thanks-for-feeding-me.phtml)&quot;&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;I tack my own personal thanks URL onto the end of the list within the parenthesis.  In addition, I no longer send a referrer string when I download &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; feeds.  How did I do it?  Very simply.&lt;/p&gt;
-&lt;p&gt;First, I modify my &lt;code&gt;AmphetaDesk/data/mySettings.xml&lt;/code&gt; file by hand to supply a blank referer and a new user URL (having some angle-bracket problems, bear with me):&lt;/p&gt;&lt;blockquote&gt;&lt;code&gt;&lt;br&gt;
-[user]&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;... &lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;[http_referer][/http_referer]&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;[user_url]http://www.decafbad.com/thanks-for-feeding-me.phtml[/user_url]&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;...&lt;br&gt;
-[/user]&lt;br&gt;
-&lt;br&gt;
-&lt;/code&gt;&lt;/blockquote&gt;Second, I modified &lt;code&gt;AmphetaDesk/lib/AmphetaDesk/Settings.pm&lt;/code&gt; to account for the new setting:&lt;blockquote&gt;&lt;code&gt;...&lt;br&gt;
-   $SETTINGS{user_http_referer}               = &quot;http://www.disobey.com/amphetadesk/&quot;;&lt;br&gt;
-   $SETTINGS{user_user_url}                   = &quot;http://www.disobey.com/amphetadesk/&quot;;&lt;br&gt;
-   $SETTINGS{user_link_target}                = &quot;_blank&quot;;&lt;br&gt;
-...&lt;/code&gt;&lt;/blockquote&gt;Third, I modified the &lt;code&gt;create_ua()&lt;/code&gt; subroutine in &lt;code&gt;AmphetaDesk/lib/AmphetaDesk/WWW.pm&lt;/code&gt; to actually use the new setting:&lt;blockquote&gt;&lt;code&gt;&lt;br&gt;
-sub create_ua {&lt;br&gt;
-...&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;my $ua = new LWP::UserAgent; $ua-&amp;gt;env_proxy();&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$ua-&amp;gt;timeout(get_setting(&quot;user_request_timeout&quot;));&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;my ($app_v, $app_u, $app_o, $user_u) = (get_setting(&quot;app_version&quot;),&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;get_setting(&quot;app_url&quot;), get_setting(&quot;app_os&quot;), get_setting(&quot;user_user_url&quot;));&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$ua-&amp;gt;agent(&quot;AmphetaDesk/$app_v ($app_o; $app_u; $user_u)&quot;);&lt;br&gt;
-...&lt;br&gt;
-}&lt;br&gt;
-&lt;/code&gt;&lt;/blockquote&gt;And voila - no more referer abuse.  If you want to discover my thank-you message, examine the User-Agent string.  Seems like this would be a good idea for all news aggregators to pick up.  And if I get ambitious and have spare time today, I&#39;ll be sending off a patch to &lt;a href=&quot;http://www.disobey.com/about/morbus.shtml&quot; target=&quot;_top&quot;&gt;Morbus&lt;/a&gt; &amp;amp; friends later today.&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;&lt;b&gt;Update&lt;/b&gt;: Gagh!  This has been the hardest post to try to format correctly within the fancy schmancy auto-formatting widgets I have piped together.  All apologies for content resembling garbage.  I think I&#39;ll use this excuse in the future whenever I write something completely daft.  (Which means I&#39;ll be using it a lot, most likely.)&lt;/p&gt;
-" />
+        <meta property="og:description" content="Amen. I’ve always found it irritating that news aggregators insert their URL into the referrer field. ... It would be nice if there was some sort of browser header the aggregator could send to identify itself instead of using the referrer field. Oh, that’s right, there is. It’s called User-Agent. 
+The user agent field is designed for browsers, robots, and other user agents to identify themselves to the Web server. You can even add additional information, like a contact URL or email address. I’d like to see aggregators start using it. 
+Source:Kalsey Consulting Group: Referral Abuse.
+Hmm, being mostly a standards neophyte, I thought this was a great idea, you know, NeatLikeDigitalWatches.  I thought this was more a semi-clever overloading of the referer, rather than outright abuse.  And this, I thought, was reasonably okay since there wasn&#39;t, I thought, anywhere else to stick a backlink to myself while consuming RSS feeds.
+Well, yeah, now that I read some of the complaints against this use of referers, I agree.  And, yes, now that I read the fine RFC, I see that the User-Agent string is more appropriate for this purpose.
+So!  From now on, hits from my copy of AmphetaDesk will leave behind a User-Agent string similar to this:
+&quot;AmphetaDesk/0.93 (darwin; http: //www.disobey.com/amphetadesk/; http: //www.decafbad.com/thanks-for-feeding-me.phtml)&quot;
+I tack my own personal thanks URL onto the end of the list within the parenthesis.  In addition, I no longer send a referrer string when I download RSS feeds.  How did I do it?  Very simply.
+First, I modify my AmphetaDesk/data/mySettings.xml file by hand to supply a blank referer and a new user URL (having some angle-bracket problems, bear with me):
+[user]
+    ... 
+    [http_referer][/http_referer]
+    [user_url]http://www.decafbad.com/thanks-for-feeding-me.phtml[/user_url]
+    ...
+[/user]
+
+Second, I modified AmphetaDesk/lib/AmphetaDesk/Settings.pm to account for the new setting:...
+   $SETTINGS{user_http_referer}               = &quot;http://www.disobey.com/amphetadesk/&quot;;
+   $SETTINGS{user_user_url}                   = &quot;http://www.disobey.com/amphetadesk/&quot;;
+   $SETTINGS{user_link_target}                = &quot;_blank&quot;;
+...Third, I modified the create_ua() subroutine in AmphetaDesk/lib/AmphetaDesk/WWW.pm to actually use the new setting:
+sub create_ua {
+...
+    my $ua = new LWP::UserAgent; $ua-&gt;env_proxy();
+    $ua-&gt;timeout(get_setting(&quot;user_request_timeout&quot;));
+    my ($app_v, $app_u, $app_o, $user_u) = (get_setting(&quot;app_version&quot;),
+            get_setting(&quot;app_url&quot;), get_setting(&quot;app_os&quot;), get_setting(&quot;user_user_url&quot;));
+    $ua-&gt;agent(&quot;AmphetaDesk/$app_v ($app_o; $app_u; $user_u)&quot;);
+...
+}
+And voila - no more referer abuse.  If you want to discover my thank-you message, examine the User-Agent string.  Seems like this would be a good idea for all news aggregators to pick up.  And if I get ambitious and have spare time today, I&#39;ll be sending off a patch to Morbus &amp; friends later today.
+Update: Gagh!  This has been the hardest post to try to format correctly within the fancy schmancy auto-formatting widgets I have piped together.  All apologies for content resembling garbage.  I think I&#39;ll use this excuse in the future whenever I write something completely daft.  (Which means I&#39;ll be using it a lot, most likely.)" />
     </head>
     <body>
       <section class="main">
@@ -269,7 +270,7 @@ Hell, some I've seen have even been including small HTML pages in their User-Age
       </section>
 
       <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
       </section>
     </body>

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <rss version="2.0">
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
       <title>blog.lmorchard.com</title>
       <description>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</description>
       <link>https://lmorchard.github.io/blog.lmorchard.com</link>
+      <atom:link href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" rel="self" type="application/rss+xml" />      
       <item>
           <title>Magic Microformat Forms</title>
           
@@ -20,27 +21,26 @@
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2005/05/08/whats-old-scraping-is-new-again-microformats/</guid>
         </item><item>
           <title>Idempotency: It&#39;s not just for APIs (or, the web is an API)</title>
-          <description>&lt;blockquote&gt;Implementors should be aware that the software represents the user in  their interactions over the Internet, and should be careful to allow  the user to be aware of any actions they might take which may have an  unexpected significance to themselves or others.&lt;br&gt;&lt;br&gt;
+          <description>Implementors should be aware that the software represents the user in  their interactions over the Internet, and should be careful to allow  the user to be aware of any actions they might take which may have an  unexpected significance to themselves or others.
 
-&lt;p&gt;In particular, the convention has been established that the GET and  HEAD methods SHOULD NOT have the significance of taking an action  other than retrieval. These methods ought to be considered &quot;safe&quot;.  This allows user agents to represent other methods, such as POST, PUT  and DELETE, in a special way, so that the user is made aware of the  fact that a possibly unsafe action is being requested.&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;Naturally, it is not possible to ensure that the server does not  generate side-effects as a result of performing a GET request; in  fact, some dynamic resources consider that a feature. The important  distinction here is that the user did not request the side-effects,  so therefore cannot be held accountable for them.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div align=&quot;right&quot;&gt;&lt;small&gt;Source: &lt;cite&gt;&lt;a href=&quot;http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html&quot;&gt;HTTP/1.1: Method Definitions&lt;/a&gt;&lt;/cite&gt;&lt;/small&gt;&lt;/div&gt;
+In particular, the convention has been established that the GET and  HEAD methods SHOULD NOT have the significance of taking an action  other than retrieval. These methods ought to be considered &quot;safe&quot;.  This allows user agents to represent other methods, such as POST, PUT  and DELETE, in a special way, so that the user is made aware of the  fact that a possibly unsafe action is being requested.
+Naturally, it is not possible to ensure that the server does not  generate side-effects as a result of performing a GET request; in  fact, some dynamic resources consider that a feature. The important  distinction here is that the user did not request the side-effects,  so therefore cannot be held accountable for them.
 
-&lt;p&gt;So, like... uh...  Did Google &lt;a href=&quot;http://radar.oreilly.com/archives/2005/05/google_web_acce_1.html&quot;&gt;build their accelerator&lt;/a&gt; &lt;a href=&quot;http://37signals.com/svn/archives2/google_web_accelerator_hey_not_so_fast_an_alert_for_web_app_designers.php&quot;&gt;that way&lt;/a&gt; just to provide a dramatic example of why &lt;a href=&quot;http://www.intertwingly.net/blog/784.html&quot;&gt;explanations of REST&lt;/a&gt; &lt;a href=&quot;http://www.xml.com/lpt/a/2004/08/11/rest.html&quot;&gt;focus repeatedly&lt;/a&gt; (&lt;a href=&quot;http://www.franklinmint.fm/blog/archives/000379.html&quot;&gt;to the annoyance of some&lt;/a&gt;) &lt;a href=&quot;http://www-128.ibm.com/developerworks/webservices/library/ws-restvsoap/&quot;&gt;on the fact that&lt;/a&gt; &lt;em&gt;the HTTP GET method is specified as and should be implemented as &lt;strong&gt;idempotent&lt;/strong&gt;&lt;/em&gt;?&lt;/p&gt;
-&lt;p&gt;Seriously.  Did they?  Well, at any rate, I guess they didn&#39;t read this PDF:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.cs.bu.edu/techreports/2001-017-wcw01-proceedings/119_davison.pdf&quot;&gt;Assertion: Prefetching With GET is Not Good&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;But, eh, I hadn&#39;t read that PDF until a few minutes ago anyway.  Though, it is kind of funny that I found it as the first hit on Google for the terms &quot;&lt;a href=&quot;http://www.google.com/search?q=rest+get+idempotent+prefetch+problem&quot;&gt;rest get idempotent prefetch problem&lt;/a&gt;&quot;.  (Which, snarkily, is really the only reason I mention it.)&lt;/p&gt;
-&lt;blockquote&gt;Yes, one could argue that only &quot;badly designed&quot; web applications that don&#39;t follow the rules of GET and POST will be affected, but I&#39;m not sure this is an argument that Google (or anyone else who actually builds or uses web apps in the wild) would care to make in this situation.
-&lt;/blockquote&gt;
-&lt;div align=&quot;right&quot;&gt;&lt;small&gt;Source: &lt;cite&gt;&lt;a href=&quot;http://radar.oreilly.com/archives/2005/05/google_web_acce_1.html&quot;&gt;O&#39;Reilly Radar: Google Web Accelerator considered overzealous&lt;/a&gt;&lt;/cite&gt;&lt;/small&gt;&lt;/div&gt;
+Source: HTTP/1.1: Method Definitions
 
-&lt;p&gt;Er, oh yeah...  I guess I can&#39;t be too smug about GET and idempotency, now that I look at a few of the web apps with which I&#39;ve been involved.  Yeah, that smarts.  &lt;/p&gt;
-&lt;p&gt;Although, I do have to say that most of the nonidempotent-(read: broken)-GET-driven things I&#39;ve put together tend to be behind &lt;code&gt;href=&quot;javascript: do_foo()&quot;&lt;/code&gt; function call links which, while hated by some, would have protected you from this--at least until Google&#39;s prefetch learned JavaScript.&lt;/p&gt;
-&lt;p&gt;Bah, I say.  Maybe it&#39;s time to start actually, really paying attention to this?&lt;/p&gt;
-</description>
+So, like... uh...  Did Google build their accelerator that way just to provide a dramatic example of why explanations of REST focus repeatedly (to the annoyance of some) on the fact that the HTTP GET method is specified as and should be implemented as idempotent?
+Seriously.  Did they?  Well, at any rate, I guess they didn&#39;t read this PDF:
+
+Assertion: Prefetching With GET is Not Good.
+
+But, eh, I hadn&#39;t read that PDF until a few minutes ago anyway.  Though, it is kind of funny that I found it as the first hit on Google for the terms &quot;rest get idempotent prefetch problem&quot;.  (Which, snarkily, is really the only reason I mention it.)
+Yes, one could argue that only &quot;badly designed&quot; web applications that don&#39;t follow the rules of GET and POST will be affected, but I&#39;m not sure this is an argument that Google (or anyone else who actually builds or uses web apps in the wild) would care to make in this situation.
+
+Source: O&#39;Reilly Radar: Google Web Accelerator considered overzealous
+
+Er, oh yeah...  I guess I can&#39;t be too smug about GET and idempotency, now that I look at a few of the web apps with which I&#39;ve been involved.  Yeah, that smarts.  
+Although, I do have to say that most of the nonidempotent-(read: broken)-GET-driven things I&#39;ve put together tend to be behind href=&quot;javascript: do_foo()&quot; function call links which, while hated by some, would have protected you from this--at least until Google&#39;s prefetch learned JavaScript.
+Bah, I say.  Maybe it&#39;s time to start actually, really paying attention to this?</description>
           
           <pubDate>Fri, 06 May 2005 23:51:54 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2005/05/06/idempotency/</link>

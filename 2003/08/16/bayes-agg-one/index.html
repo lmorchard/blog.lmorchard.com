@@ -10,6 +10,8 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
       />
+      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
+      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
       <link
             rel="stylesheet"
             href="/blog.lmorchard.com/css/screen.css"
@@ -38,26 +40,26 @@
           content="https://lmorchard.github.io/blog.lmorchard.com/2003/08/16/bayes-agg-one/"
         />
         
-        <meta property="og:description" content="&lt;p&gt;Despite a reading &lt;a href=&quot;http://www.srijith.net/trinetre/archives/2003/08/11/index.shtml#000373&quot;&gt;an entry by Srijith&lt;/a&gt;
+        <meta property="og:description" content="Despite a reading an entry by Srijith
 discussing Bayes-based classification as unsuitable
-for use in news aggregators, I tied &lt;a href=&quot;http://www.spambayes.org&quot;&gt;SpamBayes&lt;/a&gt;
-into my &lt;a href=&quot;http://www.decafbad.com/viewcvs.cgi/dbagg/&quot;&gt;homebrew news aggregator&lt;/a&gt;
-and have been trying it out this week.  I know I’ve been &lt;a href=&quot;http://www.decafbad.com/blog/geek/syndicated_whuffie.phtml&quot;&gt;talking about it&lt;/a&gt;
+for use in news aggregators, I tied SpamBayes
+into my homebrew news aggregator
+and have been trying it out this week.  I know I’ve been talking about it
 for awhile, but procrastination and being busy all round kept me from getting
 to it.  Funny thing is, when I finally got a chance to really check things out,
 the integration was a snap.  I’d anticipated a bit of work, but was pleasantly
 surprised.  I doubt that any other aggregator written in
-Python would have a hard time with it.&lt;/p&gt;
+Python would have a hard time with it.
 
-&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;If, that is, anyone else wants to do it.  I already knew it wasn&amp;amp;#8217;t
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;a href=&quot;http://diveintomark.org/archives/2003/07/07/linkdumps_are_like_sex&quot;&gt;magic pixy dust&lt;/a&gt;
+&lt;p&gt;If, that is, anyone else wants to do it.  I already knew it wasn&amp;#8217;t
+
+magic pixy dust
 but I figured it might be worth a try.  I will be eating my dogfood
 for awhile with this, but I’m thinking already that what’s good for spam
-might not be so good for news aggregators.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;Srijith&amp;amp;#8217;s &amp;lt;a href=&quot;http://www.srijith.net/trinetre/archives/2003/08/11/index.shtml#000373&quot;&amp;gt;post&amp;lt;/a&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;mentions some snags in ignoring some of the semantics of a news item,
+might not be so good for news aggregators.
+&lt;p&gt;Srijith&amp;#8217;s &lt;a href=&quot;http://www.srijith.net/trinetre/archives/2003/08/11/index.shtml#000373&quot;&gt;post&lt;/a&gt;
+
+mentions some snags in ignoring some of the semantics of a news item,
 such as whether a word appears in the item’s title or information about
 the item’s source.  I don’t think that this completely
 applies to how I’m doing classification, since SpamBayes appears to
@@ -66,26 +68,26 @@ When I feed an item to SpamBayes for training and scoring, I represent
 it as something like an email message, with headers like date, subject,
 from, and an “X-Link” header for the link.  However, even with this,
 I think Srijith’s got a point when he writes that this method will miss
-a lot of available clues for classification.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;Unlike Srijith&amp;amp;#8217;s examples, though, I&amp;amp;#8217;m not trying to train my
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;aggregator to sift entries into any specific categories.  So far, I’ve
+a lot of available clues for classification.
+&lt;p&gt;Unlike Srijith&amp;#8217;s examples, though, I&amp;#8217;m not trying to train my
+
+aggregator to sift entries into any specific categories.  So far, I’ve
 been trying to get it to discriminate between what I really want to
 read, and what I’m not so interested in.  So, I figured that something
 which can learn the difference between spam and normal email could help.
 But, although it’s early, I’m noticing a few things about the results and
-I’ve had a few things occur to me.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;See, in the case of ham vs spam, I really want all the ham and none of
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;the spam.  A method to differentiate between these two should be
+I’ve had a few things occur to me.
+&lt;p&gt;See, in the case of ham vs spam, I really want all the ham and none of
+
+the spam.  A method to differentiate between these two should be
 optimized toward one answer or the other.  SpamBayes offers “I don’t
 know” as a third answer, but it’s not geared toward anything else
 in-between.  However, in measuring something like “interest“,
 inbetween answers are useful.  I want all of the interesting stuff,
-some of the sort-of interesting stuff, and a little of the rest.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;This is also a problem for me in deciding to what I
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;should give a thumbs up and what gets the thumbs down.  Even though
+some of the sort-of interesting stuff, and a little of the rest.
+&lt;p&gt;This is also a problem for me in deciding to what I
+
+should give a thumbs up and what gets the thumbs down.  Even though
 I’ve subscribed to a little over 300 feeds, every item from each of
 them is somewhat interesting to me.  I wouldn’t have subscribed to the
 feed if there wasn’t anything of interest there, so I’ve already
@@ -93,17 +95,16 @@ biased the content of what I receive.  Some items are more interesting
 than others, but the difference between them is nowhere near the
 difference of wanted ham vs unsolicited spam.  So, I find myself
 giving the nod to lots of items, but only turning down a few.
-SpamBayes would like equal examples of both, if possible.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;I&amp;amp;#8217;ll still be playing with this for awhile, but I need to look
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;around at other machine learning tech.  I’m just hacking around,
+SpamBayes would like equal examples of both, if possible.
+&lt;p&gt;I&amp;#8217;ll still be playing with this for awhile, but I need to look
+
+around at other machine learning tech.  I’m just hacking around,
 but the important thing is to try to understand the algorithms
 better and know how they work and why.  Bayes is in vogue right now,
-but as Mark Pilgrim intimated, it’s not magic.  It’s just “advanced” :)&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;In the immortal words of &amp;lt;a href=&quot;http://www.spidereyeballs.com/os6/set3/small_os6_d3_3596_sm.html&quot;&amp;gt;Mark Jason Dominus&amp;lt;/a&amp;gt;: &amp;amp;#8220;You can&amp;amp;#8217;t just make shit
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;up and expect the computer to know what you mean, retardo!” &lt;/p&gt;&lt;p&gt;&lt;/p&gt;
-" />
+but as Mark Pilgrim intimated, it’s not magic.  It’s just “advanced” :)
+&lt;p&gt;In the immortal words of &lt;a href=&quot;http://www.spidereyeballs.com/os6/set3/small_os6_d3_3596_sm.html&quot;&gt;Mark Jason Dominus&lt;/a&gt;: &amp;#8220;You can&amp;#8217;t just make shit
+
+up and expect the computer to know what you mean, retardo!”" />
     </head>
     <body>
       <section class="main">
@@ -251,7 +252,7 @@ I'd recommend using MyRSS or Blogstreet (or your own scraper  if you've got one)
       </section>
 
       <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
       </section>
     </body>

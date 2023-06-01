@@ -10,6 +10,8 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
       />
+      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
+      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
       <link
             rel="stylesheet"
             href="/blog.lmorchard.com/css/screen.css"
@@ -38,24 +40,21 @@
           content="https://lmorchard.github.io/blog.lmorchard.com/2003/11/21/delicious-quicklinks/"
         />
         
-        <meta property="og:description" content="&lt;p&gt;
-In case anyone is interested in using &lt;a href=&quot;http://del.icio.us/&quot;&gt;del.icio.us&lt;/a&gt; with &lt;a href=&quot;http://www.blosxom.com&quot;&gt;blosxom&lt;/a&gt; in place of my own &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/BookmarkBlogger&quot;&gt;BookmarkBlogger&lt;/a&gt;, get yourself a copy of &lt;a href=&quot;http://xmlstar.sourceforge.net/&quot;&gt;xmlstarlet&lt;/a&gt; and check out this shell script:
-&lt;/p&gt;
-&lt;textarea rows=&quot;14&quot; cols=&quot;70&quot;&gt;#!/bin/bash
+        <meta property="og:description" content="In case anyone is interested in using del.icio.us with blosxom in place of my own BookmarkBlogger, get yourself a copy of xmlstarlet and check out this shell script:
 
-&amp;lt;p&amp;gt;DATE=${1-&amp;lt;code&amp;gt;date +%Y-%m-%d&amp;lt;/code&amp;gt;}
+#!/bin/bash
+
+&lt;p&gt;DATE=${1-&lt;code&gt;date +%Y-%m-%d&lt;/code&gt;}
 BLOG=&quot;/Users/deusx/desktop/decafbad-entries/links&quot;
-FN=&quot;${BLOG}/&quot;&amp;lt;code&amp;gt;echo ${DATE} | sed -e &#39;y/0123456789-/oabcdefghij/&#39;&amp;lt;/code&amp;gt;&quot;.txt&quot;&amp;lt;/p&amp;gt;
-&amp;lt;p&amp;gt;curl -s -u deusx:HAHAHA &#39;&amp;lt;a href=&quot;http://del.icio.us/api/posts/get?dt=&#39;$%7BDATE%7D&quot;&amp;gt;http://del.icio.us/api/posts/get?dt=&#39;${DATE}&amp;lt;/a&amp;gt; |&amp;lt;br&amp;gt;    tidy -xml -asxml -q -f /dev/null |&amp;lt;br&amp;gt;    xml sel -t -o &quot;Quick Links&quot; -n &amp;lt;br&amp;gt;            -e &#39;ul&#39;  -m &#39;//post&#39; &amp;lt;br&amp;gt;            -e &#39;li&#39;  -e &#39;a&#39; -a &#39;href&#39; -v &#39;@href&#39; &amp;lt;br&amp;gt;            -b -v &#39;text()&#39; -n  &amp;gt; ${FN}&amp;lt;/p&amp;gt;
-&amp;lt;p&amp;gt;touch -d &quot;${DATE} 23:59&quot; ${FN}
-&lt;/textarea&gt;&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;
-You could do this with XSLT, but hacking with a REST-ish &amp;amp; XML producing web service entirely in a shell script seemed oddly appealing to me that week.  Extending this sort of thing to blogging systems other than blosxom is left as an exercise to the reader.
-&lt;/p&gt;
-&lt;p&gt;
-&lt;b&gt;Update:&lt;/b&gt; Hmm, looks like one of the blosxom plugins I&#39;m using hates the variables in my code above.  So I stuck curly braces in, which seem to get through okay.
-&lt;/p&gt;
-" />
+FN=&quot;${BLOG}/&quot;&lt;code&gt;echo ${DATE} | sed -e &#39;y/0123456789-/oabcdefghij/&#39;&lt;/code&gt;&quot;.txt&quot;&lt;/p&gt;
+&lt;p&gt;curl -s -u deusx:HAHAHA &#39;&lt;a href=&quot;http://del.icio.us/api/posts/get?dt=&#39;$%7BDATE%7D&quot;&gt;http://del.icio.us/api/posts/get?dt=&#39;${DATE}&lt;/a&gt; |&lt;br&gt;    tidy -xml -asxml -q -f /dev/null |&lt;br&gt;    xml sel -t -o &quot;Quick Links&quot; -n &lt;br&gt;            -e &#39;ul&#39;  -m &#39;//post&#39; &lt;br&gt;            -e &#39;li&#39;  -e &#39;a&#39; -a &#39;href&#39; -v &#39;@href&#39; &lt;br&gt;            -b -v &#39;text()&#39; -n  &gt; ${FN}&lt;/p&gt;
+&lt;p&gt;touch -d &quot;${DATE} 23:59&quot; ${FN}
+
+
+You could do this with XSLT, but hacking with a REST-ish &amp; XML producing web service entirely in a shell script seemed oddly appealing to me that week.  Extending this sort of thing to blogging systems other than blosxom is left as an exercise to the reader.
+
+
+Update: Hmm, looks like one of the blosxom plugins I&#39;m using hates the variables in my code above.  So I stuck curly braces in, which seem to get through okay." />
     </head>
     <body>
       <section class="main">
@@ -117,7 +116,7 @@ In case anyone is interested in using <a href="http://del.icio.us/">del.icio.us<
 <p>DATE=${1-<code>date +%Y-%m-%d</code>}
 BLOG=&quot;/Users/deusx/desktop/decafbad-entries/links&quot;
 FN=&quot;${BLOG}/&quot;<code>echo ${DATE} | sed -e &#39;y/0123456789-/oabcdefghij/&#39;</code>&quot;.txt&quot;</p>
-<p>curl -s -u deusx:HAHAHA &#39;<a href="http://del.icio.us/api/posts/get?dt=&#39;$%7BDATE%7D">http://del.icio.us/api/posts/get?dt=&#39;${DATE}</a> |<br>    tidy -xml -asxml -q -f /dev/null |<br>    xml sel -t -o &quot;Quick Links&quot; -n <br>            -e &#39;ul&#39;  -m &#39;//post&#39; <br>            -e &#39;li&#39;  -e &#39;a&#39; -a &#39;href&#39; -v &#39;@href&#39; <br>            -b -v &#39;text()&#39; -n  &gt; ${FN}</p>
+<p>curl -s -u deusx:HAHAHA &#39;<a href="http://del.icio.us/api/posts/get?dt='$%7BDATE%7D">http://del.icio.us/api/posts/get?dt=&#39;${DATE}</a> |<br>    tidy -xml -asxml -q -f /dev/null |<br>    xml sel -t -o &quot;Quick Links&quot; -n <br>            -e &#39;ul&#39;  -m &#39;//post&#39; <br>            -e &#39;li&#39;  -e &#39;a&#39; -a &#39;href&#39; -v &#39;@href&#39; <br>            -b -v &#39;text()&#39; -n  &gt; ${FN}</p>
 <p>touch -d &quot;${DATE} 23:59&quot; ${FN}
 </textarea></p>
 <p>
@@ -170,7 +169,7 @@ if test `cat ${FN} |wc -c` = 18; then rm ${FN}; else touch -d "${DATE} 23:59" ${
       </section>
 
       <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
       </section>
     </body>

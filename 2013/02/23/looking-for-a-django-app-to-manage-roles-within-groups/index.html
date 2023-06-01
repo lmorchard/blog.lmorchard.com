@@ -10,6 +10,8 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
       />
+      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
+      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
       <link
             rel="stylesheet"
             href="/blog.lmorchard.com/css/screen.css"
@@ -41,8 +43,7 @@
             property="og:image"
             content="http://images2.wikia.nocookie.net/__cb20091106224144/wowwiki/images/thumb/3/3e/Guild_list_%28interface%29.png/450px-Guild_list_%28interface%29.png"
           />
-        <meta property="og:description" content="&lt;p&gt;I want to add some team-based features to &lt;a href=&quot;https://github.com/lmorchard/django-badger&quot;&gt;django-badger&lt;/a&gt;. I was hoping that someone had already built a reusable app to do most of the work for me. This happens quite a lot when I’m working with Django. Unfortunately, I haven’t &lt;em&gt;quite&lt;/em&gt; found what I’m looking for yet. Consider this blog post either the product of my thinking out loud toward a rough spec, or a long-winded lazyweb search query.&lt;/p&gt;
-" />
+        <meta property="og:description" content="I want to add some team-based features to django-badger. I was hoping that someone had already built a reusable app to do most of the work for me. This happens quite a lot when I’m working with Django. Unfortunately, I haven’t quite found what I’m looking for yet. Consider this blog post either the product of my thinking out loud toward a rough spec, or a long-winded lazyweb search query." />
     </head>
     <body>
       <section class="main">
@@ -123,11 +124,11 @@
 <p>In the case of <a href="https://github.com/lmorchard/django-badger">django-badger</a>, I&#8217;d like to enable users to start teams, create badges that belong to the team, and allow other team members varying levels of control over those badges (e.g. creating, editing, awarding, approving nominations, etc).</p>
 <p>So, there&#8217;s the matter of user interface &#8211; I&#8217;d like any user (not just site-wide admins) to be able to:</p>
 <ul>
-<li>  create a team;</li>
-<li>  manage team profile information;</li>
-<li>  manage &amp; grant roles based on a canned selection of permissions;</li>
-<li>  invite other users as members, remove members;</li>
-<li>  accept team invitations, request to join a team, remove oneself from a team.</li>
+<li>create a team;</li>
+<li>manage team profile information;</li>
+<li>manage &amp; grant roles based on a canned selection of permissions;</li>
+<li>invite other users as members, remove members;</li>
+<li>accept team invitations, request to join a team, remove oneself from a team.</li>
 </ul>
 <p>The <a href="https://github.com/rasca/django-hierarchical-auth">django-hierarchical-auth</a> app comes with no views; it&#8217;s just a backend utility. So, if I grab that app, I&#8217;ll still have to build the UI and supporting models myself (i.e. for team profiles and permission sets).</p>
 <p>So, that leaves me wondering if there&#8217;s some value in me building a reusable app atop <a href="https://github.com/rasca/django-hierarchical-auth">django-hierarchical-auth</a> that basically implements what that WoW guild management interface offers? Ultimately, that&#8217;s what I&#8217;m really hoping someone else has built for me.</p>
@@ -159,7 +160,7 @@
       </section>
 
       <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
       </section>
     </body>

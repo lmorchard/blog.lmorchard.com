@@ -1,38 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <rss version="2.0">
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
       <title>blog.lmorchard.com</title>
       <description>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</description>
       <link>https://lmorchard.github.io/blog.lmorchard.com</link>
+      <atom:link href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" rel="self" type="application/rss+xml" />      
       <item>
           <title>Colloquy, an insane IRC client for OS X</title>
-          <description>&lt;blockquote cite=&quot;http://fishbowl.pastiche.org/2004/02/05/a_confluence_gui_client_in_200_lines_of_code&quot;&gt;WebKit is so insanely easy to use that I&#39;m amazed every OS X application doesn&#39;t do it somewhere, just for the fun of it. Maybe they do.&lt;/blockquote&gt;
-&lt;div class=&quot;credit&quot; align=&quot;right&quot;&gt;&lt;small&gt;Source:&lt;cite&gt;&lt;a href=&quot;http://fishbowl.pastiche.org/2004/02/05/a_confluence_gui_client_in_200_lines_of_code&quot;&gt;The Fishbowl: A Confluence GUI Client in 200 Lines of Code&lt;/a&gt;&lt;/cite&gt;&lt;/small&gt;&lt;/div&gt;
+          <description>WebKit is so insanely easy to use that I&#39;m amazed every OS X application doesn&#39;t do it somewhere, just for the fun of it. Maybe they do.
+Source:The Fishbowl: A Confluence GUI Client in 200 Lines of Code
 
-&lt;blockquote cite=&quot;http://www.javelin.cc/colloquy/developers.html&quot;&gt;A new major feature of Colloquy 2 are the extensible conversation styles. Styles are simple OS X bundles wraped around a CSS file (at minimum) or a CSS file and a XSL file. Knowing this, the fact that Colloquy uses XML to store chat messages that come in over the network is no surprise to some. Pairing these three technologies gives us great flexibility when processing and displaying a message on screen.
-&lt;br&gt;&lt;br&gt;
-The process of formatting a message follows these steps, start to finish. First, wrap the message in a simple XML envelope, encoding any special characters and representing IRC styling as XHTML. This XML envelope gets transformed with the curent style&#39;s XSL file (or a built-in default XSL file). The resulting transformation from the XSL on the XML should be XHTML that can then be rendered with help from the style&#39;s CSS file. Rendering is done via Apple&#39;s Safari (WebKit) engine -- so the possibilities are endless (evidenced by the built-in iChat like Bubbles style).&lt;/blockquote&gt;
-&lt;div class=&quot;credit&quot; align=&quot;right&quot;&gt;&lt;small&gt;Source:&lt;cite&gt;&lt;a href=&quot;http://www.javelin.cc/colloquy/developers.html&quot;&gt;Colloquy: Developers&lt;/a&gt;&lt;/cite&gt;&lt;/small&gt;&lt;/div&gt;
+A new major feature of Colloquy 2 are the extensible conversation styles. Styles are simple OS X bundles wraped around a CSS file (at minimum) or a CSS file and a XSL file. Knowing this, the fact that Colloquy uses XML to store chat messages that come in over the network is no surprise to some. Pairing these three technologies gives us great flexibility when processing and displaying a message on screen.
 
-&lt;p&gt;
+The process of formatting a message follows these steps, start to finish. First, wrap the message in a simple XML envelope, encoding any special characters and representing IRC styling as XHTML. This XML envelope gets transformed with the curent style&#39;s XSL file (or a built-in default XSL file). The resulting transformation from the XSL on the XML should be XHTML that can then be rendered with help from the style&#39;s CSS file. Rendering is done via Apple&#39;s Safari (WebKit) engine -- so the possibilities are endless (evidenced by the built-in iChat like Bubbles style).
+Source:Colloquy: Developers
+
+
 Colloquy is an IRC client for OS X that I just discovered this week,
-via &lt;a href=&quot;http://macslash.org/article.pl?sid=04/02/09/1649200&amp;amp;mode=thread&quot;&gt;an article posted on MacSlash&lt;/a&gt;.
+via an article posted on MacSlash.
 I&#39;ve been looking for a decent Cocoa-based app as an alternative
-to my use of &lt;a href=&quot;http://xchataqua.sourceforge.net/&quot;&gt;X-Chat Aqua&lt;/a&gt;,
-&lt;a href=&quot;http://www.conversation.pwp.blueyonder.co.uk/&quot;&gt;Conversation&lt;/a&gt;, and
-&lt;a href=&quot;http://www.irssi.org&quot;&gt;irssi&lt;/a&gt;.  Having never heard of Colloquy before,
+to my use of X-Chat Aqua,
+Conversation, and
+irssi.  Having never heard of Colloquy before,
 I figured I&#39;d check it out.
-&lt;/p&gt;
 
-&lt;p&gt;
+
+
 Colloquy is a Cocoa app, and the source is available.  It&#39;s the first OS X
 IRC client I&#39;ve played with yet that most resembles what I expect out of a modern
 Cocoa app.  Conversation is right there, too, but I don&#39;t see any source (no
 offence to the author) and it doesn&#39;t yet support multiple servers or AppleScript
 (although those are on the planned features list).
-&lt;/p&gt;
 
-&lt;p&gt;
+
+
 Beyond all that, though, what has sucked me into Colloquy is the way IRC messages are
 presented and styled.  In case the introductory quotes haven&#39;t given you the idea, this
 thing pipelines XML, XSL, CSS, HTML, Javascript, and WebKit to provide
@@ -40,38 +41,36 @@ an immensely flexible user-customizable, modular display style system.
 There aren&#39;t that many styles yet, but conceivably anything one could
 do with the pile of technologies above can be employed in presenting IRC
 messages.
-&lt;/p&gt;
 
-&lt;p&gt;
+
+
 Yes, you could make the case that this is an insane example of overkill.
 If so, Conversation or a shell-based program is likely more your speed.
 Admittedly, Colloquy is not a featherweight IRC client.
 But I&#39;ve been thinking about this sort of inversion of web tech for awhile.
 Instead of the browser hosting the app, the app hosts the browser.  I&#39;ve been
 doing a ton of tinkery UI work with HTML and JavaScript in my
-&lt;a href=&quot;http://www.decafbad.com/cvs/dbagg2/&quot;&gt;news aggregator&lt;/a&gt; and have come
+news aggregator and have come
 to appreciate the DOM and various things JavaScript makes possible in modern
 browsers.
-&lt;/p&gt;
 
-&lt;p&gt;
+
+
 This has lately lead me to consider how a browser canvas
 could be used as a sort of universal widget inside a native app... not at
 all unlike the way Colloquy uses it.  Apple&#39;s WebKit encapsulation makes it
-just about &lt;a href=&quot;http://cocoadevcentral.com/articles/000077.php&quot;&gt;dead simple&lt;/a&gt;
+just about dead simple
 to drop it into an app and integrate it.  In fact,
 from a shallow glance at the docs for WebKit, it seems even simpler to use than
 some other GUI widgets in the Cocoa arsenal.
-&lt;/p&gt;
 
-&lt;p&gt;
+
+
 So...  is this the start of more Cocoa apps embedding WebKit views, &quot;just for the
 fun of it&quot;?  Who knows, but it really appeals to my propensity for mixing and
 matching different tech within the same project.  I suppose it&#39;s a sort of sick
 addiction I&#39;ve picked up from the Tower of Babel web development I&#39;ve been doing
-for years, but it looks like fun to me!
-&lt;/p&gt;
-</description>
+for years, but it looks like fun to me!</description>
           
           <pubDate>Fri, 13 Feb 2004 02:50:53 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2004/02/13/colloquy-irc/</link>

@@ -10,6 +10,8 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
       />
+      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
+      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
       <link
             rel="stylesheet"
             href="/blog.lmorchard.com/css/screen.css"
@@ -38,27 +40,27 @@
           content="https://lmorchard.github.io/blog.lmorchard.com/2002/09/28/ooobii/"
         />
         
-        <meta property="og:description" content="&lt;p&gt;Dave writes on &quot;&lt;a href=&quot;http://scriptingnews.userland.com/stories/storyReader$1766&quot;&gt;RSS and Namespaces&lt;/a&gt;&quot;:&lt;/p&gt;&lt;blockquote&gt;&lt;i&gt;... there are some XML parsers that don&#39;t properly deal with namespace attributes on the top-level element of a source.&lt;/i&gt;&lt;/blockquote&gt;Agreed.  These parsers are often cheaper to deal with when you know that the format you&#39;re expecting doesn&#39;t involve namespaces.  You trade some flexibility for some ease of development.&lt;blockquote&gt;&lt;i&gt;For these guys, just introducing an xmlns attribute is enough to make them reject the feed. So while they could handle a 0.92 feed, as soon as we introduced the xmlns attribute, they gave up.&lt;/i&gt;&lt;/blockquote&gt;Yes, because they weren&#39;t expecting to be fed something with namespaces, since they&#39;d been designed around v0.92 and family, and had been fed v2.0 with the expectation that it was 100% backward-compatible.&lt;blockquote&gt;&lt;i&gt;...Presumably &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; 1.0 doesn&#39;t have the same problem we tripped over yesterday with &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; 2.0. So I looked at a few &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; 1.0 feeds, and guess what, they do the same thing we were doing with the 2.0 feeds. ...  I conclude that the same broken parsers that didn&#39;t like the 2.0 feeds with the xmlns attributes, must also not like the 1.0 feeds.&lt;/i&gt;&lt;/blockquote&gt;And your conclusion would likely be correct - because those parsers weren&#39;t expecting to consume namespace-using XML, and they shouldn&#39;t be expecting &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; v1.0.  If an application is designed with &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; 1.0 in mind, then the author should be using a namespace-aware parser and correctly handle the namespaces, since that&#39;s the nature of the beast.  To neglect or mishandle namespaces in consuming &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; 1.0 is a mistake.&lt;br&gt;&lt;br&gt;&lt;br&gt;
-Admittedly, some applications which apparently consume &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; v1.0 feeds correctly may be broken in this way - this is not unique to &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; v2.0.  If they&#39;re broken, they need fixing.   But that&#39;s another story...
-&lt;br&gt;&lt;br&gt;
-So, on to the conclusion:&lt;blockquote&gt;&lt;i&gt;If this is true, we can&#39;t design using namespaces until:
-&lt;br&gt;&lt;br&gt;&lt;p&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;All the parsers are fixed, or
-&lt;br&gt;&lt;br&gt;&lt;/li&gt;
-&lt;li&gt;Users/content providers expect and accept this kind of breakage (I don&#39;t want to be the one delivering that bit of bad news, got burned not only by the users, but by developers too, people generally don&#39;t know about this problem, or if they do know are not being responsible with the info).
-&lt;br&gt;&lt;br&gt;
-Anyway it looks to me like there&#39;s a big problem in the strategy of formats that intend to organize around namespaces.&lt;/li&gt;&lt;/ol&gt;&lt;/i&gt;&lt;/blockquote&gt;Well, of course, end users should not expect breakage.  This is obvious to me.  No one really wants that.&lt;br&gt;&lt;br&gt;&lt;br&gt;
-The big problem I see in the strategy, though, is this:  &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; 2.0 claims to be backward-compatible with the 0.9x family, but the addition of namespaces in XML is enough of a fundamental change to break this.  I think &lt;a href=&quot;http://groups.yahoo.com/group/rss-dev/message/4115&quot;&gt;what Shelly wrote in &lt;/a&gt;&lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt;-DEV is correct:  &quot;Namespace support is NOT a
-trivial change, and will break several technologies, including &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/PHP&quot;&gt;PHP&lt;/a&gt; if
+        <meta property="og:description" content="Dave writes on &quot;RSS and Namespaces&quot;:... there are some XML parsers that don&#39;t properly deal with namespace attributes on the top-level element of a source.Agreed.  These parsers are often cheaper to deal with when you know that the format you&#39;re expecting doesn&#39;t involve namespaces.  You trade some flexibility for some ease of development.For these guys, just introducing an xmlns attribute is enough to make them reject the feed. So while they could handle a 0.92 feed, as soon as we introduced the xmlns attribute, they gave up.Yes, because they weren&#39;t expecting to be fed something with namespaces, since they&#39;d been designed around v0.92 and family, and had been fed v2.0 with the expectation that it was 100% backward-compatible....Presumably RSS 1.0 doesn&#39;t have the same problem we tripped over yesterday with RSS 2.0. So I looked at a few RSS 1.0 feeds, and guess what, they do the same thing we were doing with the 2.0 feeds. ...  I conclude that the same broken parsers that didn&#39;t like the 2.0 feeds with the xmlns attributes, must also not like the 1.0 feeds.And your conclusion would likely be correct - because those parsers weren&#39;t expecting to consume namespace-using XML, and they shouldn&#39;t be expecting RSS v1.0.  If an application is designed with RSS 1.0 in mind, then the author should be using a namespace-aware parser and correctly handle the namespaces, since that&#39;s the nature of the beast.  To neglect or mishandle namespaces in consuming RSS 1.0 is a mistake.
+Admittedly, some applications which apparently consume RSS v1.0 feeds correctly may be broken in this way - this is not unique to RSS v2.0.  If they&#39;re broken, they need fixing.   But that&#39;s another story...
+
+So, on to the conclusion:If this is true, we can&#39;t design using namespaces until:
+
+
+All the parsers are fixed, or
+
+Users/content providers expect and accept this kind of breakage (I don&#39;t want to be the one delivering that bit of bad news, got burned not only by the users, but by developers too, people generally don&#39;t know about this problem, or if they do know are not being responsible with the info).
+
+Anyway it looks to me like there&#39;s a big problem in the strategy of formats that intend to organize around namespaces.Well, of course, end users should not expect breakage.  This is obvious to me.  No one really wants that.
+The big problem I see in the strategy, though, is this:  RSS 2.0 claims to be backward-compatible with the 0.9x family, but the addition of namespaces in XML is enough of a fundamental change to break this.  I think what Shelly wrote in RSS-DEV is correct:  &quot;Namespace support is NOT a
+trivial change, and will break several technologies, including PHP if
 namespace support isn&#39;t compiled in. This isn&#39;t something that can be
 hacked out.&quot;
-&lt;br&gt;&lt;br&gt;
-When I originally read about the emergence of something called &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; 2.0, I said &quot;&lt;a href=&quot;http://www.decafbad.com/news_archives/000268.phtml#000268&quot;&gt;Go man, go&lt;/a&gt;!&quot;  But I also said, &quot;What&#39;s the catch?&quot;  Well, this appears to be a catch.  But I think it can be worked through.  This is not a &lt;strong&gt;fundamental&lt;/strong&gt; problem with namespaces themselves.  This is a versioning problem, and a problem with anticipating all the implications the new version brings to the table.  This goes for &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; 2.0, &lt;strong&gt;as well as&lt;/strong&gt; &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; 1.0.
-&lt;br&gt;&lt;br&gt;
+
+When I originally read about the emergence of something called RSS 2.0, I said &quot;Go man, go!&quot;  But I also said, &quot;What&#39;s the catch?&quot;  Well, this appears to be a catch.  But I think it can be worked through.  This is not a fundamental problem with namespaces themselves.  This is a versioning problem, and a problem with anticipating all the implications the new version brings to the table.  This goes for RSS 2.0, as well as RSS 1.0.
+
 The first thing is to nail a few things down about version numbers and reverse-compatibility.  It&#39;s been my experience that, when some thing experiences an increment to its major version number, reverse-compatibility is not guaranteed.  So, I would assume that from a v0.94 to a v2.0, things are sufficiently different that using it would require that, indeed, &quot;All the parsers are fixed&quot; to support the new major version.  So for the most part, v2.0 follows the v0.94 tradition faithfully, but on this issue it parts ways - and yes, potential consumers of v2.0 feeds will need to adjust from their v0.94 code.  Thems the breaks, I&#39;ve been told, when it comes to major version upgrades.
-&lt;br&gt;&lt;br&gt;
-So, again, I don&#39;t think that this is a fundamental flaw with &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; 1.0, &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; 2.0, or namespaces.  This is an issue of versioning, understanding the technology&#39;s implications, and reverse-compatibility." />
+
+So, again, I don&#39;t think that this is a fundamental flaw with RSS 1.0, RSS 2.0, or namespaces.  This is an issue of versioning, understanding the technology&#39;s implications, and reverse-compatibility." />
     </head>
     <body>
       <section class="main">
@@ -200,7 +202,7 @@ href="http://www.scripting.com/">Dave Winer</a>
       </section>
 
       <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
       </section>
     </body>

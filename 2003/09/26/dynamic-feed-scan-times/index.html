@@ -10,6 +10,8 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
       />
+      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
+      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
       <link
             rel="stylesheet"
             href="/blog.lmorchard.com/css/screen.css"
@@ -38,10 +40,10 @@
           content="https://lmorchard.github.io/blog.lmorchard.com/2003/09/26/dynamic-feed-scan-times/"
         />
         
-        <meta property="og:description" content="&lt;p&gt;Today, &lt;a href=&quot;http://www.decafbad.com/cvs/dbagg/&amp;quot;&quot;&gt;my aggregator&lt;/a&gt; got
-the following SQL worked into its &lt;a href=&quot;http://www.decafbad.com/cvs/dbagg/lib/dbagg/scan.py?rev=HEAD&amp;amp;content-type=text/vnd.viewcvs-markup&quot;&gt;feed poll scheduling machinery&lt;/a&gt;:&lt;/p&gt;
+        <meta property="og:description" content="Today, my aggregator got
+the following SQL worked into its feed poll scheduling machinery:
 
-&lt;pre&gt;SELECT id as source,
+SELECT id as source,
        &#39;update_period&#39; as name,
        max(1, 1/max((1.0/24.0),
                     sum(update_count)/(7*24))) AS value 
@@ -51,71 +53,69 @@ LEFT JOIN (
                 round(iso8601_to_epoch(created)/(60*60)) AS hour, 
                 count(id) AS update_count 
     FROM items 
-    WHERE created&amp;gt;epoch_to_iso8601(now()-(7*(24*60*60))) 
+    WHERE created&gt;epoch_to_iso8601(now()-(7*(24*60*60))) 
     GROUP BY hour
 ) ON id=count_id
 GROUP BY source
-ORDER BY value&lt;/pre&gt;
+ORDER BY value
 
-&lt;p&gt;
+
 It&#39;s likely that this is really nasty, but I have only a street-level
 working knowledge of SQL.  Also, a few of the date functions are
-specific to how I&#39;ve &lt;a href=&quot;http://pysqlite.sourceforge.net/documentation/pysqlite/node10.html#SECTION004231000000000000000&quot;&gt;extended sqlite in Python&lt;/a&gt;.  It works though, and
+specific to how I&#39;ve extended sqlite in Python.  It works though, and
 what it does is this:
-&lt;/p&gt;
 
-&lt;p&gt;
+
+
 For each feed to which I&#39;m subscribed, work out
 an average time between updates for the past week, with a maximum
 period of 24 hours and a minimum of 1 hour.
-&lt;/p&gt;
 
-&lt;p&gt;
+
+
 My aggregator does this daily, and uses the results to determine how
 frequently to schedule scans.  In this way, it automatically backs off
 on checking feeds which update infrequently, and ramps up its polling
 of more active feeds.  This shortens my feed downloading and scanning
 time, and is kinder in general to everyone on my subscription list.
-&lt;/p&gt;
 
-&lt;p&gt;
+
+
 Next, among other things, I have to look into making sure that the
 HTTP client parts of this beast pass all the
-&lt;a href=&quot;http://diveintomark.org/tests/client/http/&quot;&gt;aggregator client
-HTTP tests&lt;/a&gt; that &lt;a href=&quot;http://diveintomark.org/&quot;&gt;Mark
-Pilgrim&lt;/a&gt; put together.
-&lt;/p&gt;
+aggregator client
+HTTP tests that Mark
+Pilgrim put together.
 
-&lt;p&gt;
-&lt;b&gt;Update&lt;/b&gt;: Well, it seemed like a good idea, anyway.  But, on
+
+
+Update: Well, it seemed like a good idea, anyway.  But, on
 further examination, it has flaws.  The most notable is that it
 assumes a polling frequency of once per hour.  This works right up
 until I start changing the polling frequency with the results of the
 calculation.  I haven&#39;t poked at it yet, but maybe if I take this
 into account, it&#39;ll be more accurate.
-&lt;/p&gt;
 
-&lt;p&gt;
+
+
 On the other hand, I&#39;ve also been thinking about a much simpler
 approach to ramping polling frequency up and down:  Start out at
 a poll every hour.  If, after a poll, no new items are found,
 double the time until the next poll.  If new items were found,
-halve the time until the next poll.&lt;/p&gt;
+halve the time until the next poll.
 
-&lt;p&gt;
+
 Provide lower and upper limits to this, say between 1 hour and 1
 week.  Also, consider the ramp up and ramp down factor as a variable
 setting too.  Instead of a factor of 2, maybe try 1.5 or even 1.25 for
 a more gradual change.  To go even further, I wonder if it would be
 valuable to dynamically alter this factor itself, to try to get the
 polling time zeroed in on a realistic polling time.
-&lt;/p&gt;
 
-&lt;p&gt;
+
+
 Okay.  There the simpler approach leaves simplicity.  I&#39;m sure there&#39;s
-some decently elegant math that could be pulled in here.  :)
-&lt;/p&gt;
-" />
+some decently elegant math that could be pulled in here.  :)" />
     </head>
     <body>
       <section class="main">
@@ -300,7 +300,7 @@ href="http://www.decafbad.com/blog">l.m.orchard</a>
       </section>
 
       <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
       </section>
     </body>

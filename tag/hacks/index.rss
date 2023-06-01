@@ -1,33 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <rss version="2.0">
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
       <title>Tag: hacks - blog.lmorchard.com</title>
       <description>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</description>
       <link>https://lmorchard.github.io/blog.lmorchard.com</link>
+      <atom:link href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" rel="self" type="application/rss+xml" />      
       <item>
+          <title>Animating Mermaid diagrams with terrible hacks</title>
+          <description>So, I wanted to produce a GIF animation of a graph diagram changing over time. What I came up with wasn&#39;t the slickest result, but it&#39;s close enough to what I&#39;d initially imagined.</description>
+          
+          <pubDate>Tue, 03 Jan 2023 12:00:00 GMT</pubDate>
+          <link>https://lmorchard.github.io/blog.lmorchard.com/2023/01/03/mermaid-animations/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2023/01/03/mermaid-animations/</guid>
+        </item><item>
           <title>Upgrading my Couch PC monitor, v1.2</title>
-          <description>&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;: My DIY couch PC monitor has been upgraded for a third time.&lt;/p&gt;
-</description>
+          <description>TL;DR: My DIY couch PC monitor has been upgraded for a third time.</description>
           
           <pubDate>Mon, 09 Jan 2017 12:00:00 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2017/01/09/diy-monitor-v12/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2017/01/09/diy-monitor-v12/</guid>
         </item><item>
           <title>Building my couch computing station</title>
-          <description>
-
-&lt;p&gt;Remember when I posted about &lt;a href=&quot;http://blog.lmorchard.com/2013/01/21/gaming-from-the-orchard-house-couch&quot;&gt;gaming from the Orchard House couch&lt;/a&gt;? The key part was figuring out how to get &lt;a href=&quot;http://blog.lmorchard.com/2013/01/21/gaming-from-the-orchard-house-couch#Laptop_decapitation&quot;&gt;a laptop-quality LCD monitor working in the living room&lt;/a&gt;, preferably attached to my trusty IKEA DAVE. Well, despite my best attempts at ruining my materials and tools, I managed to get it built!&lt;/p&gt;
-</description>
+          <description>Remember when I posted about gaming from the Orchard House couch? The key part was figuring out how to get a laptop-quality LCD monitor working in the living room, preferably attached to my trusty IKEA DAVE. Well, despite my best attempts at ruining my materials and tools, I managed to get it built!</description>
           
           <pubDate>Sun, 10 Feb 2013 12:00:00 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2013/02/10/building-my-couch-computing-station/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2013/02/10/building-my-couch-computing-station/</guid>
         </item><item>
           <title>Gaming from the Orchard House couch</title>
-          <description>
-
-&lt;p&gt;I like playing video games; it’s one of my favorite things in life. I also like hanging out with my wife; she’s my favorite person in the world. This is a post about ensuring these two things can happen together. This is also a post where I played with SketchUp for the first time.&lt;/p&gt;
-</description>
+          <description>I like playing video games; it’s one of my favorite things in life. I also like hanging out with my wife; she’s my favorite person in the world. This is a post about ensuring these two things can happen together. This is also a post where I played with SketchUp for the first time.</description>
           
           <pubDate>Mon, 21 Jan 2013 12:00:00 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2013/01/21/gaming-from-the-orchard-house-couch/</link>
@@ -90,25 +91,23 @@
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2005/10/05/redhanded-%c2%bb-announcing-the-mousehole-proxy/</guid>
         </item><item>
           <title>Building an Address Book as a Modern Web App</title>
-          <description>&lt;img src=&quot;http://www.decafbad.com/2004/12/abook-architecture.jpg&quot; align=&quot;right&quot;&gt;
+          <description>So, in the spirit of pico-projects, I&#39;ve started building that address book application I mentioned awhile ago and I want to start writing about it as I go.
+First off, hopefully you&#39;ll notice the quick diagram I threw together in OmniGraffle.  This is a sort of rough sketch of the loosely-joined architecture I want to explore with this thing.  
 
-&lt;p&gt;So, in the spirit of &lt;a href=&quot;http://www.decafbad.com/blog/2004/11/30/picoprojects_and_trepanation&quot;&gt;pico-projects&lt;/a&gt;, I&#39;ve started building &lt;a href=&quot;http://www.decafbad.com/blog/2004/11/30/nextgenwebapps&quot;&gt;that address book application&lt;/a&gt; I mentioned awhile ago and I want to start writing about it as I go.&lt;/p&gt;
-&lt;p&gt;First off, hopefully you&#39;ll notice the quick diagram I threw together in OmniGraffle.  This is a sort of rough sketch of the loosely-joined architecture I want to explore with this thing.  &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;Data&lt;/em&gt;: This is where address book entries live.&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Model&lt;/em&gt;: A set of objects encapsulating the data, this is how address book entries will be accessed.&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;REST API&lt;/em&gt;: Model objects exposed as resources identified by URI, serialized and deserialized as XML, and manipulated by GET / PUT / POST / DELETE methods.&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;XSLT Filter&lt;/em&gt;: XML data produced by REST API calls can be first passed through XSL at a given URL before being served up as a response.  &lt;/li&gt;
-&lt;li&gt;&lt;em&gt;HTML, CSS, JavaScript&lt;/em&gt;: Thanks to the XSLT filter layer, the XML vocabulary used to describe address book entries can be transformed into user interface presentation.&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;HTTP&lt;/em&gt;: Everything happens via HTTP...&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Web Browser Client&lt;/em&gt;: ...and everything is viewed in a web browser.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Now, I call this a loosely-joined architecture because I want to stress that you should be able to swap out just about any part of this whenever you want.  &lt;/p&gt;
-&lt;p&gt;Want the &lt;em&gt;Data&lt;/em&gt; to be in MySQL?  Fine.  Want it to be in flat files?  Fine.  Just make sure the &lt;em&gt;Model&lt;/em&gt; can cope while maintaining a consistent interface for the &lt;em&gt;REST API&lt;/em&gt;.  Want to change the user interface in the browser?  Great-- ideally, all you have to do is change some XSLT files.  I&#39;m writing everything from the &lt;em&gt;XSLT Filter&lt;/em&gt; down to the &lt;em&gt;Model&lt;/em&gt; in Python.  Don&#39;t like that?  Fine.  Rewrite it all in Perl, and hopefully everything from the XSLT up to the browser will still be useful to you.&lt;/p&gt;
-&lt;p&gt;At some point, you might even want to ditch the browser for a native desktop client.  Fabulous! Just ignore everything past the &lt;em&gt;REST API&lt;/em&gt; and &lt;em&gt;HTTP&lt;/em&gt;, don&#39;t use any XSLT in the &lt;em&gt;Filter&lt;/em&gt;, and use the API and XML directly.&lt;/p&gt;
-&lt;p&gt;I don&#39;t think any of this is particularly revolutionary-- although I thought it was when I first saw Amazon Web Services doing some of this, and I hope to throw a little GMail in as well.  I hope that this will all be useful as I muddle through explaining what I&#39;m doing.  In the meantime, you can see me getting the stage set as I start checking things into my Subversion repository over here:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.decafbad.com/svn/trunk/hacks/abook/&quot;&gt;http://www.decafbad.com/svn/trunk/hacks/abook/&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description>
+Data: This is where address book entries live.
+Model: A set of objects encapsulating the data, this is how address book entries will be accessed.
+REST API: Model objects exposed as resources identified by URI, serialized and deserialized as XML, and manipulated by GET / PUT / POST / DELETE methods.
+XSLT Filter: XML data produced by REST API calls can be first passed through XSL at a given URL before being served up as a response.  
+HTML, CSS, JavaScript: Thanks to the XSLT filter layer, the XML vocabulary used to describe address book entries can be transformed into user interface presentation.
+HTTP: Everything happens via HTTP...
+Web Browser Client: ...and everything is viewed in a web browser.
+
+Now, I call this a loosely-joined architecture because I want to stress that you should be able to swap out just about any part of this whenever you want.  
+Want the Data to be in MySQL?  Fine.  Want it to be in flat files?  Fine.  Just make sure the Model can cope while maintaining a consistent interface for the REST API.  Want to change the user interface in the browser?  Great-- ideally, all you have to do is change some XSLT files.  I&#39;m writing everything from the XSLT Filter down to the Model in Python.  Don&#39;t like that?  Fine.  Rewrite it all in Perl, and hopefully everything from the XSLT up to the browser will still be useful to you.
+At some point, you might even want to ditch the browser for a native desktop client.  Fabulous! Just ignore everything past the REST API and HTTP, don&#39;t use any XSLT in the Filter, and use the API and XML directly.
+I don&#39;t think any of this is particularly revolutionary-- although I thought it was when I first saw Amazon Web Services doing some of this, and I hope to throw a little GMail in as well.  I hope that this will all be useful as I muddle through explaining what I&#39;m doing.  In the meantime, you can see me getting the stage set as I start checking things into my Subversion repository over here:
+
+http://www.decafbad.com/svn/trunk/hacks/abook/</description>
           
           <pubDate>Thu, 23 Dec 2004 05:58:41 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2004/12/23/abook1/</link>
@@ -122,10 +121,10 @@
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2004/09/01/xpath-based-python-dictionaries-on-loan/</guid>
         </item><item>
           <title>Making progress on dbagg3</title>
-          <description>&lt;p&gt;Work has been insanely busy lately, but I have made some more progress with &lt;a href=&quot;http://www.decafbad.com/cvs/dbagg3/&quot;&gt;&lt;code&gt;dbagg3&lt;/code&gt;&lt;/a&gt;.  The code is all in CVS, so feel free to take a gander-- I don&#39;t have a ton of time for a proper write up, but I do want to spew a little bit. &lt;/p&gt;
-&lt;p&gt;As per my &lt;a href=&quot;http://www.decafbad.com/blog/2004/08/23/slicing_and_dicing_to_make_atom_soup_in_dbagg3&quot;&gt;previous musings on XML in a SQL database&lt;/a&gt;, I revamped the database.  Now things are sliced up by feed and entry tables, rows in each containing a few metadata columns and then one big column for an XML dump.  This lets me index on  date and parent feed and such, meanwhile punting on the issue of dicing things like authors or content up further.  And, as extension elements start to show up, this handling is dumb enough to simply store things it doesn&#39;t know about without mangling them.  This is a very good thing and one of my big goals for this beast.&lt;/p&gt;
-&lt;p&gt;The other thing that I&#39;m getting excited about is the REST API built atop the Atom store.  Rather than spend time on proper documentation, here&#39;s a quick dump from the &lt;a href=&quot;http://www.decafbad.com/cvs/*checkout*/dbagg3/lib/dbagg3/rest.py&quot;&gt;appropriate module&lt;/a&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;URL: GET /feeds/
+          <description>Work has been insanely busy lately, but I have made some more progress with dbagg3.  The code is all in CVS, so feel free to take a gander-- I don&#39;t have a ton of time for a proper write up, but I do want to spew a little bit. 
+As per my previous musings on XML in a SQL database, I revamped the database.  Now things are sliced up by feed and entry tables, rows in each containing a few metadata columns and then one big column for an XML dump.  This lets me index on  date and parent feed and such, meanwhile punting on the issue of dicing things like authors or content up further.  And, as extension elements start to show up, this handling is dumb enough to simply store things it doesn&#39;t know about without mangling them.  This is a very good thing and one of my big goals for this beast.
+The other thing that I&#39;m getting excited about is the REST API built atop the Atom store.  Rather than spend time on proper documentation, here&#39;s a quick dump from the appropriate module:
+URL: GET /feeds/
 URL: GET /feeds/{id}.xml
 URL: GET /feeds/{id}/{yyyy}/{mm}/{dd}/{hstart}-{hend}.xml
 URL: GET /feeds/{id}/{yyyy}/{mm}/{dd}/{hh}.xml
@@ -161,30 +160,22 @@ URL: GET /users/{uname}/subscriptions/{yyyy}/{mm}.xml
 URL: GET /users/{uname}/subscriptions/now-{hours}.xml
 URL: GET /users/{uname}/subscriptions/now.xml
 URL: GET /users/{uname}/subscriptions/{sid}/entries/{eid}.xml
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Hopefully, the structure of these URL patterns make a little bit of sense.  The too-clever thing about these is that they&#39;re both documentation in the module&#39;s docstrings, and parsed out to register methods with automagically-generated regexes applied to incoming URL requests.  (I may eventually realize just how stupid an idea this is, but not yet.)  &lt;/p&gt;
-&lt;p&gt;This list is nowhere near complete or final or even all that well thought out yet.  But, it seems to be working out pretty well so far, and it&#39;s so easy to tinker with the API to sketch out ideas in working code.  Eating my own dogfood, my first browser window of the day tends to open on this URL:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;http://localhost/~deusx/dbagg3.5/api/users/default/subscriptions/
-now-12.xml?xsl=xsl/full.xsl&amp;amp;#38;content-type=text/html
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This grabs the last 12 hours&#39; worth of items from &lt;code&gt;default&lt;/code&gt;&#39;s subscriptions, passing them through the XSL at &lt;code&gt;xsl/full.xsl&lt;/code&gt; on the way to my browser with a content type of &lt;code&gt;text/html&lt;/code&gt;.  This tends to produce about 1000-1500 entries in about 15 seconds on my PowerBook, which is better than I&#39;d expected.  &lt;/p&gt;
-&lt;p&gt;Pretty soon, I&#39;ll be implementing the ability to post metadata onto feed entries under subscriptions.  Then, I can mark items as seen, attach categories, tags, and notes.  From there, I can exclude seen items from queries, produce new aggregate feeds based on my tagging or notes, among a few other ideas I&#39;ve got stewing.&lt;/p&gt;
-&lt;p&gt;A little more work, and I think I&#39;ll be able to throw together the beginnings of a &lt;a href=&quot;http://www.bloglines.com&quot;&gt;Bloglines&lt;/a&gt;-style three-pane browser interface, as well as improving the functionality of my own outliner-style display with &lt;a href=&quot;http://developer.apple.com/internet/webcontent/xmlhttpreq.html&quot;&gt;XmlHTTPRequest&lt;/a&gt;-based calls to the API to enable refresh-free interaction.  From there, I have some ideas for desktop apps and maybe even some &lt;a href=&quot;http://www.decafbad.com/blog/2003/06/19/flash_agg&quot;&gt;tinkering in Flash&lt;/a&gt;.  (Wow... has it really been over a year since I was writing about Flash &amp;amp; REST?)&lt;/p&gt;
-&lt;p&gt;And &lt;em&gt;then&lt;/em&gt;, I want to implement the Atom API and allow users to create feeds to which they can post their own items and share read-only with others (or share writing with a group).  From there, this thing can turn into a read/write Atom storage tank, serving both as an aggregator and a blog publishing engine, given the appropriate XSL work.&lt;/p&gt;
-&lt;p&gt;Lots of ideas stewing.  Now I just have to get the time and possibly a new web server, since I&#39;d like to eventually open up an installation of this to fellow tinkerers, but this poor little box can barely take what it&#39;s tasked with at present...&lt;/p&gt;
-&lt;p&gt;Oh yeah, and one other thing:  I&#39;ve been thinking about names better than &lt;code&gt;dbagg3&lt;/code&gt;.  The one that&#39;s sticking around in my head so far is &lt;strong&gt;feedReactor&lt;/strong&gt;.  What do you think?&lt;/p&gt;
-</description>
+
+Hopefully, the structure of these URL patterns make a little bit of sense.  The too-clever thing about these is that they&#39;re both documentation in the module&#39;s docstrings, and parsed out to register methods with automagically-generated regexes applied to incoming URL requests.  (I may eventually realize just how stupid an idea this is, but not yet.)  
+This list is nowhere near complete or final or even all that well thought out yet.  But, it seems to be working out pretty well so far, and it&#39;s so easy to tinker with the API to sketch out ideas in working code.  Eating my own dogfood, my first browser window of the day tends to open on this URL:
+http://localhost/~deusx/dbagg3.5/api/users/default/subscriptions/
+now-12.xml?xsl=xsl/full.xsl&amp;#38;content-type=text/html
+
+This grabs the last 12 hours&#39; worth of items from default&#39;s subscriptions, passing them through the XSL at xsl/full.xsl on the way to my browser with a content type of text/html.  This tends to produce about 1000-1500 entries in about 15 seconds on my PowerBook, which is better than I&#39;d expected.  
+Pretty soon, I&#39;ll be implementing the ability to post metadata onto feed entries under subscriptions.  Then, I can mark items as seen, attach categories, tags, and notes.  From there, I can exclude seen items from queries, produce new aggregate feeds based on my tagging or notes, among a few other ideas I&#39;ve got stewing.
+A little more work, and I think I&#39;ll be able to throw together the beginnings of a Bloglines-style three-pane browser interface, as well as improving the functionality of my own outliner-style display with XmlHTTPRequest-based calls to the API to enable refresh-free interaction.  From there, I have some ideas for desktop apps and maybe even some tinkering in Flash.  (Wow... has it really been over a year since I was writing about Flash &amp; REST?)
+And then, I want to implement the Atom API and allow users to create feeds to which they can post their own items and share read-only with others (or share writing with a group).  From there, this thing can turn into a read/write Atom storage tank, serving both as an aggregator and a blog publishing engine, given the appropriate XSL work.
+Lots of ideas stewing.  Now I just have to get the time and possibly a new web server, since I&#39;d like to eventually open up an installation of this to fellow tinkerers, but this poor little box can barely take what it&#39;s tasked with at present...
+Oh yeah, and one other thing:  I&#39;ve been thinking about names better than dbagg3.  The one that&#39;s sticking around in my head so far is feedReactor.  What do you think?</description>
           
           <pubDate>Tue, 31 Aug 2004 01:37:42 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2004/08/31/dbagg3-makingprogress/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2004/08/31/dbagg3-makingprogress/</guid>
-        </item><item>
-          <title>mysql and XML output</title>
-          
-          
-          <pubDate>Mon, 23 Aug 2004 05:09:51 GMT</pubDate>
-          <link>https://lmorchard.github.io/blog.lmorchard.com/2004/08/23/mysql-and-xml-output/</link>
-          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2004/08/23/mysql-and-xml-output/</guid>
         </item>
     </channel>
   </rss>

@@ -10,6 +10,8 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
       />
+      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
+      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
       <link
             rel="stylesheet"
             href="/blog.lmorchard.com/css/screen.css"
@@ -38,13 +40,11 @@
           content="https://lmorchard.github.io/blog.lmorchard.com/2002/12/14/oooceg/"
         />
         
-        <meta property="og:description" content="&lt;p&gt;Today&#39;s revelation while tinkering with my &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/PersonalWebProxy&quot;&gt;PersonalWebProxy&lt;/a&gt;:  Decompressed content is larger than compressed content.  &lt;/p&gt;
-&lt;p&gt;See, I was decompressing gzipped content streams in the proxy in order to fiddle with the content before it got to the browser, but then I noticed that browsers kept only displaying part of the content.  I remove the in-proxy decompression, things are fine.  Put it back in, things get cut short.  I poke for a few hours at various bits and parts, to no avail.  &lt;/p&gt;
-&lt;p&gt;Then, finally I remember...  &quot;Hey, you know, I think browsers pay attention to that Content-Length header.  And hey, you know...  decompressed content is larger than compressed content.&quot;  Bingo.  Problem solved by keeping the Content-Length header updated with the length of modified content.  This makes me feel very dumb, because it&#39;s not like I haven&#39;t written a handful or two both of HTTP clients and servers.  And I&#39;ve written code that uses the Content-Length header, over and over again.  I&#39;d&#39;ve thought this would be something I&#39;d remember more quickly.&lt;/p&gt;
-&lt;p&gt;More often than I&#39;d like to admit, remembering simple and obvious things like the above are what unlock problems that I&#39;d been banging my head against.  The last revelation of this nature I had while frustrated at a project at work was:  &quot;Not all months are 31 days.&quot;  And before that, &quot;Not all days in a year are 24 hours long, due daylight savings time.&quot;&lt;/p&gt;
-&lt;p&gt;Trying to think of more, but I thought I&#39;d share. Maybe I&#39;ll start a wiki topic for sage bits of the &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/ObviousInHindsight&quot;&gt;ObviousInHindsight&lt;/a&gt;.&lt;br&gt;
-&lt;/p&gt;
-" />
+        <meta property="og:description" content="Today&#39;s revelation while tinkering with my PersonalWebProxy:  Decompressed content is larger than compressed content.  
+See, I was decompressing gzipped content streams in the proxy in order to fiddle with the content before it got to the browser, but then I noticed that browsers kept only displaying part of the content.  I remove the in-proxy decompression, things are fine.  Put it back in, things get cut short.  I poke for a few hours at various bits and parts, to no avail.  
+Then, finally I remember...  &quot;Hey, you know, I think browsers pay attention to that Content-Length header.  And hey, you know...  decompressed content is larger than compressed content.&quot;  Bingo.  Problem solved by keeping the Content-Length header updated with the length of modified content.  This makes me feel very dumb, because it&#39;s not like I haven&#39;t written a handful or two both of HTTP clients and servers.  And I&#39;ve written code that uses the Content-Length header, over and over again.  I&#39;d&#39;ve thought this would be something I&#39;d remember more quickly.
+More often than I&#39;d like to admit, remembering simple and obvious things like the above are what unlock problems that I&#39;d been banging my head against.  The last revelation of this nature I had while frustrated at a project at work was:  &quot;Not all months are 31 days.&quot;  And before that, &quot;Not all days in a year are 24 hours long, due daylight savings time.&quot;
+Trying to think of more, but I thought I&#39;d share. Maybe I&#39;ll start a wiki topic for sage bits of the ObviousInHindsight." />
     </head>
     <body>
       <section class="main">
@@ -159,7 +159,7 @@ href="http://yarinareth.net/caveatlector/">Dorothea Salo</a>
       </section>
 
       <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
       </section>
     </body>

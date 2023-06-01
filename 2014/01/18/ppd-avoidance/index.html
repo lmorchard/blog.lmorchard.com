@@ -10,6 +10,8 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
       />
+      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
+      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
       <link
             rel="stylesheet"
             href="/blog.lmorchard.com/css/screen.css"
@@ -41,10 +43,7 @@
             property="og:image"
             content="http://i252.photobucket.com/albums/hh9/PaulTozour/Halaa_waypoints2_AB.jpg"
           />
-        <meta property="og:description" content="
-
-&lt;p&gt;I made a hero ship with beam weapons. I even built drifting asteroids that handle smashing into things. What gave me trouble was finding a way to teach enemy ships how to &lt;em&gt;avoid&lt;/em&gt; smashing into things. You know, not perfectly, but just well enough to seem vaguely cunning and worth pretending to outsmart in a video game.&lt;/p&gt;
-" />
+        <meta property="og:description" content="I made a hero ship with beam weapons. I even built drifting asteroids that handle smashing into things. What gave me trouble was finding a way to teach enemy ships how to avoid smashing into things. You know, not perfectly, but just well enough to seem vaguely cunning and worth pretending to outsmart in a video game." />
     </head>
     <body>
       <section class="main">
@@ -204,7 +203,7 @@
 <p>Unfortunately, this scheme looks funny in action: Since <a href="https://github.com/lmorchard/parsec-patrol/blob/2e3f9afa2404fee54b09152e3d5746c4c4a2b4ca/app/scripts/systems.coffee#L1085">I revert back to target seeking after resolving obstacle avoidance</a>, the enemy ships wiggle as they oscillate between the two strategies. Tracking straight toward the target often brings the ship into collision course &#8211; so once an avoidance course is achieved, target tracking turns right back into the obstacle.</p>
 <h3 id="functions-with-potential"><span id="Functions_with_Potential">Functions with Potential</span></h3>
 <p>What I really wanted was some way for these ships to take many nearby obstacles into account along with seeking toward the target, and come up with a smoothly changing steering angle that seemed not entirely stupid or goofy looking.</p>
-<p>After some further research, I started reading <a href="http://www.amazon.com/gp/product/0596005555/ref=as_li_ss_tl?ie=UTF8&amp;camp=1789&amp;creative=390957&amp;creativeASIN=0596005555&amp;linkCode=as2&amp;tag=0xdecafbad01-20">AI for Game Developers</a><img class="tvatbijdbdexywujcjjd svuitzfraxzoondqiznf pybiawadmcxjgjpdvhto" style="border: none !important; margin: 0px !important;" alt="" src="http://ir-na.amazon-adsystem.com/e/ir?t=0xdecafbad01-20&l=as2&o=1&a=0596005555" width="1" height="1" border="0" /> by David M. Bourg and Glenn Seemann. In Chapter 5, I found code using <a href="http://en.wikipedia.org/wiki/Lennard-Jones_potential">the Lennard-Jones potential function</a> to drive avoidance of multiple obstacles and target seeking all in one algorithm.</p>
+<p>After some further research, I started reading <a href="http://www.amazon.com/gp/product/0596005555/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=0596005555&linkCode=as2&tag=0xdecafbad01-20">AI for Game Developers</a><img class="tvatbijdbdexywujcjjd svuitzfraxzoondqiznf pybiawadmcxjgjpdvhto" style="border: none !important; margin: 0px !important;" alt="" src="http://ir-na.amazon-adsystem.com/e/ir?t=0xdecafbad01-20&l=as2&o=1&a=0596005555" width="1" height="1" border="0" /> by David M. Bourg and Glenn Seemann. In Chapter 5, I found code using <a href="http://en.wikipedia.org/wiki/Lennard-Jones_potential">the Lennard-Jones potential function</a> to drive avoidance of multiple obstacles and target seeking all in one algorithm.</p>
 <div style="width: 442px" class="wp-caption aligncenter">
   <a href="http://chemwiki.ucdavis.edu/Physical_Chemistry/Quantum_Mechanics/Atomic_Theory/Intermolecular_Forces/Lennard-Jones_Potential"><img alt="" src="http://chemwiki.ucdavis.edu/@api/deki/files/8914/Figure_B.jpg" width="432" height="324" /></a><p class="wp-caption-text">
     Serious business, this potential function
@@ -216,10 +215,10 @@
 <p><code>U = (-A/Math.pow(d,n)) + (B/Math.pow(d,m))</code></p>
 <p>There are 4 constants in this function:</p>
 <ul>
-<li>  <code>A</code> &#8211; magnitude of attraction</li>
-<li>  <code>n</code> &#8211; attenuation of attraction over distance</li>
-<li>  <code>B</code> &#8211; magnitude of repulsion</li>
-<li>  <code>m</code> &#8211; attenuation of repulsion over distance</li>
+<li><code>A</code> &#8211; magnitude of attraction</li>
+<li><code>n</code> &#8211; attenuation of attraction over distance</li>
+<li><code>B</code> &#8211; magnitude of repulsion</li>
+<li><code>m</code> &#8211; attenuation of repulsion over distance</li>
 </ul>
 <p>Pick values for these constants, and you&#8217;ve got a function that yields a positive (repulsion) or negative (attraction) value for any given distance (<code>d</code>). So far, <a href="https://github.com/lmorchard/parsec-patrol/blob/2e3f9afa2404fee54b09152e3d5746c4c4a2b4ca/app/scripts/sketches/steering.coffee#L85">I&#8217;ve just used trial &amp; error to find values for these constants</a>.</p>
 <p>To apply this function, <a href="https://github.com/lmorchard/parsec-patrol/blob/2e3f9afa2404fee54b09152e3d5746c4c4a2b4ca/app/scripts/systems.coffee#L904">I search for obstacles within a certain radius of the ship</a>. That limits the number of calculations, because far-flung obstacles have no significant influence. For each nearby obstacle, <a href="https://github.com/lmorchard/parsec-patrol/blob/2e3f9afa2404fee54b09152e3d5746c4c4a2b4ca/app/scripts/systems.coffee#L868">I calculate distance and apply the potential function</a>. I then <a href="https://github.com/lmorchard/parsec-patrol/blob/2e3f9afa2404fee54b09152e3d5746c4c4a2b4ca/app/scripts/systems.coffee#L877">calculate a unit vector from each obstacle to the ship and multiply by the result of the potential function</a>.</p>
@@ -266,7 +265,7 @@
       </section>
 
       <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
       </section>
     </body>

@@ -1,120 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <rss version="2.0">
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
       <title>blog.lmorchard.com</title>
       <description>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</description>
       <link>https://lmorchard.github.io/blog.lmorchard.com</link>
+      <atom:link href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" rel="self" type="application/rss+xml" />      
       <item>
           <title>Please fix the XML-RPC spec</title>
-          <description>&lt;p&gt;I&#39;ve written before that &lt;a href=&quot;http://www.decafbad.com/blog/tech/old/oooccb.html&quot; target=&quot;_top&quot;&gt;I love XML-RPC&lt;/a&gt;, and
+          <description>I&#39;ve written before that I love XML-RPC, and
 that it has served me well in the past couple of years.  I think it&#39;s the right tool for a broad
 range of jobs.  But, after having studied the spec, and after having implemented it in a handful
 of languages for a handful of well-used apps, I think the spec needs just a bit of fixing.
-&lt;br&gt;&lt;br&gt;
+
 In particular, the spec needs a tweak with regards to this &quot;ASCII limitation&quot;.  There is confusion
 about this, period.  I&#39;ve had to hash this out with clients before, this 
-&lt;a href=&quot;http://www.jspwiki.org/Wiki.jsp?page=WikiRPCInterfaceUTF8VsBase64&quot; target=&quot;_top&quot;&gt;was an issue of note&lt;/a&gt; while
-working out an &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpcToWiki&quot; target=&quot;_top&quot;&gt;XML-RPC based Wiki API&lt;/a&gt;,
+was an issue of note while
+working out an XML-RPC based Wiki API,
 and it&#39;s obviously an issue in many other projects.  This, of course, includes the current
-&lt;a href=&quot;http://www.sixapart.com/log/2003/06/why_we_need_ech.shtml&quot; target=&quot;_top&quot;&gt;hubbub surrounding weblog APIs and whatnot&lt;/a&gt;.
-&lt;br&gt;&lt;br&gt;
+hubbub surrounding weblog APIs and whatnot.
+
 So, please fix the spec.  It shouldn&#39;t take long to make this issue a non-issue by some simple
-clarification in the main &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpc&quot;&gt;XmlRpc&lt;/a&gt; to which everyone refers.
-&lt;br&gt;&lt;br&gt;
+clarification in the main XmlRpc to which everyone refers.
+
 Yes, I know there&#39;s a bit of clarification at the end of the spec, involving escaping (
-&lt;a href=&quot;http://tbray.org/ongoing/When/200x/2003/06/28/Learning&quot; target=&quot;_top&quot;&gt;not encoding&lt;/a&gt;) &amp;lt; and &amp;amp; along
-with the statement that &quot;A string can be used to encode binary data.&quot;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+not encoding) &lt; and &amp; along
+with the statement that &quot;A string can be used to encode binary data.&quot;
 Well, yeah, I do that
-all the time with &lt;a href=&quot;http://www.fourmilab.ch/webtools/base64/rfc1341.html&quot; target=&quot;_top&quot;&gt;Base64&lt;/a&gt;.  And, since
-the spec earlier had called for &quot;ASCII&quot;, I assume that&#39;s what &lt;a href=&quot;http://dictionary.reference.com/search?q=encoding&quot; target=&quot;_top&quot;&gt;encoding&lt;/a&gt;
+all the time with Base64.  And, since
+the spec earlier had called for &quot;ASCII&quot;, I assume that&#39;s what encoding
 binary data means in the context of this spec.  To me, encoding implies a transformation 
 from original form to some other form later requiring decoding.
-&lt;br&gt;&lt;br&gt;
+
 But, apparently, my interpretation and 
-&lt;a href=&quot;http://www.intertwingly.net/blog/1498.html#c1056921193&quot; target=&quot;_top&quot;&gt;the interpretation of others&lt;/a&gt;
+the interpretation of others
 is wrong on that score.  But still, I&#39;ve been confused, and so have others.  Consider this a bug report.
-&lt;br&gt;&lt;br&gt;
-I&#39;ve been referred &lt;a href=&quot;http://www.effbot.org/zone/xmlrpc-ascii.htm&quot; target=&quot;_top&quot;&gt;by Fredrik Lundh&lt;/a&gt; (&lt;a href=&quot;http://scriptingnews.userland.com/2003/06/29#When:6:21:27AM&quot; target=&quot;_top&quot;&gt;via Dave Winer&lt;/a&gt;), 
+
+I&#39;ve been referred by Fredrik Lundh (via Dave Winer), 
 to &quot;private conversations&quot;,
 &quot;various public fora&quot;, and &quot;early archives for the XML-RPC mailing list&quot;.  And, again by Fredrik Lundh,
-&lt;a href=&quot;http://www.effbot.org/zone/xmlrpc-ascii.htm&quot; target=&quot;_top&quot;&gt;I&#39;m told&lt;/a&gt;:&lt;/p&gt;
-&lt;blockquote&gt;&lt;i&gt;But even if you don&#39;t know all this, it&#39;s not that hard to figure it out for
+I&#39;m told:
+But even if you don&#39;t know all this, it&#39;s not that hard to figure it out for
 yourself. Just make sure you read and digest the entire specification, apply some common sense
 to sort out the contradictions, and you&#39;ll find that it&#39;s pretty obvious that the intent is that
-you can use any character allowed by XML.&lt;/i&gt;&lt;/blockquote&gt;
-&lt;br&gt;&lt;br&gt;
+you can use any character allowed by XML.
+
 Well, let&#39;s see.  I read the whole spec, more than once, and what I figured out for myself with my 
 &quot;common sense&quot; is what I wrote above.  I thought
-the spec called for ASCII (as in: &lt;a href=&quot;http://www.asciitable.com/&quot; target=&quot;_top&quot;&gt;ASCII&lt;/a&gt;), and assumed that
-encoding binary data called for something like Base64.  Yes, I realize that &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpc&quot;&gt;XmlRpc&lt;/a&gt; is XML, but
+the spec called for ASCII (as in: ASCII), and assumed that
+encoding binary data called for something like Base64.  Yes, I realize that XmlRpc is XML, but
 when a spec calls for ASCII as a particular part, I assume that there&#39;s a reason for it
 since that&#39;s what the specification specified.  
-&lt;br&gt;&lt;br&gt;
+
 In my experience, specifications are not about common sense, figuring it out, and
-&lt;a href=&quot;http://dictionary.reference.com/search?q=connotation&quot; target=&quot;_top&quot;&gt;connotation&lt;/a&gt;.  Specifications are
+connotation.  Specifications are
 about declaration, clarity, and 
-&lt;a href=&quot;http://dictionary.reference.com/search?q=denotation&quot; target=&quot;_top&quot;&gt;denotation&lt;/a&gt;.  
-&lt;br&gt;&lt;br&gt;
+denotation.  
+
 Yes, I understand that no
 spec is perfect, and that many are steaming piles meeting none of the criteria I just mentioned,
 but that doesn&#39;t alter the goal.  A spec can always be made better by revising 
 with these things in mind, given the input of consumers of the spec.  This is what a process
 of communication is all about, and specifications are intended as a form of communication.
-&lt;br&gt;&lt;br&gt;
-So, instead of talking about &lt;i&gt;intent&lt;/i&gt; and things that have been talked about somewhere
+
+So, instead of talking about intent and things that have been talked about somewhere
 at some time, with the implication that I should just go off and search for these things, can 
-we just get a clarifying fix to the &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpc&quot;&gt;XmlRpc&lt;/a&gt; spec?  I don&#39;t want to send my clients off to 
-mailing list and discussion archives, or present &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpc&quot;&gt;XmlRpc&lt;/a&gt; with any corrections or caveats.  I
+we just get a clarifying fix to the XmlRpc spec?  I don&#39;t want to send my clients off to 
+mailing list and discussion archives, or present XmlRpc with any corrections or caveats.  I
 want to say, as I have been, &quot;Here, go to xmlrpc.com, read the spec, implement to the API
 I emailed you, and get back to me.&quot;  Only, it&#39;d be nice if the first question is about my API, 
 not about character encoding.
-&lt;br&gt;&lt;br&gt;
+
 I&#39;ve been confused, and so have others.  I consider myself a smart person, and I consider most
 of the others who have been confused as even smarter.  I apologize if my &quot;common sense&quot; is of a
 different sort, but that&#39;s what you have to deal with in the world of people.  As young as I am,
 even I&#39;ve discovered this already.
-&lt;br&gt;&lt;br&gt;
+
 So, can we just get a clarifying revision of the spec?  And if not, why not?
-&lt;br&gt;&lt;br&gt;
-&lt;b&gt;Update:&lt;/b&gt; Rock on.  After &lt;a href=&quot;http://www.intertwingly.net/blog/1498.html#c1056890028&quot; target=&quot;_top&quot;&gt;catching up&lt;/a&gt; 
-on a bit of banter over at &lt;a href=&quot;http://www.intertwingly.net/blog/1498.htm&quot; target=&quot;_top&quot;&gt;Sam&#39;s place&lt;/a&gt;, I see that
+
+Update: Rock on.  After catching up 
+on a bit of banter over at Sam&#39;s place, I see that
 the same Fredrik Lundh I quoted before has already begun an
-&lt;a href=&quot;http://effbot.org/zone/xmlrpc-errata.htm&quot; target=&quot;_top&quot;&gt;XML-RPC errata&lt;/a&gt; page with the goal of clarification.
+XML-RPC errata page with the goal of clarification.
 (I just missed it in my daily reading thus far.)  As 
-&lt;a href=&quot;http://www.intertwingly.net/blog/1498.html#c1056904400&quot; target=&quot;_top&quot;&gt;Mark comments&lt;/a&gt;, I fear bumps in the
+Mark comments, I fear bumps in the
 road as any confused implementors find things weren&#39;t what they thought, but I&#39;m happy to see
 the clarification accepted.
-&lt;br&gt;&lt;br&gt;
-&lt;b&gt;Update again:&lt;/b&gt; If you&#39;ve stopped rocking, resume.  Dave Winer 
-&lt;a href=&quot;http://scriptingnews.userland.com/2003/06/30#When:11:41:21AM&quot; target=&quot;_top&quot;&gt;updated the XML-RPC spec&lt;/a&gt;.
+
+Update again: If you&#39;ve stopped rocking, resume.  Dave Winer 
+updated the XML-RPC spec.
 It was a small change, could have been more, but had not been done at all until now.  I
 doubt that my asking please really had much to do with it, but I couldn&#39;t guess that it 
-hurt.  Thanks!
-</description>
+hurt.  Thanks!</description>
           
           <pubDate>Tue, 01 Jul 2003 00:25:35 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/07/01/plz-fix-xmlrpc-spec/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/07/01/plz-fix-xmlrpc-spec/</guid>
         </item><item>
           <title>Like I was saying about RSS...</title>
-          <description>&lt;p&gt;So yeah,
-&lt;a href=&quot;http://www.decafbad.com/blog/tech/guids_in_rss_rock.html&quot; target=&quot;_top&quot;&gt;like I was saying&lt;/a&gt;,
-I&#39;ve kept my head out of the &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; frey lately.  This past post about GUIDs and
-their properties of rocking in &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; hadn&#39;t had much thought behind it, other
-than that the idea of having &lt;strong&gt;something&lt;/strong&gt; well defined and uncontestably intended
+          <description>So yeah,
+like I was saying,
+I&#39;ve kept my head out of the RSS frey lately.  This past post about GUIDs and
+their properties of rocking in RSS hadn&#39;t had much thought behind it, other
+than that the idea of having something well defined and uncontestably intended
 for the use or uniquely identifying a weblog post seems like a good idea,
 especially if it&#39;s a permalink.  Because, you know, permalinks seem great things
 to serve as both globally unique identifier and locator in one go.
-&lt;br&gt;&lt;br&gt;
-I had a feeling that I was confused about the purpose of the link element in &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt;
+
+I had a feeling that I was confused about the purpose of the link element in RSS
 2.0, but having not really studied the spec, I just kept to maintaining a student
 mind and assumed that there were Things Not Yet Understood.  Now I read the spec,
 curiosity sparked by the recent hubbub over at
-&lt;a href=&quot;http://diveintomark.org/archives/2003/06/26/will_the_real_rss_validator_please_stand_up.html&quot; target=&quot;_top&quot;&gt;Mark&#39;s place&lt;/a&gt;
-and &lt;a href=&quot;http://philringnalda.com/blog/2003/06/say_it_loud_im_funky_and_im_proud.php#006367&quot; target=&quot;_top&quot;&gt;Phil&#39;s place&lt;/a&gt;.
-&lt;br&gt;&lt;br&gt;
+Mark&#39;s place
+and Phil&#39;s place.
+
 Dave
-&lt;a href=&quot;http://scriptingnews.userland.com/2003/06/25#theLizardBrainOfRss&quot; target=&quot;_top&quot;&gt;wrote that&lt;/a&gt;
+wrote that
 the link tag in items was &quot;designed for something else&quot;.  Cool
 by me, I assume that I am not yet well informed.  So, I read in the
 spec, where assumedly I&#39;ll be illuminated as to its designed purpose,
@@ -122,228 +122,219 @@ that link is &quot;The URL of the item&quot;.  To me, this means that the link
 tag was designed to point at the item, being the URL of that item.
 And, as far as I can tell, &quot;the item&quot; is what is being described by
 the item tag, in other words: the weblog entry.
-&lt;br&gt;&lt;br&gt;
+
 But this seems contrary to the statement that it&#39;s been &quot;designed for
 something else&quot;.  Designed when and documented where?
-&lt;a href=&quot;http://weblog.infoworld.com/udell/2003/06/25.html#a732&quot; target=&quot;_top&quot;&gt;Jon Udell&lt;/a&gt; writes
-that &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; is in no way broken, but I personally think it&#39;s got a funky widget
+Jon Udell writes
+that RSS is in no way broken, but I personally think it&#39;s got a funky widget
 or two in it and is not free of confusion.  Bah, really I
 don&#39;t care.  I still think a GUID for a weblog entry is a good idea,
 and that maybe some people who comment on links exclusively should
 have a tag devoted to that.  Maybe in a separate namespace devoted
 to link-blogger vocabulary.
-&lt;br&gt;&lt;br&gt;
+
 Meanwhile, I&#39;ll be making occasional pokes at participating
-over at Sam&#39;s wiki and &lt;a href=&quot;http://www.intertwingly.net/wiki/pie/FrontPage&quot; target=&quot;_top&quot;&gt;The Echo Project&lt;/a&gt;.
+over at Sam&#39;s wiki and The Echo Project.
 I like the wiki approach he&#39;s
 offered for participation, especially the potential for zero-ego participation
 when it works.  I love seeing something I contribute in a wiki eventually
 float free from my attribution, to later land in the midst of a summary
 elsewhere.  And in the end, if it all works right, it&#39;ll be something
 that everyone had a part in, yet no one owns, and further yet didn&#39;t take a
-formal committee to approve.&lt;/p&gt;
-</description>
+formal committee to approve.</description>
           
           <pubDate>Thu, 26 Jun 2003 17:28:18 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/06/26/so-like-i-was-saying/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/06/26/so-like-i-was-saying/</guid>
         </item><item>
           <title>No Google AdSense for Me</title>
-          <description>&lt;blockquote cite=&quot;https://www.google.com/adsense/&quot;&gt;
-Google &lt;span style=&quot;background : #FFFFCE;&quot;&gt;&lt;a href=&quot;http://www.decafbad.com/twiki/bin/edit/Main/AdSense?topicparent=Main.FilterData&quot;&gt;&lt;b&gt;?&lt;/b&gt;&lt;/a&gt;&lt;font color=&quot;#0000FF&quot;&gt;AdSense&lt;/font&gt;&lt;/span&gt; is for web
+          <description>Google ?AdSense is for web
 publishers who want to make more revenue from advertising on their site while maintaining editorial
-quality. &lt;span style=&quot;background : #FFFFCE;&quot;&gt;&lt;a href=&quot;http://www.decafbad.com/twiki/bin/edit/Main/AdSense?topicparent=Main.FilterData&quot;&gt;&lt;b&gt;?&lt;/b&gt;&lt;/a&gt;&lt;font color=&quot;#0000FF&quot;&gt;AdSense&lt;/font&gt;&lt;/span&gt; delivers text-based Google &lt;span style=&quot;background : #FFFFCE;&quot;&gt;&lt;a href=&quot;http://www.decafbad.com/twiki/bin/edit/Main/AdWords?topicparent=Main.FilterData&quot;&gt;&lt;b&gt;?&lt;/b&gt;&lt;/a&gt;&lt;font color=&quot;#0000FF&quot;&gt;AdWords&lt;/font&gt;&lt;/span&gt; ads that are relevant to what your readers see
+quality. ?AdSense delivers text-based Google ?AdWords ads that are relevant to what your readers see
 on your pages and Google pays you. 
-&lt;/blockquote&gt;&lt;div class=&quot;credit&quot; align=&quot;right&quot;&gt;&lt;small&gt;Source:&lt;cite&gt;&lt;a href=&quot;https://www.google.com/adsense/&quot;&gt;Google AdSense&lt;/a&gt;&lt;/cite&gt;&lt;/small&gt;&lt;/div&gt;
-&lt;br&gt;&lt;br&gt;
-&lt;blockquote cite=&quot;URL&quot;&gt;Your website is a type of website that we do not currently
+Source:Google AdSense
+
+Your website is a type of website that we do not currently
 accept into our program. Such websites include, but are not limited
 to, chat sites, personal pages, search engines, sites that contain
 predominately copyrighted material, and sites that drive traffic
-through cybersquatting.&lt;/blockquote&gt;
-&lt;div class=&quot;credit&quot; align=&quot;right&quot;&gt;&lt;small&gt;Source:&lt;cite&gt;Response to an AdSense application for decafbad.com&lt;/cite&gt;&lt;/small&gt;&lt;/div&gt;
-&lt;br&gt;&lt;br&gt;
+through cybersquatting.
+Source:Response to an AdSense application for decafbad.com
+
 Hmph.  No chat around here.  I suppose things are a little personal, and there&#39;s a search
 engine.  But, if there be warez here, I must&#39;ve been hacked, and nobody seems to want
 this domain but me, so there doesn&#39;t seem to be any squatting going on.
-&lt;br&gt;&lt;br&gt;
+
 Guess I&#39;m not a web publisher who wants to make more revenue while maintaining editorial
-quality.  :)  (I&#39;m guessing I&#39;ve been rejected as a web publisher.)
-</description>
+quality.  :)  (I&#39;m guessing I&#39;ve been rejected as a web publisher.)</description>
           
           <pubDate>Thu, 26 Jun 2003 00:23:16 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/06/26/adsense-no/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/06/26/adsense-no/</guid>
         </item><item>
           <title>GUIDs in RSS rock</title>
-          <description>&lt;blockquote cite=&quot;http://backend.userland.com/permalinksNewsAggregators&quot;&gt;Guids sure have a funny name, but they&#39;re quite useful. If your weblog tool supports them, use them. If not, ask the developer to add the support. It&#39;s not very hard.
-&lt;br&gt;&lt;br&gt;
-Further, I strongly believe that all aggregators and readers should pay attention to guids where they are available. It&#39;s a convenience that many users will appreciate, especially people who are in a hurry&lt;/blockquote&gt;
-&lt;div class=&quot;credit&quot; align=&quot;right&quot;&gt;&lt;small&gt;Source:&lt;cite&gt;&lt;a href=&quot;http://backend.userland.com/permalinksNewsAggregators&quot;&gt;Guids are not just for geeks anymore ;-&amp;gt;&lt;/a&gt;&lt;/cite&gt;&lt;/small&gt;&lt;/div&gt;
-&lt;br&gt;&lt;br&gt;
+          <description>Guids sure have a funny name, but they&#39;re quite useful. If your weblog tool supports them, use them. If not, ask the developer to add the support. It&#39;s not very hard.
+
+Further, I strongly believe that all aggregators and readers should pay attention to guids where they are available. It&#39;s a convenience that many users will appreciate, especially people who are in a hurry
+Source:Guids are not just for geeks anymore ;-&gt;
+
 Haven&#39;t really been saying much lately about the recent plunge, albeit more amiable this time, back
-into the &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; and weblog syndication frey.  Mostly because I haven&#39;t had the time, and mostly because
+into the RSS and weblog syndication frey.  Mostly because I haven&#39;t had the time, and mostly because
 people more eloquent than I were already saying what I thought.
-&lt;br&gt;&lt;br&gt;
+
 In the meantime, I&#39;ve been working, and puttering around with 
-&lt;a href=&quot;http://www.decafbad.com/viewcvs.cgi/dbagg/&quot; target=&quot;_top&quot;&gt;my own aggregator&lt;/a&gt; as spare time comes up.
+my own aggregator as spare time comes up.
 And you know, I&#39;m tired of having to come up with some mechanism to detect new entries.
-This GUID thing is what I need.  I don&#39;t want to run MD5 on another &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; item, and I don&#39;t
+This GUID thing is what I need.  I don&#39;t want to run MD5 on another RSS item, and I don&#39;t
 care to track the minor edits people do on their entries, like Dave said.
-&lt;br&gt;&lt;br&gt;
-Personally, I think the GUID &lt;strong&gt;should&lt;/strong&gt; be the permalink, if at all possible.  I used 
-to think that that was what the link of an &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RSS&quot;&gt;RSS&lt;/a&gt; item should be, but then I never really
+
+Personally, I think the GUID should be the permalink, if at all possible.  I used 
+to think that that was what the link of an RSS item should be, but then I never really
 maintained a weblog in the quote-link-comment style for long stretches.  My entries
-aren&#39;t usually completely &lt;strong&gt;about&lt;/strong&gt; someone else&#39;s article.  But, some weblogs are 
+aren&#39;t usually completely about someone else&#39;s article.  But, some weblogs are 
 like that.  So, link points to a subject under comment, GUID identifies the entry and
 ideally does it via permalink.
-&lt;br&gt;&lt;br&gt;
-Nifty.
-</description>
+
+Nifty.</description>
           
           <pubDate>Wed, 25 Jun 2003 23:12:08 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/06/25/guids-in-rss-rock/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/06/25/guids-in-rss-rock/</guid>
         </item><item>
           <title>Why is my Monaco Borken?</title>
-          <description>&lt;p&gt;Okay, what&#39;s wrong with this picture?
-&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;div align=&quot;center&quot;&gt;&lt;img src=&quot;http://www.decafbad.com/blog-images/font-issues.gif&quot;&gt;&lt;/div&gt;
-&lt;br&gt;&lt;br&gt;
+          <description>Okay, what&#39;s wrong with this picture?
+
+
+
 Each of those lines is from a terminal I have open, trying to find
 one of my monospace fonts that works correctly and I don&#39;t hate.  My
 past favorite has been Monaco for the longest time, but recently (when,
 I can&#39;t quite remember) it seems that it likes to combine &quot;l&quot; and &quot;/&quot;
 into one symbol.  So does Courier.  
-&lt;br&gt;&lt;br&gt;
+
 On the other hand, I have this font
 called Monaco CY which looks close enough to my favorite Monaco, until I 
 discover that it mashes double dashes together.
-&lt;br&gt;&lt;br&gt;
-This leaves me with only two monospace fonts on my &lt;span style=&quot;background : #FFFFCE;&quot;&gt;&lt;a href=&quot;http://www.decafbad.com/twiki/bin/edit/Main/PowerBook?topicparent=Main.FilterData&quot;&gt;&lt;b&gt;?&lt;/b&gt;&lt;/a&gt;&lt;font color=&quot;#0000FF&quot;&gt;PowerBook&lt;/font&gt;&lt;/span&gt; that don&#39;t
+
+This leaves me with only two monospace fonts on my ?PowerBook that don&#39;t
 mangle things (however minor) in the terminal. They are Courier New and
 Andale Mono, both of which I very much dislike.
-&lt;br&gt;&lt;br&gt;
-So, though I&#39;ve found &lt;a href=&quot;http://www.dsandler.org/entry.php?1004&quot; target=&quot;_top&quot;&gt;one other person&lt;/a&gt; 
+
+So, though I&#39;ve found one other person 
 complain a bit about this, I can&#39;t seem to find any explanations why.  Best
 I can figure is that I had to dump a slew of fonts onto my system recently
 in order to be able to do some client work, so maybe I clobbered an out-of-box
 version of my previously favored Monaco.  But that doesn&#39;t make much sense, since
 I tried snagging a copy of Monaco from my girlfriend&#39;s iBook to no avail.
-&lt;br&gt;&lt;br&gt;
-Anyone out there have a clue as to what this is?
-</description>
+
+Anyone out there have a clue as to what this is?</description>
           
           <pubDate>Wed, 25 Jun 2003 21:30:10 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/06/25/font-borken/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/06/25/font-borken/</guid>
         </item><item>
           <title>Sync My Bookmarks No Longer!</title>
-          <description>&lt;p&gt;So, I downloaded Safari 1.0 yesterday and was very pleased to notice
+          <description>So, I downloaded Safari 1.0 yesterday and was very pleased to notice
 a new checkbox option on the Bookmarks section of the preferences.
-&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;div align=&quot;center&quot;&gt;&lt;img src=&quot;http://www.decafbad.com/blog-images/bookmarks_sync_off.gif&quot; hspace=&quot;5&quot; vspace=&quot;5&quot;&gt;&lt;/div&gt;
-&lt;br&gt;&lt;br&gt;
-Notice the &lt;strong&gt;off state&lt;/strong&gt; of the checkbox.  Goodbye, bookmark syncing, &lt;a href=&quot;http://www.decafbad.com/blog/geek/isync_bookmarks_huh.html&quot; target=&quot;_top&quot;&gt;I hardly wanted to know ya&lt;/a&gt;.
-</description>
+
+
+
+Notice the off state of the checkbox.  Goodbye, bookmark syncing, I hardly wanted to know ya.</description>
           
           <pubDate>Wed, 25 Jun 2003 21:27:44 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/06/25/sync-not-my-bookmarks/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/06/25/sync-not-my-bookmarks/</guid>
         </item><item>
           <title>WWDC (or, I love the net)</title>
-          <description>&lt;p&gt;At the moment, I&#39;m working on a bit of HTML and form processing, but
-I&#39;m also monitoring &lt;a href=&quot;irc://irc.freenode.net/wwdc&quot;&gt;three&lt;/a&gt; &lt;a href=&quot;irc://irc.macnn.com/macnn&quot;&gt;IRC&lt;/a&gt; &lt;a href=&quot;irc://irc.freenode.net/macdev&quot;&gt;channels&lt;/a&gt; and two &lt;a href=&quot;http://www.db79.com/wwdc2003/&quot; target=&quot;_top&quot;&gt;web&lt;/a&gt; &lt;a href=&quot;http://wwdc.macnn.com/&quot; target=&quot;_top&quot;&gt;pages&lt;/a&gt; since I can&#39;t be 
-at &lt;a href=&quot;http://developer.apple.com/wwdc/&quot; target=&quot;_top&quot;&gt;WWDC&lt;/a&gt; for the &lt;a href=&quot;http://www.apple.com/quicktime/qtv/mwsf03/&quot; target=&quot;_top&quot;&gt;Keynote&lt;/a&gt;.  But, it&#39;s &lt;strong&gt;almost&lt;/strong&gt; like I&#39;m there.&lt;br&gt;&lt;br&gt;&lt;br&gt;
-Except I don&#39;t get a free iSight.  Bummer.&lt;/p&gt;
-</description>
+          <description>At the moment, I&#39;m working on a bit of HTML and form processing, but
+I&#39;m also monitoring three IRC channels and two web pages since I can&#39;t be 
+at WWDC for the Keynote.  But, it&#39;s almost like I&#39;m there.
+Except I don&#39;t get a free iSight.  Bummer.</description>
           
           <pubDate>Mon, 23 Jun 2003 18:56:53 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/06/23/wwdc-love-the-web/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/06/23/wwdc-love-the-web/</guid>
         </item><item>
           <title>About That Algorithm</title>
-          <description>&lt;blockquote cite=&quot;http://www.aaronsw.com/weblog/000981&quot;&gt;Let&#39;s say you&#39;re torn between two
+          <description>Let&#39;s say you&#39;re torn between two
 worlds. You know that
 one is a fevered delusion that your mind has created and the other one is reality,
 but which is which? ...  Apply this
-algorithm in both worlds...&lt;/blockquote&gt;
-&lt;div class=&quot;credit&quot; align=&quot;right&quot;&gt;&lt;small&gt;Source:&lt;cite&gt;&lt;a href=&quot;http://www.aaronsw.com/weblog/000981&quot;&gt;Algorithm for Determining Imagination from Reality&lt;/a&gt;&lt;/cite&gt;&lt;/small&gt;&lt;/div&gt;
-&lt;br&gt;&lt;br&gt;
+algorithm in both worlds...
+Source:Algorithm for Determining Imagination from Reality
+
 So, after having seen Matrix Reloaded, and having read advice on 
-&lt;a href=&quot;http://www.jetpress.org/volume7/simulation.html&quot; target=&quot;_top&quot;&gt;how to live in a simulation&lt;/a&gt;,
+how to live in a simulation,
 I find myself wondering, how might I determine whether I&#39;m living in a simulation?  
 Well, I figure chances are, I&#39;m not even living in a decent simulation.  In fact, I could
 just be hallucinating right now.  So, Aaron Swartz comes to the rescue with a very
 reasonable empirical test I can perform.  Everything seems to check out.
-&lt;br&gt;&lt;br&gt;
+
 Problem is, though, the test is completely dependant upon me and my perceptions.
 First, I have to pick a really big number that&#39;s outside my ability to perform
 a square root on it in my head.  Then, someone else performs the square root
 on a calculator.  I then square that number by hand, and that answer should match
 my first, and since I couldn&#39;t possibly perform a square root that large in
 my head, the answer must&#39;ve come from outside my head.
-&lt;br&gt;&lt;br&gt;
+
 Except for this:  If I&#39;m hallucinating, then there&#39;s a subdivision of me controlling
 the perceptions of another subdivision of me.  Who&#39;s to say that the me who&#39;s
 performing this test isn&#39;t a complete idiot, and all the math skills are in the
 part producing the hallucinations?  Or, hell, what if for the duration of the test
 my hallucination producing side decides to make me blind to any numbers greater than
 4?
-&lt;br&gt;&lt;br&gt;
+
 Hmm.  Well, just to be safe, I won&#39;t try the alternate &quot;Step in front of a bus
-and see what happens&quot; test.
-</description>
+and see what happens&quot; test.</description>
           
           <pubDate>Fri, 20 Jun 2003 23:39:57 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/06/20/algorithm-for-reality/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/06/20/algorithm-for-reality/</guid>
         </item><item>
           <title>Desktop server + Flash GUI?</title>
-          <description>&lt;p&gt;Still have been busy like crazy, but 
-&lt;a href=&quot;http://www.decafbad.com/blog/geek/flash_xml_magic.html&quot; target=&quot;_top&quot;&gt;as I wrote&lt;/a&gt; back in April,
+          <description>Still have been busy like crazy, but 
+as I wrote back in April,
 some of what I&#39;m doing has been pulling me further into Flash MX and XML.
 Also, in the few moments of free time I&#39;ve had lately, I&#39;ve been toying
-with &lt;a href=&quot;http://www.decafbad.com/viewcvs.cgi/dbagg/&quot; target=&quot;_top&quot;&gt;my own news aggregator&lt;/a&gt;.  It&#39;s a
-&lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/PersonalServer&quot;&gt;PersonalServer&lt;/a&gt;, written in &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/Python&quot;&gt;Python&lt;/a&gt;, based on &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/Twisted&quot;&gt;Twisted&lt;/a&gt;, and uses
-&lt;a href=&quot;http://www.sqlite.org&quot; target=&quot;_top&quot;&gt;SQLite&lt;/a&gt; via &lt;a href=&quot;http://pysqlite.sourceforge.net&quot; target=&quot;_top&quot;&gt;PySQLite&lt;/a&gt;
+with my own news aggregator.  It&#39;s a
+PersonalServer, written in Python, based on Twisted, and uses
+SQLite via PySQLite
 for storage and juggling of items.
-&lt;br&gt;&lt;br&gt;
+
 So, today I&#39;ve been thinking:  How hard would it be to bundle together a desktop app
 composed of a backend in Python and a GUI in Flash?  Connecting the two is no problem
 given whatever method of XML communication you want to pass between them.  Pairing
 the two together to be launched on the guest OS would seem to be a bit of an
 oddity.
-&lt;br&gt;&lt;br&gt;
+
 See, I like my news aggregator GUI in the browser.  It seems native there.  But
 on the other hand, as far as interfaces go, what I want to make the browser
-do tends to sound ugly.  I mean, yeah, there&#39;re all sorts of DHTML and &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/CSS&quot;&gt;CSS&lt;/a&gt; tricks
+do tends to sound ugly.  I mean, yeah, there&#39;re all sorts of DHTML and CSS tricks
 and XUL looks promising, but damn have I been noticing how slick Flash is
-lately.  And fiddling around with &lt;span style=&quot;background : #FFFFCE;&quot;&gt;&lt;a href=&quot;http://www.decafbad.com/twiki/bin/edit/Main/ActionScript?topicparent=Main.FilterData&quot;&gt;&lt;b&gt;?&lt;/b&gt;&lt;/a&gt;&lt;font color=&quot;#0000FF&quot;&gt;ActionScript&lt;/font&gt;&lt;/span&gt; has been pretty fun lately.&lt;br&gt;&lt;span style=&quot;background : #FFFFCE;&quot;&gt;&lt;a href=&quot;http://www.decafbad.com/twiki/bin/edit/Main/JavaScript?topicparent=Main.FilterData&quot;&gt;&lt;b&gt;?&lt;/b&gt;&lt;/a&gt;&lt;font color=&quot;#0000FF&quot;&gt;JavaScript&lt;/font&gt;&lt;/span&gt; has gotten a pretty bad reputation via crashy implementations, but
+lately.  And fiddling around with ?ActionScript has been pretty fun lately.?JavaScript has gotten a pretty bad reputation via crashy implementations, but
 as dynamic scripting languages go, there are some nifty elegances I can pull
 off in it.
-&lt;br&gt;&lt;br&gt;
+
 So...
   I&#39;ve been reading a bit about 
-&lt;a href=&quot;http://www.macromedia.com/software/central/&quot; target=&quot;_top&quot;&gt;Macromedia&#39;s Central&lt;/a&gt; as far as 
+Macromedia&#39;s Central as far as 
 desktop Flash goes, and I&#39;ve seen the 
-&lt;a href=&quot;http://www.macromedia.com/devnet/mx/flash/articles/rss_aggregator_sample_app.html&quot; target=&quot;_top&quot;&gt;News Aggregator sample app&lt;/a&gt;,
+News Aggregator sample app,
 but 
-how about a maniacal mutant hybrid of Python and Flash?&lt;/p&gt;
-</description>
+how about a maniacal mutant hybrid of Python and Flash?</description>
           
           <pubDate>Thu, 19 Jun 2003 17:34:00 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/06/19/flash-agg/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/06/19/flash-agg/</guid>
         </item><item>
           <title>Newly Digital in 1983</title>
-          <description>&lt;p&gt;I caught &lt;a href=&quot;http://gizmodo.net/archives/002242.php#002242&quot; target=&quot;_top&quot;&gt;Gizmodo 1983&lt;/a&gt; this week,
-along with &lt;a href=&quot;http://www.cnn.com/2003/SHOWBIZ/TV/06/09/television.visitors.reut/index.html&quot; target=&quot;_top&quot;&gt;the news&lt;/a&gt;
+          <description>I caught Gizmodo 1983 this week,
+along with the news
 that NBC may be revisiting the old 1983 scifi series &quot;V&quot;, and I was reminded that that
 was right around the time I got my first computer.  I&#39;ve been meaning
-to write something for &lt;a href=&quot;http://www.kalsey.com/2003/05/newly_digital/&quot; target=&quot;_top&quot;&gt;Newly Digital&lt;/a&gt;,
+to write something for Newly Digital,
 so here goes:
-&lt;br&gt;&lt;br&gt;
+
 My history with computers starts a few years earlier than 1983,
 though.  I think it was during the first grade, when I was a hyper,
 easily bored kid.  I would get class work done quickly and early, yet
@@ -352,7 +343,7 @@ calmed down or sent to the principal.  I seem to remember that, once,
 I was caught scaling a classroom wall via the curtains.  How far I
 made if before being caught, I&#39;m not sure, but it seemed like miles
 to me at the time.  I remember being the only one happy about it.
-&lt;br&gt;&lt;br&gt;
+
 One day though, the usual trip to the principal changed.  I remember
 him as a tall, bald, and imposing man whose breath always smelled
 funny.  (This was long, long before I knew about coffee and had become
@@ -360,15 +351,15 @@ hopelessly addicted myself.)  The man scared me, since he was known
 have spanked students in the old days, and though he wasn&#39;t allowed to
 do that anymore he still had the power to call my Mom.  And I&#39;m pretty
 sure most everyone knows the little-kid terror of that.
-&lt;br&gt;&lt;br&gt;
-&lt;a href=&quot;http://www.old-computers.com/museum/computer.asp?c=460&quot;&gt;&lt;img src=&quot;http://www.old-computers.com/museum/photos/atari_800.jpg&quot; width=&quot;175&quot; height=&quot;123&quot; border=&quot;0&quot; align=&quot;left&quot; hspace=&quot;8&quot; vspace=&quot;8&quot;&gt;&lt;/a&gt;
+
+
 This particular visit, though, he led me back into his office, and sat
 me down in front of an
-&lt;a href=&quot;http://www.old-computers.com/museum/computer.asp?st=1&amp;amp;c=460&quot; target=&quot;_top&quot;&gt;Atari 800&lt;/a&gt;
+Atari 800
 and a TV screen.  Though I had
 already been introduced to video games via our Atari 2600 at home, I
 had little idea what this thing was.
-&lt;br&gt;&lt;br&gt;
+
 He showed me how to turn everything on, and introduced me to a stack
 of workbooks as tall as I was.  Each book was about 1/4&quot; thick and the
 cover colors were a rainbow of progressive difficulty.  He told me
@@ -377,7 +368,7 @@ computers in the school, and that these books were what the company
 sent him for classes.  He wanted me to try them out for him and see
 what I could do with the computer before he bought more for the
 school.
-&lt;br&gt;&lt;br&gt;
+
 From then on, when my class work was done, I had a pass to go to the
 principal&#39;s office and work through the books with the computer until
 either I ran out of books or the year ended.  I worked mostly on my
@@ -385,8 +376,8 @@ own, with a heavy sense that it was something special I&#39;d been trusted
 with.  As the principal went about his daily work, I was barely
 supervised with this expensive machine, and I felt I needed to prove I
 was worth it.
-&lt;br&gt;&lt;br&gt;
-&lt;img src=&quot;http://www.futurecast.com/futurechronicles/images/y2k.gif&quot; width=&quot;79&quot; height=&quot;75&quot; align=&quot;right&quot; hspace=&quot;8&quot; vspace=&quot;8&quot;&gt;
+
+
 My grades and my behavior improved as I tore through the workbooks in
 his office.  There was so much to learn and play with.  I remember
 with unusual clarity writing a program that asked me for my birthday
@@ -395,7 +386,7 @@ something I programmed into the computer could tell me about myself,
 all grown up, in the twenty-first century.  You know, the year when
 all science fiction stories came true!  But there I was, playing with
 the stuff of sci-fi already.
-&lt;br&gt;&lt;br&gt;
+
 And the greatest thing, as the books began to ask more creativity and
 originality from me in my assignments, I felt my mind stretch.  I&#39;d
 never quite felt that before, and it was so amazing.  Part of it was,
@@ -403,23 +394,23 @@ I&#39;m sure, just a property of the elasticity of the brain at that age,
 but I&#39;m sure my time at the computer helped.  Every day, I remembered
 and could do more.  My thoughts were becoming more ordered and
 organized, as programming the computer required it.
-&lt;br&gt;&lt;br&gt;
+
 But, after a few months, observing my obvious enthusiasm for the work,
 the principal took me out of his experiment.  I was disappointed but
 he told me that he&#39;d decided to build a computer lab and turn what I&#39;d
 been doing into a real class for everyone in the school.  I crossed my
 fingers: There were still plenty of books left to get through, and I
 was just getting to the fun things like graphics and sound.
-&lt;br&gt;&lt;br&gt;
+
 When the school&#39;s little computer lab was finally opened, all the kids
 got sorted into groups of five or so, and each rotated through a
 weekly schedule of hour-long visits.  When my group&#39;s turn came, I was
 crushed: I found that there were no assignments, just Pac Man and
 Missile Command and a smattering of math and vocabulary games.  We
 were handed joysticks and told not to touch anything else.
-&lt;br&gt;&lt;br&gt;
-&lt;a href=&quot;http://www.old-computers.com/museum/computer.asp?c=76&quot;&gt;&lt;img src=&quot;http://www.old-computers.com/museum/photos/atari_400.jpg&quot; width=&quot;175&quot; height=&quot;138&quot; border=&quot;0&quot; align=&quot;left&quot; hspace=&quot;8&quot; vspace=&quot;8&quot;&gt;&lt;/a&gt;
-These machines were &lt;a href=&quot;http://www.old-computers.com/museum/computer.asp?st=1&amp;amp;c=76&quot; target=&quot;_top&quot;&gt;Atari 400&lt;/a&gt;&#39;s 
+
+
+These machines were Atari 400&#39;s 
 and looked so much less advanced than what I&#39;d been used to.  I
 remember there being an intense nervous aura radiating from the
 supervising teacher on duty in the lab, just waiting for one of us to
@@ -427,7 +418,7 @@ destroy these things.  And, when I asked if I could have a BASIC
 cartridge to work on some of my programs, I told that if I didn&#39;t
 want to participate in the computer activities I could just go back to
 class.  As bitter as a first or second grader could be, I was.
-&lt;br&gt;&lt;br&gt;
+
 See, I&#39;d gotten teased a bit for the special treatment in the
 beginning, but I didn&#39;t mind.  And, now that everyone played with the
 computers, I got teased for not being so special anymore.  What I
@@ -435,43 +426,43 @@ couldn&#39;t get across to anyone, not even my teachers, was that they
 weren&#39;t getting what I had.  There was so much more they could have.
 Well, I&#39;m not sure my thoughts were so mature at the time, but I felt
 like everyone, including me, had been cheated.
-&lt;br&gt;&lt;br&gt;
-&lt;a href=&quot;http://www.digibarn.com/collections/books/basicgames/&quot;&gt;&lt;img src=&quot;http://www.digibarn.com/collections/books/basicgames/TN_basicgames.JPG&quot; width=&quot;97&quot; height=&quot;128&quot; border=&quot;0&quot; align=&quot;right&quot; hspace=&quot;8&quot; vspace=&quot;8&quot;&gt;&lt;/a&gt;
+
+
 So that ended my education in hands-on programming, temporarily.  I took to
 reading more computer books, often bought from the school book fair,
 like David Ahl&#39;s
-&lt;a href=&quot;http://www.digibarn.com/collections/books/basicgames/&quot; target=&quot;_top&quot;&gt;BASIC Computer Games&lt;/a&gt;.
+BASIC Computer Games.
 Lacking a computer of my own, I read and ran though the
 programs in my head.
-&lt;br&gt;&lt;br&gt;
-&lt;a href=&quot;http://www.old-computers.com/museum/computer.asp?st=1&amp;amp;c=18&quot;&gt;&lt;img src=&quot;http://www.old-computers.com/museum/photos/tandy_trs80-model3_1.jpg&quot; width=&quot;120&quot; height=&quot;105&quot; border=&quot;0&quot; align=&quot;left&quot; hspace=&quot;8&quot; vspace=&quot;8&quot;&gt;&lt;/a&gt;
+
+
 For the next year or so, I had sporadic access to computers.  My Uncle had a
-&lt;a href=&quot;http://www.old-computers.com/museum/computer.asp?st=1&amp;amp;c=18&quot; target=&quot;_top&quot;&gt;TRS 80 Model III&lt;/a&gt;
+TRS 80 Model III
 that he let me use during visits.  That thing mostly
 confused me though, as I was introduced for the first time to an
 alternate flavor of BASIC.  And still, there was the not-mine feeling
 and my Uncle&#39;s protectiveness of his expensive business machine.
 My grandparents also had a
-&lt;a href=&quot;http://www.old-computers.com/museum/computer.asp?st=1&amp;amp;c=252&quot; target=&quot;_top&quot;&gt;VIC-20&lt;/a&gt;,
+VIC-20,
 but sans tape drive or hard drive, so every visit was starting over
 from scratch.  Nothing would substitute for what I&#39;d had: My own time
 with the machine, doing things myself, building one thing atop another.
-&lt;br&gt;&lt;br&gt;
+
 Then, the
-&lt;a href=&quot;http://www.old-computers.com/museum/computer.asp?st=1&amp;amp;c=98&quot; target=&quot;_top&quot;&gt;Commodore 64&lt;/a&gt;
+Commodore 64
 arrived at the local K-Mart.  I was in love.  This was it for me, and
 I raved about it constantly.  I never quite expected to get one,
 though, since the thing was expensive, especially for a kid my age.  And
 besides, computers were always something that someone else had.  But I
 guess I must&#39;ve really gotten on Santa&#39;s good side, because I was met
 with this surprise on Christmas morning that year:
-&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;div align=&quot;center&quot;&gt;&lt;a href=&quot;http://www.decafbad.com/blog-images/first-c64.jpg&quot;&gt;&lt;img src=&quot;http://www.decafbad.com/blog-images/first-c64-sm.jpg&quot; width=&quot;320&quot; height=&quot;240&quot;&gt;&lt;/a&gt;&lt;/div&gt;
-&lt;br&gt;&lt;br&gt;
+
+
+
 That first computer was really something.  It was mine, given to me by
 my family as a whole.  No one protecting it from me, fearing I&#39;d break
 it.
-&lt;br&gt;&lt;br&gt;
+
 So I attacked it.  I learned everything about it, buried myself in
 books and magazines, figured out how every bit of it worked and could
 be used.  More than once, I&#39;d gone at it with a screwdriver to see
@@ -482,7 +473,7 @@ test new software and hardware for the thing.  At one point in fourth
 grade, I learned 6502 assembly, printed out a disassembly of the
 machine&#39;s kernel, and mapped out what everything did.  I still have
 that print-out, bound with rubber cement, and full of my scrawlings.
-&lt;br&gt;&lt;br&gt;
+
 That Commodore 64 would be my gateway to all sorts of further hackery
 and geekery, as well as a means of meeting more of my kind.  After
 getting a modem, it became my entry point to local (and not-so-local)
@@ -490,61 +481,59 @@ bulletin boards, and eventually my first tastes of the Internet.  I
 was still using that Commodore 64 up until my last year of High
 School, coincidentally the year of the machine&#39;s last production
 run.
-&lt;br&gt;&lt;br&gt;
+
 I&#39;ve had other computers since that Commodore 64, but it was opening
 that box on Christmas Morning that let me continue the process that my
 Elementary School principal had started for me, and I haven&#39;t stopped
 since.  I love to feel my mind stretch, and I love to take things
-apart and see what&#39;s inside.
-</description>
+apart and see what&#39;s inside.</description>
           
           <pubDate>Fri, 13 Jun 2003 23:06:40 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/06/13/newly-digital/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/06/13/newly-digital/</guid>
         </item><item>
           <title>Blo.gs Pings Gone Wild</title>
-          <description>&lt;p&gt;&lt;a href=&quot;http://shawnyeager.com/WebHome&quot; target=&quot;_top&quot;&gt;Shawn Yeager&lt;/a&gt; just dropped me a line to let
-me know that my blog has apparently been pinging &lt;a href=&quot;http://www.blo.gs&quot; target=&quot;_top&quot;&gt;blo.gs&lt;/a&gt; like crazy today, and
-since he&#39;s set to recieve IM&#39;s on blog updates from &lt;a href=&quot;http://www.blo.gs&quot; target=&quot;_top&quot;&gt;blo.gs&lt;/a&gt;, he&#39;s been getting
+          <description>Shawn Yeager just dropped me a line to let
+me know that my blog has apparently been pinging blo.gs like crazy today, and
+since he&#39;s set to recieve IM&#39;s on blog updates from blo.gs, he&#39;s been getting
 flooded with IMs.
-&lt;br&gt;&lt;br&gt;
+
 First off, if this is happening to you:  Sorry out there!
-&lt;br&gt;&lt;br&gt;
+
 Second thing, this
-might be interesting for anyone using a blosxom plugin to ping &lt;a href=&quot;http://www.blo.gs&quot; target=&quot;_top&quot;&gt;blo.gs&lt;/a&gt; or &lt;a href=&quot;http://www.weblogs.com&quot; target=&quot;_top&quot;&gt;weblogs.com&lt;/a&gt; like me.
-Basically, I took the &lt;a href=&quot;http://www.raelity.org/apps/blosxom/plugins/output/ping_weblogs_com.individual&quot; target=&quot;_top&quot;&gt;ping_weblogs_com&lt;/a&gt;
-plugin for blosxom, replaced the &lt;a href=&quot;http://www.weblogs.com&quot; target=&quot;_top&quot;&gt;weblogs.com&lt;/a&gt; request with one to &lt;a href=&quot;http://www.blo.gs&quot; target=&quot;_top&quot;&gt;blo.gs&lt;/a&gt;,
+might be interesting for anyone using a blosxom plugin to ping blo.gs or weblogs.com like me.
+Basically, I took the ping_weblogs_com
+plugin for blosxom, replaced the weblogs.com request with one to blo.gs,
 and searched for the pattern &#39;congratulations&#39; instead of &#39;Thanks for the ping&#39;
 in the response.  Finding the pattern is assumed to mean the ping was successful.
 A successful ping, then, causes the plugin to update the contents and timestamp
 of the status file with the response.
-&lt;br&gt;&lt;br&gt;
+
 The status file is used by the plugin to determine whether or not a ping
 should be sent.  This check is made everytime an item is viewed on my blog,
 and if the plugin sees a blog item whose timestamp is newer than that of
 the status file, a ping is sent.
-&lt;br&gt;&lt;br&gt;
+
 So!  Onto the punch-line: The appearance of the word &#39;congratulations&#39; and
 the successful registration of a ping are not the same thing.  Apparently,
-&lt;a href=&quot;http://www.blo.gs&quot; target=&quot;_top&quot;&gt;blo.gs&lt;/a&gt; has been throwing up an error message in response to a ping, while
+blo.gs has been throwing up an error message in response to a ping, while
 still registering a ping.  This error message does not contain the word
 &#39;congratulations&#39;, and so my plugin never updates the status file, and so
-it happily tries pinging &lt;a href=&quot;http://www.blo.gs&quot; target=&quot;_top&quot;&gt;blo.gs&lt;/a&gt; again with the next blog view.
-&lt;br&gt;&lt;br&gt;
-Two lessons learned here:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt; When using a web service, whether a &quot;real&quot; service or a &quot;scraped&quot; service, be very sure to know and handle the difference between a valid response and an exception or error in the service itself.
-&lt;/li&gt;
-&lt;li&gt; When using a web service, take care with your usage pattern.  That is, just how important is success?  Important enough to try again and again?  Or could you wait awhile, whether successful or not?  Or should you even try again?
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;br&gt;&lt;br&gt;
+it happily tries pinging blo.gs again with the next blog view.
+
+Two lessons learned here:
+
+ When using a web service, whether a &quot;real&quot; service or a &quot;scraped&quot; service, be very sure to know and handle the difference between a valid response and an exception or error in the service itself.
+
+ When using a web service, take care with your usage pattern.  That is, just how important is success?  Important enough to try again and again?  Or could you wait awhile, whether successful or not?  Or should you even try again?
+
+
+
 My plugin doesn&#39;t know the real meaning of the response to a ping.  And further,
 the fact that it&#39;s designed to try, try again in the case of apparent failure
 is not the greatest choice for a usage pattern.
-&lt;br&gt;&lt;br&gt;
-So... longwinded post, but I think the realizations are valuable.
-</description>
+
+So... longwinded post, but I think the realizations are valuable.</description>
           
           <pubDate>Mon, 02 Jun 2003 20:10:33 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/06/02/blo-gs-gone-wild/</link>

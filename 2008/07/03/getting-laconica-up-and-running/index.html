@@ -10,6 +10,8 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
       />
+      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
+      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
       <link
             rel="stylesheet"
             href="/blog.lmorchard.com/css/screen.css"
@@ -38,22 +40,21 @@
           content="https://lmorchard.github.io/blog.lmorchard.com/2008/07/03/getting-laconica-up-and-running/"
         />
         
-        <meta property="og:description" content="&lt;p&gt;&lt;em&gt;Update, 30 Sep 2008&lt;/em&gt;: &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;You don&#39;t want to follow the directions on this page—instead, leave this page and read this:&lt;/strong&gt;  &lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://laconi.ca/darcs/README&quot;&gt;http://laconi.ca/darcs/README&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;At one point, very early on in Laconica-time, this blog post offered useful information on getting Laconica up and running.  But since then, my time has taken me away from playing with Laconica and thus this guide has fallen far behind.  Hopefully soon I&#39;ll get back around to Laconica hacking, but not today.&lt;/p&gt;
-&lt;p&gt;I&#39;m leaving the original text of this post here for posterity, but this is &lt;em&gt;no longer current&lt;/em&gt; and following this guide will &lt;em&gt;do more harm than good&lt;/em&gt; in confusing you about Laconica installation!&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Again, to learn about getting Laconica up and running, leave this page and read this&lt;/strong&gt;:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://laconi.ca/darcs/README&quot;&gt;http://laconi.ca/darcs/README&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;The latest mini-sensations to arrive through my firehoses are &lt;a href=&quot;http://identi.ca&quot;&gt;identi.ca&lt;/a&gt;, a Twitter-clone / microblogging site, and the Open Source software &lt;a href=&quot;http://laconi.ca&quot;&gt;Laconica&lt;/a&gt;, which powers the aforementioned site.&lt;/p&gt;
-&lt;p&gt;Having started and neglected two Twitter cloning attempts of my own, &lt;a href=&quot;http://decafbad.com/svn/trunk/Cuckoo&quot;&gt;Cuckoo&lt;/a&gt; and &lt;a href=&quot;http://decafbad.com/svn/trunk/OpenInterocitor&quot;&gt;OpenInterocitor&lt;/a&gt;, seeing someone else carry the torch with any modicum of momentum is attractive to me.  So, I spent a little bit last night getting the code running on my own servers, and managed to do it twice:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://decafbad.com/laconica&quot;&gt;decafbad.com/laconica&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://lmorchard.com/laconica&quot;&gt;lmorchard.com/laconica&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;See, the interesting thing promised by &lt;a href=&quot;http://laconi.ca&quot;&gt;Laconica&lt;/a&gt;—and something I wanted in my own clones—is the ability to federate instances of the software.  That is, users on one &lt;a href=&quot;http://laconi.ca&quot;&gt;Laconica&lt;/a&gt;-based site should be able to subscribe to the updates from users on another site, by way of the &lt;a href=&quot;http://openmicroblogging.org/&quot;&gt;OpenMicroblogging specification&lt;/a&gt;.  Although federation isn&#39;t a silver bullet to a web-scale Twitter clone, I do think it&#39;s one of the most important bootstrap steps—but that&#39;s another blog post entirely.&lt;/p&gt;
-&lt;p&gt;Thus, since I&#39;d like to see &lt;em&gt;you&lt;/em&gt; run a Laconica site (or something like it) for mine to talk to, I figured I&#39;d document how I got the thing running.  My server is running Ubuntu Gutsy, so your mileage may vary.  This is a long one, so check out the how-to after the jump...&lt;/p&gt;
-" />
+        <meta property="og:description" content="Update, 30 Sep 2008: 
+You don&#39;t want to follow the directions on this page—instead, leave this page and read this:  
+http://laconi.ca/darcs/README
+At one point, very early on in Laconica-time, this blog post offered useful information on getting Laconica up and running.  But since then, my time has taken me away from playing with Laconica and thus this guide has fallen far behind.  Hopefully soon I&#39;ll get back around to Laconica hacking, but not today.
+I&#39;m leaving the original text of this post here for posterity, but this is no longer current and following this guide will do more harm than good in confusing you about Laconica installation!
+Again, to learn about getting Laconica up and running, leave this page and read this:
+http://laconi.ca/darcs/README
+The latest mini-sensations to arrive through my firehoses are identi.ca, a Twitter-clone / microblogging site, and the Open Source software Laconica, which powers the aforementioned site.
+Having started and neglected two Twitter cloning attempts of my own, Cuckoo and OpenInterocitor, seeing someone else carry the torch with any modicum of momentum is attractive to me.  So, I spent a little bit last night getting the code running on my own servers, and managed to do it twice:
+
+decafbad.com/laconica
+lmorchard.com/laconica
+
+See, the interesting thing promised by Laconica—and something I wanted in my own clones—is the ability to federate instances of the software.  That is, users on one Laconica-based site should be able to subscribe to the updates from users on another site, by way of the OpenMicroblogging specification.  Although federation isn&#39;t a silver bullet to a web-scale Twitter clone, I do think it&#39;s one of the most important bootstrap steps—but that&#39;s another blog post entirely.
+Thus, since I&#39;d like to see you run a Laconica site (or something like it) for mine to talk to, I figured I&#39;d document how I got the thing running.  My server is running Ubuntu Gutsy, so your mileage may vary.  This is a long one, so check out the how-to after the jump..." />
     </head>
     <body>
       <section class="main">
@@ -210,7 +211,7 @@ sudo chmod -R ug+rw avatar/
 <p>On the other hand, if you&#39;re okay with uglier URLs with query parameters and whatnot, leave <code>.htaccess</code> alone and use <code>$config[&#39;site&#39;][&#39;fancy&#39;] = false</code> in your <code>config.php</code>.  </p>
 <p>For comparison, here are examples of non-fancy and fancy profile URLs:</p>
 <ul>
-<li><a href="http://decafbad.com/laconica/index.php?action=showstream&amp;nickname=lmorchard">http://decafbad.com/laconica/index.php?action=showstream&amp;nickname=lmorchard</a></li>
+<li><a href="http://decafbad.com/laconica/index.php?action=showstream&nickname=lmorchard">http://decafbad.com/laconica/index.php?action=showstream&amp;nickname=lmorchard</a></li>
 <li><a href="http://decafbad.com/laconica/lmorchard">http://decafbad.com/laconica/lmorchard</a></li>
 </ul>
 <p>One catch to the non-fancy and fancy thing, though—if you start off with non-fancy URLs and later switch to fancy, all of the profiles registered before that switch will appear with non-fancy URLs in the timeline.  This is because the <code>profile</code> table stores the original URLs at registration in the <code>profileurl</code> column.  You could change these if you like, but there be dragons.</p>
@@ -1147,7 +1148,7 @@ href="http://raseel.in/techblog">Raseel</a>
       </section>
 
       <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
       </section>
     </body>

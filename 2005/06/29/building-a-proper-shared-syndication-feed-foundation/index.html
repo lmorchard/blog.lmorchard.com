@@ -10,6 +10,8 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
       />
+      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
+      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
       <link
             rel="stylesheet"
             href="/blog.lmorchard.com/css/screen.css"
@@ -100,7 +102,7 @@
 <li>Coarse-grained persistence</li>
 </ol>
 <h3 id="feeds-in-relational-db-tables">Feeds in relational DB tables</h3>
-<p>Mapping feed data to relational database tables seems to be the most common approach I&#39;ve seen in use by aggregators.  Another similar approach involves maintaining a persistent object model.  <a href="http://www.decafbad.com/blog/2005/06/28/safarirssdb">Syndication.framework</a>, <a href="http://inessential.com/?comments=1&amp;postid=2993">NetNewsWire</a>, <a href="http://www.nongnu.org/straw/">Straw</a>, and <a href="http://feedonfeeds.com/">Feed on Feeds</a> all do something like this, more or less--and I&#39;m sure many others do, as well.   </p>
+<p>Mapping feed data to relational database tables seems to be the most common approach I&#39;ve seen in use by aggregators.  Another similar approach involves maintaining a persistent object model.  <a href="http://www.decafbad.com/blog/2005/06/28/safarirssdb">Syndication.framework</a>, <a href="http://inessential.com/?comments=1&postid=2993">NetNewsWire</a>, <a href="http://www.nongnu.org/straw/">Straw</a>, and <a href="http://feedonfeeds.com/">Feed on Feeds</a> all do something like this, more or less--and I&#39;m sure many others do, as well.   </p>
 <p>The idea is that the raw feed XML comes in, gets parsed, and then methodically dissected to populate columns in a table or properties of an object.  Since the table schema or class definition is planned out ahead of time, only feed data which conforms to this model gets preserved.</p>
 <p>Occasionally, an effort is made to &quot;expose all possible data&quot;, <a href="http://www.feedparser.org/docs/namespace-handling.html">ala the Universal Feed Parser</a>.  But, this is really only practical if your objects are particularly dynamic--and even then <a href="http://bitsko.slc.ut.us/blog/rdf-longhorn.html">you&#39;ll run into issues</a>, depending on just what shows up in a given feed.  But, if you don&#39;t really care much about anything all that exotic in feeds beyond title / link / description, this approach might work out just fine.</p>
 <h3 id="feeds-as-rdf-triples">Feeds as RDF triples</h3>
@@ -196,7 +198,7 @@ Feeds fetched and stored on the filesystem--shortly thereafter sliced into entri
       </section>
 
       <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
       </section>
     </body>

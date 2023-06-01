@@ -10,6 +10,8 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
       />
+      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
+      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
       <link
             rel="stylesheet"
             href="/blog.lmorchard.com/css/screen.css"
@@ -38,47 +40,46 @@
           content="https://lmorchard.github.io/blog.lmorchard.com/2002/09/20/ooobhd/"
         />
         
-        <meta property="og:description" content="&lt;p&gt;Today&#39;s bundle of little discoveries:
-&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt; &lt;a href=&quot;http://www.pth.com/DSBRTuner/&quot;&gt;DSBRTuner&lt;/a&gt; has been updated to support &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/AppleScript&quot;&gt;AppleScript&lt;/a&gt; since last I downloaded it.
-&lt;/li&gt;
-&lt;li&gt; &lt;a href=&quot;http://www.pth.com/DSBRTuner/&quot;&gt;DSBRTuner&lt;/a&gt; has been updated to record to MP3 on disk.
-&lt;/li&gt;
-&lt;li&gt; &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/MacOSX&quot;&gt;MacOSX&lt;/a&gt; has a command called &lt;code&gt;osascript&lt;/code&gt; with which you can launch &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/AppleScript&quot;&gt;AppleScripts&lt;/a&gt; (among other things) from a shell.
-&lt;/li&gt;
-&lt;li&gt; Like &lt;code&gt;perl&lt;/code&gt;, &lt;code&gt;osascript&lt;/code&gt; has an option &lt;code&gt;-e&lt;/code&gt; to run a one-liner from the shell.
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;br&gt;&lt;br&gt;
+        <meta property="og:description" content="Today&#39;s bundle of little discoveries:
+
+
+ DSBRTuner has been updated to support AppleScript since last I downloaded it.
+
+ DSBRTuner has been updated to record to MP3 on disk.
+
+ MacOSX has a command called osascript with which you can launch AppleScripts (among other things) from a shell.
+
+ Like perl, osascript has an option -e to run a one-liner from the shell.
+
+
+
 Given these discoveries, I was able to cobble together a quick pair of scripts with which to schedule recording radio broadcasts to MP3 via cron.
-&lt;br&gt;&lt;br&gt;
-Wow.  Another little project that became, all of a sudden, so much easier than I thought.  I love Unix and OS X.  Before this, I&#39;d been looking high and low for all the parts:  a scheduler, a sound recorder, an app controller, etc &amp;amp; so forth.  Given the source code to DSBRTuner, I was almost about to hack some solutions into it, but I&#39;d never gotten the time.
-&lt;br&gt;&lt;br&gt;
+
+Wow.  Another little project that became, all of a sudden, so much easier than I thought.  I love Unix and OS X.  Before this, I&#39;d been looking high and low for all the parts:  a scheduler, a sound recorder, an app controller, etc &amp; so forth.  Given the source code to DSBRTuner, I was almost about to hack some solutions into it, but I&#39;d never gotten the time.
+
 Now, I can happily record and listen to my favorite late Sunday night radio show during the week again!
-&lt;br&gt;&lt;br&gt;
+
 Oh yeah, and the ugly scripts:
-&lt;br&gt;&lt;br&gt;
+
 1) dsbr_start_recording
-&lt;pre&gt;#!/bin/sh
+#!/bin/sh
 FREQ=$1
 MP3_FN=&quot;$2-`date &quot;+%Y%m%dT%H%M%S&quot;`.mp3&quot;
 OSA=/usr/bin/osascript
 TELL=&#39;tell application &quot;DSBRTUNER&quot; to&#39;
 
-&lt;p&gt;open /Applications/DSBRTuner.app
+open /Applications/DSBRTuner.app
 $OSA -e &quot;$TELL set frequency to $FREQ&quot;
-$OSA -e &quot;$TELL record to file &quot;$MP3_FN&quot;&quot;&lt;/p&gt;&lt;/pre&gt;
-&lt;br&gt;&lt;br&gt;
-2) dsbr_stop_recording&lt;p&gt;&lt;/p&gt;
-&lt;pre&gt;#!/bin/sh
+$OSA -e &quot;$TELL record to file &quot;$MP3_FN&quot;&quot;
+
+2) dsbr_stop_recording
+#!/bin/sh
 OSA=/usr/bin/osascript
 TELL=&#39;tell application &quot;DSBRTUNER&quot; to&#39;
 
 open /Applications/DSBRTuner.app
 $OSA -e &quot;$TELL stop recording&quot;
-$OSA -e &quot;$TELL quit&quot;&lt;/pre&gt;
-" />
+$OSA -e &quot;$TELL quit&quot;" />
     </head>
     <body>
       <section class="main">
@@ -212,7 +213,7 @@ href="http://www.redmonk.net">Steve Ivy</a>
       </section>
 
       <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
       </section>
     </body>

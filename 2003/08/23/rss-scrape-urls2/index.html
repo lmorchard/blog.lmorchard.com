@@ -10,6 +10,8 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
       />
+      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
+      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
       <link
             rel="stylesheet"
             href="/blog.lmorchard.com/css/screen.css"
@@ -38,19 +40,17 @@
           content="https://lmorchard.github.io/blog.lmorchard.com/2003/08/23/rss-scrape-urls2/"
         />
         
-        <meta property="og:description" content="&lt;p&gt;Okay, so I took another shot at &lt;a href=&quot;http://www.decafbad.com/blog/geek/rss_scrape_urls.html&quot;&gt;scraping &lt;span class=&quot;caps&quot;&gt;HTML&lt;/span&gt; with web services&lt;/a&gt; with &lt;a href=&quot;http://www.jlist.com&quot;&gt;another site&lt;/a&gt; that passes the &lt;span class=&quot;caps&quot;&gt;HTML &lt;/span&gt;Tidy step.  Luckily, this is a site that I already scrape using my own tool, so I have XPath expressions already cooked up to dig out info for &lt;span class=&quot;caps&quot;&gt;RSS&lt;/span&gt; items.  So, here are the vitals:&lt;/p&gt;
+        <meta property="og:description" content="Okay, so I took another shot at scraping HTML with web services with another site that passes the HTML Tidy step.  Luckily, this is a site that I already scrape using my own tool, so I have XPath expressions already cooked up to dig out info for RSS items.  So, here are the vitals:
 
 
-&lt;ul&gt;
-    &lt;li&gt;Site: &lt;a href=&quot;http://www.jlist.com&quot;&gt;http://www.jlist.com&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;span class=&quot;caps&quot;&gt;XSL&lt;/span&gt;: &lt;a href=&quot;http://www.decafbad.com/jlist.xsl&quot;&gt;http://www.decafbad.com/jlist.xsl&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;Tidy &lt;span class=&quot;caps&quot;&gt;URL&lt;/span&gt;: &lt;a href=&quot;http://cgi.w3.org/cgi-bin/tidy?docAddr=http%3A%2F%2Fwww.jlist.com%2FUPDATES%2FPG%2F365%2F&quot;&gt;http://cgi.w3.org/cgi-bin/tidy?&lt;br&gt;docAddr=http%3A%2F%2Fwww.jlist.com%2FUPDATES%2FPG%2F365%2F&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;Final &lt;span class=&quot;caps&quot;&gt;URL&lt;/span&gt;: &lt;a href=&quot;http://www.w3.org/2000/06/webdata/xslt?xslfile=http%3A%2F%2Fwww.decafbad.com%2Fjlist.xsl&amp;amp;xmlfile=http%3A%2F%2Fcgi.w3.org%2Fcgi-bin%2Ftidy%3FdocAddr%3Dhttp%253A%252F%252Fwww.jlist.com%252FUPDATES%252FPG%252F365%252F&amp;amp;transform=Submit&quot;&gt;http://www.w3.org/2000/06/webdata/xslt?&lt;br&gt;xslfile=http%3A%2F%2Fwww.decafbad.com%2Fjlist.xsl&amp;amp;&lt;br&gt;xmlfile=http%3A%2F%2Fcgi.w3.org%2Fcgi-bin%2Ftidy%3F&lt;br&gt;docAddr%3Dhttp%253A%252F%252Fwww.jlist.com%252FUPDATES%252FPG%252F365%252F&amp;amp;&lt;br&gt;transform=Submit&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 
-&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;Unfortunately, although it looks okay to me, this feed &amp;lt;a href=&quot;http://feeds.archive.org/validator/check?url=http%3A%2F%2Fwww.w3.org%2F2000%2F06%2Fwebdata%2Fxslt%3Fxslfile%3Dhttp%253A%252F%252Fwww.decafbad.com%252Fjlist.xsl%26xmlfile%3Dhttp%253A%252F%252Fcgi.w3.org%252Fcgi-bin%252Ftidy%253FdocAddr%253Dhttp%25253A%25252F%25252Fwww.jlist.com%25252FUPDATES%25252FPG%25252F365%25252F%26transform%3DSubmit&quot;&amp;gt;doesn&amp;amp;#8217;t validate yet&amp;lt;/a&amp;gt;, but I&amp;amp;#8217;m still poking around with it to get things straight.  Feel free to help me out!  :)&amp;lt;/p&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-" />
+    Site: http://www.jlist.com
+    XSL: http://www.decafbad.com/jlist.xsl
+    Tidy URL: http://cgi.w3.org/cgi-bin/tidy?docAddr=http%3A%2F%2Fwww.jlist.com%2FUPDATES%2FPG%2F365%2F
+    Final URL: http://www.w3.org/2000/06/webdata/xslt?xslfile=http%3A%2F%2Fwww.decafbad.com%2Fjlist.xsl&amp;xmlfile=http%3A%2F%2Fcgi.w3.org%2Fcgi-bin%2Ftidy%3FdocAddr%3Dhttp%253A%252F%252Fwww.jlist.com%252FUPDATES%252FPG%252F365%252F&amp;transform=Submit
+
+
+&lt;p&gt;Unfortunately, although it looks okay to me, this feed &lt;a href=&quot;http://feeds.archive.org/validator/check?url=http%3A%2F%2Fwww.w3.org%2F2000%2F06%2Fwebdata%2Fxslt%3Fxslfile%3Dhttp%253A%252F%252Fwww.decafbad.com%252Fjlist.xsl%26xmlfile%3Dhttp%253A%252F%252Fcgi.w3.org%252Fcgi-bin%252Ftidy%253FdocAddr%253Dhttp%25253A%25252F%25252Fwww.jlist.com%25252FUPDATES%25252FPG%25252F365%25252F%26transform%3DSubmit&quot;&gt;doesn&amp;#8217;t validate yet&lt;/a&gt;, but I&amp;#8217;m still poking around with it to get things straight.  Feel free to help me out!  :)&lt;/p&gt;" />
     </head>
     <body>
       <section class="main">
@@ -128,7 +128,7 @@
       </section>
 
       <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
       </section>
     </body>

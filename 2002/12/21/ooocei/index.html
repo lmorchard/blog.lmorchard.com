@@ -10,6 +10,8 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
       />
+      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
+      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
       <link
             rel="stylesheet"
             href="/blog.lmorchard.com/css/screen.css"
@@ -38,16 +40,15 @@
           content="https://lmorchard.github.io/blog.lmorchard.com/2002/12/21/ooocei/"
         />
         
-        <meta property="og:description" content="&lt;p&gt;This week, at work, I cobbled together a hack for &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/MovableType&quot;&gt;MovableType&lt;/a&gt; that hooks it up with an LDAP server for author accounts: &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/MovableTypeLDAPAuthors&quot;&gt;MovableTypeLDAPAuthors&lt;/a&gt;.  This is an early, early, early release of the thing, and is likely to do very nasty things for all that I know.  But, I wanted to share, and it seems to be working for the proof of concept at work (that is, MT weblogs on our intranet for every employee).  Hopefully soon it&#39;ll be approved, and I&#39;ll be looking into a commercial use license for &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/MovableType&quot;&gt;MovableType&lt;/a&gt;.
-&lt;br&gt;&lt;br&gt;
-You know, for all the praise I&#39;ve read about &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/MovableType&quot;&gt;MovableType&lt;/a&gt;, something I&#39;ve really not seen much attention toward is the code itself.  I mean, yeah this thing is great, and it&#39;s so simple to install and use by even non-techies.  But, under the hood, there&#39;re some nice things going on - like a very decent object persistence approach; templating for pretty strict code/presentation separation; a workable servlet-like app structure with facilities for localization and a dispatch-table approach to executing web app methods.  There are some spots that are a bit too if/else-ful for my taste, like the &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/CMS&quot;&gt;CMS&lt;/a&gt;&#39; edit_object() method, but hey, it works.
-&lt;br&gt;&lt;br&gt;
-In other words, &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/MovableType&quot;&gt;MovableType&lt;/a&gt; isn&#39;t just a cobbled together tangle of code that happens to produce weblogs.  I&#39;ve seen piles of well-used code on the web before that all seem to do what they advertise, but present a nightmare under the hood.  (&lt;strong&gt;cough&lt;/strong&gt; Matt Wright&#39;s famous scripts &lt;strong&gt;cough&lt;/strong&gt;)  No, &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/MovableType&quot;&gt;MovableType&lt;/a&gt; looks like the result of experience, and I feel biased, because it demonstrates a lot of the same perl web app design patterns I&#39;ve been employing and advocating for years now.  So, my LDAP hack was a bit of enjoyable fun, instead of a chore.
-&lt;br&gt;&lt;br&gt;
-Along the lines of what I&#39;d written last week &lt;a href=&quot;http://www.decafbad.com/news_archives/000354.phtml&quot;&gt;about perfection versus good enough&lt;/a&gt;, I think &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/MovableType&quot;&gt;MovableType&lt;/a&gt; is a good example.  It&#39;s something I &lt;strong&gt;could&lt;/strong&gt; have written, but &lt;strong&gt;didn&#39;t&lt;/strong&gt; write and &lt;strong&gt;didn&#39;t&lt;/strong&gt; release and &lt;strong&gt;didn&#39;t&lt;/strong&gt; support and &lt;strong&gt;didn&#39;t&lt;/strong&gt; make lots of people happy along the way.  All the did-nots are the important bit.  It&#39;s why I have two projects dead (&lt;a href=&quot;http://sourceforge.net/projects/iaijutsu&quot; target=&quot;_top&quot;&gt;Iaijutsu&lt;/a&gt; and &lt;a href=&quot;http://sourceforge.net/projects/iaido&quot; target=&quot;_top&quot;&gt;Iaido&lt;/a&gt;) after a few years&#39; effort, and &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/MovableType&quot;&gt;MovableType&lt;/a&gt; is a gigantic success today.
-&lt;br&gt;&lt;br&gt;
-So, these are the kind of lessons that  are an important part of what this weblog is about for me.&lt;/p&gt;
-" />
+        <meta property="og:description" content="This week, at work, I cobbled together a hack for MovableType that hooks it up with an LDAP server for author accounts: MovableTypeLDAPAuthors.  This is an early, early, early release of the thing, and is likely to do very nasty things for all that I know.  But, I wanted to share, and it seems to be working for the proof of concept at work (that is, MT weblogs on our intranet for every employee).  Hopefully soon it&#39;ll be approved, and I&#39;ll be looking into a commercial use license for MovableType.
+
+You know, for all the praise I&#39;ve read about MovableType, something I&#39;ve really not seen much attention toward is the code itself.  I mean, yeah this thing is great, and it&#39;s so simple to install and use by even non-techies.  But, under the hood, there&#39;re some nice things going on - like a very decent object persistence approach; templating for pretty strict code/presentation separation; a workable servlet-like app structure with facilities for localization and a dispatch-table approach to executing web app methods.  There are some spots that are a bit too if/else-ful for my taste, like the CMS&#39; edit_object() method, but hey, it works.
+
+In other words, MovableType isn&#39;t just a cobbled together tangle of code that happens to produce weblogs.  I&#39;ve seen piles of well-used code on the web before that all seem to do what they advertise, but present a nightmare under the hood.  (cough Matt Wright&#39;s famous scripts cough)  No, MovableType looks like the result of experience, and I feel biased, because it demonstrates a lot of the same perl web app design patterns I&#39;ve been employing and advocating for years now.  So, my LDAP hack was a bit of enjoyable fun, instead of a chore.
+
+Along the lines of what I&#39;d written last week about perfection versus good enough, I think MovableType is a good example.  It&#39;s something I could have written, but didn&#39;t write and didn&#39;t release and didn&#39;t support and didn&#39;t make lots of people happy along the way.  All the did-nots are the important bit.  It&#39;s why I have two projects dead (Iaijutsu and Iaido) after a few years&#39; effort, and MovableType is a gigantic success today.
+
+So, these are the kind of lessons that  are an important part of what this weblog is about for me." />
     </head>
     <body>
       <section class="main">
@@ -169,7 +170,7 @@ http://webseitz.fluxent.com/wiki/LDAP</div>
       </section>
 
       <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
       </section>
     </body>

@@ -10,6 +10,8 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
       />
+      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
+      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
       <link
             rel="stylesheet"
             href="/blog.lmorchard.com/css/screen.css"
@@ -38,15 +40,15 @@
           content="https://lmorchard.github.io/blog.lmorchard.com/2005/06/28/safarirssdb/"
         />
         
-        <meta property="og:description" content="&lt;p&gt;Hey, what do you know?  The database used by &lt;code&gt;Syndication.framework&lt;/code&gt; on OS X is accessible with &lt;a href=&quot;http://www.sqlite.org/version3.html&quot;&gt;SQLite 3&lt;/a&gt;, assumedly by virtue of &lt;a href=&quot;http://developer.apple.com/macosx/coredata.html&quot;&gt;Core Data&lt;/a&gt;.  Check out this barely presentable capture of what I just did in a shell window:&lt;/p&gt;
-&lt;pre style=&quot;font-size: 0.75em; overflow: auto&quot;&gt;[11:34:49] deusx@Caffeina2:~/Library/Syndication$ sqlite3 Database3 
+        <meta property="og:description" content="Hey, what do you know?  The database used by Syndication.framework on OS X is accessible with SQLite 3, assumedly by virtue of Core Data.  Check out this barely presentable capture of what I just did in a shell window:
+[11:34:49] deusx@Caffeina2:~/Library/Syndication$ sqlite3 Database3 
 SQLite version 3.0.8
 Enter &quot;.help&quot; for instructions
-sqlite&amp;gt; .tables
+sqlite&gt; .tables
 
 Articles  Sources 
 
-sqlite&amp;gt; .schema Articles
+sqlite&gt; .schema Articles
 
 CREATE TABLE Articles (id INTEGER PRIMARY KEY,
 source_id INTEGER,author TEXT,title TEXT,contentType INT(1),
@@ -59,7 +61,7 @@ CREATE INDEX ArticleDatesRcvd ON Articles (dateReceived);
 CREATE INDEX ArticleSources ON Articles (source_id);
 CREATE INDEX ArticleUnreads ON Articles (unread);
 
-sqlite&amp;gt; .schema Sources
+sqlite&gt; .schema Sources
 
 CREATE TABLE Sources (id INTEGER PRIMARY KEY,URL TEXT,
 subscribed INT(1),title TEXT,iconURL TEXT,date INT,lastCheck INT,
@@ -69,25 +71,24 @@ FOAFURL TEXT,protocol VARCHAR,lastError VARCHAR,maxDays INT(2),
 maxArticles INT(2),x_monkey TEXT,x_ninja TEXT,x_pirate TEXT,
 x_robot TEXT);
 
-sqlite&amp;gt; select * from Sources;
+sqlite&gt; select * from Sources;
 
 id|URL|subscribed|title|iconURL|date|lastCheck|lastUpdate|slider|description|homePage|timespan|sort|HTTPdate|feedHash|FOAFURL|protocol|lastError|maxDays|maxArticles|x_monkey|x_ninja|x_pirate|x_robot
 1|http://www.apple.com/main/rss/hotnews/hotnews.rss|1|Apple Hot News||141617700|141648125|141648128|||http://www.apple.com/hotnews/|||Tue, 28 Jun 2005 02:15:00 GMT|150fdf111cd223367f5c0cb8d28c65ec2a4ec195||RSS|||||||
-2|http://ax.phobos.apple.com.edgesuite.net/WebObjects/MZStore.woa/wpa/MRSS/newreleases/limit=25/rss.xml|1|iTunes 25 New Releases|/images/rss/badge.gif|141577349|141648124|141648126|||http://phobos.apple.com/WebObjects/MZStore.woa/wa/com.apple.jingle.app.store.DirectAction/viewNewReleases?pageType=newReleases&amp;amp;id=1|||Mon, 27 Jun 2005 18:02:29 GMT|8a2c02423581414b223f4533f0bf89211e1aa6c7||RSS|||||||
+2|http://ax.phobos.apple.com.edgesuite.net/WebObjects/MZStore.woa/wpa/MRSS/newreleases/limit=25/rss.xml|1|iTunes 25 New Releases|/images/rss/badge.gif|141577349|141648124|141648126|||http://phobos.apple.com/WebObjects/MZStore.woa/wa/com.apple.jingle.app.store.DirectAction/viewNewReleases?pageType=newReleases&amp;id=1|||Mon, 27 Jun 2005 18:02:29 GMT|8a2c02423581414b223f4533f0bf89211e1aa6c7||RSS|||||||
 
 ...
 
-sqlite&amp;gt; select * from Articles;
+sqlite&gt; select * from Articles;
 
 id|source_id|author|title|contentType|contents|excerpt|GUID|permalink|iconURL|categories|date|dateReceived|unread|flagged|collapsed|noComments
-2003|5||&#39;Mactel&#39; desktops may offer triple-threat OS|0||Also: GE, IBM and GM: the welfare kings|http://news.com.com/News.com+Extra/2001-9373_3-0.html?part=rss&amp;amp;tag=rsspr.5748612&amp;amp;subj=news|http://news.com.com/News.com+Extra/2001-9373_3-0.html?part=rss&amp;amp;tag=rsspr.5748612&amp;amp;subj=news|||140527020|140612922|1|||0
-2004|5||Virtual property becomes a reality|0||Blog: With the recent sentencing of a Chinese man who murdered an acquaintance in a dispute over a virtual sword, talk of the growing...|http://news.com.com/2061-10786_3-5748748.html?part=rss&amp;amp;tag=5748748&amp;amp;subj=news|http://news.com.com/2061-10786_3-5748748.html?part=rss&amp;amp;tag=5748748&amp;amp;subj=news|||140579040|140612922|1|||0
-&lt;/pre&gt;
+2003|5||&#39;Mactel&#39; desktops may offer triple-threat OS|0||Also: GE, IBM and GM: the welfare kings|http://news.com.com/News.com+Extra/2001-9373_3-0.html?part=rss&amp;tag=rsspr.5748612&amp;subj=news|http://news.com.com/News.com+Extra/2001-9373_3-0.html?part=rss&amp;tag=rsspr.5748612&amp;subj=news|||140527020|140612922|1|||0
+2004|5||Virtual property becomes a reality|0||Blog: With the recent sentencing of a Chinese man who murdered an acquaintance in a dispute over a virtual sword, talk of the growing...|http://news.com.com/2061-10786_3-5748748.html?part=rss&amp;tag=5748748&amp;subj=news|http://news.com.com/2061-10786_3-5748748.html?part=rss&amp;tag=5748748&amp;subj=news|||140579040|140612922|1|||0
 
-&lt;p&gt;There&#39;s one piece up there that had me do a coffee spit-take, though:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;x_monkey TEXT,x_ninja TEXT,x_pirate TEXT,x_robot TEXT&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Seems like the Syndication Wars have progressed, and the various sides have enlisted all of these combatting factions.  &lt;a href=&quot;http://www.swervepictures.com/monkey.htm&quot;&gt;Monkey vs Robot&lt;/a&gt;, &lt;a href=&quot;http://daily.stanford.edu/tempo?page=content&amp;amp;id=17374&amp;amp;repository=0001_article&quot;&gt;Pirates vs Ninja&lt;/a&gt;--I only wonder whether the Ninjas and Robots will ally against the Monkeys and Pirates?  It just seems natural.&lt;/p&gt;
-" />
+
+There&#39;s one piece up there that had me do a coffee spit-take, though:
+x_monkey TEXT,x_ninja TEXT,x_pirate TEXT,x_robot TEXT
+Seems like the Syndication Wars have progressed, and the various sides have enlisted all of these combatting factions.  Monkey vs Robot, Pirates vs Ninja--I only wonder whether the Ninjas and Robots will ally against the Monkeys and Pirates?  It just seems natural." />
     </head>
     <body>
       <section class="main">
@@ -189,7 +190,7 @@ id|source_id|author|title|contentType|contents|excerpt|GUID|permalink|iconURL|ca
 
 <p>There&#39;s one piece up there that had me do a coffee spit-take, though:</p>
 <p><code>x_monkey TEXT,x_ninja TEXT,x_pirate TEXT,x_robot TEXT</code></p>
-<p>Seems like the Syndication Wars have progressed, and the various sides have enlisted all of these combatting factions.  <a href="http://www.swervepictures.com/monkey.htm">Monkey vs Robot</a>, <a href="http://daily.stanford.edu/tempo?page=content&amp;id=17374&amp;repository=0001_article">Pirates vs Ninja</a>--I only wonder whether the Ninjas and Robots will ally against the Monkeys and Pirates?  It just seems natural.</p>
+<p>Seems like the Syndication Wars have progressed, and the various sides have enlisted all of these combatting factions.  <a href="http://www.swervepictures.com/monkey.htm">Monkey vs Robot</a>, <a href="http://daily.stanford.edu/tempo?page=content&id=17374&repository=0001_article">Pirates vs Ninja</a>--I only wonder whether the Ninjas and Robots will ally against the Monkeys and Pirates?  It just seems natural.</p>
 <!--more-->
 <p>shortname=safarirssdb</p>
 <div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
@@ -245,7 +246,7 @@ href="http://mooseyard.com/Jens">Jens Alfke</a>
       </section>
 
       <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
       </section>
     </body>

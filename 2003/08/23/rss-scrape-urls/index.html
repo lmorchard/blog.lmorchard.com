@@ -10,6 +10,8 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
       />
+      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
+      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
       <link
             rel="stylesheet"
             href="/blog.lmorchard.com/css/screen.css"
@@ -38,24 +40,22 @@
           content="https://lmorchard.github.io/blog.lmorchard.com/2003/08/23/rss-scrape-urls/"
         />
         
-        <meta property="og:description" content="&lt;p&gt;After &lt;a href=&quot;http://www.decafbad.com/blog/geek/rss_scrape_xsl.html&quot;&gt;checking out&lt;/a&gt; &lt;a href=&quot;http://www.whump.com/moreLikeThis/date/21/08/2003&quot;&gt;Bill Humphries’ approach&lt;/a&gt; to scraping yesterday, I recalled the various things &lt;a href=&quot;http://udell.roninhouse.com/bytecols/2001-08-15.html&quot;&gt;Jon Udell has written&lt;/a&gt; about &lt;span class=&quot;caps&quot;&gt;URL&lt;/span&gt;-as-command-line and the various places I’ve seen the &lt;a href=&quot;http://www.w3.org/2001/05/xslt&quot;&gt;&lt;span class=&quot;caps&quot;&gt;W3C XSLT &lt;/span&gt;Servlet&lt;/a&gt; used in &lt;span class=&quot;caps&quot;&gt;XSLT&lt;/span&gt; tinkering.  I also remembered that there’s an &lt;a href=&quot;http://cgi.w3.org/cgi-bin/tidy&quot;&gt;&lt;span class=&quot;caps&quot;&gt;HTML &lt;/span&gt;Tidy service&lt;/a&gt; offered by &lt;span class=&quot;caps&quot;&gt;W3C&lt;/span&gt; as well.&lt;/p&gt;
+        <meta property="og:description" content="After checking out Bill Humphries’ approach to scraping yesterday, I recalled the various things Jon Udell has written about URL-as-command-line and the various places I’ve seen the W3C XSLT Servlet used in XSLT tinkering.  I also remembered that there’s an HTML Tidy service offered by W3C as well.
 
-&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;So&amp;amp;#8230;  these are all URLs.  I figured I could pull together the site &amp;lt;span class=&quot;caps&quot;&amp;gt;URL&amp;lt;/span&amp;gt;, &amp;lt;a href=&quot;http://www.whump.com/dropbox/nationrss/nation.xsl&quot;&amp;gt;Bill&amp;amp;#8217;s &amp;lt;span class=&quot;caps&quot;&amp;gt;XSLT&amp;lt;/span&amp;gt;&amp;lt;/a&amp;gt;, the tidy service, and the &amp;lt;span class=&quot;caps&quot;&amp;gt;XSLT&amp;lt;/span&amp;gt; service, and have a whole lot of scraping going on right in my browser or via wget or curl.  Here are the steps in how I composed the &amp;lt;span class=&quot;caps&quot;&amp;gt;URL&amp;lt;/span&amp;gt;:&amp;lt;/p&amp;gt;
+&lt;p&gt;So&amp;#8230;  these are all URLs.  I figured I could pull together the site &lt;span class=&quot;caps&quot;&gt;URL&lt;/span&gt;, &lt;a href=&quot;http://www.whump.com/dropbox/nationrss/nation.xsl&quot;&gt;Bill&amp;#8217;s &lt;span class=&quot;caps&quot;&gt;XSLT&lt;/span&gt;&lt;/a&gt;, the tidy service, and the &lt;span class=&quot;caps&quot;&gt;XSLT&lt;/span&gt; service, and have a whole lot of scraping going on right in my browser or via wget or curl.  Here are the steps in how I composed the &lt;span class=&quot;caps&quot;&gt;URL&lt;/span&gt;:&lt;/p&gt;
 
-&amp;lt;ol&amp;gt;
-&amp;lt;li&amp;gt;&amp;lt;a href=&quot;http://www.thenation.com&quot;&amp;gt;http://www.thenation.com&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;li&gt;&lt;a href=&quot;http://cgi.w3.org/cgi-bin/tidy?docAddr=http%3A%2F%2Fwww.thenation.com&quot;&gt;http://cgi.w3.org/cgi-bin/tidy?docAddr=http%3A%2F%2Fwww.thenation.com&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.w3.org/2000/06/webdata/xslt?xslfile=http%3A%2F%2Fwww.whump.com%2Fdropbox%2Fnationrss%2Fnation.xsl&amp;amp;xmlfile=http%3A%2F%2Fcgi.w3.org%2Fcgi-bin%2Ftidy%3FdocAddr%3Dhttp%253A%252F%252Fwww.thenation.com&amp;amp;transform=Submit&quot;&gt;http://www.w3.org/2000/06/webdata/xslt?&lt;br&gt;xslfile=http%3A%2F%2Fwww.whump.com%2Fdropbox%2Fnationrss%2Fnation.xsl&amp;amp;&lt;br&gt;xmlfile=http%3A%2F%2Fcgi.w3.org%2Fcgi-bin%2Ftidy%3F&lt;br&gt;docAddr%3Dhttp%253A%252F%252Fwww.thenation.com&amp;amp;transform=Submit&lt;/a&gt;&lt;/li&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.thenation.com&quot;&gt;http://www.thenation.com&lt;/a&gt;&lt;/li&gt;
+
+http://cgi.w3.org/cgi-bin/tidy?docAddr=http%3A%2F%2Fwww.thenation.com
+http://www.w3.org/2000/06/webdata/xslt?xslfile=http%3A%2F%2Fwww.whump.com%2Fdropbox%2Fnationrss%2Fnation.xsl&amp;xmlfile=http%3A%2F%2Fcgi.w3.org%2Fcgi-bin%2Ftidy%3FdocAddr%3Dhttp%253A%252F%252Fwww.thenation.com&amp;transform=Submit
 
 
-&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;Unfortunately, this doesn&amp;amp;#8217;t work.  In particular, step #2 fails, the Tidy service reporting a failure in processing the original &amp;lt;span class=&quot;caps&quot;&amp;gt;HTML&amp;lt;/span&amp;gt;.  I imagine, had that worked, the whole process at step #3 would be producing &amp;lt;span class=&quot;caps&quot;&amp;gt;RSS&amp;lt;/span&amp;gt;.  On my command line, &amp;lt;span class=&quot;caps&quot;&amp;gt;HTML &amp;lt;/span&amp;gt;Tidy works fine, so I&amp;amp;#8217;ve been thinking of throwing together my own web interface to that program and seeing if that works.&amp;lt;/p&amp;gt;
+&lt;p&gt;Unfortunately, this doesn&amp;#8217;t work.  In particular, step #2 fails, the Tidy service reporting a failure in processing the original &lt;span class=&quot;caps&quot;&gt;HTML&lt;/span&gt;.  I imagine, had that worked, the whole process at step #3 would be producing &lt;span class=&quot;caps&quot;&gt;RSS&lt;/span&gt;.  On my command line, &lt;span class=&quot;caps&quot;&gt;HTML &lt;/span&gt;Tidy works fine, so I&amp;#8217;ve been thinking of throwing together my own web interface to that program and seeing if that works.&lt;/p&gt;
 
-&amp;lt;p&amp;gt;If it works, this with the addition of a cache at each stage could allow for what I think is a pretty nifty, all web-based means of scraping news items from web sites.  &amp;lt;/p&amp;gt;
+&lt;p&gt;If it works, this with the addition of a cache at each stage could allow for what I think is a pretty nifty, all web-based means of scraping news items from web sites.  &lt;/p&gt;
 
-    &amp;lt;p&amp;gt;What would really be nice for apps like this is a better way to express the URLs-within-URLs without escaping and escaping and escaping and...  Thinking some very lightweight scripting here, or some LISP-ish expressions would help.&amp;lt;/p&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-" />
+    &lt;p&gt;What would really be nice for apps like this is a better way to express the URLs-within-URLs without escaping and escaping and escaping and...  Thinking some very lightweight scripting here, or some LISP-ish expressions would help.&lt;/p&gt;" />
     </head>
     <body>
       <section class="main">
@@ -178,7 +178,7 @@ href="http://www.whump.com/moreLikeThis/">Bill Humphries</a>
       </section>
 
       <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
       </section>
     </body>

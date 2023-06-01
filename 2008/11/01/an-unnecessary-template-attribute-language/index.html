@@ -10,6 +10,8 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
       />
+      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
+      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
       <link
             rel="stylesheet"
             href="/blog.lmorchard.com/css/screen.css"
@@ -111,7 +113,7 @@
         <section class="post-content">
           <p>A funny thing happened on the way to building <a href="http://svn.mozilla.org/projects/lizardfeeder/trunk/">a delayed real-time feed display</a>:  I got temporarily obsessed with implementing <a href="http://github.com/lmorchard/jquery-tal-template/tree/master">a template language in JavaScript</a> that, as it turned out later, I didn&#39;t need.  About <a href="http://svn.mozilla.org/projects/lizardfeeder/trunk/">the feed project itself</a>, I hope to write more soon—but for now I want to get this extra template language thing out of my system and see if anyone else might have a use for it.</p>
 <p>See, I had a notion it would be keen if I had access to the same template language on the client as on the server.  I needed to render a number of list items statically on the server with feed entries, then update that list with new entries on the client as they became available through JSON feed polling.  It&#39;d be a pain in the butt to maintain two separate list item templates for client and server, so I reached for a shared template language.</p>
-<p>Never mind that I&#39;d just gotten done writing <a href="http://www.amazon.com/gp/product/0470452021?ie=UTF8&amp;tag=0xdecafbad01-20&amp;linkCode=as2&amp;camp=1789&amp;c%0D%0Areative=9325&amp;creativeASIN=0470452021">a small book on Dojo</a>, and was already aware of the existence of the <a href="http://svn.dojotoolkit.org/src/dojox/trunk/dtl/README">DojoX Django Template Language</a>.  This might&#39;ve worked, since the server end of things was written in Python (though not with Django).  That the JavaScript side already used <a href="http://jquery.com/">jQuery</a> wasn&#39;t <em>too</em> tall a hurdle.  Also, I&#39;m sure there are a handful of other JavaScript/Python template language match-ups to be found.</p>
+<p>Never mind that I&#39;d just gotten done writing <a href="http://www.amazon.com/gp/product/0470452021?ie=UTF8&tag=0xdecafbad01-20&linkCode=as2&camp=1789&c%0D%0Areative=9325&creativeASIN=0470452021">a small book on Dojo</a>, and was already aware of the existence of the <a href="http://svn.dojotoolkit.org/src/dojox/trunk/dtl/README">DojoX Django Template Language</a>.  This might&#39;ve worked, since the server end of things was written in Python (though not with Django).  That the JavaScript side already used <a href="http://jquery.com/">jQuery</a> wasn&#39;t <em>too</em> tall a hurdle.  Also, I&#39;m sure there are a handful of other JavaScript/Python template language match-ups to be found.</p>
 <p>But, let&#39;s be honest here:  I&#39;ve always been a fan of Zope&#39;s <a href="http://wiki.zope.org/ZPT/TALSpecification14">Template Attribute Language</a> for their <a href="http://wiki.zope.org/ZPT/FrontPage">Page Templates</a>, and have long wondered how hard it would be to implement.  The concept seems so much cleaner to me than most string-formatting template languages, and the workflow from mockup-to-template and back again has always been appealing to me when it works.  So, when my first few experimental steps in trying my hand at it actually started working, I couldn&#39;t stop coding.  </p>
 <p>And now, <a href="http://github.com/lmorchard/jquery-tal-template/tree/master/jquery.taltemplate.js">the thing</a> is mostly done.  It has no tests, has features left undone, and probably yields plenty of bugs—but I finished it enough to use it practically, and that was long enough to convince me it wasn&#39;t the right tool for the job.  </p>
 <p>Still, though, I can&#39;t help thinking it might be the right tool for <em>some</em> job.  That could be because I spent a lot of time on it, or that I&#39;m unreasonably fond of <a href="http://wiki.zope.org/ZPT/TALSpecification14">TAL</a>, but it still feels like a decent little plugin to have on hand.  Maybe someone reading this will have a similar conclusion.</p>
@@ -194,7 +196,7 @@ href="http://www.jm3.net/">John Manoogian III (jm3)</a>
       </section>
 
       <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
       </section>
     </body>

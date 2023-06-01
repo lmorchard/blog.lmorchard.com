@@ -10,6 +10,8 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
       />
+      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
+      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
       <link
             rel="stylesheet"
             href="/blog.lmorchard.com/css/screen.css"
@@ -38,13 +40,12 @@
           content="https://lmorchard.github.io/blog.lmorchard.com/2004/12/07/further-smart-aggregator-musings/"
         />
         
-        <meta property="og:description" content="&lt;p&gt;I&#39;m a complete neophyte when it comes to machine learning, but I&#39;d like to get into learning more about the field in general.  In particular, I&#39;d like to make my news aggregator smarter.  I&#39;ve &lt;a href=&quot;http://www.decafbad.com/blog/2003/08/16/bayes_agg_one&quot;&gt;already tried using SpamBayes&lt;/a&gt;, but that didn&#39;t make me happy.  Whether it was my approach or whether it was that Bayes itself is not suited toward this task, I&#39;m not sure, though I suspect it&#39;s a little of both.&lt;/p&gt;
-&lt;p&gt;It seems like the magic Bayesian pixie dust works well for spam-vs-ham in my email box, so why shouldn&#39;t the magic for interesting-vs-yawn work for my aggregator firehose?    Well, here are the issues I&#39;m guessing at:&lt;/p&gt;
-&lt;p&gt;In the case of spam-vs-ham, you want to classify things into this or that-- that which is kept, and that which is tossed away.  But in the case of items in my aggregator, I want a relative sort order or a score.  I want a fuzzy guess toward my interest with which to inform presentation of items.  Interesting-vs-yawn is more of a continuum than a pair of buckets.&lt;/p&gt;
-&lt;p&gt;And then, there&#39;s the passive gathering of behavioral data from my interactions with the aggregator, because I&#39;m sure as hell not going to click ratings or thumbs-up/down all day.  In spam-vs-ham, I could build up two clean mailboxes for training the categorizer, with one containing all spam and the other all ham.  But, in the case of my aggregator, the only thing I&#39;m tracking are items in which I showed interest by revealing more information or by clicking through.  &lt;/p&gt;
-&lt;p&gt;So, I can say that a particular pile of items are all interesting.  But, my interest level for the rest of the items received is a complete unknown-- maybe I&#39;m vehemently disinterested in those 50 items, but maybe I just never got around to looking at those other 20 and just let them fall off my date range for display.  Thus, I have a pile of ham, and a pile of undifferentiated unknown.  I&#39;m not bothering to provide any cues as to whether I &lt;em&gt;don&#39;t&lt;/em&gt; like something, because that&#39;d be boring work-- I mean, I &lt;em&gt;am&lt;/em&gt; disinterested in those items, after all.  So, I&#39;d like to leverage what the system knows from what I care to provide, but not jump to any conclusions about the items in the unknown pile.  There is no spam, only various flavors of ham.&lt;/p&gt;
-&lt;p&gt;Given all this, then, is there anyone out there who knows more about machine learning than me who could maybe point me toward a better approach or algorithm that fits this profile?&lt;/p&gt;
-" />
+        <meta property="og:description" content="I&#39;m a complete neophyte when it comes to machine learning, but I&#39;d like to get into learning more about the field in general.  In particular, I&#39;d like to make my news aggregator smarter.  I&#39;ve already tried using SpamBayes, but that didn&#39;t make me happy.  Whether it was my approach or whether it was that Bayes itself is not suited toward this task, I&#39;m not sure, though I suspect it&#39;s a little of both.
+It seems like the magic Bayesian pixie dust works well for spam-vs-ham in my email box, so why shouldn&#39;t the magic for interesting-vs-yawn work for my aggregator firehose?    Well, here are the issues I&#39;m guessing at:
+In the case of spam-vs-ham, you want to classify things into this or that-- that which is kept, and that which is tossed away.  But in the case of items in my aggregator, I want a relative sort order or a score.  I want a fuzzy guess toward my interest with which to inform presentation of items.  Interesting-vs-yawn is more of a continuum than a pair of buckets.
+And then, there&#39;s the passive gathering of behavioral data from my interactions with the aggregator, because I&#39;m sure as hell not going to click ratings or thumbs-up/down all day.  In spam-vs-ham, I could build up two clean mailboxes for training the categorizer, with one containing all spam and the other all ham.  But, in the case of my aggregator, the only thing I&#39;m tracking are items in which I showed interest by revealing more information or by clicking through.  
+So, I can say that a particular pile of items are all interesting.  But, my interest level for the rest of the items received is a complete unknown-- maybe I&#39;m vehemently disinterested in those 50 items, but maybe I just never got around to looking at those other 20 and just let them fall off my date range for display.  Thus, I have a pile of ham, and a pile of undifferentiated unknown.  I&#39;m not bothering to provide any cues as to whether I don&#39;t like something, because that&#39;d be boring work-- I mean, I am disinterested in those items, after all.  So, I&#39;d like to leverage what the system knows from what I care to provide, but not jump to any conclusions about the items in the unknown pile.  There is no spam, only various flavors of ham.
+Given all this, then, is there anyone out there who knows more about machine learning than me who could maybe point me toward a better approach or algorithm that fits this profile?" />
     </head>
     <body>
       <section class="main">
@@ -203,7 +204,7 @@ which uses scoring to enable users to deal with very large numbers of feeds. I w
       </section>
 
       <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
       </section>
     </body>

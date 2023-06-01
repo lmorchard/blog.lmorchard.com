@@ -10,6 +10,8 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
       />
+      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
+      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
       <link
             rel="stylesheet"
             href="/blog.lmorchard.com/css/screen.css"
@@ -38,18 +40,17 @@
           content="https://lmorchard.github.io/blog.lmorchard.com/2002/04/15/ooooio/"
         />
         
-        <meta property="og:description" content="&lt;p&gt;Okay after the &lt;a href=&quot;http://radio.weblogs.com/0101679/2002/04/14.html#a351&quot;&gt;vote of confidence from Sam Ruby&lt;/a&gt; about my thinking out loud about a &lt;a href=&quot;http://www.decafbad.com/news_archives/000087.shtml#000087&quot;&gt;&quot;404 correction&quot; proxy server&lt;/a&gt;, I&#39;ve been thinking more about writing a Radio-like desktop app server.  I want to do more than make a &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/DesktopWebsite&quot;&gt;DesktopWebsite&lt;/a&gt;, though.  I want to make a full-blown &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/PersonalServer&quot;&gt;PersonalServer&lt;/a&gt; app, capable of hosting things like a &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/PersonalMailServer&quot;&gt;PersonalMailServer&lt;/a&gt; and a slew of other little local web services &amp;amp; etc.  I may end up giving up and working more within Radio, but &lt;a href=&quot;http://www.decafbad.com/news_archives/000080.shtml#000080&quot;&gt;as I noted before&lt;/a&gt; I have some issues with Radio&#39;s performance and stability, which though balanced by my appreciation of the elegance of the system, is being gradually outweighed by my fears of lock-in and pre-existing experience with other technologies.  &lt;/p&gt;
-&lt;p&gt;Then again, this thing probably won&#39;t replace &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RadioUserLand&quot;&gt;RadioUserLand&lt;/a&gt; for me.  I use it daily, I bought it, and it&#39;s not as exciting to reimplement what I already have.  Unless it is exciting.  Make any sense?&lt;/p&gt;
-&lt;p&gt;So, speaking of technologies... which ones should I use to start working on a personal server?  My main goals are mumbled &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/DesktopWebAppServer&quot;&gt;over here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;I&#39;ve got a large amount of experience with Perl, and have written desktop apps with it for Mac OS X and Win32.  I&#39;m having more fun with Python, however, and though I haven&#39;t written the same apps I imagine that it&#39;s on par with Perl.&lt;/p&gt;
-&lt;p&gt;The main thing I&#39;m trying to decide right now is:  multi-threaded vs async/event-driven.&lt;/p&gt;
-&lt;p&gt;See, I need some sort of concurrency to handle multiple network server hits, multiple agents running, a scheduler, and whatever else wants to take up residence inside the &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/PersonalServer&quot;&gt;PersonalServer&lt;/a&gt;.  &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/RadioUserLand&quot;&gt;RadioUserLand&lt;/a&gt;, of course, has all of this.&lt;/p&gt;
-&lt;p&gt;I&#39;ve worked a lot with &lt;a href=&quot;http://poe.perl.org/&quot;&gt;POE in Perl&lt;/a&gt; to make some event-driven multitasking apps, a few servers (HTTP, FTP, NNTP, etc) and a few things to replace a fleet of forked scripts.  I&#39;ve also started looking at &lt;a href=&quot;http://www.twistedmatrix.com/documents/howto/ipc10paper&quot;&gt;Twisted in Python&lt;/a&gt; which I gather to be the analogous thing in their camp.  Not the same, but they both are using the same basic idea of event-driven programs.&lt;/p&gt;
-&lt;p&gt;The problem is that, to take code that you would have written for a forking or multi-threaded program, and make it play nice within the event-driven environment, there&#39;s a bit of re-think you need to do.  Loops need to be broken up into procedures, turned into self-running events, etc.&lt;/p&gt;
-&lt;p&gt;Hmm... trying to think of more re-think examples, but the main one I can think of is that long-running loops and processes need to be sliced and diced.  I seem to remember more pain than that.&lt;/p&gt;
-&lt;p&gt;Anyway, I&#39;d rather use threads.  In threads, there needs to be a bit of re-think too, in terms of protecting resources from concurrency, but at least the main logic of my code can remain straightforward.  Perl doesn&#39;t have threads that I want to touch yet.  Python has threads, but I&#39;m not sure how kosher they are.  Of course, there&#39;s always Java, but I want to avoid Java I think.&lt;/p&gt;
-&lt;p&gt;Anyone tuned in out there with any thoughts?  Mostly thinking out loud right now.&lt;/p&gt;
-" />
+        <meta property="og:description" content="Okay after the vote of confidence from Sam Ruby about my thinking out loud about a &quot;404 correction&quot; proxy server, I&#39;ve been thinking more about writing a Radio-like desktop app server.  I want to do more than make a DesktopWebsite, though.  I want to make a full-blown PersonalServer app, capable of hosting things like a PersonalMailServer and a slew of other little local web services &amp; etc.  I may end up giving up and working more within Radio, but as I noted before I have some issues with Radio&#39;s performance and stability, which though balanced by my appreciation of the elegance of the system, is being gradually outweighed by my fears of lock-in and pre-existing experience with other technologies.  
+Then again, this thing probably won&#39;t replace RadioUserLand for me.  I use it daily, I bought it, and it&#39;s not as exciting to reimplement what I already have.  Unless it is exciting.  Make any sense?
+So, speaking of technologies... which ones should I use to start working on a personal server?  My main goals are mumbled over here.
+I&#39;ve got a large amount of experience with Perl, and have written desktop apps with it for Mac OS X and Win32.  I&#39;m having more fun with Python, however, and though I haven&#39;t written the same apps I imagine that it&#39;s on par with Perl.
+The main thing I&#39;m trying to decide right now is:  multi-threaded vs async/event-driven.
+See, I need some sort of concurrency to handle multiple network server hits, multiple agents running, a scheduler, and whatever else wants to take up residence inside the PersonalServer.  RadioUserLand, of course, has all of this.
+I&#39;ve worked a lot with POE in Perl to make some event-driven multitasking apps, a few servers (HTTP, FTP, NNTP, etc) and a few things to replace a fleet of forked scripts.  I&#39;ve also started looking at Twisted in Python which I gather to be the analogous thing in their camp.  Not the same, but they both are using the same basic idea of event-driven programs.
+The problem is that, to take code that you would have written for a forking or multi-threaded program, and make it play nice within the event-driven environment, there&#39;s a bit of re-think you need to do.  Loops need to be broken up into procedures, turned into self-running events, etc.
+Hmm... trying to think of more re-think examples, but the main one I can think of is that long-running loops and processes need to be sliced and diced.  I seem to remember more pain than that.
+Anyway, I&#39;d rather use threads.  In threads, there needs to be a bit of re-think too, in terms of protecting resources from concurrency, but at least the main logic of my code can remain straightforward.  Perl doesn&#39;t have threads that I want to touch yet.  Python has threads, but I&#39;m not sure how kosher they are.  Of course, there&#39;s always Java, but I want to avoid Java I think.
+Anyone tuned in out there with any thoughts?  Mostly thinking out loud right now." />
     </head>
     <body>
       <section class="main">
@@ -145,7 +146,7 @@ I plan to keep the Perl object database (presently embedded in my top level apps
       </section>
 
       <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
       </section>
     </body>

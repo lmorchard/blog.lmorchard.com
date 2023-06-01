@@ -10,6 +10,8 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
       />
+      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
+      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
       <link
             rel="stylesheet"
             href="/blog.lmorchard.com/css/screen.css"
@@ -41,10 +43,7 @@
             property="og:image"
             content="http://blog.lmorchard.com/wp-content/uploads/2013/11/pp-entities-1024x577.jpg"
           />
-        <meta property="og:description" content="
-
-&lt;p&gt;The &lt;strong&gt;Entity&lt;/strong&gt;, &lt;strong&gt;Component&lt;/strong&gt;, &amp;amp; &lt;strong&gt;System&lt;/strong&gt; design pattern is old hat for many game developers. But, keep in mind that I’m a web developer, and mostly on the server side of things for the past decade or so. One of my last big revelations was discovering the Model, View, &amp;amp; Controller way of doing things. Apropos of that, this ECS thing seems to be a Big Deal of similar proportions.&lt;/p&gt;
-" />
+        <meta property="og:description" content="The Entity, Component, &amp; System design pattern is old hat for many game developers. But, keep in mind that I’m a web developer, and mostly on the server side of things for the past decade or so. One of my last big revelations was discovering the Model, View, &amp; Controller way of doing things. Apropos of that, this ECS thing seems to be a Big Deal of similar proportions." />
     </head>
     <body>
       <section class="main">
@@ -141,13 +140,13 @@
 <h2 id="background"><span id="Background">Background</span></h2>
 <p>Plenty of other blog posts &amp; articles out there have done a great job of describing how an ECS design works:</p>
 <ul>
-<li>  <a href="http://t-machine.org/index.php/2007/09/03/entity-systems-are-the-future-of-mmog-development-part-1/">Entity Systems are the future of MMOG development</a> (Sep 2007)</li>
-<li>  <a href="http://cowboyprogramming.com/2007/01/05/evolve-your-heirachy/">Evolve Your Hierarchy</a> (Jan 2007)</li>
-<li>  <a href="http://www.richardlord.net/blog/why-use-an-entity-framework">Why use an entity system framework for game development?</a> (Feb 2012)</li>
-<li>  <a href="http://www.chris-granger.com/2012/12/11/anatomy-of-a-knockout/">Anatomy of a Knockout</a> (Dec 2012)</li>
-<li>  <a href="http://www.gamedev.net/page/resources/_/technical/game-programming/understanding-component-entity-systems-r3013">Understanding Component-Entity-Systems</a> (April 2013)</li>
-<li>  <a href="http://gamadu.com/artemis/tutorial.html">Artemis Entity System Framework</a></li>
-<li>  <a href="http://www.ashframework.org/">Ash entity framework</a></li>
+<li><a href="http://t-machine.org/index.php/2007/09/03/entity-systems-are-the-future-of-mmog-development-part-1/">Entity Systems are the future of MMOG development</a> (Sep 2007)</li>
+<li><a href="http://cowboyprogramming.com/2007/01/05/evolve-your-heirachy/">Evolve Your Hierarchy</a> (Jan 2007)</li>
+<li><a href="http://www.richardlord.net/blog/why-use-an-entity-framework">Why use an entity system framework for game development?</a> (Feb 2012)</li>
+<li><a href="http://www.chris-granger.com/2012/12/11/anatomy-of-a-knockout/">Anatomy of a Knockout</a> (Dec 2012)</li>
+<li><a href="http://www.gamedev.net/page/resources/_/technical/game-programming/understanding-component-entity-systems-r3013">Understanding Component-Entity-Systems</a> (April 2013)</li>
+<li><a href="http://gamadu.com/artemis/tutorial.html">Artemis Entity System Framework</a></li>
+<li><a href="http://www.ashframework.org/">Ash entity framework</a></li>
 </ul>
 <p>I don&#8217;t want to totally reinvent the wheel here. But, let&#8217;s see if I can&#8217;t break it down a little, if only to convey my excitement with discovering this design pattern and the fun I&#8217;ve had with it.</p>
 <h2 id="entities"><span id="Entities">Entities</span></h2>
@@ -171,14 +170,14 @@
 
 <p>In case it doesn&#8217;t quite make sense yet, here are some sample <strong>Components</strong>:</p>
 <ul>
-<li>  <a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/components.coffee#L86"><strong>Sprite</strong></a> &#8211; <em>width, height, shape</em></li>
-<li>  <a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/components.coffee#L26"><strong>Position</strong></a> &#8211; <em>x, y, rotation</em></li>
-<li>  <a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/components.coffee#L33"><strong>Motion</strong></a> &#8211; <em>dx, dy, drotation</em></li>
-<li>  <a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/components.coffee#L40"><strong>Thruster</strong></a> &#8211; <em>accel_per_second, max_speed</em></li>
-<li>  <a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/components.coffee#L110"><strong>Seeker</strong></a> &#8211; <em>target_entity_id, rotation_per_second</em></li>
-<li>  <a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/components.coffee#L201"><strong>Health</strong></a> &#8211; <em>max_health, current_health</em></li>
-<li>  <a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/components.coffee#L201"><strong>BeamWeapon</strong></a> &#8211; <em>max_power, current_power, recharge_per_second</em></li>
-<li>  <a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/components.coffee#L137"><strong>MissileWeapon</strong></a> &#8211; <em>number_turrets, reload_delay</em></li>
+<li><a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/components.coffee#L86"><strong>Sprite</strong></a> &#8211; <em>width, height, shape</em></li>
+<li><a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/components.coffee#L26"><strong>Position</strong></a> &#8211; <em>x, y, rotation</em></li>
+<li><a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/components.coffee#L33"><strong>Motion</strong></a> &#8211; <em>dx, dy, drotation</em></li>
+<li><a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/components.coffee#L40"><strong>Thruster</strong></a> &#8211; <em>accel_per_second, max_speed</em></li>
+<li><a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/components.coffee#L110"><strong>Seeker</strong></a> &#8211; <em>target_entity_id, rotation_per_second</em></li>
+<li><a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/components.coffee#L201"><strong>Health</strong></a> &#8211; <em>max_health, current_health</em></li>
+<li><a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/components.coffee#L201"><strong>BeamWeapon</strong></a> &#8211; <em>max_power, current_power, recharge_per_second</em></li>
+<li><a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/components.coffee#L137"><strong>MissileWeapon</strong></a> &#8211; <em>number_turrets, reload_delay</em></li>
 </ul>
 <p>Imagine each of those as schema for database tables, each with the <strong>Entity</strong> ID as primary key. Given an <strong>Entity</strong> ID, you can query across all the tables and assemble a set of <strong>Components</strong> that completely describe an <strong>Entity</strong> in the game universe.</p>
 <p>Note that any given <strong>Entity</strong> can be composed of any combination of these <strong>Components</strong>: A spaceship might be described by <strong>Shape</strong>, <strong>Position</strong>, <strong>Motion</strong>, <strong>Thruster</strong>, <strong>Health</strong>, and <strong>BeamWeapon</strong>. Meanwhile, an asteroid drifting in space might only offer <strong>Shape</strong>, <strong>Position</strong>, and <strong>Motion</strong>.</p>
@@ -194,16 +193,16 @@
 
 <p>Consider a <a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/systems.coffee#L793"><strong>MotionSystem</strong></a>:</p>
 <ul>
-<li>  Fetch all the <strong>Motion</strong> components from the database</li>
-<li>  For each <strong>Motion</strong>, look up a <strong>Position</strong> for the same <strong>Entity</strong>.</li>
-<li>  Update the <code>x</code>, <code>y</code>, and <code>rotation</code> properties of the <strong>Position</strong> using the <strong>Motion</strong> properties.</li>
+<li>Fetch all the <strong>Motion</strong> components from the database</li>
+<li>For each <strong>Motion</strong>, look up a <strong>Position</strong> for the same <strong>Entity</strong>.</li>
+<li>Update the <code>x</code>, <code>y</code>, and <code>rotation</code> properties of the <strong>Position</strong> using the <strong>Motion</strong> properties.</li>
 </ul>
 <p>Consider a <a href="https://github.com/lmorchard/parsec-patrol/blob/7d2f01eae28d8c687fb4e97a556e0c4a05a87ef4/app/scripts/systems.coffee#L1136"><strong>SeekerSystem</strong></a>:</p>
 <ul>
-<li>  Fetch all the <strong>Seeker</strong> components.</li>
-<li>  For each, find the <strong>Motion</strong> and <strong>Position</strong> components for the corresponding <strong>Entity</strong>.</li>
-<li>  Also find <strong>Motion</strong> &amp; <strong>Position</strong> for the <strong>Entity</strong> identified as the <code>target_entity_id</code>.</li>
-<li>  Calculate the angle between seeker &amp; target, update <strong>Motion</strong> to steer toward the target.</li>
+<li>Fetch all the <strong>Seeker</strong> components.</li>
+<li>For each, find the <strong>Motion</strong> and <strong>Position</strong> components for the corresponding <strong>Entity</strong>.</li>
+<li>Also find <strong>Motion</strong> &amp; <strong>Position</strong> for the <strong>Entity</strong> identified as the <code>target_entity_id</code>.</li>
+<li>Calculate the angle between seeker &amp; target, update <strong>Motion</strong> to steer toward the target.</li>
 </ul>
 <p>Notice that each system deals only with data directly relevant to the job at hand. Rather than loading up a full representation of an <strong>Entity</strong>, each <strong>System</strong> only touches the specific <strong>Components</strong> needed. For instance, <strong>MotionSystem</strong> and <strong>SeekerSystem</strong> touch <strong>Motion</strong> and <strong>Position</strong> - but never <strong>Shape Components</strong>.</p>
 <p>This adds some efficiencies for data stored entirely in memory. But, I expect this will have <em>huge</em> implications for data that might someday come from a database or over a network. I&#8217;m also thinking that this pattern lends well to shuffling certain systems off onto background threads or Web Workers &#8211; the need for data coordination is limited to just the relevant <strong>Components</strong> when needed.</p>
@@ -257,7 +256,7 @@
       </section>
 
       <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
       </section>
     </body>

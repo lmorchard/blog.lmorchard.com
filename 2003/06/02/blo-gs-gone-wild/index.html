@@ -10,6 +10,8 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
       />
+      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
+      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
       <link
             rel="stylesheet"
             href="/blog.lmorchard.com/css/screen.css"
@@ -38,48 +40,47 @@
           content="https://lmorchard.github.io/blog.lmorchard.com/2003/06/02/blo-gs-gone-wild/"
         />
         
-        <meta property="og:description" content="&lt;p&gt;&lt;a href=&quot;http://shawnyeager.com/WebHome&quot; target=&quot;_top&quot;&gt;Shawn Yeager&lt;/a&gt; just dropped me a line to let
-me know that my blog has apparently been pinging &lt;a href=&quot;http://www.blo.gs&quot; target=&quot;_top&quot;&gt;blo.gs&lt;/a&gt; like crazy today, and
-since he&#39;s set to recieve IM&#39;s on blog updates from &lt;a href=&quot;http://www.blo.gs&quot; target=&quot;_top&quot;&gt;blo.gs&lt;/a&gt;, he&#39;s been getting
+        <meta property="og:description" content="Shawn Yeager just dropped me a line to let
+me know that my blog has apparently been pinging blo.gs like crazy today, and
+since he&#39;s set to recieve IM&#39;s on blog updates from blo.gs, he&#39;s been getting
 flooded with IMs.
-&lt;br&gt;&lt;br&gt;
+
 First off, if this is happening to you:  Sorry out there!
-&lt;br&gt;&lt;br&gt;
+
 Second thing, this
-might be interesting for anyone using a blosxom plugin to ping &lt;a href=&quot;http://www.blo.gs&quot; target=&quot;_top&quot;&gt;blo.gs&lt;/a&gt; or &lt;a href=&quot;http://www.weblogs.com&quot; target=&quot;_top&quot;&gt;weblogs.com&lt;/a&gt; like me.
-Basically, I took the &lt;a href=&quot;http://www.raelity.org/apps/blosxom/plugins/output/ping_weblogs_com.individual&quot; target=&quot;_top&quot;&gt;ping_weblogs_com&lt;/a&gt;
-plugin for blosxom, replaced the &lt;a href=&quot;http://www.weblogs.com&quot; target=&quot;_top&quot;&gt;weblogs.com&lt;/a&gt; request with one to &lt;a href=&quot;http://www.blo.gs&quot; target=&quot;_top&quot;&gt;blo.gs&lt;/a&gt;,
+might be interesting for anyone using a blosxom plugin to ping blo.gs or weblogs.com like me.
+Basically, I took the ping_weblogs_com
+plugin for blosxom, replaced the weblogs.com request with one to blo.gs,
 and searched for the pattern &#39;congratulations&#39; instead of &#39;Thanks for the ping&#39;
 in the response.  Finding the pattern is assumed to mean the ping was successful.
 A successful ping, then, causes the plugin to update the contents and timestamp
 of the status file with the response.
-&lt;br&gt;&lt;br&gt;
+
 The status file is used by the plugin to determine whether or not a ping
 should be sent.  This check is made everytime an item is viewed on my blog,
 and if the plugin sees a blog item whose timestamp is newer than that of
 the status file, a ping is sent.
-&lt;br&gt;&lt;br&gt;
+
 So!  Onto the punch-line: The appearance of the word &#39;congratulations&#39; and
 the successful registration of a ping are not the same thing.  Apparently,
-&lt;a href=&quot;http://www.blo.gs&quot; target=&quot;_top&quot;&gt;blo.gs&lt;/a&gt; has been throwing up an error message in response to a ping, while
+blo.gs has been throwing up an error message in response to a ping, while
 still registering a ping.  This error message does not contain the word
 &#39;congratulations&#39;, and so my plugin never updates the status file, and so
-it happily tries pinging &lt;a href=&quot;http://www.blo.gs&quot; target=&quot;_top&quot;&gt;blo.gs&lt;/a&gt; again with the next blog view.
-&lt;br&gt;&lt;br&gt;
-Two lessons learned here:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt; When using a web service, whether a &quot;real&quot; service or a &quot;scraped&quot; service, be very sure to know and handle the difference between a valid response and an exception or error in the service itself.
-&lt;/li&gt;
-&lt;li&gt; When using a web service, take care with your usage pattern.  That is, just how important is success?  Important enough to try again and again?  Or could you wait awhile, whether successful or not?  Or should you even try again?
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;br&gt;&lt;br&gt;
+it happily tries pinging blo.gs again with the next blog view.
+
+Two lessons learned here:
+
+ When using a web service, whether a &quot;real&quot; service or a &quot;scraped&quot; service, be very sure to know and handle the difference between a valid response and an exception or error in the service itself.
+
+ When using a web service, take care with your usage pattern.  That is, just how important is success?  Important enough to try again and again?  Or could you wait awhile, whether successful or not?  Or should you even try again?
+
+
+
 My plugin doesn&#39;t know the real meaning of the response to a ping.  And further,
 the fact that it&#39;s designed to try, try again in the case of apparent failure
 is not the greatest choice for a usage pattern.
-&lt;br&gt;&lt;br&gt;
-So... longwinded post, but I think the realizations are valuable.
-" />
+
+So... longwinded post, but I think the realizations are valuable." />
     </head>
     <body>
       <section class="main">
@@ -203,7 +204,7 @@ href="http://trikuare.cx/">magenta</a>
       </section>
 
       <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
       </section>
     </body>

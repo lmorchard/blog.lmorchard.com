@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <rss version="2.0">
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
       <title>blog.lmorchard.com</title>
       <description>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</description>
       <link>https://lmorchard.github.io/blog.lmorchard.com</link>
+      <atom:link href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" rel="self" type="application/rss+xml" />      
       <item>
           <title>Making progress on dbagg3</title>
-          <description>&lt;p&gt;Work has been insanely busy lately, but I have made some more progress with &lt;a href=&quot;http://www.decafbad.com/cvs/dbagg3/&quot;&gt;&lt;code&gt;dbagg3&lt;/code&gt;&lt;/a&gt;.  The code is all in CVS, so feel free to take a gander-- I don&#39;t have a ton of time for a proper write up, but I do want to spew a little bit. &lt;/p&gt;
-&lt;p&gt;As per my &lt;a href=&quot;http://www.decafbad.com/blog/2004/08/23/slicing_and_dicing_to_make_atom_soup_in_dbagg3&quot;&gt;previous musings on XML in a SQL database&lt;/a&gt;, I revamped the database.  Now things are sliced up by feed and entry tables, rows in each containing a few metadata columns and then one big column for an XML dump.  This lets me index on  date and parent feed and such, meanwhile punting on the issue of dicing things like authors or content up further.  And, as extension elements start to show up, this handling is dumb enough to simply store things it doesn&#39;t know about without mangling them.  This is a very good thing and one of my big goals for this beast.&lt;/p&gt;
-&lt;p&gt;The other thing that I&#39;m getting excited about is the REST API built atop the Atom store.  Rather than spend time on proper documentation, here&#39;s a quick dump from the &lt;a href=&quot;http://www.decafbad.com/cvs/*checkout*/dbagg3/lib/dbagg3/rest.py&quot;&gt;appropriate module&lt;/a&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;URL: GET /feeds/
+          <description>Work has been insanely busy lately, but I have made some more progress with dbagg3.  The code is all in CVS, so feel free to take a gander-- I don&#39;t have a ton of time for a proper write up, but I do want to spew a little bit. 
+As per my previous musings on XML in a SQL database, I revamped the database.  Now things are sliced up by feed and entry tables, rows in each containing a few metadata columns and then one big column for an XML dump.  This lets me index on  date and parent feed and such, meanwhile punting on the issue of dicing things like authors or content up further.  And, as extension elements start to show up, this handling is dumb enough to simply store things it doesn&#39;t know about without mangling them.  This is a very good thing and one of my big goals for this beast.
+The other thing that I&#39;m getting excited about is the REST API built atop the Atom store.  Rather than spend time on proper documentation, here&#39;s a quick dump from the appropriate module:
+URL: GET /feeds/
 URL: GET /feeds/{id}.xml
 URL: GET /feeds/{id}/{yyyy}/{mm}/{dd}/{hstart}-{hend}.xml
 URL: GET /feeds/{id}/{yyyy}/{mm}/{dd}/{hh}.xml
@@ -45,54 +46,49 @@ URL: GET /users/{uname}/subscriptions/{yyyy}/{mm}.xml
 URL: GET /users/{uname}/subscriptions/now-{hours}.xml
 URL: GET /users/{uname}/subscriptions/now.xml
 URL: GET /users/{uname}/subscriptions/{sid}/entries/{eid}.xml
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Hopefully, the structure of these URL patterns make a little bit of sense.  The too-clever thing about these is that they&#39;re both documentation in the module&#39;s docstrings, and parsed out to register methods with automagically-generated regexes applied to incoming URL requests.  (I may eventually realize just how stupid an idea this is, but not yet.)  &lt;/p&gt;
-&lt;p&gt;This list is nowhere near complete or final or even all that well thought out yet.  But, it seems to be working out pretty well so far, and it&#39;s so easy to tinker with the API to sketch out ideas in working code.  Eating my own dogfood, my first browser window of the day tends to open on this URL:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;http://localhost/~deusx/dbagg3.5/api/users/default/subscriptions/
-now-12.xml?xsl=xsl/full.xsl&amp;amp;#38;content-type=text/html
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This grabs the last 12 hours&#39; worth of items from &lt;code&gt;default&lt;/code&gt;&#39;s subscriptions, passing them through the XSL at &lt;code&gt;xsl/full.xsl&lt;/code&gt; on the way to my browser with a content type of &lt;code&gt;text/html&lt;/code&gt;.  This tends to produce about 1000-1500 entries in about 15 seconds on my PowerBook, which is better than I&#39;d expected.  &lt;/p&gt;
-&lt;p&gt;Pretty soon, I&#39;ll be implementing the ability to post metadata onto feed entries under subscriptions.  Then, I can mark items as seen, attach categories, tags, and notes.  From there, I can exclude seen items from queries, produce new aggregate feeds based on my tagging or notes, among a few other ideas I&#39;ve got stewing.&lt;/p&gt;
-&lt;p&gt;A little more work, and I think I&#39;ll be able to throw together the beginnings of a &lt;a href=&quot;http://www.bloglines.com&quot;&gt;Bloglines&lt;/a&gt;-style three-pane browser interface, as well as improving the functionality of my own outliner-style display with &lt;a href=&quot;http://developer.apple.com/internet/webcontent/xmlhttpreq.html&quot;&gt;XmlHTTPRequest&lt;/a&gt;-based calls to the API to enable refresh-free interaction.  From there, I have some ideas for desktop apps and maybe even some &lt;a href=&quot;http://www.decafbad.com/blog/2003/06/19/flash_agg&quot;&gt;tinkering in Flash&lt;/a&gt;.  (Wow... has it really been over a year since I was writing about Flash &amp;amp; REST?)&lt;/p&gt;
-&lt;p&gt;And &lt;em&gt;then&lt;/em&gt;, I want to implement the Atom API and allow users to create feeds to which they can post their own items and share read-only with others (or share writing with a group).  From there, this thing can turn into a read/write Atom storage tank, serving both as an aggregator and a blog publishing engine, given the appropriate XSL work.&lt;/p&gt;
-&lt;p&gt;Lots of ideas stewing.  Now I just have to get the time and possibly a new web server, since I&#39;d like to eventually open up an installation of this to fellow tinkerers, but this poor little box can barely take what it&#39;s tasked with at present...&lt;/p&gt;
-&lt;p&gt;Oh yeah, and one other thing:  I&#39;ve been thinking about names better than &lt;code&gt;dbagg3&lt;/code&gt;.  The one that&#39;s sticking around in my head so far is &lt;strong&gt;feedReactor&lt;/strong&gt;.  What do you think?&lt;/p&gt;
-</description>
+
+Hopefully, the structure of these URL patterns make a little bit of sense.  The too-clever thing about these is that they&#39;re both documentation in the module&#39;s docstrings, and parsed out to register methods with automagically-generated regexes applied to incoming URL requests.  (I may eventually realize just how stupid an idea this is, but not yet.)  
+This list is nowhere near complete or final or even all that well thought out yet.  But, it seems to be working out pretty well so far, and it&#39;s so easy to tinker with the API to sketch out ideas in working code.  Eating my own dogfood, my first browser window of the day tends to open on this URL:
+http://localhost/~deusx/dbagg3.5/api/users/default/subscriptions/
+now-12.xml?xsl=xsl/full.xsl&amp;#38;content-type=text/html
+
+This grabs the last 12 hours&#39; worth of items from default&#39;s subscriptions, passing them through the XSL at xsl/full.xsl on the way to my browser with a content type of text/html.  This tends to produce about 1000-1500 entries in about 15 seconds on my PowerBook, which is better than I&#39;d expected.  
+Pretty soon, I&#39;ll be implementing the ability to post metadata onto feed entries under subscriptions.  Then, I can mark items as seen, attach categories, tags, and notes.  From there, I can exclude seen items from queries, produce new aggregate feeds based on my tagging or notes, among a few other ideas I&#39;ve got stewing.
+A little more work, and I think I&#39;ll be able to throw together the beginnings of a Bloglines-style three-pane browser interface, as well as improving the functionality of my own outliner-style display with XmlHTTPRequest-based calls to the API to enable refresh-free interaction.  From there, I have some ideas for desktop apps and maybe even some tinkering in Flash.  (Wow... has it really been over a year since I was writing about Flash &amp; REST?)
+And then, I want to implement the Atom API and allow users to create feeds to which they can post their own items and share read-only with others (or share writing with a group).  From there, this thing can turn into a read/write Atom storage tank, serving both as an aggregator and a blog publishing engine, given the appropriate XSL work.
+Lots of ideas stewing.  Now I just have to get the time and possibly a new web server, since I&#39;d like to eventually open up an installation of this to fellow tinkerers, but this poor little box can barely take what it&#39;s tasked with at present...
+Oh yeah, and one other thing:  I&#39;ve been thinking about names better than dbagg3.  The one that&#39;s sticking around in my head so far is feedReactor.  What do you think?</description>
           
           <pubDate>Tue, 31 Aug 2004 01:37:42 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2004/08/31/dbagg3-makingprogress/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2004/08/31/dbagg3-makingprogress/</guid>
         </item><item>
           <title>Crappy video games to get more expensive to produce</title>
-          <description>&lt;blockquote&gt;
-According to calculations, it may cost up to 200% more to develop games for the PS3 or Xbox 2 than it does for current systems.
-&lt;/blockquote&gt;
-&lt;div align=&quot;right&quot;&gt;&lt;small&gt;Source: &lt;cite&gt;&lt;a href=&quot;http://www.joystiq.com/entry/5561357479278881/&quot;&gt;EA expresses ‘concern’ about next-gen technology&lt;/a&gt;&lt;/cite&gt;&lt;/small&gt;&lt;/div&gt;
+          <description>According to calculations, it may cost up to 200% more to develop games for the PS3 or Xbox 2 than it does for current systems.
 
-&lt;p&gt;Here&#39;s some blogging for you.  This article brings two thoughts to mind for me...&lt;/p&gt;
-&lt;p&gt;First is this:  Of course, if you&#39;re striving for some semblance of realism in games, the costs will likely approach and exceed the cost to produce movies.  It&#39;ll approach the cost because, eventually, you&#39;ll need either movie-grade animators or real actors.  And then it&#39;ll exceed the cost, because who wants a game that&#39;s as linear as a 2-hour movie?  If you want any replay value out of the thing, you&#39;re going to have to produce the equivalent of a 4-hour movie at least, if not a 20- to 40-hour movie.  And then, you&#39;re going to have to be satisfied that many players will miss most of it.  Once things reach this point, I think in some sense video games will have arrived as a &quot;successor&quot; to movies, as movies were a &quot;successor&quot; to radio plays.&lt;/p&gt;
-&lt;p&gt;This brings me to my second thought:  Right now, I&#39;m listening to a streaming radio station that&#39;s playing old sci-fi and drama radio plays, like X Minus One and The Shadow.  These shows are great, and I&#39;m thinking of buying a few box sets of them.  These old radio shows get quite a bit of mileage out of their less technologically advanced medium.  In contrast to this, my consumption of contemporary and popular television, movies, and music has been dropping off from year to year as I get more tired of supremely well-produced yet worthless content.&lt;/p&gt;
-&lt;p&gt;Music gets sold on anything but a good tune, movies sold on special effects over plot, and video games head toward technological supremacy over a fun hook or even an engaging story line.  But, I don&#39;t want anything to do with any of these.&lt;/p&gt;
-&lt;p&gt;A few days ago, a friend of mine remarked that many &quot;retro&quot; video games were just as horrible as modern video games, but I have to disagree a bit.  There were a lot of horrible games.  But, for games to be successful back when the dazzle factor of the hardware was low, you needed the fun trick or clever twist that addicted players.  The constraints called for ingenuity.  Sometimes this meant pushing the hardware, and sometimes this meant coming up with a brilliant yet simple-to-implement idea.  (Tetris, I&#39;m looking at you.)&lt;/p&gt;
-&lt;p&gt;As the hardware platforms progress, we&#39;ll see more and more absolutely dazzling demos of the hardware sold as games that completely fail at being fun.  But they&#39;ll have insane budgets and probably sell very well just because people want to see the pretty sparklies and foobar shaders.  The increased capabilities will offer more expressive ability to interactive storytellers, but I bet it will just give even more excuse for game makers to be distracted from that and keep pumping out stories that suck carried by game play that reeks.&lt;/p&gt;
-&lt;p&gt;It all makes me almost wish for a kink in Moore&#39;s Law that stalls the progress of dazzling hardware and forces developers back to being clever with their resources and game ideas.  Maybe we&#39;ll see more and more of an indie games community rise, producing genuinely fun and amusingly ingenious games.  (&lt;a href=&quot;http://www.chroniclogic.com/gish/&quot;&gt;Gish&lt;/a&gt;, I&#39;m looking at you.)&lt;/p&gt;
-&lt;p&gt;Meanwhile, my girlfriend and I will be playing massive amounts of &lt;a href=&quot;http://www.neo-geo.com/reviews/neo-reviews/md3/md3.html&quot;&gt;Magical Drop III&lt;/a&gt;.&lt;/p&gt;
-</description>
+Source: EA expresses ‘concern’ about next-gen technology
+
+Here&#39;s some blogging for you.  This article brings two thoughts to mind for me...
+First is this:  Of course, if you&#39;re striving for some semblance of realism in games, the costs will likely approach and exceed the cost to produce movies.  It&#39;ll approach the cost because, eventually, you&#39;ll need either movie-grade animators or real actors.  And then it&#39;ll exceed the cost, because who wants a game that&#39;s as linear as a 2-hour movie?  If you want any replay value out of the thing, you&#39;re going to have to produce the equivalent of a 4-hour movie at least, if not a 20- to 40-hour movie.  And then, you&#39;re going to have to be satisfied that many players will miss most of it.  Once things reach this point, I think in some sense video games will have arrived as a &quot;successor&quot; to movies, as movies were a &quot;successor&quot; to radio plays.
+This brings me to my second thought:  Right now, I&#39;m listening to a streaming radio station that&#39;s playing old sci-fi and drama radio plays, like X Minus One and The Shadow.  These shows are great, and I&#39;m thinking of buying a few box sets of them.  These old radio shows get quite a bit of mileage out of their less technologically advanced medium.  In contrast to this, my consumption of contemporary and popular television, movies, and music has been dropping off from year to year as I get more tired of supremely well-produced yet worthless content.
+Music gets sold on anything but a good tune, movies sold on special effects over plot, and video games head toward technological supremacy over a fun hook or even an engaging story line.  But, I don&#39;t want anything to do with any of these.
+A few days ago, a friend of mine remarked that many &quot;retro&quot; video games were just as horrible as modern video games, but I have to disagree a bit.  There were a lot of horrible games.  But, for games to be successful back when the dazzle factor of the hardware was low, you needed the fun trick or clever twist that addicted players.  The constraints called for ingenuity.  Sometimes this meant pushing the hardware, and sometimes this meant coming up with a brilliant yet simple-to-implement idea.  (Tetris, I&#39;m looking at you.)
+As the hardware platforms progress, we&#39;ll see more and more absolutely dazzling demos of the hardware sold as games that completely fail at being fun.  But they&#39;ll have insane budgets and probably sell very well just because people want to see the pretty sparklies and foobar shaders.  The increased capabilities will offer more expressive ability to interactive storytellers, but I bet it will just give even more excuse for game makers to be distracted from that and keep pumping out stories that suck carried by game play that reeks.
+It all makes me almost wish for a kink in Moore&#39;s Law that stalls the progress of dazzling hardware and forces developers back to being clever with their resources and game ideas.  Maybe we&#39;ll see more and more of an indie games community rise, producing genuinely fun and amusingly ingenious games.  (Gish, I&#39;m looking at you.)
+Meanwhile, my girlfriend and I will be playing massive amounts of Magical Drop III.</description>
           
           <pubDate>Mon, 30 Aug 2004 02:52:48 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2004/08/30/crappyvideogames/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2004/08/30/crappyvideogames/</guid>
         </item><item>
           <title>&quot;One should never think before one posts.&quot;</title>
-          <description>&lt;blockquote&gt;
-One should never think before one posts. That&#39;s been my big blunder. And one should never ever ever rewrite, fine-tune, or God forbid edit the post, either. As a blogger, you should form a picture in your mind of a man drinking a cup of coffee. Then imagine that he suddenly feels a dead fly on his tongue and here you&#39;ll see your role model. Let your words spew forth with speed and velocity, out of reflex and not reflection. Let them fly without any possibility of ever taking them back. And when challenged, insist that the challenger is lucky that you don&#39;t sue somebody, and if he or she thinks you&#39;re going to help clean that up, they&#39;re crazy.
-&lt;/blockquote&gt;
-&lt;div align=&quot;right&quot;&gt;&lt;small&gt;Source: &lt;a href=&quot;http://www.cwob.com/yellowtext/yellowtext0804.html#58831&quot;&gt;yellowtext: Oh...Hi! I didn&#39;t see you standing there!&lt;/a&gt;&lt;/small&gt; &lt;/div&gt;
+          <description>One should never think before one posts. That&#39;s been my big blunder. And one should never ever ever rewrite, fine-tune, or God forbid edit the post, either. As a blogger, you should form a picture in your mind of a man drinking a cup of coffee. Then imagine that he suddenly feels a dead fly on his tongue and here you&#39;ll see your role model. Let your words spew forth with speed and velocity, out of reflex and not reflection. Let them fly without any possibility of ever taking them back. And when challenged, insist that the challenger is lucky that you don&#39;t sue somebody, and if he or she thinks you&#39;re going to help clean that up, they&#39;re crazy.
 
-&lt;p&gt;Amen, blog brother (with thanks to &lt;a href=&quot;http://surgery-graphics.med.umich.edu/~matt/archives/2004_08_30.html#000570&quot;&gt;Quirk Blog&lt;/a&gt; for the pointer).  I wonder if I need to go on a Month of Blogging, complete with t-shirts, spewing here daily like a sort of NaBlogWriMo?  &lt;/p&gt;
-&lt;p&gt;One should never put blogging on a pedestal, really.  I mean, while I do aspire to doing some real writing (when I&#39;m not so busy with work, as I have been of late), my blog-a-day writing shouldn&#39;t be all that painful.  It looks like my server&#39;s on its last legs and the act of posting itself takes forever, so belaboring the actual content so much just puts the last straw on the &lt;a href=&quot;http://www.ai.mit.edu/lab/gsb/gsb-archive/gsb2000-02-11.html&quot;&gt;shaven yak&#39;s&lt;/a&gt; back.&lt;/p&gt;
-&lt;p&gt;So, here goes... posty posty post, as they say on LiveJournal.  (Well, I seem to remember someone saying that anyway.)&lt;/p&gt;
-</description>
+Source: yellowtext: Oh...Hi! I didn&#39;t see you standing there! 
+
+Amen, blog brother (with thanks to Quirk Blog for the pointer).  I wonder if I need to go on a Month of Blogging, complete with t-shirts, spewing here daily like a sort of NaBlogWriMo?  
+One should never put blogging on a pedestal, really.  I mean, while I do aspire to doing some real writing (when I&#39;m not so busy with work, as I have been of late), my blog-a-day writing shouldn&#39;t be all that painful.  It looks like my server&#39;s on its last legs and the act of posting itself takes forever, so belaboring the actual content so much just puts the last straw on the shaven yak&#39;s back.
+So, here goes... posty posty post, as they say on LiveJournal.  (Well, I seem to remember someone saying that anyway.)</description>
           
           <pubDate>Sun, 29 Aug 2004 23:14:04 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2004/08/29/blogging-without-thought/</link>
@@ -120,17 +116,15 @@ One should never think before one posts. That&#39;s been my big blunder. And one
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2004/08/23/mysql-and-xml-output/</guid>
         </item><item>
           <title>dbagg3 code in CVS</title>
-          <description>&lt;p&gt;I&#39;ve just dumped what code I have into my CVS repository.  So, go ahead and poke fun at it:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.decafbad.com/cvs/dbagg3/&quot;&gt;http://www.decafbad.com/cvs/dbagg3/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Or, fetch it from CVS:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ cvs -d:pserver:anoncvs@www.decafbad.com:/cvsroot login
+          <description>I&#39;ve just dumped what code I have into my CVS repository.  So, go ahead and poke fun at it:
+
+http://www.decafbad.com/cvs/dbagg3/
+
+Or, fetch it from CVS:
+$ cvs -d:pserver:anoncvs@www.decafbad.com:/cvsroot login
 (Logging in to anoncvs@www.decafbad.com)
 CVS password: anoncvs
-$ cvs -d:pserver:anoncvs@www.decafbad.com:/cvsroot co dbagg3
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+$ cvs -d:pserver:anoncvs@www.decafbad.com:/cvsroot co dbagg3</description>
           
           <pubDate>Thu, 05 Aug 2004 23:53:34 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2004/08/05/dbagg3cvs/</link>

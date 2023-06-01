@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <rss version="2.0">
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
       <title>blog.lmorchard.com</title>
       <description>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</description>
       <link>https://lmorchard.github.io/blog.lmorchard.com</link>
+      <atom:link href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" rel="self" type="application/rss+xml" />      
       <item>
           <title>HTML5 drag and drop in Firefox 3.5</title>
-          <description>&lt;p&gt;&lt;i&gt;
-Oh hey, look! It&#39;s another blog post—and this one
-&lt;a href=&quot;http://hacks.mozilla.org/2009/07/html5-drag-and-drop/&quot;&gt;is cross-posted on hacks.mozilla.com&lt;/a&gt;.
+          <description>Oh hey, look! It&#39;s another blog post—and this one
+is cross-posted on hacks.mozilla.com.
 I won&#39;t say this is the start of a renewed blogging habit, but let&#39;s see what happens.
-&lt;/i&gt;&lt;/p&gt;
 
-&lt;style type=&quot;text/css&quot;&gt;
-dl { margin-left: 2em; }
-dd { margin-left: 2em; margin-bottom: 0.25em; }
-&lt;/style&gt;
-&lt;div id=&quot;introduction&quot;&gt;
-    &lt;p&gt;
+
+
+
+    
         Drag and drop is one of the most fundamental interactions
         afforded by graphical user interfaces.  In one gesture, it
         allows users to pair the selection of an object with the
@@ -25,48 +22,44 @@ dd { margin-left: 2em; margin-bottom: 0.25em; }
         operation.  It&#39;s a simple yet powerful UI concept used to
         support copying, list reordering, deletion (ala the Trash / Recycle Bin),
         and even the creation of link relationships.
-    &lt;/p&gt;&lt;p&gt;
+    
         Since it&#39;s so fundamental, offering drag and drop in web
         applications has been a no-brainer ever since browsers first
         offered mouse events in DHTML.  But, although
-        &lt;code&gt;mousedown&lt;/code&gt;, &lt;code&gt;mousemove&lt;/code&gt;, and
-        &lt;code&gt;mouseup&lt;/code&gt; made it possible, the implementation has been
+        mousedown, mousemove, and
+        mouseup made it possible, the implementation has been
         limited to the bounds of the browser window.  Additionally,
         since these events refer only to the object being dragged,
         there&#39;s a challenge to find the subject of the drop when
         the interaction is completed.
-    &lt;/p&gt;&lt;p&gt;
+    
 
-&lt;/p&gt;&lt;pre&gt;&lt;code&gt;    Of course, that doesn&#39;t prevent most modern JavaScript
+    Of course, that doesn&#39;t prevent most modern JavaScript
     frameworks from abstracting away most of the problems and
     throwing in some flourishes while they&#39;re at it.  But, wouldn&#39;t
     it be nice if browsers offered first-class support for drag and
     drop, and maybe even extended it beyond the window sandbox?
-&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;
+&lt;/p&gt;&lt;p&gt;
     As it turns out, this very wish is answered by the HTML 5 specification 
-    &amp;lt;a target=&quot;_new&quot; href=&quot;http://www.whatwg.org/specs/web-apps/current-work/multipage/editing.html#dnd&quot;&amp;gt;section on new drag-and-drop events&amp;lt;/a&amp;gt;, and 
-    &amp;lt;a target=&quot;_new&quot; href=&quot;https://developer.mozilla.org/En/DragDrop/Drag_and_Drop&quot;&amp;gt;Firefox 3.5 includes an implementation&amp;lt;/a&amp;gt; of those events.
-&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;
+    &lt;a target=&quot;_new&quot; href=&quot;http://www.whatwg.org/specs/web-apps/current-work/multipage/editing.html#dnd&quot;&gt;section on new drag-and-drop events&lt;/a&gt;, and 
+    &lt;a target=&quot;_new&quot; href=&quot;https://developer.mozilla.org/En/DragDrop/Drag_and_Drop&quot;&gt;Firefox 3.5 includes an implementation&lt;/a&gt; of those events.
+&lt;/p&gt;&lt;p&gt;
     If you want to jump straight to the code, I&#39;ve put together 
-    &amp;lt;a target=&quot;_new&quot; target=&quot;_new&quot; target=&quot;_new&quot; href=&quot;http://decafbad.com/2009/07/drag-and-drop/api-demos.html&quot;&amp;gt;some simple demos&amp;lt;/a&amp;gt; 
+    &lt;a target=&quot;_new&quot; target=&quot;_new&quot; target=&quot;_new&quot; href=&quot;http://decafbad.com/2009/07/drag-and-drop/api-demos.html&quot;&gt;some simple demos&lt;/a&gt; 
     of the new events.  
-&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;
+&lt;/p&gt;&lt;p&gt;
 
     I&#39;ve even scratched an itch of my own and
-    built &amp;lt;a target=&quot;_new&quot; target=&quot;_new&quot; target=&quot;_new&quot; href=&quot;http://decafbad.com/2009/07/drag-and-drop/outline.html&quot;&amp;gt;the beginnings of an outline editor&amp;lt;/a&amp;gt;,
+    built &lt;a target=&quot;_new&quot; target=&quot;_new&quot; target=&quot;_new&quot; href=&quot;http://decafbad.com/2009/07/drag-and-drop/outline.html&quot;&gt;the beginnings of an outline editor&lt;/a&gt;,
     where every draggable element is also a drop target—of which
     there could be dozens to hundreds in a complex document, something
     that gave me some minor hair-tearing moments in the past
     while trying to make do with plain old mouse events.
-&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;
+&lt;/p&gt;&lt;p&gt;
     And, all the above can be downloaded or cloned from 
-    &amp;lt;a href=&quot;http://github.com/lmorchard/fx35-drag-and-drop&quot;&amp;gt;a GitHub repository&amp;lt;/a&amp;gt;
+    &lt;a href=&quot;http://github.com/lmorchard/fx35-drag-and-drop&quot;&gt;a GitHub repository&lt;/a&gt;
     I&#39;ve created especially for this article—which continues after the jump.
-&amp;lt;/p&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-</description>
+&lt;/p&gt;</description>
           
           <pubDate>Wed, 15 Jul 2009 15:26:40 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2009/07/15/html5-drag-and-drop/</link>

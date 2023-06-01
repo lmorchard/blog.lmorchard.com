@@ -10,6 +10,8 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
       />
+      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
+      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
       <link
             rel="stylesheet"
             href="/blog.lmorchard.com/css/screen.css"
@@ -38,28 +40,27 @@
           content="https://lmorchard.github.io/blog.lmorchard.com/2004/10/08/itunesxslt/"
         />
         
-        <meta property="og:description" content="&lt;p&gt;So I had an idea for a quick podcasting listening hack on the way into work this morning. Check it out:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Take one &lt;a href=&quot;http://www.decafbad.com/2004/10/podcasts.opml&quot;&gt;list of RSS feeds in OPML&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Throw in &lt;a href=&quot;http://www.decafbad.com/2004/10/opml-to-playlist.xsl&quot;&gt;a bit of XSLT&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Combine using &lt;code&gt;xsltproc&lt;/code&gt; to make &lt;a href=&quot;http://www.decafbad.com/2004/10/podcasts.pls&quot;&gt;a playlist&lt;/a&gt; that works in iTunes.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;And, oh yeah, I just happen to have an &lt;code&gt;xsltproc&lt;/code&gt; web service laying around, so:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Supply a URL to your OPML in &lt;a href=&quot;http://www.decafbad.com/2004/10/xsltproc.cgi?xsl=http%3A%2F%2Fwww.decafbad.com%2F2004%2F10%2Fopml-to-playlist.xsl&quot;&gt;this form&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Get a &lt;a href=&quot;http://www.decafbad.com/2004/10/xsltproc.cgi?xsl=http%3A%2F%2Fwww.decafbad.com%2F2004%2F10%2Fopml-to-playlist.xsl&amp;amp;xml=http%3A%2F%2Fwww.decafbad.com%2F2004%2F10%2Fpodcasts.opml&quot;&gt;freshly-built playlist&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Now, this has been barely tested and is the product of a ten-minute hacking session.  There are likely an enormous number of things wrong with this.  That said, iTunes does seem to open the playlist happily, and it looks like only new streams are added with repeated openings of the playlist.&lt;/p&gt;
-&lt;p&gt;You will want to be careful to ensure that your OPML is valid XML (mine wasn&#39;t, on initial export from iPodderX - escape those freaking ampersands in URLs already!), and I have no idea what would happen if any of the RSS feeds in your subscriptions turn up invalid.  &lt;/p&gt;
-&lt;p&gt;Have I mentioned that, despite their unforgiving and sometimes fragile nature, I love XML technologies?&lt;/p&gt;
-&lt;p&gt;If this looks useful, maybe I&#39;ll work it over a bit more and pair it up with some python to handle actually downloading the MP3s and torrents.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; Oh yeah, and I&#39;m expecting this will be useful with an iTunes smart playlist crafted along these lines:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Date Added in the last 1 days&lt;/li&gt;
-&lt;li&gt;Play Count is less than 1&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Update #2:&lt;/strong&gt; Another use I just found for this playlist, is on my &lt;a href=&quot;http://www.xboxmediacenter.com/&quot;&gt;Xbox Media Center&lt;/a&gt;.  I generate this playlist via cronjob every few hours, and store it on an SMB share accessible to the XBMC.  Voila!  Listening to podcasts on my stereo system via the Xbox.  Yeah, nothing big, just kind of nifty.&lt;/p&gt;
-" />
+        <meta property="og:description" content="So I had an idea for a quick podcasting listening hack on the way into work this morning. Check it out:
+
+Take one list of RSS feeds in OPML.
+Throw in a bit of XSLT.
+Combine using xsltproc to make a playlist that works in iTunes.
+
+And, oh yeah, I just happen to have an xsltproc web service laying around, so:
+
+Supply a URL to your OPML in this form.
+Get a freshly-built playlist.
+
+Now, this has been barely tested and is the product of a ten-minute hacking session.  There are likely an enormous number of things wrong with this.  That said, iTunes does seem to open the playlist happily, and it looks like only new streams are added with repeated openings of the playlist.
+You will want to be careful to ensure that your OPML is valid XML (mine wasn&#39;t, on initial export from iPodderX - escape those freaking ampersands in URLs already!), and I have no idea what would happen if any of the RSS feeds in your subscriptions turn up invalid.  
+Have I mentioned that, despite their unforgiving and sometimes fragile nature, I love XML technologies?
+If this looks useful, maybe I&#39;ll work it over a bit more and pair it up with some python to handle actually downloading the MP3s and torrents.
+Update: Oh yeah, and I&#39;m expecting this will be useful with an iTunes smart playlist crafted along these lines:
+
+Date Added in the last 1 days
+Play Count is less than 1
+
+Update #2: Another use I just found for this playlist, is on my Xbox Media Center.  I generate this playlist via cronjob every few hours, and store it on an SMB share accessible to the XBMC.  Voila!  Listening to podcasts on my stereo system via the Xbox.  Yeah, nothing big, just kind of nifty." />
     </head>
     <body>
       <section class="main">
@@ -168,7 +169,7 @@ href="">Kevin</a>
       </section>
 
       <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
       </section>
     </body>

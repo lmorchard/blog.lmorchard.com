@@ -10,6 +10,8 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
       />
+      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
+      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
       <link
             rel="stylesheet"
             href="/blog.lmorchard.com/css/screen.css"
@@ -38,91 +40,90 @@
           content="https://lmorchard.github.io/blog.lmorchard.com/2003/07/01/plz-fix-xmlrpc-spec/"
         />
         
-        <meta property="og:description" content="&lt;p&gt;I&#39;ve written before that &lt;a href=&quot;http://www.decafbad.com/blog/tech/old/oooccb.html&quot; target=&quot;_top&quot;&gt;I love XML-RPC&lt;/a&gt;, and
+        <meta property="og:description" content="I&#39;ve written before that I love XML-RPC, and
 that it has served me well in the past couple of years.  I think it&#39;s the right tool for a broad
 range of jobs.  But, after having studied the spec, and after having implemented it in a handful
 of languages for a handful of well-used apps, I think the spec needs just a bit of fixing.
-&lt;br&gt;&lt;br&gt;
+
 In particular, the spec needs a tweak with regards to this &quot;ASCII limitation&quot;.  There is confusion
 about this, period.  I&#39;ve had to hash this out with clients before, this 
-&lt;a href=&quot;http://www.jspwiki.org/Wiki.jsp?page=WikiRPCInterfaceUTF8VsBase64&quot; target=&quot;_top&quot;&gt;was an issue of note&lt;/a&gt; while
-working out an &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpcToWiki&quot; target=&quot;_top&quot;&gt;XML-RPC based Wiki API&lt;/a&gt;,
+was an issue of note while
+working out an XML-RPC based Wiki API,
 and it&#39;s obviously an issue in many other projects.  This, of course, includes the current
-&lt;a href=&quot;http://www.sixapart.com/log/2003/06/why_we_need_ech.shtml&quot; target=&quot;_top&quot;&gt;hubbub surrounding weblog APIs and whatnot&lt;/a&gt;.
-&lt;br&gt;&lt;br&gt;
+hubbub surrounding weblog APIs and whatnot.
+
 So, please fix the spec.  It shouldn&#39;t take long to make this issue a non-issue by some simple
-clarification in the main &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpc&quot;&gt;XmlRpc&lt;/a&gt; to which everyone refers.
-&lt;br&gt;&lt;br&gt;
+clarification in the main XmlRpc to which everyone refers.
+
 Yes, I know there&#39;s a bit of clarification at the end of the spec, involving escaping (
-&lt;a href=&quot;http://tbray.org/ongoing/When/200x/2003/06/28/Learning&quot; target=&quot;_top&quot;&gt;not encoding&lt;/a&gt;) &amp;lt; and &amp;amp; along
-with the statement that &quot;A string can be used to encode binary data.&quot;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+not encoding) &lt; and &amp; along
+with the statement that &quot;A string can be used to encode binary data.&quot;
 Well, yeah, I do that
-all the time with &lt;a href=&quot;http://www.fourmilab.ch/webtools/base64/rfc1341.html&quot; target=&quot;_top&quot;&gt;Base64&lt;/a&gt;.  And, since
-the spec earlier had called for &quot;ASCII&quot;, I assume that&#39;s what &lt;a href=&quot;http://dictionary.reference.com/search?q=encoding&quot; target=&quot;_top&quot;&gt;encoding&lt;/a&gt;
+all the time with Base64.  And, since
+the spec earlier had called for &quot;ASCII&quot;, I assume that&#39;s what encoding
 binary data means in the context of this spec.  To me, encoding implies a transformation 
 from original form to some other form later requiring decoding.
-&lt;br&gt;&lt;br&gt;
+
 But, apparently, my interpretation and 
-&lt;a href=&quot;http://www.intertwingly.net/blog/1498.html#c1056921193&quot; target=&quot;_top&quot;&gt;the interpretation of others&lt;/a&gt;
+the interpretation of others
 is wrong on that score.  But still, I&#39;ve been confused, and so have others.  Consider this a bug report.
-&lt;br&gt;&lt;br&gt;
-I&#39;ve been referred &lt;a href=&quot;http://www.effbot.org/zone/xmlrpc-ascii.htm&quot; target=&quot;_top&quot;&gt;by Fredrik Lundh&lt;/a&gt; (&lt;a href=&quot;http://scriptingnews.userland.com/2003/06/29#When:6:21:27AM&quot; target=&quot;_top&quot;&gt;via Dave Winer&lt;/a&gt;), 
+
+I&#39;ve been referred by Fredrik Lundh (via Dave Winer), 
 to &quot;private conversations&quot;,
 &quot;various public fora&quot;, and &quot;early archives for the XML-RPC mailing list&quot;.  And, again by Fredrik Lundh,
-&lt;a href=&quot;http://www.effbot.org/zone/xmlrpc-ascii.htm&quot; target=&quot;_top&quot;&gt;I&#39;m told&lt;/a&gt;:&lt;/p&gt;
-&lt;blockquote&gt;&lt;i&gt;But even if you don&#39;t know all this, it&#39;s not that hard to figure it out for
+I&#39;m told:
+But even if you don&#39;t know all this, it&#39;s not that hard to figure it out for
 yourself. Just make sure you read and digest the entire specification, apply some common sense
 to sort out the contradictions, and you&#39;ll find that it&#39;s pretty obvious that the intent is that
-you can use any character allowed by XML.&lt;/i&gt;&lt;/blockquote&gt;
-&lt;br&gt;&lt;br&gt;
+you can use any character allowed by XML.
+
 Well, let&#39;s see.  I read the whole spec, more than once, and what I figured out for myself with my 
 &quot;common sense&quot; is what I wrote above.  I thought
-the spec called for ASCII (as in: &lt;a href=&quot;http://www.asciitable.com/&quot; target=&quot;_top&quot;&gt;ASCII&lt;/a&gt;), and assumed that
-encoding binary data called for something like Base64.  Yes, I realize that &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpc&quot;&gt;XmlRpc&lt;/a&gt; is XML, but
+the spec called for ASCII (as in: ASCII), and assumed that
+encoding binary data called for something like Base64.  Yes, I realize that XmlRpc is XML, but
 when a spec calls for ASCII as a particular part, I assume that there&#39;s a reason for it
 since that&#39;s what the specification specified.  
-&lt;br&gt;&lt;br&gt;
+
 In my experience, specifications are not about common sense, figuring it out, and
-&lt;a href=&quot;http://dictionary.reference.com/search?q=connotation&quot; target=&quot;_top&quot;&gt;connotation&lt;/a&gt;.  Specifications are
+connotation.  Specifications are
 about declaration, clarity, and 
-&lt;a href=&quot;http://dictionary.reference.com/search?q=denotation&quot; target=&quot;_top&quot;&gt;denotation&lt;/a&gt;.  
-&lt;br&gt;&lt;br&gt;
+denotation.  
+
 Yes, I understand that no
 spec is perfect, and that many are steaming piles meeting none of the criteria I just mentioned,
 but that doesn&#39;t alter the goal.  A spec can always be made better by revising 
 with these things in mind, given the input of consumers of the spec.  This is what a process
 of communication is all about, and specifications are intended as a form of communication.
-&lt;br&gt;&lt;br&gt;
-So, instead of talking about &lt;i&gt;intent&lt;/i&gt; and things that have been talked about somewhere
+
+So, instead of talking about intent and things that have been talked about somewhere
 at some time, with the implication that I should just go off and search for these things, can 
-we just get a clarifying fix to the &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpc&quot;&gt;XmlRpc&lt;/a&gt; spec?  I don&#39;t want to send my clients off to 
-mailing list and discussion archives, or present &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/XmlRpc&quot;&gt;XmlRpc&lt;/a&gt; with any corrections or caveats.  I
+we just get a clarifying fix to the XmlRpc spec?  I don&#39;t want to send my clients off to 
+mailing list and discussion archives, or present XmlRpc with any corrections or caveats.  I
 want to say, as I have been, &quot;Here, go to xmlrpc.com, read the spec, implement to the API
 I emailed you, and get back to me.&quot;  Only, it&#39;d be nice if the first question is about my API, 
 not about character encoding.
-&lt;br&gt;&lt;br&gt;
+
 I&#39;ve been confused, and so have others.  I consider myself a smart person, and I consider most
 of the others who have been confused as even smarter.  I apologize if my &quot;common sense&quot; is of a
 different sort, but that&#39;s what you have to deal with in the world of people.  As young as I am,
 even I&#39;ve discovered this already.
-&lt;br&gt;&lt;br&gt;
+
 So, can we just get a clarifying revision of the spec?  And if not, why not?
-&lt;br&gt;&lt;br&gt;
-&lt;b&gt;Update:&lt;/b&gt; Rock on.  After &lt;a href=&quot;http://www.intertwingly.net/blog/1498.html#c1056890028&quot; target=&quot;_top&quot;&gt;catching up&lt;/a&gt; 
-on a bit of banter over at &lt;a href=&quot;http://www.intertwingly.net/blog/1498.htm&quot; target=&quot;_top&quot;&gt;Sam&#39;s place&lt;/a&gt;, I see that
+
+Update: Rock on.  After catching up 
+on a bit of banter over at Sam&#39;s place, I see that
 the same Fredrik Lundh I quoted before has already begun an
-&lt;a href=&quot;http://effbot.org/zone/xmlrpc-errata.htm&quot; target=&quot;_top&quot;&gt;XML-RPC errata&lt;/a&gt; page with the goal of clarification.
+XML-RPC errata page with the goal of clarification.
 (I just missed it in my daily reading thus far.)  As 
-&lt;a href=&quot;http://www.intertwingly.net/blog/1498.html#c1056904400&quot; target=&quot;_top&quot;&gt;Mark comments&lt;/a&gt;, I fear bumps in the
+Mark comments, I fear bumps in the
 road as any confused implementors find things weren&#39;t what they thought, but I&#39;m happy to see
 the clarification accepted.
-&lt;br&gt;&lt;br&gt;
-&lt;b&gt;Update again:&lt;/b&gt; If you&#39;ve stopped rocking, resume.  Dave Winer 
-&lt;a href=&quot;http://scriptingnews.userland.com/2003/06/30#When:11:41:21AM&quot; target=&quot;_top&quot;&gt;updated the XML-RPC spec&lt;/a&gt;.
+
+Update again: If you&#39;ve stopped rocking, resume.  Dave Winer 
+updated the XML-RPC spec.
 It was a small change, could have been more, but had not been done at all until now.  I
 doubt that my asking please really had much to do with it, but I couldn&#39;t guess that it 
-hurt.  Thanks!
-" />
+hurt.  Thanks!" />
     </head>
     <body>
       <section class="main">
@@ -344,7 +345,7 @@ href="">Dave Winer</a>
       </section>
 
       <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
       </section>
     </body>

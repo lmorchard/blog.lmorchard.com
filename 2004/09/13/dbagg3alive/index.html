@@ -10,6 +10,8 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
       />
+      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
+      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
       <link
             rel="stylesheet"
             href="/blog.lmorchard.com/css/screen.css"
@@ -38,51 +40,50 @@
           content="https://lmorchard.github.io/blog.lmorchard.com/2004/09/13/dbagg3alive/"
         />
         
-        <meta property="og:description" content="&lt;p&gt;Got some very good work in this weekend on switching servers and getting &lt;a href=&quot;http://www.decafbad.com/cvs/dbagg3/&quot;&gt;&lt;code&gt;dbagg3&lt;/code&gt;&lt;/a&gt; in some semblance of working order somewhere other than on my overworked and decidedly non-publicly-demonstrable laptop.&lt;/p&gt;
-&lt;p&gt;This stuff is so this side of premature, that I&#39;m probably about to cause &lt;a href=&quot;http://www.johncompanies.com&quot;&gt;JohnCompanies&lt;/a&gt; to send hit-men out to cancel &lt;strong&gt;me&lt;/strong&gt;, along with my hosting account (have I said that I &lt;em&gt;really&lt;/em&gt; appreciate the help so far?).  But I just have to get this out: I&#39;m easily excited by shiny code and gadgets, but it&#39;s so much easier to get excited when I can see something in working condition before taking a screwdriver to it.  So... remember &lt;a href=&quot;http://www.decafbad.com/blog/2004/08/30/dbagg3_makingprogress&quot;&gt;when I mentioned all those URLs&lt;/a&gt;?  They&#39;re working out nicely.&lt;/p&gt;
-&lt;p&gt;First, check out a simple two-pane view of news items, ala &lt;a href=&quot;http://www.bloglines.com/&quot;&gt;Bloglines&lt;/a&gt;:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://feeds.decafbad.com/api/users/demo.xml?xsl=xsl/two-pane/index.xsl&amp;amp;content-type=text/html&quot; target=&quot;new&quot;&gt;http://feeds.decafbad.com/api/users/demo.xml?xsl=xsl/two-pane/index.xsl&amp;amp;content-type=text/html&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Taking this apart, you can see:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;A user account: &lt;a href=&quot;http://feeds.decafbad.com/api/users/demo.xml&quot;&gt;http://feeds.decafbad.com/api/users/demo.xml&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Some XSL: &lt;a href=&quot;http://feeds.decafbad.com/xsl/two-pane/index.xsl&quot;&gt;http://feeds.decafbad.com/xsl/two-pane/index.xsl&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;... and a specified content type (text/html)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;If your curiosity is piqued by this, view source and pay attention to link URLs.  It&#39;s more of the same:  XML produced by a REST API, passed through XSL, delivered as HTML.&lt;/p&gt;
-&lt;p&gt;Here, take a look at another view on this demo user&#39;s aggregated items:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://feeds.decafbad.com/api/users/demo/subscriptions/now-12.xml?xsl=xsl/outliner/index.xsl&amp;amp;content-type=text/html&quot; target=&quot;new&quot;&gt;http://feeds.decafbad.com/api/users/demo/subscriptions/now-12.xml?xsl=xsl/outliner/index.xsl&amp;amp;content-type=text/html&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Unfortunately, this only seems to be working decently with Firefox and Safari.  MSIE seems to be balking at the dynamic stuff, though I&#39;ve had it working there in a previous incarnation of this code.  So hopefully this will be fixed soon.&lt;/p&gt;
-&lt;p&gt;At any rate, what you should see is a single-pane outliner-style display of feed entries.  This is the style of aggregator UI I&#39;ve been using for almost 3 years now.  Disclosure triangles open entries up to show summaries and further content.  “[seen]” links hide the entries, while “[queue]” hides an entry while tossing it into a queue for viewing later.&lt;/p&gt;
-&lt;p&gt;Speaking of that, you can see what&#39;s in the queue right now:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://feeds.decafbad.com/api/users/demo/subscriptions/now-12.xml?xsl=xsl/full.xsl&amp;amp;content-type=text/html&amp;amp;show_queued=1&quot; target=&quot;new&quot;&gt;http://feeds.decafbad.com/api/users/demo/subscriptions/now-12.xml?xsl=xsl/full.xsl&amp;amp;content-type=text/html&amp;amp;show_queued=1&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Here is a display of queued entries, with another stylesheet applied that shows everything in a flat and open blog-like template.  It&#39;s not reverse-chronological, but that&#39;s not hard to accomplish with a flag or a tweak to an &amp;lt;xsl:sort&amp;gt; tag.  &lt;/p&gt;
-&lt;p&gt;So that&#39;s just the start of things.  Remember &lt;a href=&quot;http://www.decafbad.com/blog/2004/08/23/slicing_and_dicing_to_make_atom_soup_in_dbagg3&quot;&gt;when I was rambling on about XML storage and query&lt;/a&gt;?  A URL like this is one product of that:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://feeds.decafbad.com/api/users/demo/subscriptions/now-12.xml?xsl=xsl/full.xsl&amp;amp;content-type=text/html&amp;amp;entry_xpath=//entry/title[contains(text(),&#39;OS%20X&#39;)]&quot; target=&quot;new&quot;&gt;http://feeds.decafbad.com/api/users/demo/subscriptions/now-12.xml?xsl=xsl/full.xsl&amp;amp;content-type=text/html&amp;amp;entry_xpath=//entry/title[contains(text(),&#39;OS%20X&#39;)]&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;This should show you a flat listing of all entries whose titles contain “OS X”.  This is far from perfect, but it&#39;s very exciting to me-- it&#39;s got a lot of promise, stuff that first caught my eye when I saw &lt;a href=&quot;http://webservices.xml.com/pub/a/ws/2003/04/15/semanticblog.html&quot;&gt;Jon Udell playing&lt;/a&gt; &lt;a href=&quot;http://webservices.xml.com/pub/a/ws/2003/06/10/xpathsearch.html?page=1&quot;&gt;awhile back&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Now, something that you might not notice until doing a bit more digging, is that all these attributes like “seen” and “query” are annotations made by the user on entries.  If you take a peek at &lt;a href=&quot;http://feeds.decafbad.com/js/agg.js&quot;&gt;some of the Javascript&lt;/a&gt; under the hood, you might notice some XmlHTTPRequest code going on.  To mark something as “seen” or “queued”, I POST XML to a URL like this:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://feeds.decafbad.com/api/users/demo/subscriptions/638/entries/60567/notes/&quot;&gt;http://feeds.decafbad.com/api/users/demo/subscriptions/638/entries/60567/notes/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The upshot of this is that these attributes are not limited to “seen” or “queued” flags-- in fact, these annotations can (well, in theory) be any pairing of arbitrary XML and a name.  This annotation then gets injected into the entry, when viewed by the user who owns the annotation, like so:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://feeds.decafbad.com/api/users/demo/subscriptions/638/entries/60567.xml&quot;&gt;http://feeds.decafbad.com/api/users/demo/subscriptions/638/entries/60567.xml&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;In fact, you could invent a new annotation called &#39;tags&#39; and filter for entries with this annotation with a URL like this:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://feeds.decafbad.com/api/users/demo/subscriptions/now-12.xml?xsl=xsl/full.xsl&amp;amp;content-type=text/html&amp;amp;entry%5C_notes%5C_xpath=//dbagg3:note%5B@name=&#39;tags&#39;&quot;&gt;http://feeds.decafbad.com/api/users/demo/subscriptions/now-12.xml?xsl=xsl/full.xsl&amp;amp;content-type=text/html&amp;amp;entry\_notes\_xpath=//dbagg3:note[@name=&#39;tags&#39;&lt;/a&gt; and contains(text(),&#39;#food#&#39;) and contains(text(),&#39;#odd#&#39;)]&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Eventually, what I&#39;d &lt;em&gt;really&lt;/em&gt; like to see this start doing is something akin to del.icio.us-style tagging while you&#39;re reading.  Then, you can have public queries that pull feeds based on your (and others&#39;) tags and spit things back out as feeds again with the proper XSL stylings.&lt;/p&gt;
-&lt;p&gt;So at this point, it&#39;s all URLs and barely working HTML, but it&#39;s exciting to me at least.  And it&#39;s dogfood for me, since I&#39;m using this crud to get my daily (hourly?) fix.  Pretty soon, I&#39;ll be diving into wrapping more of a proper usable web app around this, with user management and stuff that works in MSIE.  Until then, maybe someone else will see this and catch a buzz from it.&lt;/p&gt;
-&lt;p&gt;Stay tuned.&lt;/p&gt;
-" />
+        <meta property="og:description" content="Got some very good work in this weekend on switching servers and getting dbagg3 in some semblance of working order somewhere other than on my overworked and decidedly non-publicly-demonstrable laptop.
+This stuff is so this side of premature, that I&#39;m probably about to cause JohnCompanies to send hit-men out to cancel me, along with my hosting account (have I said that I really appreciate the help so far?).  But I just have to get this out: I&#39;m easily excited by shiny code and gadgets, but it&#39;s so much easier to get excited when I can see something in working condition before taking a screwdriver to it.  So... remember when I mentioned all those URLs?  They&#39;re working out nicely.
+First, check out a simple two-pane view of news items, ala Bloglines:
+
+http://feeds.decafbad.com/api/users/demo.xml?xsl=xsl/two-pane/index.xsl&amp;content-type=text/html
+
+Taking this apart, you can see:
+
+A user account: http://feeds.decafbad.com/api/users/demo.xml
+Some XSL: http://feeds.decafbad.com/xsl/two-pane/index.xsl
+... and a specified content type (text/html)
+
+If your curiosity is piqued by this, view source and pay attention to link URLs.  It&#39;s more of the same:  XML produced by a REST API, passed through XSL, delivered as HTML.
+Here, take a look at another view on this demo user&#39;s aggregated items:
+
+http://feeds.decafbad.com/api/users/demo/subscriptions/now-12.xml?xsl=xsl/outliner/index.xsl&amp;content-type=text/html
+
+Unfortunately, this only seems to be working decently with Firefox and Safari.  MSIE seems to be balking at the dynamic stuff, though I&#39;ve had it working there in a previous incarnation of this code.  So hopefully this will be fixed soon.
+At any rate, what you should see is a single-pane outliner-style display of feed entries.  This is the style of aggregator UI I&#39;ve been using for almost 3 years now.  Disclosure triangles open entries up to show summaries and further content.  “[seen]” links hide the entries, while “[queue]” hides an entry while tossing it into a queue for viewing later.
+Speaking of that, you can see what&#39;s in the queue right now:
+
+http://feeds.decafbad.com/api/users/demo/subscriptions/now-12.xml?xsl=xsl/full.xsl&amp;content-type=text/html&amp;show_queued=1
+
+Here is a display of queued entries, with another stylesheet applied that shows everything in a flat and open blog-like template.  It&#39;s not reverse-chronological, but that&#39;s not hard to accomplish with a flag or a tweak to an &lt;xsl:sort&gt; tag.  
+So that&#39;s just the start of things.  Remember when I was rambling on about XML storage and query?  A URL like this is one product of that:
+
+http://feeds.decafbad.com/api/users/demo/subscriptions/now-12.xml?xsl=xsl/full.xsl&amp;content-type=text/html&amp;entry_xpath=//entry/title[contains(text(),&#39;OS%20X&#39;)]
+
+This should show you a flat listing of all entries whose titles contain “OS X”.  This is far from perfect, but it&#39;s very exciting to me-- it&#39;s got a lot of promise, stuff that first caught my eye when I saw Jon Udell playing awhile back.
+Now, something that you might not notice until doing a bit more digging, is that all these attributes like “seen” and “query” are annotations made by the user on entries.  If you take a peek at some of the Javascript under the hood, you might notice some XmlHTTPRequest code going on.  To mark something as “seen” or “queued”, I POST XML to a URL like this:
+
+http://feeds.decafbad.com/api/users/demo/subscriptions/638/entries/60567/notes/
+
+The upshot of this is that these attributes are not limited to “seen” or “queued” flags-- in fact, these annotations can (well, in theory) be any pairing of arbitrary XML and a name.  This annotation then gets injected into the entry, when viewed by the user who owns the annotation, like so:
+
+http://feeds.decafbad.com/api/users/demo/subscriptions/638/entries/60567.xml
+
+In fact, you could invent a new annotation called &#39;tags&#39; and filter for entries with this annotation with a URL like this:
+
+http://feeds.decafbad.com/api/users/demo/subscriptions/now-12.xml?xsl=xsl/full.xsl&amp;content-type=text/html&amp;entry\_notes\_xpath=//dbagg3:note[@name=&#39;tags&#39; and contains(text(),&#39;#food#&#39;) and contains(text(),&#39;#odd#&#39;)]
+
+Eventually, what I&#39;d really like to see this start doing is something akin to del.icio.us-style tagging while you&#39;re reading.  Then, you can have public queries that pull feeds based on your (and others&#39;) tags and spit things back out as feeds again with the proper XSL stylings.
+So at this point, it&#39;s all URLs and barely working HTML, but it&#39;s exciting to me at least.  And it&#39;s dogfood for me, since I&#39;m using this crud to get my daily (hourly?) fix.  Pretty soon, I&#39;ll be diving into wrapping more of a proper usable web app around this, with user management and stuff that works in MSIE.  Until then, maybe someone else will see this and catch a buzz from it.
+Stay tuned." />
     </head>
     <body>
       <section class="main">
@@ -180,7 +181,7 @@
 </ul>
 <p>In fact, you could invent a new annotation called &#39;tags&#39; and filter for entries with this annotation with a URL like this:</p>
 <ul>
-<li><a href="http://feeds.decafbad.com/api/users/demo/subscriptions/now-12.xml?xsl=xsl/full.xsl&#38;content-type=text/html&#38;entry%5C_notes%5C_xpath=//dbagg3:note%5B@name=&#39;tags&#39;">http://feeds.decafbad.com/api/users/demo/subscriptions/now-12.xml?xsl=xsl/full.xsl&#38;content-type=text/html&#38;entry\_notes\_xpath=//dbagg3:note[@name=&#39;tags&#39;</a> and contains(text(),&#39;#food#&#39;) and contains(text(),&#39;#odd#&#39;)]</li>
+<li><a href="http://feeds.decafbad.com/api/users/demo/subscriptions/now-12.xml?xsl=xsl/full.xsl&#38;content-type=text/html&#38;entry%5C_notes%5C_xpath=//dbagg3:note%5B@name='tags">http://feeds.decafbad.com/api/users/demo/subscriptions/now-12.xml?xsl=xsl/full.xsl&#38;content-type=text/html&#38;entry\_notes\_xpath=//dbagg3:note[@name=&#39;tags</a>&#39; and contains(text(),&#39;#food#&#39;) and contains(text(),&#39;#odd#&#39;)]</li>
 </ul>
 <p>Eventually, what I&#39;d <em>really</em> like to see this start doing is something akin to del.icio.us-style tagging while you&#39;re reading.  Then, you can have public queries that pull feeds based on your (and others&#39;) tags and spit things back out as feeds again with the proper XSL stylings.</p>
 <p>So at this point, it&#39;s all URLs and barely working HTML, but it&#39;s exciting to me at least.  And it&#39;s dogfood for me, since I&#39;m using this crud to get my daily (hourly?) fix.  Pretty soon, I&#39;ll be diving into wrapping more of a proper usable web app around this, with user management and stuff that works in MSIE.  Until then, maybe someone else will see this and catch a buzz from it.</p>
@@ -232,7 +233,7 @@ LINK: http://notizen.typepad.com/aus_der_provinz/2004/09/cool_new_embryo.html</d
       </section>
 
       <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
       </section>
     </body>

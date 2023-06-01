@@ -10,6 +10,8 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
       />
+      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
+      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
       <link
             rel="stylesheet"
             href="/blog.lmorchard.com/css/screen.css"
@@ -38,15 +40,14 @@
           content="https://lmorchard.github.io/blog.lmorchard.com/2003/09/29/dynamic-polling-freq-too/"
         />
         
-        <meta property="og:description" content="&lt;p&gt;
-Okay, so that &lt;a href=&quot;http://www.decafbad.com/blog/tech/dynamic_feed_scan_times.html&quot;&gt;thing with the SQL&lt;/a&gt; I did Friday?
+        <meta property="og:description" content="Okay, so that thing with the SQL I did Friday?
 I&#39;m not exactly sure what I was thinking with it.  I was doing something
 that seems really odd now, trying to collect counts of new items together
 by hour, then averaging those hourly counts across a week.  Instead, I&#39;m
 trying this now:
-&lt;/p&gt;
 
-&lt;pre&gt;SELECT
+
+SELECT
   source,
   &#39;update_period&#39; AS name,
   round(min(24,max(1,(max(1,(iso8601_to_epoch(max(created)) -
@@ -55,38 +56,38 @@ trying this now:
 FROM
   items
 WHERE
-  created &amp;gt;= epoch_to_iso8601(now() - (7*24*60*60)) 
+  created &gt;= epoch_to_iso8601(now() - (7*24*60*60)) 
 GROUP BY
-  source&lt;/pre&gt;
+  source
 
-&lt;p&gt;
+
 This bit of SQL, though still ugly, is much simpler.  This leaves out
 the subselect, which I think I might have been playing with in order
 to build a little graph display of new items over time by source.  What
 the above does now is to get an average time between new items for the
 past week, with a minimum of an hour, and a maximum of a day.  This
 seems to be working much better.
-&lt;/p&gt;
 
-&lt;p&gt;
+
+
 An alternate algorithm I&#39;ve been playing with was suggested in
-&lt;a href=&quot;http://www.decafbad.com/comments/tech/dynamic_feed_scan_times/#comment-aofdehdefioofcb&quot;&gt;a comment&lt;/a&gt;
-by &lt;a href=&quot;http://24.102.209.201/weblogs/ben/&quot;&gt;Gnomon&lt;/a&gt;,
+a comment
+by Gnomon,
 inspired by TCP/IP&#39;s Additive Increase / Multiplicative Decrease.
 With this, I subtract an hour from the time between polls when a
 poll finds new items, and then multiply by 2 every time a poll
 comes up with nothing new.
-&lt;/p&gt;
 
-&lt;p&gt;
+
+
 Using the average of new items over time lessens my pummeling
 of servers per hour, but the second approach is even lighter
 on polling since it&#39;s biased toward large leaps backing off
 from polling when new items are not found.  I&#39;ll likely be trading
 off between the two to see which one seems to work best.
-&lt;/p&gt;
 
-&lt;p&gt;
+
+
 Hoping that, after playing a bit, I&#39;ll settle on one and my
 aggregator will play much nicer with feeds, especially once
 I get the HTTP client usage to correctly use things like
@@ -96,10 +97,10 @@ unless you&#39;re monitoring a feed that&#39;s mostly quiet, except
 for emergencies.  In that case, well, a different polling
 algorithm is needed, or maybe an instant messaging or pub/sub
 architecture is required.
-&lt;/p&gt;
 
-&lt;p&gt;
-&lt;b&gt;Update:&lt;/b&gt; As &lt;a href=&quot;http://24.102.209.201/weblogs/ben/&quot;&gt;Gnomon&lt;/a&gt;
+
+
+Update: As Gnomon
 has corrected me in comments, I&#39;ve got the AIMD algorithm mixed up.
 What I really should be doing is making quick jumps up in polling
 frequency in response to new items (multiplicative decrease of
@@ -108,17 +109,17 @@ polling period) and creeping away in response to no new items
 should make an aggregator jump to attention when clumps of new
 posts come in, and gradually get bored over periods of silence.
 I&#39;ve adjusted my code and will be tinkering with it.
-&lt;/p&gt;
 
-&lt;p&gt;
-Also, although &lt;a href=&quot;http://24.102.209.201/weblogs/ben/&quot;&gt;Gnomon&lt;/a&gt; makes
+
+
+Also, although Gnomon makes
 a good point that bloggers and their posting habits are not easily
 subject to statistical analysis,
 I&#39;ve further refined my little SQL query to catch sources
 which haven&#39;t seen any updates during the week (or ever):
-&lt;/p&gt;
 
-&lt;pre&gt;SELECT 
+
+SELECT 
   id as source,
   &#39;update_period&#39; AS name,
   round(min(24,max(1,coalesce(update_period,24)))) AS value
@@ -134,16 +135,14 @@ LEFT JOIN (
             ) / (60*60) / count(id)
         AS update_period
     FROM items
-    WHERE created &amp;gt;= epoch_to_iso8601(now() - (7*24*60*60)) 
+    WHERE created &gt;= epoch_to_iso8601(now() - (7*24*60*60)) 
     GROUP BY source
-) ON sources.id=source_id&lt;/pre&gt;
+) ON sources.id=source_id
 
-&lt;p&gt;
-Also, in case anyone&#39;s interested, I&#39;ve checked &lt;a href=&quot;http://www.decafbad.com/cvs/dbagg/lib/dbagg/scan.py?rev=HEAD&amp;amp;content-type=text/vnd.viewcvs-markup&quot;&gt;all the above&lt;/a&gt;
+
+Also, in case anyone&#39;s interested, I&#39;ve checked all the above
 into CVS.  This beastie&#39;s far from ready for prime time, but it
-might be interesting to someone.
-&lt;/p&gt;
-" />
+might be interesting to someone." />
     </head>
     <body>
       <section class="main">
@@ -397,7 +396,7 @@ Another way of thinking of this idea is pre-calculating a guess at the fall-off,
       </section>
 
       <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
       </section>
     </body>

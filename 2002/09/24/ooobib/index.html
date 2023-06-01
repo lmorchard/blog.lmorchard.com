@@ -10,6 +10,8 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
       />
+      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
+      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
       <link
             rel="stylesheet"
             href="/blog.lmorchard.com/css/screen.css"
@@ -38,26 +40,25 @@
           content="https://lmorchard.github.io/blog.lmorchard.com/2002/09/24/ooobib/"
         />
         
-        <meta property="og:description" content="&lt;p&gt;I&#39;ve got some further thoughts on &lt;a href=&quot;http://www.hixie.ch/specs/pingback/pingback-1.0&quot;&gt;Pingback&lt;/a&gt;, provided that my server humors me.&lt;br&gt;&lt;br&gt;&lt;br&gt;
-David Watson says, &quot;&lt;a href=&quot;http://davidwatson.org:8086/archives/000610.html&quot;&gt;uh, no&lt;/a&gt;,&quot; citing a horrible experience in actually trying to see the spec in the first place, and a lack of working code.  Not to mention that my site was having a seizure last night - not good things to recommend that one check out a new technology. 
-&lt;br&gt;&lt;br&gt;
-Well, I did manage to see the spec, but haven&#39;t tried implementing it yet.  (Though it shouldn&#39;t be too hard, given a few round tuits.)  A few things, in particular that I like about &lt;a href=&quot;http://www.hixie.ch/specs/pingback/pingback-1.0&quot;&gt;Pingback&lt;/a&gt;:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt; URIs are used to specify the source and target of the ping, no other information is involved in setting up the relation (ie. arbitrary IDs, etc).  This makes site-wide integration of Pingback drop-dead simple - everything&#39;s already identifiable via URI.
-&lt;/li&gt;
-&lt;li&gt; If one implements Pingback HTTP headers, one can allow non-HTML resources to be pinged.  (ie. Ping my &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/FOAF&quot;&gt;FOAF&lt;/a&gt; file when you add me to yours, and I might add you to mine.  That might be pushing the spec a bit, though.)
-&lt;/li&gt;
-&lt;li&gt; The XML-RPC server is not tied to any sites it may serve.  I could offer one here, and you could point to it from your site, and if I allowed it I could record pings for you as a service.
-&lt;/li&gt;
-&lt;/ul&gt;
+        <meta property="og:description" content="I&#39;ve got some further thoughts on Pingback, provided that my server humors me.
+David Watson says, &quot;uh, no,&quot; citing a horrible experience in actually trying to see the spec in the first place, and a lack of working code.  Not to mention that my site was having a seizure last night - not good things to recommend that one check out a new technology. 
+
+Well, I did manage to see the spec, but haven&#39;t tried implementing it yet.  (Though it shouldn&#39;t be too hard, given a few round tuits.)  A few things, in particular that I like about Pingback:
+
+ URIs are used to specify the source and target of the ping, no other information is involved in setting up the relation (ie. arbitrary IDs, etc).  This makes site-wide integration of Pingback drop-dead simple - everything&#39;s already identifiable via URI.
+
+ If one implements Pingback HTTP headers, one can allow non-HTML resources to be pinged.  (ie. Ping my FOAF file when you add me to yours, and I might add you to mine.  That might be pushing the spec a bit, though.)
+
+ The XML-RPC server is not tied to any sites it may serve.  I could offer one here, and you could point to it from your site, and if I allowed it I could record pings for you as a service.
+
+
 All-in-all, Pingback just seems like a more direct, intentional form of referrer log.
-&lt;br&gt;&lt;br&gt;
-One thing I don&#39;t like about Pingback, though (and the same for referrer logs):  It&#39;s just about URIs and links between them.  It says nothing much about titles or excerpts or comment bodies.  The spec suggests that a Pingback server &lt;strong&gt;might&lt;/strong&gt; retrieve &quot;other data required from the content of Alice&#39;s new post,&quot; but makes no statement on how this is to happen.  I like that &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/TrackBack&quot;&gt;TrackBack&lt;/a&gt; sets down how to provide a bit more information.
-&lt;br&gt;&lt;br&gt;
-I&#39;ve got a vague idea in my little head, and I think it&#39;s something &lt;a href=&quot;http://www.intertwingly.net&quot;&gt;Sam Ruby&lt;/a&gt; touched on:  &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/ShowReferers&quot;&gt;ShowReferers&lt;/a&gt;, form-submitted comments, &lt;a href=&quot;http://www.decafbad.com/twiki/bin/view/Main/TrackBack&quot;&gt;TrackBack&lt;/a&gt;, and Pingback are all just different on-ramps to inviting open participation in discussion on one&#39;s blog.  I want to take a shot at implementing Pingback very soon - but I might also try taking a shot at implementing a unified comment system that accepts comments for any URI from any of the aforementioned sources.  I&#39;d also like something that scans a blog entry I post for links, then investigate those links for Pingback/TrackBack availability - all to make the system even &lt;strong&gt;more&lt;/strong&gt; automatic.  I doubt that it would be very difficult, though I am notoriously naive.  On the other hand, I&#39;ve been on a run of making hard things simple lately.  :)
-&lt;br&gt;&lt;br&gt;
-But I sense my round tuits slipping away - back to work!
-" />
+
+One thing I don&#39;t like about Pingback, though (and the same for referrer logs):  It&#39;s just about URIs and links between them.  It says nothing much about titles or excerpts or comment bodies.  The spec suggests that a Pingback server might retrieve &quot;other data required from the content of Alice&#39;s new post,&quot; but makes no statement on how this is to happen.  I like that TrackBack sets down how to provide a bit more information.
+
+I&#39;ve got a vague idea in my little head, and I think it&#39;s something Sam Ruby touched on:  ShowReferers, form-submitted comments, TrackBack, and Pingback are all just different on-ramps to inviting open participation in discussion on one&#39;s blog.  I want to take a shot at implementing Pingback very soon - but I might also try taking a shot at implementing a unified comment system that accepts comments for any URI from any of the aforementioned sources.  I&#39;d also like something that scans a blog entry I post for links, then investigate those links for Pingback/TrackBack availability - all to make the system even more automatic.  I doubt that it would be very difficult, though I am notoriously naive.  On the other hand, I&#39;ve been on a run of making hard things simple lately.  :)
+
+But I sense my round tuits slipping away - back to work!" />
     </head>
     <body>
       <section class="main">
@@ -260,7 +261,7 @@ href="http://www.decafbad.com">l.m.orchard</a>
       </section>
 
       <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/analytics.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
       </section>
     </body>
