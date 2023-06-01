@@ -1,7 +1,7 @@
 module.exports = {
-  postsPath: "./posts",
+  postsPath: "./content/posts",
   buildPath: "./build",
-  assetPaths: ["./public", "./uploads"],
+  assetPaths: ["./content/public", "./content/uploads"],
   commonmarkParserOptions: {},
   commonmarkRendererOptions: {},
   site: {
