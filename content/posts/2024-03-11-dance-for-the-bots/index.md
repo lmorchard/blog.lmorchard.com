@@ -39,9 +39,13 @@ An irony is that I could see machine learning doing even more to connect people 
 
 I know this GIF is hyperbolic and folks aren't literally being vaporized, but it feels to me a bit like the [Crystalline Entity from Star Trek](https://www.imdb.com/title/tt0708774/) consuming enthusiasm without return. I can only imagine this will disrupt [*actually generative*](https://www.merriam-webster.com/dictionary/generative) cycles which might have rewarded contributors.
 
-Just in case I wasn't obvious enough about it: I've used the word "generative" four times so far, not including this instance. When discussing recent advances in AI, we tend to use the term to mean "produced by an algorithmic process". But, there's another subtlely different meaning to the word - i.e. [*having the power or function of generating, originating, producing, or reproducing*](https://www.merriam-webster.com/dictionary/generative).
+Just in case I wasn't obvious enough about it: I've used the word "generative" four times so far, not including this instance. When discussing recent advances in AI, we tend to use the term to mean "produced by an algorithmic process". But, there's another subtlely different meaning to the word - i.e.:
 
-A generative system grows by virtue of positive in-built feedback mechanisms. A generative community is one in which the connections between people work to encourage each other to build and create. Generative, as opposed to [extractive](https://www.merriam-webster.com/dictionary/extractive) - i.e. [*tending toward or resulting in withdrawal of natural resources by extraction with no provision for replenishment*](https://www.merriam-webster.com/dictionary/extractive).
+> [*having the power or function of generating, originating, producing, or reproducing*](https://www.merriam-webster.com/dictionary/generative).
+
+A generative system grows by virtue of positive in-built feedback mechanisms. A generative community is one in which the connections between people work to encourage each other to build and create. Generative, as opposed to [extractive](https://www.merriam-webster.com/dictionary/extractive) - i.e.:
+
+> [*tending toward or resulting in withdrawal of natural resources by extraction with no provision for replenishment*](https://www.merriam-webster.com/dictionary/extractive).
 
 Despite the apparent marvels, I can't shake the notion that there's a dead-end ahead for all this gen AI stuff unless something changes to shift it from an extractive model to a truly generative model.
 
