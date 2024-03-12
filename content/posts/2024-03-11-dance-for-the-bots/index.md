@@ -30,7 +30,7 @@ But, if bots are the only entities consuming my blog - and none of them reciproc
 
 I've heard folks praise generative AI chatbots as superior to quaint old keyword search ala Google. The bots just blurt out easily-digested information-like sentences and you don't even have to click away to anyone else. Very convenient. Maybe look the gift horse in the mouth, though: Where'd that information come from? Why was it there to be found? By what process or under what incentives might it continue to be supplied?
 
-An irony is that I could see machine learning doing even more to connect people to each other, to turn what we write and create into matchmaking criteria to help find our people. But, instead, to me it looks like the folks deploying generative AI are determined to strip mine the vitality out of any thoughtful ecosystem - because LLMs need an enormous corpus of human thought from which to derive weights & balances through training.
+An irony is that I could see machine learning doing even more to connect people to each other, to turn what we write and create into matchmaking criteria to help find our people. But, instead, to me it looks like the folks deploying generative AI are determined to strip mine the vitality out of any ecosystem of human thought.
 
 <figure>
   <img src="./genai-crystal-entity-7Y5AuXR-Imgur.gif" class="fullwidth" />
