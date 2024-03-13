@@ -151,7 +151,7 @@ Here's what that looks like in a Pull Request:
   <figcaption>Screenshot of a GitHub Pull Request with QR codes for Expo Go in comments</figcaption>
 </figure>
 
-These QR codes might even work for you, if you install Expo Go on your own device. Since the app's already released, I don't think I'm revealing any secrets by including these.
+These QR codes might even work for you, if you install Expo Go on your own device. Since [the app's already released](https://apps.apple.com/us/app/mozilla-didthis/id6468680088), I don't think I'm revealing any secrets by including these.
 
 Your mileage may vary, though, by the time you read this. Our server-side APIs may have moved on from compatibility with this particular app build, or the builds may eventually get garbage collected from the EAS servers.
 
