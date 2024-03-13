@@ -173,7 +173,6 @@ jobs:
     steps:
       - name: 🏗 Setup repo
         uses: actions/checkout@v3
-
       - name: 🏗 Setup Node
         uses: actions/setup-node@v3
         with:
@@ -260,4 +259,4 @@ The end result of these workflows were that, all along the journey of getting th
 
 ## Summing up
 
-The central notion is that I like making it easier to include the whole team in review cycles during feature development. It doesn't even have to be that hard - the last couple of implementations I describe here were about hacking and gluing things together. It can be quick & dirty, but the payoff can be huge for empowering everyone to contribute.
+The central notion is that I like making it easier to include the whole team in review cycles during feature development. It doesn't even have to be that hard - the implementations I describe here were mainly just hacking and gluing things together. It can be quick & dirty, but the payoff can be huge for empowering everyone to contribute.
