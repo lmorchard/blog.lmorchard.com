@@ -104,7 +104,7 @@ So, anyone on the team with a browser can click the "Details" link to preview th
 
 ## React Native and Expo
 
-So, that's all fine for web applications - but what about mobile apps? This came up for me last Fall, when our team decided to pivot from a web-based experience to an installable iOS app in the Store.
+So, that's all fine for web applications - but what about mobile apps? This came up for me last Fall, when our team decided to pivot from a web-based experience to [an installable iOS app in the Store](https://apps.apple.com/us/app/mozilla-didthis/id6468680088).
 
 In building this app, I chose to go with [React Native](https://reactnative.dev/) and [Expo](https://docs.expo.dev/) as the foundation. This seemed like a good idea [to further leverage our React chops](https://blog.lmorchard.com/2015/07/22/react-multiplatform/) and [maybe even reuse some code](https://blog.lmorchard.com/2015/09/21/react-native-android/).
 
