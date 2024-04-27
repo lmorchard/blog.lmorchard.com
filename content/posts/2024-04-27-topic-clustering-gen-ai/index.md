@@ -180,7 +180,7 @@ To make it work, you need to train a machine learning model over an enormous cor
 
 The `text-embedding-ada-002` model produces vectors of 384 floating point numbers. I take this to mean that the model has encoded 384 axes of semantic similarity - sort of the "resolution" of the model, if you will. This, along with other factors I don't quite understand yet, can be used to decide on what embedding model to use for a given task.
 
-Honestly, tt's a black box to me - I don't know what the semantic axes mean in any given model. And, modulo research I haven't yet read, I don't think anyone really knows what they mean, if that's even the right way to think about it.
+Honestly, it's a black box to me - I don't know what the semantic axes mean in any given model. And, modulo research I haven't yet read, I don't think anyone really knows what they mean, if that's even the right way to think about it.
 
 But, the gist is that you get a fancy hash function that can be used to index text in a way that roughly corresponds to semantics.
 
@@ -304,11 +304,11 @@ Unfortunately, I didn't think to capture the half-dozen rounds of fumbling it to
 
 ![a screenshot of a transcript working with ChatGPT](chatgpt-transcript.png)
 
-Pretty nifty. "Common Household Pets" an acceptable answer for me. Though, why did I thank the computer? [I don't know. It didn't hurt?](https://blog.lmorchard.com/2022/06/12/jays-machine-friends/) And maybe I'll be last [up against the wall when the revolution comes](https://hitchhikers.fandom.com/wiki/Sirius_Cybernetics_Corporation)?
+Pretty nifty. "Common Household Pets" was an acceptable answer for me. Though, why did I thank the computer? [I don't know. It didn't hurt?](https://blog.lmorchard.com/2022/06/12/jays-machine-friends/) And maybe I'll be last [up against the wall when the revolution comes](https://hitchhikers.fandom.com/wiki/Sirius_Cybernetics_Corporation)?
 
 This, in the biz, is what we call "[prompt engineering][]". In a nutshell, you throw many descriptive drafts of wishful thinking at the machine until it starts to give you what you want.
 
-As far as I can tell - and again, modulo any research I've yet to read - it's in no way an exact science. My working hypothesis is that you're nudging the model into areas of its training that roughly correspond to what you want, based on how other folks wrote things similar to your request in the training set.
+As far as I can tell - and again, modulo any research I've yet to read - it's not an exact science. My working hypothesis is that you're nudging the model into areas of its training that roughly correspond to what you want, based on how other folks wrote things similar to your request in the training set.
 
 And, in the case of this blog post, the prompt seems good enough to generate labels for our clusters:
 
