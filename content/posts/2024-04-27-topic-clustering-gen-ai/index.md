@@ -178,23 +178,23 @@ When I first learned about [vector embeddings][], it sounded entirely sci-fi and
 
 To make it work, you need to train a machine learning model over an enormous corpus of example text. Roughly speaking, the training encodes the relationships of words and phrases based on surrounding context. The resulting model can then generate what I think of as positions along a large number of semantic axes for any given text you throw at it.
 
-The `text-embedding-ada-002` model produces vectors of 384 floating point numbers. I take this to mean that the model has encoded 384 axes of semantic similarity - sort of the "resolution" of the model, if you will. This, along with other factors I don't quite understand yet, can be used to decide on what embedding model to use for a given task.
+The `text-embedding-ada-002` model produces vectors of 384 floating point numbers. I take this to mean that the model has encoded 384 axes of semantic similarity - sort of the "resolution" of the model, if you will. This, along with other factors I don't quite understand yet, can be used to decide on which embedding model to use for a given task. (And there are quite a few to choose from.)
 
-Honestly, it's a black box to me - I don't know what the semantic axes mean in any given model. And, modulo research I haven't yet read, I don't think anyone really knows what they mean, if that's even the right way to think about it.
+Honestly, it's a black box to me - I don't know what the semantic axes mean in any given model. And, modulo research I haven't yet read, I don't think anyone really knows what they mean.
 
 But, the gist is that you get a fancy hash function that can be used to index text in a way that roughly corresponds to semantics.
 
 ## K-means clustering in a semantic space
 
-Okay, so, we've got a list of notes and we've got an associated list of embeddings. Assuming you believe me that the embeddings can be used as coordinates in a semantic space, we can apply a spatial algorithm to group the points - and, thereby, the notes - into clusters.
+Okay, so, we've got a list of notes and we've got an associated list of embeddings. Assuming you believe that the embeddings can be used as coordinates in a semantic space, we can apply a spatial algorithm to group the points - and, thereby, the notes - into clusters.
 
-The [k-means clustering][] algorithm is a way to do this. I don't entirely understand this algorithm - it's another black box. I think the way it works is by placing a set number of points in space and then jiggling them away from each other until they're each in the middle of a bunch of other points. Then, you divide the space up in a clever way around those central points to define clusters.
+The [k-means clustering][] algorithm is a way to do this. It's another black box to me, but I think the way it works is by placing a set number of points in space at random and then jiggling them away from each other until they're each in the middle of a dense bunch of other points. Then, it divides the space up in a clever way around those "centroid" points to define clusters.
 
-An interesting thing here is that [k-means clustering][] doesn't know anything about words or language. It just knows about points in a space of arbitrary dimensions. But, since we've managed to map text into meaning-like points, we can use it to cluster text.
+The real interesting thing here is that [k-means clustering][] doesn't know anything about words or language. It just knows about points in a space of arbitrary dimensions. But, since we've managed to map text into meaning-like points, we can use it to cluster text. And, in turn, since we've expressed ideas as text, this can help us organize ideas.
 
-I'm counting this as food for thought in considering further tools that can be applied to language, thanks to [vector embeddings][].
+Weird, but I'm counting this as food for thought in considering further tools that can be applied to language, thanks to [vector embeddings][].
 
-Anyway, here's some code that applies k-means clustering to our list of embeddings - which in turn corresponds to our list of notes:
+Anyway, here's some code that applies k-means clustering to our list of embeddings - which in turn corresponds to our list of notes. The heavy lifting is done with the `sklearn` package, the rest of the code just juggles the results into a more convenient shape:
 
 ```python
 from sklearn.cluster import KMeans
@@ -306,9 +306,9 @@ Unfortunately, I didn't think to capture the half-dozen rounds of fumbling it to
 
 Pretty nifty. "Common Household Pets" was an acceptable answer for me. Though, why did I thank the computer? [I don't know. It didn't hurt?](https://blog.lmorchard.com/2022/06/12/jays-machine-friends/) And maybe I'll be last [up against the wall when the revolution comes](https://hitchhikers.fandom.com/wiki/Sirius_Cybernetics_Corporation)?
 
-This, in the biz, is what we call "[prompt engineering][]". In a nutshell, you throw many descriptive drafts of wishful thinking at the machine until it starts to give you what you want.
+This, in the biz, is what we call "[prompt engineering][]". In a nutshell, you throw many drafts of wishful thinking at the machine until it starts to give you what you want. And, weirdly, it often does.
 
-As far as I can tell - and again, modulo any research I've yet to read - it's not an exact science. My working hypothesis is that you're nudging the model into areas of its training that roughly correspond to what you want, based on how other folks wrote things similar to your request in the training set.
+It's nowhere near an exact science, though there's tooling and techniques I've yet to learn. My working hypothesis is that you're nudging the model into areas of its training that roughly correspond to what you want, based on how other folks wrote things similar to your request in the training set.
 
 And, in the case of this blog post, the prompt seems good enough to generate labels for our clusters:
 
@@ -340,7 +340,9 @@ for cluster in clustered_items:
     print()
 ```
 
-This code takes each cluster of notes, generates a label for the cluster, and then prints out the label followed by the notes in the cluster. When I ran it, this is what I got:
+This code takes each cluster of notes, generates a label for the cluster, and then prints out the label followed by the notes in the cluster.
+
+When I ran it, this is what I got:
 
 ```markdown
 # Pets
@@ -412,19 +414,25 @@ This code takes each cluster of notes, generates a label for the cluster, and th
 - wendy carlos
 ```
 
-I mean, that's a pretty good result, actually? If I were using this for something serious, I'd go through and nudge a few items around. But, it would have saved me maybe 20 minutes, having taken only about 30 seconds to run end-to-end in the notebook. I have no idea whether that makes it worth all the electricity consumed to make it happen, but that's a story for another day.
+I mean, that's not bad? If I were using this for something serious, I'd go through and nudge a few items around. But, it would have saved me (or a group) maybe 20 minutes, having taken only about 30 seconds to run end-to-end in the notebook.
 
-Also, if you run it repeatedly, you'll get different labels - similar to the behavior of the k-means clustering, though for slightly different reasons. (Which, again, I don't entirely understand yet.) But, that's another place where you can play with the fuzziness. And, in a brainstorming context, that's not a bad thing.
+Also, if you run it repeatedly, you'll get different labels. Sometimes the labels won't make sense. But, that's another place where you can play with the fuzziness. And, in a brainstorming context, that's not a terrible thing.
 
 ## Wrapping up
 
-So, that's a rough pass at how you might implement a tool to cluster notes by topic using machine learning and generative AI. There's not a ton to it, code-wise. I'm good at gluing things together, and that's what I've done here. But, there's a lot of interesting stuff going on under the hood and things to think about.
+So, that's a rough pass at how you might implement a tool to cluster notes by topic using machine learning and generative AI. There's not a ton to it, code-wise. I'm good at gluing things together, and that's what I've done. But, there's a lot of interesting stuff going on under the hood and things to think about further.
 
-I'm skeptical of most of the hype around AI and machine learning. But, I don't think that they're just a useless fad. I think there's a lot of potential here, but it's important to understand what this collection of technologies can and can't do.
+Some next steps, top of mind:
 
-I'm really trying to wrap my head around this stuff and train my own expectations. It's important to understand the limitations and the fuzziness of these tools - even if, in the end, I decide they're not suitable for a bunch of things.
+- There are multiple choices for embedding models, clustering algorithms, and language models. I'd like to try this whole exercise again, but with different choices in each slot to see how the results change.
 
-And, the best way I know how to do that is by plugging things into other things and seeing what happens!
+- I used the OpenAI APIs here, but local models are a thing. I'd like to see how much of this exercise I can run entirely on my own hardware without sending data off to third parties.
+
+- I'd like to try throwing a larger set of more complex ideas at this and see what what that means for refining the prompt.
+
+All-in-all, I'm skeptical of the latest hype wave around AI. But, I don't think that this stuff can be dismissed as a fad. There's a lot of potential here, and it's important to understand what this stuff can and can't do.
+
+I'd like to be able to make practical engineering decisions, even if a lot of it remains a collection of black boxes to me. The best way I know how to do that is by plugging things into other things and seeing what happens.
 
 [word2vec]: https://en.wikipedia.org/wiki/Word2vec
 [hash function]: https://en.wikipedia.org/wiki/Hash_function
