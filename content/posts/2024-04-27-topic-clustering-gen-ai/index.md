@@ -2,6 +2,7 @@
 title: Clustering ideas by topic with machine learning and generative AI
 tags:
   - ai
+  - ml
   - llm
   - genai
 ---
@@ -64,12 +65,12 @@ By the way, if you've got time, you can play along with this blog post at home w
 
 - [topic_clustering_with_openai.ipynb](./topic_clustering_with_openai.ipynb)
 
-Someday, I might figure out a way to integrate notebooks into this blog. But, until then, you can run it with [Google Collab][] and see the results for yourself. If you want to do that, you'll also need an [OpenAI API key][], since I won't be sharing my own here.
+Someday, I might figure out a way to integrate notebooks into this blog. But, until then, you can run it with [Google Colab][] and see the results for yourself. If you want to do that, you'll also need an [OpenAI API key][], since I won't be sharing my own here.
 
 I'll leave it as an exercise to the reader to figure out how to get all this working. But, it's worth learning how to use these tools if you're interested in this kind of thing.
 
 [openai api key]: https://platform.openai.com/
-[google collab]: https://colab.research.google.com/
+[google colab]: https://colab.research.google.com/
 
 ## Opening ceremonies
 
