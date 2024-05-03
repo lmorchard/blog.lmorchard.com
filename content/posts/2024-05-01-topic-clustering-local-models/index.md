@@ -5,6 +5,7 @@ tags:
   - ml
   - llm
   - genai
+  - ClusteringIdeasWithAI
 ---
 
 **TL;DR**: In [my previous post][], I used APIs from OpenAI to roughly cluster ideas by named topic. In this post, I'll try that again, but this time with local models on my own hardware.

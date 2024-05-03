@@ -5,6 +5,7 @@ tags:
   - ml
   - llm
   - genai
+  - ClusteringIdeasWithAI
 ---
 
 **TL;DR**: FigJam has a feature where you can automatically cluster sticky notes by topic. I wanted to see if I could glue some things together to implement this myself.
