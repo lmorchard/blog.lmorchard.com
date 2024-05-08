@@ -35,7 +35,7 @@ As a refresher, the thing that got me started on this was a feature in Figma's [
   <figcaption>A quick demo of FigJam's sticky organization feature - it's more legible in fullscreen view</figcaption>
 </figure>
 
-## How does it do what it does?
+## How to do that thing?
 
 Again, I don't know exactly how [FigJam][] does this. But, here's my own stab at a process:
 
