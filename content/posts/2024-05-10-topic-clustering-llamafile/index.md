@@ -339,13 +339,15 @@ This a weird little hunk of text. It smells technical, but it's not really XML o
 
 Previously, I used the `pipe.tokenizer.apply_chat_template()` method to produce the full text of a prompt I fed into the model. It worked, so I just took it as a magical copypasta incantation from examples in the documentation. However, since I've left that code behind, I want to learn a little more about what this does.
 
-Here's my current working understanding:
+Here's my current understanding:
 
-Large language models can generate plausible continuations of text from given input. They're trained from an enormous pile of examples of both natural language in general and purpose-specific content.
+Large language models can generate plausible continuations of text from given input. To do that, they're trained from an enormous pile of both natural language in general and purpose-specific content.
 
-When you want to fine-tune an LLM to perform in a specific way - e.g. as a chatty assistant - you need to structure those examples such that they fit the purpose. In a chat, you need to distinguish between the system's part of the conversation and the user's part.
+When you want to fine-tune an LLM to perform in a particular way, you need to structure those examples such that they fit the purpose. For a chatty assistant, you need to distinguish between the system's part and the user's part so that the model encodes the general patterns of conversational exchanges.
 
-For example, here's an outdated example of "[ChatML](https://github.com/openai/openai-python/blob/release-v0.28.0/chatml.md)" that I think illustrates the idea:
+Then, later, when you call upon the model to generate text, you provide it with a prompt that follows the same structure. Thus, the plausible continuation it will produce should be very likely to fit the format. This is where the prompt template comes in.
+
+For example, here's an old example of "[ChatML](https://github.com/openai/openai-python/blob/release-v0.28.0/chatml.md)" that I think illustrates the idea:
 
 ```xml
 <|im_start|>system
@@ -360,9 +362,9 @@ I am doing well!<|im_end|>
 How are you now?<|im_end|>
 ```
 
-A confusing yet interesting thing is that the training process doesn't involve explicit parsing code. The algorithm just sort of extracts a model of the formatting convention after having processed many examples.
+A confusing yet interesting thing is that the training process doesn't involve explicit parsing code. The model just sort of acquires an encoding of the formatting convention after having processed many examples.
 
-So, in other words, you can just make it up: use any arbitrary yet consistent pattern of distinctive string tokens to denote structure. And indeed, rvery model seems to have been trained around a different convention. Generally the "Model Card" or other documentation will clue you into what format was used in training.
+So, in other words, you can just make it up: use any arbitrary yet consistent pattern of distinctive string tokens to denote structure. And indeed, every model seems to have been trained around a different convention. Generally the "Model Card" or other documentation will clue you into what format was used.
 
 For TinyLlama, [this appears to be the prompt template](https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0#how-to-use):
 
@@ -382,7 +384,7 @@ I guess I could have just said that and skipped this whole section? But, this se
 
 ## Generating labels (finally)
 
-Alright, now that we've got our prompt template squared away, it's time to build a function to actually feed it to the TinyLlama model hosted by the Llamafile process:
+Alright, now that we've got our prompt template squared away, it's time to build a function to feed it to the TinyLlama model hosted by the Llamafile process:
 
 ```python
 def generate_topic(items):
@@ -517,7 +519,7 @@ And, when I ran the code, here's what I got:
 - gary numan
 ```
 
-It's a little funky and could use some tidying up. But, I wanted to share it as-is. I think it's not bad for a quick experiment. There's plenty of room for further tinkering.
+It's a little funky and could use some tidying up. But, I wanted to share it as-is. It's not bad for a quick experiment. There's plenty of room for further tinkering.
 
 This seems to be the nature of the LLM beast. I expect that the quantization changes how generation follows from the prompts. Or, who knows, maybe the full version of the model would have produced these same results after a few trials?
 
