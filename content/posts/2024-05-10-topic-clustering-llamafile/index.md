@@ -19,7 +19,7 @@ tags:
 
 <nav role="navigation" class="table-of-contents"></nav>
 
-## Organizing sticky notes in FigJam
+## Organizing notes in FigJam
 
 If you've been following along, then you know what inspired this series of posts is a feature in Figma's [FigJam][] tool.
 
@@ -35,7 +35,7 @@ I'm getting a lot of blog-mileage out of this little video:
   <figcaption>A quick demo of FigJam's sticky organization feature - it's more legible in fullscreen view</figcaption>
 </figure>
 
-## How to organize notes
+## How's it work?
 
 I still don't know how [FigJam][] implements this feature. But, here's how I'm doing it:
 
@@ -88,9 +88,13 @@ While playing at home, you might want to download [a few different Llamafile ver
 
 ## Running a Llamafile
 
-After you've downloaded one, there's a few ways to run a Llamafile. For this post, we're going to run it as a local web service. The notebook code will make HTTP requests to the service to get embeddings and generate labels - not entirely unlike where we started in [my earlier post][] by making calls to OpenAI's API.
+For this post, we're going to run the Llamafile as a local web service. The notebook code will make HTTP requests to the service to get embeddings and generate labels - not entirely unlike where we started in [my earlier post][] by making calls to OpenAI's API.
 
-On MacOS and Linux, you'll need to open a terminal and it like so:
+Of course, after having marvelled at how this thing runs anywhere, I should note that there are [a few gotchas](https://github.com/Mozilla-Ocho/llamafile?tab=readme-ov-file#gotchas) of which to be aware. Many of these [are documented on the Llamafile project page](https://github.com/Mozilla-Ocho/llamafile?tab=readme-ov-file#gotchas), so I won't repeat them all here.
+
+One thing to note for MacOS in particular, is that you're going to need [Xcode and its Command Line Tools](https://developer.apple.com/xcode/resources/) installed: part of the executable needs to build itself during the initial bootstrapping process. But, you don't need to do anything yourself besides run the Llamafile to kick that off.
+
+On MacOS and Linux, open a terminal and run a Llamafile like so:
 
 ```bash
 cd ~/Downloads
@@ -98,7 +102,7 @@ chmod +x ./TinyLlama-1.1B-Chat-v1.0.Q4_0.llamafile
 ./TinyLlama-1.1B-Chat-v1.0.Q4_0.llamafile -ngl 9999 --embedding --port 8887
 ```
 
-On Windows, you'll need to open a Command Prompt and run the Llamafile like so:
+On Windows, open a Command Prompt and run it like so:
 
 ```powershell
 cd %USERPROFILE%\Downloads
@@ -106,13 +110,15 @@ ren TinyLlama-1.1B-Chat-v1.0.Q4_0.llamafile TinyLlama-1.1B-Chat-v1.0.Q4_0.llamaf
 .\TinyLlama-1.1B-Chat-v1.0.Q4_0.llamafile.exe -ngl 9999 --embedding --port 8887
 ```
 
-The first step to make the executable, erm, executable. On MacOS and Linux, that's done via `chmod`. On Windows, that's done by ensuring the file has an `.exe` extension. Then, you can run it with a few options to start the service:
+The gist of things here is to ensure the executable is, well, executable. On MacOS and Linux, that's done via `chmod`. On Windows, that's done by ensuring the file has an `.exe` extension.
+
+Then, I supply the command with a few options:
 
 - The `--port 8887` option tells it to listen on port 8887 as a local web service.
 - The `--embedding` option tells the Llamafile to expose an endpoint for generating vector embeddings.
-- The `-ngl 9999` option is honestly a bit mysterious to me. But, I saw a log message at one point telling me it was needed to ensure the model actually ran with GPU acceleration. So, I include it in the magic incantation and hope to someday understand it better.
+- The `-ngl 9999` option is honestly a bit mysterious to me. But, I saw a log message at one point telling me to use it to ensure the model actually ran with GPU acceleration. So, I include it in the magic incantation and hope to someday understand it better.
 
-In either case, you should see a flurry of output - some of which, interestingly, may include actually building part of the executable from source. Eventually, you should see messages like this:
+In either case, you should see a flurry of output - some of which, interestingly, may include actually [building part of the executable to bootstrap](https://github.com/Mozilla-Ocho/llamafile?tab=readme-ov-file#gotchas). Eventually, you should see messages like this:
 
 ```bash
 {"function":"initialize","level":"INFO","line":481,"msg":"initializing slots","n_slots":1,"tid":"1099515504464","timestamp":1715213605}
@@ -136,7 +142,7 @@ This web UI is a handy way to poke around and test the model. However, you can a
 
 So, assuming you're playing along at home, keep this Llamafile process running in one terminal or command window. In another, start up your local install of [Jupyter Notebook][] and open the notebook you downloaded earlier.
 
-## Opening code ceremonies
+## Opening ceremonies (yet again)
 
 Finally getting to the code, here's a list of "ideas" in need of organization:
 
@@ -180,13 +186,13 @@ items_text = """
 items = [x for x in items_text.split("\n") if x]
 ```
 
-Next, some code to install modules:
+Then, here a notebook command to install modules:
 
 ```python
 %pip install requests scikit-learn
 ```
 
-If you've read the previous two posts, you might notice that I'm barely installing any dependencies at all this time around. Just `requests` to make HTTP requests and `scikit-learn` for k-means clustering. In exchange for very few dependencies in my notebook, I'm aiming to outsource nearly all the smarts to the Llamafile process
+If you've read the previous two posts, you might notice that I'm barely installing any dependencies at all. Just `requests` to make HTTP requests and `scikit-learn` for k-means clustering. In exchange for very few dependencies in my notebook, I'm aiming to outsource nearly all the smarts to the Llamafile process
 
 ## Vector embeddings
 
@@ -213,9 +219,9 @@ embeddings = generate_embeddings(items)
 
 This uses your local Llamafile process to access the embedding model that's included as a part of TinyLlama and generate embeddings for each item in the list.
 
-In case you're interested in what other services are exposed by the Llamafile process, [here's some documentation on the server API](https://github.com/Mozilla-Ocho/llamafile/blob/main/llama.cpp/server/README.md#api-endpoints). Some interesting stuff in there!
+In case you're interested in what other services are exposed by the Llamafile process, [here's some documentation on the server API](https://github.com/Mozilla-Ocho/llamafile/blob/main/llama.cpp/server/README.md#api-endpoints). Interesting stuff in there!
 
-Assuming this call is successful, you should see a list of lists of numbers like so:
+Assuming this call is successful, you should get list of lists of numbers like so:
 
 ```python
 embeddings[0]
@@ -240,9 +246,9 @@ I think that means the embeddings are higher quality and more detailed? But, I'v
 
 ## K-means clustering
 
-We're going to use the `KMeans` class from `scikit-learn` to group the embeddings into clusters. Once more, this part doesn't change from [the previous post][my previous post]. But, I'm including it here for the sake of completeness.
+We're going to use the `KMeans` class from `scikit-learn` to group the embeddings into clusters. This part doesn't change from [the previous post][my previous post], but I'm including it again for the sake of completeness.
 
-At some point, I should try some different algorithms? But, I figured that's not the interesting thing to vary in this post. So, we run this code to cluster the embeddings:
+At some point, I should try some different algorithms? But, I figured that's not the interesting thing to vary in this post. So, we use this code to cluster the embeddings:
 
 ```python
 from sklearn.cluster import KMeans
@@ -296,9 +302,9 @@ Running this code, I got these clusters as a result:
 
 Not perfect, but not bad? Because this clustering algorithm is non-deterministic, it's worth running repeatedly until you get a set of clusters that make sense to you. And, you might want to try different numbers of clusters.
 
-## Generating labels
+## Prompt templates (in further depth, this time)
 
-TKTK these are the same prompts i used in the previous post
+Since I'm still using TinyLlama here, I'll reuse the same prompts I from [the previous post](https://blog.lmorchard.com/2024/05/01/topic-clustering-local-models/#generating-labels-your-own-personal-llm):
 
 ```python
 import requests
@@ -306,7 +312,8 @@ import requests
 system_prompt = """You are a helpful but terse assistant."""
 
 user_prompt = """
-Given the following list of items, I need a succinct label that effectively encapsulates the overall theme or purpose.
+Given the following list of items, I need a succinct label that effectively
+encapsulates the overall theme or purpose.
 
 This is the list of items:
 
@@ -316,7 +323,9 @@ Can you generate a concise, descriptive label for this list? Thanks in advance!
 """
 ```
 
-TKTK new concept here - in the previous post i used `pipe.tokenizer.apply_chat_template`, but here I have to do it myself. prompt template is a convention used during training to tell the model what kind of text to expect at each point in the conversation and how to respond. seems kind of arbitrary, but it's baked into the model via the formatting of training examples rather than any kind of programmatic parsing code
+Of course, having mentioned [quantization](https://huggingface.co/docs/optimum/en/concept_guides/quantization), I suspect that these prompts will yield slightly different results. This prompt engineering thing is pretty fuzzy. I expect I'll need to just try and see.
+
+The next thing is a new concept versus [the previous post](https://blog.lmorchard.com/2024/05/01/topic-clustering-local-models/#generating-labels-your-own-personal-llm) - i.e. a prompt template:
 
 ```python
 prompt_template = """<|system|>
@@ -326,7 +335,54 @@ prompt_template = """<|system|>
 <|assistant|>"""
 ```
 
-TKTK something about how similar this is to the previous post and setting parameters when calling the TinyLlama model for text generation
+This a weird little hunk of text. It smells technical, but it's not really XML or HTML?
+
+Previously, I used the `pipe.tokenizer.apply_chat_template()` method to produce the full text of a prompt I fed into the model. It worked, so I just took it as a magical copypasta incantation from examples in the documentation. However, since I've left that code behind, I want to learn a little more about what this does.
+
+Here's my current working understanding:
+
+Large language models can generate plausible continuations of text from given input. They're trained from an enormous pile of examples of both natural language in general and purpose-specific content.
+
+When you want to fine-tune an LLM to perform in a specific way - e.g. as a chatty assistant - you need to structure those examples such that they fit the purpose. In a chat, you need to distinguish between the system's part of the conversation and the user's part.
+
+For example, here's an outdated example of "[ChatML](https://github.com/openai/openai-python/blob/release-v0.28.0/chatml.md)" that I think illustrates the idea:
+
+```xml
+<|im_start|>system
+You are ChatGPT, a large language model trained by OpenAI. Answer as concisely as possible.
+Knowledge cutoff: 2021-09-01
+Current date: 2023-03-01<|im_end|>
+<|im_start|>user
+How are you<|im_end|>
+<|im_start|>assistant
+I am doing well!<|im_end|>
+<|im_start|>user
+How are you now?<|im_end|>
+```
+
+A confusing yet interesting thing is that the training process doesn't involve explicit parsing code. The algorithm just sort of extracts a model of the formatting convention after having processed many examples.
+
+So, in other words, you can just make it up: use any arbitrary yet consistent pattern of distinctive string tokens to denote structure. And indeed, rvery model seems to have been trained around a different convention. Generally the "Model Card" or other documentation will clue you into what format was used in training.
+
+For TinyLlama, [this appears to be the prompt template](https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0#how-to-use):
+
+```xml
+<|system|>
+You are a friendly chatbot who always responds in the style of a pirate.</s>
+<|user|>
+How many helicopters can a human eat in one sitting?</s>
+<|assistant|>
+```
+
+TL;DR: This seems to match the format produced in the previous post by `pipe.tokenizer.apply_chat_template()`.
+
+So, that's how I arrived at the `prompt_template` string in this post.
+
+I guess I could have just said that and skipped this whole section? But, this seems like another area for further learning. In particular, I'd like to get a look at some specific examples of training data for TinyLlama using this format to close the loop on my understanding. But, I've yet to figure out how to find that sort of thing.
+
+## Generating labels (finally)
+
+Alright, now that we've got our prompt template squared away, it's time to build a function to actually feed it to the TinyLlama model hosted by the Llamafile process:
 
 ```python
 def generate_topic(items):
@@ -353,14 +409,18 @@ def generate_topic(items):
     return data["content"]
 ```
 
+In the previous post, I used the Sentence Transformers `pipe()` function to pass the prompt and a set of parameters to TinyLlama. Here, I'm doing much the same thing with an HTTP request to the local Llamafile process, just like how we got the embeddings earlier.
+
+A lot of these parameters also look similar:
+
 - `n_predict` is the maximum number of tokens to predict - roughly the maximum length of the generated text
 - `temperature` tells the LLM how much of a rando to be while selecting tokens during generation
 - `top_k` tells the LLM how many different tokens to decide between at each step of generation
 - `top_p` tells the LLM how picky to be about the most likely tokens to select while generating
 
+As before, my vague intent was to make the model's behavior boring and consistent. But, these are all knobs worth playing with to see how they affect the output.
 
-
-Apropos of that, here's a loop to generate topics for each cluster:
+Speaking of output, here's a loop to generate topics:
 
 ```python
 for cluster in clustered_items:
@@ -373,11 +433,7 @@ for cluster in clustered_items:
     print()
 ```
 
-TKTK
-
-When I ran this, here's what I got:
-
-TKTK: something else I noticed, versus my previous post, is that this llamafile runs so much faster than the Sentence Transformers code. I think that's down to optimizations in how llamafile runs, and maybe also the quantization? Another thing for me to dig into later. But, this means I can re-run this code to quickly iterate until I get labels I like best
+And, when I ran the code, here's what I got:
 
 ```python
 #
@@ -461,12 +517,27 @@ TKTK: something else I noticed, versus my previous post, is that this llamafile 
 - gary numan
 ```
 
+It's a little funky and could use some tidying up. But, I wanted to share it as-is. I think it's not bad for a quick experiment. There's plenty of room for further tinkering.
+
+This seems to be the nature of the LLM beast. I expect that the quantization changes how generation follows from the prompts. Or, who knows, maybe the full version of the model would have produced these same results after a few trials?
+
+If the results end up being rather consistent - which is what I was aiming at with the parameter choices in generation - then I could hack in some post-processing to get closer to the exact result I want.
+
+That said, using this quantized TinyLlama model in Llamafile form seems to yield dramatically better performance than the code in [my previous post][]. From what I've read, Llamafile comes with a raft of optimizations and efficiencies that make this happen. I'm curious to dig further into all that, too.
+
+The upshot, though, is that I can re-run this label generation code to iterate on the results with far quicker turnaround. Since the resulting output is still practically pretty good - subjectively speaking - this feels like a major improvement!
+
 ## Wrapping up
 
-TKTK
+I feel like I've gotten into a groove with this trio of posts so far. Each has been a variation on the general theme of this fairly simple topic clustering task, swapping in different parts each time. This is how I often hack on new things in general, but I don't think I've tried writing it out exactly like this before.
+
+At this point, I've tried using OpenAI's APIs, using local models with PyTorch and Sentence Transformers, and now using Llamafile. Along the way, I've sort of tried to flag a few directions for further exploration.
+
+If I keep this series rolling, I may use the next post to take a step back and review. Maybe work out what leads I want to chase next. There are other problems to solve besides topic clustering, of course. But, I think some of the tinkering here is a good set up for further variations.
+
+In any case, I hope this stuff has been interesting to some folks. I'm not hard to find, reach out with any feedback!
 
 [my previous post]: https://blog.lmorchard.com/2024/05/01/topic-clustering-local-models/
-
 [llamafile]: https://github.com/Mozilla-Ocho/llamafile
 [figjam]: https://www.figma.com/figjam/
 [my previous post]: https://blog.lmorchard.com/2024/05/01/topic-clustering-local-models/
