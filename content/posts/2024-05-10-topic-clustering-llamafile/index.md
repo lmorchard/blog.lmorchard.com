@@ -116,7 +116,7 @@ Then, I supply the command with a few options:
 
 - The `--port 8887` option tells it to listen on port 8887 as a local web service.
 - The `--embedding` option tells the Llamafile to expose an endpoint for generating vector embeddings.
-- The `-ngl 9999` option is honestly a bit mysterious to me. But, I saw a log message at one point telling me to use it to ensure the model actually ran with GPU acceleration. So, I include it in the magic incantation and hope to someday understand it better.
+- The `-ngl 9999` option tells the llama.cpp engine how many layers of the artificial neural network to offload to the GPU [for accelerated processing](https://github.com/ggerganov/llama.cpp/blob/master/examples/llama-bench/README.md#different-numbers-of-layers-offloaded-to-the-gpu) - which I think can let you split the work between CPU & GPU in a pinch, but here I just throw everything at the GPU. (Thanks to folks on the Mozilla AI Discord for [helping me understand this option](https://discord.com/channels/1089876418936180786/1238227014519881928/1238431381688942632)!)
 
 In either case, you should see a flurry of output - some of which, interestingly, may include actually [building part of the executable to bootstrap](https://github.com/Mozilla-Ocho/llamafile?tab=readme-ov-file#gotchas). Eventually, you should see messages like this:
 
@@ -194,7 +194,7 @@ Then, here a notebook command to install modules:
 
 If you've read the previous two posts, you might notice that I'm barely installing any dependencies at all. Just `requests` to make HTTP requests and `scikit-learn` for k-means clustering. In exchange for very few dependencies in my notebook, I'm aiming to outsource nearly all the smarts to the Llamafile process
 
-## Vector embeddings
+## Vector embeddings (ala Llamafile)
 
 If you recall [from earlier posts](https://blog.lmorchard.com/2024/04/27/topic-clustering-gen-ai/#mapping-notes-with-vector-embeddings), embedding models are a bit like hash functions. They take a string of words and turn it into a list of numbers. More interesting than hashes, though, these numbers can act as positions in a high-dimensional space where distance between points can represent semantic similarity.
 
