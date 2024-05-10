@@ -116,7 +116,7 @@ Then, I supply the command with a few options:
 
 - The `--port 8887` option tells it to listen on port 8887 as a local web service.
 - The `--embedding` option tells the Llamafile to expose an endpoint for generating vector embeddings.
-- The `-ngl 9999` option tells the llama.cpp engine how many layers of the artificial neural network to offload to the GPU [for accelerated processing](https://github.com/ggerganov/llama.cpp/blob/master/examples/llama-bench/README.md#different-numbers-of-layers-offloaded-to-the-gpu) - which I think can let you split the work between CPU & GPU in a pinch, but here I just throw everything at the GPU. (Thanks to folks on the Mozilla AI Discord for [helping me understand this option](https://discord.com/channels/1089876418936180786/1238227014519881928/1238431381688942632)!)
+- The `-ngl 9999` option tells the llama.cpp engine how many layers of the artificial neural network to offload to the GPU [for accelerated processing](https://github.com/ggerganov/llama.cpp/blob/master/examples/llama-bench/README.md#different-numbers-of-layers-offloaded-to-the-gpu) - which I think can let you split the work between CPU & GPU in a pinch, but here I just throw everything at the GPU. (Thanks to folks on [the Mozilla AI Discord](https://discord.gg/JeBN7Ws8Vk) for [helping me understand this option](https://discord.com/channels/1089876418936180786/1238227014519881928/1238431381688942632)!)
 
 In either case, you should see a flurry of output - some of which, interestingly, may include actually [building part of the executable to bootstrap](https://github.com/Mozilla-Ocho/llamafile?tab=readme-ov-file#gotchas). Eventually, you should see messages like this:
 
