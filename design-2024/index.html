@@ -1,61 +1,67 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧐</text></svg>"> -->
     <script type="module" src="./index.js"></script>
-    <link rel="stylesheet" type="text/css" href="./index.css">
+    <link rel="stylesheet" type="text/css" href="./index.css" />
   </head>
   <body>
     <div class="viewport">
-
-
       <article class="content content-grid">
         <div class="logo">
-          <span>blog.</span>
-          <span>lmorchard</span>
-          <span>.com</span>
+          <div>
+            <span>blog.</span>
+            <span>
+              <div>
+                <svg viewBox="0 0 98 15" style="width: 100%">
+                  <style>
+                    text {
+                      font: 18px monospace;
+                    }
+                  </style>
+                  <text x="0" y="15" fill="currentcolor">lmorchard</text>
+                </svg>
+              </div>
+            </span>
+            <span>.com</span>
+          </div>
         </div>
-        <header class="main-head">
-          <nav class="main-nav">
-            <ul>
-              <li><a href>Nav 1</a></li>
-              <li><a href>Nav 2</a></li>
-              <li><a href>Nav 3</a></li>
-              <li>
-                <theme-selector>
-                  <button>
-                    <span class="icon light">🌞 Light theme</span>
-                    <span class="icon dark">🌚 Dark theme</span>
-                  </button>
-                </theme-selector>
-              </li>
-            </ul>
-          </nav>
-          <h1>The header</h1>
-        </header>
-        <h1>Main article area</h1>
+
+        <nav class="main-nav">
+          <ul>
+            <li><a href>Home</a></li>
+            <li><a href>Archives</a></li>
+            <li><a href>About Me</a></li>
+            <li>
+              <theme-selector class="lazy-load-component">
+                <button>
+                  <span class="icon light">🌞 Light theme</span>
+                  <span class="icon dark">🌚 Dark theme</span>
+                </button>
+              </theme-selector>
+            </li>
+          </ul>
+        </nav>
+
+        <h1>Topic Clustering with LlamaFile and Web Components</h1>
+
+        <figure class="wide">
+          <img
+            src="https://blog.lmorchard.com/2024/06/19/topic-clustering-llamafile-web-components/cover.png"
+          />
+          <figcaption>
+            Heavy construction featuring an astronaut and a llama.
+          </figcaption>
+        </figure>
+
         <p>
           In this layout, we display the areas in source order for any screen
-          less
-          that 500 pixels wide. We go to a two column layout, and then to a
-          three
-          column layout by redefining the grid, and the placement of items on
-          the
-          grid.
+          less that 500 pixels wide. We go to a two column layout, and then to a
+          three column layout by redefining the grid, and the placement of items
+          on the grid.
         </p>
-        <ul class="toc">
-          <li><a href>Nav 1</a></li>
-          <li><a href>Nav 2</a></li>
-          <li><a href>Nav 3</a></li>
-          <li><a href>Nav 1</a></li>
-          <li><a href>Nav 2</a></li>
-          <li><a href>Nav 3</a></li>
-          <li><a href>Nav 1</a></li>
-          <li><a href>Nav 2</a></li>
-          <li><a href>Nav 3</a></li>
-        </ul>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis
           fringilla massa, vel cursus tortor vehicula semper. Vivamus dictum,
@@ -73,9 +79,12 @@
           nibh blandit arcu, et posuere ligula purus sit amet urna. Sed luctus
           ligula nunc, luctus malesuada nibh mollis eget.
         </p>
-        <p class="aside">BTW: Sed suscipit ultricies sapien et tempus. Vivamus
-          et elit
-          nec magna suscipit vehicula nec et justo.</p>
+        <aside>
+          <p>
+            BTW: Sed suscipit ultricies sapien et tempus. Vivamus et elit nec
+            magna suscipit vehicula nec et justo.
+          </p>
+        </aside>
         <p>
           Ut sed purus maximus, facilisis enim ut, varius turpis. Sed vulputate
           velit mauris, a consectetur tellus malesuada ut. Nulla feugiat lacinia
@@ -87,11 +96,24 @@
           arcu id congue finibus. Duis luctus massa ac aliquet posuere. Etiam
           faucibus arcu ut diam varius, sed euismod odio iaculis.
         </p>
-        <p class="wide">
-          Nulla mattis magna eget lobortis tempus.
-          Nunc a est aliquet, hendrerit nibh et, fermentum turpis. Sed eget
-          tellus fermentum, euismod dolor vel, blandit velit.
-        </p>
+        <div class="row">
+          <figure>
+            <img
+              src="https://blog.lmorchard.com/2024/05/10/topic-clustering-llamafile/cover.png"
+            />
+            <figcaption>
+              Lots of astronauts hanging around in space, here.
+            </figcaption>
+          </figure>
+          <figure>
+            <img
+              src="https://blog.lmorchard.com/2024/04/27/topic-clustering-gen-ai/cover.png"
+            />
+            <figcaption>
+              Lots of astronauts hanging around in space, here too.
+            </figcaption>
+          </figure>
+        </div>
         <p>
           Donec vulputate in est lacinia bibendum. Duis at libero ut arcu
           egestas accumsan. Nam eu pretium augue, dapibus auctor quam. Integer
@@ -103,7 +125,6 @@
           efficitur diam posuere eget. Phasellus dapibus posuere lacus, vitae
           semper lacus tempor eu. Curabitur pharetra elementum arcu.
         </p>
-        <p class="preside">EAT ME i'm a tasty treat</p>
         <p>
           Duis mollis imperdiet consectetur. Nulla facilisi. Nulla ut tortor
           semper, fermentum arcu id, vulputate neque. Quisque vitae elit at
@@ -112,6 +133,30 @@
           lectus. Proin mattis mauris ac tristique pellentesque. Nullam ultrices
           justo in nisl volutpat, interdum consectetur diam ultricies.
         </p>
+        <div class="row wide">
+          <figure>
+            <img
+              src="https://blog.lmorchard.com/2024/05/01/topic-clustering-local-models/cover.png"
+            />
+            <figcaption>
+              Lots of astronauts hanging around in space, here.
+            </figcaption>
+          </figure>
+          <figure>
+            <img
+              src="https://blog.lmorchard.com/2024/04/27/topic-clustering-gen-ai/cover.png"
+            />
+            <figcaption>
+              Lots of astronauts hanging around in space, here too.
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="https://blog.lmorchard.com/2023/01/16/begging-for-treats/cover.png" />
+            <figcaption>
+              Here, kitty kitty, kitty, kitty, kitty, kitty.
+            </figcaption>
+          </figure>
+        </div>
         <p>
           Nulla pretium ante blandit, rutrum eros id, eleifend quam. Etiam eget
           varius odio, in cursus elit. Vivamus auctor, nisl nec lacinia
@@ -160,6 +205,14 @@
           quis. Aliquam lacus neque, vestibulum sit amet nunc ut, varius
           convallis quam.
         </p>
+        <aside>
+          <figure>
+            <img
+              src="https://blog.lmorchard.com/2024/03/13/github-actions-for-didthis/shaven_yak.png"
+            />
+            <figcaption>A yak, shaven and ready for action.</figcaption>
+          </figure>
+        </aside>
         <p>
           Aliquam lacinia justo non est fermentum, ut rutrum quam gravida. Sed
           ac nisi lacinia, pellentesque augue sit amet, tincidunt sem. Cras
