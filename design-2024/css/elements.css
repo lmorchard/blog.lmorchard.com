@@ -18,4 +18,39 @@ a {
 /* HACK: force all images to fill their container, rely on flex and suchlike to scale images */
 img { width: 100% }
 
-p { margin: 0.75em 0; }
+p { margin: calc(var(--row-gap) / 2) 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--theme-font-family-headings);
+}
+
+figure {
+  width: 100%;
+  box-sizing: border-box;
+  margin: calc(var(--row-gap)) 0;
+  padding: 1em 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(var(--row-gap) / 2);
+  border-top: 1px dotted var(--theme-border-color);
+  border-bottom: 1px dotted var(--theme-border-color);
+}
+
+figure figcaption {
+  display: block;
+  font-size: 0.8em;
+  text-align: center;
+}
+
+aside {
+  margin: 1em 0;
+  padding: 0.5em 0;
+  border-top: 1px dotted var(--theme-border-color);
+  border-bottom: 1px dotted var(--theme-border-color);
+}
+aside > figure {
+  margin: 0;
+  padding: 0;
+  border: none;
+}

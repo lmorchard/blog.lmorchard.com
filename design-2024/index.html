@@ -4,12 +4,60 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧐</text></svg>"> -->
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./css/vendor/font-awesome.css"
+    />
+
     <script type="module" src="./index.js"></script>
     <link rel="stylesheet" type="text/css" href="./index.css" />
+
+    <!-- TODO: decide on a font and pull this stuff locally -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- https://fonts.google.com/specimen/Bitter/about -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="viewport">
       <article class="content content-grid">
+        <header>
+          <h1>Topic Clustering with LlamaFile and Web Components</h1>
+          <time datetime="2024-06-19">June 19, 2024</time>
+          <ul class="tags">
+            <li>
+              <a href="/tag/ai/">ai</a>
+            </li>
+            <li>
+              <a href="/tag/ml/">ml</a>
+            </li>
+            <li>
+              <a href="/tag/llm/">llm</a>
+            </li>
+            <li>
+              <a href="/tag/genai/">genai</a>
+            </li>
+            <li>
+              <a href="/tag/webdev/">webdev</a>
+            </li>
+            <li>
+              <a href="/tag/webcomponents/">webcomponents</a>
+            </li>
+            <li>
+              <a href="/tag/ClusteringIdeasWithAI/">ClusteringIdeasWithAI</a>
+            </li>
+          </ul>
+        </header>
+
+        <p><strong>TL;DR</strong>: In <a href="https://blog.lmorchard.com/tag/ClusteringIdeasWithAI/">my previous posts</a>, I tinkered with a few variations on clustering ideas by named topics using embeddings and text generation. In this post, I'm going to show off a web UI that I built to make this stuff easier to play with interactively.</p>
+
+        <!--
         <div class="logo">
           <div>
             <span>blog.</span>
@@ -44,9 +92,7 @@
             </li>
           </ul>
         </nav>
-
-        <h1>Topic Clustering with LlamaFile and Web Components</h1>
-
+      -->
         <figure class="wide">
           <img
             src="https://blog.lmorchard.com/2024/06/19/topic-clustering-llamafile-web-components/cover.png"
@@ -56,6 +102,7 @@
           </figcaption>
         </figure>
 
+        <h2>Phasellus elit lacus, luctus in mi eu</h2>
         <p>
           In this layout, we display the areas in source order for any screen
           less that 500 pixels wide. We go to a two column layout, and then to a
@@ -114,6 +161,7 @@
             </figcaption>
           </figure>
         </div>
+        <h2>Quisque facilisis posuere risus eget hendrerit</h2>
         <p>
           Donec vulputate in est lacinia bibendum. Duis at libero ut arcu
           egestas accumsan. Nam eu pretium augue, dapibus auctor quam. Integer
@@ -151,7 +199,9 @@
             </figcaption>
           </figure>
           <figure>
-            <img src="https://blog.lmorchard.com/2023/01/16/begging-for-treats/cover.png" />
+            <img
+              src="https://blog.lmorchard.com/2023/01/16/begging-for-treats/cover.png"
+            />
             <figcaption>
               Here, kitty kitty, kitty, kitty, kitty, kitty.
             </figcaption>
@@ -176,35 +226,44 @@
           vehicula nec, commodo congue tortor. Quisque eu sollicitudin lacus.
           Sed ac tortor ut lectus sagittis volutpat eu elementum nisi.
         </p>
-        <p>
-          Mauris tellus diam, commodo ut neque fringilla, tempus tempor tortor.
-          Suspendisse vehicula, dolor quis ullamcorper lobortis, ex dui
-          vulputate felis, ac molestie neque mauris at risus. Proin dignissim
-          suscipit lectus, et sollicitudin magna faucibus ac. Aliquam cursus,
-          mauris et dignissim tincidunt, nisl eros tempus dui, id auctor felis
-          mauris id purus. Sed sagittis vitae lorem ut tristique. Praesent at
-          sapien auctor, venenatis quam eget, dapibus sapien. Morbi rutrum mi
-          sed luctus lacinia. Sed felis erat, bibendum vitae nibh vel, aliquam
-          mollis nisi. Etiam mollis aliquet tempor. Sed interdum luctus velit,
-          at tincidunt ligula fermentum vitae. Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit.
-        </p>
-        <p>
-          Aliquam suscipit a enim sed tincidunt. Nullam nec neque sem. Etiam
-          faucibus libero vel lobortis convallis. Curabitur bibendum augue eget
-          metus mollis, quis gravida dolor cursus. Sed a nulla ut felis
-          imperdiet sollicitudin nec id odio. Ut blandit ac justo fermentum
-          malesuada. In eros est, hendrerit non ultrices a, congue quis arcu. Ut
-          nec lorem nec leo vestibulum pharetra sed aliquam quam. Morbi at
-          aliquet augue, ac sodales neque. Nulla sit amet orci quis dui
-          efficitur varius. Maecenas mollis, lectus vel dapibus cursus, dui
-          ipsum feugiat ligula, sed dapibus elit ipsum a sem. Quisque id mi
-          fermentum, suscipit eros mattis, ultrices turpis. Sed volutpat nisi in
-          velit commodo facilisis. Quisque aliquet tellus eu metus ullamcorper
-          blandit. Nunc ullamcorper metus sapien, eget lobortis risus auctor
-          quis. Aliquam lacus neque, vestibulum sit amet nunc ut, varius
-          convallis quam.
-        </p>
+        <h2>Second level heading here</h2>
+        <div>
+          <p>
+            Mauris tellus diam, commodo ut neque fringilla, tempus tempor
+            tortor. Suspendisse vehicula, dolor quis ullamcorper lobortis, ex
+            dui vulputate felis, ac molestie neque mauris at risus. Proin
+            dignissim suscipit lectus, et sollicitudin magna faucibus ac.
+          </p>
+          <p>
+            Aliquam cursus, mauris et dignissim tincidunt, nisl eros tempus dui,
+            id auctor felis mauris id purus. Sed sagittis vitae lorem ut
+            tristique. Praesent at sapien auctor, venenatis quam eget, dapibus
+            sapien. Morbi rutrum mi sed luctus lacinia. Sed felis erat, bibendum
+            vitae nibh vel, aliquam mollis nisi. Etiam mollis aliquet tempor.
+            Sed interdum luctus velit, at tincidunt ligula fermentum vitae.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </p>
+          <p>
+            Aliquam suscipit a enim sed tincidunt. Nullam nec neque sem. Etiam
+            faucibus libero vel lobortis convallis. Curabitur bibendum augue
+            eget metus mollis, quis gravida dolor cursus. Sed a nulla ut felis
+            imperdiet sollicitudin nec id odio. Ut blandit ac justo fermentum
+            malesuada. In eros est, hendrerit non ultrices a, congue quis arcu.
+          </p>
+          <p>
+            Ut nec lorem nec leo vestibulum pharetra sed aliquam quam. Morbi at
+            aliquet augue, ac sodales neque. Nulla sit amet orci quis dui
+            efficitur varius. Maecenas mollis, lectus vel dapibus cursus, dui
+            ipsum feugiat ligula, sed dapibus elit ipsum a sem. Quisque id mi
+            fermentum, suscipit eros mattis, ultrices turpis.
+          </p>
+          <p>
+            Sed volutpat nisi in velit commodo facilisis. Quisque aliquet tellus
+            eu metus ullamcorper blandit. Nunc ullamcorper metus sapien, eget
+            lobortis risus auctor quis. Aliquam lacus neque, vestibulum sit amet
+            nunc ut, varius convallis quam.
+          </p>
+        </div>
         <aside>
           <figure>
             <img
@@ -245,6 +304,7 @@
           parturient montes, nascetur ridiculus mus. Suspendisse malesuada
           maximus nibh, vitae aliquet ex imperdiet vitae.
         </p>
+        <h2>Second level heading here</h2>
         <p>
           Proin tristique, risus nec dignissim tempor, quam ligula pharetra
           diam, pulvinar dapibus sem tellus at ante. Suspendisse at neque id
@@ -297,9 +357,6 @@
           nunc sit amet erat laoreet egestas.
         </p>
       </article>
-      <aside class="side">Sidebar</aside>
-      <div class="ad">Advertising</div>
-      <footer class="main-footer">The footer</footer>
     </div>
   </body>
 </html>
