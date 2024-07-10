@@ -1,7 +1,8 @@
 
 .content-grid {
   display: grid;
-  column-gap: 2em; /*var(--column-gap);*/
+  grid-template-columns: none;
+  margin: 1em;
 }
 
 .content-grid>* {
@@ -67,12 +68,13 @@
 
 @media (min-width: 600px) {
   .content-grid {
-    grid-template-columns: none;
   }
 }
 
 @media (min-width: 900px) {
   .content-grid {
+    margin: 0;  
+    column-gap: var(--column-gap);
     grid-template-columns: [full-start] 0.5fr [wide-start] 2fr [main-start] 6fr [main-end] 2fr [wide-end] 0.5fr [full-end];
   }
 }
