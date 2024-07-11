@@ -8,8 +8,7 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="./css/vendor/font-awesome.css"
-    />
+      href="./css/vendor/font-awesome.css" />
 
     <script type="module" src="./index.js"></script>
     <link rel="stylesheet" type="text/css" href="./index.css" />
@@ -21,38 +20,24 @@
     <!-- https://fonts.google.com/specimen/Bitter/about -->
     <link
       href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
   </head>
   <body>
-    <header>
-      <!--
-      <div class="logo">
-        <div>
-          <span>blog.</span>
-          <span>
-            <div>
-              <svg viewBox="0 0 98 15" style="width: 100%">
-                <style>
-                  text {
-                    font: 18px monospace;
-                  }
-                </style>
-                <text x="0" y="15" fill="currentcolor">lmorchard</text>
-              </svg>
-            </div>
-          </span>
-          <span>.com</span>
+    <header class="content-grid">
+      <div class="masthead">
+        <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=64" />
+        <div class="title">
+          <h1>blog.lmorchard.com</h1>
+          <h2>It's all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>  
         </div>
       </div>
-      -->
-
       <nav class="main-nav">
         <ul>
-          <li><a href>Archives</a></li>
-          <li><a href>About Me</a></li>
+          <li><a href>archives</a></li>
+          <li><a href>about me</a></li>
           <li>
-            <theme-selector class="lazy-load-component" title="Enable dark theme">
+            <theme-selector class="lazy-load-component"
+              title="Enable dark theme">
               <label>
                 <input type="checkbox" />
                 <span class="slider"></span>
@@ -62,10 +47,18 @@
         </ul>
       </nav>
     </header>
+
     <article class="content content-grid">
       <header>
+        <time title="2024-06-19T12:00:00+00:00"
+          pubdate="2024-06-19T12:00:00+00:00">
+          <a href="/2024/">2024</a>
+          &#8226;
+          <a href="/2024/06/">June</a>
+          &#8226;
+          <span>19</span>
+        </time>
         <h1>Topic Clustering with LlamaFile and Web Components</h1>
-        <time datetime="2024-06-19">June 19, 2024</time>
         <ul class="tags">
           <li>
             <a href="/tag/ai/">ai</a>
@@ -93,21 +86,23 @@
 
       <p>
         <strong>TL;DR</strong>: In
-        <a href="https://blog.lmorchard.com/tag/ClusteringIdeasWithAI/"
-          >my previous posts</a
-        >, I tinkered with a few variations on clustering ideas by named topics
+        <a href="https://blog.lmorchard.com/tag/ClusteringIdeasWithAI/">my
+          previous posts</a>, I tinkered with a few variations on clustering
+        ideas by named topics
         using embeddings and text generation. In this post, I'm going to show
         off a web UI that I built to make this stuff easier to play with
         interactively.
       </p>
+
       <figure class="wide">
         <img
-          src="https://blog.lmorchard.com/2024/06/19/topic-clustering-llamafile-web-components/cover.png"
-        />
+          src="https://blog.lmorchard.com/2024/06/19/topic-clustering-llamafile-web-components/cover.png" />
         <figcaption>
           Heavy construction featuring an astronaut and a llama.
         </figcaption>
       </figure>
+
+      <nav role="navigation" class="left table-of-contents"><p class="title">Topic Clustering with LlamaFile and Web Components</p><ol><li><a href="#organizing-sticky-notes-automatically">Organizing sticky notes automatically</a></li><li><a href="#so-how-does-it-work">So, how does it work?</a></li><li><a href="#play-along-at-home-with-a-notebook">Play along at home with a notebook</a></li><li><a href="#opening-ceremonies">Opening ceremonies</a></li><li><a href="#mapping-notes-with-vector-embeddings">Mapping notes with vector embeddings</a></li><li><a href="#k-means-clustering-in-a-semantic-space">K-means clustering in a semantic space</a></li><li><a href="#generating-labels-with-a-large-language-model">Generating labels with a large language model</a></li><li><a href="#wrapping-up">Wrapping up</a></li></ol></nav>      
 
       <h2>Phasellus elit lacus, luctus in mi eu</h2>
       <p>
@@ -155,16 +150,14 @@
       <div class="row">
         <figure>
           <img
-            src="https://blog.lmorchard.com/2024/05/10/topic-clustering-llamafile/cover.png"
-          />
+            src="https://blog.lmorchard.com/2024/05/10/topic-clustering-llamafile/cover.png" />
           <figcaption>
             Lots of astronauts hanging around in space, here.
           </figcaption>
         </figure>
         <figure>
           <img
-            src="https://blog.lmorchard.com/2024/04/27/topic-clustering-gen-ai/cover.png"
-          />
+            src="https://blog.lmorchard.com/2024/04/27/topic-clustering-gen-ai/cover.png" />
           <figcaption>
             Lots of astronauts hanging around in space, here too.
           </figcaption>
@@ -193,24 +186,21 @@
       <div class="row wide">
         <figure>
           <img
-            src="https://blog.lmorchard.com/2024/05/01/topic-clustering-local-models/cover.png"
-          />
+            src="https://blog.lmorchard.com/2024/05/01/topic-clustering-local-models/cover.png" />
           <figcaption>
             Lots of astronauts hanging around in space, here.
           </figcaption>
         </figure>
         <figure>
           <img
-            src="https://blog.lmorchard.com/2024/04/27/topic-clustering-gen-ai/cover.png"
-          />
+            src="https://blog.lmorchard.com/2024/04/27/topic-clustering-gen-ai/cover.png" />
           <figcaption>
             Lots of astronauts hanging around in space, here too.
           </figcaption>
         </figure>
         <figure>
           <img
-            src="https://blog.lmorchard.com/2023/01/16/begging-for-treats/cover.png"
-          />
+            src="https://blog.lmorchard.com/2023/01/16/begging-for-treats/cover.png" />
           <figcaption>
             Here, kitty kitty, kitty, kitty, kitty, kitty.
           </figcaption>
@@ -276,8 +266,7 @@
       <aside>
         <figure>
           <img
-            src="https://blog.lmorchard.com/2024/03/13/github-actions-for-didthis/shaven_yak.png"
-          />
+            src="https://blog.lmorchard.com/2024/03/13/github-actions-for-didthis/shaven_yak.png" />
           <figcaption>A yak, shaven and ready for action.</figcaption>
         </figure>
       </aside>

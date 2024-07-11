@@ -2,14 +2,16 @@
 theme-selector {
   --light: #d8dbe0;
   --dark: #28292c;
-  --switch-size: 25px;
+  --switch-size: 1.25em;
 
   display: block;
   position: relative;
   height: var(--switch-size);
   width: calc(var(--switch-size) * 2);
-  margin: calc(var(--switch-size) * 0.2);
-}
+  margin: 0;
+  padding: 0;
+} 
+
 theme-selector label {
   position: absolute;
   width: 100%;
@@ -18,10 +20,12 @@ theme-selector label {
   border-radius: calc(var(--switch-size) / 2);
   cursor: pointer;
 }
+
 theme-selector input {
   position: absolute;
   display: none;
 }
+
 theme-selector .slider {
   position: absolute;
   width: 100%;
@@ -30,9 +34,11 @@ theme-selector .slider {
   transition: 0.3s;
   background-color: var(--dark);
 }
-theme-selector input:checked ~ .slider {
+
+theme-selector input:checked~.slider {
   background-color: var(--light);
 }
+
 theme-selector .slider::before {
   content: "";
   position: absolute;
@@ -41,12 +47,17 @@ theme-selector .slider::before {
   width: calc(var(--switch-size) * 0.75);
   height: calc(var(--switch-size) * 0.75);
   border-radius: 50%;
+  /* moon crescent */
   box-shadow: inset calc(var(--switch-size) * 0.28) calc(var(--switch-size) * -0.04) 0px 0px var(--light);
+  /* moon obscured */
   background-color: var(--dark);
   transition: 0.3s;
 }
-theme-selector input:checked ~ .slider::before {
+
+theme-selector input:checked~.slider::before {
   transform: translateX(var(--switch-size));
+  /* sun shining */
   background-color: var(--dark);
+  background-color: rgba(255, 191, 0, 1.0);
   box-shadow: none;
 }

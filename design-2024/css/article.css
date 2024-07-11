@@ -7,20 +7,21 @@ article>header {
   flex-direction: column;
   align-items: center;
   gap: 0.25em;
-  margin: 1em 0;
-  padding-bottom: 1.5em;
-  border-bottom: 1px solid var(--theme-border-color);
+  margin: 0 0 1em 0;
+  padding: 1.5em 0 1.5em 0;
+  border-top: 2px solid var(--theme-border-color);
+  border-bottom: 2px solid var(--theme-border-color);
 }
 
 article>header>h1 {
   margin: 0;
   line-height: 1.25em;
+  margin: calc(var(--row-gap) / 4);
   text-align: center;
 }
 
 article>header>time {
   display: block;
-  margin: 0.5em;
 }
 
 article>header>ul.tags {
@@ -53,4 +54,38 @@ article>header>ul.tags li::before {
 
 article>header>ul.tags li {
 
+}
+
+article>nav.table-of-contents {
+  z-index: -10;
+  font-size: 0.9em;
+}
+
+article>nav.table-of-contents p {
+  margin: 0.5em 0;
+  font-weight: bold;
+}
+
+article>nav.table-of-contents ul, article>nav.table-of-contents ol {
+  padding: 0;
+  margin: 0 0 0 1.5em;
+}
+
+article figure {
+  background-color: var(--theme-background-color-transparent);
+}  
+
+@media (min-width: 900px) {
+  article>nav.table-of-contents {
+    position: sticky;
+    grid-column: wide-start;
+    top: 0px;
+    background-color: var(--theme-background-color-transparent);
+    padding: 0.75em;
+  }
+}
+@media (min-width: 900px) and (min-height: 900px) {
+  article>nav.table-of-contents {
+    top: 64px;
+  }
 }
