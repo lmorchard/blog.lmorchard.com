@@ -58,17 +58,23 @@ article>header>ul.tags li {
 
 article>nav.table-of-contents {
   z-index: -10;
-  font-size: 0.9em;
+  font-size: 0.85em;
+  margin: 0;
+  padding: 1.25em;
+  /*
+  border-top: 1px dotted var(--theme-border-color);
+  border-bottom: 1px dotted var(--theme-border-color);
+  */
 }
 
 article>nav.table-of-contents p {
-  margin: 0.5em 0;
+  margin: 0;
   font-weight: bold;
 }
 
 article>nav.table-of-contents ul, article>nav.table-of-contents ol {
   padding: 0;
-  margin: 0 0 0 1.5em;
+  margin: 0 0 0 1.25em;
 }
 
 article figure {
@@ -81,11 +87,10 @@ article figure {
     grid-column: wide-start;
     top: 0px;
     background-color: var(--theme-background-color-transparent);
-    padding: 0.75em;
   }
 }
-@media (min-width: 900px) and (min-height: 900px) {
+@media (min-width: 900px) and (min-height: 850px) {
   article>nav.table-of-contents {
-    top: 64px;
+    top: calc(64px + var(--row-gap) / 2);
   }
 }
