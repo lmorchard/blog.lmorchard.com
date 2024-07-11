@@ -1,7 +1,7 @@
 article>header {
   /*
   position: sticky;
-  top: 1em;
+  top: 64px;
   */
   display: flex;
   flex-direction: column;
@@ -9,14 +9,16 @@ article>header {
   gap: 0.25em;
   margin: 0 0 1em 0;
   padding: 1.5em 0 1.5em 0;
+  background-color: var(--theme-background-color-transparent);
   border-top: 2px solid var(--theme-border-color);
   border-bottom: 2px solid var(--theme-border-color);
 }
 
 article>header>h1 {
   margin: 0;
+  font-size: 1.9em;
   line-height: 1.25em;
-  margin: calc(var(--row-gap) / 4);
+  margin: calc(var(--row-gap) / 8);
   text-align: center;
 }
 
@@ -58,13 +60,15 @@ article>header>ul.tags li {
 
 article>nav.table-of-contents {
   z-index: -10;
-  font-size: 0.85em;
-  margin: 0;
-  padding: 1.25em;
-  /*
-  border-top: 1px dotted var(--theme-border-color);
-  border-bottom: 1px dotted var(--theme-border-color);
-  */
+  margin-top: 1.25em;
+  padding: 0;
+  font-size: 0.8em;
+  text-align: right;
+}
+
+article>nav.table-of-contents h1 {
+  font-size: 1.5em;
+  margin: 0 0 1em 0;
 }
 
 article>nav.table-of-contents p {
@@ -74,12 +78,17 @@ article>nav.table-of-contents p {
 
 article>nav.table-of-contents ul, article>nav.table-of-contents ol {
   padding: 0;
-  margin: 0 0 0 1.25em;
+  margin: 0;
+  list-style-type: none;
+}
+
+article>nav.table-of-contents li {
+  margin: 0 0 0.25em 0;
 }
 
 article figure {
   background-color: var(--theme-background-color-transparent);
-}  
+}
 
 @media (min-width: 900px) {
   article>nav.table-of-contents {
@@ -91,6 +100,6 @@ article figure {
 }
 @media (min-width: 900px) and (min-height: 850px) {
   article>nav.table-of-contents {
-    top: calc(64px + var(--row-gap) / 2);
+    top: calc(64px + var(--row-gap));
   }
 }
