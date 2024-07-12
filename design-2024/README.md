@@ -9,3 +9,5 @@
 - [ ] inline carousel for multiple images
 - [ ] add a search bar with pagefind
 - [ ] comments & responses from fediverse
+- [ ] swap through a random set of short taglines?
+

@@ -1,4 +1,4 @@
-// import "./js/components/index.js";
+import "./js/components/index.js";
 import { init as componentLazyLoaderInit } from "./js/component-lazy-loader.js";
 
 async function main() {
