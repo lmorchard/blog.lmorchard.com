@@ -26,28 +26,36 @@ export default ({ site = {}, page = {} }, content) =>
       `,
     },
     html`
-      <article
-        class="post ${page.tags && page.tags.map((tag) => html`tag-${tag} `)}"
-      >
+      <article class="content content-grid post ${page.tags && page.tags.map((tag) => html`tag-${tag} `)}">
+      <header>
         <time
           title="${moment(page.date).format()}"
           pubdate="${moment(page.date).format()}"
         >
-          <a href="${site.baseurl}/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="${site.baseurl}/${moment(page.date).format("Y")}/"
-            >${moment(page.date).format("Y")}</a
-          >
-          &raquo;
-          <a href="${site.baseurl}/${moment(page.date).format("Y/MM")}/"
-            >${moment(page.date).format("MMMM")}</a
-          >
-          &raquo;
+          <a href="${site.baseurl}/${moment(page.date).format("Y")}/">${moment(page.date).format("Y")}</a>
+          &#8226;
+          <a href="${site.baseurl}/${moment(page.date).format("Y/MM")}/">${moment(page.date).format("MMMM")}</a>
+          &#8226;
           <span>${moment(page.date).format("DD")}</span>
-          &raquo;
         </time>
+        <h1 class="title">${page.title}</h1>
+        ${page.tags &&
+          html`
+            <ul class="tags">
+              ${page.tags.map(
+                (tag) => html`
+                  <li><a href="${site.baseurl}/tag/${tag}/">${tag}</a></li>
+                `
+              )}
+            </ul>
+          `
+        }
+      </header>      
 
-        <nav class="post-links">
+      ${unescaped(content)}
+
+      <!--
+      <nav class="post-links">
           ${page.prevPostPath &&
           html`
             <a href="${site.baseurl}/${page.prevPostPath}/"
@@ -62,24 +70,7 @@ export default ({ site = {}, page = {} }, content) =>
             ></a>
           `}
         </nav>
-
-        <h1 class="title">${page.title}</h1>
-        ${page.tags &&
-        html`
-          <ul class="tags">
-            ${page.tags.map(
-              (tag) => html`
-                <li>
-                  <a href="${site.baseurl}/tag/${tag}/">${tag}</a>
-                </li>
-              `
-            )}
-          </ul>
-        `}
-        <section class="post-content">
-          ${unescaped(content)}
-        </section>
-      </article>
+      -->
 
       ${!(page.comments_archived || page.draft) &&
       html`
@@ -100,5 +91,9 @@ export default ({ site = {}, page = {} }, content) =>
           >
         </section>
       `}
+
+
+    </article>
+
     `
   );

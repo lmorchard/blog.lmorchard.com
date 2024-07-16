@@ -1,51 +1,39 @@
 import { html } from "../lib/html.js";
 
-// TODO: use a bundler again someday for CSS & JS?
-const cssAssets = ["screen.css", "vendor/font-awesome.css", "vendor/prism.css"];
-const jsAssets = [
-  // HACK: emphasis depends on jquery, so use explicit order.
-  // TODO: Work out a better way to specify order. Maybe 01- 02- 03- filenames?
-  //'vendor/jquery.js',
-  //'vendor/emphasis.js',
-  //'vendor/moment.min.js',
-  "vendor/lazyload.js",
-  "vendor/prism.js",
-  //'vendor/lodash.js',
-  //'vendor/async.js',
-  "toc.js",
-  "main.js",
-];
-
 export default (
   { site = {}, page = {}, head = "", js = "" },
   content
 ) => html`
-  <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>${page.title} - ${site.title}</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="${site.title}" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="${site.author.full_name}" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      ${cssAssets.map(
-        (css) => html`
-          <link
-            rel="stylesheet"
-            href="${site.baseurl}/css/${css}"
-            type="text/css"
-            media="screen, projection"
-          />
-        `
-      )}
-      ${page.tag
-        ? html`
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>${page.title} - ${site.title}</title>
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="${site.title}" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="${site.author.full_name}" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+    />
+    <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
+    <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
+    <script type="module" src="${site.baseurl}/index.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="${site.baseurl}/css/vendor/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="${site.baseurl}/index.css" />
+
+    <!-- TODO: decide on a font and pull this stuff locally -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- https://fonts.google.com/specimen/Bitter/about -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    ${page.tag
+    ? html`
             <link
               href="${site.baseurl}/tag/${page.tag}.rss"
               rel="alternate"
@@ -53,7 +41,7 @@ export default (
               type="application/rss+xml"
             />
           `
-        : html`
+    : html`
             <link
               href="${site.baseurl}/index.rss"
               rel="alternate"
@@ -62,38 +50,51 @@ export default (
             />
           `}
       ${head}
-    </head>
-    <body>
-      <section class="main">
-        <header>
+
+  </head>
+  <body>
+    <header class="content-grid">
+      <div class="masthead">
+        <img
+          src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=64"
+        />
+        <div class="title">
           <h1><a href="${site.baseurl}/">${site.title}</a></h1>
-          <h2>${site.subtitle}</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+          <h2>Befuddlement through meandering</h2>
+          <!--<h2>${site.subtitle}</h2>-->
+        </div>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="${site.baseurl}/archives.html"><span class="fa fa-archive"></span> archives</a></li>
+          <li><a href="http://lmorchard.com/"><span class="fa fa-info-circle"></span> about me</a></li>
+          <li>
+            <theme-selector
+              title="Enable dark theme"
+            >
+              <label>
+                <input type="checkbox" />
+                <span class="slider"></span>
+              </label>
+            </theme-selector>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-            <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="${site.baseurl}/archives.html">archives</a></li>
-            </ul>
-          </nav>
-        </header>
+    ${content}
 
-        <section class="content">
-          ${content}
-        </section>
-
-        <footer>
-          <img id="growup" src="${site.baseurl}/uploads/growup.jpg" />
-        </footer>
-      </section>
-
-      <section id="javascript">
-        ${jsAssets.map(
-          (src) => html`<script src="${site.baseurl}/js/${src}"></script>`
-        )}
-        ${js}
-      </section>
-    </body>
-  </html>
+    <footer class="content-grid">
+      <div class="left">
+        © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com">me@lmorchard.com</a>&gt;
+      </div>
+      <img id="growup" src="${site.baseurl}/uploads/growup.jpg" />
+      <nav class="right">
+        <ul>
+          <li><a href><span class="fa fa-rss"></span> feed</a></li>
+        </ul>
+      </nav>
+    </footer>
+  </body>
+</html>
 `;
