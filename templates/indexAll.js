@@ -9,7 +9,7 @@ export default ({ site = {}, page = {}, posts = [] }) =>
       page,
     },
     html`
-      <section class="archive">
+      <section class="archive content-grid">
         <h2>All Posts</h2>
         <p>Didn't find what you were looking for? It might be here:</p>
         ${postList({ site, posts })}

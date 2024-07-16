@@ -9,7 +9,7 @@ export default ({ site = {}, page = {}, posts = [] }) =>
       page,
     },
     html`
-      <section class="archive">
+      <section class="archive content-grid">
         ${postList(
           { site, posts },
           html`

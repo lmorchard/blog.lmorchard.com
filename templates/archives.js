@@ -29,7 +29,7 @@ export default ({ site = {}, page = {}, posts }) => {
       ),
     {}
   );
-  
+
   const datesWithCounts = posts.reduce((acc, { year, month }) => {
     const out = { ...acc };
     if (!out[year]) out[year] = {};
@@ -44,7 +44,7 @@ export default ({ site = {}, page = {}, posts }) => {
       page,
     },
     html`
-      <section class="archive">
+      <section class="archive content-grid">
         <h2>Archives</h2>
         <p>Looking for something from the back catalog?</p>
         <p>
