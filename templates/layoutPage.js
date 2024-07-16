@@ -82,7 +82,9 @@ export default (
       </nav>
     </header>
 
-    ${content}
+    <section class="main">
+      ${content}
+    </section>
 
     <footer class="content-grid">
       <div class="left">

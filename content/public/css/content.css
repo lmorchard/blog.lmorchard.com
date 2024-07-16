@@ -1,0 +1,412 @@
+section.main section.archive h2 {
+  clear: both;
+  color: #eee;
+  font-family: monospace;
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 0;
+  margin: 0.25em 0 0.125em 0;
+}
+
+section.main section.archive h3 {
+  color: #eee;
+  font-family: monospace;
+  font-size: 1.25em;
+  font-weight: bold;
+  padding: 0;
+  margin: 0.25em 0 0.125em 0;
+}
+
+section.main section.archive p {
+  color: #eee;
+  font-family: monospace;
+}
+
+section.main section.archive p a {
+  color: #ccc;
+}
+
+section.main .post-list p {
+  font-family: monospace;
+  color: #eee;
+  text-align: center;
+}
+
+section.main .post-list p a {
+  color: #ddd;
+}
+
+section.main .post-list .posts {
+  clear: both;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+section.main .post-list .posts .post {
+  flex-grow: 1;
+  float: left;
+  position: relative;
+  min-width: 150px;
+  min-height: 150px;
+  margin: 0;
+  overflow: hidden;
+  background-color: rgba(17, 17, 17, 1);
+  margin: 0.125em;
+  color: #fff;
+}
+
+section.main .post-list .posts .post .icon {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: #ccc;
+  padding-top: 0.5em;
+  font-size: 5em;
+  text-align: center;
+  opacity: 0.6;
+  transition: opacity 0.5s;
+}
+
+section.main .post-list .posts .post .link {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+section.main .post-list .posts .post .infoContainer {
+  display: block;
+  width: 100%;
+  background: rgba(17, 17, 17, 0.6);
+  position: absolute;
+  bottom: 0px;
+}
+
+section.main .post-list .posts .post .date {
+  display: block;
+  position: absolute;
+  background: rgba(17, 17, 17, 0.6);
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+  font-size: 0.85em;
+  font-family: monospace;
+  padding: 0.7em 0;
+  text-align: center;
+}
+
+section.main .post-list .posts .post .title {
+  display: block;
+  margin: 0 0.5em 0.5em 0.5em;
+  line-height: 1.25em;
+  text-align: center;
+  color: #fff;
+}
+
+section.main .post-list .posts .post .thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0.6;
+  transition: opacity 0.5s;
+}
+
+section.main .post-list .posts .post:hover .icon {
+  opacity: 1.0;
+  transition: opacity 0.5s;
+}
+
+section.main .post-list .posts .post:hover .thumb {
+  opacity: 1.0;
+  transition: opacity 0.5s;
+}
+
+section.main .post-list .posts .post .thumb {
+  display: none;
+}
+
+section.main .post-list .posts .post.has-thumb .thumb {
+  display: block;
+}
+
+section.main .post-list .posts .post.has-thumb .icon {
+  display: none;
+}
+
+
+section.comments {
+  padding: 1.5em 2em;
+  background-color: #f8f8f8;
+}
+
+#comments.archived-comments {
+  border-top: 4px solid #333333;
+  margin: 2em 0pt 3em 0em;
+  padding-top: 1em;
+}
+
+#comments.archived-comments>h3 {
+  margin: 0.5em 0pt 1em 0em;
+}
+
+#comments.archived-comments ul.comments {
+  margin: 0pt 0pt 0pt 3em;
+  padding: 0pt;
+}
+
+#comments.archived-comments>ul.comments {
+  margin: 0pt 0pt 0pt 0em;
+}
+
+#comments.archived-comments ul.comments li.comment {
+  list-style: none outside none;
+}
+
+#comments.archived-comments ul.comments li.comment .meta {
+  background: none repeat scroll 0% 0% #EEEEEE;
+  border: 1px solid #DDDDDD;
+  margin: 1em 0pt 0pt;
+  padding: 0.5em;
+  position: relative;
+}
+
+#comments.archived-comments ul.comments li.comment .meta .author img {
+  height: 32px;
+  width: 32px;
+}
+
+#comments.archived-comments ul.comments li.comment .meta .permalink {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+}
+
+
+/* Super special espresso cups for thought posts */
+section.content>article.tag-thoughts>.post-content>ul {
+  margin-left: 0;
+}
+
+section.content>article.tag-thoughts>.post-content>ul>li {
+  list-style-type: none;
+  padding-left: 2.125em;
+  background: url('../img/bullet-espresso.gif') no-repeat scroll left 0.25em transparent
+}
+
+section.content>article.tag-thoughts>.post-content>ul.tags>li {
+  background: none;
+  padding-left: 0;
+}
+
+section.content>article.tag-thoughts>.post-content>ul>li>ul {
+  margin: 0 0 0 1.5em;
+}
+
+section.content>article.tag-thoughts>.post-content>ul>li>ul>li {
+  list-style-type: none;
+}
+
+section.content>article.tag-thoughts>.post-content>ul>li>ul>li:before {
+  content: "\00bb";
+  font-weight: bold;
+  font-size: 1.25em;
+  float: left;
+  margin-left: -1em;
+}
+
+/* emphasis tweaks */
+a.emAnchor {
+  font-size: 1.75em;
+  margin-left: -0.25em
+}
+
+
+.post .icon:before {
+  content: "\f15c"
+}
+
+.post.tag-webdev .icon:before {
+  content: "";
+}
+
+.post.tag-pets .icon:before {
+  content: "";
+}
+
+.post.tag-metablogging .icon:before {
+  content: "";
+}
+
+.post.tag-social .icon:before {
+  content: "";
+}
+
+.post.tag-thoughts .icon:before {
+  content: "";
+}
+
+.post.tag-asides .icon:before {
+  content: "";
+}
+
+.post.tag-metablogging .icon:before {
+  content: "";
+}
+
+.post.tag-writing .icon:before {
+  content: "\f040";
+}
+
+.post.tag-fiction .icon:before {
+  content: "\f044";
+}
+
+.post.tag-gaming .icon:before {
+  content: "\f11b";
+}
+
+section.archive {}
+
+section.archive ul.tags {
+  list-style-type: none;
+  margin: 1em 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+section.archive ul.tags li.tag {
+  display: block;
+  float: left;
+  min-width: 10em;
+  margin: 0.25em;
+  padding: 0.5em;
+  border: 1px solid #999;
+  border-radius: 4px;
+  background-color: #ddd;
+  color: #111;
+}
+
+section.archive ul.tags li.tag a {
+  color: #111;
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+
+section.archive ul.tags li.tag .count {
+  font-size: 0.75em;
+}
+
+section.archive ul.years {
+  color: #fff;
+  list-style-type: none;
+  padding: 0;
+  margin: 1.5em 0 1.5em 0;
+}
+
+section.archive ul.years li.year {
+  clear: both;
+  padding: 0 0 1.125em 0;
+}
+
+section.archive ul.years li.year>a {
+  color: #111;
+  background-color: #eee;
+  border-radius: 4px;
+  display: block;
+  float: left;
+  margin: 0 0.5em 0 0;
+  padding: 0.5em;
+  text-align: right;
+  width: 5em;
+  text-decoration: none;
+}
+
+section.archive ul.years li.year ul.months {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 0.75em 6.5em;
+}
+
+section.archive ul.years li.year ul.months li.month {
+  float: left;
+  color: #111;
+  width: 16%;
+}
+
+section.archive ul.years li.year ul.months li.month .month-container {
+  color: #fff;
+  text-decoration: none;
+  background-color: #666;
+  border-radius: 4px;
+  display: block;
+  margin: 0em 0.25em 0.5em 0.25em;
+  padding: 0.5em;
+  text-align: center;
+  text-decoration: none;
+}
+
+section.archive ul.years li.year ul.months li.month .month-label {
+  font-size: 1em;
+}
+
+section.archive ul.years li.year ul.months li.month .month-count {
+  font-size: 0.8em;
+  color: #ccc;
+}
+
+section.archive ul.years li.year ul.months li.month.no-posts .month-container,
+section.archive ul.years li.year ul.months li.month.no-posts .month-container .month-count {
+  color: #777;
+}
+
+article .video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+}
+
+/* See: http://avexdesigns.com/responsive-youtube-embed/ */
+article .video-container iframe,
+article .video-container object,
+article .video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-width: 800px) {
+  section.archive ul.years li.year ul.months li.month {
+    float: left;
+    color: #111;
+    width: 4.25em;
+  }
+
+  section.archive ul.years li.year ul.months li.month .month-count {
+    display: block;
+  }
+}
