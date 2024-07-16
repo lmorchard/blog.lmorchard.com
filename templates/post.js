@@ -18,7 +18,7 @@ export default ({ site = {}, page = {} }, content) =>
           <meta
             property="og:image"
             content="${page.thumbnail.indexOf("/") === 0 &&
-            site.absolute_baseurl}${page.thumbnail}"
+          site.absolute_baseurl}${page.thumbnail}"
           />
         `}
         ${page.summary &&
@@ -28,22 +28,27 @@ export default ({ site = {}, page = {} }, content) =>
     html`
       <article class="content content-grid post ${page.tags && page.tags.map((tag) => html`tag-${tag} `)}">
       <header>
-        <time
-          title="${moment(page.date).format()}"
-          pubdate="${moment(page.date).format()}"
-        >
+        <time title="${moment(page.date).format()}" pubdate="${moment(page.date).format()}">
+          ${page.prevPostPath && html`
+            <a href="${site.baseurl}/${page.prevPostPath}/"
+              >←&nbsp;<a> </a
+            ></a>
+          `}
           <a href="${site.baseurl}/${moment(page.date).format("Y")}/">${moment(page.date).format("Y")}</a>
           &#8226;
           <a href="${site.baseurl}/${moment(page.date).format("Y/MM")}/">${moment(page.date).format("MMMM")}</a>
           &#8226;
           <span>${moment(page.date).format("DD")}</span>
+          ${page.nextPostPath && html`
+            <a href="${site.baseurl}/${page.nextPostPath}/"
+              >&nbsp;→<a> </a
+            ></a>
+          `}
         </time>
         <h1 class="title">${page.title}</h1>
-        ${page.tags &&
-          html`
+        ${page.tags && html`
             <ul class="tags">
-              ${page.tags.map(
-                (tag) => html`
+              ${page.tags.map((tag) => html`
                   <li><a href="${site.baseurl}/tag/${tag}/">${tag}</a></li>
                 `
               )}
@@ -53,24 +58,6 @@ export default ({ site = {}, page = {} }, content) =>
       </header>      
 
       ${unescaped(content)}
-
-      <!--
-      <nav class="post-links">
-          ${page.prevPostPath &&
-          html`
-            <a href="${site.baseurl}/${page.prevPostPath}/"
-              >&laquo; prev<a> </a
-            ></a>
-          `}
-          ${page.prevPostPath && page.nextPostPath && html`&nbsp;|&nbsp;`}
-          ${page.nextPostPath &&
-          html`
-            <a href="${site.baseurl}/${page.nextPostPath}/"
-              >next &raquo;<a> </a
-            ></a>
-          `}
-        </nav>
-      -->
 
       ${!(page.comments_archived || page.draft) &&
       html`
@@ -91,7 +78,6 @@ export default ({ site = {}, page = {} }, content) =>
           >
         </section>
       `}
-
 
     </article>
 

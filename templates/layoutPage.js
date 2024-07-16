@@ -17,11 +17,8 @@ export default (
       content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
     />
     <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-    <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-    <script type="module" src="${site.baseurl}/index.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="${site.baseurl}/css/vendor/font-awesome.css" />
-    <link rel="stylesheet" type="text/css" href="${site.baseurl}/index.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/base16/dracula.css">
 
     <!-- TODO: decide on a font and pull this stuff locally -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -31,6 +28,12 @@ export default (
       href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+
+    <link rel="stylesheet" type="text/css" href="${site.baseurl}/css/vendor/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="${site.baseurl}/index.css" />
+    
+    <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
+    <script type="module" src="${site.baseurl}/index.js"></script>
 
     ${page.tag
     ? html`
