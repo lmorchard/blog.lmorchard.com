@@ -11,7 +11,7 @@ tags:
 
 <!--more-->
 
-<img src="./cover.png" class="fullwidth" />
+<figure class="wide"><img src="./cover.png" /></figure>
 
 Rhys remembered the roar of the crowd at the end of the awards ceremony. Waves of thunderous noise crashed over him from hundreds of glow sticks being whacked together in the auditorium. He stood atop the dais, holding the golden scepter above his head. He smiled so hard his teeth hurt.
 

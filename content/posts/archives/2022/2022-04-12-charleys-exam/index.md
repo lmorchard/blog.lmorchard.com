@@ -12,7 +12,7 @@ tags:
 
 <!--more-->
 
-<img src="./cover.png" class="fullwidth" />
+<figure class="wide"><img src="./cover.png" /></figure>
 
 Charley failed the terraforming exam twice. It wasn't for lack of understanding. The problem was that xe disagreed with the material. Xe couldn't help but vent at xyr human technician during a maintenance session. 
 

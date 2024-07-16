@@ -10,7 +10,7 @@ tags:
 
 <!--more-->
 
-<img src="./cover.png" class="fullwidth" />
+<figure class="wide"><img src="./cover.png" /></figure>
 
 "I didn't even know we were dating anymore," said Allyn. "I just thought you ghosted me."
 

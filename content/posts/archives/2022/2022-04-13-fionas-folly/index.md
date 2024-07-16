@@ -11,7 +11,7 @@ tags:
 
 <!--more-->
 
-<img src="./cover.png" class="fullwidth" />
+<figure class="wide"><img src="./cover.png" /></figure>
 
 Fiona worked the problem. She almost had it. Exploit, escalate, breach, and pivot. Layer after layer subverted, barriers falliing to grant her deeper access to the storage array. Her goal was so close. 
 

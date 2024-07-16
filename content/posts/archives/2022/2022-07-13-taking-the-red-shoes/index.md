@@ -9,7 +9,7 @@ tags:
 
 <!--more-->
 
-<img src="./cover.png" class="fullwidth" />
+<figure class="wide"><img src="./cover.png" /></figure>
 
 The older woman danced in the clearing like a goddess. Silver hair spun and whipped. Her clothes had long since fallen to rags. They barely covered the assemblage of strained muscle, tendon, and bone to which she had been reduced. The one article of clothing that shone bright were a pair of red leather shoes strapped to her feet.
 

@@ -11,7 +11,7 @@ tags:
 
 <!--more-->
 
-<img src="./cover.png" class="fullwidth" />
+<figure class="wide"><img src="./cover.png" /></figure>
 
 Alexi had spent a decade and the bulk of his fortune chasing down scraps and clues. He had a network of machines and men crunching away at translations and correlations. Through diligent compartmentalization, he ensured that only he had access to the complete pattern.
 

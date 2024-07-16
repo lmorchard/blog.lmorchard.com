@@ -10,7 +10,7 @@ tags:
 
 <!--more-->
 
-<img src="./cover.png" class="fullwidth" />
+<figure class="wide"><img src="./cover.png" /></figure>
 
 We were never destined for the stars. No matter how hard we dreamed or tried, our bodies and minds just weren't built for it. No propulsion could carry us across the void with any speed relevant to our lifespans. No shielding or life support could reliably maintain our biology in the harsh extraterrestrial wilderness. No modification to our biology could really exceed our limitations by the orders of magnitude necessary.
 

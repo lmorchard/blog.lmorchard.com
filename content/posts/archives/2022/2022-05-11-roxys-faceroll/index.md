@@ -10,7 +10,7 @@ tags:
 
 <!--more-->
 
-<img src="./cover.png" class="fullwidth" />
+<figure class="wide"><img src="./cover.png" /></figure>
 
 Roxy stared out the window, watching a squirrel traverse a wire between poles. She had no real idea how long she'd been watching, but it was mesmerizing to watch the little critter scamper along at speed. 
 

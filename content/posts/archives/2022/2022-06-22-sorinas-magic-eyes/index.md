@@ -10,7 +10,7 @@ tags:
 
 <!--more-->
 
-<img src="./cover.png" class="fullwidth" />
+<figure class="wide"><img src="./cover.png" /></figure>
 
 Sorina thought it was a brilliant idea. Those Magic Eye posters were selling out like mad at the mall. She knew just how to improve them: put them on a computer screen and *make them move*. Better yet, *make them interactive* as computer games.
 

@@ -10,7 +10,7 @@ tags:
 
 <!--more-->
 
-<img src="./cover.png" class="fullwidth" />
+<figure class="wide"><img src="./cover.png" /></figure>
 
 Ivo found himself onstage, wearing a coprophagous grin in the dark. He flexed his fingers. Lasers and spotlight beams from all across the visible spectrum danced over him in response.
 

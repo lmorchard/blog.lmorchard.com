@@ -11,7 +11,7 @@ tags:
 
 <!--more-->
 
-<img src="./cover.png" class="fullwidth" />
+<figure class="wide"><img src="./cover.png" /></figure>
 
 Avery hadn't really expected Finley to have been so dedicated to closing out their issues. It was far too much work—which, after all, was the point. It wasn't meant to be finished. Most of the team had gotten the point and bowed out already. Still, they kind of felt obligated to let Finley run it out of their system.
 

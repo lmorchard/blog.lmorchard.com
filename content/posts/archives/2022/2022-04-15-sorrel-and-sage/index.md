@@ -10,7 +10,7 @@ tags:
 
 <!--more-->
 
-<img src="./cover.png" class="fullwidth" />
+<figure class="wide"><img src="./cover.png" /></figure>
 
 Sorrel had a small plot at the community garden. For years, he had luck growing basics like tomatoes and basil, lettuce and beets. Mostly, it was stuff that got along together and didn't take much effort. He watered a little, weeded a little, but mostly he just played in the dirt. 
 

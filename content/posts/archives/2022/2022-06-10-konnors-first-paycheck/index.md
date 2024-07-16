@@ -10,7 +10,7 @@ tags:
 
 <!--more-->
 
-<img src="./cover.png" class="fullwidth" />
+<figure class="wide"><img src="./cover.png" /></figure>
 
 Konnor had never seen so many zeroes in his bank balance before. At least, not with a positive number in front of them. He could make rent. He could fill the fridge. He could even pay off a few bills outright.
 
