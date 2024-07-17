@@ -18,7 +18,9 @@ tags:
 
 <!--more-->
 
-<img src="./feature-image.png" class="fullwidth" />
+<figure class="wide">
+  <img src="./feature-image.png" />
+</figure>
 
 <nav role="navigation" class="table-of-contents"></nav>
 
@@ -52,11 +54,19 @@ And then, [the show was off the air][bsh-gone]. I think Darren still ran some cl
 
 [bsh-gone]: https://bigsonic-heaven.livejournal.com/5625.html
 
-<img src="./strangeways.jpg" class="inset left" />
-<img src="./bigsonicheaven-indie.png" class="inset left" />
-<img src="./bsh-radio.jpg" class="inset right" />
-
 The Big Sonic Heaven shaped hole in my life kind of got filled by a few streaming stations, some of which were themselves inspired by the original. Podcasts appeared as that started to become a thing, some also inspired by Big Sonic Heaven.
+
+<div class="row wide">
+  <figure>
+    <img src="./strangeways.jpg" class="" />
+  </figure>
+  <figure>
+    <img src="./bigsonicheaven-indie.png" class="" />
+  </figure>
+  <figure>
+    <img src="./bsh-radio.jpg" class="" />
+  </figure>
+</div>
 
 In particular, I remember [Strangeways Radio], Auralgasms Radio ([now defunct][auralgasms]), and I think some stations on [RadioIO] before it became whatever it is now.
 
@@ -118,7 +128,7 @@ What I came up with is [a big hairball of JavaScript][bsh-scraper]. It does the 
 
 After just a few hours of tinkering and refinement, the thing was working well enough to set to running on a Raspberry PI in a tmux session and forget about it. I figured it wouldn't be too rude to either the Big Sonic Heaven web servers or the Spotify API, seeing as it only does its thing every minute.
 
-<img src="./script-run.png" class="fullwidth" />
+<img src="./script-run.png" class="wide" />
 
 I checked in on it after a week or so - and I was shocked to find it had assembled a playlist of over 1000 unique songs!
 
@@ -130,7 +140,7 @@ At this point, the playlist is up to 2177 songs - 160 hours and 39 minutes of mu
 
 Dang, this DJ's repetoire is ridiculous!
 
-<iframe class="lazyload fullwidth" data-src="https://open.spotify.com/embed/playlist/1xBbvEJrf5HycEZbwn04o1" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+<iframe class="lazyload" data-src="https://open.spotify.com/embed/playlist/1xBbvEJrf5HycEZbwn04o1" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
 ## What next?
 

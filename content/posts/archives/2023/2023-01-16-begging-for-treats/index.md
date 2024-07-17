@@ -10,7 +10,10 @@ tags:
 
 <!--more-->
 
-<img title="Cute in the face of cosmic horror" src="./cover.png" class="fullwidth" />
+<figure class="wide">
+  <img title="Cute in the face of cosmic horror" src="./cover.png" />
+  <figcaption>Cute in the face of cosmic horror</figcaption>
+</figure>
 
 "This is a dumb newbie question," said the Ensign at the sensor console, "but, why are we prepping to lob nukes into this asteroid field?"
 

@@ -14,16 +14,18 @@ tags:
 
 <!--more-->
 
-<figure class="fullwidth">
+<figure class="wide">
   <img src="./cover.png">
   <figcaption>I asked DALL-E to generate "a human astronaut and a llama driving a giant construction robot, building a cluster of ideas". Then, I ran a few imagemagick transformations on it for fun.</figcaption>
 </figure>
+
+<nav role="navigation" class="table-of-contents"></nav>
 
 ## Organizing notes with AI
 
 Figma offers [FigJam](https://www.figma.com/figjam/), a handy tool for collaborative brainstorming and notes. It has an [AI-powered  "organize" feature](https://www.theverge.com/2023/11/7/23950667/figma-figjam-generative-ai-design-tools-beta-announcement) to group stickies into named clusters. Here's what that looks like:
 
-<figure class="fullwidth">
+<figure>
   <video controls>
     <source src="./figjam-sorting-demo.mp4" type="video/mp4" />
     <a href="./figjam-sorting-demo.mp4">figjam-sorting-demo.mp4</a>
@@ -108,7 +110,7 @@ From here, you should be able to open http://localhost:8886 in your browser and 
 
 Since this is a blog post about a graphical interface, a few videos of this thing in action would probably be handy. Here's a look at loading up and organizing a canned demo set of notes:
 
-<figure class="fullwidth">
+<figure>
   <video controls>
     <source src="./topic-clustering-demo-1.mp4" type="video/mp4" />
     <a href="./topic-clustering-demo-1.mp4">topic-clustering-demo-1.mp4</a>
@@ -120,7 +122,7 @@ So, that's the core of the app - taking a cloud of unorganized notes floating in
 
 You can drag clusters around and see the associated notes move along with them. The canvas itself can be dragged to pan around, and you can use the mouse wheel or trackpad scroll gestures to zoom in and out of the canvas.
 
-<figure class="fullwidth">
+<figure>
   <video controls>
     <source src="./topic-clustering-demo-2.mp4" type="video/mp4" />
     <a href="./topic-clustering-demo-2.mp4">topic-clustering-demo-2.mp4</a>
@@ -130,7 +132,7 @@ You can drag clusters around and see the associated notes move along with them. 
 
 But, this set of demo notes isn't very useful. You'd probably like to bring in your own notes and thoughts. And, ideally, get them back out of the app when you're done. For that, I've added a quick & dirty little import / export dialog:
 
-<figure class="fullwidth">
+<figure>
   <video controls>
     <source src="./topic-clustering-demo-3.mp4" type="video/mp4" />
     <a href="./topic-clustering-demo-3.mp4">topic-clustering-demo-3.mp4</a>
@@ -140,7 +142,7 @@ But, this set of demo notes isn't very useful. You'd probably like to bring in y
 
 Once you've had a few rounds of organizing notes, you can twiddle some sliders to try tuning your results. For example, you can influence the clustering mainly through the number of clusters requested:
 
-<figure class="fullwidth">
+<figure>
   <video controls>
     <source src="./topic-clustering-demo-4.mp4" type="video/mp4" />
     <a href="./topic-clustering-demo-4.mp4">topic-clustering-demo-4.mp4</a>
@@ -150,7 +152,7 @@ Once you've had a few rounds of organizing notes, you can twiddle some sliders t
 
 Then, you can play around with the parameters supplied to the Large Language Model when generating titles for each cluster.
 
-<figure class="fullwidth">
+<figure>
   <video controls>
     <source src="./topic-clustering-demo-5.mp4" type="video/mp4" />
     <a href="./topic-clustering-demo-5.mp4">topic-clustering-demo-5.mp4</a>
@@ -160,7 +162,7 @@ Then, you can play around with the parameters supplied to the Large Language Mod
 
 And, you can edit the prompts supplied to the LLM for title generation:
 
-<figure class="fullwidth">
+<figure>
   <video controls>
     <source src="./topic-clustering-demo-6.mp4" type="video/mp4" />
     <a href="./topic-clustering-demo-6.mp4">topic-clustering-demo-6.mp4</a>

@@ -12,7 +12,7 @@ tags:
 
 <!--more-->
 
-<figure class="fullwidth">
+<figure class="wide">
   <img src="./cover.png">
   <figcaption>I asked DALL-E to generate "a an image of astronauts riding llamas to herd ideas from deep space into clusters". Then, I ran a few imagemagick transformations on it for fun.</figcaption>
 </figure>
@@ -27,7 +27,7 @@ It has an "organize" feature [which uses AI]((https://www.theverge.com/2023/11/7
 
 I'm getting a lot of blog-mileage out of this little video:
 
-<figure class="fullwidth">
+<figure>
   <video controls>
     <source src="./figjam-sorting-demo.mp4" type="video/mp4" />
     <a href="./figjam-sorting-demo.mp4">figjam-sorting-demo.mp4</a>

@@ -11,7 +11,9 @@ tags:
 
 <!--more-->
 
-<img class="fullwidth" src="/uploads/2020/easy-bake-oven.jpg" />
+<figure class="wide">
+  <img src="/uploads/2020/easy-bake-oven.jpg" />
+</figure>
 
 I've tried a lot of tools for writing on the web. In fact, I've spent more time trying tools for writing on the web than actually writing on the web. My last round was writing my own thing [using Gulp and Amazon S3][gulp-blog] as a learning project. A couple of years later, [I hooked it up to Travis CI to publish on a push to master][travis-ci].
 
