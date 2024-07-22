@@ -12,8 +12,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  grid-column-start: wide-start;
-  grid-column-end: wide-end;
+  grid-column-start: full-start;
+  grid-column-end: full-end;
 }
 
 .content-grid>.wide, .content-grid>.fullwidth {
@@ -86,7 +86,9 @@
   }
 }
 
-@media (min-width: 1800px) {
+@media (min-width: 1700px) {
   .content-grid {
+    max-width: 1700px;
+    grid-template-columns: [full-start] 1fr [wide-start] 1fr [medium-start] 1fr [main-start main-left-start] 3fr [main-left-end main-right-start] 3fr [main-right-end main-end] 1fr [medium-end] 1fr [wide-end] 1fr [full-end];
   }
 }

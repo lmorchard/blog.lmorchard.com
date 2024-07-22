@@ -72,8 +72,17 @@ export default ({ site = {}, page = {}, head = "", js = "" }, content) => html`
             src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=64"
           />
           <div class="title">
-            <h1><a href="${site.baseurl}/">${site.title}</a></h1>
-            <h2>Befuddlement through meandering</h2>
+            <h1>
+              <a href="${site.baseurl}/">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 250 20">
+                  <text lengthAdjust="spacing" fill="currentColor" style="font-family: mono" y="16" textLength="240" x="5">
+                    blog.lmorchard.com
+                  </text>
+                </svg>
+              </a>
+            </h1>
+            <!--<h1><a href="${site.baseurl}/">${site.title}</a></h1>-->
+            <!--<h2>Befuddlement through meandering</h2>-->
             <!--<h2>${site.subtitle}</h2>-->
           </div>
         </div>
@@ -89,7 +98,7 @@ export default ({ site = {}, page = {}, head = "", js = "" }, content) => html`
                 ><span class="fa fa-info-circle"></span> about me</a
               >
             </li>
-            <li>
+            <li class="theme-selector">
               <theme-selector title="Enable dark theme">
                 <label>
                   <input type="checkbox" />

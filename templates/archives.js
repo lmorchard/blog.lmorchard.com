@@ -44,7 +44,7 @@ export default ({ site = {}, page = {}, posts }) => {
       page,
     },
     html`
-      <section class="archive content-grid">
+      <section class="content-grid"><section class="archive">
         <h2>Archives</h2>
         <p>Looking for something from the back catalog?</p>
         <p>
@@ -118,7 +118,7 @@ export default ({ site = {}, page = {}, posts }) => {
               `
             )}
         </ul>
-      </section>
-    `
+      </section></section>
+      `
   );
 };
