@@ -1,8 +1,10 @@
 import "./js/components/index.js";
-import { init as componentLazyLoaderInit } from "./js/component-lazy-loader.js";
 import "./js/disqus-lazy-loader.js";
 import "./js/media-lazy-loader.js";
 import "./js/toc.js";
+
+import { init as componentLazyLoaderInit } from "./js/component-lazy-loader.js";
+import { init as searchInit } from "./js/search.js";
 
 import hljs from "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/es/highlight.min.js";
 //import hljs from './vendor/highlight.js/highlight.js';
@@ -21,6 +23,7 @@ const highlightLanguages = [
 
 async function main() {
   await componentLazyLoaderInit();
+  await searchInit();
   await Promise.all(highlightLanguages.map(importLanguage));
 
   hljs.highlightAll();

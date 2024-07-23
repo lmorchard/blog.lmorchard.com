@@ -44,6 +44,10 @@ export default ({ site = {}, page = {}, head = "", js = "" }, content) => html`
         data-domain="blog.lmorchard.com"
         src="https://analytics.lmorchard.com/js/plausible.js"
       ></script>
+
+      <link href="${site.baseurl}/pagefind/pagefind-ui.css" rel="stylesheet">
+      <script src="${site.baseurl}/pagefind/pagefind-ui.js"></script>
+
       <script type="module" src="${site.baseurl}/index.js"></script>
 
       ${page.tag
@@ -69,7 +73,7 @@ export default ({ site = {}, page = {}, head = "", js = "" }, content) => html`
       <header class="content-grid">
         <div class="masthead">
           <img
-            src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=64"
+            src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128"
           />
           <div class="title">
             <h1>
@@ -81,12 +85,10 @@ export default ({ site = {}, page = {}, head = "", js = "" }, content) => html`
                 </svg>
               </a>
             </h1>
-            <!--<h1><a href="${site.baseurl}/">${site.title}</a></h1>-->
-            <!--<h2>Befuddlement through meandering</h2>-->
-            <!--<h2>${site.subtitle}</h2>-->
           </div>
         </div>
         <nav class="main-nav">
+          <div id="search"></div>
           <ul>
             <li>
               <a href="${site.baseurl}/archives.html"

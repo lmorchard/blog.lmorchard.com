@@ -31,10 +31,11 @@ async function cleanBuild() {
 program
   .command("build")
   .description("clean and build all posts, indexes, and assets")
+  .option("-c, --clean", "clean before building and copying assets")
   .action(buildAll);
 
-async function buildAll() {
-  await cleanBuild();
+async function buildAll(options) {
+  if (options.clean) await cleanBuild();
   await copyAssets();
   const posts = await loadAllPosts();
   await buildAllPosts(posts);

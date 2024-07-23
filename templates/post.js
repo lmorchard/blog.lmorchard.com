@@ -27,6 +27,7 @@ export default ({ site = {}, page = {} }, content) =>
     },
     html`
       <article
+        data-pagefind-body
         class="content content-grid post ${page.tags &&
         page.tags.map((tag) => html`tag-${tag} `)}"
       >
