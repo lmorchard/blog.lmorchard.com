@@ -7,7 +7,7 @@
 - [ ] add a page progress bar at the top?
 - [ ] lightbox for enlarging images
 - [ ] inline carousel for multiple images
-- [ ] add a search bar with pagefind
+- [x] add a search bar with pagefind
 - [ ] comments & responses from fediverse
-- [ ] swap through a random set of short taglines?
+- [x] swap through a random set of short taglines in a client-side component?
 

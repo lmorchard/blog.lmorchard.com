@@ -8,6 +8,14 @@ export default {
     title: "blog.lmorchard.com",
     subtitle:
       "It's all spinning wheels & self-doubt until the first pot of coffee.",
+    subtitles: [
+      "befuddlement through meandering",
+      "i've got a miniature secret camera",
+      "a blog of dubious merit",
+      "where did i put that thing?",
+      "lucifer helps me prepare the chex mix",
+      "spinning wheels and self-doubt",
+    ],
     language: "en",
     baseurl: process.env.BASE_URL || "",
     absolute_baseurl: process.env.ABSOLUTE_BASE_URL || "https://blog.lmorchard.com",
@@ -23,9 +31,9 @@ export default {
     '!node_modules',
     '!node_modules/**/*',
     '!package-lock.json',
-    '!yarn.lock'    
+    '!yarn.lock'
   ],
   fulltextTagFeeds: [
     'mozilla'
-  ]  
+  ]
 };

@@ -79,12 +79,15 @@ export default ({ site = {}, page = {}, head = "", js = "" }, content) => html`
             <h1>
               <a href="${site.baseurl}/">
                 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 250 20">
-                  <text lengthAdjust="spacing" fill="currentColor" style="font-family: mono" y="16" textLength="240" x="5">
-                    blog.lmorchard.com
+                  <text lengthAdjust="spacing" fill="currentColor" y="16" textLength="240" x="5">
+                    ${site.title}
                   </text>
                 </svg>
               </a>
             </h1>
+            <h2>
+              <rotating-tagline titles="${JSON.stringify(site.subtitles)}" />
+            </h2>
           </div>
         </div>
         <nav class="main-nav">
@@ -99,6 +102,9 @@ export default ({ site = {}, page = {}, head = "", js = "" }, content) => html`
               <a href="http://lmorchard.com/"
                 ><span class="fa fa-info-circle"></span> about me</a
               >
+            </li>
+            <li>
+              <a href="${site.baseurl}/index.rss"><span class="fa fa-rss"></span> feed</a>
             </li>
             <li class="theme-selector">
               <theme-selector title="Enable dark theme">
