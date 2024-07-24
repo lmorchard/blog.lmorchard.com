@@ -36,23 +36,19 @@ export default ({ site = {}, page = {} }, content) =>
             title="${moment(page.date).format()}"
             pubdate="${moment(page.date).format()}"
           >
-          ${page.prevPostPath &&
-            html`
-              <a href="${site.baseurl}/${page.prevPostPath}/">&nbsp;←&nbsp;</a>
-            `}
-            <a href="${site.baseurl}/${moment(page.date).format("Y")}/"
-              >${moment(page.date).format("Y")}</a
-            >
-            &#8226;
-            <a href="${site.baseurl}/${moment(page.date).format("Y/MM")}/"
-              >${moment(page.date).format("MMMM")}</a
-            >
-            &#8226;
-            <span>${moment(page.date).format("DD")}</span>
-            ${page.nextPostPath &&
-            html`
-              <a href="${site.baseurl}/${page.nextPostPath}/">&nbsp;→&nbsp;</a>
-            `}
+            <span class="prevpost">
+              ${page.prevPostPath && html`<a title="${page.prevPostTitle}" href="${site.baseurl}/${page.prevPostPath}/">&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a>`}
+            </span>
+            <span class="postdate">
+              <a href="${site.baseurl}/${moment(page.date).format("Y")}/">${moment(page.date).format("Y")}</a>
+              &#8226;
+              <a href="${site.baseurl}/${moment(page.date).format("Y/MM")}/">${moment(page.date).format("MMMM")}</a>
+              &#8226;
+              <span>${moment(page.date).format("DD")}</span>
+            </span>
+            <span class="nextpost">
+              ${page.nextPostPath && html`<a title="${page.nextPostTitle}" href="${site.baseurl}/${page.nextPostPath}/">&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a>`}
+            </span>
           </time>
           <h1 class="title">${page.title}</h1>
           ${page.tags &&
@@ -90,5 +86,20 @@ export default ({ site = {}, page = {} }, content) =>
           </section>
         `}
       </article>
+
+      <section class="posts-nav content-grid">
+        ${page.prevPostPath && html`
+          <span class="prev-post">
+            <span><a href="${site.baseurl}/${page.prevPostPath}/">${page.prevPostTitle}</a></span>
+            <span><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span>
+          </span>
+        `}
+        ${page.nextPostPath && html`
+          <span class="next-post">
+            <span><a href="${site.baseurl}/${page.nextPostPath}/">${page.nextPostTitle}</a></span>
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+        `}
+      </section>
     `
   );

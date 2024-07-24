@@ -20,7 +20,7 @@ wordpress_url: http://decafbad.com/blog/?p=2032
 **Update:** <em>Feel free to comment on this blog post. But, if you feel strongly about these features, you might get a better discussion with more people on [this thread from the `mozilla.dev.apps.firefox` newsgroup (in Google Groups)](http://groups.google.com/group/mozilla.dev.apps.firefox/browse_thread/thread/fa6f83e781b962a4).</em>
 
 <p style="display: block; margin: 0 0 1em 1em; float:right;">
-<a style="display: block;" href="http://www.flickr.com/photos/thomashawk/4925985819/" title="Phone Don't Work No More by Thomas Hawk, on Flickr"><img src="http://farm5.static.flickr.com/4099/4925985819_9ccbb166f7.jpg" width="333" height="500" alt="Phone Don't Work No More" /></a>
+<a style="display: block;" href="http://www.flickr.com/photos/thomashawk/4925985819/" title="Phone Don't Work No More by Thomas Hawk, on Flickr"><img src="http://farm5.static.flickr.com/4099/4925985819_9ccbb166f7.jpg" alt="Phone Don't Work No More" /></a>
 <a href="http://www.flickr.com/photos/thomashawk/4925985819/">Phone Don't Work No More</a> by <a href="http://www.flickr.com/photos/thomashawk/">Thomas Hawk</a>
 </p>
 

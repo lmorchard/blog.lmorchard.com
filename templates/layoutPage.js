@@ -109,9 +109,6 @@ export default ({ site = {}, page = {}, head = "", js = "" }, content) => html`
                 ><span class="fa fa-archive"></span> archives</a
               >
             </li>
-            <li>
-              <a href="${site.baseurl}/index.rss"><span class="fa fa-rss"></span> feed</a>
-            </li>
             <li class="theme-selector">
               <theme-selector title="Enable dark theme">
                 <label>

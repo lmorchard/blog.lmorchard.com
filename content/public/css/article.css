@@ -1,7 +1,7 @@
-article>header {
+.main article header {
   /*
   position: sticky;
-  top: 64px;
+  top: 0px;
   */
   display: flex;
   flex-direction: column;
@@ -23,7 +23,23 @@ article>header>h1 {
 }
 
 article>header>time {
-  display: block;
+  display: flex;
+  flex-direction: row;
+  width: 15.5em;
+  justify-content: center;
+}
+
+article>header>time span {
+  min-width: 1.5em;
+  text-align: center;
+}
+
+article>header>time span a {
+  text-decoration: none;
+}
+
+article>header>time .postdate {
+  flex-grow: 1;
 }
 
 article>header>ul.tags {
@@ -35,7 +51,7 @@ article>header>ul.tags {
   list-style-type: none;
   padding: 0;
   margin: 0;
-  font-size: 0.8em;
+  font-size: 1em;
   justify-content: center;
 }
 
@@ -79,7 +95,31 @@ article figure {
   background-color: var(--theme-background-color-transparent);
 }
 
-@media (min-width: 900px) {
+.posts-nav {
+  margin-top: 1.5em;
+  padding-top: 1.5em;
+  border-top: 2px solid var(--theme-border-color);
+}
+.posts-nav>span {
+  display: flex;
+  flex-direction: column;
+}
+
+.posts-nav .fa {
+}
+
+.posts-nav .prev-post {
+  grid-column-start: full-start;
+  grid-column-end: main-left-end;
+}
+
+.posts-nav .next-post {
+  grid-column-start: main-right-start;
+  grid-column-end: full-end;
+  text-align: right;
+}
+
+@media (min-width: 1400px) {
   article>nav.table-of-contents {
     position: sticky;
     top: 0px;

@@ -14,7 +14,10 @@ tags:
   - teachers
   - wisdom
 ---
-<a style="float: right; margin: 0 0 1em 1em; display: block" href="http://www.oocities.org/sunsetstrip/stage/9868/aboutme.html"><img src="http://blog.lmorchard.com/wp-content/uploads/2012/09/alek_sabo_me.jpg" alt="" title="&quot;This is my friend Alek, my high school physics teacher Mr. Sabo, and me.&quot;" width="250" height="191" class="alignnone size-full wp-image-388" /></a> That&#8217;s not actually me in this picture: It&#8217;s something I found in [an archive of a defunct GeoCities page][1], from who knows when. (Though, apparently, it was forged in the era of the Counting Crows.)
+
+<img src="http://blog.lmorchard.com/wp-content/uploads/2012/09/alek_sabo_me.jpg" alt="" title="&quot;This is my friend Alek, my high school physics teacher Mr. Sabo, and me.&quot;" />
+
+That&#8217;s not actually me in this picture: It&#8217;s something I found in [an archive of a defunct GeoCities page][1], from who knows when. (Though, apparently, it was forged in the era of the Counting Crows.)
 
 But, anyway, that&#8217;s Mr. Sabo there in the middle. He was my High School science teacher, and nearly every day I remember something that he taught me. Let&#8217;s see if I can come up with a few off the top of my head&#8230;
 

@@ -28,6 +28,7 @@ incident.  (Still tinkering with getting a Linux box to mount the HFS+
 partition on the apparently undamaged hard drive.)  From where I'm sitting,
 though, I see the following systems either connected via switchbox to
 the TV, or stowed away in a mesh drawer:
+
 <ul>
 <li> Nintendo
 <ul>
@@ -74,6 +75,7 @@ the TV, or stowed away in a mesh drawer:
 <li> PS2
 </li>
 </ul>
+
 Stowed away in closets and, possibly, at my Mom's house, I've also
 got an Atari and <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/ColecoVision?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">ColecoVision</font></span>.  Also, I have a small start on a
 computer collection as well, including a C64, Atari 800, Amiga 1200,

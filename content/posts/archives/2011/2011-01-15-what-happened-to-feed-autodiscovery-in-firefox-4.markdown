@@ -12,7 +12,7 @@ tags:
 - bug578967
 title: What happened to feed auto-discovery in Firefox 4?
 wordpress_id: 1976
-wordpress_slug: what-happened-to-feed-autodiscovery-in-firefox-4
+wordpress_slug: what-happened-to-feed-autodiscovery-in-firefox-4    
 wordpress_url: http://decafbad.com/blog/?p=1976
 ---
 **TL;DR**: <em>The feed button is not dead; it's just been sent to sing backup in Firefox 4 because it's not pulling its weight. This post talks about why things have changed.</em>
@@ -31,20 +31,20 @@ You can't just cram it all in there, so what gets prime real estate by default? 
 
 You can also [gather some telemetry from beta installs to see what people really use](https://heatmap.mozillalabs.com/). Looking at a heatmap of clicks, the feed button is an absolute stinker. This isn't a random whim of the UX team—seriously, it's an **order of magnitude** less used than anything else in the toolbar (notice the one black spot):
 
-[<img src="http://decafbad.com/blog/wp-content/uploads/2011/01/heatmap.png" alt="heatmap.png" border="0" width="600" height="75" />](https://heatmap.mozillalabs.com/)
+[<img src="http://decafbad.com/blog/wp-content/uploads/2011/01/heatmap.png" alt="heatmap.png" border="0" />](https://heatmap.mozillalabs.com/)
 
 There have been comments dismissing the validity of that heatmap study. But, as far as I can tell, none of them really stick. So, for the sake of argument and a shorter blog post, let's assume barely anyone is using the feed icon and that it's not pulling its weight in this new age of browser minimalism.
 
 Keep in mind that Firefox isn't the only browser to deprioritize the feed button: *Google Chrome doesn't even have a feed button at all*, and for many people that's the gold standard for minimal browser UI:
 
-<img src="http://decafbad.com/blog/wp-content/uploads/2011/01/feed-sub-chrome.png" alt="feed-sub-chrome.png" border="0" width="600" height="242" />
+<img src="http://decafbad.com/blog/wp-content/uploads/2011/01/feed-sub-chrome.png" alt="feed-sub-chrome.png" border="0" />
 
 <a name="serving"></a>
 ### Serving the users
 
 Let's hammer on the point of disuse some more—what's the payoff for clicking that thing, anyway?
 
-<img src="http://decafbad.com/blog/wp-content/uploads/2011/01/feed-sub-styling.png" alt="feed-sub-styling.png" border="0" width="600" height="424" />
+<img src="http://decafbad.com/blog/wp-content/uploads/2011/01/feed-sub-styling.png" alt="feed-sub-styling.png" border="0" />
 
 * +1 — You get an option to create a [Live Bookmark](http://www.mozilla.com/en-US/firefox/livebookmarks.html), which is really handy for things like Bugzilla searches or light headline reading. (I like those so much that I tried building them on the server at Delicious once, but we never quite worked it out at scale.)
 

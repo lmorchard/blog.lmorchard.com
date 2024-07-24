@@ -10,6 +10,12 @@ thumbnail: /uploads/2016/poke-the-mongo/poke-the-mongo.p8.png
 
 <nav role="navigation" class="table-of-contents"></nav>
 
+## Play My Game!
+
+Just to spoil the whole post, here's a game I made and you can play it right here:
+
+<iframe class="lazyload" style="width: 100%; height: 420px" scrolling="no" frameborder="0" allowfullscreen data-src="/uploads/2016/poke-the-mongo/pokethemongo.html"></iframe>
+
 ## Enter the PocketC.H.I.P.
 
 [Pico-8][] has been out for a few years. With it, folks have been making fun neo-retro games - and of course I've got a soft spot for that genre. 
@@ -75,9 +81,7 @@ I'm nowhere near that level of Pico-8 mastery, but it could be interesting to di
 
 ## Play my game!
 
-Pico-8 games can also be exported to HTML5 and JavaScript. This embedded web player consists of the game code and an Emscripten-compiled version of the Pico-8 engine. So, [because the web is awesome][webawesome], even if Pico-8 goes away this copy of my game will continue working long after:
-
-<iframe class="lazyload" style="width: 100%; height: 420px" scrolling="no" frameborder="0" allowfullscreen data-src="/uploads/2016/poke-the-mongo/pokethemongo.html"></iframe>
+Pico-8 games can also be exported to HTML5 and JavaScript. This embedded web player consists of the game code and an Emscripten-compiled version of the Pico-8 engine. So, [because the web is awesome][webawesome], even if Pico-8 goes away this copy of my game will continue working long after.
 
 I've also read that the folks behind Pico-8 aren't particularly hostile to others cloning the system - which has lead to things like [PICOLOVE](https://github.com/picolove/picolove), an independent implementation of the Pico-8 APIs for another Lua-based game system. I've seen a few folks leverage that to get their games running on Android, so I'll have to check that out at some point.
 

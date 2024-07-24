@@ -48,7 +48,7 @@ I like playing video games; it&#8217;s one of my favorite things in life. I also
 
 ## <span id="The_nightlife_at_Orchard_House">The nightlife at Orchard House</span>
 
-<a style="display: block; float: right; margin: 0 0 0.75em 0.75em" href="http://blog.lmorchard.com/wp-content/uploads/2013/01/couch-gaming-1-laptop.png"><img src="http://blog.lmorchard.com/wp-content/uploads/2013/01/couch-gaming-1-laptop-300x238.png" alt="couch-gaming-1-laptop" width="300" height="238" class="alignnone size-medium wp-image-670" /></a>
+<img src="http://blog.lmorchard.com/wp-content/uploads/2013/01/couch-gaming-1-laptop-300x238.png" alt="couch-gaming-1-laptop" class="alignnone size-medium wp-image-670" />
 
 Here, on the left, you can see a scale model of evenings at Orchard House. Alex and I like to spend nights making fun of crappy TV, piddling around on our laptops, and attracting household pets. (Yeah, I had a little too much fun playing around in [SketchUp][1] tonight.)
 
