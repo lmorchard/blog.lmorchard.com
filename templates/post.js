@@ -65,7 +65,7 @@ export default ({ site = {}, page = {} }, content) =>
 
         ${unescaped(content)}
 
-        ${false && !(page.comments_archived || page.draft) &&
+        ${!(page.comments_archived || page.draft) &&
         html`
           <section class="comments" id="comments">
             <div id="disqus_thread"></div>

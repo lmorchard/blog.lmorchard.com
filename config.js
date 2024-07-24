@@ -11,7 +11,7 @@ export default {
       "It's all spinning wheels & self-doubt until the first pot of coffee.",
     subtitles: [
       "passing the turing test since 1975",
-      "is this thing on? no, really?",
+      "is this thing on? (tap, tap)",
       "befuddlement through meandering",
       "i've got a miniature secret camera",
       "a blog of dubious merit",

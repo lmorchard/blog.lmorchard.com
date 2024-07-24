@@ -3,7 +3,7 @@ title: "Goodbye, Puck"
 tags: [pets, cats, puck]
 ---
 
-<a style="position: block; float: right; margin: 0 0 1em 1em;"
+<a
 href="https://www.flickr.com/photos/deusx/8453933354" title="Yes, i have a cat
 bed attached to my desk by Les Orchard, on Flickr"><img src="/uploads/2015/puck/8453933354_a4c95d72a8_n.jpg" width="320" height="240" alt="Yes, i have a cat bed attached to my desk"></a>
 
@@ -18,7 +18,7 @@ For much of his life, he would be the first thing I saw when I woke up,
 because he slept curled up close to my chest at night. He purred when I opened
 my eyes and stirred awake.
 
-<a style="position: block; float: left; margin: 1em 1em 1em 0;" href="https://www.flickr.com/photos/deusx/60975373" title="kitty-023 by Les Orchard, on Flickr"><img src="/uploads/2015/puck/60975373_1f12e7f98e_m.jpg" width="240" height="180" alt="kitty-023"></a>
+<a href="https://www.flickr.com/photos/deusx/60975373" title="kitty-023 by Les Orchard, on Flickr"><img src="/uploads/2015/puck/60975373_1f12e7f98e_m.jpg" width="240" height="180" alt="kitty-023"></a>
 
 I got him and his sister Inanna ([also
 departed](https://twitter.com/lmorchard/status/29488656198)) as kittens just before I met
@@ -37,7 +37,7 @@ California](http://blog.lmorchard.com/2006/06/24/go-west-young-man/) and [back
 again](http://decafbad.com/blog/2008/05/14/go-midwest-young-man/). But, of course he hated travel, having
 reserved a peculiar howling meow for car rides that was impossible to ignore.
 
-<a style="position: block; float: right; margin: 1em 0 1em 1em;" href="https://www.flickr.com/photos/deusx/2565869172" title="Cat atop shelf by Les Orchard, on Flickr"><img src="/uploads/2015/puck/2565869172_ce30a4b81c_m.jpg" width="192" height="240" alt="Cat atop shelf"></a>
+<a href="https://www.flickr.com/photos/deusx/2565869172" title="Cat atop shelf by Les Orchard, on Flickr"><img src="/uploads/2015/puck/2565869172_ce30a4b81c_m.jpg" width="192" height="240" alt="Cat atop shelf"></a>
 
 As I’m writing this, a calendar alert popped up. Reminding me to give Puck his
 meds. [I’m going to have to delete all those
@@ -74,7 +74,7 @@ looking at each other like we would when I woke up with him on better days.
 Yesterday, he spent most of the day at the vet’s. They ran tests, got some new
 meds into him. It was bad, but it seemed like he was responding to treatment.
 
-<a style="position: block; float: left; margin: 1em 1em 1em 0;" href="https://www.flickr.com/photos/deusx/16381807917" title="IMG_20150218_012414 by Les Orchard, on Flickr"><img src="/uploads/2015/puck/16381807917_d56aa3c0ee_m.jpg" width="240" height="180" alt="IMG_20150218_012414"></a>
+<a href="https://www.flickr.com/photos/deusx/16381807917" title="IMG_20150218_012414 by Les Orchard, on Flickr"><img src="/uploads/2015/puck/16381807917_d56aa3c0ee_m.jpg" width="240" height="180" alt="IMG_20150218_012414"></a>
 
 We got him home and he spent the rest of the evening curled up in his favorite
 spot on the couch. Cheddars and Catsby, our other two cats, came by and
@@ -95,9 +95,9 @@ down comfortably, and passed away. I feel terrible. I don’t think there’s
 anything more we could have done for him, but I wish I’d been with him in the
 end.
 
-<a style="position: block; float: left; margin: 1em 1em 1em 0em;" href="https://www.flickr.com/photos/deusx/60975477" title="kitty-020 by Les Orchard, on Flickr"><img src="/uploads/2015/puck/60975477_435d4be811_m.jpg" width="240" height="180" alt="kitty-020"></a>
+<a href="https://www.flickr.com/photos/deusx/60975477" title="kitty-020 by Les Orchard, on Flickr"><img src="/uploads/2015/puck/60975477_435d4be811_m.jpg" width="240" height="180" alt="kitty-020"></a>
 
-<a style="position: block; float: right; margin: 1em 0 1em 1em;" href="https://www.flickr.com/photos/deusx/8353514611" title="puck in a tub by Les Orchard, on Flickr"><img src="/uploads/2015/puck/8353514611_64e0c6cd56_m.jpg" width="240" height="180" alt="puck in a tub"></a>
+<a href="https://www.flickr.com/photos/deusx/8353514611" title="puck in a tub by Les Orchard, on Flickr"><img src="/uploads/2015/puck/8353514611_64e0c6cd56_m.jpg" width="240" height="180" alt="puck in a tub"></a>
 
 And now he’s gone. One last car trip, the first he didn’t howl all the way
 through.

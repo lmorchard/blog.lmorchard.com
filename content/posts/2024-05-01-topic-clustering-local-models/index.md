@@ -12,7 +12,7 @@ tags:
 
 <!--more-->
 
-<figure class="fullwidth">
+<figure class="wide">
   <img src="./cover.png">
   <figcaption>I asked DALL-E to generate "an image in a whimsical style depicting astronauts at home clustering ideas brought in from deep space". Then, I ran a few imagemagick transformations on it for fun.</figcaption>
 </figure>
@@ -27,7 +27,7 @@ It worked pretty well, but I'm not always comfortable with the idea of sending a
 
 As a refresher, the thing that got me started on this was a feature in Figma's [FigJam][] tool. Given a collection of sticky notes, there's an "organize" feature [that uses AI]((https://www.theverge.com/2023/11/7/23950667/figma-figjam-generative-ai-design-tools-beta-announcement)) to group them into named clusters automatically:
 
-<figure class="fullwidth">
+<figure class="wide">
   <video controls>
     <source src="./figjam-sorting-demo.mp4" type="video/mp4" />
     <a href="./figjam-sorting-demo.mp4">figjam-sorting-demo.mp4</a>

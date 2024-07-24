@@ -12,7 +12,7 @@ tags:
 
 <!--more-->
 
-<figure class="fullwidth">
+<figure class="wide">
   <img src="./cover.png">
   <figcaption>I asked DALL-E to generate "a whimsical depiction of astronauts arranging ideas into clusters while floating in deep space". Then, I ran a few imagemagick transformations on it for fun.</figcaption>
 </figure>
@@ -25,7 +25,7 @@ Over the years and on various teams, I've been in a lot of brainstorming and clu
 
 We'd also do the clustering as a manual group exercise, whether moving little slips of paper around or dragging boxes on the screen. Well, over the past year or so, [Figma added AI features to FigJam](https://www.theverge.com/2023/11/7/23950667/figma-figjam-generative-ai-design-tools-beta-announcement). One of these features is the ability to automatically cluster sticky notes by topic:
 
-<figure class="fullwidth">
+<figure class="wide">
   <video controls>
     <source src="./figjam-sorting-demo.mp4" type="video/mp4" />
     <a href="./figjam-sorting-demo.mp4">figjam-sorting-demo.mp4</a>
