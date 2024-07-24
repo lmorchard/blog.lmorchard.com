@@ -39,7 +39,7 @@ export default {
       full_name: "Les Orchard",
       short_name: "lmorchard",
       name: "l.m.orchard",
-      email: "l.m.orchard@pobox.com",
+      email: "me@lmorchard.com",
     },
   },
   postCopyFilters: [
