@@ -72,13 +72,11 @@ export default ({ site = {}, page = {}, head = "", js = "" }, content) => html`
     <body>
       <header class="content-grid">
         <div class="masthead">
-          <img
-            src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128"
-          />
+          <img src="${site.avatar}" />
           <div class="title">
             <h1>
               <a href="${site.baseurl}/">
-                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 250 20">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 250 20" alt="${site.title}">
                   <text lengthAdjust="spacing" fill="currentColor" y="16" textLength="240" x="5">
                     ${site.title}
                   </text>
@@ -86,7 +84,13 @@ export default ({ site = {}, page = {}, head = "", js = "" }, content) => html`
               </a>
             </h1>
             <h2>
-              <rotating-tagline titles="${JSON.stringify(site.subtitles)}" />
+              <rotating-tagline random initial="1" period="7000" taglines="${JSON.stringify(site.subtitles)}" alt="${site.subtitles[0]}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 250 20">
+                  <text class="tagline" lengthAdjust="spacing" fill="currentColor" y="16" textLength="240" x="5">
+                    ${site.subtitles[0]}
+                  </text>
+                </svg>
+              </rotating-tagline>
             </h2>
           </div>
         </div>

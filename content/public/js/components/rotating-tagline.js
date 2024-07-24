@@ -1,23 +1,52 @@
+// TODO:
+// - observe the attributes for changes?
+// - add a pause on hover
+// - fade in/out transitions
 export class RotatingTagline extends HTMLElement {
   constructor() {
     super();
+
+    this.period = 5000;
+    if (this.hasAttribute("period")) {
+      this.period = parseInt(this.getAttribute("period"), 10);
+    }
+
+    this.titleIdx = 0;
+    if (this.hasAttribute("initial")) {
+      this.titleIdx = parseInt(this.getAttribute("initial"), 10);
+    }
+
+    this.random = false;
+    if (this.hasAttribute("random")) {
+      this.random = true;
+    }
+
     this.titles = [];
     try {
-      this.titles = JSON.parse(this.getAttribute("titles"));
+      this.titles = JSON.parse(this.getAttribute("taglines"));
     } catch (e) {
       console.error("Failed to parse titles", e);
     }
   }
 
   connectedCallback() {
-    const title = this.titles[Math.floor(Math.random() * this.titles.length)];
-    this.innerHTML = /*html*/ `
-      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 250 20">
-        <text lengthAdjust="spacing" fill="currentColor" y="16" textLength="240" x="5">
-          ${title}
-        </text>
-      </svg>
-    `;
+    this.rotateTimer = setInterval(() => this.rotateTagline(), this.period);
+    this.rotateTagline();
+  }
+
+  disconnectedCallback() {
+    clearInterval(this.rotateTimer);
+  }
+
+  rotateTagline() {
+    if (this.random) {
+      this.titleIdx = Math.floor(Math.random() * this.titles.length);
+    } else {
+      this.titleIdx = (this.titleIdx + 1) % this.titles.length;
+    }
+    const title = this.titles[this.titleIdx];
+    const titleEl = this.querySelector(".tagline");
+    if (titleEl) titleEl.innerHTML = title;
   }
 }
 
