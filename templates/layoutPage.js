@@ -85,11 +85,13 @@ export default ({ site = {}, page = {}, head = "", js = "" }, content) => html`
             </h1>
             <h2>
               <rotating-tagline random initial="1" period="7000" taglines="${JSON.stringify(site.subtitles)}" alt="${site.subtitles[0]}">
-                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 250 20">
-                  <text class="tagline" lengthAdjust="spacing" fill="currentColor" y="16" textLength="240" x="5">
-                    ${site.subtitles[0]}
-                  </text>
-                </svg>
+                <a href="${site.baseurl}/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 250 20">
+                    <text class="tagline" lengthAdjust="spacing" fill="currentColor" y="16" textLength="240" x="5">
+                      ${site.subtitles[0]}
+                    </text>
+                  </svg>
+                </a>
               </rotating-tagline>
             </h2>
           </div>
@@ -98,13 +100,13 @@ export default ({ site = {}, page = {}, head = "", js = "" }, content) => html`
           <div id="search"></div>
           <ul>
             <li>
-              <a href="${site.baseurl}/archives.html"
-                ><span class="fa fa-archive"></span> archives</a
+              <a href="http://lmorchard.com/"
+                ><span class="fa fa-info-circle"></span> about me</a
               >
             </li>
             <li>
-              <a href="http://lmorchard.com/"
-                ><span class="fa fa-info-circle"></span> about me</a
+              <a href="${site.baseurl}/archives.html"
+                ><span class="fa fa-archive"></span> archives</a
               >
             </li>
             <li>

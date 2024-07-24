@@ -46,12 +46,7 @@ export default ({ site = {}, page = {}, posts }) => {
     html`
       <section class="content-grid"><section class="archive">
         <h2>Archives</h2>
-        <p>Looking for something from the back catalog?</p>
-        <p>
-          Feel free to peruse this
-          <a href="${site.baseurl}/all.html">huge list of all my posts</a>. Someday, I might
-          build a local search engine.
-        </p>
+        <p>Feel free to peruse this <a href="${site.baseurl}/all.html">huge list of all my posts</a>.</p>
 
         <h3>Tags</h3>
         <p>Here are some of the topics I've written about:</p>

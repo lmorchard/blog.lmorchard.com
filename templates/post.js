@@ -36,11 +36,9 @@ export default ({ site = {}, page = {} }, content) =>
             title="${moment(page.date).format()}"
             pubdate="${moment(page.date).format()}"
           >
-            ${page.prevPostPath &&
+          ${page.prevPostPath &&
             html`
-              <a href="${site.baseurl}/${page.prevPostPath}/"
-                >←&nbsp;<a> </a
-              ></a>
+              <a href="${site.baseurl}/${page.prevPostPath}/">&nbsp;←&nbsp;</a>
             `}
             <a href="${site.baseurl}/${moment(page.date).format("Y")}/"
               >${moment(page.date).format("Y")}</a
@@ -53,9 +51,7 @@ export default ({ site = {}, page = {} }, content) =>
             <span>${moment(page.date).format("DD")}</span>
             ${page.nextPostPath &&
             html`
-              <a href="${site.baseurl}/${page.nextPostPath}/"
-                >&nbsp;→<a> </a
-              ></a>
+              <a href="${site.baseurl}/${page.nextPostPath}/">&nbsp;→&nbsp;</a>
             `}
           </time>
           <h1 class="title">${page.title}</h1>
