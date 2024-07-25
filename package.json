@@ -10,8 +10,9 @@
   "scripts": {
     "start": "npm-run-all --parallel serve watch",
     "serve": "http-server -d true -i true -p 9980 build",
-    "watch": "onchange -v -i -d 1000 content package.json index.js lib templates -- npm run build",
-    "build": "node index.js build",
+    "watch": "onchange -v -i -d 1000 content package.json index.js lib templates -- npm run build-posts",
+    "build": "node index.js build && npm run build-search",
+    "build-posts": "node index.js build",
     "build-search": "pagefind --site build --keep-index-url",
     "test": "echo \"Error: no test specified\" && exit 1",
     "stage": "npm-run-all --serial stage:build stage:deploy",
