@@ -1,24 +1,15 @@
+import { loadScript, loadStyle } from "./utils.js";
+
 export async function init() {
 
-  const head = document.head || document.getElementsByTagName('head')[0];
+  await loadStyle("/pagefind/pagefind-ui.css");
+  await loadScript('/pagefind/pagefind-ui.js');
 
-  const style = document.createElement("link");
-  style.rel = "stylesheet";
-  style.href = "/pagefind/pagefind-ui.css";
-  head.insertBefore(style, head.firstChild);
-
-  const script = document.createElement('script');
-  script.src = '/pagefind/pagefind-ui.js';
-  script.async = false; // optionally
-
-  script.onload = () => {
-    console.log("LOADED PAGEFIND");
-    new window.PagefindUI({
-      element: "#search",
-      showSubResults: false,
-      showImages: false,
-    });
-  };
+  console.log("LOADED PAGEFIND");
   
-  head.insertBefore(script, head.firstChild);
+  new window.PagefindUI({
+    element: "#search",
+    showSubResults: false,
+    showImages: false,
+  });
 }

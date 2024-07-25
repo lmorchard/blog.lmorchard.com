@@ -1,6 +1,8 @@
 //import hljs from "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/es/highlight.min.js";
 //import hljs from './vendor/highlight.js/highlight.js';
 
+import { loadScript, loadStyle } from "./utils.js";
+
 const highlightLanguages = [
   "javascript",
   "python",
@@ -19,27 +21,16 @@ export async function init() {
     return;
   }
 
-  console.log("LOADING HIGHLIGHT");
+  await loadStyle("/vendor/highlight.js/dracula.min.css");
+  await loadScript('/vendor/highlight.js/highlight.min.js');
 
-  const head = document.head || document.getElementsByTagName('head')[0];
-
-  const style = document.createElement("link");
-  style.rel = "stylesheet";
-  style.href = "/vendor/highlight.js/dracula.min.css";
-  head.insertBefore(style, head.firstChild);
-
-  const script = document.createElement('script');
-  script.src = '/vendor/highlight.js/highlight.min.js';
-  script.async = false; // optionally
-  script.onload = () => {
-    console.log("LOADED HIGHLIGHT");
-    window.hljs.highlightAll();
-  };
-  head.insertBefore(script, head.firstChild);
+  console.log("LOADED HIGHLIGHT");
+  window.hljs.highlightAll();
 
   // await Promise.all(highlightLanguages.map(importLanguage));
   // hljs.highlightAll();
 }
+
 
 async function importLanguage(lang) {
   const lib = await import(
