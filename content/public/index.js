@@ -5,38 +5,14 @@ import "./js/toc.js";
 
 import { init as componentLazyLoaderInit } from "./js/component-lazy-loader.js";
 import { init as searchInit } from "./js/search.js";
-
-import hljs from "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/es/highlight.min.js";
-//import hljs from './vendor/highlight.js/highlight.js';
-
-const highlightLanguages = [
-  "javascript",
-  "python",
-  "bash",
-  "xml",
-  "css",
-  "go",
-  "markdown",
-  "json",
-  "yaml",
-];
+import { init as highlightInit } from "./js/highlight-loader.js";
 
 async function main() {
   await componentLazyLoaderInit();
   await searchInit();
-  await Promise.all(highlightLanguages.map(importLanguage));
-
-  hljs.highlightAll();
+  await highlightInit();
 
   console.log("READY.");
-}
-
-async function importLanguage(lang) {
-  const lib = await import(
-    `https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/es/languages/${lang}.min.js`
-  );
-  //const lib = await import(`./vendor/highlight.js/languages/${lang}.min.js`);
-  hljs.registerLanguage(lang, lib.default);
 }
 
 main().catch((err) => console.error(err));
