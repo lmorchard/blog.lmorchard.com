@@ -30,6 +30,7 @@ export default {
       "have you seen my stapler?",
       "you can't park that there",
       "this is not my beautiful blog",
+      "this place is not a place of honor",
     ],
     language: "en",
     baseurl: process.env.BASE_URL || "",
