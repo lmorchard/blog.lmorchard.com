@@ -50,7 +50,7 @@ export default ({ site = {}, page = {} }, content) =>
               ${page.nextPostPath && html`<a title="${page.nextPostTitle}" href="${site.baseurl}/${page.nextPostPath}/">&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a>`}
             </span>
           </time>
-          <h1 class="title">${page.title}</h1>
+          <h1 class="title">${unescaped(page.title)}</h1>
           ${page.tags &&
           html`
             <ul class="tags">
@@ -90,13 +90,13 @@ export default ({ site = {}, page = {} }, content) =>
       <section class="posts-nav content-grid">
         ${page.prevPostPath && html`
           <span class="prev-post">
-            <span><a href="${site.baseurl}/${page.prevPostPath}/">${page.prevPostTitle}</a></span>
+            <span><a href="${site.baseurl}/${page.prevPostPath}/">${unescaped(page.prevPostTitle)}</a></span>
             <span><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span>
           </span>
         `}
         ${page.nextPostPath && html`
           <span class="next-post">
-            <span><a href="${site.baseurl}/${page.nextPostPath}/">${page.nextPostTitle}</a></span>
+            <span><a href="${site.baseurl}/${page.nextPostPath}/">${unescaped(page.nextPostTitle)}</a></span>
             <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
           </span>
         `}
