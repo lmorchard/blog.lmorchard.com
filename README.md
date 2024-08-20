@@ -11,3 +11,4 @@
 - [ ] linkable headings with anchor indicators
 - [ ] add code syntax highlighting in figures, linkable line ranges?
 - [ ] compose a colophon, credit font & etc
+- [ ] render mermaid diagrams? https://mermaid.js.org/intro/getting-started.html
