@@ -110,7 +110,7 @@ export default ({ site = {}, page = {}, head = "", js = "" }, content) => html`
         <nav class="right">
           <ul>
             <li>
-              <a href><span class="fa fa-rss"></span> feed</a>
+              <a href="/index.rss"><span class="fa fa-rss"></span> feed</a>
             </li>
           </ul>
         </nav>
