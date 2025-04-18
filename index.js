@@ -48,7 +48,9 @@ program
   .action(buildPosts);
 
 async function buildPosts(postsGlob) {
-  await buildAllPosts(await loadAllPosts(postsGlob));
+  const posts = await loadAllPosts();
+  await buildAllPosts(posts);
+  await buildAllIndexes(posts);
 }
 
 program

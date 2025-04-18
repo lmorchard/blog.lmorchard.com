@@ -1,9 +1,16 @@
 // adapted from https://lamplightdev.com/blog/2020/03/20/lazy-loading-web-components-with-intersection-observer/
 
+const LAZY_LOAD_COMPONENT_SELECTORS = [
+  ".lazy-load-component",
+  "image-gallery",
+];
+
 export async function init() {
   let observer = new IntersectionObserver(handleIntersections);
-  const els = document.querySelectorAll(".lazy-load-component");
-  for (let el of els) observer.observe(el);
+  for (let selector of LAZY_LOAD_COMPONENT_SELECTORS) {
+    const els = document.querySelectorAll(selector);
+    for (let el of els) observer.observe(el);
+  }
 }
 
 const imported = {};
