@@ -29,8 +29,6 @@ export class ImageGallery extends HTMLElement {
       subHtml: img.dataset.subHtml || '',
     }));
 
-    console.log("Dynamic elements:", dynamicEl);
-
     // Initialize lightGallery on this element
     this.gallery = lightGallery(this, {
       container: this,
@@ -38,7 +36,7 @@ export class ImageGallery extends HTMLElement {
         lgThumbnail,
         lgZoom,
         lgVideo,
-        lgRotate,
+        //lgRotate,
       ],
       hash: false,
       closable: false,
@@ -51,14 +49,11 @@ export class ImageGallery extends HTMLElement {
     });
 
     this.gallery.openGallery();
-
     setTimeout(() => {
-      for (const img of images) {
-        img.remove();
-      }
+      this.gallery.refresh();
     }, 100);
 
-    console.log("LightGallery initialized:", this.gallery);
+    console.log("ImageGallery initialized", this.gallery);
   }
 
   disconnectedCallback() {

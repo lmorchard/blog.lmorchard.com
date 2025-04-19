@@ -2,15 +2,29 @@
 title: 2025 Week 16
 tags:
   - weeknotes
+  - meshtastic
+  - coffee
+  - irrigation
+  - obsidian
+  - blogging
+  - metablogging
+  - homeroasting
+  - fossilizer
+  - raspberrypi
 ---
 
-**TL;DR**: Assorted notes for week 16 of 2025
+**TL;DR**: Kicked off a new habit: jotting down bits and bobs throughout the week, then turning it into a blog post. Played with Meshtastic, roasted some coffee, fixed (and broke) Fossilizer, and started messing with garden irrigation. Just trying to get stuff out of my head and onto the web again.
 
 <!--more-->
 
+<figure class="wide">
+  <img src="./cover.png">
+  <figcaption>Random crap from a week</figcaption>
+</figure>
+
 <nav role="navigation" class="table-of-contents"></nav>
 
-It's weird sometimes to start a new thing, abruptly and out of the blue. But, sometimes that's the only way to start.
+It's weird to start a new thing, abruptly and out of the blue. But, sometimes that's the only way to start.
 
 So, here's my latest attempt at a blog post with notes from throughout the week. Just an accumulation of miscellanea. Some of it won't be much more than a single bullet point or a rehash of a toot. But, maybe some of it will develop into more interesting things if I can clear the bar to get stuff out of my head and onto the web again.
 
@@ -79,9 +93,7 @@ I've been hearing a bunch more lately about the [Meshtastic](https://meshtastic.
 ![[IMG_8327.jpeg]]![[IMG_8326.jpeg]]![[IMG_8328.jpeg]]
 </image-gallery>
 
-Did a quick bit of looking around and discovered it was super cheap to dive in, so I made an impulse purchase of a couple [Heltec V3 boards](https://www.amazon.com/dp/B0D7HSHTNX?ref=ppx).
-
-Flashed the firmware and plonked a node onto my desk in my upstairs office. After a few minutes, the thing had found over 180 other nodes in the mesh around town.
+Did a quick bit of looking around and discovered it was super cheap to dive in, so I made an impulse purchase of a couple [Heltec V3 boards](https://www.amazon.com/dp/B0D7HSHTNX?ref=ppx). Flashed the firmware and plonked a node onto my desk in my upstairs office. After a few minutes, the thing had found over 180 other nodes in the mesh around town.
 
 I repurposed the factory box into a case with a few snips of the plastic. That was good enough to stash the rig into one of the saddle bags on my bike and go take a ride around town. Wasn't really sure what I'd see happen with the thing, but it did pick up another dozen or so new nodes.
 
@@ -92,3 +104,7 @@ So, I started looking through [3D printable case models that fit my Heltec V3](h
 Seeing that this case model fits my hardware, I decided to bust out some fancier filament and print some snazzier versions.
 
 I still don't really know what to do with this thing. Maybe screw around with the APIs and build a bot? Maybe a thing that responds to pings with cat facts? I dunno. Maybe I can make a few friends?
+
+---
+
+Anyway, that's a week. I think I like this format. Started off with random notes in Obsidian on Monday, then added a little polish and a few new web components on Friday. Hoping I can keep it up and improve over time. Going to take it week by week, but it would be nice if this stuck as a habit.
