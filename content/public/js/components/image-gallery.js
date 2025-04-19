@@ -5,9 +5,9 @@ import lgVideo from "../../vendor/lightgallery/plugins/video/lg-video.es5.js";
 import lgRotate from "../../vendor/lightgallery/plugins/rotate/lg-rotate.es5.js";
 
 // Inject the lightgallery CSS
-const linkElement = document.createElement('link');
-linkElement.rel = 'stylesheet';
-linkElement.href = '/vendor/lightgallery/css/lightgallery-bundle.min.css';
+const linkElement = document.createElement("link");
+linkElement.rel = "stylesheet";
+linkElement.href = "/vendor/lightgallery/css/lightgallery-bundle.min.css";
 document.head.appendChild(linkElement);
 
 export class ImageGallery extends HTMLElement {
@@ -16,17 +16,49 @@ export class ImageGallery extends HTMLElement {
   }
 
   connectedCallback() {
+    const images = this.querySelectorAll("img");
+
+    const dynamicEl = Array.from(images).map((img) => ({
+      src: img.src,
+      thumb: img.dataset.thumb || img.src,
+      subHtml: img.dataset.subHtml || "",
+    }));
+
+    this.gallery = lightGallery(this, {
+      plugins: [lgThumbnail, lgZoom, lgVideo, lgRotate],
+      //dynamic: true,
+      dynamicEl,
+      showMaximizeIcon: true,
+      thumbnail: false,
+      zoom: true,
+    });
+
+    console.log("ImageGallery initialized", this.gallery);
+
+    /*
+    this.addEventListener("click", (event) => {
+      if (event.target.tagName === "IMG") {
+        event.preventDefault();
+        this.gallery.openGallery();
+      }
+    });
+    */
+  }
+
+  connectedCallback_inline() {
+    //return;
+
     this.classList.add("lightgallery");
 
     console.log("ImageGallery connected");
 
     // Find all the img children of this element
-    const images = this.querySelectorAll('img');
+    const images = this.querySelectorAll("img");
 
     const dynamicEl = Array.from(images).map((img) => ({
       src: img.src,
       thumb: img.dataset.thumb || img.src,
-      subHtml: img.dataset.subHtml || '',
+      subHtml: img.dataset.subHtml || "",
     }));
 
     // Initialize lightGallery on this element
@@ -45,17 +77,13 @@ export class ImageGallery extends HTMLElement {
       zoom: true,
       dynamic: true,
       dynamicEl,
-      appendSubHtmlTo: '.lg-item',
+      appendSubHtmlTo: ".lg-item",
     });
 
     this.gallery.openGallery();
-    setTimeout(() => {
-      this.gallery.refresh();
-    }, 100);
 
     console.log("ImageGallery initialized", this.gallery);
   }
-
   disconnectedCallback() {
     if (this.gallery) {
       this.gallery.closeGallery();
@@ -64,7 +92,5 @@ export class ImageGallery extends HTMLElement {
     }
   }
 }
-
-
 
 customElements.define("image-gallery", ImageGallery);
