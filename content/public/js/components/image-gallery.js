@@ -9,6 +9,12 @@ const stylesheets = [
   "/vendor/lightgallery/css/lightgallery-bundle.min.css",
   "/js/components/image-gallery.css",
 ];
+stylesheets.forEach((href) => {
+  const linkElement = document.createElement("link");
+  linkElement.rel = "stylesheet";
+  linkElement.href = href;
+  document.head.appendChild(linkElement);
+});
 
 export class ImageGallery extends HTMLElement {
   constructor() {
@@ -102,13 +108,6 @@ class ImageGalleryManager {
     this.observer.observe(instance);
   }
 }
-
-stylesheets.forEach((href) => {
-  const linkElement = document.createElement("link");
-  linkElement.rel = "stylesheet";
-  linkElement.href = href;
-  document.head.appendChild(linkElement);
-});
 
 const manager = new ImageGalleryManager();
 

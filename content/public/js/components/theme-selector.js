@@ -1,3 +1,13 @@
+const stylesheets = [
+  "/js/components/theme-selector.css",
+];
+stylesheets.forEach((href) => {
+  const linkElement = document.createElement("link");
+  linkElement.rel = "stylesheet";
+  linkElement.href = href;
+  document.head.appendChild(linkElement);
+});
+
 // adapted from https://stackoverflow.com/questions/56300132/how-to-override-css-prefers-color-scheme-setting/75124760#75124760
 class ThemeSelector extends HTMLElement {
   connectedCallback() {
