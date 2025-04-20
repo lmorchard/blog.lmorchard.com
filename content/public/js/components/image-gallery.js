@@ -2,7 +2,7 @@ import lightGallery from "../../vendor/lightgallery/lightgallery.es5.js";
 import lgThumbnail from "../../vendor/lightgallery/plugins/thumbnail/lg-thumbnail.es5.js";
 // import lgZoom from "../../vendor/lightgallery/plugins/zoom/lg-zoom.es5.js";
 import lgVideo from "../../vendor/lightgallery/plugins/video/lg-video.es5.js";
-import lgRotate from "../../vendor/lightgallery/plugins/rotate/lg-rotate.es5.js";
+// import lgRotate from "../../vendor/lightgallery/plugins/rotate/lg-rotate.es5.js";
 import lgAutoplay from "../../vendor/lightgallery/plugins/autoplay/lg-autoplay.es5.js";
 
 const stylesheets = [
@@ -54,7 +54,7 @@ export class ImageGallery extends HTMLElement {
         lgThumbnail,
         //lgZoom,
         lgVideo,
-        lgRotate,
+        //lgRotate,
         lgAutoplay,
       ],
       // TODO: tie some of these options to attributes
