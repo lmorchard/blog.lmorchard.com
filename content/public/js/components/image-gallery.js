@@ -1,14 +1,14 @@
 import lightGallery from "../../vendor/lightgallery/lightgallery.es5.js";
 import lgThumbnail from "../../vendor/lightgallery/plugins/thumbnail/lg-thumbnail.es5.js";
-import lgZoom from "../../vendor/lightgallery/plugins/zoom/lg-zoom.es5.js";
+// import lgZoom from "../../vendor/lightgallery/plugins/zoom/lg-zoom.es5.js";
 import lgVideo from "../../vendor/lightgallery/plugins/video/lg-video.es5.js";
 import lgRotate from "../../vendor/lightgallery/plugins/rotate/lg-rotate.es5.js";
+import lgAutoplay from "../../vendor/lightgallery/plugins/autoplay/lg-autoplay.es5.js";
 
-// Inject the lightgallery CSS
-const linkElement = document.createElement("link");
-linkElement.rel = "stylesheet";
-linkElement.href = "/vendor/lightgallery/css/lightgallery-bundle.min.css";
-document.head.appendChild(linkElement);
+const stylesheets = [
+  "/vendor/lightgallery/css/lightgallery-bundle.min.css",
+  "/js/components/image-gallery.css",
+];
 
 export class ImageGallery extends HTMLElement {
   constructor() {
@@ -16,60 +16,42 @@ export class ImageGallery extends HTMLElement {
   }
 
   connectedCallback() {
-    const images = this.querySelectorAll("img");
-
-    const dynamicEl = Array.from(images).map((img) => ({
-      src: img.src,
-      thumb: img.dataset.thumb || img.src,
-      subHtml: img.dataset.subHtml || "",
-    }));
-
-    this.gallery = lightGallery(this, {
-      plugins: [lgThumbnail, lgZoom, lgVideo, lgRotate],
-      //dynamic: true,
-      dynamicEl,
-      showMaximizeIcon: true,
-      thumbnail: false,
-      zoom: true,
-    });
-
-    console.log("ImageGallery initialized", this.gallery);
-
-    /*
-    this.addEventListener("click", (event) => {
-      if (event.target.tagName === "IMG") {
-        event.preventDefault();
-        this.gallery.openGallery();
-      }
-    });
-    */
+    console.log("ImageGallery connected", this);
+    manager.register(this);
   }
 
-  connectedCallback_inline() {
-    //return;
+  onVisible() {
+    console.log("ImageGallery onVisible", this);
+    this.setupGallery();
+  }
 
-    this.classList.add("lightgallery");
+  setupGallery() {
+    this.classList.add("connected");
 
-    console.log("ImageGallery connected");
-
-    // Find all the img children of this element
+    // Scoop up all the images to supply to the gallery
     const images = this.querySelectorAll("img");
-
     const dynamicEl = Array.from(images).map((img) => ({
       src: img.src,
       thumb: img.dataset.thumb || img.src,
       subHtml: img.dataset.subHtml || "",
     }));
 
-    // Initialize lightGallery on this element
-    this.gallery = lightGallery(this, {
-      container: this,
+    // Create a container for the gallery
+    const galleryContainer = document.createElement("div");
+    galleryContainer.classList.add("gallery-container");
+    this.prepend(galleryContainer);
+
+    // Instantiate the lightGallery
+    this.gallery = lightGallery(galleryContainer, {
+      container: galleryContainer,
       plugins: [
         lgThumbnail,
-        lgZoom,
+        //lgZoom,
         lgVideo,
-        //lgRotate,
+        lgRotate,
+        lgAutoplay,
       ],
+      // TODO: tie some of these options to attributes
       hash: false,
       closable: false,
       showMaximizeIcon: true,
@@ -77,13 +59,19 @@ export class ImageGallery extends HTMLElement {
       zoom: true,
       dynamic: true,
       dynamicEl,
+      autoplayControls: false,
+      autoplay: true,
+      slideShowAutoplay: true,
+      slideShowInterval: 5000,
+      loop: true,
       appendSubHtmlTo: ".lg-item",
     });
 
     this.gallery.openGallery();
 
-    console.log("ImageGallery initialized", this.gallery);
+    console.log("ImageGallery lightGallery initialized", this);
   }
+
   disconnectedCallback() {
     if (this.gallery) {
       this.gallery.closeGallery();
@@ -92,5 +80,36 @@ export class ImageGallery extends HTMLElement {
     }
   }
 }
+
+class ImageGalleryManager {
+  constructor() {
+    this.observer = new IntersectionObserver(
+      this.handleIntersections.bind(this)
+    );
+  }
+
+  handleIntersections(entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const instance = entry.target;
+        this.observer.unobserve(instance);
+        instance.onVisible();
+      }
+    });
+  }
+
+  register(instance) {
+    this.observer.observe(instance);
+  }
+}
+
+stylesheets.forEach((href) => {
+  const linkElement = document.createElement("link");
+  linkElement.rel = "stylesheet";
+  linkElement.href = href;
+  document.head.appendChild(linkElement);
+});
+
+const manager = new ImageGalleryManager();
 
 customElements.define("image-gallery", ImageGallery);
