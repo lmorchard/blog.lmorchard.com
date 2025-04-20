@@ -14,5 +14,6 @@ window.addEventListener('scroll', function (e) {
 // Activate lazyloading on needful elements
 var toLazyLoad = document.querySelectorAll('.lazyload');
 for (var idx = 0; idx < toLazyLoad.length; idx++) {
+    console.log(toLazyLoad[idx]);
     lzld(toLazyLoad[idx]);
 }

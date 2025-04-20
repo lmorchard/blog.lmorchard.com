@@ -1,5 +1,5 @@
 const LAZY_LOAD_THRESHOLD = 0.1;
-const LAZY_LOAD_CLASS_NAME = "lazy-load";
+const LAZY_LOAD_CLASS_NAME = "lazyload";
 
 class LazyLoadObserver extends HTMLElement {
   constructor() {
@@ -68,7 +68,7 @@ class LazyLoadObserver extends HTMLElement {
   }
 
   async handleIntersection({ target }) {
-    if (/img/i.test(target.tagName)) {
+    if (/img/i.test(target.tagName) || /iframe/i.test(target.tagName)) {
       const src = target.getAttribute("data-src");
       if (src) {
         target.setAttribute("src", src);

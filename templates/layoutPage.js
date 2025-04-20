@@ -46,7 +46,7 @@ export default ({ site = {}, page = {}, head = "", js = "" }, content) => html`
           `}
       ${head}
     </head>
-    <body>
+    <body>        
       <header class="content-grid">
         <div class="masthead">
           <img src="${site.avatar}" />

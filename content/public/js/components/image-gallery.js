@@ -37,8 +37,8 @@ export class ImageGallery extends HTMLElement {
     // Scoop up all the images to supply to the gallery
     const images = this.querySelectorAll("img");
     const dynamicEl = Array.from(images).map((img) => ({
-      src: img.src,
-      thumb: img.dataset.thumb || img.src,
+      src: img.src || img.dataset.src,
+      thumb: img.dataset.thumb || img.src || img.dataset.src,
       subHtml: img.dataset.subHtml || "",
     }));
 

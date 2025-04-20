@@ -9,8 +9,8 @@
   "main": "index.js",
   "scripts": {
     "start": "npm-run-all --parallel serve watch",
-    "serve": "reload -w build -f index.html -d build -p 9980",
-    "serve-static": "http-server -d true -i true -p 9980 build",
+    "serve-reload": "reload -v -w build -f index.html -d build -p 9980",
+    "serve": "http-server -d true -i true -p 9980 build",
     "watch": "npm-run-all --parallel watch:*",
     "watch:posts": "onchange -v -i -d 1000 content/posts package.json index.js lib templates -- npm run build-posts",
     "watch:assets": "onchange -v -i -d 1000 content/public -- npm run build-assets",
