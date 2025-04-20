@@ -63,9 +63,7 @@ export default ({ site = {}, page = {} }, content) =>
           `}
         </header>
 
-        <lazy-load-observer>
-          ${unescaped(content)}
-        </lazy-load-observer>
+        ${unescaped(content)}
 
         ${!(page.comments_archived || page.draft) &&
         html`
