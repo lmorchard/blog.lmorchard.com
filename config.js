@@ -10,6 +10,7 @@ export default {
     subtitle:
       "It's all spinning wheels & self-doubt until the first pot of coffee.",
     subtitles: [
+      "i'm a blumberjack and i'm okay",
       "passing the turing test since 1975",
       "is this thing on? (tap, tap)",
       "befuddlement through meandering",
