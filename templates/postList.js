@@ -1,4 +1,4 @@
-import { html } from "../lib/html.js";
+import { html, unescaped } from "../lib/html.js";
 import moment from "moment";
 
 export default ({ site, posts }, content) => {
@@ -12,41 +12,86 @@ export default ({ site, posts }, content) => {
       out.push(html`<h2 class="date">${currentDateHeader}</h2>`);
     }
 
-    out.push(
-      html`<div
-        class="post post-type-${post.type} ${post.thumbnail &&
-        "has-thumb "}${post.tags &&
-        post.tags.map((tag) => `tag-${tag}`).join(" ")}"
-      ></div>`
-    );
-
     switch (post.type) {
-      default:
+      case "aside": {
         out.push(
           html`
-            ${post.thumbnail &&
-            html`<img
-              class="thumb"
-              style="width: 128px"
-              src="${post.thumbnail}"
-            />`}
-            ${post.title &&
-            html` <a class="link" href="${site.baseurl}/${post.path}/">
-              <span class="infoContainer">
-                <span class="title">${post.title}</span>
-              </span>
-            </a>`}
-            ${post.summary && html`<p class="summary">${post.summary}</p>`}
-            <a class="link" href="${site.baseurl}/${post.path}/">#</a>
+            <div
+              class="post post-type-${post.type} ${post.thumbnail &&
+              "has-thumb "}${post.tags &&
+              post.tags.map((tag) => `tag-${tag}`).join(" ")}"
+            >
+              ${post.thumbnail &&
+              html`<img
+                class="thumb"
+                style="width: 128px"
+                src="${post.thumbnail}"
+              />`}
+              ${post.title &&
+              html` <a class="link" href="${site.baseurl}/${post.path}/">
+                <span class="infoContainer">
+                  <span class="title">${post.title}</span>
+                </span>
+              </a>`}
+              ${post.summary && html`<p class="summary">${post.summary}</p>`}
+              ${unescaped(post.html)}
+              <a class="link" href="${site.baseurl}/${post.path}/">#</a>
+              <a class="link" href="${site.baseurl}/${post.path}/"
+                >${post.date.format("hh:mm a")}</a
+              >
+              /
+              ${post.tags &&
+              html`<span class="tags"
+                >${post.tags.map(
+                  (tag) => html`
+                    <a href="${site.baseurl}/tag/${tag}/">${tag}</a>
+                  `
+                )}</span
+              >`}
+            </div>
           `
         );
+        break;
+      }
+      default: {
+        out.push(
+          html`
+            <div
+              class="post post-type-${post.type} ${post.thumbnail &&
+              "has-thumb "}${post.tags &&
+              post.tags.map((tag) => `tag-${tag}`).join(" ")}"
+            >
+              ${post.thumbnail &&
+              html`<img
+                class="thumb"
+                style="width: 128px"
+                src="${post.thumbnail}"
+              />`}
+              ${post.title &&
+              html` <a class="link" href="${site.baseurl}/${post.path}/">
+                <span class="infoContainer">
+                  <span class="title">${post.title}</span>
+                </span>
+              </a>`}
+              ${post.summary && html`<p class="summary">${post.summary}</p>`}
+              <a class="link" href="${site.baseurl}/${post.path}/">#</a>
+              <a class="link" href="${site.baseurl}/${post.path}/"
+                >${post.date.format("hh:mm a")}</a
+              >
+              /
+              ${post.tags &&
+              html`<span class="tags"
+                >${post.tags.map(
+                  (tag) => html`
+                    <a href="${site.baseurl}/tag/${tag}/">${tag}</a>
+                  `
+                )}</span
+              >`}
+            </div>
+          `
+        );
+      }
     }
-
-    out.push(
-      html`
-        </div>
-      `
-    );
   }
 
   return html`
