@@ -8,7 +8,8 @@ export default ({ site = {}, page = {} }, content) =>
       site,
       page,
       head: html`
-        <meta property="og:title" content="${page.title}" />
+        ${page.title &&
+        html`<meta property="og:title" content="${page.title}" />`}
         <meta
           property="og:url"
           content="${site.absolute_baseurl}/${page.path}/"
@@ -37,20 +38,34 @@ export default ({ site = {}, page = {} }, content) =>
             pubdate="${moment(page.date).format()}"
           >
             <span class="prevpost">
-              ${page.prevPostPath && html`<a title="${page.prevPostTitle}" href="${site.baseurl}/${page.prevPostPath}/">&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a>`}
+              ${page.prevPostPath &&
+              html`<a
+                title="${page.prevPostTitle}"
+                href="${site.baseurl}/${page.prevPostPath}/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >`}
             </span>
             <span class="postdate">
-              <a href="${site.baseurl}/${moment(page.date).format("Y")}/">${moment(page.date).format("Y")}</a>
+              <a href="${site.baseurl}/${moment(page.date).format("Y")}/"
+                >${moment(page.date).format("Y")}</a
+              >
               &#8226;
-              <a href="${site.baseurl}/${moment(page.date).format("Y/MM")}/">${moment(page.date).format("MMMM")}</a>
+              <a href="${site.baseurl}/${moment(page.date).format("Y/MM")}/"
+                >${moment(page.date).format("MMMM")}</a
+              >
               &#8226;
               <span>${moment(page.date).format("DD")}</span>
             </span>
             <span class="nextpost">
-              ${page.nextPostPath && html`<a title="${page.nextPostTitle}" href="${site.baseurl}/${page.nextPostPath}/">&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a>`}
+              ${page.nextPostPath &&
+              html`<a
+                title="${page.nextPostTitle}"
+                href="${site.baseurl}/${page.nextPostPath}/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >`}
             </span>
           </time>
-          <h1 class="title">${unescaped(page.title)}</h1>
+          ${page.title && html`<h1 class="title">${unescaped(page.title)}</h1>`}
           ${page.tags &&
           html`
             <ul class="tags">
@@ -64,7 +79,6 @@ export default ({ site = {}, page = {} }, content) =>
         </header>
 
         ${unescaped(content)}
-
         ${!(page.comments_archived || page.draft) &&
         html`
           <section class="comments" id="comments">
@@ -88,15 +102,27 @@ export default ({ site = {}, page = {} }, content) =>
       </article>
 
       <section class="posts-nav content-grid">
-        ${page.prevPostPath && html`
+        ${page.prevPostPath &&
+        html`
           <span class="prev-post">
-            <span><a href="${site.baseurl}/${page.prevPostPath}/">${unescaped(page.prevPostTitle)}</a></span>
-            <span><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span>
+            <span
+              ><a href="${site.baseurl}/${page.prevPostPath}/"
+                >${unescaped(page.prevPostTitle)}</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
           </span>
         `}
-        ${page.nextPostPath && html`
+        ${page.nextPostPath &&
+        html`
           <span class="next-post">
-            <span><a href="${site.baseurl}/${page.nextPostPath}/">${unescaped(page.nextPostTitle)}</a></span>
+            <span
+              ><a href="${site.baseurl}/${page.nextPostPath}/"
+                >${unescaped(page.nextPostTitle)}</a
+              ></span
+            >
             <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
           </span>
         `}
