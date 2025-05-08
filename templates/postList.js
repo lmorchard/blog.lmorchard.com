@@ -37,7 +37,7 @@ export default ({ site, posts }, content) => {
               ${unescaped(post.html)}
               <a class="link" href="${site.baseurl}/${post.path}/">#</a>
               <a class="link" href="${site.baseurl}/${post.path}/"
-                >${post.date.format("hh:mm a")}</a
+                >${post.date.format("h:mm a")}</a
               >
               /
               ${post.tags &&
@@ -68,13 +68,20 @@ export default ({ site, posts }, content) => {
                 src="${post.thumbnail}"
               />`}
               ${post.title &&
-              html` <a class="link" href="${site.baseurl}/${post.path}/">
-                <span class="infoContainer">
-                  <span class="title">${post.title}</span>
-                </span>
-              </a>`}
-              ${post.summary && html`<p class="summary">${post.summary}</p>`}
-              <a class="link" href="${site.baseurl}/${post.path}/">#</a>
+              html`<h2>
+                <a class="link" href="${site.baseurl}/${post.path}/">
+                  <span class="infoContainer">
+                    <span class="title">${post.title}</span>
+                  </span>
+                </a>
+              </h2>`}
+              <p class="summary">
+                ${post.summary &&
+                unescaped(post.summary.replace("TL;DR: ", ""))}
+                [...<a class="link" href="${site.baseurl}/${post.path}/"
+                  >${post.words} words</a
+                >]
+              </p>
               <a class="link" href="${site.baseurl}/${post.path}/"
                 >${post.date.format("hh:mm a")}</a
               >
@@ -92,6 +99,8 @@ export default ({ site, posts }, content) => {
         );
       }
     }
+
+    out.push(html`<hr />`);
   }
 
   return html`
@@ -103,37 +112,4 @@ export default ({ site, posts }, content) => {
     </section>
   `;
 
-  /*
-  return html`
-    <section class="post-list-new">
-      <ul class="posts">
-        ${posts.map(
-          (post) => html`
-            <li
-              class="post ${post.thumbnail && "has-thumb "}${post.tags &&
-              post.tags.map((tag) => `tag-${tag}`).join(" ")}"
-            >
-              <time class="date" datetime="${moment(post.date).format()}">
-                ${moment(post.date).format("YYYY")}
-                ${moment(post.date).format("MMMM")}
-                ${moment(post.date).format("DD")}
-              </time>
-              <i class="icon fa fa-file-text"></i>
-              <a class="link" href="${site.baseurl}/${post.path}/">
-                <span class="infoContainer">
-                  <span class="title">${post.title}</span>
-                </span>
-              </a>
-              ${post.thumbnail &&
-              html`<img class="thumb" style="width: 128px" src="${post.thumbnail}" />`}
-              ${post.summary &&
-              html`<p class="summary">${post.summary}</p>`}
-            </li>
-          `
-        )}
-      </ul>
-      ${content}
-    </section>
-  `;
-  */
 };
