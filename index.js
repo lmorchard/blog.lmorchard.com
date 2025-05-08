@@ -65,8 +65,18 @@ async function buildIndexes(postsGlob) {
 }
 
 program
-  .command("build-assets")
+  .command("build-assets [param]")
   .description("build shared assets like JS & CSS")
   .action(copyAssets);
+
+import { loadPostFile } from "./lib/posts.js";
+
+program
+  .command("play [arg]")
+  .action(async (param) => {
+    console.log("play", param);
+    const result = await loadPostFile(param);
+    console.log("result", result);
+  });
 
 main().catch((err) => console.error(err));
