@@ -5,6 +5,7 @@ import moment from "moment";
 export default ({ site, posts }, contentBefore = "", contentAfter = "") => {
   const typeRenderers = {
     aside: aside,
+    miscellanea: miscellanea,
     entry: entry,
     default: entry,
   };
@@ -90,6 +91,23 @@ const aside = (post, site) => html`
       </h2>
     `}
     <div class="content">${unescaped(post.html)}</div>
+    ${metaFooter(post, site)}
+  </li>
+`;
+
+const miscellanea = (post, site) => html`
+  <li class="${postClasses(post)}">
+    ${post.title &&
+    html`
+      <h2 class="title">
+        <a href="${site.baseurl}/${post.path}/">${post.title}</a>
+      </h2>
+    `}
+    <div class="content">
+      <div class="miscellanea">
+        ${unescaped(post.html)}
+      </div>
+    </div>
     ${metaFooter(post, site)}
   </li>
 `;

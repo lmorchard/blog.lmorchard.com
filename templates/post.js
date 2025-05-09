@@ -78,7 +78,8 @@ export default ({ site = {}, page = {} }, content) =>
           `}
         </header>
 
-        ${unescaped(content)}
+        ${renderPostContent(page, content)}
+
         ${!(page.comments_archived || page.draft) &&
         html`
           <section class="comments" id="comments">
@@ -129,3 +130,15 @@ export default ({ site = {}, page = {} }, content) =>
       </section>
     `
   );
+
+function renderPostContent(post, content) {
+  if (post.type === "miscellanea") {
+    return html`
+      <div class="miscellanea">
+        ${unescaped(content)}
+      </div>
+    `;
+  }
+
+  return html`${unescaped(content)}`;
+}
