@@ -18,17 +18,17 @@ export default ({ site, posts }, content) => {
           html`
             <div
               class="post post-type-${post.type} ${post.thumbnail &&
-              "has-thumb "}${post.tags &&
-              post.tags.map((tag) => `tag-${tag}`).join(" ")}"
+            "has-thumb "}${post.tags &&
+            post.tags.map((tag) => `tag-${tag}`).join(" ")}"
             >
               ${post.thumbnail &&
-              html`<img
+            html`<img
                 class="thumb"
                 style="width: 128px"
                 src="${post.thumbnail}"
               />`}
               ${post.title &&
-              html` <a class="link" href="${site.baseurl}/${post.path}/">
+            html` <a class="link" href="${site.baseurl}/${post.path}/">
                 <span class="infoContainer">
                   <span class="title">${post.title}</span>
                 </span>
@@ -41,12 +41,12 @@ export default ({ site, posts }, content) => {
               >
               /
               ${post.tags &&
-              html`<span class="tags"
+            html`<span class="tags"
                 >${post.tags.map(
-                  (tag) => html`
+              (tag) => html`
                     <a href="${site.baseurl}/tag/${tag}/">${tag}</a>
                   `
-                )}</span
+            )}</span
               >`}
             </div>
           `
@@ -54,21 +54,28 @@ export default ({ site, posts }, content) => {
         break;
       }
       default: {
+        const words = (post.body || "")
+          .replace(/<[^>]*>/g, '') // Remove HTML tags
+          .replace(/\s+/g, ' ')    // Normalize whitespace
+          .trim()
+          .split(/\s+/)
+          .length;
+
         out.push(
           html`
             <div
               class="post post-type-${post.type} ${post.thumbnail &&
-              "has-thumb "}${post.tags &&
-              post.tags.map((tag) => `tag-${tag}`).join(" ")}"
+            "has-thumb "}${post.tags &&
+            post.tags.map((tag) => `tag-${tag}`).join(" ")}"
             >
               ${post.thumbnail &&
-              html`<img
+            html`<img
                 class="thumb"
                 style="width: 128px"
                 src="${post.thumbnail}"
               />`}
               ${post.title &&
-              html`<h2>
+            html`<h2>
                 <a class="link" href="${site.baseurl}/${post.path}/">
                   <span class="infoContainer">
                     <span class="title">${post.title}</span>
@@ -77,9 +84,9 @@ export default ({ site, posts }, content) => {
               </h2>`}
               <p class="summary">
                 ${post.summary &&
-                unescaped(post.summary.replace("TL;DR: ", ""))}
+            unescaped(post.summary.replace("TL;DR: ", ""))}
                 [...<a class="link" href="${site.baseurl}/${post.path}/"
-                  >${post.words} words</a
+                  >${words} words</a
                 >]
               </p>
               <a class="link" href="${site.baseurl}/${post.path}/"
@@ -87,12 +94,12 @@ export default ({ site, posts }, content) => {
               >
               /
               ${post.tags &&
-              html`<span class="tags"
+            html`<span class="tags"
                 >${post.tags.map(
-                  (tag) => html`
+              (tag) => html`
                     <a href="${site.baseurl}/tag/${tag}/">${tag}</a>
                   `
-                )}</span
+            )}</span
               >`}
             </div>
           `
