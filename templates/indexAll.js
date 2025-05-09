@@ -8,11 +8,11 @@ export default ({ site = {}, page = {}, posts = [] }) =>
       site,
       page,
     },
-    html`
-      <section class="archive content-grid">
+    postList(
+      { site, posts },
+      html`
         <h2>All Posts</h2>
         <p>Didn't find what you were looking for? It might be here:</p>
-        ${postList({ site, posts })}
-      </section>
-    `
+      `
+    )
   );

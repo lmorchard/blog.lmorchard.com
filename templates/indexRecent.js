@@ -8,16 +8,14 @@ export default ({ site = {}, page = {}, posts = [] }) =>
       site,
       page,
     },
-    html`
-      <section class="archive content-grid">
-        ${postList(
-          { site, posts },
-          html`
-            <p>
-              Looking for more? <a href="${site.baseurl}/archives.html">Try the archives.</a>
-            </p>
-          `
-        )}
-      </section>
+    postList(
+      { site, posts },
+      "",
+      html`
+      <p>
+        Looking for more? <a href="${site.baseurl}/archives.html">Try the archives.</a>
+      </p>
     `
+    )
   );
+

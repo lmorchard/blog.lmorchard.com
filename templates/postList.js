@@ -1,122 +1,115 @@
 import { html, unescaped } from "../lib/html.js";
 import moment from "moment";
 
-export default ({ site, posts }, content) => {
-  const out = [];
-  let currentDateHeader = "";
+export default ({ site, posts }, contentBefore = "", contentAfter = "") => {
+  const typeRenderers = {
+    'aside': aside,
+    'entry': entry,
+    'default': entry
+  };
 
-  for (const post of posts) {
-    const dateHeader = moment(post.date).format("YYYY MMMM DD");
-    if (currentDateHeader !== dateHeader) {
-      currentDateHeader = dateHeader;
-      out.push(html`<h2 class="date">${currentDateHeader}</h2>`);
-    }
+  const renderPost = (post, index, arr) => {
+    const currentHeader = dateHeader(post);
+    const prevHeader = index > 0 ? dateHeader(arr[index - 1]) : null;
+    const showHeader = currentHeader !== prevHeader;
+    const renderer = typeRenderers[post.type] || typeRenderers.default;
 
-    switch (post.type) {
-      case "aside": {
-        out.push(
-          html`
-            <div
-              class="post post-type-${post.type} ${post.thumbnail &&
-            "has-thumb "}${post.tags &&
-            post.tags.map((tag) => `tag-${tag}`).join(" ")}"
-            >
-              ${post.thumbnail &&
-            html`<img
-                class="thumb"
-                style="width: 128px"
-                src="${post.thumbnail}"
-              />`}
-              ${post.title &&
-            html` <a class="link" href="${site.baseurl}/${post.path}/">
-                <span class="infoContainer">
-                  <span class="title">${post.title}</span>
-                </span>
-              </a>`}
-              ${post.summary && html`<p class="summary">${post.summary}</p>`}
-              ${unescaped(post.html)}
-              <a class="link" href="${site.baseurl}/${post.path}/">#</a>
-              <a class="link" href="${site.baseurl}/${post.path}/"
-                >${post.date.format("h:mm a")}</a
-              >
-              /
-              ${post.tags &&
-            html`<span class="tags"
-                >${post.tags.map(
-              (tag) => html`
-                    <a href="${site.baseurl}/tag/${tag}/">${tag}</a>
-                  `
-            )}</span
-              >`}
-            </div>
-          `
-        );
-        break;
-      }
-      default: {
-        const words = (post.body || "")
-          .replace(/<[^>]*>/g, '') // Remove HTML tags
-          .replace(/\s+/g, ' ')    // Normalize whitespace
-          .trim()
-          .split(/\s+/)
-          .length;
-
-        out.push(
-          html`
-            <div
-              class="post post-type-${post.type} ${post.thumbnail &&
-            "has-thumb "}${post.tags &&
-            post.tags.map((tag) => `tag-${tag}`).join(" ")}"
-            >
-              ${post.thumbnail &&
-            html`<img
-                class="thumb"
-                style="width: 128px"
-                src="${post.thumbnail}"
-              />`}
-              ${post.title &&
-            html`<h2>
-                <a class="link" href="${site.baseurl}/${post.path}/">
-                  <span class="infoContainer">
-                    <span class="title">${post.title}</span>
-                  </span>
-                </a>
-              </h2>`}
-              <p class="summary">
-                ${post.summary &&
-            unescaped(post.summary.replace("TL;DR: ", ""))}
-                [...<a class="link" href="${site.baseurl}/${post.path}/"
-                  >${words} words</a
-                >]
-              </p>
-              <a class="link" href="${site.baseurl}/${post.path}/"
-                >${post.date.format("hh:mm a")}</a
-              >
-              /
-              ${post.tags &&
-            html`<span class="tags"
-                >${post.tags.map(
-              (tag) => html`
-                    <a href="${site.baseurl}/tag/${tag}/">${tag}</a>
-                  `
-            )}</span
-              >`}
-            </div>
-          `
-        );
-      }
-    }
-
-    out.push(html`<hr />`);
-  }
+    return html`
+      <li class="date-header">
+        ${showHeader && html`<h2 class="date">${currentHeader}</h2>`}
+      </li>
+      ${renderer(post, site)}
+    `;
+  };
 
   return html`
-    <section class="post-list-new">
-      <ul class="posts">
-        ${out}
+    <section class="content-grid">
+      ${contentBefore}
+      <ul class="post-list">
+        ${posts.map(renderPost)}
       </ul>
-      ${content}
+      ${contentAfter}
     </section>
   `;
-
 };
+
+const dateHeader = (post) =>
+  moment(post.date).format("YYYY MMMM DD");
+
+const postClasses = (post) => [
+  "post",
+  `post-type-${post.type}`,
+  post.thumbnail && "has-thumb",
+  ...(post.tags || []).map((tag) => `tag-${tag}`)
+].filter(Boolean).join(" ");
+
+const wordCount = (post) => (post.body || "")
+  .replace(/<[^>]*>/g, "") // Remove HTML tags
+  .replace(/\s+/g, " ")    // Normalize whitespace
+  .trim()
+  .split(/\s+/)
+  .length;
+
+function entry(post, site) {
+  return html`
+    <li class="${postClasses(post)}">
+      ${post.thumbnail && html`<div class="thumb"><img style="width: 128px" src="${post.thumbnail}" /></div>`}
+      ${post.title && html`
+        <h2 class="title">
+          <a href="${site.baseurl}/${post.path}/">${post.title}</a>
+        </h2>
+      `}
+      <p class="summary">
+        ${post.summary &&
+    unescaped(post.summary.replace("TL;DR: ", ""))}
+        [...<a class="link" href="${site.baseurl}/${post.path}/"
+          >${wordCount(post)} words</a
+        >]
+      </p>
+      <div class="meta">
+      <a class="link" href="${site.baseurl}/${post.path}/"
+        >${post.date.format("hh:mm a")}</a
+      >
+      /
+      ${post.tags &&
+    html`<span class="tags"
+        >${post.tags.map(
+      (tag) => html`
+            <a href="${site.baseurl}/tag/${tag}/">${tag}</a>
+          `
+    )}</span
+      >`}
+      </div>
+      </li>
+  `;
+}
+
+function aside(post, site) {
+  return html`
+    <li class="${postClasses(post)}">
+    ${post.thumbnail && html`<div class="thumb"><img style="width: 128px" src="${post.thumbnail}" /></div>`}
+    ${post.title && html`
+        <h2 class="title">
+          <a href="${site.baseurl}/${post.path}/">${post.title}</a>
+        </h2>
+      `}
+    ${post.summary && html`<p class="summary">${post.summary}</p>`}
+    <div class="content">${unescaped(post.html)}</div>
+    <div class="meta">
+      <a class="link" href="${site.baseurl}/${post.path}/">#</a>
+      <a class="link" href="${site.baseurl}/${post.path}/"
+        >${post.date.format("h:mm a")}</a
+      >
+      /
+      ${post.tags &&
+      html`<span class="tags"
+        >${post.tags.map(
+        (tag) => html`
+            <a href="${site.baseurl}/tag/${tag}/">${tag}</a>
+          `
+      )}</span
+      >`}
+      </div>
+    </li>
+`;
+}

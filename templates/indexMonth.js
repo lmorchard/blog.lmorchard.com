@@ -8,10 +8,8 @@ export default ({ site = {}, page = {}, posts = [] }) =>
       site,
       page,
     },
-    html`
-      <section class="archive content-grid">
-        <h2>Month: ${page.title}</h2>
-        ${postList({ site, posts })}
-      </section>
-    `
+    postList(
+      { site, posts },
+      html`<h2>Month: ${page.title}</h2>`
+    )
   );
