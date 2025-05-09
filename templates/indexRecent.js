@@ -8,14 +8,5 @@ export default ({ site = {}, page = {}, posts = [] }) =>
       site,
       page,
     },
-    postList(
-      { site, posts },
-      "",
-      html`
-      <p>
-        Looking for more? <a href="${site.baseurl}/archives.html">Try the archives.</a>
-      </p>
-    `
-    )
+    postList({ site, posts })
   );
-

@@ -1,42 +1,111 @@
-ul.post-list {
+.post-list {
+}
+
+.post-list ul.posts {
   display: contents;
   list-style: none;
 }
 
-ul.post-list .date-header {
-  grid-column-start: wide-start;
-  grid-column-end: main-start;
-  text-align: right;
+.post-list ul.posts .date-header {
+  margin: 1em 0 1em 0;
 
+  /*
   position: sticky;
-  top: 100;
-  z-index: 10;
+  top: 50px;
+  */
+  z-index: 100;
 }
 
-ul.post-list .post {
-  display: contents;
+.post-list ul.posts .date-header .date {
+  grid-column: main;
+  text-align: center;
+  border-bottom: 1px solid  rgba(128, 128, 128, 0.8);
+  padding: 0.5em 0 0.5em 0;
+  z-index: 100;
 }
 
-ul.post-list .post .thumb {
-  grid-column-start: wide-start;
-  grid-column-end: main-start;
-  grid-row: span 3;
-  text-align: right;
-  height: 128px;
+.post-list ul.posts .post {
+}
+
+
+.post-list ul.posts .post .thumb img {
+  width: 128px;
+}
+
+.post-list ul.posts .post .title,
+.post-list ul.posts .post .summary,
+.post-list ul.posts .post .content,
+.post-list ul.posts .post .meta {
+  grid-column: main;
+}
+
+.post-list ul.posts .post .title {
+  margin: 0 0 0.5em 0;
+  text-align: center;
+}
+
+.post-list ul.posts .date-header h2 {
+  margin: 0;
+}
+
+.post-list ul.posts .post .meta {
+  margin-bottom: 1.5em;
+  padding-bottom: 1.5em;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.8);
+  text-align: center;  
+  font-size: 0.85em;
+}
+
+.post-list ul.posts .post .meta ul.tags {
+  display: inline;
+  padding: 0;
+  margin: 0;
+}
+
+.post-list ul.posts .post .meta ul.tags:before {
+  margin: 0 0.25em;
+  content: " | "
+}
+
+.post-list ul.posts .post .meta ul.tags li.tag {
+  display: inline;
+  margin: 0;
+  white-space: no-wrap;
+}
+
+.post-list ul.posts .post .meta ul.tags li.tag:before {
+  content: "#";
+  content: "\1F3F7";
+}
+
+.post-list ul.posts .post .meta ul.tags li.tag:after {
+  margin-left: -0.125em;
+  margin-right: 0.2em;
+  content: ", ";
+}
+
+.post-list ul.posts .post .meta ul.tags li.tag:last-child:after {
+  content: "";
+}
+
+.post-list ul.posts .post .thumb {
   overflow: hidden;
+  margin-top: 0;
+  height: 128px;
+  text-align: center;  
 }
 
-ul.post-list .post .title,
-ul.post-list .post .summary,
-ul.post-list .post .content,
-ul.post-list .post .meta { 
-  grid-column: main; 
-}
-
-ul.post-list .post .title {
-  margin: 0;
-}
-
-ul.post-list .date-header h2 {
-  margin: 0;
+@media (min-width: 1200px) {
+  .post-list ul.posts .post .meta {
+    text-align: left;
+  }  
+  .post-list ul.posts .post .title {
+    text-align: left;
+  }
+  .post-list ul.posts .post .thumb {
+    grid-column-start: wide-start;
+    grid-column-end: main-start;
+    grid-row: span 2;  
+    text-align: right;  
+  }
 }
