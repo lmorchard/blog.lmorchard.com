@@ -11,8 +11,10 @@ export default ({ site = {}, page = {}, posts = [] }) =>
     postList(
       { site, posts },
       html`
-        <h2>All Posts</h2>
-        <p>Didn't find what you were looking for? It might be here:</p>
+        <section class="index-header">
+          <h2>All Posts</h2>
+          <p>Didn't find what you were looking for? It might be here:</p>
+        </section>
       `
     )
   );

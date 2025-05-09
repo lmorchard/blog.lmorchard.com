@@ -10,6 +10,10 @@ export default ({ site = {}, page = {}, posts = [] }) =>
     },
     postList(
       { site, posts },
-      html`<h2>Tag: ${page.title}</h2>`
+      html`
+        <section class="index-header">
+          <h2>Tag: ${page.title}</h2>
+        </section>
+      `
     )
   );

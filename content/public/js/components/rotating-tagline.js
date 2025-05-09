@@ -22,10 +22,32 @@ export class RotatingTagline extends HTMLElement {
     }
 
     this.titles = [];
-    try {
-      this.titles = JSON.parse(this.getAttribute("taglines"));
-    } catch (e) {
-      console.error("Failed to parse titles", e);
+    if (this.hasAttribute("taglines")) {
+      try {
+        this.titles = JSON.parse(this.getAttribute("taglines"));
+      } catch (e) {
+        console.error("Failed to parse titles", e);
+      }
+    }
+
+    if (this.hasAttribute("src")) {
+      const taglinesSrc = this.getAttribute("src");
+      fetch(taglinesSrc)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(
+              `Failed to fetch taglines: ${response.status} ${response.statusText}`
+            );
+          }
+          return response.json();
+        })
+        .then((data) => {
+          this.titles = data;
+          this.rotateTagline();
+        })
+        .catch((error) => {
+          console.error("Failed to load taglines:", error);
+        });
     }
   }
 
@@ -39,6 +61,9 @@ export class RotatingTagline extends HTMLElement {
   }
 
   rotateTagline() {
+    if (!this.titles || this.titles.length === 0) {
+      return;
+    }
     if (this.random) {
       this.titleIdx = Math.floor(Math.random() * this.titles.length);
     } else {

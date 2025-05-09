@@ -77,7 +77,7 @@ const entry = (post, site) => html`
         >&nbsp;...&nbsp;]</span
       >
     </p>
-    ${metaFooter(post)}
+    ${metaFooter(post, site)}
   </li>
 `;
 
@@ -90,11 +90,11 @@ const aside = (post, site) => html`
       </h2>
     `}
     <div class="content">${unescaped(post.html)}</div>
-    ${metaFooter(post)}
+    ${metaFooter(post, site)}
   </li>
 `;
 
-const metaFooter = (post) => html`
+const metaFooter = (post, site) => html`
   <div class="meta">
     <a class="permalink" href="${post.path}/">#</a>
     <a class="time" href="${post.path}/">${post.date.format("h:mm a")}</a>
@@ -103,7 +103,7 @@ const metaFooter = (post) => html`
       ${post.tags.map(
         (tag) =>
           html`<li class="tag">
-            <a href="${post.path}/tag/${tag}/">${tag}</a>
+            <a href="${site.baseurl}/tag/${tag}/">${tag}</a>
           </li>`
       )}
     </ul>`}

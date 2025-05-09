@@ -16,7 +16,7 @@ export default ({
       <title>${tag && `Tag: ${tag} - `}${site.title}</title>
       <description>${site.subtitle}</description>
       <link>${site.absolute_baseurl}</link>
-      <atom:link href="${site.absolute_baseurl}/index.rss" rel="self" type="application/rss+xml" />      
+      <atom:link href="${site.absolute_baseurl}/index.rss" rel="self" type="application/rss+xml" />
       ${posts.slice(0, maxItems).map(
         (post) => html`
       <item>
@@ -27,7 +27,7 @@ export default ({
             html` <description>${post.summary}</description> `
           }
           ${
-            fullText &&
+            (fullText || post.type !== "entry") &&
             post.html &&
             html` <description>${post.html}</description> `
           }
