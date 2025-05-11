@@ -100,12 +100,6 @@ const aside = (post, site) => html`
 
 const miscellanea = (post, site) => html`
   <li class="${postClasses(post)}">
-    ${post.title &&
-    html`
-      <h2 class="title">
-        <a href="${site.baseurl}/${post.path}/">${post.title}</a>
-      </h2>
-    `}
     <div class="content miscellanea">
       ${contentWithUpdatedPaths(post, site)}
     </div>
