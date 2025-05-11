@@ -106,12 +106,8 @@ const miscellanea = (post, site) => html`
         <a href="${site.baseurl}/${post.path}/">${post.title}</a>
       </h2>
     `}
-    <div class="content">
-      <div class="miscellanea">
-        <div class="content">
-          ${contentWithUpdatedPaths(post, site)}
-        </div>
-      </div>
+    <div class="content miscellanea">
+      ${contentWithUpdatedPaths(post, site)}
     </div>
     ${metaFooter(post, site)}
   </li>
