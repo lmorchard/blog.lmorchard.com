@@ -12,11 +12,6 @@
 
 .post-list ul.posts .date-header {
   margin: 1em 0 1em 0;
-
-  /*
-  position: sticky;
-  top: 50px;
-  */
   z-index: 100;
 }
 
@@ -26,12 +21,6 @@
   border-bottom: 1px solid  rgba(128, 128, 128, 0.8);
   padding: 0.5em 0 0.5em 0;
   z-index: 100;
-}
-
-@media (max-width: 600px) {
-  .post-list ul.posts .post {
-    max-width: calc(100vw - (1.25em * 2));
-  }
 }
 
 
@@ -104,7 +93,7 @@
 }
 
 .post-list ul.posts .post .content {
-
+}
 
 .post-list ul.posts .post .thumb {
   overflow: hidden;
@@ -125,5 +114,15 @@
     grid-column-end: main-start;
     grid-row: span 2;
     text-align: right;
+  }
+}
+
+.post-list ul.posts .post {
+  max-width: calc(100vw - (1.25em * 2));
+}
+
+@media (min-width: 600px) {
+  .post-list ul.posts .post {
+    max-width: inherit;
   }
 }
