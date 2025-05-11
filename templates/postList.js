@@ -90,7 +90,9 @@ const aside = (post, site) => html`
         <a href="${site.baseurl}/${post.path}/">${post.title}</a>
       </h2>
     `}
-    <div class="content">${unescaped(post.html)}</div>
+    <div class="content">
+      ${contentWithUpdatedPaths(post, site)}
+    </div>
     ${metaFooter(post, site)}
   </li>
 `;
@@ -105,7 +107,9 @@ const miscellanea = (post, site) => html`
     `}
     <div class="content">
       <div class="miscellanea">
-        ${unescaped(post.html)}
+        <div class="content">
+          ${contentWithUpdatedPaths(post, site)}
+        </div>
       </div>
     </div>
     ${metaFooter(post, site)}
@@ -127,3 +131,24 @@ const metaFooter = (post, site) => html`
     </ul>`}
   </div>
 `;
+
+const contentWithUpdatedPaths = (post, site) =>
+  unescaped(
+    updateRelativeImageUrls(
+      post.html,
+      `${site.baseurl}/${post.path}`
+    )
+  );
+
+// Function to update relative image URLs within HTML content
+const updateRelativeImageUrls = (html, baseUrl) => {
+  if (!html || !baseUrl) return html;
+  
+  // Simple regex-based approach to update relative image URLs
+  return html.replace(
+    /<img([^>]*)src=['"](?!https?:\/\/)(?!\/\/)([^'"]+)['"]/gi,
+    (match, attrs, src) => {
+      return `<img${attrs}src="${baseUrl}/${src}"`;
+    }
+  );
+};
