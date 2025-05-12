@@ -1,4 +1,5 @@
 import { html } from "../lib/html.js";
+import { updateRelativeImageUrls } from "../lib/posts.js";
 
 // TODO: Use an RSS generating module? This template is just copied
 // over from my old blog generator for initial consistency
@@ -15,8 +16,12 @@ export default ({
     <channel>
       <title>${tag && `Tag: ${tag} - `}${site.title}</title>
       <description>${site.subtitle}</description>
-      <link>${site.absolute_baseurl}</link>
-      <atom:link href="${site.absolute_baseurl}/index.rss" rel="self" type="application/rss+xml" />
+      <link>${
+        tag ? `${site.absolute_baseurl}/tag/${tag}/` : site.absolute_baseurl
+      }</link>
+      <atom:link href="${
+        site.absolute_baseurl
+      }/index.rss" rel="self" type="application/rss+xml" />
       ${posts.slice(0, maxItems).map(
         (post) => html`
       <item>
@@ -24,12 +29,26 @@ export default ({
           ${
             !fullText &&
             post.summary &&
-            html` <description>${post.summary}</description> `
+            html`
+              <description
+                >${updateRelativeImageUrls(
+                  post.summary,
+                  `${site.baseurl}/${post.path}`
+                )}</description
+              >
+            `
           }
           ${
             (fullText || post.type !== "entry") &&
             post.html &&
-            html` <description>${post.html}</description> `
+            html`
+              <description
+                >${updateRelativeImageUrls(
+                  post.html,
+                  `${site.baseurl}/${post.path}`
+                )}</description
+              >
+            `
           }
           <pubDate>${new Date(post.date).toUTCString()}</pubDate>
           <link>${site.absolute_baseurl}/${post.path}/</link>

@@ -1,7 +1,7 @@
 import { html, unescaped } from "../lib/html.js";
 import classNames from "classnames";
 import moment from "moment";
-import cheerio from 'cheerio';
+import { updateRelativeImageUrls } from "../lib/posts.js";
 
 export default ({ site, posts }, contentBefore = "", contentAfter = "") => {
   const typeRenderers = {
@@ -131,22 +131,4 @@ const contentWithUpdatedPaths = (post, site) =>
     )
   );
 
-// Function to update relative image URLs within HTML content
-const updateRelativeImageUrls = (html, baseUrl) => {
-  if (!html || !baseUrl) return html;
-  
-  // Use cheerio for proper HTML parsing
-  const $ = cheerio.load(html);
-  
-  // Find all images
-  $('img').each((_, img) => {
-    const src = $(img).attr('src');
-    
-    // Check if the src is relative (not starting with http://, https://, //)
-    if (src && !src.match(/^(https?:\/\/|\/\/)/)) {
-      $(img).attr('src', `${baseUrl}/${src}`);
-    }
-  });
-  
-  return $.html();
-};
+
