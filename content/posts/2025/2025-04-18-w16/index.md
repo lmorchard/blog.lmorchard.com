@@ -2,8 +2,6 @@
 title: 2025 Week 16
 tags:
   - weeknotes
-  - meshtastic
-  - coffee
   - irrigation
   - obsidian
   - blogging
@@ -58,52 +56,6 @@ I found a goofy old photo of myself from a past blog snapshot on the wayback mac
 ![[2025-W16-me-head-old.png]]
 ![[2025-W16-me-spock.png]]
 </image-gallery>
-
-## Roasting coffee
-
-I've been roasting coffee at home, off and on for years now. I roasted some more last weekend.
-
-<image-gallery>
-![[IMG_8277.jpeg]]
-![[IMG_8280.jpeg]]
-![[IMG_8281.jpeg]]
-![[IMG_8283.jpeg]]
-![[IMG_8285.jpeg]]
-</image-gallery>
-
-It started as a kind of ADHD enthusiasm hobby about 15 years ago. I read a dozen books, fell down the rabbit hole of forums and docs online. My first few dozen batches were carefully logged. I tried filling my head with details of varietals and roasting profiles. This was serious scientific business! Until I got bored of that, at which point I stopped being careful.
-
-These days, I mostly just wing it and push the buttons on [the Behmor toaster oven](https://www.sweetmarias.com/behmor-2000ab-plus-roaster.html). I hang out and watch to make sure nothing catches on fire. I listen for the cracks and sniff the air to decide when to end the roast.
-
-It takes about 20 minutes, all told, and the coffee ends up plenty good enough for a week of daily drinking. And, given the current era of tariff madness, green coffee beans end up a little cheaper and have a relatively long shelf life that make them worth buying in bulk and hoarding in the basement pantry.
-
-## Playing with Meshtastic
-
-I've been hearing a bunch more lately about the [Meshtastic](https://meshtastic.org) mesh networking project across TikTok, YouTube, and the Fediverse.
-
-<image-gallery>
-![[2025-W16-heltec-v3-desk.jpeg]]
-![[IMG_8274.jpeg]]
-![[IMG_8275.jpeg]]
-![[IMG_8292.jpeg]]
-![[IMG_8303.jpeg]]
-![[IMG_8304.jpeg]]
-![[IMG_8305.jpeg]]
-![[2025-W16-meshtastic-case-parts.png]]
-![[IMG_8327.jpeg]]![[IMG_8326.jpeg]]![[IMG_8328.jpeg]]
-</image-gallery>
-
-Did a quick bit of looking around and discovered it was super cheap to dive in, so I made an impulse purchase of a couple [Heltec V3 boards](https://www.amazon.com/dp/B0D7HSHTNX?ref=ppx). Flashed the firmware and plonked a node onto my desk in my upstairs office. After a few minutes, the thing had found over 180 other nodes in the mesh around town.
-
-I repurposed the factory box into a case with a few snips of the plastic. That was good enough to stash the rig into one of the saddle bags on my bike and go take a ride around town. Wasn't really sure what I'd see happen with the thing, but it did pick up another dozen or so new nodes.
-
-The USB power bank is rather bulky. But, it turns out the board has a connector for battery. So, I ordered some [LiPo batteries](https://www.amazon.com/dp/B0D7LLB53Z?ref=ppx)! Now, it no longer fits in the makeshift case.
-
-So, I started looking through [3D printable case models that fit my Heltec V3](https://www.printables.com/search/models?q=heltec+v3) board and hopefully this 3000mAh battery. Most of them were designed for a smaller battery, but I found [a model that was big enough](https://www.printables.com/model/561389-heltec-v3-case-for-meshtastic).
-
-Seeing that this case model fits my hardware, I decided to bust out some fancier filament and print some snazzier versions.
-
-I still don't really know what to do with this thing. Maybe screw around with the APIs and build a bot? Maybe a thing that responds to pings with cat facts? I dunno. Maybe I can make a few friends?
 
 ---
 
