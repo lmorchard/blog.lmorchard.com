@@ -11,14 +11,19 @@
 }
 
 .post-list ul.posts .date-header {
-  margin: 1em 0 1em 0;
+  margin: 1em 0 1.5em 0;
   z-index: 100;
+  border-top: 2px solid var(--theme-border-color);
+  border-bottom: 2px solid var(--theme-border-color);
+}
+
+.post-list ul.posts .date-header h2 {
+  margin: 0;
 }
 
 .post-list ul.posts .date-header .date {
   grid-column: main;
   text-align: center;
-  border-bottom: 1px solid  rgba(128, 128, 128, 0.8);
   padding: 0.5em 0 0.5em 0;
   z-index: 100;
 }
@@ -40,16 +45,17 @@
   text-align: center;
 }
 
-.post-list ul.posts .date-header h2 {
-  margin: 0;
-}
-
 .post-list ul.posts .post .meta {
   margin-bottom: 1.5em;
   padding-bottom: 1.5em;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.8);
+  border-bottom: 1px solid color-mix(in srgb, var(--theme-border-color) 50%, transparent);
   text-align: center;
   font-size: 0.85em;
+}
+
+.post-list ul.posts .post:has(+ .date-header) .meta {
+  border-bottom: none;
+  margin-bottom: none;
 }
 
 .post-list ul.posts .post .meta ul.tags {
@@ -90,9 +96,6 @@
 
 .post-list ul.posts .post .meta ul.tags li.tag:last-child:after {
   content: "";
-}
-
-.post-list ul.posts .post .content {
 }
 
 .post-list ul.posts .post .thumb {
