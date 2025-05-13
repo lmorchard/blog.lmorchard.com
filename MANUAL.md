@@ -64,20 +64,16 @@ The generator supports different post types that affect how content is displayed
 
 ## Multipart Posts
 
-You can include multiple posts in a single file by separating them with `8<---`. Each section can have its own attributes specified in JSON format on the first line:
+You can include multiple posts in a single file by separating them with `8<---`. Each section can have its own attributes specified in JSON format immediately after the post separator marker:
 
 ```markdown
-{"type": "aside", "tags": ["thoughts"]}
+8<--- {"type": "aside", "tags": ["thoughts"]}
 This is a short aside.
 
-8<---
-
-{"type": "entry", "title": "Main Post"}
+8<--- {"type": "entry", "title": "Main Post"}
 This is the main post content.
 
-8<---
-
-{"type": "aside"}
+8<--- {"type": "aside"}
 Another short note.
 ```
 
@@ -120,6 +116,14 @@ Or for directory-based posts:
 ```
 YYYY-MM-DD-slug/index.md
 ```
+
+Or for multipart posts, leave off the slug:
+
+```
+YYYY-MM-DD.md
+```
+
+Note that multipart posts *cannot* be created as directory-based posts.
 
 The date and slug are extracted from the filename, though they can be overridden in the frontmatter.
 
