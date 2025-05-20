@@ -32,6 +32,7 @@ program
   .command("build")
   .description("clean and build all posts, indexes, and assets")
   .option("-c, --clean", "clean before building and copying assets")
+  .option("--show-drafts", "show drafts in indexes")
   .action(buildAll);
 
 async function buildAll(options) {
@@ -39,18 +40,19 @@ async function buildAll(options) {
   await copyAssets();
   const posts = await loadAllPosts();
   await buildAllPosts(posts);
-  await buildAllIndexes(posts);
+  await buildAllIndexes(posts, { showDrafts: options.showDrafts });
 }
 
 program
   .command("build-posts [globs...]")
   .description("build posts matching glob (or all posts if omitted)")
+  .option("--show-drafts", "show drafts in indexes")
   .action(buildPosts);
 
-async function buildPosts(postsGlob) {
+async function buildPosts(postsGlob, options) {
   const posts = await loadAllPosts();
   await buildAllPosts(posts);
-  await buildAllIndexes(posts);
+  await buildAllIndexes(posts, { showDrafts: options.showDrafts });
 }
 
 program
@@ -58,25 +60,18 @@ program
   .description(
     "build indexes for posts matching glob (or all posts if omitted)"
   )
+  .option("--show-drafts", "show drafts in indexes")
   .action(buildIndexes);
 
-async function buildIndexes(postsGlob) {
-  await buildAllIndexes(await loadAllPosts(postsGlob));
+async function buildIndexes(postsGlob, options) {
+  await buildAllIndexes(await loadAllPosts(postsGlob), {
+    showDrafts: options.showDrafts,
+  });
 }
 
 program
   .command("build-assets [param]")
   .description("build shared assets like JS & CSS")
   .action(copyAssets);
-
-import { loadPostFile } from "./lib/posts.js";
-
-program
-  .command("play [arg]")
-  .action(async (param) => {
-    console.log("play", param);
-    const result = await loadPostFile(param);
-    console.log("result", result);
-  });
 
 main().catch((err) => console.error(err));
