@@ -1,46 +1,73 @@
 name: Production deploy to Amazon S3
+
 on:
   push:
     branches: [main]
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_REGION: "us-east-1"
+
     steps:
       - uses: actions/checkout@v3
+
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
+
       - name: npm install
         run: npm install
+
       - name: Build for production
         run: npm run build
-      - name: Publish to S3
-        uses: jakejarvis/s3-sync-action@master
-        with:
-          args: --acl public-read --follow-symlinks --delete --exclude '*.rss'
-        env:
-          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: "us-east-1"
-          SOURCE_DIR: "build"
-      # aws s3 sync kind of stinks for content type detection on some files
-      - name: Publish to S3 (just RSS)
-        uses: jakejarvis/s3-sync-action@master
-        with:
-          args: --acl public-read --follow-symlinks --delete --exclude '*' --include '*.rss' --content-type 'application/rss+xml'
-        env:
-          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: "us-east-1"
-          SOURCE_DIR: "build"
+
+      - name: Install rclone
+        run: |
+          curl -L https://github.com/rclone/rclone/releases/download/v1.69.3/rclone-v1.69.3-linux-amd64.zip -o rclone.zip
+          unzip rclone.zip
+          sudo cp rclone-*-linux-amd64/rclone /usr/local/bin/
+          rclone version
+
+      - name: Configure rclone for S3
+        run: |
+          mkdir -p ~/.config/rclone
+          echo "[s3]
+          type = s3
+          provider = AWS
+          env_auth = true
+          region = us-east-1" > ~/.config/rclone/rclone.conf
+
+      - name: Generate safe_paths.txt from local files under 8MB
+        run: |
+          find ./build -type f -size -8388608c | sed 's|^./build/||' > safe_paths.txt
+
+      - name: Sync small files using --checksum
+        run: |
+          if [ -s safe_paths.txt ]; then
+            rclone sync ./build s3:${{ secrets.AWS_S3_BUCKET }} \
+              --checksum \
+              --files-from safe_paths.txt \
+              --delete-excluded \
+              --s3-acl public-read
+          else
+            echo "No small files to sync with checksum."
+          fi
+
+      - name: Sync large or uncertain files using --size-only
+        run: |
+          rclone sync ./build s3:${{ secrets.AWS_S3_BUCKET }} \
+            --size-only \
+            --exclude-from safe_paths.txt \
+            --delete-excluded \
+            --s3-acl public-read
+
       - name: Invalidate Cloudfront
         uses: chetan/invalidate-cloudfront-action@master
         env:
           DISTRIBUTION: ${{ secrets.DISTRIBUTION }}
           PATHS: "/*"
-          AWS_REGION: "us-east-1"
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
