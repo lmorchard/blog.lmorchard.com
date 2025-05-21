@@ -18,7 +18,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
 
       - name: npm install
         run: npm install
@@ -49,32 +49,6 @@ jobs:
             --checksum \
             --delete-excluded \
             --s3-acl public-read
-
-      # - name: Generate safe_paths.txt from local files under 8MB
-      #   run: |
-      #     find ./build -type f -size -8388608c | sed 's|^./build/||' > safe_paths.txt
-
-      # - name: Sync small files using --checksum
-      #   run: |
-      #     if [ -s safe_paths.txt ]; then
-      #       rclone sync ./build s3:${{ secrets.AWS_S3_BUCKET }} \
-      #         --verbose \
-      #         --checksum \
-      #         --files-from safe_paths.txt \
-      #         --delete-excluded \
-      #         --s3-acl public-read
-      #     else
-      #       echo "No small files to sync with checksum."
-      #     fi
-
-      # - name: Sync large or uncertain files using --size-only
-      #   run: |
-      #     rclone sync ./build s3:${{ secrets.AWS_S3_BUCKET }} \
-      #       --verbose \
-      #       --size-only \
-      #       --exclude-from safe_paths.txt \
-      #       --delete-excluded \
-      #       --s3-acl public-read
 
       - name: Invalidate Cloudfront
         uses: chetan/invalidate-cloudfront-action@master
