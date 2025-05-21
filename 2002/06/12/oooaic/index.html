@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>IRC quotes database sucking my productivity - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="IRC quotes database sucking my productivity" />
+    <html>
+      <head>
+        <title>IRC quotes database sucking my productivity - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="IRC quotes database sucking my productivity" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2002/06/12/oooaic/"
@@ -43,106 +50,220 @@
         <meta property="og:description" content="Just wasted a good 20-30 minutes having been sucked into the IRC Quotes Database that Adam mentioned.  It made me spray coffee out my nose.  So, rather than visit it everyday, I made RSS feeds from it, scraped by RssDistiller&#39;s enclosePat (need to implement that in Perl sometime).  You can find a feed for the top 25, 25 latest, or just get a random grab bag of fun.
 update: Ack.  Looks like my scraping isn&#39;t pulling in the actual quotes.  Back to the drawing board.  :(
 update 2: I think they should all be fixed now :)  I missed a para tag in the source." />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post "
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post "
       >
-        <time
-          title="2002-06-12T20:05:28+00:00"
-          pubdate="2002-06-12T20:05:28+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2002/"
-            >2002</a
+        <header>
+          <time
+            title="2002-06-12T16:05:28-04:00"
+            pubdate="2002-06-12T16:05:28-04:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2002/06/"
-            >June</a
-          >
-          &raquo;
-          <span>12</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="Tiffany&#39;s not here: A mystery of Google senility?"
+                href="/blog.lmorchard.com/2002/06/12/oooaid/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2002/"
+                >2002</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2002/06/"
+                >June</a
+              >
+              &#8226;
+              <span>12</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Whitelist / reverse-filtering spam shield"
+                href="/blog.lmorchard.com/2002/06/11/oooaib/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">IRC quotes database sucking my productivity</h1>
+          
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2002/06/12/oooaid/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2002/06/12/oooaib/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">IRC quotes database sucking my productivity</h1>
-        
-        <section class="post-content">
-          <p>Just wasted a good 20-30 minutes having been sucked into the <a href="http://www.geekissues.org/quotes/">IRC Quotes Database</a> that <a href="http://ipwebdev.com/radio/2002/06/11.php#a192">Adam mentioned</a>.  It made me spray coffee out my nose.  So, rather than visit it everyday, I made <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> feeds from it, scraped by <a href="http://radiotools.evectors.it/itstories/story$num=13&amp;sec=3&amp;data=stories">RssDistiller</a>'s enclosePat (need to implement that in Perl sometime).  You can find a feed for the <a href="http://www.decafbad.com/deus_x/radio/RssDistillerChannels/irc-qdb.xml">top 25</a>, <a href="http://www.decafbad.com/deus_x/radio/RssDistillerChannels/irc-qdb-latest.xml">25 latest</a>, or just get a <a href="http://www.decafbad.com/deus_x/radio/RssDistillerChannels/irc-qdb-random.xml">random grab bag</a> of fun.</p>
+        <p>Just wasted a good 20-30 minutes having been sucked into the <a href="http://www.geekissues.org/quotes/">IRC Quotes Database</a> that <a href="http://ipwebdev.com/radio/2002/06/11.php#a192">Adam mentioned</a>.  It made me spray coffee out my nose.  So, rather than visit it everyday, I made <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> feeds from it, scraped by <a href="http://radiotools.evectors.it/itstories/story$num=13&amp;sec=3&amp;data=stories">RssDistiller</a>'s enclosePat (need to implement that in Perl sometime).  You can find a feed for the <a href="http://www.decafbad.com/deus_x/radio/RssDistillerChannels/irc-qdb.xml">top 25</a>, <a href="http://www.decafbad.com/deus_x/radio/RssDistillerChannels/irc-qdb-latest.xml">25 latest</a>, or just get a <a href="http://www.decafbad.com/deus_x/radio/RssDistillerChannels/irc-qdb-random.xml">random grab bag</a> of fun.</p>
 <p><i>update</i>: Ack.  Looks like my scraping isn't pulling in the actual quotes.  Back to the drawing board.  :(</p>
 <p><i>update 2</i>: I think they should all be fixed now :)  I missed a para tag in the source.</p>
-<!--more-->
-shortname=oooaic
 
+
+<!--more-->
+
+
+<p>shortname=oooaic</p>
 <div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
 <ul class="comments">
 <li class="comment" id="comment-221090654">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=b53911af792174097e8acb282414b44c&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="">Bill Kearney</a>
+<a class="avatar image" rel="nofollow" href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=b53911af792174097e8acb282414b44c&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="">Bill Kearney</a>
 </div>
-<a href="#comment-221090654" class="permalink"><time datetime="2002-06-13T10:36:24">2002-06-13T10:36:24</time></a>
+
+
+<p><a href="#comment-221090654" class="permalink"><time datetime="2002-06-13T10:36:24">2002-06-13T10:36:24</time></a></p>
 </div>
+
+
 <div class="content">What's with grafting javascript onclick code into the description items?  I'm as interested as  anyone for doing feedback stuff but cramming live code into what people are expecting to be static content seems like a bad idea.
 Any hope of cleaning it up a bit to eliminate the scripting code?</div>
+
+
 </li>
 <li class="comment" id="comment-221090655">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.decafbad.com">l.m.orchard</a>
+<a class="avatar image" rel="nofollow" href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.decafbad.com">l.m.orchard</a>
 </div>
-<a href="#comment-221090655" class="permalink"><time datetime="2002-06-13T10:54:55">2002-06-13T10:54:55</time></a>
+
+
+<p><a href="#comment-221090655" class="permalink"><time datetime="2002-06-13T10:54:55">2002-06-13T10:54:55</time></a></p>
 </div>
+
+
 <div class="content">Hmm...  didn't see that before.  I didn't graft any JavaScript on there myself.  The RSS is just a dumb scrape from the page via RssDistiller.  Been thinking of moving to my own quick set of scrapers in perl, since RssDistiller doesn't do anything particularly special.  I could probably look at throwing some filtering in if/when I move to that.</div>
+
+
 </li>
 </ul>
+
+
 </div>
 
-        </section>
-      </article>
-        </section>
-
-        <footer>
-          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
-        </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
-      </section>
-    </body>
-  </html>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2002/06/12/oooaid/"
+                >Tiffany's not here: A mystery of Google senility?</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2002/06/11/oooaib/"
+                >Whitelist / reverse-filtering spam shield</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

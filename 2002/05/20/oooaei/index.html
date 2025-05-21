@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>Improved linkback scripts, and finalizing the site move - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="Improved linkback scripts, and finalizing the site move" />
+    <html>
+      <head>
+        <title>Improved linkback scripts, and finalizing the site move - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="Improved linkback scripts, and finalizing the site move" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2002/05/20/oooaei/"
@@ -44,94 +51,204 @@
 But, I&#39;m working on replacements in PHP.  Noticed that my linkback scripts are linked to and described on IAwiki.  Also notice some decent wishlist ideas for linkback improvements-- such as first/last referral date and link karma.  And of course there are the improvements I&#39;ve been meaning to make-- such as metadata harvesting from referrer pages and some improvements on filtering out some bogus/unwanted links (ie. Radio UserLand aggregator links).  Might also be nice to allow someone to submit URL patterns they&#39;d like excluded-- that is, if you link to me and don&#39;t want me to publish the linkback, you can submit a URL pattern for your site.
 Have also been thinking of throwing it together as an open service, like yaywastaken.com&#39;s Link Feedback and Stephen Downes&#39; referral ?JavaScript-includes.  I can offer the service, and the code.  The only drawback is, well, what might it cost me to offer others a free lunch if the service actually happens to be good. :)
 Need to keep thinking about colocation." />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post "
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post "
       >
-        <time
-          title="2002-05-20T20:01:00+00:00"
-          pubdate="2002-05-20T20:01:00+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2002/"
-            >2002</a
+        <header>
+          <time
+            title="2002-05-20T16:01:00-04:00"
+            pubdate="2002-05-20T16:01:00-04:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2002/05/"
-            >May</a
-          >
-          &raquo;
-          <span>20</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="Mass media &amp; consumer culture, a mind-virus threat?"
+                href="/blog.lmorchard.com/2002/05/21/oooafo/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2002/"
+                >2002</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2002/05/"
+                >May</a
+              >
+              &#8226;
+              <span>20</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Conference blogging and linkbacks"
+                href="/blog.lmorchard.com/2002/05/20/oooaeh/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">Improved linkback scripts, and finalizing the site move</h1>
+          
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2002/05/21/oooafo/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2002/05/20/oooaeh/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">Improved linkback scripts, and finalizing the site move</h1>
-        
-        <section class="post-content">
-          <p>Still working on getting all the bits of this site working again on the new host.  One thing in particular that's broken are my beloved referer scripts.</p>
+        <p>Still working on getting all the bits of this site working again on the new host.  One thing in particular that's broken are my beloved referer scripts.</p>
 <p>But, I'm working on replacements in <a href="http://www.decafbad.com/twiki/bin/view/Main/PHP">PHP</a>.  Noticed that my linkback scripts are <a href="http://iawiki.net/ReferrerLinking">linked to and described</a> on IAwiki.  Also notice some decent wishlist ideas for linkback improvements-- such as first/last referral date and link karma.  And of course there are the improvements I've been meaning to make-- such as <a href="http://www.decafbad.com/news_archives/000142.phtml#000142">metadata harvesting from referrer pages</a> and some improvements on filtering out some bogus/unwanted links (ie. Radio <a href="http://www.decafbad.com/twiki/bin/view/Main/UserLand">UserLand</a> aggregator links).  Might also be nice to allow someone to submit URL patterns they'd like excluded-- that is, if you link to me and don't want me to publish the linkback, you can submit a URL pattern for your site.</p>
-<p>Have also been thinking of throwing it together as an open service, like <a href="http://www.yaywastaken.com/referer/default.htm">yaywastaken.com's Link Feedback</a> and <a href="http://www.downes.ca/referrers.htm">Stephen Downes' referral</a> <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/JavaScript?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">JavaScript</font></span>-includes.  I can offer the service, and the code.  The only drawback is, well, what might it cost me to offer others a free lunch if the service actually happens to be good. :)</p>
+<p>Have also been thinking of throwing it together as an open service, like <a href="http://www.yaywastaken.com/referer/default.htm">yaywastaken.com's Link Feedback</a> and <a href="http://www.downes.ca/referrers.htm">Stephen Downes' referral</a> <span style="background : [#FFFFCE](/tag/FFFFCE);"><a href="http://www.decafbad.com/twiki/bin/edit/Main/JavaScript?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">JavaScript</font></span>-includes.  I can offer the service, and the code.  The only drawback is, well, what might it cost me to offer others a free lunch if the service actually happens to be good. :)</p>
 <p>Need to keep thinking about colocation.</p>
-<!--more-->
-shortname=oooaei
 
+
+<!--more-->
+
+
+<p>shortname=oooaei</p>
 <div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
 <ul class="comments">
 <li class="comment" id="comment-221086457">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://weblog.bergersen.net/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=6441c39eb9d5c427e1c2330850940e18&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://weblog.bergersen.net/">Jarle</a>
+<a class="avatar image" rel="nofollow" href="http://weblog.bergersen.net/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=6441c39eb9d5c427e1c2330850940e18&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://weblog.bergersen.net/">Jarle</a>
 </div>
-<a href="#comment-221086457" class="permalink"><time datetime="2002-05-23T18:17:20">2002-05-23T18:17:20</time></a>
+
+
+<p><a href="#comment-221086457" class="permalink"><time datetime="2002-05-23T18:17:20">2002-05-23T18:17:20</time></a></p>
 </div>
+
+
 <div class="content">Eh, just FYI: The links to your referer scripts in your wiki returns 404's... And I was so psyched to check out  your perl scripts :-)</div>
+
+
 </li>
 </ul>
+
+
 </div>
 
-        </section>
-      </article>
-        </section>
-
-        <footer>
-          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
-        </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
-      </section>
-    </body>
-  </html>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2002/05/21/oooafo/"
+                >Mass media & consumer culture, a mind-virus threat?</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2002/05/20/oooaeh/"
+                >Conference blogging and linkbacks</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

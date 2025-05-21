@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>Building Pipelines with Web Services - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="Building Pipelines with Web Services" />
+    <html>
+      <head>
+        <title>Building Pipelines with Web Services - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="Building Pipelines with Web Services" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2003/03/06/web-service-pipelines/"
@@ -45,7 +52,6 @@ I was excitely thinking about pipelining webservices together like commands in a
 UNIX command line shell.  Lately, I&#39;ve been doing quite a bit of work at the
 command line level, more so than I ever have before.  And for all the clunkiness
 and inelegances to be found there, I think the zen has stuck me.
-
 Sure, it&#39;s an ass-ugly string of characters that connects commands
 like find, sort, awk, sed, grep, and ssh together.  But, in constructing such
 monstrosities, I find myself generating new disposable tools at a rate
@@ -56,7 +62,6 @@ value files digested by a tag team of sed and awk.  Then, like magic, I toss in
 an incredibly slow yet, at the time, convenient call to mysql on another server
 behind a firewall via ssh with a SQL call constructed from the regurgitations
 of said sed and awk brothers.
-
 So, I&#39;m thinking again:  How hot would this be if it were web services replacing
 each of my commands?  How hot would it be if there was a STDIN, STDOUT, and STDERR
 for a whole class of web services?  Imagine an enhanced bash or zsh piping these
@@ -64,73 +69,143 @@ beasts together.  For awhile, I thought my XmlRpcFilteringPipe API was the way t
 go, but lately I&#39;ve been thinking more in the direction of REST.  I have to admit
 that the XML-RPC API is a bit clunky to use, and besides, no one&#39;s really paid
 it much notice besides using it in the peculiar fashion I do to make my WeblogWithWiki.
-
 How about this for a simpler API:  Post data to a URL, receive data in response.
 There&#39;s your STDIN and STDOUT.  What about STDERR?  Well, I suppose it&#39;s an
 either-or affair, but standard HTTP header error codes can fill in there.  What
 about command line arguments?  Use query parameters on the URL to which you&#39;re
 posting.  This all seems very web-natural.
-
 Now I just have to write a shell that treats URLs as executable commands." />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post "
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post "
       >
-        <time
-          title="2003-03-06T17:39:00+00:00"
-          pubdate="2003-03-06T17:39:00+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2003/"
-            >2003</a
+        <header>
+          <time
+            title="2003-03-06T12:39:00-05:00"
+            pubdate="2003-03-06T12:39:00-05:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2003/03/"
-            >March</a
-          >
-          &raquo;
-          <span>06</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="Ping Pong to Weblogs Dot Com"
+                href="/blog.lmorchard.com/2003/03/09/ping-pong/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2003/"
+                >2003</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2003/03/"
+                >March</a
+              >
+              &#8226;
+              <span>06</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Did I dream the urchin phone?"
+                href="/blog.lmorchard.com/2003/03/06/throwable-phone/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">Building Pipelines with Web Services</h1>
+          
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2003/03/10/ping-pong/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2003/03/06/throwable-phone/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">Building Pipelines with Web Services</h1>
-        
-        <section class="post-content">
-          <p>So <a href="http://www.decafbad.com/blog/tech/old/oooodh.html" target="_top">on this day last year</a>,
+        <p>So <a href="http://www.decafbad.com/blog/tech/old/oooodh.html" target="_top">on this day last year</a>,
 I was excitely thinking about pipelining webservices together like commands in a
-UNIX command line shell.  Lately, I&#39;ve been doing quite a bit of work at the
+UNIX command line shell.  Lately, I've been doing quite a bit of work at the
 command line level, more so than I ever have before.  And for all the clunkiness
-and inelegances to be found there, I think the zen has stuck me.
-<br /><br />
-Sure, it&#39;s an ass-ugly string of characters that connects commands
+and inelegances to be found there, I think the zen has stuck me.</p>
+<p>Sure, it's an ass-ugly string of characters that connects commands
 like find, sort, awk, sed, grep, and ssh together.  But, in constructing such
 monstrosities, I find myself generating new disposable tools at a rate
 of at least one every minute or so.  And, though a few have found themselves graduating
@@ -139,96 +214,141 @@ hours were it not for a quick multi-file grep across a vast plain of comma-separ
 value files digested by a tag team of sed and awk.  Then, like magic, I toss in
 an incredibly slow yet, at the time, convenient call to mysql on another server
 behind a firewall via ssh with a SQL call constructed from the regurgitations
-of said sed and awk brothers.
-<br /><br />
-So, I&#39;m thinking again:  How hot would this be if it were web services replacing
+of said sed and awk brothers.</p>
+<p>So, I'm thinking again:  How hot would this be if it were web services replacing
 each of my commands?  How hot would it be if there was a STDIN, STDOUT, and STDERR
 for a whole class of web services?  Imagine an enhanced bash or zsh piping these
 beasts together.  For awhile, I thought my <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpcFilteringPipe">XmlRpcFilteringPipe</a> API was the way to
-go, but lately I&#39;ve been thinking more in the direction of <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a>.  I have to admit
-that the XML-RPC API is a bit clunky to use, and besides, no one&#39;s really paid
-it much notice besides using it in the peculiar fashion I do to make my <a href="http://www.decafbad.com/twiki/bin/view/Main/WeblogWithWiki">WeblogWithWiki</a>.
-<br /><br />
-How about this for a simpler API:  Post data to a URL, receive data in response.
-There&#39;s your STDIN and STDOUT.  What about STDERR?  Well, I suppose it&#39;s an
+go, but lately I've been thinking more in the direction of <a href="http://www.decafbad.com/twiki/bin/view/Main/REST">REST</a>.  I have to admit
+that the XML-RPC API is a bit clunky to use, and besides, no one's really paid
+it much notice besides using it in the peculiar fashion I do to make my <a href="http://www.decafbad.com/twiki/bin/view/Main/WeblogWithWiki">WeblogWithWiki</a>.</p>
+<p>How about this for a simpler API:  Post data to a URL, receive data in response.
+There's your STDIN and STDOUT.  What about STDERR?  Well, I suppose it's an
 either-or affair, but standard HTTP header error codes can fill in there.  What
-about command line arguments?  Use query parameters on the URL to which you&#39;re
-posting.  This all seems very web-natural.
-<br /><br />
-Now I just have to write a shell that treats URLs as executable commands.</p>
+about command line arguments?  Use query parameters on the URL to which you're
+posting.  This all seems very web-natural.</p>
+<p>Now I just have to write a shell that treats URLs as executable commands.</p>
 <!--more-->
+
+
 <p>shortname=web_service_pipelines</p>
 <div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
 <ul class="comments">
 <li class="comment" id="comment-221087414">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.novaroot.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=0af1f52a082bc92d355d3fc9b29b4c2e&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.novaroot.com">Patrick Lioi</a>
+<a class="avatar image" rel="nofollow" href="http://www.novaroot.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=0af1f52a082bc92d355d3fc9b29b4c2e&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.novaroot.com">Patrick Lioi</a>
 </div>
-<a href="#comment-221087414" class="permalink"><time datetime="2003-03-06T16:27:11">2003-03-06T16:27:11</time></a>
+
+
+<p><a href="#comment-221087414" class="permalink"><time datetime="2003-03-06T16:27:11">2003-03-06T16:27:11</time></a></p>
 </div>
+
+
 <div class="content">What would really be beautifil about this is if you could give it a config file (or somesuch) that maps a url to a command name, so the actual commands you enter wouldn't have to look, or even feel, like urls.  I say the more it feels like a regular command line, the better.</div>
+
+
 </li>
 <li class="comment" id="comment-221087417">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.pipetree.com/qmacro"><img src="http://www.gravatar.com/avatar.php?gravatar_id=1e7ff23dbea0c7d56117bcd51b58b581&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.pipetree.com/qmacro">DJ</a>
+<a class="avatar image" rel="nofollow" href="http://www.pipetree.com/qmacro"><img src="http://www.gravatar.com/avatar.php?gravatar_id=1e7ff23dbea0c7d56117bcd51b58b581&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.pipetree.com/qmacro">DJ</a>
 </div>
-<a href="#comment-221087417" class="permalink"><time datetime="2003-03-06T16:40:43">2003-03-06T16:40:43</time></a>
+
+
+<p><a href="#comment-221087417" class="permalink"><time datetime="2003-03-06T16:40:43">2003-03-06T16:40:43</time></a></p>
 </div>
+
+
 <div class="content">Hi 
 This is something I was talking to some friends about last year at OSCON. There's a lot of mileage in it, I think. I personally have been doing this sort of thing on and off since then, mostly using off the shelf tools such as wget, curl, GET and POST (the latter two from the Perl LWP bundle; you can do PUT with the POST command too). 
 The one question that remains is how to convey the HTTP status code. I've wrapped the call in a script to put the HTTP status code and headers to STDERR, and any HTTP body to STDOUT, but that's not perfect (what about multipart HTTP bodies, for example, with each part having their own HTTP headers)...
 In all though it's extremely useful. 
 One thing that this sort of approach does for the mind is dispel the myth that REST is bound in any way to XML (of course it's not, but some people seem to think it's XML specific). Use GET (the command) to GET a representation of some data that's plain text. It comes streaming down STDOUT as perfect fodder for your array of shell tools (grep, sort, etc). Lovely.</div>
+
+
 </li>
 <li class="comment" id="comment-221087420">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=ccb463174df28eddf522e220456d40f2&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="">matt</a>
+<a class="avatar image" rel="nofollow" href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=ccb463174df28eddf522e220456d40f2&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="">matt</a>
 </div>
-<a href="#comment-221087420" class="permalink"><time datetime="2003-03-07T10:19:09">2003-03-07T10:19:09</time></a>
+
+
+<p><a href="#comment-221087420" class="permalink"><time datetime="2003-03-07T10:19:09">2003-03-07T10:19:09</time></a></p>
 </div>
+
+
 <div class="content">Great post - I thouroughly agree.  Check out some of the tools from Propylon (http://www.propylon.com).  Also, Sun submitted a note to the w3c on xml pipeline definitions (http://www.w3.org/TR/xml-pipeline/).</div>
+
+
 </li>
 <li class="comment" id="comment-221087423">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://mah.everybody.org/weblog/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=d39ca715bca0c4fa3020bd5f8b445f67&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://mah.everybody.org/weblog/">Mark A. Hershberger</a>
+<a class="avatar image" rel="nofollow" href="http://mah.everybody.org/weblog/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=d39ca715bca0c4fa3020bd5f8b445f67&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://mah.everybody.org/weblog/">Mark A. Hershberger</a>
 </div>
-<a href="#comment-221087423" class="permalink"><time datetime="2003-03-08T16:32:10">2003-03-08T16:32:10</time></a>
+
+
+<p><a href="#comment-221087423" class="permalink"><time datetime="2003-03-08T16:32:10">2003-03-08T16:32:10</time></a></p>
 </div>
+
+
 <div class="content">Check out AxKit (http://www.axkit.org/).  It has XML pipelines that use Providers (which produce XML or XML Infosets) as the source and uses XPATH, XSLT, etc. to process the data.
 I'm working on an RSS provider, for example, as part of my Weblog software.
 (The data doesn't /have/ to be XML, but using XML as the interchange format makes things easier.)</div>
+
+
 </li>
 </ul>
+
+
 </div>
 
-        </section>
-      </article>
-        </section>
-
-        <footer>
-          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
-        </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
-      </section>
-    </body>
-  </html>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2003/03/09/ping-pong/"
+                >Ping Pong to Weblogs Dot Com</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2003/03/06/throwable-phone/"
+                >Did I dream the urchin phone?</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

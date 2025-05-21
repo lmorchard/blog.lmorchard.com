@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>On tag uniqueness and versioning in Pie/Echo feeds - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="On tag uniqueness and versioning in Pie/Echo feeds" />
+    <html>
+      <head>
+        <title>On tag uniqueness and versioning in Pie/Echo feeds - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="On tag uniqueness and versioning in Pie/Echo feeds" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2003/07/12/echo-unique-namespaces/"
@@ -49,7 +56,15 @@ idea of what spec the content provider is using. I imagine Radio is
 not the only aggregator that would like to key off the name of the
 top-level element.
 
+
+
 Source:Radio UserLand: Radio gets some kind of Echo support
+
+
+
+
+
+
 
 Nope, &quot;feed&quot; seems like a pretty poor choice as a name if the goal was
 uniqueness in the tag name itself.  But, since we have XML namespaces
@@ -58,9 +73,7 @@ clear and simple name that only needs to be unique within the
 vocabulary.  And as for versioning, why not consider different
 versions of a namespace to be entirely different vocabularies,
 each with different namespaces?
-
 I did some quick Googling and found the following:
-
 
 ... documents, containing multiple markup vocabularies, pose problems
 of recognition and collision.  Software modules need to be able to
@@ -73,7 +86,15 @@ universal names, whose scope extends beyond their containing document.
 This specification describes a mechanism, XML namespaces, which
 accomplishes this.
 
+
+
 Source:Namespaces in XML
+
+
+
+
+
+
 
 
 One of the core features of XML is its ability to deal with changes in
@@ -84,67 +105,150 @@ to mark the versions clearly, for human and machine information.  The
 clear marking of versions can be used for driving validation, or for
 branch processing according to the requirements of each version.
 
+
+
 You can mark the version of an XML vocabulary in many ways.  This
 discussion focuses on the use of XML namespaces for marking versions.
 
+
+
 Source:Tip: Namespaces and versioning
+
+
+
+
+
+
 
 I haven&#39;t looked into RadioUserLand feed handling architecture,
 but how difficult would it be to use the namespace and tag together
 as key, rather than the tag alone?" />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post "
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post "
       >
-        <time
-          title="2003-07-12T17:36:50+00:00"
-          pubdate="2003-07-12T17:36:50+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2003/"
-            >2003</a
+        <header>
+          <time
+            title="2003-07-12T13:36:50-04:00"
+            pubdate="2003-07-12T13:36:50-04:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2003/07/"
-            >July</a
-          >
-          &raquo;
-          <span>12</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="Changes in my link blogging"
+                href="/blog.lmorchard.com/2003/07/16/linkblog-changes/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2003/"
+                >2003</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2003/07/"
+                >July</a
+              >
+              &#8226;
+              <span>12</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Ultra-liberal feed parser"
+                href="/blog.lmorchard.com/2003/07/11/ultra-liberal-feed-parser/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">On tag uniqueness and versioning in Pie/Echo feeds</h1>
+          
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2003/07/17/linkblog-changes/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2003/07/11/ultra-liberal-feed-parser/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">On tag uniqueness and versioning in Pie/Echo feeds</h1>
-        
-        <section class="post-content">
-          <blockquote cite="http://radio.userland.com/stories/storyReader$26234">
+        <blockquote cite="http://radio.userland.com/stories/storyReader$26234">
 "feed" is not a very unique name, and if another format were to come
 along with the same top level element we would not be able to write a
 format driver for it. Our architecture keys off the top-level
@@ -154,18 +258,24 @@ idea of what spec the content provider is using. I imagine Radio is
 not the only aggregator that would like to key off the name of the
 top-level element.
 </blockquote>
-<div class="credit" align="right"><small>Source:<cite><a href="http://radio.userland.com/stories/storyReader$26234">Radio UserLand: Radio gets some kind of Echo support</a></cite></small></div>
-<br /><br />
-Nope, "feed" seems like a pretty poor choice as a name if the goal was
+
+
+<div class="credit" align="right"><small>Source:<cite><a href="http://radio.userland.com/stories/storyReader$26234">Radio UserLand: Radio gets some kind of Echo support</a></cite></small>
+
+</div>
+
+
+
+
+
+<p>Nope, "feed" seems like a pretty poor choice as a name if the goal was
 uniqueness in the tag name itself.  But, since we have XML namespaces
 to ensure uniqueness between vocabularies, we can instead focus on a
 clear and simple name that only needs to be unique <strong>within</strong> the
 vocabulary.  And as for versioning, why not consider different
 versions of a namespace to be entirely different vocabularies,
-each with different namespaces?
-<br /><br />
-I did some <a href="http://www.google.com/search?q=xml+namespaces&amp;ie=UTF-8&amp;oe=UTF-8" target="_top">quick</a> <a href="http://www.google.com/search?hl=en&amp;lr=&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=xml+namespaces+versioning&amp;btnG=Google+Search" target="_top">Googling</a> and found the following:
-<br /><br />
+each with different namespaces?</p>
+<p>I did some <a href="http://www.google.com/search?q=xml+namespaces&amp;ie=UTF-8&amp;oe=UTF-8" target="_top">quick</a> <a href="http://www.google.com/search?hl=en&amp;lr=&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=xml+namespaces+versioning&amp;btnG=Google+Search" target="_top">Googling</a> and found the following:</p>
 <blockquote cite="http://www.w3.org/TR/1999/REC-xml-names-19990114/Overview.html">
 ... documents, containing multiple markup vocabularies, pose problems
 of recognition and collision.  Software modules need to be able to
@@ -178,8 +288,16 @@ universal names, whose scope extends beyond their containing document.
 This specification describes a mechanism, XML namespaces, which
 accomplishes this.
 </blockquote>
-<div class="credit" align="right"><small>Source:<cite><a href="http://www.w3.org/TR/1999/REC-xml-names-19990114/Overview.html">Namespaces in XML</a></cite></small></div>
-<br /><br />
+
+
+<div class="credit" align="right"><small>Source:<cite><a href="http://www.w3.org/TR/1999/REC-xml-names-19990114/Overview.html">Namespaces in XML</a></cite></small>
+
+</div>
+
+
+
+
+
 <blockquote cite="http://www-106.ibm.com/developerworks/xml/library/x-tipnamsp.html">
 One of the core features of XML is its ability to deal with changes in
 the rules for data (hence the extensible in its name -- Extensible
@@ -188,60 +306,109 @@ creation of multiple versions is inevitable.  This makes it necessary
 to mark the versions clearly, for human and machine information.  The
 clear marking of versions can be used for driving validation, or for
 branch processing according to the requirements of each version.
-<br /><br />
-You can mark the version of an XML vocabulary in many ways.  This
-discussion focuses on the use of XML namespaces for marking versions.
-</blockquote>
-<div class="credit" align="right"><small>Source:<cite><a href="http://www-106.ibm.com/developerworks/xml/library/x-tipnamsp.html">Tip: Namespaces and versioning</a></cite></small></div>
-<br /><br />
-I haven't looked into <a href="http://www.decafbad.com/twiki/bin/view/Main/RadioUserLand">RadioUserLand</a> feed handling architecture,
-but how difficult would it be to use the namespace and tag together
-as key, rather than the tag alone?
-<!--more-->
-shortname=echo_unique_namespaces
 
+
+
+<p>You can mark the version of an XML vocabulary in many ways.  This
+discussion focuses on the use of XML namespaces for marking versions.</p>
+</blockquote>
+
+
+<div class="credit" align="right"><small>Source:<cite><a href="http://www-106.ibm.com/developerworks/xml/library/x-tipnamsp.html">Tip: Namespaces and versioning</a></cite></small>
+
+</div>
+
+
+
+
+
+<p>I haven't looked into <a href="http://www.decafbad.com/twiki/bin/view/Main/RadioUserLand">RadioUserLand</a> feed handling architecture,
+but how difficult would it be to use the namespace and tag together
+as key, rather than the tag alone?</p>
+<!--more-->
+
+
+<p>shortname=echo_unique_namespaces</p>
 <div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
 <ul class="comments">
 <li class="comment" id="comment-221082343">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=dc59c5ba9a8aa0a6225d9959eea3b7f3&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="">Dave Winer</a>
+<a class="avatar image" rel="nofollow" href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=dc59c5ba9a8aa0a6225d9959eea3b7f3&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="">Dave Winer</a>
 </div>
-<a href="#comment-221082343" class="permalink"><time datetime="2003-07-13T19:34:52">2003-07-13T19:34:52</time></a>
+
+
+<p><a href="#comment-221082343" class="permalink"><time datetime="2003-07-13T19:34:52">2003-07-13T19:34:52</time></a></p>
 </div>
+
+
 <div class="content">Easy but ugly.</div>
+
+
 </li>
 <li class="comment" id="comment-221082345">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://mah.everybody.org/weblog/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=59e08b5b7c8ed1c82b20144ba8e65967&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://mah.everybody.org/weblog/">Mark "Hex" Hershberger</a>
+<a class="avatar image" rel="nofollow" href="http://mah.everybody.org/weblog/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=59e08b5b7c8ed1c82b20144ba8e65967&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://mah.everybody.org/weblog/">Mark "Hex" Hershberger</a>
 </div>
-<a href="#comment-221082345" class="permalink"><time datetime="2003-07-14T16:27:46">2003-07-14T16:27:46</time></a>
+
+
+<p><a href="#comment-221082345" class="permalink"><time datetime="2003-07-14T16:27:46">2003-07-14T16:27:46</time></a></p>
 </div>
+
+
 <div class="content">I added namespace support to Emacs' xml.el recently.  It wasn't difficult at all.  Instead of parsing [feed xmlns:e="uri"]...[/feed], into '(feed ...), I parsed it into '({uri}feed ...).  Namespace processing doesn't happen without a switch set to enable it, so it is completely backwards compatible.
 So, while I haven't looked at how Radio parses stuff either, I think it wouldn't be that hard to add.  And it doesn't have to be ugly, either.</div>
+
+
 </li>
 </ul>
+
+
 </div>
 
-        </section>
-      </article>
-        </section>
-
-        <footer>
-          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
-        </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
-      </section>
-    </body>
-  </html>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2003/07/16/linkblog-changes/"
+                >Changes in my link blogging</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2003/07/11/ultra-liberal-feed-parser/"
+                >Ultra-liberal feed parser</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

@@ -1,197 +1,475 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>php - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>php - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/tag/php/index.rss"
+          rel="alternate"
+          title="Tag: php - blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/tag/php.rss"
+                rel="alternate"
+                title="Tag: php - blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/tag/php/index.rss" title="Tag: php - blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Tag: php</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post tag-php tag-twitter tag-entries tag-laconica tag-openmicroblogging"
-          >
-            <time class="date" datetime="2008-07-03T19:21:35+00:00">
-              2008
-              July
-              03
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2008/07/03/getting-laconica-up-and-running/">
-              <span class="infoContainer">
-                <span class="title">Getting Laconica up and running</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-webdev tag-rss tag-php tag-atom tag-xml tag-opml tag-feedmagick tag-feedmagick2 tag-feeds"
-          >
-            <time class="date" datetime="2007-10-17T07:22:47+00:00">
-              2007
-              October
-              17
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2007/10/17/opml-reading-lists-in-feedmagick2/">
-              <span class="infoContainer">
-                <span class="title">OPML reading lists in FeedMagick2</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-webdev tag-php tag-zend tag-symfony tag-curmudgeons tag-cakephp tag-openid tag-codeigniter"
-          >
-            <time class="date" datetime="2007-07-23T14:37:33+00:00">
-              2007
-              July
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2007/07/23/a-curmudgeon-playing-with-the-codeigniter-framework-and-openid/">
-              <span class="infoContainer">
-                <span class="title">A Curmudgeon Playing with the CodeIgniter Framework and OpenID</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-webdev tag-php tag-zend tag-symfony tag-frameworks tag-django tag-python tag-curmudgeons"
-          >
-            <time class="date" datetime="2007-07-09T20:21:41+00:00">
-              2007
-              July
-              09
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2007/07/09/a-curmudgeon-playing-with-the-zend-framework/">
-              <span class="infoContainer">
-                <span class="title">A Curmudgeon Playing with the Zend Framework</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-webdev tag-rss tag-php tag-atom tag-xml tag-feedmagick tag-feedmagick2 tag-feeds"
-          >
-            <time class="date" datetime="2007-04-30T03:06:32+00:00">
-              2007
-              April
-              30
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2007/04/30/say-hello-to-feedmagick2/">
-              <span class="infoContainer">
-                <span class="title">Say hello to FeedMagick2</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-webdev tag-php tag-outliners tag-outlining tag-xoxooutliner tag-xsl tag-xoxo tag-xml tag-opml"
-          >
-            <time class="date" datetime="2006-11-15T08:07:12+00:00">
-              2006
-              November
-              15
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/11/15/xoxooutliner-and-further-outline-addressing-adventures/">
-              <span class="infoContainer">
-                <span class="title">XoxoOutliner and further outline addressing adventures</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-webdev tag-php tag-outlining tag-xoxooutliner tag-xsl tag-xoxo tag-xml"
-          >
-            <time class="date" datetime="2006-11-13T09:34:02+00:00">
-              2006
-              November
-              13
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/11/13/xoxooutliner-and-suboutline-addressing/">
-              <span class="infoContainer">
-                <span class="title">XoxoOutliner and suboutline addressing</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-webdev tag-aggregators tag-rss tag-syndication tag-php tag-readinglists"
-          >
-            <time class="date" datetime="2006-08-18T04:43:20+00:00">
-              2006
-              August
-              18
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/08/18/good-gregarius/">
-              <span class="infoContainer">
-                <span class="title">good gregarius</span>
-              </span>
-            </a>
-            
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Tag: php</h2>
+        </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2008 July 03</h2>
+  </li><li class="content-grid post post-type-entry tag-php tag-twitter tag-entries tag-laconica tag-openmicroblogging">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2008/07/03/getting-laconica-up-and-running/">Getting Laconica up and running</a>
+      </h2>
+    
+    <p class="summary">
+      Update, 30 Sep 2008: 
+You don't want to follow the directions on this page—instead, leave this page and read this:  
+http://laconi.ca/darcs/README
+At one point, very early on in Laconica-time, this blog post offered useful information on getting Laconica up and running.  But since then, my time has taken me away from playing with Laconica and thus this guide has fallen far behind.  Hopefully soon I'll get back around to Laconica hacking, but not today.
+I'm leaving the original text of this post here for posterity, but this is no longer current and following this guide will do more harm than good in confusing you about Laconica installation!
+Again, to learn about getting Laconica up and running, leave this page and read this:
+http://laconi.ca/darcs/README
+The latest mini-sensations to arrive through my firehoses are identi.ca, a Twitter-clone / microblogging site, and the Open Source software Laconica, which powers the aforementioned site.
+Having started and neglected two Twitter cloning attempts of my own, Cuckoo and OpenInterocitor, seeing someone else carry the torch with any modicum of momentum is attractive to me.  So, I spent a little bit last night getting the code running on my own servers, and managed to do it twice:
+
+decafbad.com/laconica
+lmorchard.com/laconica
+
+See, the interesting thing promised by Laconica—and something I wanted in my own clones—is the ability to federate instances of the software.  That is, users on one Laconica-based site should be able to subscribe to the updates from users on another site, by way of the OpenMicroblogging specification.  Although federation isn't a silver bullet to a web-scale Twitter clone, I do think it's one of the most important bootstrap steps—but that's another blog post entirely.
+Thus, since I'd like to see you run a Laconica site (or something like it) for mine to talk to, I figured I'd document how I got the thing running.  My server is running Ubuntu Gutsy, so your mileage may vary.  This is a long one, so check out the how-to after the jump...
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2008/07/03/getting-laconica-up-and-running/"
+          >3686&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2008/07/03/getting-laconica-up-and-running/">#</a>
+    <a class="time" href="2008/07/03/getting-laconica-up-and-running/">3:21 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/php/">php</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/twitter/">twitter</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/laconica/">laconica</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/openmicroblogging/">openmicroblogging</a>
           </li>
     </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2007 October 17</h2>
+  </li><li class="content-grid post post-type-entry tag-webdev tag-rss tag-php tag-atom tag-xml tag-opml tag-feedmagick tag-feedmagick2 tag-feeds">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2007/10/17/opml-reading-lists-in-feedmagick2/">OPML reading lists in FeedMagick2</a>
+      </h2>
     
-  </section>
-      </section>
-        </section>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2007/10/17/opml-reading-lists-in-feedmagick2/"
+          >289&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2007/10/17/opml-reading-lists-in-feedmagick2/">#</a>
+    <a class="time" href="2007/10/17/opml-reading-lists-in-feedmagick2/">3:22 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/rss/">rss</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/php/">php</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/atom/">atom</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xml/">xml</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/opml/">opml</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/feedmagick/">feedmagick</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/feedmagick2/">feedmagick2</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/feeds/">feeds</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2007 July 23</h2>
+  </li><li class="content-grid post post-type-entry tag-webdev tag-php tag-zend tag-symfony tag-curmudgeons tag-cakephp tag-openid tag-codeigniter">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2007/07/23/a-curmudgeon-playing-with-the-codeigniter-framework-and-openid/">A Curmudgeon Playing with the CodeIgniter Framework and OpenID</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2007/07/23/a-curmudgeon-playing-with-the-codeigniter-framework-and-openid/"
+          >749&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2007/07/23/a-curmudgeon-playing-with-the-codeigniter-framework-and-openid/">#</a>
+    <a class="time" href="2007/07/23/a-curmudgeon-playing-with-the-codeigniter-framework-and-openid/">10:37 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/php/">php</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/zend/">zend</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/symfony/">symfony</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/curmudgeons/">curmudgeons</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/cakephp/">cakephp</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/openid/">openid</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/codeigniter/">codeigniter</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2007 July 09</h2>
+  </li><li class="content-grid post post-type-entry tag-webdev tag-php tag-zend tag-symfony tag-frameworks tag-django tag-python tag-curmudgeons">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2007/07/09/a-curmudgeon-playing-with-the-zend-framework/">A Curmudgeon Playing with the Zend Framework</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2007/07/09/a-curmudgeon-playing-with-the-zend-framework/"
+          >617&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2007/07/09/a-curmudgeon-playing-with-the-zend-framework/">#</a>
+    <a class="time" href="2007/07/09/a-curmudgeon-playing-with-the-zend-framework/">4:21 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/php/">php</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/zend/">zend</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/symfony/">symfony</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/frameworks/">frameworks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/django/">django</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/python/">python</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/curmudgeons/">curmudgeons</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2007 April 29</h2>
+  </li><li class="content-grid post post-type-entry tag-webdev tag-rss tag-php tag-atom tag-xml tag-feedmagick tag-feedmagick2 tag-feeds">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2007/04/29/say-hello-to-feedmagick2/">Say hello to FeedMagick2</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2007/04/29/say-hello-to-feedmagick2/"
+          >1063&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2007/04/29/say-hello-to-feedmagick2/">#</a>
+    <a class="time" href="2007/04/29/say-hello-to-feedmagick2/">11:06 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/rss/">rss</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/php/">php</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/atom/">atom</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xml/">xml</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/feedmagick/">feedmagick</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/feedmagick2/">feedmagick2</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/feeds/">feeds</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 November 15</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-webdev tag-php tag-outliners tag-outlining tag-xoxooutliner tag-xsl tag-xoxo tag-xml tag-opml">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/11/15/xoxooutliner-and-further-outline-addressing-adventures/">XoxoOutliner and further outline addressing adventures</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/11/15/xoxooutliner-and-further-outline-addressing-adventures/"
+          >333&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/11/15/xoxooutliner-and-further-outline-addressing-adventures/">#</a>
+    <a class="time" href="2006/11/15/xoxooutliner-and-further-outline-addressing-adventures/">3:07 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/php/">php</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/outliners/">outliners</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/outlining/">outlining</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xoxooutliner/">xoxooutliner</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xsl/">xsl</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xoxo/">xoxo</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xml/">xml</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/opml/">opml</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 November 13</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-webdev tag-php tag-outlining tag-xoxooutliner tag-xsl tag-xoxo tag-xml">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/11/13/xoxooutliner-and-suboutline-addressing/">XoxoOutliner and suboutline addressing</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/11/13/xoxooutliner-and-suboutline-addressing/"
+          >84&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/11/13/xoxooutliner-and-suboutline-addressing/">#</a>
+    <a class="time" href="2006/11/13/xoxooutliner-and-suboutline-addressing/">4:34 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/php/">php</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/outlining/">outlining</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xoxooutliner/">xoxooutliner</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xsl/">xsl</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xoxo/">xoxo</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xml/">xml</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 August 18</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-webdev tag-aggregators tag-rss tag-syndication tag-php tag-readinglists">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/08/18/good-gregarius/">good gregarius</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/08/18/good-gregarius/"
+          >143&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/08/18/good-gregarius/">#</a>
+    <a class="time" href="2006/08/18/good-gregarius/">12:43 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/aggregators/">aggregators</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/rss/">rss</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/php/">php</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/readinglists/">readinglists</a>
+          </li>
+    </ul>
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
 
-        <footer>
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/tag/php/index.rss" title="Tag: php - blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

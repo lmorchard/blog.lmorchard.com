@@ -17,15 +17,14 @@ One of [my earlier notions](https://hackers.town/@lmorchard/109507942547830293) 
 
 Then I remembered that [Mermaid diagrams](https://mermaid.js.org/) are a thing. I decided what I really wanted to do was tap out some quick symbolic descriptions and let the computer do the drawing and animating for me.
 
-<pre class="language-markdown">
-graph TD
+<pre><code class="language-markdown">graph TD
 
 A[Tracking Issue]
 B[Tasklist]
 
 A -- tracks --> B
 B -- trackedBy --> A
-</pre>
+</code></pre>
 
 But, it wasn't that simple. Mermaid doesn't do animations. I scratched my head on this for awhile and felt [a growing urge to hop down a rabbit hole](https://hackers.town/@lmorchard/109508030036042755) of browser APIs to render Mermaid diagrams in a `<canvas>` and compose a GIF in a web page. And I could do it, too, you know - I can totally see those APIs all glued together and dancing in my head.
 
@@ -33,8 +32,7 @@ Luckily, I managed to pull myself back from the event horizon of that yak-shavin
 
 So, given that, I could compose a sequence of changing diagrams in one Markdown file:
 
-<pre class="language-markdown">
-## 1
+<pre><code class="language-markdown">## 1
 
 ```mermaid
 graph TD
@@ -62,7 +60,7 @@ B[Tasklist]
 A -- tracks --> B
 B -- trackedBy --> A
 ```
-</pre>
+</code></pre>
 
 Running this though `mmdc` gave me the images I wanted:
 

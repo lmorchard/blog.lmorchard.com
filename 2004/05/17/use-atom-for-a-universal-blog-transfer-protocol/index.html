@@ -1,183 +1,310 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>Use Atom for a Universal Blog Transfer Protocol - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="Use Atom for a Universal Blog Transfer Protocol" />
+    <html>
+      <head>
+        <title>Use Atom for a Universal Blog Transfer Protocol - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="Use Atom for a Universal Blog Transfer Protocol" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2004/05/17/use-atom-for-a-universal-blog-transfer-protocol/"
         />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post tag-syndication"
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post tag-syndication"
       >
-        <time
-          title="2004-05-17T23:28:48+00:00"
-          pubdate="2004-05-17T23:28:48+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2004/"
-            >2004</a
+        <header>
+          <time
+            title="2004-05-17T19:28:48-04:00"
+            pubdate="2004-05-17T19:28:48-04:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2004/05/"
-            >May</a
-          >
-          &raquo;
-          <span>17</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="Surprising &quot;feature&quot; at Amazon.com"
+                href="/blog.lmorchard.com/2004/05/19/surprising-feature-at-amazoncom/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2004/"
+                >2004</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2004/05/"
+                >May</a
+              >
+              &#8226;
+              <span>17</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Birthday party for Bob!"
+                href="/blog.lmorchard.com/2004/05/14/birthday-party-for-bob/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">Use Atom for a Universal Blog Transfer Protocol</h1>
+          <ul class="tags">
+              <li><a href="/blog.lmorchard.com/tag/syndication/">syndication</a></li>
+            </ul>
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2004/05/19/surprising-feature-at-amazoncom/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2004/05/15/birthday-party-for-bob/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">Use Atom for a Universal Blog Transfer Protocol</h1>
-        <ul class="tags">
-            <li>
-                  <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
-                </li>
-          </ul>
-        <section class="post-content">
-          <blockquote>
+        <blockquote>
 <p>One of the options in Tinderbox is to download your most recent posts from your current MT/Radio/Blogger blog into a Tinderbox document, which in turn could be easily turned into a Tinderbox weblog.</p>
 </blockquote>
 <blockquote>
 <p>Could XML-RPC and RSS some kind of universal blog transfer protocol to move sites from one blogging tool to another? It seems to me that RSS should/could have most of the information needed to translate one file format to another.</p>
 </blockquote>
-<div class="credit" align="right"><small>Source:<cite><a href=
-"http://www.ahawkins.org/mt/archives/000641.html">Universal Blog Transfer Protocol</a></cite></small></div>
+<div class="credit" align="right"><small>Source:<cite><a href="http://www.ahawkins.org/mt/archives/000641.html">Universal Blog Transfer Protocol</a></cite></small>
 
-<p>Hmm - I was going to drop a note in comments on the above entry, but I see that they&#39;re disabled.  So...  I&#39;m off to post a trackback from my own blog!</p>
-<p>You could use some mashup of RSS and XML-RPC for this, but I&#39;d suggest using Atom.  It&#39;s a data model <em>and</em> an API, where the data model represents blog content quite well and the API complements it for the purposes of shuffling things around.  With a mix of XML-RPC and RSS, I could only imagine <a href="http://www.xml.com/pub/a/2003/10/15/dive.html" title="Mark Pilgrim&#39;s overview of the Atom API.  In particular, check out the section about the metaWeblog API&#39;s relationship to RSS 2.0">lots of fiddling</a> going on to transliterate between RSS and <a href="http://www.xmlrpc.com/metaWeblogApi" title="The metaWeblog API specification">metaWeblog API structs</a> or whatnot.</p>
-<p>Practically speaking, it seems to me that it&#39;d be <a href="http://www.atomenabled.org/developers/tutorials/api-quick-guide.php" title="All the pieces are here in an Atom API tutorial">pretty trivial</a> to build a little conduit between <a href="http://www.atomenabled.org/">Atom Enabled</a> blogs.  Make a request to blog #1 for entries, then turn around and take the data returned by that request and post directly to blog #2.  I imagine there&#39;d be just a <em>tad</em> more to do than that, such as splitting up the list of entries and posting each individually.  But since it&#39;s all Atom for input and output, there&#39;s not much massaging of the data that needs to go on along the way. </p>
-<p>If I get a few round tuits, maybe I&#39;ll take a stab at whipping up a sort of Atom-to-Atom-Copy command as an example.  </p>
-<p>(And, as an aside, I&#39;d love it if <a href="http://www.eastgate.com/Tinderbox/" title="Great app for catching and developing ideas">Tinderbox</a> supported the Atom API--especially since I&#39;m <a href="http://www.xml.com/pub/a/2004/04/14/atomwiki.html" title="Joe Gregorio explores Atom-Powered Wiki">hearing noises</a> toward <a href="http://www.ecyrd.com/ButtUgly/Wiki.jsp?page=Main_blogentry_160504_2" title="Wherein the author of JSPWiki entertains the notion of an Atom API">wikis supporting the Atom API</a>!)</p>
+</div>
+
+
+
+<p>Hmm - I was going to drop a note in comments on the above entry, but I see that they're disabled.  So...  I'm off to post a trackback from my own blog!</p>
+<p>You could use some mashup of RSS and XML-RPC for this, but I'd suggest using Atom.  It's a data model <em>and</em> an API, where the data model represents blog content quite well and the API complements it for the purposes of shuffling things around.  With a mix of XML-RPC and RSS, I could only imagine <a href="http://www.xml.com/pub/a/2003/10/15/dive.html" title="Mark Pilgrim's overview of the Atom API.  In particular, check out the section about the metaWeblog API's relationship to RSS 2.0">lots of fiddling</a> going on to transliterate between RSS and <a href="http://www.xmlrpc.com/metaWeblogApi" title="The metaWeblog API specification">metaWeblog API structs</a> or whatnot.</p>
+<p>Practically speaking, it seems to me that it'd be <a href="http://www.atomenabled.org/developers/tutorials/api-quick-guide.php" title="All the pieces are here in an Atom API tutorial">pretty trivial</a> to build a little conduit between <a href="http://www.atomenabled.org/">Atom Enabled</a> blogs.  Make a request to blog <a href="/tag/1">#1</a> for entries, then turn around and take the data returned by that request and post directly to blog <a href="/tag/2">#2</a>.  I imagine there'd be just a <em>tad</em> more to do than that, such as splitting up the list of entries and posting each individually.  But since it's all Atom for input and output, there's not much massaging of the data that needs to go on along the way. </p>
+<p>If I get a few round tuits, maybe I'll take a stab at whipping up a sort of Atom-to-Atom-Copy command as an example.  </p>
+<p>(And, as an aside, I'd love it if <a href="http://www.eastgate.com/Tinderbox/" title="Great app for catching and developing ideas">Tinderbox</a> supported the Atom API--especially since I'm <a href="http://www.xml.com/pub/a/2004/04/14/atomwiki.html" title="Joe Gregorio explores Atom-Powered Wiki">hearing noises</a> toward <a href="http://www.ecyrd.com/ButtUgly/Wiki.jsp?page=Main_blogentry_160504_2" title="Wherein the author of JSPWiki entertains the notion of an Atom API">wikis supporting the Atom API</a>!)</p>
 <div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
 <ul class="comments">
 <li class="comment" id="comment-221082868">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://markpasc.org/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=30e5bdec1073df6350d27b8145bf0dab&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://markpasc.org/">Mark Paschal</a>
+<a class="avatar image" rel="nofollow" href="http://markpasc.org/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=30e5bdec1073df6350d27b8145bf0dab&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://markpasc.org/">Mark Paschal</a>
 </div>
-<a href="#comment-221082868" class="permalink"><time datetime="2004-05-17T21:21:28">2004-05-17T21:21:28</time></a>
+
+
+<p><a href="#comment-221082868" class="permalink"><time datetime="2004-05-17T21:21:28">2004-05-17T21:21:28</time></a></p>
 </div>
+
+
 <div class="content">I wrote a script to export an MT weblog to an Atom feed, but the new reality of web hosting servers killing "runaway" processes makes it a terrible pain for large archives. It has to export X entries, then have the browser make a new request to push the next X. The script exports in text chunks, so that's okay, but I couldn't figure how to parse an XML document in parts similarly.
 I was planning to use that to transport my weblog from MT 2 to MT 3, but I ended up writing the sqlite schema upgrade code instead.</div>
+
+
 </li>
 <li class="comment" id="comment-221082869">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://techno-weenie.net"><img src="http://www.gravatar.com/avatar.php?gravatar_id=7f9a6fc2f4c8bca376ff85c205c35b3c&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://techno-weenie.net">rick</a>
+<a class="avatar image" rel="nofollow" href="http://techno-weenie.net"><img src="http://www.gravatar.com/avatar.php?gravatar_id=7f9a6fc2f4c8bca376ff85c205c35b3c&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://techno-weenie.net">rick</a>
 </div>
-<a href="#comment-221082869" class="permalink"><time datetime="2004-05-17T22:39:56">2004-05-17T22:39:56</time></a>
+
+
+<p><a href="#comment-221082869" class="permalink"><time datetime="2004-05-17T22:39:56">2004-05-17T22:39:56</time></a></p>
 </div>
+
+
 <div class="content">Yes!  This is what I've been trying to say.  Use RSS as a simple syndication feed, but Atom when you need a rich data model and API.
 Having drop-dead-simple Atom import/export in MT (and all blogging tools) should reduce any fears of lock-in.</div>
+
+
 </li>
 <li class="comment" id="comment-221082871">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.markBernstein.org/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=cdb20bf8e09680028612532944833686&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.markBernstein.org/">Mark Bernstein</a>
+<a class="avatar image" rel="nofollow" href="http://www.markBernstein.org/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=cdb20bf8e09680028612532944833686&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.markBernstein.org/">Mark Bernstein</a>
 </div>
-<a href="#comment-221082871" class="permalink"><time datetime="2004-05-17T22:48:09">2004-05-17T22:48:09</time></a>
+
+
+<p><a href="#comment-221082871" class="permalink"><time datetime="2004-05-17T22:48:09">2004-05-17T22:48:09</time></a></p>
 </div>
+
+
 <div class="content">Tinderbox will support the Atom API, once it's actually an API.  There's still a lot of uncertainty what the real atom API will look like, either on paper or as implemented in deployed systems.
 For now, Metaweblog and Blogger API should work with most of the tools you want to work with...</div>
+
+
 </li>
 <li class="comment" id="comment-221082873">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.decafbad.com/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=8a5273f79cfe7579ad46023f93377aa8&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.decafbad.com/">l.m.orchard</a>
+<a class="avatar image" rel="nofollow" href="http://www.decafbad.com/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=8a5273f79cfe7579ad46023f93377aa8&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.decafbad.com/">l.m.orchard</a>
 </div>
-<a href="#comment-221082873" class="permalink"><time datetime="2004-05-17T23:53:39">2004-05-17T23:53:39</time></a>
+
+
+<p><a href="#comment-221082873" class="permalink"><time datetime="2004-05-17T23:53:39">2004-05-17T23:53:39</time></a></p>
 </div>
+
+
 <div class="content">Mark:  Fair enough - I can respect you not wanting to track a moving target of an API.  So far I like the direction it has been taking, though.
 Oh, and thanks again for Tinderbox!</div>
+
+
 </li>
 </ul>
+
+
 </div>
 
-        </section>
-      </article>
-        </section>
-
-        <footer>
-          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
-        </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
-      </section>
-    </body>
-  </html>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2004/05/19/surprising-feature-at-amazoncom/"
+                >Surprising "feature" at Amazon.com</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2004/05/14/birthday-party-for-bob/"
+                >Birthday party for Bob!</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

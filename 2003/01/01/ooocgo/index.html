@@ -1,168 +1,280 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>Sharing my Python proxy experiment - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="Sharing my Python proxy experiment" />
+    <html>
+      <head>
+        <title>Sharing my Python proxy experiment - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="Sharing my Python proxy experiment" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2003/01/01/ooocgo/"
         />
         
-        <meta property="og:description" content="Anthony Eden writes:I was so intrigued by having a proxy agent which would work for me that I wrote a little generic pluggable proxy this morning.Show us the code! :)  I want to play.
-
+        <meta property="og:description" content="Anthony Eden writes:I was so intrigued by having a proxy agent which would work for me that I wrote a little generic pluggable proxy this morning.
+Show us the code! :)  I want to play.
 As for my code so far: This is extremely premature, and I&#39;m not even sure if it will work anywhere besides my peculiar iBook, but here&#39;s a quick &amp; dirty tarball of my experiments with a PersonalWebProxy (just web, not universal) with a simple plugin API, in Python using Twisted:
-
 dbproxy-20021231.tar.gz
-
 It&#39;s poorly commented, doesn&#39;t do much useful, but it&#39;s a few nights&#39; work by someone just getting acquainted with Twisted - if you&#39;re even worse off than me and want to poke at this proxy thing, maybe this will help you.  It does do a few things I thought were nifty, like use Mark Pilgrim&#39;s rssfinder script in a thread to dig up RSS feeds for every URL with text/html content you visit.  There&#39;s no persistence yet, so they just appear in the log, but figuring out the integration and thread use so far was nifty to me.
-
 Anyway, enjoy.  I&#39;m still tinkering, thinking, and working up a plan.
-
 Oh yeah, and I&#39;m watching Dick Clark and the ball drop with my girlfriend, so this post brings an end to hacking for the night." />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post "
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post "
       >
-        <time
-          title="2003-01-01T06:53:22+00:00"
-          pubdate="2003-01-01T06:53:22+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2003/"
-            >2003</a
+        <header>
+          <time
+            title="2003-01-01T01:53:22-05:00"
+            pubdate="2003-01-01T01:53:22-05:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2003/01/"
-            >January</a
-          >
-          &raquo;
-          <span>01</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="MovableType gets first class treatment for text formatting"
+                href="/blog.lmorchard.com/2003/01/01/ooocga/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2003/"
+                >2003</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2003/01/"
+                >January</a
+              >
+              &#8226;
+              <span>01</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Making a brane snapshot, re: PersonalWebProxy"
+                href="/blog.lmorchard.com/2002/12/31/ooocfi/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">Sharing my Python proxy experiment</h1>
+          
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2003/01/01/ooocga/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2002/12/31/ooocfi/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">Sharing my Python proxy experiment</h1>
-        
-        <section class="post-content">
-          <p><cite>Anthony Eden</cite> <a href="http://roller.anthonyeden.com/page/aeden/20021230#re_upp_take_2" target="_top">writes</a>:<blockquote><i>I was so intrigued by having a proxy agent which would work for me that I wrote a little generic pluggable proxy this morning.</i></blockquote>Show us the code! :)  I want to play.
-<br /><br />
-As for my code so far: This is extremely premature, and I&#39;m not even sure if it will work anywhere besides my peculiar iBook, but here&#39;s a quick &amp; dirty tarball of my experiments with a <a href="http://www.decafbad.com/twiki/bin/view/Main/PersonalWebProxy">PersonalWebProxy</a> (just web, not universal) with a simple plugin API, in Python using Twisted:
-<br /><br />
-<a href="http://www.decafbad.com/downloads/dbproxy-20021231.tar.gz" target="_top">dbproxy-20021231.tar.gz</a>
-<br /><br />
-It&#39;s poorly commented, doesn&#39;t do much useful, but it&#39;s a few nights&#39; work by someone just getting acquainted with Twisted - if you&#39;re even worse off than me and want to poke at this proxy thing, maybe this will help you.  It does do a few things I thought were nifty, like use <a href="http://diveintomark.org/archives/2002/08/15.html" target="_top">Mark Pilgrim&#39;s rssfinder script</a> in a thread to dig up <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> feeds for every URL with text/html content you visit.  There&#39;s no persistence yet, so they just appear in the log, but figuring out the integration and thread use so far was nifty to me.
-<br /><br />
-Anyway, enjoy.  I&#39;m still tinkering, thinking, and working up a plan.
-<br /><br />
-Oh yeah, and I&#39;m watching Dick Clark and the ball drop with my girlfriend, so this post brings an end to hacking for the night.</p>
+        <p><cite>Anthony Eden</cite> <a href="http://roller.anthonyeden.com/page/aeden/20021230#re_upp_take_2" target="_top">writes</a>:</p><blockquote><i>I was so intrigued by having a proxy agent which would work for me that I wrote a little generic pluggable proxy this morning.</i></blockquote><p></p>
+<p>Show us the code! :)  I want to play.</p>
+<p>As for my code so far: This is extremely premature, and I'm not even sure if it will work anywhere besides my peculiar iBook, but here's a quick &amp; dirty tarball of my experiments with a <a href="http://www.decafbad.com/twiki/bin/view/Main/PersonalWebProxy">PersonalWebProxy</a> (just web, not universal) with a simple plugin API, in Python using Twisted:</p>
+<p><a href="http://www.decafbad.com/downloads/dbproxy-20021231.tar.gz" target="_top">dbproxy-20021231.tar.gz</a></p>
+<p>It's poorly commented, doesn't do much useful, but it's a few nights' work by someone just getting acquainted with Twisted - if you're even worse off than me and want to poke at this proxy thing, maybe this will help you.  It does do a few things I thought were nifty, like use <a href="http://diveintomark.org/archives/2002/08/15.html" target="_top">Mark Pilgrim's rssfinder script</a> in a thread to dig up <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> feeds for every URL with text/html content you visit.  There's no persistence yet, so they just appear in the log, but figuring out the integration and thread use so far was nifty to me.</p>
+<p>Anyway, enjoy.  I'm still tinkering, thinking, and working up a plan.</p>
+<p>Oh yeah, and I'm watching Dick Clark and the ball drop with my girlfriend, so this post brings an end to hacking for the night.</p>
 <!--more-->
+
+
 <p>shortname=ooocgo</p>
 <div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
 <ul class="comments">
 <li class="comment" id="comment-221085247">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.10500bc.org"><img src="http://www.gravatar.com/avatar.php?gravatar_id=6492f173a7059ece309f7d670ff44e95&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.10500bc.org">nf0</a>
+<a class="avatar image" rel="nofollow" href="http://www.10500bc.org"><img src="http://www.gravatar.com/avatar.php?gravatar_id=6492f173a7059ece309f7d670ff44e95&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.10500bc.org">nf0</a>
 </div>
-<a href="#comment-221085247" class="permalink"><time datetime="2003-01-01T06:13:58">2003-01-01T06:13:58</time></a>
+
+
+<p><a href="#comment-221085247" class="permalink"><time datetime="2003-01-01T06:13:58">2003-01-01T06:13:58</time></a></p>
 </div>
+
+
 <div class="content">I've got it going under Mandrake 9.0. If i run it directly out of eclipse with the python plugin it runs, if i run it from the command line, I had to change the LOG_PATH to the full path.
 When it starts i get:
 [003382 INFO Unknown module] Proxy coming up on port 8813.
 Enabling Multithreading.
 dbproxy.proxy.ProxyFactory starting on 8813</div>
+
+
 </li>
 <li class="comment" id="comment-221085248">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.ulaluma.com/pyx"><img src="http://www.gravatar.com/avatar.php?gravatar_id=288adc0fe423befdbb65f707ba714d31&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.ulaluma.com/pyx">Donovan Preston</a>
+<a class="avatar image" rel="nofollow" href="http://www.ulaluma.com/pyx"><img src="http://www.gravatar.com/avatar.php?gravatar_id=288adc0fe423befdbb65f707ba714d31&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.ulaluma.com/pyx">Donovan Preston</a>
 </div>
-<a href="#comment-221085248" class="permalink"><time datetime="2003-01-01T08:36:12">2003-01-01T08:36:12</time></a>
+
+
+<p><a href="#comment-221085248" class="permalink"><time datetime="2003-01-01T08:36:12">2003-01-01T08:36:12</time></a></p>
 </div>
+
+
 <div class="content">Thank you! I was hoping you would release cold, hard code soon so I could hack on it. And hack on it I did. I am very excited about this project. I think it's going to be of real value very quickly.
 I added a Service instance which stores the links harvested by RSSFinder in a dictionary, and I wrote a web interface that starts a server on 8080 and serves a woven page that displays the dictionary along with all the links. Piece of cake. EXCITING
 I'll email you my code.</div>
+
+
 </li>
 </ul>
+
+
 </div>
 
-        </section>
-      </article>
-        </section>
-
-        <footer>
-          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
-        </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
-      </section>
-    </body>
-  </html>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2003/01/01/ooocga/"
+                >MovableType gets first class treatment for text formatting</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2002/12/31/ooocfi/"
+                >Making a brane snapshot, re: PersonalWebProxy</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

@@ -10,7 +10,7 @@ tags:
 
 <!--more-->
 
-<img src="./cover.png" class="fullwidth" />
+<figure class="wide"><img src="./cover.png" /></figure>
 
 When Radmilo was a boy, he talked to fireflies. He didn't know any better, it was just something he did. He had no brothers or sisters, only himself to play with in the fields and woods around the house. He'd stay out through all the days of summer, until dusk came and he had to run home. 
 

@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>The Readerpocalypse, or Occupy Google Reader - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="The Readerpocalypse, or Occupy Google Reader" />
+    <html>
+      <head>
+        <title>The Readerpocalypse, or Occupy Google Reader - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="The Readerpocalypse, or Occupy Google Reader" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2011/11/01/readerpocalypse/"
@@ -43,80 +50,139 @@
             property="og:image"
             content="http://decafbad.com/blog/images/2011/11/Newspaper_Feed_256x256.png"
           />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post tag-rsstag-atomtag-feedstag-googletag-readertag-metabloggingtag-occupygooglereader"
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post tag-rsstag-atomtag-feedstag-googletag-readertag-metabloggingtag-occupygooglereader"
       >
-        <time
-          title="2011-11-01T10:31:54+00:00"
-          pubdate="2011-11-01T10:31:54+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2011/"
-            >2011</a
+        <header>
+          <time
+            title="2011-11-01T10:31:54+00:00"
+            pubdate="2011-11-01T10:31:54+00:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2011/11/"
-            >November</a
-          >
-          &raquo;
-          <span>01</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="Social Media Cyborg"
+                href="/blog.lmorchard.com/2011/11/04/social-media-cyborg/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2011/"
+                >2011</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2011/11/"
+                >November</a
+              >
+              &#8226;
+              <span>01</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Putting clouds in boxes for webdevs at Mozilla"
+                href="/blog.lmorchard.com/2011/10/02/putting-clouds-in-boxes/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">The Readerpocalypse, or Occupy Google Reader</h1>
+          <ul class="tags">
+              <li><a href="/blog.lmorchard.com/tag/rss/">rss</a></li><li><a href="/blog.lmorchard.com/tag/atom/">atom</a></li><li><a href="/blog.lmorchard.com/tag/feeds/">feeds</a></li><li><a href="/blog.lmorchard.com/tag/google/">google</a></li><li><a href="/blog.lmorchard.com/tag/reader/">reader</a></li><li><a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a></li><li><a href="/blog.lmorchard.com/tag/occupygooglereader/">occupygooglereader</a></li>
+            </ul>
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2011/11/04/social-media-cyborg/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2011/10/02/putting-clouds-in-boxes/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">The Readerpocalypse, or Occupy Google Reader</h1>
-        <ul class="tags">
-            <li>
-                  <a href="/blog.lmorchard.com/tag/rss/">rss</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/atom/">atom</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/feeds/">feeds</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/google/">google</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/reader/">reader</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/occupygooglereader/">occupygooglereader</a>
-                </li>
-          </ul>
-        <section class="post-content">
-          <p><strong>TL;DR</strong>: <em>Google gave Reader a face-lift and removed built-in
+        <p><strong>TL;DR</strong>: <em>Google gave Reader a face-lift and removed built-in
 following &amp; sharing. In exchange, they added +1 buttons and ways to
 share to Google+. But, the changes seem to have removed most of the
-value from the service for me, so I&#39;m moving on as I was invited to
+value from the service for me, so I'm moving on as I was invited to
 do.</em></p>
-<p><span style="display: block; float: right; text-decoration: none; border: none; margin: 0 0 1em 1em"><img src="http://decafbad.com/blog/images/2011/11/Newspaper_Feed_256x256.png" style="width: 256px" /></span></p>
+<p><span style="display: block; float: right; text-decoration: none; border: none; margin: 0 0 1em 1em"><img src="http://decafbad.com/blog/images/2011/11/Newspaper_Feed_256x256.png" style="width: 256px" width="" height=""></span></p>
 <h2 id="what-happened">What happened?</h2>
 <p>Almost a year ago, I wrote about how my habits had gotten
 <a href="http://decafbad.com/blog/2010/12/18/less-del-icio-us-than-ever-before">less del.icio.us</a>. One of the main culprits that stole my sharing
@@ -126,19 +192,19 @@ things <a href="http://pinboard.in/u:deusx/untagged/">untagged</a>, but I shared
 Google Reader released a bookmarklet for use off-site, which
 meant I started sharing everything everywhere to Reader.</p>
 <p>I also found a replacement for my old del.icio.us network in Google
-Reader&#39;s social features. I could follow people, and the stream of
+Reader's social features. I could follow people, and the stream of
 things <em>they</em> shared and annotated turned into a great source of
 news curated and pre-filtered by likeminded people.</p>
-<p>Well, as it turns out, Google&#39;s <a href="http://googlereader.blogspot.com/2011/10/new-in-reader-fresh-design-and-google.html">recent changes</a> to Reader just
+<p>Well, as it turns out, Google's <a href="http://googlereader.blogspot.com/2011/10/new-in-reader-fresh-design-and-google.html">recent changes</a> to Reader just
 removed all of the above. In exchange, they added a couple of buttons
 to +1 and share items to Google+, which streamlines things for them
 and encourages more use of the new service.</p>
 <p><a href="https://plus.google.com/114487965928288927815/posts/fgscQet4kxh">As I wrote</a> on Google+, the net result is nothing to stomp and
-shout about, but there&#39;s nothing there that makes me happier. As I
+shout about, but there's nothing there that makes me happier. As I
 played more, though, I came to realize that most of the value
 I derived from the service had evaporated.</p>
 <h2 id="item-centric-vs-people-centric-efficiency-vs-engagement">Item-centric vs People-centric, Efficiency vs Engagement</h2>
-<p>There&#39;s a big difference between the way sharing happened on Google
+<p>There's a big difference between the way sharing happened on Google
 Reader, and the way it happens now on Google+. The best way I can
 think to explain is that the old way was item-centric and the new way
 is people-centric.  In other words, <em>people</em> seem to be the dominant
@@ -147,36 +213,36 @@ is people-centric.  In other words, <em>people</em> seem to be the dominant
 <p>Before, we all gathered around the news. The headline and summary were
 primary, and our comments were collected after the item. The result
 was a de-duped stream of great news filtered through smart brains.
-Even if the people I followed never said a word, the fact that they&#39;d
-clicked &quot;share&quot; was value enough. In fact, it was better that
+Even if the people I followed never said a word, the fact that they'd
+clicked "share" was value enough. In fact, it was better that
 way most of the time, because we all got out of the way of each other
 and the news.</p>
 <p>This, by the way, is what I loved about del.icio.us and now
-<a href="http://pinboard.in/u:deusx">pinboard.in</a>: It&#39;s anti-social networking. We can provide
+<a href="http://pinboard.in/u:deusx">pinboard.in</a>: It's anti-social networking. We can provide
 low-effort, intelligent inputs to build something useful for each
-other, but we&#39;re not there to assert a presence or distract each other
+other, but we're not there to assert a presence or distract each other
 from the things we each came to see.</p>
 <p>But now, that filtered news stream is gone. In its place, on a
 different site entirely, removed from the flow of feeding on news, is
 a highly-engaging flood of people babbling away, which occasionally
 includes repeated shares of things that have bubbled up during the
 day.</p>
-<p>What&#39;s wrong with that, for me?</p>
+<p>What's wrong with that, for me?</p>
 <ol>
-<li>I don&#39;t want to wade through a heavily-padded, user-friendly flood
+<li>I don't want to wade through a heavily-padded, user-friendly flood
 of duplicated, echoed items.</li>
-<li>I don&#39;t want to engage with the people—at least, not when I&#39;m in a
-mood to feed on news. I want to catch up on what&#39;s been put out
+<li>I don't want to engage with the people—at least, not when I'm in a
+mood to feed on news. I want to catch up on what's been put out
 into the infosphere already, and <em>then</em> start talking about it.</li>
 </ol>
 <p>The design of Google+—which has spilled over into the Google Reader
 face-lift—is about engagement and not fast &amp; efficient processing of
-the day&#39;s news. Engagement in general puts a drag on the task—which
+the day's news. Engagement in general puts a drag on the task—which
 for me is like a <a href="http://www.davidco.com/about-gtd">GTD</a>, <a href="http://inboxzero.com/">Inbox Zero</a>, headline skimming, pattern
-recognition zen thing that might not be everyone&#39;s cup of tea.</p>
+recognition zen thing that might not be everyone's cup of tea.</p>
 <p>But, for all I know, avowed weirdo and <a href="http://decafbad.com/blog/2004/10/11/allgrowedup">info freako</a> that I am,
 these changes may drive Google Reader growth through the roof for
-mainstream users.  But, it&#39;s no longer a product for me. The changes
+mainstream users.  But, it's no longer a product for me. The changes
 in sharing have removed most of the value for me, because I no longer
 have the warp speed cruise through news that other people used to
 power for me.</p>
@@ -193,34 +259,36 @@ your foodies circle, or local news to family and friends. You can keep
 sharing, like you always have, but now, you can better select who sees
 what.</blockquote>
 
+
+
 <p>But, for this purpose, Circles point the wrong way.</p>
-<p>Circles on Google+ are lists of people controlled by me. They&#39;re not
+<p>Circles on Google+ are lists of people controlled by me. They're not
 topics—again, people-centric and not item-centric. Circles are a
 targeting mechanism for sharing to people, and a filtering mechanism
 for items from people.  That is, I can use a circle to set who sees
-something and I can decide who&#39;s stuff I see and when.</p>
-<p>But, things that Circles don&#39;t do include:</p>
+something and I can decide who's stuff I see and when.</p>
+<p>But, things that Circles don't do include:</p>
 <ul>
 <li><p>Letting me follow Circles without the Circle-owner needing to manage
-membership - eg. Don&#39;t make me send a message saying &quot;I am
+membership - eg. Don't make me send a message saying "I am
 interested in your ideas and would like to subscribe to your
-newsletter&quot;. RSS doesn&#39;t work that way and it&#39;s better for it.</p>
+newsletter". RSS doesn't work that way and it's better for it.</p>
 </li>
 <li><p>Letting me and others filter for what gets sent to specific Circles -
-eg. I&#39;m in both your &quot;scifi&quot; and &quot;politics&quot; circles, but just show
-me what you sent to your &quot;scifi&quot; circle.</p>
+eg. I'm in both your "scifi" and "politics" circles, but just show
+me what you sent to your "scifi" circle.</p>
 </li>
 </ul>
-<p>Google Reader didn&#39;t have this to begin with, but what I&#39;m looking for
+<p>Google Reader didn't have this to begin with, but what I'm looking for
 is an equivalent to tagging on <a href="http://pinboard.in/u:deusx">pinboard.in</a>. For example, if you
 like my taste in <a href="http://pinboard.in/u:deusx/t:scifi">scifi</a> but could care less about my views in
 <a href="http://pinboard.in/u:deusx/t:politics">politics</a>, you can subscribe to just the tag feeds you want.</p>
-<p>I&#39;m happy to tag my shares with topics; that&#39;s beneficial to me for
+<p>I'm happy to tag my shares with topics; that's beneficial to me for
 search later, and helps interested people besides. But, the last thing
-I want to do is manage subscriber lists. That doesn&#39;t scale. There&#39;s
-no way for you to even know I have &quot;scifi&quot; or &quot;politics&quot; Circles, and
+I want to do is manage subscriber lists. That doesn't scale. There's
+no way for you to even know I have "scifi" or "politics" Circles, and
 you have no way to join either of them without asking for an add.</p>
-<p>Too much coordination, not enough benefit. I just can&#39;t see the value
+<p>Too much coordination, not enough benefit. I just can't see the value
 in people-centric Circles here.</p>
 <h2 id="other-things-broke-too">Other things broke, too.</h2>
 <p>And beyond the fundamental shift in sharing and reading, these things
@@ -229,83 +297,110 @@ have broken for me now too:</p>
 <li>The bookmarklet is dead, so there goes my off-site sharing.</li>
 <li>No sharing at all from the <a href="http://google.com/reader/i/">mobile web version</a>, so there goes at
 least half of my sharing on-site.</li>
-<li>Android apps like my favorite <a href="https://market.android.com/details?id=com.noinnion.android.greader.readerpro&hl=en">gReader Pro</a> still think sharing
-works, but they&#39;re just deluded and use an unsupported API anyway</li>
+<li>Android apps like my favorite <a href="https://market.android.com/details?id=com.noinnion.android.greader.readerpro&amp;hl=en">gReader Pro</a> still think sharing
+works, but they're just deluded and use an unsupported API anyway</li>
 <li>No more feed to Facebook, so there goes most of <a href="http://www.facebook.com/lmorchard">my Facebook
 output</a>. (Though, that might be a boon some friends over there.)</li>
 </ul>
 <h2 id="now-what">Now what?</h2>
 <p>The remaining value of Google Reader is as just a plain old hosted
 feed reader—one of the last of them out there, in fact. The problem
-here is that I&#39;m a weirdo who wrote <a href="http://www.amazon.com/gp/product/0764597582?ie=UTF8&tag=0xdecafbad01-20&linkCode=as2&camp=1789&c%0D%0Areative=9325&creativeASIN=0764597582">a book on feeds and feed readers</a>,
-and so I&#39;m perfectly capable of providing the remaining
+here is that I'm a weirdo who wrote <a href="http://www.amazon.com/gp/product/0764597582?ie=UTF8&amp;tag=0xdecafbad01-20&amp;linkCode=as2&amp;camp=1789&amp;c%0D%0Areative=9325&amp;creativeASIN=0764597582">a book on feeds and feed readers</a>,
+and so I'm perfectly capable of providing the remaining
 value for myself.</p>
-<p>I&#39;m sure most people won&#39;t want to do that, which is probably why
-&quot;<a href="http://www.readwriteweb.com/archives/alternatives_to_google_reader.php">you&#39;re not going anywhere</a>&quot;. But, there are alternatives even for
-people who don&#39;t want to D.I.Y. entirely:</p>
+<p>I'm sure most people won't want to do that, which is probably why
+"<a href="http://www.readwriteweb.com/archives/alternatives_to_google_reader.php">you're not going anywhere</a>". But, there are alternatives even for
+people who don't want to D.I.Y. entirely:</p>
 <ul>
-<li><p>Dave Winer&#39;s <a href="http://river2.newsriver.org/">River2</a> (also open source, in UserTalk on the <a href="http://home.opml.org/">OPML
+<li><p>Dave Winer's <a href="http://river2.newsriver.org/">River2</a> (also open source, in UserTalk on the <a href="http://home.opml.org/">OPML
 Editor</a>) runs on my laptop and lets me circle back to the code
 that ran my second-ever news reader, <a href="http://radio.userland.com/">Radio UserLand</a>.  (My first
 was a thing called <a href="http://newsclipper.sourceforge.net/">News Clipper</a> in Perl from many, many moons
-ago.) And, of course, <a href="http://river2.newsriver.org/">River2</a> is one of a suite of apps Dave&#39;s
+ago.) And, of course, <a href="http://river2.newsriver.org/">River2</a> is one of a suite of apps Dave's
 working on to build a decentrallized network of feeds and outlines.</p>
 </li>
 <li><p><a href="http://newsblur.com">NewsBlur</a> looks mighty fine, and <a href="http://www.samuelclay.com/" title="Samuel Clay, that is">the guy running it</a> only asks
-US$12-36 (your choice) for a year&#39;s worth of premium access.
-Remember: if you&#39;re not the customer, you&#39;re the product. And, if
-you want to try installing it, it&#39;s an <a href="https://github.com/samuelclay/NewsBlur">open source Django
-site</a>. While not yet very social, <a href="http://newsblur.com">NewsBlur</a>&#39;s
+US$12-36 (your choice) for a year's worth of premium access.
+Remember: if you're not the customer, you're the product. And, if
+you want to try installing it, it's an <a href="https://github.com/samuelclay/NewsBlur">open source Django
+site</a>. While not yet very social, <a href="http://newsblur.com">NewsBlur</a>'s
 creator <a href="http://blog.newsblur.com/post/11956240785/a-social-feed-reader">has plans</a> to head in that direction.</p>
 </li>
 <li><p><a href="http://tt-rss.org/">Tiny Tiny RSS</a> installed on my Wordpress-capable web server in
 about 10 minutes, gobbled up my list of 800 feeds with no problem,
 and appears to have 90% of what I wanted from Google Reader. Also,
-it&#39;s <a href="https://github.com/gothfox/Tiny-Tiny-RSS">an open source PHP site</a>. For sharing, <a href="http://tt-rss.org/">Tiny
-Tiny RSS</a> lets you &quot;publish&quot; shared items in an RSS feed—kind of
+it's <a href="https://github.com/gothfox/Tiny-Tiny-RSS">an open source PHP site</a>. For sharing, <a href="http://tt-rss.org/">Tiny
+Tiny RSS</a> lets you "publish" shared items in an RSS feed—kind of
 like the old <a href="http://reblog.org/">reBlog</a> web app—and has some experimental
 cross-instance sharing features.</p>
 </li>
 </ul>
-<p>At the end, the funny thing is that I&#39;ve circled back to my old
+<p>At the end, the funny thing is that I've circled back to my old
 del.icio.us habits and have started tagging items on <a href="http://pinboard.in/u:deusx">pinboard.in</a>
-like never before. I&#39;m sure there aren&#39;t nearly as many people
-watching me as before on either del.icio.us or Google Reader, but it&#39;s
+like never before. I'm sure there aren't nearly as many people
+watching me as before on either del.icio.us or Google Reader, but it's
 a place to go at least.</p>
-<p>It&#39;ll probably be recognized as an illness
+<p>It'll probably be recognized as an illness
 someday, but my sharing feels compulsive at this point and I get itchy
 without a good outlet.</p>
 <!-- vim: set wrap wm=5 syntax=mkd textwidth=70: -->
 
-        </section>
+        <section class="comments" id="comments">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+              var disqus_needs_loading = true;
+              var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com/2011/11/01/readerpocalypse/";
+            </script>
+            <noscript
+              >Please enable JavaScript to view the
+              <a href="http://disqus.com/?ref_noscript"
+                >comments powered by Disqus.</a
+              ></noscript
+            >
+            <a href="http://disqus.com" class="dsq-brlink"
+              >blog comments powered by
+              <span class="logo-disqus">Disqus</span></a
+            >
+          </section>
       </article>
 
-      <section class="comments" id="comments">
-          <div id="disqus_thread"></div>
-          <script type="text/javascript">
-            var disqus_needs_loading = true;
-            var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com/2011/11/01/readerpocalypse/";
-          </script>
-          <noscript
-            >Please enable JavaScript to view the
-            <a href="http://disqus.com/?ref_noscript"
-              >comments powered by Disqus.</a
-            ></noscript
-          >
-          <a href="http://disqus.com" class="dsq-brlink"
-            >blog comments powered by <span class="logo-disqus">Disqus</span></a
-          >
-        </section>
-        </section>
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2011/11/04/social-media-cyborg/"
+                >Social Media Cyborg</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2011/10/02/putting-clouds-in-boxes/"
+                >Putting clouds in boxes for webdevs at Mozilla</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
 
-        <footer>
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

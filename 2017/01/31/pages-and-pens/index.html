@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>Pages and Pens - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="Pages and Pens" />
+    <html>
+      <head>
+        <title>Pages and Pens - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="Pages and Pens" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2017/01/31/pages-and-pens/"
@@ -44,127 +51,223 @@
             content="https://farm1.staticflickr.com/700/31795028574_efd910810d_q_d.jpg"
           />
         <meta property="og:description" content="TL;DR: I&#39;ve been writing a lot and accumulating fancy pens &amp; ink colors." />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post tag-writingtag-penstag-journals"
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post tag-writingtag-penstag-journals"
       >
-        <time
-          title="2017-01-31T12:00:00+00:00"
-          pubdate="2017-01-31T12:00:00+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2017/"
-            >2017</a
+        <header>
+          <time
+            title="2017-01-31T12:00:00-07:00"
+            pubdate="2017-01-31T12:00:00-07:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2017/01/"
-            >January</a
-          >
-          &raquo;
-          <span>31</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="Operation: Social Anxiety Edition"
+                href="/blog.lmorchard.com/2017/02/02/operation-anxiety/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2017/"
+                >2017</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2017/01/"
+                >January</a
+              >
+              &#8226;
+              <span>31</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Upgrading my Couch PC monitor, v1.2"
+                href="/blog.lmorchard.com/2017/01/09/diy-monitor-v12/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">Pages and Pens</h1>
+          <ul class="tags">
+              <li><a href="/blog.lmorchard.com/tag/writing/">writing</a></li><li><a href="/blog.lmorchard.com/tag/pens/">pens</a></li><li><a href="/blog.lmorchard.com/tag/journals/">journals</a></li>
+            </ul>
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2017/02/02/operation-anxiety/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2017/01/09/diy-monitor-v12/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">Pages and Pens</h1>
-        <ul class="tags">
-            <li>
-                  <a href="/blog.lmorchard.com/tag/writing/">writing</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/pens/">pens</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/journals/">journals</a>
-                </li>
-          </ul>
-        <section class="post-content">
-          <p><strong>TL;DR</strong>: I&#39;ve been writing a lot and accumulating fancy pens &amp; ink colors.</p>
+        <p><strong>TL;DR</strong>: I've been writing a lot and accumulating fancy pens &amp; ink colors.</p>
 <!--more-->
 
-<p>I&#39;ve been trying to make some changes in my life. I started <a href="https://www.strava.com/athletes/6013128">running</a> and tried eating better. I&#39;ve tried <a href="https://blog.lmorchard.com/tag/diy/">making things besides software</a>. I&#39;ve also been trying to write more consistently.</p>
-<p>Last January, I started writing three pages almost every morning, five days a week. I take weekends off because my routine is so random &amp; lazy then. But, as of now, I&#39;ve written roughly 200,000 words by hand.</p>
-<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/deusx/31795028574/in/datetaken/" title="20170131_194758"><img src="https://c1.staticflickr.com/1/700/31795028574_efd910810d_c.jpg" width="800" height="450" alt="20170131_194758"></a></p>
-<p>I started with a Moleskine I&#39;d unwrapped in 2014—these books typically last years for me. I&#39;ve always idly kept a journal since I was a teenager. I even tried forming a daily pages habit in college after reading <a href="http://amzn.to/2jTm12t">The Artist&#39;s Way</a> and <a href="http://amzn.to/2jttNUp">Life&#39;s Companion</a>, but that iteration of the habit sputtered. Since then, I&#39;ve only written when something extraordinary happened or, oddly, when I was stuck on a plane.</p>
-<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/deusx/32637957475/in/datetaken/" title="20170131_195015"><img src="https://c1.staticflickr.com/1/263/32637957475_75eed87a45_c.jpg" width="800" height="450" alt="20170131_195015"></a></p>
-<p>I&#39;ve still got <strong>20</strong> and <strong>30</strong> (!) year old journals that I browse through occasionally. One of my biggest regrets is that there are such enormous gaps between entries. Important things happened to me and my memory is fuzzy on how they hit me and who I was then.</p>
-<p>But, since the daily pages habit took hold this time, my consumption of pages has made a sharp uptick. I&#39;ve filled close to four volumes of around 250 pages each. It&#39;s also taken a toll on my supply of pens. Where before a Pilot Precise V5 RT might have lasted the year, I started going through them every month. I was actually surprised &amp; confused to have one run dry on me—I&#39;d always lose them well before that happened!</p>
-<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/deusx/26931688854/in/datetaken/" title="Ran my pen out of ink writing daily journal pages"><img src="https://c1.staticflickr.com/8/7394/26931688854_b2fcdb6e66_c.jpg" width="800" height="600" alt="Ran my pen out of ink writing daily journal pages"></a></p>
+
+
+<p>I've been trying to make some changes in my life. I started <a href="https://www.strava.com/athletes/6013128">running</a> and tried eating better. I've tried <a href="https://blog.lmorchard.com/tag/diy/">making things besides software</a>. I've also been trying to write more consistently.</p>
+<p>Last January, I started writing three pages almost every morning, five days a week. I take weekends off because my routine is so random &amp; lazy then. But, as of now, I've written roughly 200,000 words by hand.</p>
+<p><a data-flickr-embed="true" href="https://www.flickr.com/photos/deusx/31795028574/in/datetaken/" title="20170131_194758"><img src="https://c1.staticflickr.com/1/700/31795028574_efd910810d_c.jpg" width="" height="" alt="20170131_194758"></a></p>
+<p>I started with a Moleskine I'd unwrapped in 2014—these books typically last years for me. I've always idly kept a journal since I was a teenager. I even tried forming a daily pages habit in college after reading <a href="http://amzn.to/2jTm12t">The Artist's Way</a> and <a href="http://amzn.to/2jttNUp">Life's Companion</a>, but that iteration of the habit sputtered. Since then, I've only written when something extraordinary happened or, oddly, when I was stuck on a plane.</p>
+<p><a data-flickr-embed="true" href="https://www.flickr.com/photos/deusx/32637957475/in/datetaken/" title="20170131_195015"><img src="https://c1.staticflickr.com/1/263/32637957475_75eed87a45_c.jpg" width="" height="" alt="20170131_195015"></a></p>
+<p>I've still got <strong>20</strong> and <strong>30</strong> (!) year old journals that I browse through occasionally. One of my biggest regrets is that there are such enormous gaps between entries. Important things happened to me and my memory is fuzzy on how they hit me and who I was then.</p>
+<p>But, since the daily pages habit took hold this time, my consumption of pages has made a sharp uptick. I've filled close to four volumes of around 250 pages each. It's also taken a toll on my supply of pens. Where before a Pilot Precise V5 RT might have lasted the year, I started going through them every month. I was actually surprised &amp; confused to have one run dry on me—I'd always lose them well before that happened!</p>
+<p><a data-flickr-embed="true" href="https://www.flickr.com/photos/deusx/26931688854/in/datetaken/" title="Ran my pen out of ink writing daily journal pages"><img src="https://c1.staticflickr.com/8/7394/26931688854_b2fcdb6e66_c.jpg" width="" height="" alt="Ran my pen out of ink writing daily journal pages"></a></p>
 <p>I shared this picture on Twitter and someone joked that the next step was obviously to get into fountain pens. Well, I figured why not? But, I may have gone overboard by accumulating this assortment over the summer:</p>
-<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/deusx/29858479905/in/datetaken/" title="20160922_135315"><img src="https://c1.staticflickr.com/9/8784/29858479905_65038f2187_c.jpg" width="800" height="450" alt="20160922_135315"></a></p>
-<p>I&#39;m also well-stocked with ink at this point—at least as far as journal pages are concerned. Though now that the addiction has seized me, I&#39;m probably going to keep accumulating colors and playing.</p>
-<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/deusx/32485741872/in/datetaken/" title="20170131_210751"><img src="https://c1.staticflickr.com/1/530/32485741872_40b9df99c2_c.jpg" width="800" height="450" alt="20170131_210751"></a></p>
-<p>Now I&#39;ve got a virtuous nerdy cycle: Every morning, I look forward to grabbing my journal and one of my fancy pens and making sure the pen is topped off with ink. It&#39;s a very fiddly and satisfying process—and if you know me at all, you know I&#39;m easily satisfied with fiddly processes.</p>
-<p>And, it turns out, I love writing with a fountain pen. I find myself almost craving it, hours after I finish my morning routine. The ink literally flows onto the page, by way of capillary action drawing it down the tiny gap in the nib. Unlike with a ballpoint or even a Pilot rolling ball, I don&#39;t have to apply any pressure. I can just barely touch the page and paint the ink onto the page. I&#39;ve also come to appreciate nicer paper, having upgraded my Moleskine habit to a <a href="http://amzn.to/2kSYMW0">Leuchtturm1917</a> habit. I&#39;ve come a long way since a drug-store spiral notebook and a No. 2 pencil would do.</p>
+<p><a data-flickr-embed="true" href="https://www.flickr.com/photos/deusx/29858479905/in/datetaken/" title="20160922_135315"><img src="https://c1.staticflickr.com/9/8784/29858479905_65038f2187_c.jpg" width="" height="" alt="20160922_135315"></a></p>
+<p>I'm also well-stocked with ink at this point—at least as far as journal pages are concerned. Though now that the addiction has seized me, I'm probably going to keep accumulating colors and playing.</p>
+<p><a data-flickr-embed="true" href="https://www.flickr.com/photos/deusx/32485741872/in/datetaken/" title="20170131_210751"><img src="https://c1.staticflickr.com/1/530/32485741872_40b9df99c2_c.jpg" width="" height="" alt="20170131_210751"></a></p>
+<p>Now I've got a virtuous nerdy cycle: Every morning, I look forward to grabbing my journal and one of my fancy pens and making sure the pen is topped off with ink. It's a very fiddly and satisfying process—and if you know me at all, you know I'm easily satisfied with fiddly processes.</p>
+<p>And, it turns out, I love writing with a fountain pen. I find myself almost craving it, hours after I finish my morning routine. The ink literally flows onto the page, by way of capillary action drawing it down the tiny gap in the nib. Unlike with a ballpoint or even a Pilot rolling ball, I don't have to apply any pressure. I can just barely touch the page and paint the ink onto the page. I've also come to appreciate nicer paper, having upgraded my Moleskine habit to a <a href="http://amzn.to/2kSYMW0">Leuchtturm1917</a> habit. I've come a long way since a drug-store spiral notebook and a No. 2 pencil would do.</p>
 <p>But anyway, back to the routine: I make coffee &amp; oatmeal. I start some music. I fire up my <a href="http://amzn.to/2kTiEbS">light therapy panel</a> because <a href="http://www.mlive.com/weather/index.ssf/2017/01/incredible_lack_of_sun_continu.html">winter in Michigan is ridiculous</a>. I attract a cat or two. Then, I start writing.</p>
-<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/deusx/32372860692/in/datetaken/" title="20170124_102605"><img src="https://c1.staticflickr.com/1/605/32372860692_110624a036_c.jpg" width="800" height="450" alt="20170124_102605"></a></p>
-<p>Usually, I can make it through 3 pages in 45-60 minutes. That ends up being about 750 words. I started this habit at my office desk, but I would get distracted by my laptop. At our old house, I moved to the kitchen island downstairs and kept my phone just out of arm&#39;s reach once I got the music started. Since we moved to Detroit this past fall, we&#39;ve got a breakfast nook with a little table near a window overlooking the backyard. It&#39;s embarrassingly precious, but I manage.</p>
-<p>When I&#39;m lucky, I get myself into a good mindful state for a solid block of time. Sometimes, the writing is rewarding and dislodges interesting stuff from my head. More often, the writing is just random blather that spills out to fill pages. And every once in awhile, the writing is about the fact that I&#39;m writing random blather for the sake of writing—at which point the journal implodes into itself and I have to buy a new one.</p>
-<p>The thing is, though, that I sit down and that I finish it. Three pages every time. It&#39;s an interesting way to start the day, accomplishing a moderately strenuous mental task not unlike physical exercise. When it works, I untangle my brain while also exercising focus and willpower to complete the task. Some days, that focused feeling spills over into the rest of the day&#39;s work. Sometimes it doesn&#39;t <em>quite</em> work. A few times, I&#39;ve experimented with writing these pages while I ride an exercise bike to kill two birds with one stone—but the result was disastrous and messy. Really, it&#39;s just best to stick to a simpler ritual.</p>
-<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/deusx/31960336615/in/datetaken/" title="20161229_103704"><img src="https://c1.staticflickr.com/1/762/31960336615_790c96f099_c.jpg" width="800" height="450" alt="20161229_103704"></a></p>
-<p><strong>So, where do I go from here?</strong> I had an interesting time <strong>reviewing</strong> entries when I had vacation time at the end of 2016. It was a pretty good year, <a href="https://blog.lmorchard.com/2016/11/11/heartbroken/">until it wrecked me</a>. But, I&#39;d like to do better in 2017. And, of course, this new year brings new challenges and pushes me to do <a href="https://twitter.com/lmorchard/status/821789340355428352">things that I&#39;ve never really done before</a>. I&#39;ve got a lot of tangle to straighten in my brain.</p>
-<p>I also want to <strong>publish</strong> more consistently &amp; effectively. I wrote 200,000 words this past year, but it&#39;s unlikely anyone will ever read them but me. It&#39;s not like I&#39;m going to be a historically significant figure and see all these journals end up in an archive somewhere. Hell, I&#39;m not even all that sure anyone&#39;s reading <em>this very blog post</em>—but since you don&#39;t have to sneak into my office to access it, chances are way higher.</p>
-<p>I&#39;ve got my <strong>tinkering &amp; making</strong> to write about, like I always have. But, I&#39;ve also been considering writing here about more general topics—and whether that might work better than snipey little junk food retweets and Facebook threads. You know, versus just keeping my mouth shut altogether. I&#39;ve never really gotten all that <strong>political</strong> on a blog before, but maybe it would help me clarify my thinking by doing it out loud and inviting some push back.</p>
-<p>I&#39;ve also really wanted to get myself writing <strong>stories</strong>. I&#39;ve got <a href="https://blog.lmorchard.com/tag/fiction/">a little bit of fiction on my blog</a>, but I&#39;ve always wanted to do more. The engine never quite catches, though. Maybe I can find a way to translate or replicate this daily pages habit as a regular creative writing habit. Maybe start with some flash fiction again and work my way up to extended works.</p>
-<p>All in all, I love writing. I&#39;m not sure why I have such a hard time doing it more out in the open, but I&#39;d like to solve that. Maybe 2017 will be the year I progress from this solid private habit to a public one.</p>
-<script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+<p><a data-flickr-embed="true" href="https://www.flickr.com/photos/deusx/32372860692/in/datetaken/" title="20170124_102605"><img src="https://c1.staticflickr.com/1/605/32372860692_110624a036_c.jpg" width="" height="" alt="20170124_102605"></a></p>
+<p>Usually, I can make it through 3 pages in 45-60 minutes. That ends up being about 750 words. I started this habit at my office desk, but I would get distracted by my laptop. At our old house, I moved to the kitchen island downstairs and kept my phone just out of arm's reach once I got the music started. Since we moved to Detroit this past fall, we've got a breakfast nook with a little table near a window overlooking the backyard. It's embarrassingly precious, but I manage.</p>
+<p>When I'm lucky, I get myself into a good mindful state for a solid block of time. Sometimes, the writing is rewarding and dislodges interesting stuff from my head. More often, the writing is just random blather that spills out to fill pages. And every once in awhile, the writing is about the fact that I'm writing random blather for the sake of writing—at which point the journal implodes into itself and I have to buy a new one.</p>
+<p>The thing is, though, that I sit down and that I finish it. Three pages every time. It's an interesting way to start the day, accomplishing a moderately strenuous mental task not unlike physical exercise. When it works, I untangle my brain while also exercising focus and willpower to complete the task. Some days, that focused feeling spills over into the rest of the day's work. Sometimes it doesn't <em>quite</em> work. A few times, I've experimented with writing these pages while I ride an exercise bike to kill two birds with one stone—but the result was disastrous and messy. Really, it's just best to stick to a simpler ritual.</p>
+<p><a data-flickr-embed="true" href="https://www.flickr.com/photos/deusx/31960336615/in/datetaken/" title="20161229_103704"><img src="https://c1.staticflickr.com/1/762/31960336615_790c96f099_c.jpg" width="" height="" alt="20161229_103704"></a></p>
+<p><strong>So, where do I go from here?</strong> I had an interesting time <strong>reviewing</strong> entries when I had vacation time at the end of 2016. It was a pretty good year, <a href="https://blog.lmorchard.com/2016/11/11/heartbroken/">until it wrecked me</a>. But, I'd like to do better in 2017. And, of course, this new year brings new challenges and pushes me to do <a href="https://twitter.com/lmorchard/status/821789340355428352">things that I've never really done before</a>. I've got a lot of tangle to straighten in my brain.</p>
+<p>I also want to <strong>publish</strong> more consistently &amp; effectively. I wrote 200,000 words this past year, but it's unlikely anyone will ever read them but me. It's not like I'm going to be a historically significant figure and see all these journals end up in an archive somewhere. Hell, I'm not even all that sure anyone's reading <em>this very blog post</em>—but since you don't have to sneak into my office to access it, chances are way higher.</p>
+<p>I've got my <strong>tinkering &amp; making</strong> to write about, like I always have. But, I've also been considering writing here about more general topics—and whether that might work better than snipey little junk food retweets and Facebook threads. You know, versus just keeping my mouth shut altogether. I've never really gotten all that <strong>political</strong> on a blog before, but maybe it would help me clarify my thinking by doing it out loud and inviting some push back.</p>
+<p>I've also really wanted to get myself writing <strong>stories</strong>. I've got <a href="https://blog.lmorchard.com/tag/fiction/">a little bit of fiction on my blog</a>, but I've always wanted to do more. The engine never quite catches, though. Maybe I can find a way to translate or replicate this daily pages habit as a regular creative writing habit. Maybe start with some flash fiction again and work my way up to extended works.</p>
+<p>All in all, I love writing. I'm not sure why I have such a hard time doing it more out in the open, but I'd like to solve that. Maybe 2017 will be the year I progress from this solid private habit to a public one.</p>
+<script async="" src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
 
 <!-- vim: set wrap wm=5 syntax=markdown textwidth=78: -->
 
-        </section>
+        <section class="comments" id="comments">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+              var disqus_needs_loading = true;
+              var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com/2017/01/31/pages-and-pens/";
+            </script>
+            <noscript
+              >Please enable JavaScript to view the
+              <a href="http://disqus.com/?ref_noscript"
+                >comments powered by Disqus.</a
+              ></noscript
+            >
+            <a href="http://disqus.com" class="dsq-brlink"
+              >blog comments powered by
+              <span class="logo-disqus">Disqus</span></a
+            >
+          </section>
       </article>
 
-      <section class="comments" id="comments">
-          <div id="disqus_thread"></div>
-          <script type="text/javascript">
-            var disqus_needs_loading = true;
-            var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com/2017/01/31/pages-and-pens/";
-          </script>
-          <noscript
-            >Please enable JavaScript to view the
-            <a href="http://disqus.com/?ref_noscript"
-              >comments powered by Disqus.</a
-            ></noscript
-          >
-          <a href="http://disqus.com" class="dsq-brlink"
-            >blog comments powered by <span class="logo-disqus">Disqus</span></a
-          >
-        </section>
-        </section>
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2017/02/02/operation-anxiety/"
+                >Operation: Social Anxiety Edition</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2017/01/09/diy-monitor-v12/"
+                >Upgrading my Couch PC monitor, v1.2</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
 
-        <footer>
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

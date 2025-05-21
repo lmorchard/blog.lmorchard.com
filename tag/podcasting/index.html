@@ -1,212 +1,479 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>podcasting - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>podcasting - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/tag/podcasting/index.rss"
+          rel="alternate"
+          title="Tag: podcasting - blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/tag/podcasting.rss"
+                rel="alternate"
+                title="Tag: podcasting - blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/tag/podcasting/index.rss" title="Tag: podcasting - blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Tag: podcasting</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post tag-apple tag-rant tag-ipod tag-podcasts tag-podcasting"
-          >
-            <time class="date" datetime="2007-03-09T20:13:04+00:00">
-              2007
-              March
-              09
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2007/03/09/frustrations-in-using-itunes-and-ipod-to-capture-podcast-listening-behavior/">
-              <span class="infoContainer">
-                <span class="title">Frustrations in using iTunes and iPod to capture podcast listening behavior</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-metablogging tag-webdev tag-rss tag-syndication tag-xoxo tag-microformats tag-opml tag-podcasting tag-rdf tag-semweb"
-          >
-            <time class="date" datetime="2006-02-13T17:09:08+00:00">
-              2006
-              February
-              13
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/13/reading-lists-opml-xoxo-semantic-web-and-tools/">
-              <span class="infoContainer">
-                <span class="title">Reading Lists, OPML, XOXO, Semantic Web, and Tools</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-writing tag-podcasting tag-copyfight tag-drm tag-longtail tag-creative tag-creativity tag-future"
-          >
-            <time class="date" datetime="2006-02-09T20:17:09+00:00">
-              2006
-              February
-              09
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/09/a-long-tailed-creative-yawp/">
-              <span class="infoContainer">
-                <span class="title">A Long-Tailed Creative Yawp</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-scifi tag-writing tag-podcasting"
-          >
-            <time class="date" datetime="2006-01-25T16:21:34+00:00">
-              2006
-              January
-              25
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/01/25/podcasts-i-like-lately/">
-              <span class="infoContainer">
-                <span class="title">Podcasts I like lately</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-rss tag-writing tag-atom tag-podcasting tag-thebook tag-hackingrssandatom tag-radio"
-          >
-            <time class="date" datetime="2006-01-07T16:24:02+00:00">
-              2006
-              January
-              07
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/01/07/look-mom-im-on-the-podcast/">
-              <span class="infoContainer">
-                <span class="title">Look mom, I&#39;m on the podcast!</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-hacks tag-rss tag-syndication tag-atom tag-apple tag-ipod tag-podcasting tag-xbox tag-video tag-vidcasting"
-          >
-            <time class="date" datetime="2005-10-21T18:05:54+00:00">
-              2005
-              October
-              21
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/10/21/could-an-ipod-and-av-cable-fit-in-a-dvd-case/">
-              <span class="infoContainer">
-                <span class="title">Could an iPod and AV cable fit in a DVD case?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-rss tag-syndication tag-atom tag-rest tag-http tag-podcasting"
-          >
-            <time class="date" datetime="2005-10-21T03:45:54+00:00">
-              2005
-              October
-              21
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/10/21/time-release-syndication/">
-              <span class="infoContainer">
-                <span class="title">Time-release Syndication</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-scifi tag-podcasts tag-podcasting"
-          >
-            <time class="date" datetime="2005-10-20T21:09:43+00:00">
-              2005
-              October
-              20
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/10/20/spaceship-radio-is-nifty/">
-              <span class="infoContainer">
-                <span class="title">Spaceship Radio is nifty</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-scifi tag-entertainment tag-writing tag-podcasting tag-television"
-          >
-            <time class="date" datetime="2005-10-07T02:50:44+00:00">
-              2005
-              October
-              07
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/10/07/threshold-the-sci-fi-with-5-blades/">
-              <span class="infoContainer">
-                <span class="title">Threshold, the sci-fi with 5 blades?</span>
-              </span>
-            </a>
-            
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Tag: podcasting</h2>
+        </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2007 March 09</h2>
+  </li><li class="content-grid post post-type-entry tag-apple tag-rant tag-ipod tag-podcasts tag-podcasting">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2007/03/09/frustrations-in-using-itunes-and-ipod-to-capture-podcast-listening-behavior/">Frustrations in using iTunes and iPod to capture podcast listening behavior</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2007/03/09/frustrations-in-using-itunes-and-ipod-to-capture-podcast-listening-behavior/"
+          >1430&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2007/03/09/frustrations-in-using-itunes-and-ipod-to-capture-podcast-listening-behavior/">#</a>
+    <a class="time" href="2007/03/09/frustrations-in-using-itunes-and-ipod-to-capture-podcast-listening-behavior/">3:13 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/apple/">apple</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/rant/">rant</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ipod/">ipod</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/podcasts/">podcasts</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/podcasting/">podcasting</a>
           </li>
     </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 February 13</h2>
+  </li><li class="content-grid post post-type-entry tag-metablogging tag-webdev tag-rss tag-syndication tag-xoxo tag-microformats tag-opml tag-podcasting tag-rdf tag-semweb">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/13/reading-lists-opml-xoxo-semantic-web-and-tools/">Reading Lists, OPML, XOXO, Semantic Web, and Tools</a>
+      </h2>
     
-  </section>
-      </section>
-        </section>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/13/reading-lists-opml-xoxo-semantic-web-and-tools/"
+          >935&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/13/reading-lists-opml-xoxo-semantic-web-and-tools/">#</a>
+    <a class="time" href="2006/02/13/reading-lists-opml-xoxo-semantic-web-and-tools/">12:09 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/rss/">rss</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xoxo/">xoxo</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/microformats/">microformats</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/opml/">opml</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/podcasting/">podcasting</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/rdf/">rdf</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/semweb/">semweb</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 February 09</h2>
+  </li><li class="content-grid post post-type-entry tag-writing tag-podcasting tag-copyfight tag-drm tag-longtail tag-creative tag-creativity tag-future">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/09/a-long-tailed-creative-yawp/">A Long-Tailed Creative Yawp</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/09/a-long-tailed-creative-yawp/"
+          >1340&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/09/a-long-tailed-creative-yawp/">#</a>
+    <a class="time" href="2006/02/09/a-long-tailed-creative-yawp/">3:17 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/writing/">writing</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/podcasting/">podcasting</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/copyfight/">copyfight</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/drm/">drm</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/longtail/">longtail</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/creative/">creative</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/creativity/">creativity</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/future/">future</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 January 25</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-scifi tag-writing tag-podcasting">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/01/25/podcasts-i-like-lately/">Podcasts I like lately</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/01/25/podcasts-i-like-lately/"
+          >565&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/01/25/podcasts-i-like-lately/">#</a>
+    <a class="time" href="2006/01/25/podcasts-i-like-lately/">11:21 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/scifi/">scifi</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/writing/">writing</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/podcasting/">podcasting</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 January 07</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-rss tag-writing tag-atom tag-podcasting tag-thebook tag-hackingrssandatom tag-radio">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/01/07/look-mom-im-on-the-podcast/">Look mom, I&#39;m on the podcast!</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/01/07/look-mom-im-on-the-podcast/"
+          >36&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/01/07/look-mom-im-on-the-podcast/">#</a>
+    <a class="time" href="2006/01/07/look-mom-im-on-the-podcast/">11:24 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/rss/">rss</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/writing/">writing</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/atom/">atom</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/podcasting/">podcasting</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/thebook/">thebook</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/hackingrssandatom/">hackingrssandatom</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/radio/">radio</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 October 21</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-hacks tag-rss tag-syndication tag-atom tag-apple tag-ipod tag-podcasting tag-xbox tag-video tag-vidcasting">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/10/21/could-an-ipod-and-av-cable-fit-in-a-dvd-case/">Could an iPod and AV cable fit in a DVD case?</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/10/21/could-an-ipod-and-av-cable-fit-in-a-dvd-case/"
+          >432&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/10/21/could-an-ipod-and-av-cable-fit-in-a-dvd-case/">#</a>
+    <a class="time" href="2005/10/21/could-an-ipod-and-av-cable-fit-in-a-dvd-case/">2:05 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/rss/">rss</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/atom/">atom</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/apple/">apple</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ipod/">ipod</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/podcasting/">podcasting</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xbox/">xbox</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/video/">video</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/vidcasting/">vidcasting</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 October 20</h2>
+  </li><li class="content-grid post post-type-entry tag-rss tag-syndication tag-atom tag-rest tag-http tag-podcasting">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/10/20/time-release-syndication/">Time-release Syndication</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/10/20/time-release-syndication/"
+          >583&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/10/20/time-release-syndication/">#</a>
+    <a class="time" href="2005/10/20/time-release-syndication/">11:45 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/rss/">rss</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/atom/">atom</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/rest/">rest</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/http/">http</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/podcasting/">podcasting</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides tag-scifi tag-podcasts tag-podcasting">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/10/20/spaceship-radio-is-nifty/">Spaceship Radio is nifty</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/10/20/spaceship-radio-is-nifty/"
+          >67&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/10/20/spaceship-radio-is-nifty/">#</a>
+    <a class="time" href="2005/10/20/spaceship-radio-is-nifty/">5:09 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/scifi/">scifi</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/podcasts/">podcasts</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/podcasting/">podcasting</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 October 06</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-scifi tag-entertainment tag-writing tag-podcasting tag-television">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/10/06/threshold-the-sci-fi-with-5-blades/">Threshold, the sci-fi with 5 blades?</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/10/06/threshold-the-sci-fi-with-5-blades/"
+          >307&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/10/06/threshold-the-sci-fi-with-5-blades/">#</a>
+    <a class="time" href="2005/10/06/threshold-the-sci-fi-with-5-blades/">10:50 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/scifi/">scifi</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/entertainment/">entertainment</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/writing/">writing</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/podcasting/">podcasting</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/television/">television</a>
+          </li>
+    </ul>
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
 
-        <footer>
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/tag/podcasting/index.rss" title="Tag: podcasting - blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

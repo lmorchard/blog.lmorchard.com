@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>Easy-Blog Oven - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="Easy-Blog Oven" />
+    <html>
+      <head>
+        <title>Easy-Blog Oven - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="Easy-Blog Oven" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2020/05/24/easy-blog-oven/"
@@ -44,118 +51,214 @@
             content="https://lmorchard.github.io/blog.lmorchard.com/blog.lmorchard.com/uploads/2020/easy-bake-oven.jpg"
           />
         <meta property="og:description" content="TL;DR: I made a new static site generator for my blog. It&#39;s not very clever. I&#39;ve been calling it my &quot;Easy-Blog Oven&quot; and it seems to be working well so far." />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post tag-metabloggingtag-bloggingtag-nodetag-webdev"
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post tag-metabloggingtag-bloggingtag-nodetag-webdev"
       >
-        <time
-          title="2020-05-24T12:00:00+00:00"
-          pubdate="2020-05-24T12:00:00+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2020/"
-            >2020</a
+        <header>
+          <time
+            title="2020-05-24T12:00:00-07:00"
+            pubdate="2020-05-24T12:00:00-07:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2020/05/"
-            >May</a
-          >
-          &raquo;
-          <span>24</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="How to build your own Easy-Blog Oven"
+                href="/blog.lmorchard.com/2020/05/25/diy-easy-blog-oven/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2020/"
+                >2020</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2020/05/"
+                >May</a
+              >
+              &#8226;
+              <span>24</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="SIO2Pi = Atari 800 + Raspberry Pi"
+                href="/blog.lmorchard.com/2018/03/01/sio2pi/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">Easy-Blog Oven</h1>
+          <ul class="tags">
+              <li><a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a></li><li><a href="/blog.lmorchard.com/tag/blogging/">blogging</a></li><li><a href="/blog.lmorchard.com/tag/node/">node</a></li><li><a href="/blog.lmorchard.com/tag/webdev/">webdev</a></li>
+            </ul>
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2020/05/25/diy-easy-blog-oven/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2018/03/01/sio2pi/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">Easy-Blog Oven</h1>
-        <ul class="tags">
-            <li>
-                  <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/blogging/">blogging</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/node/">node</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
-                </li>
-          </ul>
-        <section class="post-content">
-          <p><strong>TL;DR</strong>: I made <a href="https://github.com/lmorchard/blog.lmorchard.com">a new static site generator for my blog</a>. It&#39;s not very clever. I&#39;ve been calling it my &quot;Easy-Blog Oven&quot; and it seems to be working well so far.</p>
+        <p><strong>TL;DR</strong>: I made <a href="https://github.com/lmorchard/blog.lmorchard.com">a new static site generator for my blog</a>. It's not very clever. I've been calling it my "Easy-Blog Oven" and it seems to be working well so far.</p>
 <!--more-->
 
-<img class="fullwidth" src="/uploads/2020/easy-bake-oven.jpg" />
 
-<p>I&#39;ve tried a lot of tools for writing on the web. In fact, I&#39;ve spent more time trying tools for writing on the web than actually writing on the web. My last round was writing my own thing <a href="https://blog.lmorchard.com/2014/10/20/static-blog-generation-with-gulp/">using Gulp and Amazon S3</a> as a learning project. A couple of years later, <a href="https://blog.lmorchard.com/2015/10/22/blogging-via-travis/">I hooked it up to Travis CI to publish on a push to master</a>.</p>
-<p> I wrote 30 whole blog posts using that system! But, it felt slow and cumbersome. Also, I stopped using Gulp for any other projects. And, at some point, new versions of Node.js stopped running my site generator altogether. So, I&#39;ve been putting off fixing that whole mess for a while.</p>
+
+<figure class="wide">
+  <img src="/uploads/2020/easy-bake-oven.jpg" width="" height="">
+</figure>
+
+<p>I've tried a lot of tools for writing on the web. In fact, I've spent more time trying tools for writing on the web than actually writing on the web. My last round was writing my own thing <a href="https://blog.lmorchard.com/2014/10/20/static-blog-generation-with-gulp/">using Gulp and Amazon S3</a> as a learning project. A couple of years later, <a href="https://blog.lmorchard.com/2015/10/22/blogging-via-travis/">I hooked it up to Travis CI to publish on a push to master</a>.</p>
+<p> I wrote 30 whole blog posts using that system! But, it felt slow and cumbersome. Also, I stopped using Gulp for any other projects. And, at some point, new versions of Node.js stopped running my site generator altogether. So, I've been putting off fixing that whole mess for a while.</p>
 <p>But then, just this past week, I whipped up <a href="https://github.com/mozilla/fxa/blob/master/_scripts/build-storybooks-indexes.js">a quick static site generator for a project at work</a>. All it does is this:</p>
 <ul>
 <li>Iterate through files and load them.</li>
 <li>Render HTML using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates">tagged template literals</a>.</li>
 </ul>
 <p>After building that, it occurred to me: What if I just wrote a stupid simple script for my blog to iterate through all my entries? So, <a href="https://github.com/lmorchard/easy-blog-oven/commit/13a75f91992683eb8a665b026dcf0911459872ee#diff-168726dbe96b3ce427e7fedce31bb0bcR26">I tried it in a real quick sketch of code</a>. </p>
-<p>It was Aaron Swartz&#39; &quot;<a href="http://www.aaronsw.com/weblog/000404">Bake, Don&#39;t Fry</a>&quot; blog post back in 2002 that first got me thinking about static site generators. Since this script started about as simple as a box with a light bulb in it, I started calling it my &quot;Easy-Blog Oven&quot;.</p>
-<p>I&#39;ve accumulated over 1000 posts in the 18 years since I started a blog. I expected this naive script to take an annoyingly long time to run. It took 2 seconds. Turns out computers and Node.js are fast, these days. Hell, there&#39;s probably more data dredged up from a typical <code>node_modules</code> folder than my entire blog.</p>
-<p>Thus encouraged, I tried loading everything into memory. My computer&#39;s got lots of it. Then, it&#39;s just filter, map, reduce, and sort operations on arrays to generate index pages for posts by date and tag. Turning <a href="https://github.com/lmorchard/easy-blog-oven/blob/553f557be22db8ca47c38559490db2b5f75c7b1d/index.js#L58">lists of posts</a> into HTML with <a href="https://github.com/lmorchard/easy-blog-oven/blob/553f557be22db8ca47c38559490db2b5f75c7b1d/templates/postList.js">tagged template literals</a> added <em>an entire second</em> to the execution time.</p>
-<p>From there, I ported over a few more elaborations &amp; complications from my old Gulp-based site generator. That added up to a whole six seconds of execution time. I&#39;d bet I could find a few single web pages out there that take about as long to load as this thing takes to generate my whole site.</p>
+<p>It was Aaron Swartz' "<a href="http://www.aaronsw.com/weblog/000404">Bake, Don't Fry</a>" blog post back in 2002 that first got me thinking about static site generators. Since this script started about as simple as a box with a light bulb in it, I started calling it my "Easy-Blog Oven".</p>
+<p>I've accumulated over 1000 posts in the 18 years since I started a blog. I expected this naive script to take an annoyingly long time to run. It took 2 seconds. Turns out computers and Node.js are fast, these days. Hell, there's probably more data dredged up from a typical <code>node_modules</code> folder than my entire blog.</p>
+<p>Thus encouraged, I tried loading everything into memory. My computer's got lots of it. Then, it's just filter, map, reduce, and sort operations on arrays to generate index pages for posts by date and tag. Turning <a href="https://github.com/lmorchard/easy-blog-oven/blob/553f557be22db8ca47c38559490db2b5f75c7b1d/index.js#L58">lists of posts</a> into HTML with <a href="https://github.com/lmorchard/easy-blog-oven/blob/553f557be22db8ca47c38559490db2b5f75c7b1d/templates/postList.js">tagged template literals</a> added <em>an entire second</em> to the execution time.</p>
+<p>From there, I ported over a few more elaborations &amp; complications from my old Gulp-based site generator. That added up to a whole six seconds of execution time. I'd bet I could find a few single web pages out there that take about as long to load as this thing takes to generate my whole site.</p>
 <p>So anyway, I started all of this on Friday night. I spent a big chunk of Saturday continuing to tinker. And then, today, <a href="https://github.com/lmorchard/blog.lmorchard.com/blob/master/.github/workflows/prod.yml">I learned enough about Github Actions get this thing building and uploading to Amazon S3</a>.</p>
-<p>The whole build and publish process now seems to take about 3 minutes. The longest part is uploading everything to Amazon S3, which could be greatly improved by just uploading what&#39;s changed. The site build itself only seems to take about 6-7 seconds. Pretty neat.</p>
-<p>Now, let&#39;s see if I start using this thing again.</p>
+<p>The whole build and publish process now seems to take about 3 minutes. The longest part is uploading everything to Amazon S3, which could be greatly improved by just uploading what's changed. The site build itself only seems to take about 6-7 seconds. Pretty neat.</p>
+<p>Now, let's see if I start using this thing again.</p>
 
-        </section>
+        <section class="comments" id="comments">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+              var disqus_needs_loading = true;
+              var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com/2020/05/24/easy-blog-oven/";
+            </script>
+            <noscript
+              >Please enable JavaScript to view the
+              <a href="http://disqus.com/?ref_noscript"
+                >comments powered by Disqus.</a
+              ></noscript
+            >
+            <a href="http://disqus.com" class="dsq-brlink"
+              >blog comments powered by
+              <span class="logo-disqus">Disqus</span></a
+            >
+          </section>
       </article>
 
-      <section class="comments" id="comments">
-          <div id="disqus_thread"></div>
-          <script type="text/javascript">
-            var disqus_needs_loading = true;
-            var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com/2020/05/24/easy-blog-oven/";
-          </script>
-          <noscript
-            >Please enable JavaScript to view the
-            <a href="http://disqus.com/?ref_noscript"
-              >comments powered by Disqus.</a
-            ></noscript
-          >
-          <a href="http://disqus.com" class="dsq-brlink"
-            >blog comments powered by <span class="logo-disqus">Disqus</span></a
-          >
-        </section>
-        </section>
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2020/05/25/diy-easy-blog-oven/"
+                >How to build your own Easy-Blog Oven</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2018/03/01/sio2pi/"
+                >SIO2Pi = Atari 800 + Raspberry Pi</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
 
-        <footer>
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

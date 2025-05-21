@@ -10,7 +10,10 @@ tags:
 
 <!--more-->
 
-<img title="Is it a guy or bacteria giving a presentation?" src="./cover.png" class="fullwidth" />
+<figure class="wide">
+  <img title="Is it a guy or bacteria giving a presentation?" src="./cover.png" />
+  <figcaption>Is it a guy or bacteria giving a presentation?</figcaption>
+</figure>
 
 "No, you don't understand," said Kelan. "They want me to give a talk."
 

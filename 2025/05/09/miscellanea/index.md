@@ -1,0 +1,12 @@
+
+- Been watching "[Resurrecting Sinistar: A Cyber-Archaeology Documentary](https://www.youtube.com/watch?v=lCuoUSDBVa)", which has been great. Played Sinistar last at [Portland Retro Gaming Expo](https://www.retrogamingexpo.com/) in October and was digging the heck out of it. They squeezed so much out of that 8-bit processor - I guess it had a multitasking system that could handle like over 100 game entities? In 1983?! The [source code](https://github.com/synamaxmusic/sinistar) has actually surfaced, so you can see how they did it.
+- I was starting to do "[weeknotes](https://blog.lmorchard.com/tag/weeknotes/)", this month. But, this week, I decided what I really wanted to do was just blog more. So, that got me started hacking on my blog software.
+- I'm just going to deploy these changes to the blog. Some things might be broken, but I'll fix them as I go. I want to start actually using the thing.
+- Thinking I'll start each day off with a miscellanea entry like this one and fill it full of little bullets.
+- Maybe I'll start spawning little entries for bookmarks and quotes?
+- One of the main things I'm thinking about with all this hackery and ASCII art is whether I'll be able to do *something* with all these files in 10 - 20 years' time. Granted, I'll be pushing 70, so maybe I won't care by then?
+- But, the writing is the important part to me. I could write a whole new blog publisher from scratch and still read all the file formats. I've done that a couple times now and I can still handle stuff I wrote back in 2002. I think that's pretty cool.
+- And here I am, attempting to blog from Obsidian on my phone? Is this the future?
+- Next thing I need to work out is how to upload and display images via Obsidian on my phone. I think it's very doable, just a few more bits of Rube Goldberg crud to slot into place.
+- I've been asked to write up how this whole mess works - that might be a thing I'll do this weekend in greater detail. It really is an accumulation of random little parts.
+- Dang, now that I have this easy channel from my brain into my blog, I'm feeling like a motormouth. I'll probably settle down, soon enough. I'm always giddy with a new toy.

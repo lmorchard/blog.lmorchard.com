@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>A mini-scraper for the playlist at radioio Rock - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="A mini-scraper for the playlist at radioio Rock" />
+    <html>
+      <head>
+        <title>A mini-scraper for the playlist at radioio Rock - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="A mini-scraper for the playlist at radioio Rock" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2004/06/28/radioiorock-scraper/"
@@ -74,70 +81,141 @@ XMLStarlet
 Personally, I like the included URLs (which I edited here for length) since they launch a search for CDs by the artist.  However, you can cut the output down to just the artist/title by removing the final line of the script and the backslash at the end of the line before.
 If you like a different radioio station, say radioio Eclectic, you can change stream=radioioRock to stream=radioioEclectic in the URL above and change class=&#39;leadrock&#39; to class=&#39;leadeclectic&#39;.  I could have parameterized these, but I&#39;m lazy, and that was the whole point!
 ShareAndEnjoy!" />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post tag-hacks"
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post tag-hacks"
       >
-        <time
-          title="2004-06-28T23:17:36+00:00"
-          pubdate="2004-06-28T23:17:36+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2004/"
-            >2004</a
+        <header>
+          <time
+            title="2004-06-28T19:17:36-04:00"
+            pubdate="2004-06-28T19:17:36-04:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2004/06/"
-            >June</a
-          >
-          &raquo;
-          <span>28</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="Wish-of-the-Month Club, Part 3 of 3"
+                href="/blog.lmorchard.com/2004/07/06/wishofthemonthclub3/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2004/"
+                >2004</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2004/06/"
+                >June</a
+              >
+              &#8226;
+              <span>28</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Wish-of-the-Month Club, Part 2 of 3"
+                href="/blog.lmorchard.com/2004/06/27/wishofthemonthclub2/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">A mini-scraper for the playlist at radioio Rock</h1>
+          <ul class="tags">
+              <li><a href="/blog.lmorchard.com/tag/hacks/">hacks</a></li>
+            </ul>
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2004/07/06/wishofthemonthclub3/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2004/06/28/wishofthemonthclub2/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">A mini-scraper for the playlist at radioio Rock</h1>
-        <ul class="tags">
-            <li>
-                  <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
-                </li>
-          </ul>
-        <section class="post-content">
-          <p>Lately, my iTunes has been playing <a href="http://www.radioio.com/radioiorock.php?stream=radioioRock">radioio Rock</a> almost exclusively lately, but one thing that peeves me is that I don&#39;t seem to see the current song while the stream&#39;s playing.  Instead, the <a href="http://www.radioio.com/">radioio</a> site offers a pop-up window that displays the last few songs in the playlist.  However, I&#39;m usually somewhere off in another window or a shell and don&#39;t really feel like popping over to a browser and navigating to the playlist just to see what this song is.</p>
+        <p>Lately, my iTunes has been playing <a href="http://www.radioio.com/radioiorock.php?stream=radioioRock">radioio Rock</a> almost exclusively lately, but one thing that peeves me is that I don't seem to see the current song while the stream's playing.  Instead, the <a href="http://www.radioio.com/">radioio</a> site offers a pop-up window that displays the last few songs in the playlist.  However, I'm usually somewhere off in another window or a shell and don't really feel like popping over to a browser and navigating to the playlist just to see what this song is.</p>
 <p>So, I wrote myself a little mini-scraper script:</p>
 <pre><code>#!/bin/sh
 
-curl -s &#39;http://player.radioio.com/player.php?b=614&amp;#38;stream=radioioRock&#39; | \
+curl -s 'http://player.radioio.com/player.php?b=614&amp;#38;stream=radioioRock' | \
     tidy -asxml --wrap 300 -q -f /dev/null | \
-    xml sel -t -m &quot;//*[@class=&#39;leadrock&#39;]&quot; -v &#39;.&#39; -n \
-        -o &#39;    [http://www.radioio.com&#39; -v &#39;../@href&#39; -o &#39;]&#39; -n 
+    xml sel -t -m "//*[@class='leadrock']" -v '.' -n \
+        -o '    [http://www.radioio.com' -v '../@href' -o ']' -n 
 </code></pre>
 <p>The output looks something like this:</p>
 <pre><code>[06/29 11:01:08] deusx@Caffeina2:~ % radioio
@@ -162,47 +240,59 @@ Lovethugs - Drawing The Curtains
 <li><a href="http://xmlstar.sourceforge.net/">XMLStarlet</a></li>
 </ul>
 <p>Personally, I like the included URLs (which I edited here for length) since they launch a search for CDs by the artist.  However, you can cut the output down to just the artist/title by removing the final line of the script and the backslash at the end of the line before.</p>
-<p>If you like a different <a href="http://www.radioio.com/">radioio</a> station, say <a href="http://www.radioio.com/radioioeclectic.php?stream=radioioEclectic">radioio Eclectic</a>, you can change <code>stream=radioioRock</code> to <code>stream=radioioEclectic</code> in the URL above and change <code>class=&#39;leadrock&#39;</code> to <code>class=&#39;leadeclectic&#39;</code>.  I could have parameterized these, but I&#39;m lazy, and that was the whole point!</p>
+<p>If you like a different <a href="http://www.radioio.com/">radioio</a> station, say <a href="http://www.radioio.com/radioioeclectic.php?stream=radioioEclectic">radioio Eclectic</a>, you can change <code>stream=radioioRock</code> to <code>stream=radioioEclectic</code> in the URL above and change <code>class='leadrock'</code> to <code>class='leadeclectic'</code>.  I could have parameterized these, but I'm lazy, and that was the whole point!</p>
 <p>ShareAndEnjoy!</p>
 <!--more-->
+
+
 <p>shortname=radioiorock_scraper</p>
 <div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
 <ul class="comments">
 <li class="comment" id="comment-221087229">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.bytecloud.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=7388f3fd9cfa9436c5282542aaccf4fd&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.bytecloud.com">Mike Carter</a>
+<a class="avatar image" rel="nofollow" href="http://www.bytecloud.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=7388f3fd9cfa9436c5282542aaccf4fd&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.bytecloud.com">Mike Carter</a>
 </div>
-<a href="#comment-221087229" class="permalink"><time datetime="2004-07-01T07:39:45">2004-07-01T07:39:45</time></a>
+
+
+<p><a href="#comment-221087229" class="permalink"><time datetime="2004-07-01T07:39:45">2004-07-01T07:39:45</time></a></p>
 </div>
+
+
 <div class="content">I was listening to some streams today for the first time in a while and I was thinking how annoying it was not to know the track names.  Thanks for posting this, it may come in handy!</div>
+
+
 </li>
 <li class="comment" id="comment-221087231">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://cpe000103c34069-cm014300001653.cpe.net.cable.rogers.com/weblogs/ben/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=871196de9b27ed994c30428eed59073c&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://cpe000103c34069-cm014300001653.cpe.net.cable.rogers.com/weblogs/ben/">Gnomon</a>
+<a class="avatar image" rel="nofollow" href="http://cpe000103c34069-cm014300001653.cpe.net.cable.rogers.com/weblogs/ben/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=871196de9b27ed994c30428eed59073c&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://cpe000103c34069-cm014300001653.cpe.net.cable.rogers.com/weblogs/ben/">Gnomon</a>
 </div>
-<a href="#comment-221087231" class="permalink"><time datetime="2004-07-01T18:31:58">2004-07-01T18:31:58</time></a>
+
+
+<p><a href="#comment-221087231" class="permalink"><time datetime="2004-07-01T18:31:58">2004-07-01T18:31:58</time></a></p>
 </div>
+
+
 <div class="content">How is this the first time I've ever found out about XML Starlet? It's magnificent!
 The application is cool, too, but /man/ - I'm going to have fun with XML Starlet. Thanks so very much for the pointer, Les!</div>
+
+
 </li>
 <li class="comment" id="comment-221087232">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.radioio.com/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=0cfcb3aefaca714528c009a68810e8ec&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.radioio.com/">Jesse</a>
+<a class="avatar image" rel="nofollow" href="http://www.radioio.com/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=0cfcb3aefaca714528c009a68810e8ec&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.radioio.com/">Jesse</a>
 </div>
-<a href="#comment-221087232" class="permalink"><time datetime="2005-01-23T11:50:41">2005-01-23T11:50:41</time></a>
+
+
+<p><a href="#comment-221087232" class="permalink"><time datetime="2005-01-23T11:50:41">2005-01-23T11:50:41</time></a></p>
 </div>
+
+
 <div class="content">I was searching around with blowsearch.com today (which btw blows heheh) and found this entry.  This earl might be of interest to ya:
 http://69.28.133.51:1040/7.html
 The db for searchplay and our players is only updated every 30 seconds, 7.html is near reatime right from our playback software.  :)
@@ -211,22 +301,54 @@ Too much to talk about, we have a LOT of stuff planned for 2005-2006 that we've 
 jesse
 chief tinkerer of toys,
 radioio</div>
+
+
 </li>
 </ul>
+
+
 </div>
 
-        </section>
-      </article>
-        </section>
-
-        <footer>
-          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
-        </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
-      </section>
-    </body>
-  </html>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2004/07/06/wishofthemonthclub3/"
+                >Wish-of-the-Month Club, Part 3 of 3</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2004/06/27/wishofthemonthclub2/"
+                >Wish-of-the-Month Club, Part 2 of 3</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

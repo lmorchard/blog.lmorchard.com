@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>More autodiscovery for bots: Finding weblogs via RSS referers - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="More autodiscovery for bots: Finding weblogs via RSS referers" />
+    <html>
+      <head>
+        <title>More autodiscovery for bots: Finding weblogs via RSS referers - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="More autodiscovery for bots: Finding weblogs via RSS referers" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2002/06/07/oooahe/"
@@ -46,79 +53,157 @@ But, in thinking about this further, none of this actually fulfills my wish.  I 
 Or, rather, as I alluded to in the first paragraph, I want my agents to find you.  And my agents are only semi-intelligent.  So how about we set a standard by which bots can autodiscover your weblog, home page, whatever:If you don&#39;t care to put up a special page to point to as your referer when aggregating news, then point a URL somewhere, anywhere, but include a URL to your weblog in a query parameter named &quot;userWeblog&quot;.  This covers an already de facto standard set by Radio.If you do care to set up an acknowledgement page for your readers, include a LINK tag in the page&#39;s HEAD pointing to the home page of your site as the table of contents: In this way, rock bangers cobbling together their own blog spiders can tell them where to go and for what to look.  Get this meme spread, and we&#39;ll be seeing more community crawling bots very soon now.
 In fact, I like this LINK tag now.  I think it should be put on all of your weblog pages.  Especially as I start thinking more about revisiting referers: A LINK back to your weblog home as the table of contents would allow me to maybe enrich my backlinks, especially knowing where your site root is.  (If my eyes do not deceive, it looks like backlinks on Mark Pilgrim&#39;s blog do some RSS autodiscovery right now.)
 Anyway, let me know what you think." />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post "
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post "
       >
-        <time
-          title="2002-06-07T16:19:37+00:00"
-          pubdate="2002-06-07T16:19:37+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2002/"
-            >2002</a
+        <header>
+          <time
+            title="2002-06-07T12:19:37-04:00"
+            pubdate="2002-06-07T12:19:37-04:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2002/06/"
-            >June</a
-          >
-          &raquo;
-          <span>07</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="In the distant post-apocalyptic future..."
+                href="/blog.lmorchard.com/2002/06/07/oooahf/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2002/"
+                >2002</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2002/06/"
+                >June</a
+              >
+              &#8226;
+              <span>07</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="No .NET for you"
+                href="/blog.lmorchard.com/2002/06/06/oooahd/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">More autodiscovery for bots: Finding weblogs via RSS referers</h1>
+          
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2002/06/07/oooahf/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2002/06/06/oooahd/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">More autodiscovery for bots: Finding weblogs via RSS referers</h1>
-        
-        <section class="post-content">
-          <p>Okay, so now we've got a bit further toward our News Aggregators leaving vapor trails.  Thanks, <a href="http://www.disobey.com/amphetadesk">Morbus</a>.  Thanks, <a href="http://radio.userland.com">Dave</a>.  There's still some more work that needs to be done, though.  In specific, how do I get to <i>you</i> via your trail?  Or, to be even more specific- how to my <i>agents</i> get to you?</p>
+        <p>Okay, so now we've got a bit further toward our News Aggregators leaving vapor trails.  Thanks, <a href="http://www.disobey.com/amphetadesk">Morbus</a>.  Thanks, <a href="http://radio.userland.com">Dave</a>.  There's still some more work that needs to be done, though.  In specific, how do I get to <i>you</i> via your trail?  Or, to be even more specific- how to my <i>agents</i> get to you?</p>
 <p>Sure, I can look in my referers now, and filter on my <a href="http://www.decafbad.com/newslog.xml">RSS feed</a> to see a footprints.  And for Radio users, I can pluck out the userWeblog=... param added to Radio aggregator referers.  For others, like the page <a href="http://www.decafbad.com/thanks-for-feeding-me.phtml">I set up</a>, or <a href="http://ipwebdev.com/radio/ImReadingYourRSSFeed.php">Adam set up</a>, or <a href="http://radio.weblogs.com/0001018/xml.aggregator.html">Jeff set up</a>, I can try to assume that the URL leads... somewhere.</p>
 <p>But, in thinking about this further, none of this <i>actually</i> fulfills <a href="http://www.decafbad.com/news_archives/000124.phtml">my wish</a>.  I originally wanted to see these referers lead directly to a reader's blog.  They don't.  But, that's fine: I kind of like the idea of the thank you / hello / I'm reading your page.  However, I still want to find you.</p>
-<p>Or, rather, as I alluded to in the first paragraph, I want my <i>agents</i> to find you.  And my agents are only semi-intelligent.  So how about we set a standard by which bots can autodiscover your weblog, home page, whatever:<ol><li>If you don't care to put up a special page to point to as your referer when aggregating news, then point a URL somewhere, anywhere, but include a URL to your weblog in a query parameter named "userWeblog".  This covers an already de facto standard set by Radio.</li><li>If you <i>do</i> care to set up an acknowledgement page for your readers, include a LINK tag in the page's HEAD pointing to the home page of your site as the table of contents: <code><LINK HREF="http://www.decafbad.com" REL="contents"></code></li></ol>In this way, rock bangers cobbling together their own blog spiders can tell them where to go and for what to look.  Get this meme spread, and we'll be seeing <a href="http://diveintomark.org/archives/2002/06/02.html#social_networks_by_referrer">more community crawling bots</a> very soon now.</p>
+<p>Or, rather, as I alluded to in the first paragraph, I want my <i>agents</i> to find you.  And my agents are only semi-intelligent.  So how about we set a standard by which bots can autodiscover your weblog, home page, whatever:</p><ol><li>If you don't care to put up a special page to point to as your referer when aggregating news, then point a URL somewhere, anywhere, but include a URL to your weblog in a query parameter named "userWeblog".  This covers an already de facto standard set by Radio.</li><li>If you <i>do</i> care to set up an acknowledgement page for your readers, include a LINK tag in the page's HEAD pointing to the home page of your site as the table of contents: <code><link href="http://www.decafbad.com" rel="contents"></code></li></ol>In this way, rock bangers cobbling together their own blog spiders can tell them where to go and for what to look.  Get this meme spread, and we'll be seeing <a href="http://diveintomark.org/archives/2002/06/02.html#social_networks_by_referrer">more community crawling bots</a> very soon now.<p></p>
 <p>In fact, I like this LINK tag now.  I think it should be put on <i>all</i> of your weblog pages.  Especially as I start thinking more about revisiting referers: A LINK back to your weblog home as the table of contents would allow me to maybe enrich my backlinks, especially knowing where your site root is.  (If my eyes do not deceive, it looks like backlinks on <a href="http://www.diveintomark.org/">Mark Pilgrim's blog</a> do some <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> autodiscovery right now.)</p>
 <p>Anyway, let me know what you think.</p>
-<!--more-->
-shortname=oooahe
 
+
+<!--more-->
+
+
+<p>shortname=oooahe</p>
 <div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
 <ul class="comments">
 <li class="comment" id="comment-221083051">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.10500bc.org"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2a158ec6895b9af4ce255febfe69ffee&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.10500bc.org">Josh Cooper</a>
+<a class="avatar image" rel="nofollow" href="http://www.10500bc.org"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2a158ec6895b9af4ce255febfe69ffee&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.10500bc.org">Josh Cooper</a>
 </div>
-<a href="#comment-221083051" class="permalink"><time datetime="2002-06-07T14:35:16">2002-06-07T14:35:16</time></a>
+
+
+<p><a href="#comment-221083051" class="permalink"><time datetime="2002-06-07T14:35:16">2002-06-07T14:35:16</time></a></p>
 </div>
+
+
 <div class="content">I like the userWeblog idea. If all the toolkits out there
 would use it that would be good for us rock bangers.
 I agree on the LINK tag being on every page also. I'm gonna
@@ -129,34 +214,70 @@ directly from that. This of course is only good for those
 sites that do use the LINK tag and have it on all there
 pages.
 Over all I think its a great idea enriching the weblog community.</div>
+
+
 </li>
 <li class="comment" id="comment-221083052">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.10500bc.org"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2a158ec6895b9af4ce255febfe69ffee&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.10500bc.org">Josh Cooper</a>
+<a class="avatar image" rel="nofollow" href="http://www.10500bc.org"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2a158ec6895b9af4ce255febfe69ffee&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.10500bc.org">Josh Cooper</a>
 </div>
-<a href="#comment-221083052" class="permalink"><time datetime="2002-06-07T14:42:02">2002-06-07T14:42:02</time></a>
+
+
+<p><a href="#comment-221083052" class="permalink"><time datetime="2002-06-07T14:42:02">2002-06-07T14:42:02</time></a></p>
 </div>
+
+
 <div class="content">doh! I was in a dreamland when i made the 3 statement. That has nothing todo with what your trying to solve just another problem, you still have to know where the referer is coming from. first. Anyway I better go find a Red Bull and wake up some more.</div>
+
+
 </li>
 </ul>
+
+
 </div>
 
-        </section>
-      </article>
-        </section>
-
-        <footer>
-          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
-        </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
-      </section>
-    </body>
-  </html>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2002/06/07/oooahf/"
+                >In the distant post-apocalyptic future...</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2002/06/06/oooahd/"
+                >No .NET for you</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

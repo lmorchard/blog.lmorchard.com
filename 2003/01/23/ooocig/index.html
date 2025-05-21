@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+    <html>
+      <head>
+        <title>AppleScript and application services in the closet - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="AppleScript and application services in the closet" />
+        <meta
+          property="og:url"
+          content="https://lmorchard.github.io/blog.lmorchard.com/2003/01/23/ooocig/"
+        />
+        
+        <meta property="og:description" content="Apple&#39;s Script Editor 2.0 for OS 10.2.3 has support for Application Services . Basically, you can hilight some valid AppleScript text in any supporting application (like Safari, for instance) and 
+
+ execute the script [or] 
+
+ get the result of the script [or] 
+
+ put the text into Script Editor. 
+
+
+
+
+Source:Mac OS X Hints: Run AppleScripts via system services.
+
+
+
+
+Neat!  Now...  can we do something about making access to those services a bit more prominent?  System-wide functions buried in a menu obscurely labeled &quot;Services&quot; under an app-specific menu label doesn&#39;t seem very inviting or intuitive.  AppleScript gets insanely better treatment than this.  I&#39;d like to see these services pushed just as far forward, and more easily discoverable.  It&#39;s been awhile since I played in Cocoa, but for awhile I was wondering if rearrange things a bit, maybe pull the service items for the currently active app into a menu extra or something.  Or, at least pull the menu up a level, maybe stick it next to the &quot;Script&quot; where appropriate.  And, I&#39;d love to be able to customize the keyboard shortcuts assigned to them - some have shortcuts and I&#39;ll rarely use them, while others have no shortcut and I wish I could use them all the time.
+It&#39;s good stuff, Apple, show it off." />
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
+            <ul>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post "
+      >
+        <header>
+          <time
+            title="2003-01-23T22:40:23-05:00"
+            pubdate="2003-01-23T22:40:23-05:00"
+          >
+            <span class="prevpost">
+              <a
+                title="BeanShell rocks - and, oh yeah, a personal proxy in Java"
+                href="/blog.lmorchard.com/2003/01/24/ooocih/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2003/"
+                >2003</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2003/01/"
+                >January</a
+              >
+              &#8226;
+              <span>23</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Vellum and coffee rings"
+                href="/blog.lmorchard.com/2003/01/23/ooocif/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">AppleScript and application services in the closet</h1>
+          
+        </header>
+
+        <blockquote cite="http://www.macosxhints.com/article.php?story=20030121064254140">Apple's Script Editor 2.0 for OS 10.2.3 has support for Application Services . Basically, you can hilight some valid <a href="http://www.decafbad.com/twiki/bin/view/Main/AppleScript">AppleScript</a> text in any supporting application (like Safari, for instance) and 
+<ol>
+<li> execute the script [or] 
+</li>
+<li> get the result of the script [or] 
+</li>
+<li> put the text into Script Editor. 
+</li>
+</ol>
+</blockquote>
+
+<div class="credit" align="right"><small>Source:<cite><a href="http://www.macosxhints.com/article.php?story=20030121064254140">Mac OS X Hints: Run AppleScripts via system services</a></cite>.</small>
+
+</div>
+
+
+<p>Neat!  Now...  can we do something about making access to those services a bit more prominent?  System-wide functions buried in a menu obscurely labeled "Services" under an app-specific menu label doesn't seem very inviting or intuitive.  <a href="http://www.decafbad.com/twiki/bin/view/Main/AppleScript">AppleScript</a> gets insanely better treatment than this.  I'd like to see these services pushed just as far forward, and more easily discoverable.  It's been awhile since I played in Cocoa, but for awhile I was wondering if rearrange things a bit, maybe pull the service items for the currently active app into a menu extra or something.  Or, at least pull the menu up a level, maybe stick it next to the "Script" where appropriate.  And, I'd love to be able to customize the keyboard shortcuts assigned to them - some have shortcuts and I'll rarely use them, while others have no shortcut and I wish I could use them all the time.</p>
+<p>It's good stuff, Apple, show it off.</p>
+
+
+<!--more-->
+
+
+<p>shortname=ooocig</p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221086619">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" href="http://disco.ucsd.edu/blog/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=3c561e62d8fc9a93d5409bea44cf1231&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://disco.ucsd.edu/blog/">Michael McCracken</a>
+</div>
+
+
+<p><a href="#comment-221086619" class="permalink"><time datetime="2003-01-23T23:53:14">2003-01-23T23:53:14</time></a></p>
+</div>
+
+
+<div class="content">Hey, if you want to do a cocoa project to make services more visible, you might want to take a look at one of my old projects - I called it Self Service. http://disco.ucsd.edu/blog/computers/apps/SelfService 
+The idea was to make Services into floating windows that you could drag and drop to. It works fine, but I keep forgetting to use it. (And Safari doesn't have a service)
+If you want the code, just ask.</div>
+
+
+</li>
+</ul>
+
+
+</div>
+
+        
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2003/01/24/ooocih/"
+                >BeanShell rocks - and, oh yeah, a personal proxy in Java</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2003/01/23/ooocif/"
+                >Vellum and coffee rings</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

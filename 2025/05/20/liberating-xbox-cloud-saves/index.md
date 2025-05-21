@@ -1,0 +1,22 @@
+
+Ah, the problems of a masochistic nerd trying to game. For about a year now, my gaming PC has run [Bazzite Linux](https://bazzite.gg/) because I got tired of Windows. I've also got a Game Pass subscription, prepaid for a long while from before I switched to Linux. This was not a well thought out plan.
+
+While other game stores work pretty great, the only way to use my Game Pass subscription on Linux is via [Xbox Cloud Gaming](https://www.xbox.com/en-us/play). The Xbox app doesn't on Linux and won't install Game Pass stuff locally on Linux. Still, streaming works pretty well for games I want to try and ditch when I get bored. But, it's so ephemeral that I wouldn't really want to commit to buying a game through that outright.
+
+So, I started playing [Clair Obscur: Expedition 33](https://www.xbox.com/en-US/games/store/clair-obscur-expedition-33/9PPT8K6GQHRZ/0010) via Cloud Gaming. After about 13 hours in, I realized I wanted to buy the game. As it turns out, Steam likes Linux and [the game runs well there](https://www.protondb.com/app/1903340). It was on sale in a bundle, so I went ahead and bought it [from Steam](https://store.steampowered.com/app/1903340/Clair_Obscur_Expedition_33/)  instead of from Xbox.
+
+But, my 13-hour-old save game was trapped in the cloud. I guessed I'd just have to abandon it and start over. That is, until I pieced a few things together:
+
+Thanks to [Xbox Play Anywhere](https://www.xbox.com/en-US/games/xbox-play-anywhere), the saves in Cloud Gaming sync down to PC game installations. I had one old Windows laptop left in the house that would install Game Pass games - it just played them horribly. Once I installed the game locally from Game Pass and booted it up once, my cloud save descended onto my laptop hard drive.
+
+Then, I installed the game again from Steam - i.e. the copy I purchased. From there, I could follow [this guide to transplant my save file from Game Pass to Steam](https://steamcommunity.com/app/1903340/discussions/0/592895445665061488/). Once properly transplanted, the save game found its way onto Steam's cloud sync servers and then back onto my real gaming PC.
+
+<!--
+For posterity, in case that thread goes away, I copied from the newest modified directory here: ```C:\Users\me\AppData\Local\Packages\KeplerInteractive.Expedition33_ymj30pw7xe604\SystemAppData\wgs\00090000044E48CB_000000000000000000000000697F9EC3```
+
+And I copied to here: ```C:\Users\me\AppData\Local\Sandfall\Saved\SaveGames\76561198015267336```
+
+Oh, and it needed renaming to `EXPEDITION_0.sav` - easy peasy. 
+-->
+
+I realize this sounds like the plot to a dork heist. But, it worked!

@@ -1,317 +1,655 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>2022/05 - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>2022/05 - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Month: 2022/05</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post has-thumb tag-fiction tag-flashfiction tag-tarot"
-          >
-            <time class="date" datetime="2022-05-19T12:00:00+00:00">
-              2022
-              May
-              19
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/05/19/making-friends-with-peanuts/">
-              <span class="infoContainer">
-                <span class="title">Making Friends with Peanuts</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/05/19/making-friends-with-peanuts/cover.png" />
-          </li><li
-            class="post has-thumb tag-fiction tag-flashfiction tag-scifi tag-terraignota tag-utopians tag-tarot"
-          >
-            <time class="date" datetime="2022-05-18T12:00:00+00:00">
-              2022
-              May
-              18
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/05/18/vinge-and-vonda/">
-              <span class="infoContainer">
-                <span class="title">Vinge and Vonda</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/05/18/vinge-and-vonda/cover.png" />
-          </li><li
-            class="post has-thumb tag-fiction tag-flashfiction tag-fantasy tag-marekandkorrine tag-tarot"
-          >
-            <time class="date" datetime="2022-05-17T12:00:00+00:00">
-              2022
-              May
-              17
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/05/17/exchange/">
-              <span class="infoContainer">
-                <span class="title">Exchanges</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/05/17/exchange/cover.png" />
-          </li><li
-            class="post has-thumb tag-fiction tag-flashfiction tag-fantasy tag-marekandkorrine tag-tarot"
-          >
-            <time class="date" datetime="2022-05-16T12:00:00+00:00">
-              2022
-              May
-              16
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/05/16/pressure/">
-              <span class="infoContainer">
-                <span class="title">Pressure</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/05/16/pressure/cover.png" />
-          </li><li
-            class="post tag-writing tag-metablogging"
-          >
-            <time class="date" datetime="2022-05-15T12:00:00+00:00">
-              2022
-              May
-              15
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/05/15/writing-habit-recap-no-2/">
-              <span class="infoContainer">
-                <span class="title">Writing Habit Recap No. 2</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post has-thumb tag-fiction tag-flashfiction tag-tarot"
-          >
-            <time class="date" datetime="2022-05-13T12:00:00+00:00">
-              2022
-              May
-              13
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/05/13/unheeded/">
-              <span class="infoContainer">
-                <span class="title">Unheeded</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/05/13/unheeded/cover.png" />
-          </li><li
-            class="post has-thumb tag-fiction tag-flashfiction tag-tarot"
-          >
-            <time class="date" datetime="2022-05-12T12:00:00+00:00">
-              2022
-              May
-              12
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/05/12/left-on-read/">
-              <span class="infoContainer">
-                <span class="title">Left on Read</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/05/12/left-on-read/cover.png" />
-          </li><li
-            class="post has-thumb tag-fiction tag-flashfiction tag-tarot"
-          >
-            <time class="date" datetime="2022-05-11T12:00:00+00:00">
-              2022
-              May
-              11
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/05/11/roxys-faceroll/">
-              <span class="infoContainer">
-                <span class="title">Roxy&#39;s Faceroll</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/05/11/roxys-faceroll/cover.png" />
-          </li><li
-            class="post has-thumb tag-fiction tag-flashfiction tag-scifi tag-tarot"
-          >
-            <time class="date" datetime="2022-05-10T12:00:00+00:00">
-              2022
-              May
-              10
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/05/10/megachurch-of-the-shattered/">
-              <span class="infoContainer">
-                <span class="title">Megachurch of the Shattered</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/05/10/megachurch-of-the-shattered/cover.png" />
-          </li><li
-            class="post has-thumb tag-fiction tag-flashfiction tag-tarot"
-          >
-            <time class="date" datetime="2022-05-09T12:00:00+00:00">
-              2022
-              May
-              09
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/05/09/familiar-strangers/">
-              <span class="infoContainer">
-                <span class="title">Familiar Strangers</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/05/09/familiar-strangers/cover.png" />
-          </li><li
-            class="post has-thumb tag-fiction tag-flashfiction tag-scifi tag-tarot"
-          >
-            <time class="date" datetime="2022-05-08T12:00:00+00:00">
-              2022
-              May
-              08
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/05/08/vincents-voyage/">
-              <span class="infoContainer">
-                <span class="title">Vincent&#39;s Voyage</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/05/08/vincents-voyage/cover.png" />
-          </li><li
-            class="post has-thumb tag-fiction tag-flashfiction tag-tarot"
-          >
-            <time class="date" datetime="2022-05-05T12:00:00+00:00">
-              2022
-              May
-              05
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/05/05/ivos-act/">
-              <span class="infoContainer">
-                <span class="title">Ivo&#39;s Act</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/05/05/ivos-act/cover.png" />
-          </li><li
-            class="post has-thumb tag-fiction tag-flashfiction tag-scifi tag-tarot"
-          >
-            <time class="date" datetime="2022-05-04T12:00:00+00:00">
-              2022
-              May
-              04
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/05/04/yasirs-getaway/">
-              <span class="infoContainer">
-                <span class="title">Yasir&#39;s Getaway</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/05/04/yasirs-getaway/cover.png" />
-          </li><li
-            class="post has-thumb tag-fiction tag-flashfiction tag-scifi tag-tarot"
-          >
-            <time class="date" datetime="2022-05-03T12:00:00+00:00">
-              2022
-              May
-              03
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/05/03/averys-deployment/">
-              <span class="infoContainer">
-                <span class="title">Avery&#39;s Deployment</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/05/03/averys-deployment/cover.png" />
-          </li><li
-            class="post has-thumb tag-fiction tag-flashfiction tag-fantasy tag-tarot"
-          >
-            <time class="date" datetime="2022-05-02T12:00:00+00:00">
-              2022
-              May
-              02
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/05/02/kogas-cauldron/">
-              <span class="infoContainer">
-                <span class="title">Koga&#39;s Cauldron</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/05/02/kogas-cauldron/cover.png" />
-          </li><li
-            class="post tag-writing tag-metablogging"
-          >
-            <time class="date" datetime="2022-05-01T12:00:00+00:00">
-              2022
-              May
-              01
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/05/01/writing-recap-no-1/">
-              <span class="infoContainer">
-                <span class="title">Writing Habit Recap No. 1</span>
-              </span>
-            </a>
-            
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Month: 2022/05</h2>
+        </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2022 May 19</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-fiction tag-flashfiction tag-tarot">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2022/05/19/making-friends-with-peanuts/">Making Friends with Peanuts</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2022/05/19/making-friends-with-peanuts/cover.png" />
+    </div>
+    <p class="summary">
+      I'm trying to build a daily creative writing habit. This post is the result of an exercise toward that end. It's probably an awful first draft of a little flash fiction scene, unless I've tried something especially weird or decided to write something meta. Let me know what you think!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2022/05/19/making-friends-with-peanuts/"
+          >624&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2022/05/19/making-friends-with-peanuts/">#</a>
+    <a class="time" href="2022/05/19/making-friends-with-peanuts/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tarot/">tarot</a>
           </li>
     </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2022 May 18</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-fiction tag-flashfiction tag-scifi tag-terraignota tag-utopians tag-tarot">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2022/05/18/vinge-and-vonda/">Vinge and Vonda</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2022/05/18/vinge-and-vonda/cover.png" />
+    </div>
+    <p class="summary">
+      I'm trying to build a daily creative writing habit. This post is the result of an exercise toward that end. It's probably an awful first draft of a little flash fiction scene, unless I've tried something especially weird or decided to write something meta. Let me know what you think!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2022/05/18/vinge-and-vonda/"
+          >949&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2022/05/18/vinge-and-vonda/">#</a>
+    <a class="time" href="2022/05/18/vinge-and-vonda/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/scifi/">scifi</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/terraignota/">terraignota</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/utopians/">utopians</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tarot/">tarot</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2022 May 17</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-fiction tag-flashfiction tag-fantasy tag-marekandkorrine tag-tarot">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2022/05/17/exchange/">Exchanges</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2022/05/17/exchange/cover.png" />
+    </div>
+    <p class="summary">
+      I'm trying to build a daily creative writing habit. This post is the result of an exercise toward that end. It's probably an awful first draft of a little flash fiction scene, unless I've tried something especially weird or decided to write something meta. Let me know what you think!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2022/05/17/exchange/"
+          >738&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2022/05/17/exchange/">#</a>
+    <a class="time" href="2022/05/17/exchange/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/fantasy/">fantasy</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/marekandkorrine/">marekandkorrine</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tarot/">tarot</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2022 May 16</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-fiction tag-flashfiction tag-fantasy tag-marekandkorrine tag-tarot">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2022/05/16/pressure/">Pressure</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2022/05/16/pressure/cover.png" />
+    </div>
+    <p class="summary">
+      I'm trying to build a daily creative writing habit. This post is the result of an exercise toward that end. It's probably an awful first draft of a little flash fiction scene, unless I've tried something especially weird or decided to write something meta. Let me know what you think!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2022/05/16/pressure/"
+          >769&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2022/05/16/pressure/">#</a>
+    <a class="time" href="2022/05/16/pressure/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/fantasy/">fantasy</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/marekandkorrine/">marekandkorrine</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tarot/">tarot</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2022 May 15</h2>
+  </li><li class="content-grid post post-type-entry tag-writing tag-metablogging">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2022/05/15/writing-habit-recap-no-2/">Writing Habit Recap No. 2</a>
+      </h2>
     
-  </section>
-      </section>
-        </section>
+    <p class="summary">
+       I've gotten through over a month of writing posted here. I thought it might be worth reflecting and recapping again.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2022/05/15/writing-habit-recap-no-2/"
+          >432&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2022/05/15/writing-habit-recap-no-2/">#</a>
+    <a class="time" href="2022/05/15/writing-habit-recap-no-2/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/writing/">writing</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2022 May 13</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-fiction tag-flashfiction tag-tarot">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2022/05/13/unheeded/">Unheeded</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2022/05/13/unheeded/cover.png" />
+    </div>
+    <p class="summary">
+      I'm trying to build a daily creative writing habit. This post is the result of an exercise toward that end. It's probably an awful first draft of a little flash fiction scene, unless I've tried something especially weird or decided to write something meta. Let me know what you think!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2022/05/13/unheeded/"
+          >404&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2022/05/13/unheeded/">#</a>
+    <a class="time" href="2022/05/13/unheeded/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tarot/">tarot</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2022 May 12</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-fiction tag-flashfiction tag-tarot">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2022/05/12/left-on-read/">Left on Read</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2022/05/12/left-on-read/cover.png" />
+    </div>
+    <p class="summary">
+      I'm trying to build a daily creative writing habit. This post is the result of an exercise toward that end. It's probably an awful first draft of a little flash fiction scene, unless I've tried something especially weird or decided to write something meta. Let me know what you think!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2022/05/12/left-on-read/"
+          >308&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2022/05/12/left-on-read/">#</a>
+    <a class="time" href="2022/05/12/left-on-read/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tarot/">tarot</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2022 May 11</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-fiction tag-flashfiction tag-tarot">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2022/05/11/roxys-faceroll/">Roxy&#39;s Faceroll</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2022/05/11/roxys-faceroll/cover.png" />
+    </div>
+    <p class="summary">
+      I'm trying to build a daily creative writing habit. This post is the result of an exercise toward that end. It's probably an awful first draft of a little flash fiction scene, unless I've tried something especially weird or decided to write something meta. Let me know what you think!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2022/05/11/roxys-faceroll/"
+          >389&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2022/05/11/roxys-faceroll/">#</a>
+    <a class="time" href="2022/05/11/roxys-faceroll/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tarot/">tarot</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2022 May 10</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-fiction tag-flashfiction tag-scifi tag-tarot">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2022/05/10/megachurch-of-the-shattered/">Megachurch of the Shattered</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2022/05/10/megachurch-of-the-shattered/cover.png" />
+    </div>
+    <p class="summary">
+      I'm trying to build a daily creative writing habit. This post is the result of an exercise toward that end. It's probably an awful first draft of a little flash fiction scene, unless I've tried something especially weird or decided to write something meta. Let me know what you think!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2022/05/10/megachurch-of-the-shattered/"
+          >439&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2022/05/10/megachurch-of-the-shattered/">#</a>
+    <a class="time" href="2022/05/10/megachurch-of-the-shattered/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/scifi/">scifi</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tarot/">tarot</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2022 May 09</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-fiction tag-flashfiction tag-tarot">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2022/05/09/familiar-strangers/">Familiar Strangers</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2022/05/09/familiar-strangers/cover.png" />
+    </div>
+    <p class="summary">
+      I'm trying to build a daily creative writing habit. This post is the result of an exercise toward that end. It's probably an awful first draft of a little flash fiction scene, unless I've tried something especially weird or decided to write something meta. Let me know what you think!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2022/05/09/familiar-strangers/"
+          >428&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2022/05/09/familiar-strangers/">#</a>
+    <a class="time" href="2022/05/09/familiar-strangers/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tarot/">tarot</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2022 May 08</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-fiction tag-flashfiction tag-scifi tag-tarot">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2022/05/08/vincents-voyage/">Vincent&#39;s Voyage</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2022/05/08/vincents-voyage/cover.png" />
+    </div>
+    <p class="summary">
+      I'm trying to build a daily creative writing habit. This post is the result of an exercise toward that end. It's probably an awful first draft of a little flash fiction scene, unless I've tried something especially weird or decided to write something meta. Let me know what you think!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2022/05/08/vincents-voyage/"
+          >442&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2022/05/08/vincents-voyage/">#</a>
+    <a class="time" href="2022/05/08/vincents-voyage/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/scifi/">scifi</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tarot/">tarot</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2022 May 05</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-fiction tag-flashfiction tag-tarot">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2022/05/05/ivos-act/">Ivo&#39;s Act</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2022/05/05/ivos-act/cover.png" />
+    </div>
+    <p class="summary">
+      I'm trying to build a daily creative writing habit. This post is the result of an exercise toward that end. It's probably an awful first draft of a little flash fiction scene, unless I've tried something especially weird or decided to write something meta. Let me know what you think!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2022/05/05/ivos-act/"
+          >331&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2022/05/05/ivos-act/">#</a>
+    <a class="time" href="2022/05/05/ivos-act/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tarot/">tarot</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2022 May 04</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-fiction tag-flashfiction tag-scifi tag-tarot">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2022/05/04/yasirs-getaway/">Yasir&#39;s Getaway</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2022/05/04/yasirs-getaway/cover.png" />
+    </div>
+    <p class="summary">
+      I'm trying to build a daily creative writing habit. This post is the result of an exercise toward that end. It's probably an awful first draft of a little flash fiction scene, unless I've tried something especially weird or decided to write something meta. Let me know what you think!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2022/05/04/yasirs-getaway/"
+          >585&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2022/05/04/yasirs-getaway/">#</a>
+    <a class="time" href="2022/05/04/yasirs-getaway/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/scifi/">scifi</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tarot/">tarot</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2022 May 03</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-fiction tag-flashfiction tag-scifi tag-tarot">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2022/05/03/averys-deployment/">Avery&#39;s Deployment</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2022/05/03/averys-deployment/cover.png" />
+    </div>
+    <p class="summary">
+      I'm trying to build a daily creative writing habit. This post is the result of an exercise toward that end. It's probably an awful first draft of a little flash fiction scene, unless I've tried something especially weird or decided to write something meta. Let me know what you think!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2022/05/03/averys-deployment/"
+          >525&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2022/05/03/averys-deployment/">#</a>
+    <a class="time" href="2022/05/03/averys-deployment/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/scifi/">scifi</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tarot/">tarot</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2022 May 02</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-fiction tag-flashfiction tag-fantasy tag-tarot">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2022/05/02/kogas-cauldron/">Koga&#39;s Cauldron</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2022/05/02/kogas-cauldron/cover.png" />
+    </div>
+    <p class="summary">
+      I'm trying to build a daily creative writing habit. This post is the result of an exercise toward that end. It's probably an awful first draft of a little flash fiction scene, unless I've tried something especially weird or decided to write something meta. Let me know what you think!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2022/05/02/kogas-cauldron/"
+          >451&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2022/05/02/kogas-cauldron/">#</a>
+    <a class="time" href="2022/05/02/kogas-cauldron/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/fantasy/">fantasy</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tarot/">tarot</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2022 May 01</h2>
+  </li><li class="content-grid post post-type-entry tag-writing tag-metablogging">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2022/05/01/writing-recap-no-1/">Writing Habit Recap No. 1</a>
+      </h2>
+    
+    <p class="summary">
+      I've gotten through twenty days of writing posted here. I thought it might be worth recapping the last few things I managed to post.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2022/05/01/writing-recap-no-1/"
+          >473&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2022/05/01/writing-recap-no-1/">#</a>
+    <a class="time" href="2022/05/01/writing-recap-no-1/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/writing/">writing</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li>
+    </ul>
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
 
-        <footer>
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

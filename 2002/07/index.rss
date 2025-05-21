@@ -4,141 +4,180 @@
       <title>blog.lmorchard.com</title>
       <description>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</description>
       <link>https://lmorchard.github.io/blog.lmorchard.com</link>
-      <atom:link href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" rel="self" type="application/rss+xml" />      
+      <atom:link href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" rel="self" type="application/rss+xml" />
       <item>
           <title>The Natives are Growing Restless.</title>
-          <description>Everyone else is linking to it, but this is beautiful:
-Infrastructure: Why geeks build it, why Hollywood doesn&#39;t understand it, how business can take advantage of it. by Doc Searls, Co-author of The Cluetrain Manifesto</description>
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Everyone else is linking to it, but this is beautiful:
+Infrastructure: Why geeks build it, why Hollywood doesn&#39;t understand it, how business can take advantage of it. by Doc Searls, Co-author of The Cluetrain Manifesto&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Wed, 31 Jul 2002 18:36:21 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2002/07/31/ooobbd/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2002/07/31/ooobbd/</guid>
         </item><item>
           <title>AmphetaDesk + Outlines + iTunes 3, the next iteration</title>
-          <description>So this past weekend, I wrote (thanks for the link, Jenny!) about continuing down the road of my experiments with news aggregation and the tweaks I&#39;ve been doing to AmphetaDesk&#39;s interface.  Well, I&#39;m at it again.  I&#39;m debating whether to post what I have so far for download yet, since I&#39;m still refining some things, but I will very soon.  I&#39;ve noticed that my first attempt gathered some fans, so you all might like what I&#39;m adding now:Template code seems easier on memory usageMuch, much more sparing with tables, items are displayed using only DIV&#39;s and margin widths for indentation.  (Seems to have saved a lot of memory.)Outliner javascript now uses the browser DOM exclusively.  (Seems to be slimmer and faster.)Per-channel metadata annotation &amp; storage - a feature already planned for Ampheta, but I was impatient and hacked a quick scheme together.  (The future AmphetaDesk implementaiton will replace this.)A new interstitial redirect page via which links are visited, to count clicksIn the per-channel metadata, I track:Unique MD5 signatures for itemsDate-first-seen for itemsNumber of times an item has been shownNumber of times an item&#39;s link has been clickedItems clicked for the channel as a whole Using the newly recorded metrics on channels and items, I do a few nifty things now:Item hiding thresholds can be set on # of appearences, # of clicks, and item age.  Hidden items disappear behind an expandable outline handle.Channels and items can be sorted on # of clicks, age/last update, number of items shown.Channels with no shown items can be automatically collapsed.The gist of all this:Channels and items I like and visit regularly tend to bubble toward the topStale channels and items tend to disappear and get demand less attention during my skim-and-scan.Hidden things are out of the way, but are still available within a click or twoAfter letting this run for a few days (since all items are new at the first run), I&#39;ve noticed that my news scanning has gotten much faster, even with occasional checks to be sure I&#39;m not really missing anything with my thresholds.
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;So this past weekend, I wrote (thanks for the link, Jenny!) about continuing down the road of my experiments with news aggregation and the tweaks I&#39;ve been doing to AmphetaDesk&#39;s interface.  Well, I&#39;m at it again.  I&#39;m debating whether to post what I have so far for download yet, since I&#39;m still refining some things, but I will very soon.  I&#39;ve noticed that my first attempt gathered some fans, so you all might like what I&#39;m adding now:Template code seems easier on memory usageMuch, much more sparing with tables, items are displayed using only DIV&#39;s and margin widths for indentation.  (Seems to have saved a lot of memory.)Outliner javascript now uses the browser DOM exclusively.  (Seems to be slimmer and faster.)Per-channel metadata annotation &amp;amp; storage - a feature already planned for Ampheta, but I was impatient and hacked a quick scheme together.  (The future AmphetaDesk implementaiton will replace this.)A new interstitial redirect page via which links are visited, to count clicksIn the per-channel metadata, I track:Unique MD5 signatures for itemsDate-first-seen for itemsNumber of times an item has been shownNumber of times an item&#39;s link has been clickedItems clicked for the channel as a whole 
+
+Using the newly recorded metrics on channels and items, I do a few nifty things now:Item hiding thresholds can be set on # of appearences, # of clicks, and item age.  Hidden items disappear behind an expandable outline handle.Channels and items can be sorted on # of clicks, age/last update, number of items shown.Channels with no shown items can be automatically collapsed.
+
+
+
+The gist of all this:Channels and items I like and visit regularly tend to bubble toward the topStale channels and items tend to disappear and get demand less attention during my skim-and-scan.Hidden things are out of the way, but are still available within a click or two
+After letting this run for a few days (since all items are new at the first run), I&#39;ve noticed that my news scanning has gotten much faster, even with occasional checks to be sure I&#39;m not really missing anything with my thresholds.
 The reasons I haven&#39;t immediately uploaded it for all of you: No preferences for thresholds - I&#39;m editing constants at the header of my template for now; dependancy on Perl modules that don&#39;t come with Ampheta - only a few, but I&#39;d like to wean away from them.  Oh, and it&#39;s also nasty code that I want to refactor into a bunch of subroutines, some of which will be factored out of the template and eventually replaced with calls to core AmphetaDesk code.  (Too much logic in my template.)
-I also want to add some &quot;karma&quot; features so that, beyond metrics of age, visits, and appearances, you can add your own manual rating and opinion to the process of sorting and show/hide.  And then there&#39;s the idea of categories/playlists I want to steal from iTunes as well.  But, I might just clean up what I have by this weekend and do the early release thing so you can all cheer or jeer it at will.  I also need to drop back into the AmphetaDesk dev crowd.  I miss those guys...</description>
+I also want to add some &quot;karma&quot; features so that, beyond metrics of age, visits, and appearances, you can add your own manual rating and opinion to the process of sorting and show/hide.  And then there&#39;s the idea of categories/playlists I want to steal from iTunes as well.  But, I might just clean up what I have by this weekend and do the early release thing so you can all cheer or jeer it at will.  I also need to drop back into the AmphetaDesk dev crowd.  I miss those guys...&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Wed, 31 Jul 2002 18:04:46 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2002/07/31/ooobbc/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2002/07/31/ooobbc/</guid>
         </item><item>
           <title>Why I don&#39;t have to like &quot;Monday:&quot;</title>
-          <description>So just a couple of weeks ago, I was laughing at Monday: (Their colon, not mine.  They wouldn&#39;t like my colon.)  The rebranding struck me as the last spastic hyper-hypo twitch of the 90s&#39; super-high-energy-please-God-make-them-like-me theme.  The Register, bless their souls, don&#39;t like Monday:&#39;s either.
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;So just a couple of weeks ago, I was laughing at Monday: (Their colon, not mine.  They wouldn&#39;t like my colon.)  The rebranding struck me as the last spastic hyper-hypo twitch of the 90s&#39; super-high-energy-please-God-make-them-like-me theme.  The Register, bless their souls, don&#39;t like Monday:&#39;s either.
 It reminds me of when one of my old employers tried rebranding themselves from a very lawyerly name (Wunderman Cato Johnson) to a suffix: &quot;.ology&quot;  It would have been great, I heard.  We would have been studies of everything: marketing.ology, analytics.ology, urinal-cake.ology.  
 Instead, at the last minute demand of an assumedly more rational high level muckety-muck, they dropped that and picked &quot;Impiric (with a funny all-encompassing bracket)&quot; at the last minute.  They also tossed out months of work and research into positioning, presentations, and common corp speak.  This new name, however, was to imply empirical knowledge of all our subjects - i.e. experience.  A fun, hip way to spin the fact that we were all working for a practically ancient company in the computer age.  I felt really bad for the team who had to jackknife their whole process, throw out their baby, and throw together a shitty last minute collection of branding consisting of a Fatboy Slim song (&quot;Right Here, Right Now&quot;), and a vaguely topical epileptic flashing stream of clip art images.
 But then, after about two years of this crap, they decide they (kinda) liked their original name better, and wandered back to &quot;Wunderman&quot;.  Of course, it&#39;s worth noting that the &quot;they&quot; are probably the old guard who never wanted it changed in the first place and who are happy all the morons who thought &quot;Impiric (funny all-encompassing bracket)&quot; was a good name are out on the street now.
 And, today, The Register tells me that IBM has put Monday: out of our misery by purchasing them.  Monday: has now returned to the more respectable &quot;PricewaterhouseCoopers Consulting&quot;, soon to become just &quot;IBM&quot;.  Thankfully, Monday:&#39;s demise took about a month.  Any longer, and I&#39;d&#39;ve been cringing at the day when we would have started pitching to them as a client.
 Thing is, I loved the 90&#39;s.  There were a lot of good things, even if many of them were all a &quot;Who Shot J.R.?&quot; dream.  I&#39;d like to see the genuine ingenuity and innovation survive.  I&#39;d also like to see all the fake raver-boy-wannabe marketing execs lined up and shot.  And, it&#39;d be neat to see us all try again at a &quot;new economy&quot;, only this time let&#39;s start with real things that do real stuff for real people and make real money.
-Hmm, which reminds me:  I wish my company would rebrand, and drop the &#39;e&#39;.  It really doesn&#39;t do us justice since we survived the dot-com days with a real business model and solid products.</description>
+Hmm, which reminds me:  I wish my company would rebrand, and drop the &#39;e&#39;.  It really doesn&#39;t do us justice since we survived the dot-com days with a real business model and solid products.&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Wed, 31 Jul 2002 17:00:17 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2002/07/31/ooobbb/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2002/07/31/ooobbb/</guid>
         </item><item>
           <title>Throwing out babies with bathwater</title>
-          <description>From The Shifted Librarian:I am a media company&#39;s dream. I get the whole digital cable package, I love music and own hundreds of CDs, I frequently go to movie theaters, my study is lined with books, I like DVDs because of the extras and the quality of the picture, I attend plays, I like going to concerts, I take my media with me, and I&#39;ve always wanted my MTV.Ditto, on everything but the plays.  (I really need to start getting out to the great performances in my area.)  Here I am looking at ways to more effectively consume just the media I like, even to the point of building my own somewhat pricey entertainment-center PC to take care of DVR and radio recording functions.  I really would pay someone to help me with this, and not screw with me after.  And I really would rather pay for TV and radio, in return for zero-advertising (including product placement).
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;From The Shifted Librarian:I am a media company&#39;s dream. I get the whole digital cable package, I love music and own hundreds of CDs, I frequently go to movie theaters, my study is lined with books, I like DVDs because of the extras and the quality of the picture, I attend plays, I like going to concerts, I take my media with me, and I&#39;ve always wanted my MTV.
+
+Ditto, on everything but the plays.  (I really need to start getting out to the great performances in my area.)  Here I am looking at ways to more effectively consume just the media I like, even to the point of building my own somewhat pricey entertainment-center PC to take care of DVR and radio recording functions.  I really would pay someone to help me with this, and not screw with me after.  And I really would rather pay for TV and radio, in return for zero-advertising (including product placement).
 /me jumps and waves at the satellites.  Hi up there.  I&#39;m one of your best customers.  I have money.  /me waves money.  But you&#39;re not getting it unless you do what I want.  Hmm.
-Between Hollywood and my lovely government...  were this back in the days of eyepatches and parrots, they&#39;d&#39;ve had the Seven Seas drained to catch the scurvy bastards and then wondered where all the spices went at dinner time.</description>
+Between Hollywood and my lovely government...  were this back in the days of eyepatches and parrots, they&#39;d&#39;ve had the Seven Seas drained to catch the scurvy bastards and then wondered where all the spices went at dinner time.&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Tue, 30 Jul 2002 04:23:20 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2002/07/30/ooobba/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2002/07/30/ooobba/</guid>
         </item><item>
           <title>News Aggregation meets iTunes3 / Web vs Native GUI</title>
-          <description>Oh, and one more thing:  I assume you&#39;ve seen the new iTunes.  I want to steal the new features for my news aggregator.  I&#39;d been thinking of these things long before the new version came out, but of course these are not unique ideas.  And how well they seem to work in iTunes now (for me at least) seems to be a good thing to point at and say &quot;that&#39;s what I mean&quot;.
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Oh, and one more thing:  I assume you&#39;ve seen the new iTunes.  I want to steal the new features for my news aggregator.  I&#39;d been thinking of these things long before the new version came out, but of course these are not unique ideas.  And how well they seem to work in iTunes now (for me at least) seems to be a good thing to point at and say &quot;that&#39;s what I mean&quot;.
 So...  I want a count of how many times I &quot;play&quot; a channel (ie. visit a link or story from the RSS feed.)  I want to rate my channels.  I want to make &quot;playlists&quot; (ie. categories), and &quot;smart playlists&quot; (ie. active, persistent searches).  I&#39;d also like to synch my subscriptions and things with my website and.. hmm, well, no one&#39;s made an iPod analogue for news aggregation/reading yet.  ...or have they?
 So far, I&#39;ve been sticking with AmphetaDesk and still using my crappy old bloated hog of an Ampheta outline template.  (And I see that someone else has just mentioned it today.  I really need to revisit it and make a bunch of sorely-needed improvements, space savings, and updates.)
 I started playing with NetNewsWire a bit, and I think it&#39;s pretty keen.  But, I don&#39;t have the source to tinker with, so I&#39;m less interested.  (No slight on the app, or the developer.  You might love it.  I&#39;m just more D.I.Y.)  So I was starting to think of coding up my own work-a-like in Java, but then I start thinking further:  I don&#39;t think I can really learn to love a native-GUI web news aggregator, period.  I think it&#39;s got to be web-based in some way.  It&#39;s about context switching, in a way I think.  If RSS channels had all of the content from the sites they describe, then maybe I could just twiddle around in the UI of the app...  but I always end up in the browser.  So...  Why ever leave it?
-So, back to Ampheta I go, I think.  I just need to start hanging out on IRC more again.  I keep doing vanishing acts.</description>
+So, back to Ampheta I go, I think.  I just need to start hanging out on IRC more again.  I keep doing vanishing acts.&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Sun, 28 Jul 2002 07:30:10 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2002/07/28/ooobbo/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2002/07/28/ooobbo/</guid>
         </item><item>
           <title>Gone fishing?</title>
-          <description>Yes, I&#39;m still out here.  Busy and occupied and A.W.O.L. from most of the communities in which I was squatting this Spring, but I want to wander back in.  Maybe I can consider this a Summer break of sorts, assuming that I rejoin with feeling when the weather gets colder.  Is this the experience for anyone else around here?  That your play tech projects suffer in nicer seasons and weather, and your blogging frequency drops way down?  I think this may be my cycle.</description>
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Yes, I&#39;m still out here.  Busy and occupied and A.W.O.L. from most of the communities in which I was squatting this Spring, but I want to wander back in.  Maybe I can consider this a Summer break of sorts, assuming that I rejoin with feeling when the weather gets colder.  Is this the experience for anyone else around here?  That your play tech projects suffer in nicer seasons and weather, and your blogging frequency drops way down?  I think this may be my cycle.&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Sun, 28 Jul 2002 07:10:58 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2002/07/28/ooobai/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2002/07/28/ooobai/</guid>
         </item><item>
           <title>Open Source partition juggling?</title>
-          <description>Okay, I do this in what seems like an annual cycle:  Juggle hardware and operating systems around on my home PCs.  The tool I always seem to lose and need again is something to safely allow me to resize and move hard drive partitions, whether they be Linux or Windows.  Has anyone finally made a reliable Open Source tool for this yet?
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Okay, I do this in what seems like an annual cycle:  Juggle hardware and operating systems around on my home PCs.  The tool I always seem to lose and need again is something to safely allow me to resize and move hard drive partitions, whether they be Linux or Windows.  Has anyone finally made a reliable Open Source tool for this yet?
 Generally, I reach for Partition Magic for the job.  It&#39;s never failed for me.  But, generally, I need to buy a new copy of it every time I get around to using it again.  I mean, who really needs to repartition a drive more than a few times in a year?  (Okay, you can put your hand down.  You need to get out more.)
 Well, this time it looks like I need it again.  I have v6.0, which apparently makes WinXP choke and drown in its own vomit.  I don&#39;t really want to buy Partition Magic again.  Could I just rent your copy for about $10-20 or so?  I&#39;ve considered wiping WinXP and re-installing Win98 just because things seemed easier then.  It just seems like this is such a common task when you&#39;re screwing with Linux that this would be Done.
-Hmm, maybe I&#39;ll just pay for the fine product again.  :)  It does work flawlessly for me, even if I only do use it once.</description>
+Hmm, maybe I&#39;ll just pay for the fine product again.  :)  It does work flawlessly for me, even if I only do use it once.&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Sun, 28 Jul 2002 07:06:26 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2002/07/28/ooobah/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2002/07/28/ooobah/</guid>
         </item><item>
           <title>The Snake Oil wagon rolls through my referral logs</title>
-          <description>Okay, so I&#39;ve seen my first spam via my referrers.  Checked my referrers RSS feed this morning to see the following pages in the list:
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Okay, so I&#39;ve seen my first spam via my referrers.  Checked my referrers RSS feed this morning to see the following pages in the list:
 http://www.voodoomachine.com/sexenhancer.html
-http://www.voodoomachine.com/linkoftheweek.html /&gt;
-http://www.voodoomachine.com/druglinks.html /&gt;
+
+
+http://www.voodoomachine.com/linkoftheweek.html&lt;br&gt;
+http://www.voodoomachine.com/druglinks.html&lt;br&gt;
 http://www.voodoomachine.com/awards.html
 Not linking directly to these pages, out of some vague sense of &quot;Don&#39;t encourage &#39;em.&quot;  The pages don&#39;t really link to me either, of course, they&#39;re all just pointers to an ad-ware site for this AMAZING DEVICE that does everything from making sex feel better, helping you study, aiding in sleep...  it even makes DRUGS better!  Wow, this site is so amazingly derivative of the classic snake oil pitch, with a touch of the modern and dot-com-days (ie. Works with DRUGS! Click our FAQ link!).  But I can still hear the wheels on the wagon squeaking as it trundles through town.
 I&#39;m just trying to imagine by what criteria they picked my site to spam - oh, that&#39;s right: there is no criteria.  They don&#39;t even know who I am.
 On one hand, I&#39;m annoyed that whenever I get back around to working on referrers, I&#39;ll need to add a blacklist feature (shared / collaborative blacklists?).  On the other hand, I&#39;m annoyed at the owners of that site, and even more annoyed at the 0.01% or so of their targets who&#39;ll BUY NOW.  And then, on another hand still (I have many hands in the blogosphere), I&#39;m amused by the whole thing:  it&#39;s almost self-parodying in these post-Cluetrain days.
-Oh well, back to work...</description>
+Oh well, back to work...&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Tue, 23 Jul 2002 20:26:57 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2002/07/23/ooobag/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2002/07/23/ooobag/</guid>
         </item><item>
           <title>Making a return to the fields of Java</title>
-          <description>So we&#39;ve managed to get the go ahead at work on what seems like it should be a nightmare project:  We&#39;re going to re-examine, re-design, and re-implement our in-house web app platform, the Toybox.  Not only that, but we&#39;re going to switch languages, from Perl to Java.  It&#39;s got me immensely excited, though this may be naive of me.
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;So we&#39;ve managed to get the go ahead at work on what seems like it should be a nightmare project:  We&#39;re going to re-examine, re-design, and re-implement our in-house web app platform, the Toybox.  Not only that, but we&#39;re going to switch languages, from Perl to Java.  It&#39;s got me immensely excited, though this may be naive of me.
 It&#39;s been years since I was last knee deep in Java, and years that I&#39;ve spent up to my ears in Perl.  I&#39;d almost forgotten how much of Java I&#39;d reinvented to make my ideas work in Perl.  (This may not be so much an indictment of Perl as of the way I think.)  And the last time I worked seriously in Java, there were no IDEs yet, so starting to work with NetBeans or even Project Builder under OS X for Java work is a dream.  I love using NetBeans in particular, occasional hiccups aside.  Besides all the obvious integration of build, test, run, debug, etc, I love being able to highlight a keyword or class name and pop up the docs in an internal HTML browser.  I love that it makes suggested changes to classes when I change an interface they implement.
 Yeah, none of this is news to most of the world, but I&#39;ve been steadfastly sticking to shells and bare emacs or pico for my editing.  Maybe a web browser handy for docs.  I haven&#39;t worked very much with IDEs these past years, since a lot of them just got in my way.  Or at least, with hubris, I thought that they did.  Then again, I don&#39;t see very many equivalent tools for a language as free-form and multiple choice as Perl.
 And, though I miss CPAN, I&#39;m loving resources like the Jakarta project over at Apache.  Again, not news, but new to me.  I feel like a Rip Van Winkel-Java over here, since my last real work in Java was when the API was in 1.0 days, Servlets were this neat thing for the Java Web Server (now at the end of its life), and the dot-com boom was just starting to stretch its wings.
-Now, I haven&#39;t been completely oblivious to Java over this time.  I&#39;ve poked at it, and played with a few things from time to time to at least stay somewhat current, and I&#39;ve tried to vaguely keep up with things a bit.  I have an overall sense of what does what and where to find what, but really getting it under my fingernails again now is a different experience.</description>
+Now, I haven&#39;t been completely oblivious to Java over this time.  I&#39;ve poked at it, and played with a few things from time to time to at least stay somewhat current, and I&#39;ve tried to vaguely keep up with things a bit.  I have an overall sense of what does what and where to find what, but really getting it under my fingernails again now is a different experience.&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Wed, 17 Jul 2002 20:56:06 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2002/07/17/ooobaf/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2002/07/17/ooobaf/</guid>
         </item><item>
           <title>Where in the world is L. M. Orchard?</title>
-          <description>Whew, so where have I been this month?  I didn&#39;t realize it, but here I am in the third week of July having only made 3 posts to this site.  Well, I&#39;ve been busy at work and busy at life, and without much time for the free time hacking I&#39;ve wanted this site to be about.  Maybe it&#39;s Summer - I&#39;m sure once Fall and Winter hit, I&#39;ll be back here jabbering your virtual ears off.
-Anyway, I&#39;ve got a few things I can jabber on about today, so I think I&#39;ll try to compose a few posts.</description>
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Whew, so where have I been this month?  I didn&#39;t realize it, but here I am in the third week of July having only made 3 posts to this site.  Well, I&#39;ve been busy at work and busy at life, and without much time for the free time hacking I&#39;ve wanted this site to be about.  Maybe it&#39;s Summer - I&#39;m sure once Fall and Winter hit, I&#39;ll be back here jabbering your virtual ears off.
+Anyway, I&#39;ve got a few things I can jabber on about today, so I think I&#39;ll try to compose a few posts.&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Wed, 17 Jul 2002 20:37:49 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2002/07/17/ooobae/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2002/07/17/ooobae/</guid>
         </item><item>
           <title>Adventures in DNS-land</title>
-          <description>Ack!  So I was trying to switch my PairNIC-hosted domain over to DynDNS&#39;s Custom DNS service last week.  I thought all was well, since I followed the directions exactly.  As it was, it really only consisted of &quot;Set your domain&#39;s nameservers to ns[1-5].mydyndns.org&quot;.  So I did that, then left for a few days.  Come back and I see that it failed miserably, and took 36 hours or so to switch back to ZoneEdit.  Grr.  The only thing I noticed was that ?PairNIC&#39;s control panel appeared to randomize the order of the nameserver addresses I entered, and ?DynDNS had a note in the docs stating that I needed to have only ?DynDNS nameservers listed in my record and no mixing with other DNS hosts.  Could it be that ?DynDNS is picky about the order in which my record lists nameservers?
-Grr.  Well, I&#39;m back on the air.  I just hope not too many of you out there with news aggregators and auto-unsub-on-error have had me slide off your lists.</description>
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Ack!  So I was trying to switch my PairNIC-hosted domain over to DynDNS&#39;s Custom DNS service last week.  I thought all was well, since I followed the directions exactly.  As it was, it really only consisted of &quot;Set your domain&#39;s nameservers to ns[1-5].mydyndns.org&quot;.  So I did that, then left for a few days.  Come back and I see that it failed miserably, and took 36 hours or so to switch back to ZoneEdit.  Grr.  The only thing I noticed was that ?PairNIC&#39;s control panel appeared to randomize the order of the nameserver addresses I entered, and ?DynDNS had a note in the docs stating that I needed to have only ?DynDNS nameservers listed in my record and no mixing with other DNS hosts.  Could it be that ?DynDNS is picky about the order in which my record lists nameservers?
+Grr.  Well, I&#39;m back on the air.  I just hope not too many of you out there with news aggregators and auto-unsub-on-error have had me slide off your lists.&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Mon, 15 Jul 2002 17:40:48 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2002/07/15/ooobad/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2002/07/15/ooobad/</guid>
         </item><item>
           <title>LiveJournal adds news aggregation</title>
-          <description>So last month, the crew at LiveJournal finally fixed RSS feeds on all journals.  This month, LiveJournal becomes a centrallized news aggregator.  Plenty of paths in and out of the LJ &quot;gated community&quot; now to wire everyone up into blogspace at large.  This kind of tweak-by-tweak improvement is one reason why I stick around LiveJournal.  (I just hope that they&#39;re polite about it and periodically poll RSS feeds sparsely for the entire userbase. :)  I assume they&#39;re smart enough to figure that out.)  
-Need to get back to that LJ for K-Logs project...</description>
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;So last month, the crew at LiveJournal finally fixed RSS feeds on all journals.  This month, LiveJournal becomes a centrallized news aggregator.  Plenty of paths in and out of the LJ &quot;gated community&quot; now to wire everyone up into blogspace at large.  This kind of tweak-by-tweak improvement is one reason why I stick around LiveJournal.  (I just hope that they&#39;re polite about it and periodically poll RSS feeds sparsely for the entire userbase. :)  I assume they&#39;re smart enough to figure that out.)  
+Need to get back to that LJ for K-Logs project...&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Tue, 09 Jul 2002 06:29:32 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2002/07/09/ooobac/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2002/07/09/ooobac/</guid>
         </item><item>
           <title>The Heian Web</title>
-          <description>A friend of mine on LiveJournal draws some interesting parallels between the intertextual relationships connecting pieces of Heian literature and the links connecting web pages:Large amounts of Heian poetry have survived, and scholars generally know what&#39;s what when it comes to references from one poem to another. These days, given that the average person (probably even in Japan) is no longer familiar with whole of the poetic tradition Heian poets were writing in, the poems can still be read. It just requires lots of footnotes that cite the poems that the original author was referring to, and the patience to actually read the footnotes.
-Some of what we&#39;ve put on the internet will almost certainly survive us. But will it still be readable when all the links are long dead?</description>
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;A friend of mine on LiveJournal draws some interesting parallels between the intertextual relationships connecting pieces of Heian literature and the links connecting web pages:Large amounts of Heian poetry have survived, and scholars generally know what&#39;s what when it comes to references from one poem to another. These days, given that the average person (probably even in Japan) is no longer familiar with whole of the poetic tradition Heian poets were writing in, the poems can still be read. It just requires lots of footnotes that cite the poems that the original author was referring to, and the patience to actually read the footnotes.
+Some of what we&#39;ve put on the internet will almost certainly survive us. But will it still be readable when all the links are long dead?&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Mon, 08 Jul 2002 16:30:27 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2002/07/08/ooobab/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2002/07/08/ooobab/</guid>
         </item><item>
           <title>YAPC 2002: &quot;They always shut up when you talk about boobies&quot;</title>
-          <description>Okay, I&#39;ve only met the people in this movie once, maybe twice, but it made me wet myself.  Run, do not walk, to see:
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Okay, I&#39;ve only met the people in this movie once, maybe twice, but it made me wet myself.  Run, do not walk, to see:
 YAPC 2002: THE MOVIE
-Damn.  One of these years, I have to make it to a YAPC...  (like I&#39;ve been saying on IRC for the past 4 years)</description>
+Damn.  One of these years, I have to make it to a YAPC...  (like I&#39;ve been saying on IRC for the past 4 years)&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Wed, 03 Jul 2002 00:00:14 GMT</pubDate>
-          <link>https://lmorchard.github.io/blog.lmorchard.com/2002/07/03/ooobaa/</link>
-          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2002/07/03/ooobaa/</guid>
+          <link>https://lmorchard.github.io/blog.lmorchard.com/2002/07/02/ooobaa/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2002/07/02/ooobaa/</guid>
         </item>
     </channel>
   </rss>

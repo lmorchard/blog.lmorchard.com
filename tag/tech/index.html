@@ -1,152 +1,321 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>tech - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>tech - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/tag/tech/index.rss"
+          rel="alternate"
+          title="Tag: tech - blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/tag/tech.rss"
+                rel="alternate"
+                title="Tag: tech - blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/tag/tech/index.rss" title="Tag: tech - blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Tag: tech</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post has-thumb tag-diy tag-hacks tag-lcd tag-pc tag-tech tag-gaming"
-          >
-            <time class="date" datetime="2017-01-09T12:00:00+00:00">
-              2017
-              January
-              09
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2017/01/09/diy-monitor-v12/">
-              <span class="infoContainer">
-                <span class="title">Upgrading my Couch PC monitor, v1.2</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/uploads/2017/diy-monitor-v12/monitor-thumb.jpg" />
-          </li><li
-            class="post has-thumb tag-reading tag-tech tag-writing"
-          >
-            <time class="date" datetime="2013-02-25T12:00:00+00:00">
-              2013
-              February
-              25
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2013/02/25/too-long-read-anyway/">
-              <span class="infoContainer">
-                <span class="title">Too long? Read anyway.</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://blog.lmorchard.com/wp-content/uploads/2013/02/well_done_sir.gif" />
-          </li><li
-            class="post has-thumb tag-diy tag-hacks tag-lcd tag-pc tag-tech"
-          >
-            <time class="date" datetime="2013-02-10T12:00:00+00:00">
-              2013
-              February
-              10
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2013/02/10/building-my-couch-computing-station/">
-              <span class="infoContainer">
-                <span class="title">Building my couch computing station</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://blog.lmorchard.com/wp-content/uploads/2013/01/couch-gaming-2a-pc.png" />
-          </li><li
-            class="post tag-apple tag-b2g tag-choice tag-firefoxos tag-mozilla tag-tech"
-          >
-            <time class="date" datetime="2012-09-27T12:00:00+00:00">
-              2012
-              September
-              27
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2012/09/27/freedom-to-change-your-mind/">
-              <span class="infoContainer">
-                <span class="title">Freedom to Change Your Mind</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-freedom tag-mozilla tag-tech"
-          >
-            <time class="date" datetime="2012-09-24T12:00:00+00:00">
-              2012
-              September
-              24
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2012/09/24/freedom-of-from-choice/">
-              <span class="infoContainer">
-                <span class="title">Freedom {of,from} Choice</span>
-              </span>
-            </a>
-            
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Tag: tech</h2>
+        </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2017 January 09</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-diy tag-hacks tag-lcd tag-pc tag-tech tag-gaming">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2017/01/09/diy-monitor-v12/">Upgrading my Couch PC monitor, v1.2</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/uploads/2017/diy-monitor-v12/monitor-thumb.jpg" />
+    </div>
+    <p class="summary">
+      My DIY couch PC monitor has been upgraded for a third time.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2017/01/09/diy-monitor-v12/"
+          >969&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2017/01/09/diy-monitor-v12/">#</a>
+    <a class="time" href="2017/01/09/diy-monitor-v12/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/diy/">diy</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/lcd/">lcd</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/pc/">pc</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tech/">tech</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/gaming/">gaming</a>
           </li>
     </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2013 February 25</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-reading tag-tech tag-writing">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2013/02/25/too-long-read-anyway/">Too long? Read anyway.</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://blog.lmorchard.com/wp-content/uploads/2013/02/well_done_sir.gif" />
+    </div>
+    <p class="summary">
+      Wherein I rant at medium length about functional literacy and language competency in knowledge work and information technology.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2013/02/25/too-long-read-anyway/"
+          >1080&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2013/02/25/too-long-read-anyway/">#</a>
+    <a class="time" href="2013/02/25/too-long-read-anyway/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/reading/">reading</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tech/">tech</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/writing/">writing</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2013 February 10</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-diy tag-hacks tag-lcd tag-pc tag-tech">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2013/02/10/building-my-couch-computing-station/">Building my couch computing station</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://blog.lmorchard.com/wp-content/uploads/2013/01/couch-gaming-2a-pc.png" />
+    </div>
+    <p class="summary">
+      Remember when I posted about gaming from the Orchard House couch? The key part was figuring out how to get a laptop-quality LCD monitor working in the living room, preferably attached to my trusty IKEA DAVE. Well, despite my best attempts at ruining my materials and tools, I managed to get it built!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2013/02/10/building-my-couch-computing-station/"
+          >1608&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2013/02/10/building-my-couch-computing-station/">#</a>
+    <a class="time" href="2013/02/10/building-my-couch-computing-station/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/diy/">diy</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/lcd/">lcd</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/pc/">pc</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tech/">tech</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2012 September 27</h2>
+  </li><li class="content-grid post post-type-entry tag-apple tag-b2g tag-choice tag-firefoxos tag-mozilla tag-tech">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2012/09/27/freedom-to-change-your-mind/">Freedom to Change Your Mind</a>
+      </h2>
     
-  </section>
-      </section>
-        </section>
+    <p class="summary">
+      I posted a few days ago about freedom of and from choice, but I think there’s something orthogonal to that spectrum: The freedom to change your mind, both figuratively and literally.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2012/09/27/freedom-to-change-your-mind/"
+          >978&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2012/09/27/freedom-to-change-your-mind/">#</a>
+    <a class="time" href="2012/09/27/freedom-to-change-your-mind/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/apple/">apple</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/b2g/">b2g</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/choice/">choice</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/firefoxos/">firefoxos</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tech/">tech</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2012 September 24</h2>
+  </li><li class="content-grid post post-type-entry tag-freedom tag-mozilla tag-tech">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2012/09/24/freedom-of-from-choice/">Freedom {of,from} Choice</a>
+      </h2>
+    
+    <p class="summary">
+      Freedom of choice and freedom from choice lay on a spectrum. And, in technology, it’s no coincidence that more choice tends to be messier and complex, less choice tends to be cleaner and simple. It’s a trade-off between what you choose and what you leave up to an expert.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2012/09/24/freedom-of-from-choice/"
+          >1216&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2012/09/24/freedom-of-from-choice/">#</a>
+    <a class="time" href="2012/09/24/freedom-of-from-choice/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/freedom/">freedom</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tech/">tech</a>
+          </li>
+    </ul>
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
 
-        <footer>
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/tag/tech/index.rss" title="Tag: tech - blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

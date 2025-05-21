@@ -5,7 +5,7 @@ tags:
   - writing
 ---
 
-<img src="./cover.png" class="fullwidth" />
+<figure class="wide"><img src="./cover.png" /></figure>
 
 [Back in April](https://blog.lmorchard.com/2022/04/20/building-a-new-creative-writing-habit/), I wrote this about [building a new creative writing habit](https://blog.lmorchard.com/2022/04/20/building-a-new-creative-writing-habit/):
 

@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>Synology + Docker + VSCode - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="Synology + Docker + VSCode" />
+    <html>
+      <head>
+        <title>Synology + Docker + VSCode - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="Synology + Docker + VSCode" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2023/01/31/synology-docker-vscode/"
@@ -44,143 +51,235 @@
             content="https://lmorchard.github.io/blog.lmorchard.com/blog.lmorchard.com/2023/01/31/synology-docker-vscode/vscode-ds210j-nas.png"
           />
         <meta property="og:description" content="TL;DR: My new Synology NAS supports Docker and I can connect to it with VSCode for tinkering with all my horrible projects!" />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post tag-synologytag-dockertag-vscodetag-tinkeringtag-nas"
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post tag-synologytag-dockertag-vscodetag-tinkeringtag-nas"
       >
-        <time
-          title="2023-01-31T12:00:00+00:00"
-          pubdate="2023-01-31T12:00:00+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2023/"
-            >2023</a
+        <header>
+          <time
+            title="2023-01-31T12:00:00-07:00"
+            pubdate="2023-01-31T12:00:00-07:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2023/01/"
-            >January</a
-          >
-          &raquo;
-          <span>31</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="The Machine is Grieving"
+                href="/blog.lmorchard.com/2023/02/06/the-machine-is-grieving/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2023/"
+                >2023</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2023/01/"
+                >January</a
+              >
+              &#8226;
+              <span>31</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Begging for Treats"
+                href="/blog.lmorchard.com/2023/01/16/begging-for-treats/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">Synology + Docker + VSCode</h1>
+          <ul class="tags">
+              <li><a href="/blog.lmorchard.com/tag/synology/">synology</a></li><li><a href="/blog.lmorchard.com/tag/docker/">docker</a></li><li><a href="/blog.lmorchard.com/tag/vscode/">vscode</a></li><li><a href="/blog.lmorchard.com/tag/tinkering/">tinkering</a></li><li><a href="/blog.lmorchard.com/tag/nas/">nas</a></li>
+            </ul>
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2023/02/06/the-machine-is-grieving/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2023/01/16/begging-for-treats/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">Synology + Docker + VSCode</h1>
-        <ul class="tags">
-            <li>
-                  <a href="/blog.lmorchard.com/tag/synology/">synology</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/docker/">docker</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/vscode/">vscode</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/tinkering/">tinkering</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/nas/">nas</a>
-                </li>
-          </ul>
-        <section class="post-content">
-          <p><strong>TL;DR</strong>: My new Synology NAS supports Docker and I can connect to it with VSCode for tinkering with all my horrible projects!</p>
+        <p><strong>TL;DR</strong>: My new Synology NAS supports Docker and I can connect to it with VSCode for tinkering with all my horrible projects!</p>
 <!--more-->
 
-<p>Over the past couple of decades, I&#39;ve had a Linux box kicking around on a basement shelf. It&#39;s a Ship of Theseus, composed of parts filtering out of my gaming PC after upgrades. This box tends to host my random experiments and learning projects - and it also tends to be broken in some way or another. That&#39;s fun for tinkering, but frustrating for things I want to stay working in between bouts of tinkering.</p>
-<img src="./vscode-ds210j-nas.png" alt="Synology DS210j" class="inset left" />
 
-<p>Enter my discovery of low-end Synology NAS devices: They&#39;re tidy little things, like the size of two Nintendo Wii taped together.</p>
-<p>My first was a <a href="https://global.download.synology.com/download/Document/Hardware/DataSheet/DiskStation/10-year/DS210j/enu/Synology_DS210j_Data_Sheet_enu.pdf">DS210j</a> in 2010, followed by a <a href="https://global.download.synology.com/download/Document/Hardware/DataSheet/DiskStation/14-year/DS214play/enu/Synology_DS214play_Data_Sheet_enu.pdf">DS214play</a> in 2015. They reliably take on the boring jobs that I&#39;ve gotten tired of maintaining on my perpetually janky hobby server.</p>
-<img src="./vscode-ds723-plus.png" alt="Synology DS723+" class="inset right" />
 
-<p>And then, just this week, I acquired a <a href="https://global.download.synology.com/download/Document/Hardware/DataSheet/DiskStation/23-year/DS723%2B/enu/Synology_DS723%2B_Data_Sheet_enu.pdf">DS723+</a> . This one is quite an upgrade: My first NAS had 128MB of RAM and the second sported 2GB. This latest one has been upgraded with a whole 32GB. Along with that, I&#39;ve slapped in a pair of  <a href="https://www.newegg.com/seagate-ironwolf-st10000vn000-10tb/p/N82E16822184973?Item=N82E16822184973">10TB IronWolf hard drives</a> in a RAID1 configuration.</p>
+<p>Over the past couple of decades, I've had a Linux box kicking around on a basement shelf. It's a Ship of Theseus, composed of parts filtering out of my gaming PC after upgrades. This box tends to host my random experiments and learning projects - and it also tends to be broken in some way or another. That's fun for tinkering, but frustrating for things I want to stay working in between bouts of tinkering.</p>
+<img src="./vscode-ds210j-nas.png" alt="Synology DS210j" class="inset left" width="" height="">
+
+<p>Enter my discovery of low-end Synology NAS devices: They're tidy little things, like the size of two Nintendo Wii taped together.</p>
+<p>My first was a <a href="https://global.download.synology.com/download/Document/Hardware/DataSheet/DiskStation/10-year/DS210j/enu/Synology_DS210j_Data_Sheet_enu.pdf">DS210j</a> in 2010, followed by a <a href="https://global.download.synology.com/download/Document/Hardware/DataSheet/DiskStation/14-year/DS214play/enu/Synology_DS214play_Data_Sheet_enu.pdf">DS214play</a> in 2015. They reliably take on the boring jobs that I've gotten tired of maintaining on my perpetually janky hobby server.</p>
+<img src="./vscode-ds723-plus.png" alt="Synology DS723+" class="inset right" width="" height="">
+
+<p>And then, just this week, I acquired a <a href="https://global.download.synology.com/download/Document/Hardware/DataSheet/DiskStation/23-year/DS723%2B/enu/Synology_DS723%2B_Data_Sheet_enu.pdf">DS723+</a> . This one is quite an upgrade: My first NAS had 128MB of RAM and the second sported 2GB. This latest one has been upgraded with a whole 32GB. Along with that, I've slapped in a pair of  <a href="https://www.newegg.com/seagate-ironwolf-st10000vn000-10tb/p/N82E16822184973?Item=N82E16822184973">10TB IronWolf hard drives</a> in a RAID1 configuration.</p>
 <p>Beyond backups and media storage, why bother with all that for just a NAS? Well, this one supports Docker. And, as it turns out, a great many of my tinkering projects fit nicely into Docker containers.</p>
 <p>So, in other words, it appears that this latest NAS can even take on the boring job of hosting <em>many</em> janky little hobby servers - virtually! This, while continuing to reliably do everything else a Synology NAS does. </p>
-<p><img src="./vscode-docker-web-ui-3.png" alt=""></p>
-<p>With Docker containers, I don&#39;t have to try crapping up the Synology host OS with attempts at installing assorted programming languages and tools (ahem, <a href="https://en.wikipedia.org/wiki/Optware">optware</a>). </p>
+<p><img src="./vscode-docker-web-ui-3.png" alt="" width="" height=""></p>
+<p>With Docker containers, I don't have to try crapping up the Synology host OS with attempts at installing assorted programming languages and tools (ahem, <a href="https://en.wikipedia.org/wiki/Optware">optware</a>). </p>
 <p>I have a long history of ill-advised attempts to turn a NAS into a dev machine, going all the way back to the <a href="https://en.wikipedia.org/wiki/NSLU2">Linksys NSLU2</a>, circa 2004. But, if I crap up a Docker container, I can toss it and rebuild without disturbing, say, <a href="https://www.silicondust.com/dvr-service/">the DVR</a> for my TV antenna or <a href="https://tt-rss.org/">the self-hosted RSS reader</a> we use at home.</p>
-<p><img src="./vscode-devel-container.png" alt=""></p>
+<p><img src="./vscode-devel-container.png" alt="" width="" height=""></p>
 <p>The web UI even has a cute little in-browser terminal for access to the container:</p>
-<p><img src="./vscode-docker-terminal.png" alt=""></p>
-<p>Of course, I&#39;ll likely find limits to this. I can imagine there&#39;ll be some tinkery projects I don&#39;t want moshing around on the thing that lets us watch Seinfeld reruns after dinner. I&#39;ll still have my Ship of Theseus on hand for that stuff. But, that still leaves a great many things I can just toss onto the Synology for fun.</p>
+<p><img src="./vscode-docker-terminal.png" alt="" width="" height=""></p>
+<p>Of course, I'll likely find limits to this. I can imagine there'll be some tinkery projects I don't want moshing around on the thing that lets us watch Seinfeld reruns after dinner. I'll still have my Ship of Theseus on hand for that stuff. But, that still leaves a great many things I can just toss onto the Synology for fun.</p>
 <p>And speaking of my network, I just discovered how to <a href="https://code.visualstudio.com/docs/containers/ssh">connect VSCode via SSH to a Docker container on a remote host</a> - i.e. my shiny new Synology DS723+ server. This makes for a kind of fiddly self-hosted alternative to <a href="https://github.com/features/codespaces">GitHub Codespaces</a> in my basement.</p>
-<p>Key to this are <a href="https://docs.docker.com/engine/context/working-with-contexts/">Docker contexts</a> - they&#39;ve been around for a few years, and I&#39;ve likely been using tools that use them, but I hadn&#39;t really learned about them until this week. Long story short, I can switch <code>docker</code> on my Mac laptop over to managing Docker on my NAS like so:</p>
-<pre><code>docker context create castiel --docker &quot;host=ssh://lmorchard@castiel&quot;
+<p>Key to this are <a href="https://docs.docker.com/engine/context/working-with-contexts/">Docker contexts</a> - they've been around for a few years, and I've likely been using tools that use them, but I hadn't really learned about them until this week. Long story short, I can switch <code>docker</code> on my Mac laptop over to managing Docker on my NAS like so:</p>
+<pre><code>docker context create castiel --docker "host=ssh://lmorchard@castiel"
 docker context use castiel
 docker ps
 </code></pre>
-<p>(Yes, I named my new server &quot;<a href="https://supernatural.fandom.com/wiki/Castiel">Castiel</a>&quot; after <a href="https://supernatural.fandom.com/wiki/Castiel">the angel from Supernatural</a>. Watching over our files, he&#39;d probably think we&#39;ve hoarded too many episodes of Frasier and Star Trek.)</p>
-<img src="./castiel.gif" />
+<p>(Yes, I named my new server "<a href="https://supernatural.fandom.com/wiki/Castiel">Castiel</a>" after <a href="https://supernatural.fandom.com/wiki/Castiel">the angel from Supernatural</a>. Watching over our files, he'd probably think we've hoarded too many episodes of Frasier and Star Trek.)</p>
+<img src="./castiel.gif" width="" height="">
 
-<p>Anyway, once I have a new working Docker context defined, I can access it from VSCode for tinkering. First thing is to select the Docker context. On my Mac, that means hitting Command-Shift-P and typing &quot;<code>dockeru</code>&quot; until the <code>Docker Contexts: Use</code> command appears:</p>
-<p><img src="./vscode-docker-contexts-use-1.png" alt=""></p>
+<p>Anyway, once I have a new working Docker context defined, I can access it from VSCode for tinkering. First thing is to select the Docker context. On my Mac, that means hitting Command-Shift-P and typing "<code>dockeru</code>" until the <code>Docker Contexts: Use</code> command appears:</p>
+<p><img src="./vscode-docker-contexts-use-1.png" alt="" width="" height=""></p>
 <p>Selecting that gives me a selection of contexts, which includes <code>castiel</code>:</p>
-<p><img src="./vscode-docker-context-select.png" alt=""></p>
+<p><img src="./vscode-docker-context-select.png" alt="" width="" height=""></p>
 <p>I pick that, and VSCode confirms the selection:</p>
-<p><img src="./vscode-docker-context-selected.png" alt="">
-Now, when I click on Remote Explorer in the sidebar here, all the running containers on my Synology soon appear. From here, I can click on the &quot;Attach to Container&quot; button:</p>
-<p><img src="./vscode-docker-containers-3.png" alt=""></p>
+<p><img src="./vscode-docker-context-selected.png" alt="" width="" height="">
+Now, when I click on Remote Explorer in the sidebar here, all the running containers on my Synology soon appear. From here, I can click on the "Attach to Container" button:</p>
+<p><img src="./vscode-docker-containers-3.png" alt="" width="" height=""></p>
 <p>Once attached, I can add a folder from the container and start tinkering away on this very blog post!</p>
-<p><img src="./vscode-editing-blog.png" alt=""></p>
+<p><img src="./vscode-editing-blog.png" alt="" width="" height=""></p>
 <p>Oh yeah, and since this is Docker, I can mount a path from the host NAS as storage for all my project code outside of the disposable container:</p>
-<p><img src="./vscode-file-station.png" alt=""></p>
-<p>I know there can be some problems with this, I think largely around file watchers and suchlike. But, I&#39;ll burn those bridges when I get to them. For now, this seems like a fun new toy to play with and it&#39;s off-loaded a few more little jobs from my junker PC. </p>
-<p>Maybe next I can reformat the hobby server and try some more advanced things like <a href="https://www.proxmox.com/en/">Proxmox</a> and friends, so it&#39;ll be like a big sibling to the little Synology.</p>
+<p><img src="./vscode-file-station.png" alt="" width="" height=""></p>
+<p>I know there can be some problems with this, I think largely around file watchers and suchlike. But, I'll burn those bridges when I get to them. For now, this seems like a fun new toy to play with and it's off-loaded a few more little jobs from my junker PC. </p>
+<p>Maybe next I can reformat the hobby server and try some more advanced things like <a href="https://www.proxmox.com/en/">Proxmox</a> and friends, so it'll be like a big sibling to the little Synology.</p>
 
-        </section>
+        <section class="comments" id="comments">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+              var disqus_needs_loading = true;
+              var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com/2023/01/31/synology-docker-vscode/";
+            </script>
+            <noscript
+              >Please enable JavaScript to view the
+              <a href="http://disqus.com/?ref_noscript"
+                >comments powered by Disqus.</a
+              ></noscript
+            >
+            <a href="http://disqus.com" class="dsq-brlink"
+              >blog comments powered by
+              <span class="logo-disqus">Disqus</span></a
+            >
+          </section>
       </article>
 
-      <section class="comments" id="comments">
-          <div id="disqus_thread"></div>
-          <script type="text/javascript">
-            var disqus_needs_loading = true;
-            var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com/2023/01/31/synology-docker-vscode/";
-          </script>
-          <noscript
-            >Please enable JavaScript to view the
-            <a href="http://disqus.com/?ref_noscript"
-              >comments powered by Disqus.</a
-            ></noscript
-          >
-          <a href="http://disqus.com" class="dsq-brlink"
-            >blog comments powered by <span class="logo-disqus">Disqus</span></a
-          >
-        </section>
-        </section>
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2023/02/06/the-machine-is-grieving/"
+                >The Machine is Grieving</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2023/01/16/begging-for-treats/"
+                >Begging for Treats</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
 
-        <footer>
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

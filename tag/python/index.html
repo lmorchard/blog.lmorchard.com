@@ -1,242 +1,540 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>python - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>python - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/tag/python/index.rss"
+          rel="alternate"
+          title="Tag: python - blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/tag/python.rss"
+                rel="alternate"
+                title="Tag: python - blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/tag/python/index.rss" title="Tag: python - blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Tag: python</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post tag-CamelCase tag-dev tag-javascript tag-python tag-snake_case tag-webdev"
-          >
-            <time class="date" datetime="2013-01-23T12:00:00+00:00">
-              2013
-              January
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2013/01/23/naming-conventions/">
-              <span class="infoContainer">
-                <span class="title">Naming Things: CamelCase vs snake_case</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post has-thumb tag-badger tag-social tag-python tag-mozilla tag-django"
-          >
-            <time class="date" datetime="2011-07-18T15:03:13+00:00">
-              2011
-              July
-              18
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2011/07/18/badger2/">
-              <span class="infoContainer">
-                <span class="title">Badger 2: Return of the Mustelidae</span>
-              </span>
-            </a>
-            <img class="thumb" src="https://decafbad.com/blog/images/badger-logo-working.png" />
-          </li><li
-            class="post has-thumb tag-webdev tag-firefox tag-google tag-python tag-entries tag-mozilla tag-sync tag-appengine"
-          >
-            <time class="date" datetime="2010-07-05T23:00:56+00:00">
-              2010
-              July
-              05
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2010/07/05/firefox-sync-server-on-google-app-engine/">
-              <span class="infoContainer">
-                <span class="title">Firefox Sync server on Google App Engine</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://mozcom-cdn.mozilla.net/img/firefox/sync/sync-background.png" />
-          </li><li
-            class="post tag-webdev tag-php tag-zend tag-symfony tag-frameworks tag-django tag-python tag-curmudgeons"
-          >
-            <time class="date" datetime="2007-07-09T20:21:41+00:00">
-              2007
-              July
-              09
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2007/07/09/a-curmudgeon-playing-with-the-zend-framework/">
-              <span class="infoContainer">
-                <span class="title">A Curmudgeon Playing with the Zend Framework</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-wordpress tag-webdev tag-syndication tag-python tag-programming tag-perl tag-templating tag-smarty tag-dtml tag-cheetah tag-reblog tag-evil"
-          >
-            <time class="date" datetime="2006-01-08T01:33:47+00:00">
-              2006
-              January
-              08
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/01/08/smarty-is-on-my-evil-list/">
-              <span class="infoContainer">
-                <span class="title">Smarty is on my evil list</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-webdev tag-python tag-ruby tag-perl"
-          >
-            <time class="date" datetime="2005-12-19T03:50:25+00:00">
-              2005
-              December
-              19
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/12/19/not-so-deep-php-thoughts/">
-              <span class="infoContainer">
-                <span class="title">Not-so-deep PHP thoughts</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-python tag-xbox tag-xbmc tag-lazyweb"
-          >
-            <time class="date" datetime="2005-10-25T16:28:01+00:00">
-              2005
-              October
-              25
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/10/25/ipython-as-networked-command-shell-on-xbmc/">
-              <span class="infoContainer">
-                <span class="title">IPython as networked command shell on XBMC?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-projects tag-python tag-decafbad tag-trac"
-          >
-            <time class="date" datetime="2005-09-30T16:11:09+00:00">
-              2005
-              September
-              30
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/09/30/trac-rocks-like-a-really-rocking-thing/">
-              <span class="infoContainer">
-                <span class="title">Trac rocks like a really rocking thing</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-xml tag-python"
-          >
-            <time class="date" datetime="2004-12-03T01:15:52+00:00">
-              2004
-              December
-              03
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/12/03/crossbreedingxsltzpt/">
-              <span class="infoContainer">
-                <span class="title">Cross-breeding XSLT and ZPT</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-syndication tag-python"
-          >
-            <time class="date" datetime="2004-08-05T23:53:34+00:00">
-              2004
-              August
-              05
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/08/05/dbagg3cvs/">
-              <span class="infoContainer">
-                <span class="title">dbagg3 code in CVS</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post has-thumb tag-syndication tag-python"
-          >
-            <time class="date" datetime="2004-08-05T13:04:56+00:00">
-              2004
-              August
-              05
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/08/05/introducing-dbagg3-an-atom-powered-clientserver-aggregator/">
-              <span class="infoContainer">
-                <span class="title">Introducing dbagg3, an Atom-powered client/server aggregator</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://www.decafbad.com/2004/08/dbagg3-demo/dbagg3-phase1.jpg" />
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Tag: python</h2>
+        </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2013 January 23</h2>
+  </li><li class="content-grid post post-type-entry tag-CamelCase tag-dev tag-javascript tag-python tag-snake_case tag-webdev">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2013/01/23/naming-conventions/">Naming Things: CamelCase vs snake_case</a>
+      </h2>
+    
+    <p class="summary">
+      I’ve contributed code to a number of projects, often as a drive-by bug fix in a GitHub pull request. And, usually, I’ll try to do as the Romans do and follow the local naming and coding conventions. But, sometimes, I’ll fall back to my personal conventions and get dinged in the code review.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2013/01/23/naming-conventions/"
+          >561&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2013/01/23/naming-conventions/">#</a>
+    <a class="time" href="2013/01/23/naming-conventions/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/CamelCase/">CamelCase</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/dev/">dev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/javascript/">javascript</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/python/">python</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/snake_case/">snake_case</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
           </li>
     </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2011 July 18</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-badger tag-social tag-python tag-mozilla tag-django">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2011/07/18/badger2/">Badger 2: Return of the Mustelidae</a>
+      </h2>
+    <div class="thumb">
+      <img src="https://decafbad.com/blog/images/badger-logo-working.png" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2011/07/18/badger2/"
+          >1443&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2011/07/18/badger2/">#</a>
+    <a class="time" href="2011/07/18/badger2/">3:03 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/badger/">badger</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/social/">social</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/python/">python</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/django/">django</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2010 July 05</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-webdev tag-firefox tag-google tag-python tag-entries tag-mozilla tag-sync tag-appengine">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2010/07/05/firefox-sync-server-on-google-app-engine/">Firefox Sync server on Google App Engine</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://mozcom-cdn.mozilla.net/img/firefox/sync/sync-background.png" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2010/07/05/firefox-sync-server-on-google-app-engine/"
+          >947&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2010/07/05/firefox-sync-server-on-google-app-engine/">#</a>
+    <a class="time" href="2010/07/05/firefox-sync-server-on-google-app-engine/">7:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/firefox/">firefox</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/google/">google</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/python/">python</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/sync/">sync</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/appengine/">appengine</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2007 July 09</h2>
+  </li><li class="content-grid post post-type-entry tag-webdev tag-php tag-zend tag-symfony tag-frameworks tag-django tag-python tag-curmudgeons">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2007/07/09/a-curmudgeon-playing-with-the-zend-framework/">A Curmudgeon Playing with the Zend Framework</a>
+      </h2>
     
-  </section>
-      </section>
-        </section>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2007/07/09/a-curmudgeon-playing-with-the-zend-framework/"
+          >617&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2007/07/09/a-curmudgeon-playing-with-the-zend-framework/">#</a>
+    <a class="time" href="2007/07/09/a-curmudgeon-playing-with-the-zend-framework/">4:21 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/php/">php</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/zend/">zend</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/symfony/">symfony</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/frameworks/">frameworks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/django/">django</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/python/">python</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/curmudgeons/">curmudgeons</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 January 07</h2>
+  </li><li class="content-grid post post-type-entry tag-wordpress tag-webdev tag-syndication tag-python tag-programming tag-perl tag-templating tag-smarty tag-dtml tag-cheetah tag-reblog tag-evil">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/01/07/smarty-is-on-my-evil-list/">Smarty is on my evil list</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/01/07/smarty-is-on-my-evil-list/"
+          >1899&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/01/07/smarty-is-on-my-evil-list/">#</a>
+    <a class="time" href="2006/01/07/smarty-is-on-my-evil-list/">8:33 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/wordpress/">wordpress</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/python/">python</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/programming/">programming</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/perl/">perl</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/templating/">templating</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/smarty/">smarty</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/dtml/">dtml</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/cheetah/">cheetah</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/reblog/">reblog</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/evil/">evil</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 December 18</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-webdev tag-python tag-ruby tag-perl">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/12/18/not-so-deep-php-thoughts/">Not-so-deep PHP thoughts</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/12/18/not-so-deep-php-thoughts/"
+          >353&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/12/18/not-so-deep-php-thoughts/">#</a>
+    <a class="time" href="2005/12/18/not-so-deep-php-thoughts/">10:50 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/python/">python</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ruby/">ruby</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/perl/">perl</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 October 25</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-python tag-xbox tag-xbmc tag-lazyweb">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/10/25/ipython-as-networked-command-shell-on-xbmc/">IPython as networked command shell on XBMC?</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/10/25/ipython-as-networked-command-shell-on-xbmc/"
+          >529&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/10/25/ipython-as-networked-command-shell-on-xbmc/">#</a>
+    <a class="time" href="2005/10/25/ipython-as-networked-command-shell-on-xbmc/">12:28 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/python/">python</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xbox/">xbox</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xbmc/">xbmc</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/lazyweb/">lazyweb</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 September 30</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-projects tag-python tag-decafbad tag-trac">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/09/30/trac-rocks-like-a-really-rocking-thing/">Trac rocks like a really rocking thing</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/09/30/trac-rocks-like-a-really-rocking-thing/"
+          >425&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/09/30/trac-rocks-like-a-really-rocking-thing/">#</a>
+    <a class="time" href="2005/09/30/trac-rocks-like-a-really-rocking-thing/">12:11 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/projects/">projects</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/python/">python</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/decafbad/">decafbad</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/trac/">trac</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2004 December 02</h2>
+  </li><li class="content-grid post post-type-entry tag-xml tag-python">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/12/02/crossbreedingxsltzpt/">Cross-breeding XSLT and ZPT</a>
+      </h2>
+    
+    <p class="summary">
+      I've recently been doing some side work involving Zope and, along with the rest of the suite of technologies it offers, I've been happy to be working with Zope Page Templates again.  I dabbled with them a bit when they first came out, and a Zope-free implementation named SimpleTAL was one of the core components of the iteration of my news aggregator which came before FeedReactor.
+Out of all the templating and content generation approaches I've used, Zope Page Templates are my favorite yet.  Pretty expressive, yet unobtrusive; nicely powerful, yet not quite something with which you'd want to write an entire application (and that's a feature, not a bug).  
+I've yet to be in a work-a-day team that uses ZPT-- but I can see where a lot of production, delegation, and integration issues would have gone much smoother had I used ZPT instead of Template Toolkit for the web app framework I created at a previous company.  (Though I do have to say TT2 is very nicely done!)  And where I am now, I spend most of my days trying to pummel ASP 3.0 pages into some semblance of logic/presentation separation-- I would certainly dive at the chance to dump VBScript and <% cruft %> for a bit of Python and ZPT.  (But, you know, it's a living.)
+A close second favorite is XSLT.  I've really been hot on it lately, having worked it into the core of FeedReactor in place of SimpleTAL.  And in other hacks, I've really come to appreciate it's role as a filter segment in pipelines between REST web services and URL-as-command-line invocations.
+Granted, both ZPT and XSLT very different technologies, but they are often used in similar contexts.  More than once, I've wished that XSLT was as simple as ZPT (i.e. less verbose and intrusive, more document centered), and I've wished that ZPT had some of the features of XSLT (i.e. ability to be used as a transforming filter).
+Reading Ryan Tomayko's description of Kid got me thinking, and googling.  One thing I turned up from a mailing list archive asked about an “XSL implementation of TAL?”  It struck me as a tad nutty at first, but then I started having inklings that just maybe it could be done.  (Whether it should be done, well...)  But the kernel of the idea grabbed me: Instead of using TALES path expressions to look up values in Pythonic space, why not use XPath expressions to look up values from a supplied XML document?
+This strikes me as such an obvious idea that someone has to already have done it and possibly rejected it for good reason.  On the other hand, maybe this is the sort of thing Ryan's thinking about-- I wonder how hard it would be to hack this into Kid?  It would give only a subset of XSLT's capabilities in trade for simplicity, and would only offer the “pull” approach, but it would give XML-pipelining to a ZPT-ish technology.
+I think this is something I want to look into a bit further at some point.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/12/02/crossbreedingxsltzpt/"
+          >1167&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/12/02/crossbreedingxsltzpt/">#</a>
+    <a class="time" href="2004/12/02/crossbreedingxsltzpt/">8:15 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/xml/">xml</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/python/">python</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2004 August 05</h2>
+  </li><li class="content-grid post post-type-entry tag-syndication tag-python">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/08/05/dbagg3cvs/">dbagg3 code in CVS</a>
+      </h2>
+    
+    <p class="summary">
+      I've just dumped what code I have into my CVS repository.  So, go ahead and poke fun at it:
 
-        <footer>
+http://www.decafbad.com/cvs/dbagg3/
+
+Or, fetch it from CVS:
+$ cvs -d:pserver:anoncvs@www.decafbad.com:/cvsroot login
+(Logging in to anoncvs@www.decafbad.com)
+CVS password: anoncvs
+$ cvs -d:pserver:anoncvs@www.decafbad.com:/cvsroot co dbagg3
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/08/05/dbagg3cvs/"
+          >42&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/08/05/dbagg3cvs/">#</a>
+    <a class="time" href="2004/08/05/dbagg3cvs/">7:53 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/python/">python</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry has-thumb tag-syndication tag-python">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/08/05/introducing-dbagg3-an-atom-powered-clientserver-aggregator/">Introducing dbagg3, an Atom-powered client/server aggregator</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://www.decafbad.com/2004/08/dbagg3-demo/dbagg3-phase1.jpg" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/08/05/introducing-dbagg3-an-atom-powered-clientserver-aggregator/"
+          >893&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/08/05/introducing-dbagg3-an-atom-powered-clientserver-aggregator/">#</a>
+    <a class="time" href="2004/08/05/introducing-dbagg3-an-atom-powered-clientserver-aggregator/">9:04 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/python/">python</a>
+          </li>
+    </ul>
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/tag/python/index.rss" title="Tag: python - blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

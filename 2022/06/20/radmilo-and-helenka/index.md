@@ -10,7 +10,7 @@ tags:
 
 <!--more-->
 
-<img src="./cover.png" class="fullwidth" />
+<figure class="wide"><img src="./cover.png" /></figure>
 
 Wherever Radmilo went, it would be clean by the time he left. His acolytes would go ahead of him, washing and scrubbing in preparation for his arrival. It was never enough. There was always work for his presence to do when he entered a room.
 

@@ -1,557 +1,1030 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>2003/01 - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>2003/01 - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Month: 2003/01</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post "
-          >
-            <time class="date" datetime="2003-01-31T19:50:51+00:00">
-              2003
-              January
-              31
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/01/31/ooodoe/">
-              <span class="infoContainer">
-                <span class="title">An end to my referrer abuse</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-01-30T18:03:59+00:00">
-              2003
-              January
-              30
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/01/30/ooodod/">
-              <span class="infoContainer">
-                <span class="title">INN + blagg + plugin = News Aggregation via NNTP</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-01-28T07:07:53+00:00">
-              2003
-              January
-              28
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/01/28/ooodoc/">
-              <span class="infoContainer">
-                <span class="title">How to make a multi-platform monster</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-01-25T21:29:49+00:00">
-              2003
-              January
-              25
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/01/25/ooodob/">
-              <span class="infoContainer">
-                <span class="title">Etiquette with friends &amp; relationships in FOAF?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-01-25T18:35:22+00:00">
-              2003
-              January
-              25
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/01/25/ooodoa/">
-              <span class="infoContainer">
-                <span class="title">Yes, Virginia, there is a Log4Perl.</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-01-24T09:11:43+00:00">
-              2003
-              January
-              24
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/01/24/ooodoo/">
-              <span class="infoContainer">
-                <span class="title">Dive into Premium!</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-01-24T07:42:25+00:00">
-              2003
-              January
-              24
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/01/24/ooocii/">
-              <span class="infoContainer">
-                <span class="title">Super-lazy link blogging &amp; in-bookmarks RSS aggregation via AppleScript?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-01-24T07:12:39+00:00">
-              2003
-              January
-              24
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/01/24/ooocih/">
-              <span class="infoContainer">
-                <span class="title">BeanShell rocks - and, oh yeah, a personal proxy in Java</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-01-24T03:40:23+00:00">
-              2003
-              January
-              24
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/01/24/ooocig/">
-              <span class="infoContainer">
-                <span class="title">AppleScript and application services in the closet</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-01-23T23:49:41+00:00">
-              2003
-              January
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/01/23/ooocif/">
-              <span class="infoContainer">
-                <span class="title">Vellum and coffee rings</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-01-23T23:44:07+00:00">
-              2003
-              January
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/01/23/ooocie/">
-              <span class="infoContainer">
-                <span class="title">Looking for variable row height in your NSOutlineViews and NSTableViews?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-01-22T17:44:02+00:00">
-              2003
-              January
-              22
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/01/22/ooocid/">
-              <span class="infoContainer">
-                <span class="title">Python is for superheroes</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-01-21T18:03:09+00:00">
-              2003
-              January
-              21
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/01/21/ooocic/">
-              <span class="infoContainer">
-                <span class="title">Why Moblog?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-01-21T17:23:01+00:00">
-              2003
-              January
-              21
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/01/21/ooocib/">
-              <span class="infoContainer">
-                <span class="title">RSS as a more generalized message queue for people</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-01-21T16:13:46+00:00">
-              2003
-              January
-              21
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/01/21/ooocia/">
-              <span class="infoContainer">
-                <span class="title">You had 1200 baud?  Sheer luxury!</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-01-20T21:37:18+00:00">
-              2003
-              January
-              20
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/01/20/ooocio/">
-              <span class="infoContainer">
-                <span class="title">Automated openness versus the script kiddies</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-01-20T00:34:57+00:00">
-              2003
-              January
-              20
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/01/20/ooochi/">
-              <span class="infoContainer">
-                <span class="title">On OS X, searches are a mere finger twitch away</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-01-20T00:29:18+00:00">
-              2003
-              January
-              20
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/01/20/ooochh/">
-              <span class="infoContainer">
-                <span class="title">Russell Beattie is a sneaky, mobile guy.</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-01-20T00:03:13+00:00">
-              2003
-              January
-              20
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/01/20/ooochg/">
-              <span class="infoContainer">
-                <span class="title">I second that sacrilege</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-01-18T09:10:51+00:00">
-              2003
-              January
-              18
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/01/18/oooche/">
-              <span class="infoContainer">
-                <span class="title">Safari: Good riddance to tabs, if there&#39;s something better</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-01-18T08:22:06+00:00">
-              2003
-              January
-              18
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/01/18/ooochd/">
-              <span class="infoContainer">
-                <span class="title">Kung-Log back with a Cocoanized Vengance</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-01-16T22:22:29+00:00">
-              2003
-              January
-              16
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/01/16/ooochc/">
-              <span class="infoContainer">
-                <span class="title">Folder Actions + AppleScript = Desktop Blogging.  Literally.</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-01-16T22:10:30+00:00">
-              2003
-              January
-              16
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/01/16/ooochb/">
-              <span class="infoContainer">
-                <span class="title">OmniGraffle + AppleScript = RSS news reader</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-01-09T20:27:15+00:00">
-              2003
-              January
-              09
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/01/09/ooocgh/">
-              <span class="infoContainer">
-                <span class="title">So, yeah, about that BML thing</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-01-09T20:19:08+00:00">
-              2003
-              January
-              09
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/01/09/ooocgg/">
-              <span class="infoContainer">
-                <span class="title">Yet another post about that proxy thing</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-01-08T09:06:39+00:00">
-              2003
-              January
-              08
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/01/08/ooocgf/">
-              <span class="infoContainer">
-                <span class="title">More code toward the personal web proxy</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-01-08T07:58:59+00:00">
-              2003
-              January
-              08
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/01/08/ooocge/">
-              <span class="infoContainer">
-                <span class="title">About that Apple stuff today</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-01-07T09:24:19+00:00">
-              2003
-              January
-              07
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/01/07/ooocgd/">
-              <span class="infoContainer">
-                <span class="title">Readline support for Python on OS X</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-01-02T08:13:25+00:00">
-              2003
-              January
-              02
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/01/02/ooocgc/">
-              <span class="infoContainer">
-                <span class="title">Python RDF repository wanted for web proxy metadata harvester</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-01-02T06:30:54+00:00">
-              2003
-              January
-              02
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/01/02/ooocgb/">
-              <span class="infoContainer">
-                <span class="title">Stumbling through compiling Standalone ZODB for Mac OS X</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-01-01T21:37:23+00:00">
-              2003
-              January
-              01
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/01/01/ooocga/">
-              <span class="infoContainer">
-                <span class="title">MovableType gets first class treatment for text formatting</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-01-01T06:53:22+00:00">
-              2003
-              January
-              01
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/01/01/ooocgo/">
-              <span class="infoContainer">
-                <span class="title">Sharing my Python proxy experiment</span>
-              </span>
-            </a>
-            
-          </li>
-    </ul>
-    
-  </section>
-      </section>
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Month: 2003/01</h2>
         </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2003 January 31</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/01/31/ooodoe/">An end to my referrer abuse</a>
+      </h2>
+    
+    <p class="summary">
+      Amen. I’ve always found it irritating that news aggregators insert their URL into the referrer field. ... It would be nice if there was some sort of browser header the aggregator could send to identify itself instead of using the referrer field. Oh, that’s right, there is. It’s called User-Agent. 
+The user agent field is designed for browsers, robots, and other user agents to identify themselves to the Web server. You can even add additional information, like a contact URL or email address. I’d like to see aggregators start using it. 
 
-        <footer>
+
+
+
+Source:Kalsey Consulting Group: Referral Abuse.
+
+
+
+
+Hmm, being mostly a standards neophyte, I thought this was a great idea, you know, NeatLikeDigitalWatches.  I thought this was more a semi-clever overloading of the referer, rather than outright abuse.  And this, I thought, was reasonably okay since there wasn't, I thought, anywhere else to stick a backlink to myself while consuming RSS feeds.
+Well, yeah, now that I read some of the complaints against this use of referers, I agree.  And, yes, now that I read the fine RFC, I see that the User-Agent string is more appropriate for this purpose.
+So!  From now on, hits from my copy of AmphetaDesk will leave behind a User-Agent string similar to this:
+"AmphetaDesk/0.93 (darwin; http: //www.disobey.com/amphetadesk/; http: //www.decafbad.com/thanks-for-feeding-me.phtml)"
+I tack my own personal thanks URL onto the end of the list within the parenthesis.  In addition, I no longer send a referrer string when I download RSS feeds.  How did I do it?  Very simply.
+First, I modify my AmphetaDesk/data/mySettings.xml file by hand to supply a blank referer and a new user URL (having some angle-bracket problems, bear with me):
+
+
+[user]
+    ... 
+    [http_referer][/http_referer]
+    [user_url]http://www.decafbad.com/thanks-for-feeding-me.phtml[/user_url]
+    ...
+[/user]
+
+
+
+
+Second, I modified AmphetaDesk/lib/AmphetaDesk/Settings.pm to account for the new setting:...
+   $SETTINGS{user_http_referer}               = "http://www.disobey.com/amphetadesk/";
+   $SETTINGS{user_user_url}                   = "http://www.disobey.com/amphetadesk/";
+   $SETTINGS{user_link_target}                = "_blank";
+...
+Third, I modified the create_ua() subroutine in AmphetaDesk/lib/AmphetaDesk/WWW.pm to actually use the new setting:
+sub create_ua {
+...
+    my $ua = new LWP::UserAgent; $ua->env_proxy();
+    $ua->timeout(get_setting("user_request_timeout"));
+    my ($app_v, $app_u, $app_o, $user_u) = (get_setting("app_version"),
+            get_setting("app_url"), get_setting("app_os"), get_setting("user_user_url"));
+    $ua->agent("AmphetaDesk/$app_v ($app_o; $app_u; $user_u)");
+...
+}
+
+And voila - no more referer abuse.  If you want to discover my thank-you message, examine the User-Agent string.  Seems like this would be a good idea for all news aggregators to pick up.  And if I get ambitious and have spare time today, I'll be sending off a patch to Morbus & friends later today.
+Update: Gagh!  This has been the hardest post to try to format correctly within the fancy schmancy auto-formatting widgets I have piped together.  All apologies for content resembling garbage.  I think I'll use this excuse in the future whenever I write something completely daft.  (Which means I'll be using it a lot, most likely.)
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/01/31/ooodoe/"
+          >1145&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/01/31/ooodoe/">#</a>
+    <a class="time" href="2003/01/31/ooodoe/">2:50 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 January 30</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/01/30/ooodod/">INN + blagg + plugin = News Aggregation via NNTP</a>
+      </h2>
+    
+    <p class="summary">
+      I couldn't resist a bit of tinkering with NNTP, partly to follow up a little bit myself on RSS to/via NNTP, but mostly in fact to re-acquaint myself with the wonderfully arcane configuration of the  majestic beast that is inn . In addition, there's been talk recently of aggregators moving out of the realms of satellite applications and into the browser itself. The Blagg and Blosxom powered Morning Reading page - my personal (but open) news aggregator - is already web-based, so I thought I'd have a look in the other direction. 
+
+Source:DJ's Weblog: Tinkering with RSS and NNTP .
+
+
+
+
+I've been toying around with doing this with inn for quite some time now, so I'm happy to see someone else actually follow through and give it a whirl.  And, using blagg with a plugin to do the posting seems just the right twist of clever.
+Yeah, inn's a beast and meant for Usenet-scale beating, but it's Just There on many Linux installations.  And blagg seems to do a decent job of prying content out of RSS feeds, with just a few regular expression incantations.  DJ didn't have to reinvent an NNTP server, or create a brand new aggregator - just a few tweaks and glue, and two existing apps are joined in a completely new and interestingly complementary way.
+Though one thing he says:  "As I saw it, there are two approaches to newsgroup article creation ... Send items from all weblogs to the same newsgroup ... Send items from each weblog to a separate newsgroup."  First thing I was wondering is:  Why not cross-post the articles and have both?
+And then there're the ideas for experimentation that come first to mind: "... Combining the various weblog trackbacking mechanisms with NNTP article IDs to link  articles together in a thread; replying (to the newsgroup) to an  article might send a comment to the post at the source weblog."
+Kinda retro, kinda nouveau, joining the new distributed RSS net up with the semi-distributed NNTP net.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/01/30/ooodod/"
+          >389&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/01/30/ooodod/">#</a>
+    <a class="time" href="2003/01/30/ooodod/">1:03 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 January 28</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/01/28/ooodoc/">How to make a multi-platform monster</a>
+      </h2>
+    
+    <p class="summary">
+      So I'm thinking that I might prematurely release some code before the week is out, so anyone who's interested can point and laugh at my PersonalWebProxy exploits - this time in Java.
+One thing that disturbs me a bit about this thing so far is that, for what I have in mind, I'll have built a mini-OS when all is said and done.  It'll have a web server, a web proxy, telnet-able shell, scripting languages, scheduler, full text search and index engine, persistence & metadata storage, and whatever else I can eventually think to toss in.  There are just so many nice toys for Java, and most are a snap to glue together.  But, I can't really use any of the toys that come with the OS itself.
+It's something I've rambled on about before, as has Jon Udell in his old Byte column: Zope Lessons Learned.  If this thing is to run on more than one platform, it can't rely on the facilities of any particular platform.  So, all these lovely things I like OS X for are somewhat off limits.
+On the other hand, if I get tired of doing this thing in Java, I could always just finally embrace the platform and go straight for Cocoa.  :)  Yes, that would make for 3 environments tried, but hey - it's still fun for me!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/01/28/ooodoc/"
+          >435&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/01/28/ooodoc/">#</a>
+    <a class="time" href="2003/01/28/ooodoc/">2:07 am</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 January 25</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/01/25/ooodob/">Etiquette with friends &amp; relationships in FOAF?</a>
+      </h2>
+    
+    <p class="summary">
+      interestingly, it seems that besides myself there are a goodly number of people wondering about the etiquette surrounding foaf friend declaration. while it's mostly a social and not technical problem, it's precisely the sort of thing that will keep foaf from reaching any kind of critical mass. 
+
+Source:snowdeal.org, ex machina.
+
+
+
+
+I've wondered a bit about this, too.  If I've heard of you, can I list you as a friend?  If I've emailed you once or twice?  How about if I've dated your sister?
+However, Eric Vitiello Jr. has an interesting schema for further specifying relationships in FOAF.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/01/25/ooodob/"
+          >283&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/01/25/ooodob/">#</a>
+    <a class="time" href="2003/01/25/ooodob/">4:29 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/01/25/ooodoa/">Yes, Virginia, there is a Log4Perl.</a>
+      </h2>
+    
+    <p class="summary">
+      Log::Log4perl is different. It is a pure Perl port of the widely popular Apache/Jakarta log4j library for Java, a project made public in 1999, which has been actively supported and enhanced by a team around head honcho Ceki Gülcü during the years. 
+The comforting facts about log4j are that it's really well thought out, it's the alternative logging standard for Java and it's been in use for years with numerous projects. If you don't like Java, then don't worry, you're not alone -- the Log::Log4perl authors (yours truly among them) are all Perl hardliners who made sure Log::Log4perl is real Perl. 
+
+Source:perl.com: Retire your debugger, log smartly with Log::Log4perl! .
+
+
+
+
+Wow, I hadn't noticed this before.  We've been looking for a Log4J-workalike in for our perl-based web apps at work, and thought CPAN:Log::Agent was where it's at - and it still may be - but CPAN:Log::Log4Perl looks very keen now.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/01/25/ooodoa/"
+          >297&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/01/25/ooodoa/">#</a>
+    <a class="time" href="2003/01/25/ooodoa/">1:35 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 January 24</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/01/24/ooodoo/">Dive into Premium!</a>
+      </h2>
+    
+    <p class="summary">
+      A new and better way to experience the "Dive Into" empire!  For only a few cents a day, you get fast, uncluttered access to your favorite "Dive Into" sites, with premium features available only to subscribers. 
+
+Source:Dive Into Premium .
+
+
+
+
+Finally!  All of those pop-ups, pop-unders, DoubleClick cookies, and epilepsy-inducing banners were really getting to me.  And if Mark Pilgrim can do for full frontal nudity what he did for web accessibility, I'm sure we're seeing the start of something big here.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/01/24/ooodoo/"
+          >176&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/01/24/ooodoo/">#</a>
+    <a class="time" href="2003/01/24/ooodoo/">4:11 am</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/01/24/ooocii/">Super-lazy link blogging &amp; in-bookmarks RSS aggregation via AppleScript?</a>
+      </h2>
+    
+    <p class="summary">
+      And one more post for the night:  I wish Safari gave AppleScript access to read and manipulate bookmarks.  If it does, I can't find it.  I've been playing around with AppleScript folder actions, Matt Webb's link blogging folder hack, and BlogScript.  I've been thinking, for good or bad, I'd like to do more link blogging.  Well, in Safari, I've created a toolbar bookmark folder called "READ/BLOG QUEUE" into which I drop links for later reading and/or blogging.
+So...  If I could get at that bookmark folder via AppleScript, I could schedule and generate a templated blog entry for auto-posting every night, listing just the links I've left in that bookmark folder, and clear it out when it's all done.  I could do the same thing with just a Folder Action enabled desktop folder, but it's just so much more convenient to drop things on the toolbar.
+And then, there's the other wild idea I'd use scriptable bookmarks for:  RSS aggregation.  Imagine bookmark folders dynamically generated and updated from RSS feeds.  Maybe even one big bookmark folder with RSS items aggregated from many feeds.  This seems somewhat appealing to me.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/01/24/ooocii/"
+          >230&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/01/24/ooocii/">#</a>
+    <a class="time" href="2003/01/24/ooocii/">2:42 am</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/01/24/ooocih/">BeanShell rocks - and, oh yeah, a personal proxy in Java</a>
+      </h2>
+    
+    <p class="summary">
+      Have I mentioned lately that I ♥ BeanShell for Java?
+I haven't said much about it lately, but I'm still working on my PersonalWebProxy - only this time I'm playing with Java and all the goodies I was wishing for while in Python.  I've got Jena and Lucene and HSQL and BSF and Quartz and Muffin and...  well, a lot of stuff that feels pretty nice to me.
+But, with respect to BeanShell in particular, I've got a lot of the nifty live hackability that I had with the things I was playing with in Python.  With no more than 5 lines of code, I've tossed a live interactive shell into my running proxy, into which I can telnet or access via Java console in a browser.  With this, I can get into the machinery before I take the time composing a UI, inserting/removing plugins at will, tossing together new proxy filters on the fly, composing RDQL queries adhoc, tweaking Lucene searches.
+Fun stuff, and so easy.  But, sorry, no further code from me yet.  It's very ugly, and barely works, but it's just a sketchpad at the moment.  I hope to have a little something before the end of the month to pass around, should anyone still be interested.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/01/24/ooocih/"
+          >235&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/01/24/ooocih/">#</a>
+    <a class="time" href="2003/01/24/ooocih/">2:12 am</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 January 23</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/01/23/ooocig/">AppleScript and application services in the closet</a>
+      </h2>
+    
+    <p class="summary">
+      Apple's Script Editor 2.0 for OS 10.2.3 has support for Application Services . Basically, you can hilight some valid AppleScript text in any supporting application (like Safari, for instance) and 
+
+ execute the script [or] 
+
+ get the result of the script [or] 
+
+ put the text into Script Editor. 
+
+
+
+
+Source:Mac OS X Hints: Run AppleScripts via system services.
+
+
+
+
+Neat!  Now...  can we do something about making access to those services a bit more prominent?  System-wide functions buried in a menu obscurely labeled "Services" under an app-specific menu label doesn't seem very inviting or intuitive.  AppleScript gets insanely better treatment than this.  I'd like to see these services pushed just as far forward, and more easily discoverable.  It's been awhile since I played in Cocoa, but for awhile I was wondering if rearrange things a bit, maybe pull the service items for the currently active app into a menu extra or something.  Or, at least pull the menu up a level, maybe stick it next to the "Script" where appropriate.  And, I'd love to be able to customize the keyboard shortcuts assigned to them - some have shortcuts and I'll rarely use them, while others have no shortcut and I wish I could use them all the time.
+It's good stuff, Apple, show it off.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/01/23/ooocig/"
+          >291&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/01/23/ooocig/">#</a>
+    <a class="time" href="2003/01/23/ooocig/">10:40 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/01/23/ooocif/">Vellum and coffee rings</a>
+      </h2>
+    
+    <p class="summary">
+      Vellum is a server-hosted application to run weblogs for you. It's like MovableType or b2, in that it's hosted on your web server. And it's written in Python. 
+
+Source:Vellum: a weblogging system in Python .
+
+
+
+
+Need to check this out, have been itching to revamp this place and rethink what I want to do around here since it's coming up on my 1st full year out here in the blogosphere at large.
+Funny thing, too, is that the coffee-ring-like background image on that page looks exactly like some of the first designs I played around with for my site.  Only his looks much better than mine did.  :)
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/01/23/ooocif/"
+          >109&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/01/23/ooocif/">#</a>
+    <a class="time" href="2003/01/23/ooocif/">6:49 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/01/23/ooocie/">Looking for variable row height in your NSOutlineViews and NSTableViews?</a>
+      </h2>
+    
+    <p class="summary">
+      Apple's Cocoa library contains two very good table controls, ?NSTableView and it's close relative, ?NSOutlineView . However, both of these controls have one large limitation: All the rows must be the same height. This is an issue when displaying table cells with content that varies in height, such as large amounts of text or images. Luckily, Apple's Cocoa controls were also very well designed, making it possible to add this functionality simply by subclassing the table views. ?RowResizableTableView is an ?NSTableView subclass which allows each row to have variable heights, and ?RowResizableOutlineView is an ?NSOutlineView subclass with the same functionality. 
+
+Source:RowResizableTableView: Variable Row Height Tables and Outlines .
+
+
+
+
+Wow.  Although I think my Arboretum project is very likely asleep for good, it was the want for this particular component that most discouraged me from continuing with my outliner.  Nowadays what keeps me away is the absolute brilliant quality OmniGroup's OmniOutliner and the fact that it supports AppleScript, and furthermore, the fact that AppleScript has its tendrils in abso-freaking-lutely every app that seems to matter to me.  So, I can pretty much have everything I wanted to have out of Arboretum right now.
+But I'd still like to come up with a decent project in Cocoa for myself.  It's just so damn comfy to develop with.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/01/23/ooocie/"
+          >216&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/01/23/ooocie/">#</a>
+    <a class="time" href="2003/01/23/ooocie/">6:44 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 January 22</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/01/22/ooocid/">Python is for superheroes</a>
+      </h2>
+    
+    <p class="summary">
+      I've been wasting some of my time playing the superhero role-playing computer game Freedom Force, which turns out to be done in Python. 
+
+Source:The Happiest Geek on Earth: Python for superheroes .
+
+
+
+
+Swanky!  I've been thinking about getting that game, off and on, wondering if my aging 600Mhz desktop PC would run it.  It looks like a hoot - and if it's that nifty under the hood, it should be pretty fun to hack with occasionally.  :)
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/01/22/ooocid/"
+          >78&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/01/22/ooocid/">#</a>
+    <a class="time" href="2003/01/22/ooocid/">12:44 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 January 21</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/01/21/ooocic/">Why Moblog?</a>
+      </h2>
+    
+    <p class="summary">
+      It's only day two, yet I have nothing to Moblog today. Yesterday I was bopping around the city from my main office to the Sun testing center to lunch with my wife. Today I'm at the office in front of my computer, where I will probably remain until after dark. I guess I can moblog my lunch... It probably won't be that exciting. 
+
+Source:Russell Beattie Notebook: Moblogging Thoughts .
+
+
+
+
+Is Russell losing the Moblogging faith already?  :)  He raises an interesting, mostly obvious point:  After all the whiz-bang setup and build up - what do you have that's so important that it's worth covering in mobile multimedia splendor?
+On one hand, some would say, "Nada mucho," and hang up their camera peripheral.  Me, well, I don't have the hardware yet to deluge my corner of the web with instant snaps and clips of me, my girl, the cats, and co-workers.  (Though I have gotten a start on it.)  But, I find what Russell's posted so far to be fascinating and amusing.  Of course, he's in an exotic locale with respect to me.  Why else, unless he was a photographic genius, would his lunch seem interesting to me?  Then again, I might be in an exotic locale with respect to someone else.
+Anyway, after all the fun of connecting various bits together, you always come back to finding a reason to use it if you hadn't had one to begin with.  Sometimes the reason ends up being that it's just fun to play with bits connected together, and that someone somewhere might just find the result interesting.  No one's forcing anyone to look at all the pictures of the world's cats, you know?
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/01/21/ooocic/"
+          >369&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/01/21/ooocic/">#</a>
+    <a class="time" href="2003/01/21/ooocic/">1:03 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/01/21/ooocib/">RSS as a more generalized message queue for people</a>
+      </h2>
+    
+    <p class="summary">
+      It seems that beyond carrying syndication information, RSS is a very useful and flexible way to get all sorts of application data pushed to a user over time. In the same way that a web browser is a universal canvas upon which limitless services and information can be painted, so (in an  albeit much smaller way) an RSS reader/aggregator might also find its  place as an inbox for time-related delivery of all sorts of information. 
+
+Source:DJ's Weblog: The universal canvas and RSS apps .
+
+
+
+
+My thoughts exactly.  Not sure if I've posted here about it, but I know during the whole RSS hubbub this fall, I'd babbled something about RSS being a messaging queue from machines to humans.  Or a transport for timely ephemera to people.  Or something like that.  Basically, I'd like to see RSS, or something like it, used beyond just headlines.  This is why I've leaned toward the RDF-in-RSS camp - I want to see lots of things besides titles and excerpts hung off the individual message events, and RDF seems downright nifty to me for this.
+But either way, I like the expanded notion of RSS usage as a timestream-oriented stream of messages targeted at subscribed people.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/01/21/ooocib/"
+          >365&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/01/21/ooocib/">#</a>
+    <a class="time" href="2003/01/21/ooocib/">12:23 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/01/21/ooocia/">You had 1200 baud?  Sheer luxury!</a>
+      </h2>
+    
+    <p class="summary">
+      I used an HP 1200bps external modem.  To connect to BBSes.  When I was in elementary school.  I remember tearing through the latest Focke's BBS list.  It was the definitive guide to DC-metro BBSes.  I'd print it out on my Okidata dot-matrix printer on fan-folded continuous feed paper with the holes on the sides.  Then I'd grab a pen or pencil, mark up some interesting BBSes, fire up Procomm and try to connect. 
+
+Source:postneo: 1200 bps .
+
+
+
+
+Oh yeah?  Well, my first experience with dialing up in Jr. High was with a 300 bps modem on a C=64.  I used to pour over Horst Mann's 313 area code BBS list and sneak in calls to long-distance BBSes throughout Michigan, for which I'd later pay dearly out of my allowance.  :)  I remember coveting my friend's hulking Tandy PC and its 1200 baud modem (nearly a full screen of text at one time when playing BBS games).  Then, I bought a 2400 baud modem with an adapter, and became the envy of everyone - until they all moved up to 2400 and then 14.4K.
+I'm sure someone else can give me an oh yeah, too, and we can work up a skit ala Monty Python's "We Were Poor".  ("You were lucky to have a lake! There were 15 of us living in a cardboard box in the middle of the road!")
+What I really miss from the BBS days, though, is the local community.  Used to be that far away places were far away, and near places were near, and you had to go through the near places first before you could visit far places.  So, communities formed around BBSes, even as those around be began changing into mere portals onto the internet, and then later to become fledgling dialup ISPs.  Nowadays, the distance between points on the net is measured in terms of interest, attention, and affinity, without regard to physical location.  It's so much harder to get together for a cup of coffee with the people behind the keyboards these days.  :)
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/01/21/ooocia/"
+          >444&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/01/21/ooocia/">#</a>
+    <a class="time" href="2003/01/21/ooocia/">11:13 am</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 January 20</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/01/20/ooocio/">Automated openness versus the script kiddies</a>
+      </h2>
+    
+    <p class="summary">
+      If I did have comments on my weblog it would be like Slashdot, a very low signal to noise ratio. Don't blame me for that, it comes with longevity and flow. The longer the site is around and the higher the flow, the more losers one attracts. I can see where these things work for a lower flow site, but they would never work for Scripting News, I'd have to turn it off quickly because of the low-roaders. 
+
+Source:Dave Winer in comments on Simon Willison's Weblog.
+
+
+
+
+Although I'm too lazy to search for the links at the moment, I've sung the praises to automatic trackback and referrers and friends.  Like Simon, I've also bemoaned the apparent lack of participation Dave has in this self-organizing chaos of blogs auto-discovering each other.
+But, Dave's right.  Get too much flow, piss off too many people, say too many controversial or contrary things against too many camps - in other words, assert a strong opinion, right or wrong, and get it read widely enough and do it often enough - and your weblog will turn into a cesspool with all its graciously thrown open doors clogged with trolls.
+At present, I'm safe.  My rating is Mostly Harmless, so all my open systems are mostly free from abuse.  But, the first time I really strike a nerve somewhere, I'm a sitting duck.
+I've got some pretty pretentious ideas floating in my head about how this relates to an open civilization and culture in general, but I'll save them.  Basically, I don't want to give up my openness, but I want to deflect the barbarians.  Need to think more, but I suspect this may cross streams with the spam crisis, eventually.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/01/20/ooocio/"
+          >303&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/01/20/ooocio/">#</a>
+    <a class="time" href="2003/01/20/ooocio/">4:37 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 January 19</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/01/19/ooochi/">On OS X, searches are a mere finger twitch away</a>
+      </h2>
+    
+    <p class="summary">
+      Oh yeah, and further along the lines of filesystem sacrilege, my most used OS X apps are:
+
+
+
+ Searchling
+
+
+
+ LaunchBar
+
+
+
+
+
+
+Both of these give me lightning fast access with keyboard-shortcut finger twitches to what's on my mind and what I want to do.  I want to find more things like this.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/01/19/ooochi/"
+          >88&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/01/19/ooochi/">#</a>
+    <a class="time" href="2003/01/19/ooochi/">7:34 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/01/19/ooochh/">Russell Beattie is a sneaky, mobile guy.</a>
+      </h2>
+    
+    <p class="summary">
+      Gosh, I've been quiet lately. What could be the reason? 
+1) I'm sick of blogging (not likely) 2) I've been having a life away from the computer (not likely) 3) I've been heads down doing something cool that I'll shortly be blogging about? Hmmm.... 
+
+
+
+
+Source:Russell Beattie Notebook: Quiet .
+
+
+
+
+If you're careful and look hard, you'll find what he's teasing about.  Go look - it's not in the quote above.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/01/19/ooochh/"
+          >71&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/01/19/ooochh/">#</a>
+    <a class="time" href="2003/01/19/ooochh/">7:29 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/01/19/ooochg/">I second that sacrilege</a>
+      </h2>
+    
+    <p class="summary">
+      Dear Operating System Vendors. 
+I no longer want to know where my files are stored. I no longer care. I have hordes of directories on my various computers called stuff ,downloads and documents , and the effort that it would take to organise them into a proper heirarchy is just not worth it. The heirarchical filesystem is a really wonderful thing for programmers and websites, but it just doesn't cut it for personal use. 
+I no longer care where my files are stored. 
+
+Source:The Fishbowl: Filesystem sacrilege.
+
+
+
+
+I'll be burned at the next stake over from Charles when the time comes, for this filesystem heresy.  Just the other night, a co-worker was asking me about how diligent I was in organizing my email.  I told her, "Not at all.  I leave it all in one pile and then run the Find command on it later."  She was shocked that I, alpha geek and info freako, didn't have some intricate taxonomy of folders into which mail was sorted by carefully crafted filters.
+Years ago, when I first started using email, I did indeed do this with procmail and other arcane beasties.  Then, I found myself cursing that I couldn't do cross-folder searches very easily.  Also, the filters and folders started making less sense as their structure represented only one possible scheme for finding what I was looking for, and I was needing many possible kinds of schemes over time.  So, eventually it all ended up in one pile, and searches became my way of finding things.
+I abandoned bookmarks for Google by the same principle.  Now, my bookmarks consist completely of bookmarklets and a few stray links to local on-disk pages like Python documentation.  In fact, I'm wishing that I could create bookmark folders that are fed by Google API powered persistent searches.
+So, now I'm looking balefully upon my filesystem.  I haven't had much chance to play with BeOS, but I've read about the design of the BeOS file system and drooled.  I hear about Microsoft's Longhorn and its WinFS and grind my teeth - I very much dislike Microsoft, but if they pulled this off, I'd have to sing their praises.  Apple?  Do they have any aces up their sleeves in this regard?  Don't let a new fanboy down.  :)
+Anyway, that's what I want to see:  Storage without explicit organization, but with super-rich metadata for super-fast searches.  Allow me to create views made from persistent searches - my "project folder" is simply a collection of resources tied together by a common tag, one of many.  And, if I want to form a project hierarchy, make my persistent searches into file objects too.  
+The main thing in all this, though, is that it be woven very deeply within the OS.  I don't want a helper app.  I want this to replace the standard metaphor completely.
+RDF triples at the inode-level anyone?  Heh, heh.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/01/19/ooochg/"
+          >940&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/01/19/ooochg/">#</a>
+    <a class="time" href="2003/01/19/ooochg/">7:03 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 January 18</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/01/18/oooche/">Safari: Good riddance to tabs, if there&#39;s something better</a>
+      </h2>
+    
+    <p class="summary">
+      I've been thinking about the whole "I need tabs in Safari" issue, and have come to realize that no, in fact, I don't need tabs in Safari. ... What I need is a way to manage multiple open web pages in a single window. ... I've done a quick and dirty mockup of something that approaches what I'm thinking about. 
+
+Source:D'Arcy Norman's Weblog.
+
+
+
+
+So, yeah, not that anyone needs my US$0.02 added to the cacophony around Safari, but here it is anyway.  Go check out D'Arcy's mockup.  I think this is precisely what I want.  I've been keeping myself using Safari since it was released, and I've been disappointed with it very rarely.  Instead of tabs, I've been heavily using the Window menu, wishing for some window navigation shortcuts (ie. prev, next, 0-9 for first ten windows?)
+Anyway, I say: tabs can go, but give me a sidebar.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/01/18/oooche/"
+          >350&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/01/18/oooche/">#</a>
+    <a class="time" href="2003/01/18/oooche/">4:10 am</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/01/18/ooochd/">Kung-Log back with a Cocoanized Vengance</a>
+      </h2>
+    
+    <p class="summary">
+      Wow, take a look at The Cocoanization of Kung-Log:During the New Year holiday I started getting acquainted with Cocoa programming by converting my ?AppleScriptStudio Kung-Log app into a Cocoa version. Well, smack my ass and call me Judy, it's done !
+
+It'd been awhile since the last time I checked out Kung-Log - when it was working for me, it was my absolute favorite way to update this site, but then it started breaking in a few places such as recent post retrieval.  So I gave it up.  Then tonight, on a whim, I looked.  And whew, a complete rewrite, apparently release just this night.  Talk about coincidence.
+Nice.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/01/18/ooochd/"
+          >143&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/01/18/ooochd/">#</a>
+    <a class="time" href="2003/01/18/ooochd/">3:22 am</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 January 16</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/01/16/ooochc/">Folder Actions + AppleScript = Desktop Blogging.  Literally.</a>
+      </h2>
+    
+    <p class="summary">
+      Lazy Mac OS X: Weblog links sidebar: ...it's going to be about turning your Mac into a weblogging machine. As easy as the links-and-commentary genre is with all the blogging apps out there, I'm too lazy for the commentary bit, and so I tend to drag-and-drop links to my desktop for later posting -- and then promptly forget about them. Consequently my desktop is a mess, and my blog is stagnating. Bad.
+So... what he made, with AppleScript's Folder Actions, is a magic folder on his desktop.  When links are dropped into the folder, a script is triggered which posts the link to a weblog via BloggerAPI.  I've tweaked it a bit to ask me for a link title, quote, and a tiny bit of commentary, but it still needs a bit more work.
+I had never heard of Folder Actions before this.  This is very nifty stuff - blogging woven into the OS X desktop itself with AppleScript.  Whew.
+What I'd really love is to be able to drop a folder onto my dock, and then drop things onto it there.  I'm thinking of a bunch of "bins" on the dock that shuttle files off to different destinations and through various transformations, right there, always in view.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/01/16/ooochc/"
+          >341&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/01/16/ooochc/">#</a>
+    <a class="time" href="2003/01/16/ooochc/">5:22 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/01/16/ooochb/">OmniGraffle + AppleScript = RSS news reader</a>
+      </h2>
+    
+    <p class="summary">
+      Using OmniGraffle as an RSS News Reader with AppleScript: To learn about the capabilities of a new application in its enhanced AppleScript capabilities, a project is created that turns ?OmniGraffle into an RSS News reader unlike any that are out there.
+This rocks.  Been a little quite lately, busy at work, still tinkering with my proxy.  And now I find myself poking around into AppleScript again.  Wheee!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/01/16/ooochb/"
+          >68&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/01/16/ooochb/">#</a>
+    <a class="time" href="2003/01/16/ooochb/">5:10 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 January 09</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/01/09/ooocgh/">So, yeah, about that BML thing</a>
+      </h2>
+    
+    <p class="summary">
+      Speaking of BML, what ever happened to it?  I first wrote about it back in August and later got a response from Sanjiva Weerawarana, one of the original authors at IBM.  Someone hinted to me that it was supposed to eventually land at Jakarta, and while the Bean Scripting Framework did land there, BML is still off the radar.  Meanwhile, I'm still using it at work, still sitting on some dubiously-gotten source code, and want to use it in more public projects.
+Anyone out there in Java-land besides me know about this thing and find it useful?  While it's still very likely that I'm delusioned, I have yet to find something equivalent to what it can do for me.  On the contrary, I've seen other projects rolling their own much less functional versions of BML.  But, I have to assume that I'm not realy a know-it-all, and that I'm likely missing something that makes this not-so-great and relatively unadopted.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/01/09/ooocgh/"
+          >182&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/01/09/ooocgh/">#</a>
+    <a class="time" href="2003/01/09/ooocgh/">3:27 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/01/09/ooocgg/">Yet another post about that proxy thing</a>
+      </h2>
+    
+    <p class="summary">
+      I'm still not entirely sold on Python and Twisted as the foundation for my PersonalWebProxy.  Yeah, I know I just release a bunch of code to that effect, but it's still just a proof of concept.  While there are some impressive things in Twisted and Python, there's also a lot of flux and immaturity there.  Not a bad thing, since the hackers in that camp are doing mad crazy things, but I don't want to focus on mad crazy things in my toolkit - I want to focus on mad crazy things built on top of it.  The thing I've been hoping for is that some of those mad crazy things in the toolkit would enable even madder crazier things down the line for me.  This may be true still - so I'm not tossing anything out, just still experimenting.
+So far, this is just playing for me.  For fun, I think I might do the whole thing over again in Java and play in parallel for a little while.  Well, not quite all over, since I think I've found some pretty ready-made components:
+Take Muffin, for example.  It's a Java proxy that looks like it's been dormant for quite awhile, but seems ideal on the surface for my needs.  Just today, though, I checked back in the project's CVS repository and it seems that there's new activity and checkins starting up in there.  On the other hand, I've also been poking at Jetty and the proxy classes it comes with.  Seems like there's a lot to work with here, and I have a better vibe about it.
+Besides that, Jena seems stronger than rdflib for RDF support, and I'm just biting at the bit to pour damn near everything at Apache Jakarta into this thing.  Also, I suspect I may be able to preserve the quick scripty hackability I want out of the this thing by using BSF and Jython, with some assembly and config in BML.
+Hmm.  Still tinkering.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/01/09/ooocgg/"
+          >486&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/01/09/ooocgg/">#</a>
+    <a class="time" href="2003/01/09/ooocgg/">3:19 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 January 08</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/01/08/ooocgf/">More code toward the personal web proxy</a>
+      </h2>
+    
+    <p class="summary">
+      In case anyone's interested, I've been hacking like mad on my toy proxy since New Years'.  Check out PersonalWebProxy for current downloads.  It's got primitive forms of proxy filters, browser-based UI, RDF-based metadata management, logging, config, plugins, and some other goodies.  So far, the major plugins include:
+
+ a noisy logger;
+
+ a content archiver that captures and saves all response headers and content in a directory structure loosely based on the requested URL;
+
+ an initial metadata harvester that fills up the RDF database with triples based on headers and details encountered during browsing
+
+
+
+
+
+
+
+It works, and does stuff, but I'm sure it demonstrates a complete lack of understanding of large portions of the Twisted framework, Python itself, and likely causes forest fires.  So, I hope many people will download it, snicker at it, and maybe set me straight on a few things and contribute a few patches and plugins.
+ShareAndEnjoy!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/01/08/ooocgf/"
+          >433&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/01/08/ooocgf/">#</a>
+    <a class="time" href="2003/01/08/ooocgf/">4:06 am</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/01/08/ooocge/">About that Apple stuff today</a>
+      </h2>
+    
+    <p class="summary">
+      So... yeah.  I watched the keynote, and I'm lusting over the new mini-me ?PowerBook with a plan to purchase in the Spring.  I was aiming at a high end iBook but holding out for something better, and well, this new ?PowerBook is the precisely what I was holding out for.  It appears to be the rightful successor to my formerly beloved Sony Vaio 505TR.
+Then there's Safari.  Mark puts it under the microscope, as does Mena.  On the other hand, Ben writes that it's almost-shit.  Oh yeah, and JWZ reports: "Apple says 'fuck you' to Mozilla"  But he's not bitter.
+I haven't got the chops to seriously test the thing, so I'll be watching the more spec-wise out there for info.  But, what I do think about it makes me sound like an Apple fanboy:  I think it's great.  
+It's not perfect at the moment, but I've got a feeling that this will change.  And fast.  Mozilla's shipped with talkback, but Safari's got a bug submission button right up front.  And the fact that they did snub Mozilla for a dark horse like Konqueror seems a bit provocative (at least in techie / Open Source circles), and after all that talk of innovation I doubt that they're going to let it rest as-is or back down.  I expect lots of movement from here.  Think different and all that.  And, from my minuscule bits of Cocoa dev, I'm looking forward to poking around with ?WebCore and the ?JavaScript framework.  Unless it's a complete disaster, I expect the building blocks of Safari to pop up in projects everywhere.
+These things tell me to expect good things from Safari.  I hope Mozilla can keep up.  As for IE, well, I deleted that a long time ago.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/01/08/ooocge/"
+          >332&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/01/08/ooocge/">#</a>
+    <a class="time" href="2003/01/08/ooocge/">2:58 am</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 January 07</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/01/07/ooocgd/">Readline support for Python on OS X</a>
+      </h2>
+    
+    <p class="summary">
+      I needed and found a little help enabling readline support for Python under Mac OS X.  I love a lazyweb so lazy that solutions to my problems have already been posted.  :)
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/01/07/ooocgd/"
+          >33&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/01/07/ooocgd/">#</a>
+    <a class="time" href="2003/01/07/ooocgd/">4:24 am</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 January 02</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/01/02/ooocgc/">Python RDF repository wanted for web proxy metadata harvester</a>
+      </h2>
+    
+    <p class="summary">
+      Okay, this is getting close to outstripping my enthusiasm and invoking my laziness:  Does anyone happen to have RDFLib and ZODB working under Mac OS X 10.2.3?  Have also tried compiling Redland and its Python and Java APIs, but that's not been a 100% success.  Or can someone recommend another decent RDF repository to play with under Python?  I've had fun with Jena under Java, love using RDQL, and dig switching between MySQL and BDB stores.
+I want an RDF repository I can integrate into my proxy experiments, currently implemented in Python.  I've been very tempted to switch to Java, which I know better and have a better sense of tools available.  But I'm still pulling for Python.  I suppose I could just go with an in-memory repository at first, but I don't want to stick with that.
+I'm still finishing up the PersonalWebProxy notes and plan I've been working on, but I've still got an itch to play in code.  The next major thing I want to do is extract as much metadata as I can from every HTML page I visit and load the RDF repository up with statements based on what I harvest.  Examples would include things like HTML title, visitation date, referring url, any meta tags, any autodiscovered RSS and FOAF URLs, and anything else I could eventually dig out.  Then, I want to amass some data and play with it.  I'm thinking this could give me a kind of uber-history with which to work.
+Update: Seems like I managed to get Python, RDFLib, and ZODB working, but I started completely from scratch and compiled everything from clean source.  I guess Apple's build of Python has more hiccups in it than just the Makefile thing.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/01/02/ooocgc/"
+          >420&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/01/02/ooocgc/">#</a>
+    <a class="time" href="2003/01/02/ooocgc/">3:13 am</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/01/02/ooocgb/">Stumbling through compiling Standalone ZODB for Mac OS X</a>
+      </h2>
+    
+    <p class="summary">
+      Just in case this wasn't common knowledge, it seems there's a bit of a boo-boo in Jaguar's installation of Python that sticks it head up when one tries to compile extentions (like, oh say, the Standalone ZODB).
+Line 62 of /usr/lib/python2.2/config/Makefile reads:
+LDFLAGS=        -arch i386 -arch ppc
+But, I think should read:
+LDFLAGS=        -arch ppc
+Making this change appears to have gotten the thing compiling, though it may also cause my iBook to eventually self-format since I barely understand everything involved.
+Ugh, though now that everything's compiled without hitch, the test script goes belly up with a bus error.  Time to go back googling to find a solution or somewhere to whine.  I may also swap back into Java, since I like Jena better than anything I've found in Python for RDF support.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/01/02/ooocgb/"
+          >304&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/01/02/ooocgb/">#</a>
+    <a class="time" href="2003/01/02/ooocgb/">1:30 am</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 January 01</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/01/01/ooocga/">MovableType gets first class treatment for text formatting</a>
+      </h2>
+    
+    <p class="summary">
+      Teasing everyone with a solution to something we MovableType users been hacking around with for awhile, Ben Trott writes:We envision Text Formatting options as complete, encapsulated formatters, handling both the formatting of structured text and any desired typographical details (smart quotes, etc), analogous to the way in which Textile handles quote education and its own miniature formatting language.
+Plugins will be able to easily add new Text Formatting options to the menu on the New/Edit Entry screen.
+Yay!  Text formatting as a first class feature in MovableType - used in previews, as well as in publishing.  No more including plugin tags in every single template ala MTWikiFormatPlugin and friends.  Rock on!  It's a good thing when hacks I write get outmoded by a more elegant treatment.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/01/01/ooocga/"
+          >126&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/01/01/ooocga/">#</a>
+    <a class="time" href="2003/01/01/ooocga/">4:37 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/01/01/ooocgo/">Sharing my Python proxy experiment</a>
+      </h2>
+    
+    <p class="summary">
+      Anthony Eden writes:I was so intrigued by having a proxy agent which would work for me that I wrote a little generic pluggable proxy this morning.
+Show us the code! :)  I want to play.
+As for my code so far: This is extremely premature, and I'm not even sure if it will work anywhere besides my peculiar iBook, but here's a quick & dirty tarball of my experiments with a PersonalWebProxy (just web, not universal) with a simple plugin API, in Python using Twisted:
+dbproxy-20021231.tar.gz
+It's poorly commented, doesn't do much useful, but it's a few nights' work by someone just getting acquainted with Twisted - if you're even worse off than me and want to poke at this proxy thing, maybe this will help you.  It does do a few things I thought were nifty, like use Mark Pilgrim's rssfinder script in a thread to dig up RSS feeds for every URL with text/html content you visit.  There's no persistence yet, so they just appear in the log, but figuring out the integration and thread use so far was nifty to me.
+Anyway, enjoy.  I'm still tinkering, thinking, and working up a plan.
+Oh yeah, and I'm watching Dick Clark and the ball drop with my girlfriend, so this post brings an end to hacking for the night.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/01/01/ooocgo/"
+          >379&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/01/01/ooocgo/">#</a>
+    <a class="time" href="2003/01/01/ooocgo/">1:53 am</a>
+    
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

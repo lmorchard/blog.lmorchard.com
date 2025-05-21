@@ -1,47 +1,56 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>Secret weapons of LISP and Perl - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="Secret weapons of LISP and Perl" />
+    <html>
+      <head>
+        <title>Secret weapons of LISP and Perl - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="Secret weapons of LISP and Perl" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2002/05/24/oooafc/"
         />
         
         <meta property="og:description" content="Just saw Gordon Weakliem mention, via Roland Tanglao&#39;s Weblog, this article over at New Architect: Orbitz Reaches New Heights.  This snags my eye for two reasons: 1) Orbitz is a client of my employer - we do a ton of web promotions for them; and 2) LISP is one of those things I keep meaning to get back into, kinda like I keep meaning to read things from that gigantic Shakespeare collection I asked for and recieved for Christmas from me mum.
-The quote that Ronald pulls out from the article is:The high-level algorithms are almost entirely in Lisp, one of the oldest programming languages. You&#39;re excused for chuckling, or saying &quot;Why Lisp?&quot; Although the language can be inefficient if used without extreme caution, it has a reputation for compactness. One line of Lisp can replace 20 lines of C. ITA&#39;s programmers, who learned the language inside and out while at MIT, note that LISP is highly effective if you ditch the prefabricated data structures. &quot;We&#39;re something of a poster child for LISP these days,&quot; says Wertheimer. &quot;Lisp vendors love us.&quot;Funny, if you did an s/Lisp/Perl/g and an s/LISP/Perl/g on that text, you&#39;d almost have a quote from me.  I&#39;ve also heard Perl often compared to LISP, amongst the upper ranks of Perl wizards.  Oldest language-- hmm, no, but it&#39;s been around the block.  Inefficient without caution-- check, hand-holding is at a minimum.  Compactness-- check, many bash it for obfucation facilitation.  Effective after ditching prefab structs-- check, if you enjoy slinging hashes all over, like I have until recently.  And so far, we&#39;re a poster child for Perl here.
+The quote that Ronald pulls out from the article is:The high-level algorithms are almost entirely in Lisp, one of the oldest programming languages. You&#39;re excused for chuckling, or saying &quot;Why Lisp?&quot; Although the language can be inefficient if used without extreme caution, it has a reputation for compactness. One line of Lisp can replace 20 lines of C. ITA&#39;s programmers, who learned the language inside and out while at MIT, note that LISP is highly effective if you ditch the prefabricated data structures. &quot;We&#39;re something of a poster child for LISP these days,&quot; says Wertheimer. &quot;Lisp vendors love us.&quot;
+
+Funny, if you did an s/Lisp/Perl/g and an s/LISP/Perl/g on that text, you&#39;d almost have a quote from me.  I&#39;ve also heard Perl often compared to LISP, amongst the upper ranks of Perl wizards.  Oldest language-- hmm, no, but it&#39;s been around the block.  Inefficient without caution-- check, hand-holding is at a minimum.  Compactness-- check, many bash it for obfucation facilitation.  Effective after ditching prefab structs-- check, if you enjoy slinging hashes all over, like I have until recently.  And so far, we&#39;re a poster child for Perl here.
 What is it that I have in Perl?  Well, I&#39;ve named it the Toybox.  It&#39;s a web application platform.  We do everything with it.  Reusable software components composed into applications with a web-based construction tool.  The components contain machine and human readable descriptions on properties and methods, to enable inspection by tool and documentation generation.  Also, the components and the framework are designed to provide predefined collaboration patterns so that one component can supplement or modify the behavior of another without that other component needing to be modified or altered.  I&#39;ve also just recently added a persistent object layer for all those pesky little parameterizing trinkets we started needed to throw around.  (I really wish I could Open Source this thing. :) )
 So there&#39;s a continual grumble here to switch to Java, sometimes from me, and sometimes from another developer or two.  In some ways, a switch and reimplmentation is a no-brainer, considering tool support and labor pool.  But, is this overhyped?  Wherever I&#39;ve gone, I&#39;ve just picked up whatever was used there.  My basic computer science background lets me switch technologies pretty easily.  Is this rare?
 But as for the languages themselves... From the trenches, doing object-oriented stuff in perl is painful and dirty.  In a lot of other ways, it feels nice because you can jump out of the OO mindset and do some naughty things when you think you need to.  And if you&#39;re careful.  But when you do, you don&#39;t get any help from the language, which I think is one of the major selling points of Java.
@@ -51,60 +60,135 @@ But, hell, someone had to have started creating something alien and new to come 
 Then again, there&#39;s the argument against wheel reinvention.  I seem to like reinventing wheels sometimes for the hell of it, simply because I want to know how wheels work.  Sometimes I even feel arrogant enough to assert that I can make a better wheel.  But there is a point where just buying the thing and moving on is the smart option.
 Oh well...  I&#39;ve come to no conclusion.  But I&#39;m still writing Perl code in my xemacs window today, and about to get back to it when I hit the &quot;Post&quot; button.  And things seem pretty good here-- I mean this company managed to claw through the wreckage of the dot-com collapse and still edge toward a profit.  We lost more clients due to their bankruptcy than through customer dissatisfaction. 
 I suppose I can at least say my choice of Perl, if not a secret weapon, didn&#39;t break the bank.  :)" />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post "
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post "
       >
-        <time
-          title="2002-05-24T19:30:44+00:00"
-          pubdate="2002-05-24T19:30:44+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2002/"
-            >2002</a
+        <header>
+          <time
+            title="2002-05-24T15:30:44-04:00"
+            pubdate="2002-05-24T15:30:44-04:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2002/05/"
-            >May</a
-          >
-          &raquo;
-          <span>24</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="Yes, I am an outline nut"
+                href="/blog.lmorchard.com/2002/05/28/oooafd/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2002/"
+                >2002</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2002/05/"
+                >May</a
+              >
+              &#8226;
+              <span>24</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Ideas on a next iteration of the linkback implementation"
+                href="/blog.lmorchard.com/2002/05/22/oooafb/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">Secret weapons of LISP and Perl</h1>
+          
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2002/05/28/oooafd/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2002/05/23/oooafb/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
+        <p>Just saw <a href="http://radio.weblogs.com/0106046/2002/05/24.html#a48">Gordon Weakliem mention</a>, via <a href="http://www.rolandtanglao.com/2002/05/21.html#a1965">Roland Tanglao's Weblog</a>, this article over at New Architect: <a href="http://www.newarchitectmag.com/documents/s=2286/new1015626014044/">Orbitz Reaches New Heights</a>.  This snags my eye for two reasons: 1) Orbitz is a client of my employer - we do a ton of web promotions for them; and 2) LISP is one of those things I keep meaning to get back into, kinda like I keep meaning to read things from that gigantic Shakespeare collection I asked for and recieved for Christmas from me mum.</p>
+<p>The quote that Ronald pulls out from the article is:</p><blockquote><i>The high-level algorithms are almost entirely in Lisp, one of the oldest programming languages. You're excused for chuckling, or saying "Why Lisp?" Although the language can be inefficient if used without extreme caution, it has a reputation for compactness. One line of Lisp can replace 20 lines of C. ITA's programmers, who learned the language inside and out while at MIT, note that LISP is highly effective if you ditch the prefabricated data structures. "We're something of a poster child for LISP these days," says Wertheimer. "Lisp vendors love us."</i></blockquote>
 
-        <h1 class="title">Secret weapons of LISP and Perl</h1>
-        
-        <section class="post-content">
-          <p>Just saw <a href="http://radio.weblogs.com/0106046/2002/05/24.html#a48">Gordon Weakliem mention</a>, via <a href="http://www.rolandtanglao.com/2002/05/21.html#a1965">Roland Tanglao's Weblog</a>, this article over at New Architect: <a href="http://www.newarchitectmag.com/documents/s=2286/new1015626014044/">Orbitz Reaches New Heights</a>.  This snags my eye for two reasons: 1) Orbitz is a client of my employer - we do a ton of web promotions for them; and 2) LISP is one of those things I keep meaning to get back into, kinda like I keep meaning to read things from that gigantic Shakespeare collection I asked for and recieved for Christmas from me mum.</p>
-<p>The quote that Ronald pulls out from the article is:<blockquote><i>The high-level algorithms are almost entirely in Lisp, one of the oldest programming languages. You're excused for chuckling, or saying "Why Lisp?" Although the language can be inefficient if used without extreme caution, it has a reputation for compactness. One line of Lisp can replace 20 lines of C. ITA's programmers, who learned the language inside and out while at MIT, note that LISP is highly effective if you ditch the prefabricated data structures. "We're something of a poster child for LISP these days," says Wertheimer. "Lisp vendors love us."</i></blockquote>Funny, if you did an s/Lisp/Perl/g and an s/LISP/Perl/g on that text, you'd almost have a quote from me.  I've also heard Perl often compared to LISP, amongst the upper ranks of Perl wizards.  Oldest language-- hmm, no, but it's been around the block.  Inefficient without caution-- check, hand-holding is at a minimum.  Compactness-- check, many bash it for obfucation facilitation.  Effective after ditching prefab structs-- check, if you enjoy slinging hashes all over, like I have until recently.  And so far, we're a poster child for Perl here.</p>
+<p>Funny, if you did an s/Lisp/Perl/g and an s/LISP/Perl/g on that text, you'd almost have a quote from me.  I've also heard Perl often compared to LISP, amongst the upper ranks of Perl wizards.  Oldest language-- hmm, no, but it's been around the block.  Inefficient without caution-- check, hand-holding is at a minimum.  Compactness-- check, many bash it for obfucation facilitation.  Effective after ditching prefab structs-- check, if you enjoy slinging hashes all over, like I have until recently.  And so far, we're a poster child for Perl here.</p><p></p>
 <p>What is it that I have in Perl?  Well, I've named it the Toybox.  It's a web application platform.  We do everything with it.  Reusable software components composed into applications with a web-based construction tool.  The components contain machine and human readable descriptions on properties and methods, to enable inspection by tool and documentation generation.  Also, the components and the framework are designed to provide predefined collaboration patterns so that one component can supplement or modify the behavior of another without that other component needing to be modified or altered.  I've also just recently added a persistent object layer for all those pesky little parameterizing trinkets we started needed to throw around.  (I really wish I could Open Source this thing. :) )</p>
 <p>So there's a continual grumble here to switch to Java, sometimes from me, and sometimes from another developer or two.  In some ways, a switch and reimplmentation is a no-brainer, considering tool support and labor pool.  But, is this overhyped?  Wherever I've gone, I've just picked up whatever was used there.  My basic computer science background lets me switch technologies pretty easily.  Is this rare?</p>
 <p>But as for the languages themselves... From the trenches, doing object-oriented stuff in perl is painful and dirty.  In a lot of other ways, it feels nice because you can jump out of the OO mindset and do some naughty things when you think you need to.  And if you're careful.  But when you do, you don't get any help from the language, which I think is one of the major selling points of Java.</p>
@@ -114,52 +198,93 @@ I suppose I can at least say my choice of Perl, if not a secret weapon, didn&#39
 <p>Then again, there's the argument against wheel reinvention.  I seem to like reinventing wheels sometimes for the hell of it, simply because I want to know how wheels work.  Sometimes I even feel arrogant enough to assert that I can make a better wheel.  But there is a point where just buying the thing and moving on is the smart option.</p>
 <p>Oh well...  I've come to no conclusion.  But I'm still writing Perl code in my xemacs window today, and about to get back to it when I hit the "Post" button.  And things seem pretty good here-- I mean this company managed to claw through the wreckage of the dot-com collapse and still edge toward a profit.  We lost more clients due to their bankruptcy than through customer dissatisfaction. </p>
 <p>I suppose I can at least say my choice of Perl, if not a secret weapon, didn't break the bank.  :)</p>
-<!--more-->
-shortname=oooafc
 
+
+<!--more-->
+
+
+<p>shortname=oooafc</p>
 <div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
 <ul class="comments">
 <li class="comment" id="comment-221086843">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://radio.beutelevision.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=429e504076cddcb5436f34d1ecf37371&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://radio.beutelevision.com">Thomas Beutel</a>
+<a class="avatar image" rel="nofollow" href="http://radio.beutelevision.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=429e504076cddcb5436f34d1ecf37371&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://radio.beutelevision.com">Thomas Beutel</a>
 </div>
-<a href="#comment-221086843" class="permalink"><time datetime="2002-05-25T00:32:14">2002-05-25T00:32:14</time></a>
+
+
+<p><a href="#comment-221086843" class="permalink"><time datetime="2002-05-25T00:32:14">2002-05-25T00:32:14</time></a></p>
 </div>
+
+
 <div class="content">You might have already seen this article on Yahoo!stores and Lisp - but if not, it is an interesting read: http://www.paulgraham.com/lib/paulgraham/sec.txt
 Mark Jason Dominus taught a functional programming course at the latest Perl Whirl, and is also writing a book on functional Perl techniques. I have to say it really opened my eyes to alternate ways of programming.
 -Thomas</div>
+
+
 </li>
 <li class="comment" id="comment-221086845">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.decafbad.com">l.m.orchard</a>
+<a class="avatar image" rel="nofollow" href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.decafbad.com">l.m.orchard</a>
 </div>
-<a href="#comment-221086845" class="permalink"><time datetime="2002-05-29T14:21:17">2002-05-29T14:21:17</time></a>
+
+
+<p><a href="#comment-221086845" class="permalink"><time datetime="2002-05-29T14:21:17">2002-05-29T14:21:17</time></a></p>
 </div>
+
+
 <div class="content">Thanks for the link to that article!  I think it covers all of the ground I was rambling about, and much better than I did :)</div>
+
+
 </li>
 </ul>
+
+
 </div>
 
-        </section>
-      </article>
-        </section>
-
-        <footer>
-          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
-        </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
-      </section>
-    </body>
-  </html>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2002/05/28/oooafd/"
+                >Yes, I am an outline nut</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2002/05/22/oooafb/"
+                >Ideas on a next iteration of the linkback implementation</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

@@ -1,692 +1,1173 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>2002/05 - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>2002/05 - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Month: 2002/05</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-31T19:25:10+00:00">
-              2002
-              May
-              31
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/31/oooagb/">
-              <span class="infoContainer">
-                <span class="title">Beyond Backlinks, LiveJournal connections, and David Brin&#39;s Earth</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-31T19:02:38+00:00">
-              2002
-              May
-              31
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/31/oooaga/">
-              <span class="infoContainer">
-                <span class="title">AmphetaDesk / Radio + autodiscovered RSS feeds</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-31T09:23:51+00:00">
-              2002
-              May
-              31
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/31/oooago/">
-              <span class="infoContainer">
-                <span class="title">RSS autodiscovery via the HTML LINK element</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-31T00:37:40+00:00">
-              2002
-              May
-              31
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/31/oooafi/">
-              <span class="infoContainer">
-                <span class="title">Obsolete Research Dooms Author to Irrelevance</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-30T23:52:24+00:00">
-              2002
-              May
-              30
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/30/oooafh/">
-              <span class="infoContainer">
-                <span class="title">A query on scheduling WinXP programs, and Radio resource demands</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-30T22:25:59+00:00">
-              2002
-              May
-              30
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/30/oooafg/">
-              <span class="infoContainer">
-                <span class="title">The kuro5iv3 force of the wiki</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-29T18:51:23+00:00">
-              2002
-              May
-              29
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/29/oooaff/">
-              <span class="infoContainer">
-                <span class="title">Of metalinks, linkbacks, and Cocoa AmphetaDesk</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-28T07:29:15+00:00">
-              2002
-              May
-              28
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/28/oooafe/">
-              <span class="infoContainer">
-                <span class="title">Not dead yet, just resting</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-28T07:24:34+00:00">
-              2002
-              May
-              28
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/28/oooafd/">
-              <span class="infoContainer">
-                <span class="title">Yes, I am an outline nut</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-24T19:30:44+00:00">
-              2002
-              May
-              24
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/24/oooafc/">
-              <span class="infoContainer">
-                <span class="title">Secret weapons of LISP and Perl</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-23T01:01:13+00:00">
-              2002
-              May
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/23/oooafb/">
-              <span class="infoContainer">
-                <span class="title">Ideas on a next iteration of the linkback implementation</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-22T18:40:50+00:00">
-              2002
-              May
-              22
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/22/oooafa/">
-              <span class="infoContainer">
-                <span class="title">Of alligators and bloxsoms</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-21T19:16:23+00:00">
-              2002
-              May
-              21
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/21/oooafo/">
-              <span class="infoContainer">
-                <span class="title">Mass media &amp; consumer culture, a mind-virus threat?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-20T20:01:00+00:00">
-              2002
-              May
-              20
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/20/oooaei/">
-              <span class="infoContainer">
-                <span class="title">Improved linkback scripts, and finalizing the site move</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-20T19:50:35+00:00">
-              2002
-              May
-              20
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/20/oooaeh/">
-              <span class="infoContainer">
-                <span class="title">Conference blogging and linkbacks</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-18T21:56:47+00:00">
-              2002
-              May
-              18
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/18/oooaeg/">
-              <span class="infoContainer">
-                <span class="title">Migrating to a new host</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-17T21:12:04+00:00">
-              2002
-              May
-              17
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/17/oooaef/">
-              <span class="infoContainer">
-                <span class="title">Cramming the airwaves into my mac</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-17T20:59:52+00:00">
-              2002
-              May
-              17
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/17/oooaee/">
-              <span class="infoContainer">
-                <span class="title">Rock bangers, unite!</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-17T16:33:34+00:00">
-              2002
-              May
-              17
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/17/oooaed/">
-              <span class="infoContainer">
-                <span class="title">DECAFBAD&#39;s gone all wobbly</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-13T17:38:47+00:00">
-              2002
-              May
-              13
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/13/oooaec/">
-              <span class="infoContainer">
-                <span class="title">IFRAME vs JavaScript-include - FIGHT!</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-13T17:28:39+00:00">
-              2002
-              May
-              13
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/13/oooaeb/">
-              <span class="infoContainer">
-                <span class="title">Javascript-enabled linkbacks, part deux</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-13T07:10:52+00:00">
-              2002
-              May
-              13
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/13/oooaea/">
-              <span class="infoContainer">
-                <span class="title">Linksback to the danger zone</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-13T07:07:48+00:00">
-              2002
-              May
-              13
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/13/oooaeo/">
-              <span class="infoContainer">
-                <span class="title">Mr. Downes&#39; Javascript-based referrers</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-13T05:57:26+00:00">
-              2002
-              May
-              13
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/13/oooadi/">
-              <span class="infoContainer">
-                <span class="title">I can do quickies as well as the next blog</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-10T17:55:40+00:00">
-              2002
-              May
-              10
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/10/oooadh/">
-              <span class="infoContainer">
-                <span class="title">Onto the next day job subversion: K-Logging</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-10T17:28:25+00:00">
-              2002
-              May
-              10
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/10/oooadg/">
-              <span class="infoContainer">
-                <span class="title">It&#39;s about-time.</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-10T17:17:58+00:00">
-              2002
-              May
-              10
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/10/oooadf/">
-              <span class="infoContainer">
-                <span class="title">Simple, neat elegance: Wiki, weblog, and design</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-10T16:28:37+00:00">
-              2002
-              May
-              10
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/10/oooade/">
-              <span class="infoContainer">
-                <span class="title">Great minds can now blog alike with Radio</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-09T06:31:30+00:00">
-              2002
-              May
-              09
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/09/oooadd/">
-              <span class="infoContainer">
-                <span class="title">back up and about, limping a bit</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-08T01:19:40+00:00">
-              2002
-              May
-              08
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/08/oooadc/">
-              <span class="infoContainer">
-                <span class="title">More visitors come calling</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-08T01:13:17+00:00">
-              2002
-              May
-              08
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/08/oooadb/">
-              <span class="infoContainer">
-                <span class="title">Linkbacks, robots, laziness, the semantic web, and you.</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-07T22:17:33+00:00">
-              2002
-              May
-              07
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/07/oooada/">
-              <span class="infoContainer">
-                <span class="title">Linkbacks, biology, and killer P2P blog plumbing.</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-07T08:40:37+00:00">
-              2002
-              May
-              07
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/07/oooado/">
-              <span class="infoContainer">
-                <span class="title">Blosxom.  Why ask why?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-07T08:15:00+00:00">
-              2002
-              May
-              07
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/07/oooaci/">
-              <span class="infoContainer">
-                <span class="title">How many blogs do you have, and why?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-07T07:48:34+00:00">
-              2002
-              May
-              07
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/07/oooach/">
-              <span class="infoContainer">
-                <span class="title">Homebrew PVR, or TiVo?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-07T07:29:57+00:00">
-              2002
-              May
-              07
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/07/oooacf/">
-              <span class="infoContainer">
-                <span class="title">Bathroom breaks and golden geese</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-04T22:27:34+00:00">
-              2002
-              May
-              04
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/04/oooace/">
-              <span class="infoContainer">
-                <span class="title">Boy, do I dislike Verisign.</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-04T00:58:08+00:00">
-              2002
-              May
-              04
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/04/oooacd/">
-              <span class="infoContainer">
-                <span class="title">Micropoll: verdict=nifty</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-03T23:25:22+00:00">
-              2002
-              May
-              03
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/03/oooacc/">
-              <span class="infoContainer">
-                <span class="title">Facelift needed around here?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-03T17:05:53+00:00">
-              2002
-              May
-              03
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/03/oooacb/">
-              <span class="infoContainer">
-                <span class="title">Digging my heels in on the Windows</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-05-03T16:36:59+00:00">
-              2002
-              May
-              03
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/05/03/oooaca/">
-              <span class="infoContainer">
-                <span class="title">Down, but not out.</span>
-              </span>
-            </a>
-            
-          </li>
-    </ul>
-    
-  </section>
-      </section>
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Month: 2002/05</h2>
         </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2002 May 31</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/31/oooagb/">Beyond Backlinks, LiveJournal connections, and David Brin&#39;s Earth</a>
+      </h2>
+    
+    <p class="summary">
+      Sam Ruby wants to go Beyond Backlinks, and I'm right there with him.  He writes about the various means we've tried so far to discover connections (ie. referrers and linksback and Jon's analysis of blogroll connections), and muses further.  I love the idea of further automation in surprisingly discovering connections and automatically exploring other feeds, based on discovered connections.
+A plug for LiveJournal:  I love their user info pages.  I've been idly musing for a while now on how one might decentralize this and extend it web-wide throughout blogspace.  I love seeing the friends and friends-of lists, analogous to blogrolls and inverse-blogrolls.  And, I really love the interests lists, since just by entering a catalog of phrases, you can see unexpected links to other people interested in the same things.  Not quite correlations or deep analysis, but it helps.  
+But it's the decentralization that rubs.  I could probably start a service that provides user info page workalikes to bloggers.  I could offer it for free, but then I might get popular and have to pay more for my altruism than I can afford.  (Sometimes I worry about BlogRolling.com.)  I could offer it for a small fee, but then the service would probably never see widespread use.  Were it decentrallized, I could write some software, and others could pay their own way in server resources.  More to think about this.
+Also, if I can get time this weekend, there are a lot of parts of David Brin's novel, Earth, that I'd like to babble about.  Reading it right now, and seeing that he wrote it just around 1990, I'm amazed at how fresh it still is.  Sci-fi and speculative fiction rarely stand the test of years and unexpected advances, but a lot of the stuff in this book - particularly about the way in which people deal with information, how they discuss and create and manage it - seems to be happening right now.
+Anyway, more soon.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/31/oooagb/"
+          >736&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/31/oooagb/">#</a>
+    <a class="time" href="2002/05/31/oooagb/">3:25 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/31/oooaga/">AmphetaDesk / Radio + autodiscovered RSS feeds</a>
+      </h2>
+    
+    <p class="summary">
+      Found these hot little things via Phil Ringnalda and via Matt Griffith: Mark Pilgrim's Amphetadesk Auto-subscribe bookmarklet and Radio auto-subscribe bookmarklet.  So, now when you visit the site of someone who's joined the  RSS autodiscovery via HTML LINK element bandwagon, you can snag their RSS feed into your aggregator.
+This makes me really want to get back to studying some in-browser scripting and DOM manipulation.  It's been awhile since I played with that, and I see more cool things done with it all the time.
+Tasty.  Now I just have to wrap a few more things up, and I'll hopefully be contributing an updated Cocoa-based OS X faceplate/installer for AmphetaDesk to Morbus before the weekend's out.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/31/oooaga/"
+          >117&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/31/oooaga/">#</a>
+    <a class="time" href="2002/05/31/oooaga/">3:02 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/31/oooago/">RSS autodiscovery via the HTML LINK element</a>
+      </h2>
+    
+    <p class="summary">
+      Matt Griffith suggests using an HTML link element as a way to provide robots and news aggregators with means to find a site's RSS feed.  Mark Pilgrim chimes in with a few thoughts and an improvement.  And then, I see the buzz coming from Jenny Levine too.
+So, well, it's easy enough.  I just joined the bandwagon too.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/31/oooago/"
+          >152&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/31/oooago/">#</a>
+    <a class="time" href="2002/05/31/oooago/">5:23 am</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 May 30</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/30/oooafi/">Obsolete Research Dooms Author to Irrelevance</a>
+      </h2>
+    
+    <p class="summary">
+      Ouch.  Remember that no matter how expert you may be on some things, if you start from false premises, you're doomed from the start.  Just caught this article over on Linux Journal entitled "Obsolete Microkernel Dooms Mac OS X to Lag Linux in Performance".  
+In the article, the author expounds at length on the nature of microkernels and their performance hits, and makes a very clear and unabashed claim that "the microkernel project has failed".  Well, I don't know a great deal about microkernels, other than vague skimmings here and there.  But what I do know, is that you don't say "Obsolete Microkernel Dooms Mac OS X to Lag Linux in Performance" and then let slip something like "I'm not sure how Darwin's drivers work...", as well as never providing any metrics, analysis, code, or proof to back up the headline's claim other than to beat up a theoretical microkernel strawman.
+The interesting thing to me though, is that rather than read the article first, I read the comments.  And the thing I saw was an enormous number of comments all pointing to Apple's Mach Overview, so almost instantly I was informed about the credibility of the article itself.  When you have a hundred geeks telling you to RTFM after a lenghty article, it says something.
+In particular, the Apple document says:Mach 3.0 was originally conceived as a simple, extensible, communications microkernel. It is capable of running as a standalone kernel, with other traditional operating-system services such as I/O, file systems, and networking stacks running as user-mode servers.
+However, in Mac OS X, Mach is linked with other kernel components into a single kernel address space. This is primarily for performance; it is much faster to make a direct call between linked components than it is to send messages or do RPCs between separate tasks. This modular structure results in a more robust and extensible system than a monolithic kernel would allow, without the performance penalty of a pure microkernel.
 
-        <footer>
+So, from what I gathered, this little blurb counters much of what the author actually claimed would slow OS X down.  I may be mistaken on this, but it seems to be what everyone else was saying as well.
+So, whereas in another circumstance, this article might've been taken as Linuxite Anti-Mac-OS-X FUD (what's the world coming to? :) ), in this circumstance the article is just taken as an obvious demonstration of a lack of research.  Other than a bit of a sensation when I saw the headline in my aggregator, the steam got let out of it almost instantly.
+Lather, rinse, repeat, and apply to all other utterances and publications.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/30/oooafi/"
+          >442&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/30/oooafi/">#</a>
+    <a class="time" href="2002/05/30/oooafi/">8:37 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/30/oooafh/">A query on scheduling WinXP programs, and Radio resource demands</a>
+      </h2>
+    
+    <p class="summary">
+      Does anyone out there know of a workable, preferably free app for WinXP with which I can launch and quit a program on a scheduled basis?  Starting to work my mad Google skillz to find this, but having a hard time coming up with search terms that give me good results.  See, Radio UserLand demands too much CPU from any of the machines I currently own.  The desktop where I want to park it also serves as my PVR, and when it starts up to record a show, Radio keeps stealing CPU from the video encoding, and I end up with choppy and sometimes dead video.  I even tried screwing with priorities, and that only seems to help moderately.
+So, I want to start up Radio, let it churn free.  Then just before a show comes on, I want to quit Radio.  I was doing this manually via a VNC connection from work, but that's just stupid.  The other alternatives I've tried are running it under Wine on my Debian Linux box, which doesn't quite seem to work happily, or to run Radio again on my OS X iBook, which seems to crush the poor thing.
+I suppose my desktop PC is due for an upgrade, containing only a 600MHz Athlon (though 512MB of RAM), but I've been waiting on that.  Funny, the last time I upgraded, it was to run a few more games.  This time, its to make Radio happier.  :)
+(Addendum: Hey, wait, Radio's an intelligent, reasonable platform...  I wonder if I couldn't just get it to shut itself down at a given time, and then have Windows launch it again.  I think the shutdown is the main issue, since Windows seems to come with a scheduler already for launching programs.)
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/30/oooafh/"
+          >590&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/30/oooafh/">#</a>
+    <a class="time" href="2002/05/30/oooafh/">7:52 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/30/oooafg/">The kuro5iv3 force of the wiki</a>
+      </h2>
+    
+    <p class="summary">
+      Rock on.  Kuro5hin now has a companion wiki named Ko4ting.  I'll be very interested to see where it goes.  (Thanks to nf0 for the link!)
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/30/oooafg/"
+          >26&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/30/oooafg/">#</a>
+    <a class="time" href="2002/05/30/oooafg/">6:25 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 May 29</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/29/oooaff/">Of metalinks, linkbacks, and Cocoa AmphetaDesk</a>
+      </h2>
+    
+    <p class="summary">
+      Still busy busy, but had to drop in for a minute to try out the Metalinker code here.  Two wishlist items: 1) Maybe use a micro-icon for the metalink, and 2) some indication of the number of links to the link on Blogdex would be hot, maybe even a green-through-red series of micro-icons for the link.  Could maybe count the links on the blogdex page via some sort of scraping, but that would require some server-side stuff since I doubt the client-side can do it.  (Or I just don't know enough modern browser scripting lately.)
+Because of the obvious connections, this makes me want to get back to my new-and-improved linkback implementation very soon.  That'll be next after I tie up this Cocoa AmphetaDesk wrapper.  (Actually got it 2/3 done last night, yay!)
+Back to work.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/29/oooaff/"
+          >214&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/29/oooaff/">#</a>
+    <a class="time" href="2002/05/29/oooaff/">2:51 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 May 28</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/28/oooafe/">Not dead yet, just resting</a>
+      </h2>
+    
+    <p class="summary">
+      Oh yeah, and I am still alive.  Just heading toward the light at the end of the tunnel of a long project at work over many late nights.  Also have been living life a bit lately.  But I've also been re-reading David Brin's Earth, VernorVinge's A Deepness in the Sky, and have a few musings about them.  Also have been doing some intermittent Lisp and Python hacking.  Oh, and I also will be trying a bit of Perl/Cocoa hacking for AmphetaDesk in the very, very near future.  Hope to get back to at the news aggregator and web log controls soon.  Anyone miss me?  :)
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/28/oooafe/"
+          >138&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/28/oooafe/">#</a>
+    <a class="time" href="2002/05/28/oooafe/">3:29 am</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/28/oooafd/">Yes, I am an outline nut</a>
+      </h2>
+    
+    <p class="summary">
+      Hmm.  I think I need to snatch up some of Marc Barrot's outline rendering code and apply it to my Movable Type weblog.  Wrapping many of my front-page elements in outline wedges would be very nice.  I suppose I could swing back toward the Radio side of things and use it more, but I really need to find a machine to be its permanent home.  Eats too much CPU on the iBook, disrupts PVR functions on my Win2K box, and seems to work half-heartedly via WINE on my Linux box.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/28/oooafd/"
+          >91&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/28/oooafd/">#</a>
+    <a class="time" href="2002/05/28/oooafd/">3:24 am</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 May 24</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/24/oooafc/">Secret weapons of LISP and Perl</a>
+      </h2>
+    
+    <p class="summary">
+      Just saw Gordon Weakliem mention, via Roland Tanglao's Weblog, this article over at New Architect: Orbitz Reaches New Heights.  This snags my eye for two reasons: 1) Orbitz is a client of my employer - we do a ton of web promotions for them; and 2) LISP is one of those things I keep meaning to get back into, kinda like I keep meaning to read things from that gigantic Shakespeare collection I asked for and recieved for Christmas from me mum.
+The quote that Ronald pulls out from the article is:The high-level algorithms are almost entirely in Lisp, one of the oldest programming languages. You're excused for chuckling, or saying "Why Lisp?" Although the language can be inefficient if used without extreme caution, it has a reputation for compactness. One line of Lisp can replace 20 lines of C. ITA's programmers, who learned the language inside and out while at MIT, note that LISP is highly effective if you ditch the prefabricated data structures. "We're something of a poster child for LISP these days," says Wertheimer. "Lisp vendors love us."
+
+Funny, if you did an s/Lisp/Perl/g and an s/LISP/Perl/g on that text, you'd almost have a quote from me.  I've also heard Perl often compared to LISP, amongst the upper ranks of Perl wizards.  Oldest language-- hmm, no, but it's been around the block.  Inefficient without caution-- check, hand-holding is at a minimum.  Compactness-- check, many bash it for obfucation facilitation.  Effective after ditching prefab structs-- check, if you enjoy slinging hashes all over, like I have until recently.  And so far, we're a poster child for Perl here.
+What is it that I have in Perl?  Well, I've named it the Toybox.  It's a web application platform.  We do everything with it.  Reusable software components composed into applications with a web-based construction tool.  The components contain machine and human readable descriptions on properties and methods, to enable inspection by tool and documentation generation.  Also, the components and the framework are designed to provide predefined collaboration patterns so that one component can supplement or modify the behavior of another without that other component needing to be modified or altered.  I've also just recently added a persistent object layer for all those pesky little parameterizing trinkets we started needed to throw around.  (I really wish I could Open Source this thing. :) )
+So there's a continual grumble here to switch to Java, sometimes from me, and sometimes from another developer or two.  In some ways, a switch and reimplmentation is a no-brainer, considering tool support and labor pool.  But, is this overhyped?  Wherever I've gone, I've just picked up whatever was used there.  My basic computer science background lets me switch technologies pretty easily.  Is this rare?
+But as for the languages themselves... From the trenches, doing object-oriented stuff in perl is painful and dirty.  In a lot of other ways, it feels nice because you can jump out of the OO mindset and do some naughty things when you think you need to.  And if you're careful.  But when you do, you don't get any help from the language, which I think is one of the major selling points of Java.
+And then occasionally, a client demands to know the specifics of our platform.  Such as, what vendor's app server are we using?  What database server?  And when we say Perl and a platform almost completely developed in-house, noses crinkle and doubts arise.  But they rarely have a complaint about the end result and the speed at which we execute it.
+I guess what I'm getting at is this:  Having a hard time untangling politics, job market, and the right tool choice.  LISP seems to have done alright by Orbitz, and Perl's done alright by us.  So far, that is.  I always vaguely worry about the "non-standard technology" I use here, though.  Is that such a valid worry, or am I just swallowing vendors' marketing pills like our clients?  Because the "standard" just happens to be the buzzwordy things that a number of companies sunk money into and work hard to justify.
+But, hell, someone had to have started creating something alien and new to come up with what's "standard" today.  I seem to see stories from time to time about companies whose "secret weapon" is just such a "non-standard technology".  They avoid many of the pitfalls that the herd faces by taking their own path, but trade them for new ones.  There's risk in that, but then again there's risk in everything with a potential for gain.
+Then again, there's the argument against wheel reinvention.  I seem to like reinventing wheels sometimes for the hell of it, simply because I want to know how wheels work.  Sometimes I even feel arrogant enough to assert that I can make a better wheel.  But there is a point where just buying the thing and moving on is the smart option.
+Oh well...  I've come to no conclusion.  But I'm still writing Perl code in my xemacs window today, and about to get back to it when I hit the "Post" button.  And things seem pretty good here-- I mean this company managed to claw through the wreckage of the dot-com collapse and still edge toward a profit.  We lost more clients due to their bankruptcy than through customer dissatisfaction. 
+I suppose I can at least say my choice of Perl, if not a secret weapon, didn't break the bank.  :)
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/24/oooafc/"
+          >1003&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/24/oooafc/">#</a>
+    <a class="time" href="2002/05/24/oooafc/">3:30 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 May 22</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/22/oooafb/">Ideas on a next iteration of the linkback implementation</a>
+      </h2>
+    
+    <p class="summary">
+      Jotting down some wishlist ideas for a next iteration of a linkback implementation and/or service.
+This reminds me:  I want to borrow Marc Barrot's activeRenderer code, combine it with maybe a nice ?JavaScript UI or at least Wiki markup to produce a simple web-based outliner.  I'm sure this has been done before.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/22/oooafb/"
+          >53&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/22/oooafb/">#</a>
+    <a class="time" href="2002/05/22/oooafb/">9:01 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/22/oooafa/">Of alligators and bloxsoms</a>
+      </h2>
+    
+    <p class="summary">
+      From Chris Heschong:...While I don't believe it's 100% done, I've put up the code to my new pet RSS aggregator here for the moment. More to come shortly.
+
+A nice, simple RSS aggregator in PHP that seems to run nicely on my iBook.  Planning on poking at it some more, so I hope the alligator is of the non-bitey variety.
+As Rael's little blosxom has hinted at, OS X has the potential to be the perfect end-user desktop website platform.  I even had Movable Type running on it without much fuss.  If only Apple had shipped with mod_perl and PHP modules active in Apache, it would be that much more amazing.  I suppose that's easy enough to rectify.  
+Makes me feel strange running Radio UserLand on my OS X iBook, besides the CPU consumption.  So much duplication of what's already there.  Of course, there are the plusses of cross-platform goodness, integrated environment goodness, and things that just feel generally slick about it.  Eh, but I don't have to feel strange about that anymore, since I moved Radio to my Windows box.  Now Radio fights with my PVR program for CPU.  Grr.
+I've been thinking about this lately, too: Cocoa GUI talking via XML-RPC or SOAP to a web app locally hosted.  It's been mused about before, though I forget where.  I seem to remember that Dave had mentioned a company working on something like this.  Could be interesting.
+Seems to me that the potential and power of OS X for these sorts of apps (ie. desktop websites, networked info filters, etc...) has barely been tapped yet.
+Unix on the desktop.  Really.  Who woulda thunk it?
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/22/oooafa/"
+          >310&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/22/oooafa/">#</a>
+    <a class="time" href="2002/05/22/oooafa/">2:40 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 May 21</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/21/oooafo/">Mass media &amp; consumer culture, a mind-virus threat?</a>
+      </h2>
+    
+    <p class="summary">
+      We discover all kinds of harm done to ourselves by environmental pollutants, decades or centuries after the fact.  What if someday we discover that mass media and consumer culture, as we know it, is literally detrimental to one's health?
+From Pravda.RU: NEUROLINGUISTIC DEPROGRAMMING(NLDP). NOUS-VIRUSES - A NEW THREAT FOR HUMANITY:... There is ... danger [of the deliberate using NLDP for harm]. ... NLDP-effect arises ... when a person is plunged into the intensive field of influence received by the optic, acoustic, kinesthetic perception ducts. ... often called TV programs, listening to the music, moving in the space of different texture, contacting with technical devices, etc.  ... In some industrial countries such aphasia disorders as dyslexia and agraphia ... are unaccountably widespread. This "aphasia epidemic" can be easily explained by NLDP-effects. ...  in the communication informational field certain informational-semantic blocks circulate. I call these blocks NOUS-VIRUSES. They get into the brain of a child or an adult, and, if his "anti-virus" defense does not work, the result of the destruction is a psychological disorder, which is not accompanied by the organic affection of the brain. ... 
+
+In case the awkward translation threw you for a loop, what this author is basically saying is that there are certain "idea viruses" circulating in our surroundings which make it past certain mental barriers ("anti-virus" defense) to cause mental disorders such as dyslexia, aphasia, and agraphia.
+Sounds very Snow-Crash-like.  Later on in the article, the author suggests establishing a new branch of science ("NOUSEOLOGY") to deal with these things.  Maybe the translation missed it, but I don't suppose this author has heard of memetics...
+Anyway, no research is mentioned to prove the claims, and there's nothing else to convince me that this is anything other than a wild rant... but the idea is interesting.  Another Cluetrain tie in for me, at least in my head:  What if some day, communicating to humans with a human voice (whether literally speaking, or in other channels) is determined to be the only medically safe way to communicate?  :)
+I'd like to think our minds aren't so fragile, though.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/21/oooafo/"
+          >351&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/21/oooafo/">#</a>
+    <a class="time" href="2002/05/21/oooafo/">3:16 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 May 20</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/20/oooaei/">Improved linkback scripts, and finalizing the site move</a>
+      </h2>
+    
+    <p class="summary">
+      Still working on getting all the bits of this site working again on the new host.  One thing in particular that's broken are my beloved referer scripts.
+But, I'm working on replacements in PHP.  Noticed that my linkback scripts are linked to and described on IAwiki.  Also notice some decent wishlist ideas for linkback improvements-- such as first/last referral date and link karma.  And of course there are the improvements I've been meaning to make-- such as metadata harvesting from referrer pages and some improvements on filtering out some bogus/unwanted links (ie. Radio UserLand aggregator links).  Might also be nice to allow someone to submit URL patterns they'd like excluded-- that is, if you link to me and don't want me to publish the linkback, you can submit a URL pattern for your site.
+Have also been thinking of throwing it together as an open service, like yaywastaken.com's Link Feedback and Stephen Downes' referral ?JavaScript-includes.  I can offer the service, and the code.  The only drawback is, well, what might it cost me to offer others a free lunch if the service actually happens to be good. :)
+Need to keep thinking about colocation.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/20/oooaei/"
+          >225&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/20/oooaei/">#</a>
+    <a class="time" href="2002/05/20/oooaei/">4:01 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/20/oooaeh/">Conference blogging and linkbacks</a>
+      </h2>
+    
+    <p class="summary">
+      From Aaron Swartz:Here's an annotated version of the schedule from the Emerging Technologies 2002 conference. Under each session are links to the blog entries about that session.  If I didn't include yours, send me an email...
+
+You know what would rock for something like this?  Provide a conference schedule, with each event in the schedule as a URL-addressable page or anchor within a page.  Tell bloggers to link to those URLs when blogging about a particular event.  Grab referrers and display links back to blog entries on those pages and on a summary page like Aaron provides.
+Automatic conference annotation, and you don't even have to worry whether Aaron included your blog entry or not.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/20/oooaeh/"
+          >115&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/20/oooaeh/">#</a>
+    <a class="time" href="2002/05/20/oooaeh/">3:50 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 May 18</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/18/oooaeg/">Migrating to a new host</a>
+      </h2>
+    
+    <p class="summary">
+      Had to do a bit of manual transmutation of DB files for Movable Type to work.  Let's see if I was successful...
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/18/oooaeg/"
+          >34&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/18/oooaeg/">#</a>
+    <a class="time" href="2002/05/18/oooaeg/">5:56 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 May 17</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/17/oooaef/">Cramming the airwaves into my mac</a>
+      </h2>
+    
+    <p class="summary">
+      Oh... I'm looking around for some sample code & docs for this, but maybe someone out there could drop me a few quick pointers:
+I'm using Mac OS X.  I have a Griffin iMic and a D-Link USB Radio.  I can control the radio with DSBRTuner (with source code!)  I thought that that would be the hard part.  Now, what I want is a simple way to record sound to disk in AIFF format, preferably from the command line or at least with source code.  I've tried a few other sound recording apps, but they're all mostly inadequate and overkill at the same time.  Most of them won't record to disk, so capturing 4 hours of audio into memory hurts a lot.
+I want to, in part, record radio shows with cron jobs.  This shouldn't be rocket science.  So, anyone know how to write a simple audio-to-disk app for OS X?
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/17/oooaef/"
+          >152&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/17/oooaef/">#</a>
+    <a class="time" href="2002/05/17/oooaef/">5:12 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/17/oooaee/">Rock bangers, unite!</a>
+      </h2>
+    
+    <p class="summary">
+      So, I feel really out of touch.  Seems like the majority of the authors on my news aggregator scan were all blogging from the O'Reilly Emerging Technology Conference this week.  For some reason, I hadn't even heard of it until last week.  This mystifies me.  I can't believe I hadn't checked this conference out long ago and found a way, by hook or by crook, to get my butt over there.  Seems like they covered an alarming number of the topics about which I'm fascinated.  But, beyond the content of the conference itself, I would have loved to witness firsthand the phenomena of an audience full of bloggers tick-tacking away in realtime.  And I so would have been running EtherPEG on my iBook like Rob Flickenger was.
+It's been forever since I managed to get out to a technical conference.  Not that I managed to globe-trot with any great frequency before the Internet bubble burst, when money was flush and expense reports were easy, but I was starting to feel like I was making inroads into a community.  Now I feel cloistered in over here at my company and I don't know if my employer necessarily sees a value in me attending things like this.  Marketing and sales make heroic efforts to streak around from coast to coast-- man, I don't envy them-- but I always stay here.  Sometimes I wonder if it's because they're afraid I might let some of the mojo slip.  But that's being pretty presumptious of the quality of the mojo I make here.  :)  (For what it's worth, there are nervous chuckles when I talk about Open Sourcing bits of my work.)
+This is starting to sound like spoiled geek whining.  It isn't that I want the company sugar-daddy to fly me to Milan every month-- I just start feeling a bit isolated and claustrophobic working with the same few dozen people, only a tiny handful of whom are actually technically-minded, week in and week out.  So it's nice to feel a part of a wider community of like- or at least relatedly-minded people who are passionate about this stuff.  
+I'm an obsessive nerd.  This is what I tell people who ask me, "Don't you get tired doing this all the time," or, "Why do you have more than one computer?"  When talking to myself (as I often do) or to other geeks, I call it passion.  I appreciate passion for its own sake, and I love talking to other impassioned people.
+I always try to be tenative about my pretensions, but here goes another one:  All the way back to when people were dingy, loin-cloth-clothed stereotypical and mythical cavemen sitting around comfy fires, there was always some oddball or scrawny thing who insisted on playing around at the edge of the firelight and further.  Or banging around with an odd pair of rocks, making sharp things.  
+I want to hang out more with my fellow rock bangers.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/17/oooaee/"
+          >494&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/17/oooaee/">#</a>
+    <a class="time" href="2002/05/17/oooaee/">4:59 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/17/oooaed/">DECAFBAD&#39;s gone all wobbly</a>
+      </h2>
+    
+    <p class="summary">
+      Whew.  Been swamped this week, with work and with life in general.  So, sadly, 0xDECAFBAD got a bit neglected.  
+When last I was working on things, I was in the middle of some decent-sized reworks of various parts to go easier on the servers and do things in a smarter way.  Amongst all that, I notice that since my suspension the admin of my web host has been poking in from time to time and still tinkering with my site.  This week they've been doing things like turning off execution permissions site-wide (and therefore disabling all scripts here) and shutting off various cron jobs and calling it abuse-- eg. a nightly tarball of my site, to be scp'ed down by a home machine's cron job later in the night.  Supposedly they have backups, but I don't.
+On the one hand, I understand an admin wanting to maintain the performance of a server he owns.  On the other hand, I'm a tenant.  Does your landlord continually come into your apartment when you're not home, without notification?  Does he or she wander around, unplugging your clocks and appliances, shutting off your heat while you're gone?  I could understand if the apartment was on fire, then some immediate action is required.  But you know, I'd just like to have a little notification.
+Moving on...
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/17/oooaed/"
+          >222&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/17/oooaed/">#</a>
+    <a class="time" href="2002/05/17/oooaed/">12:33 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 May 13</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/13/oooaec/">IFRAME vs JavaScript-include - FIGHT!</a>
+      </h2>
+    
+    <p class="summary">
+      Starting to think about this, too:  What's better to use?  an IFRAME, or a ?JavaScript-powered include?  I can see elegance and hackishness in both.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/13/oooaec/"
+          >503&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/13/oooaec/">#</a>
+    <a class="time" href="2002/05/13/oooaec/">1:38 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/13/oooaeb/">Javascript-enabled linkbacks, part deux</a>
+      </h2>
+    
+    <p class="summary">
+      Hmm, looks like I was completely wrong when I wrote that the post-hash bit of referring URLs weren't showing up in my referral logs.  Duh.  I see them right in my "Today's Referrers" block on my site's front page, and a quick SQL query shows me tons of them.  It'll be easier to linkback-enable Radio UserLand blogs than I thought.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/13/oooaeb/"
+          >68&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/13/oooaeb/">#</a>
+    <a class="time" href="2002/05/13/oooaeb/">1:28 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/13/oooaea/">Linksback to the danger zone</a>
+      </h2>
+    
+    <p class="summary">
+      Dang it.  Jon's blog lists a link to my MovableType management console.  Glad I deleted "Melody"  :)
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/13/oooaea/"
+          >18&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/13/oooaea/">#</a>
+    <a class="time" href="2002/05/13/oooaea/">3:10 am</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/13/oooaeo/">Mr. Downes&#39; Javascript-based referrers</a>
+      </h2>
+    
+    <p class="summary">
+      Just noticed that Stephen Downes emailed me about his implementation of a Javascript-based referrer linkback system.  I'd been planning to get around to making one inspired from our blogchat, but he's got it first.  Cool.  :)  Looks like Jon's picked up on it, too.  
+
+
+
+
+
+Jon muses:I haven't yet looked into what it will take to make the reporting item- rather than page-specific. It's doable, I'm sure. Thanks, Stephen! A ?JavaScript-oriented solution like this will appeal to a lot of Radio users.
+
+
+
+
+
+
+
+The biggest issue I see for Radio, obviously, is that the style there is to have many blog entries on one page for the day.  Permalinks are anchors within those pages.  However, I haven't seen browsers reporting the post-anchor-hash info for referrals.  At first though, one would need to have Radio spew blog entries into individual files to make this JS linkback scheme work at per-entry granularity.  Otherwise, I'd love to see this work for Radio.  I'd also love to see it woven with community server services.
+
+
+
+
+
+A few brief musings on the referrers script itself:
+
+
+
+
+
+
+
+
+
+Hmm, haven't seen cgi-lib.pl used since my Perl 4 and pre-CGI.pm days.  I'd forgotten how serviceable the thing still is.
+
+
+
+
+
+I like get_page_title().  It's a start on what I was musing about over here.
+
+
+
+
+
+I want to steal this, maybe transliterate it into PHP (since my webhost frowns on my CGIs now), and hook it up to a MySQL database.  Stephen doesn't want to host the world's referers, but I wonder how mad my host will get if I open mine up.  :)  Would make for some neat data to draw maps with, but probably shouldn't do things to make myself an even more annoying band practicing neighbor.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/13/oooaeo/"
+          >286&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/13/oooaeo/">#</a>
+    <a class="time" href="2002/05/13/oooaeo/">3:07 am</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/13/oooadi/">I can do quickies as well as the next blog</a>
+      </h2>
+    
+    <p class="summary">
+      Had a busy weekend living life, entertaining the girl, and cleaning my cave.  A few quick things, if only to remind myself to remember to think about them:
+
+
+
+
+
+
+
+
+
+Inspired by a suggestion from Eric Scheid to move from my server-included blocks to client-included blocks via ?JavaScript, I did a little exploration into the idea and whipped up a quick, generalized script to mangle the contents of any given URL into a document.writeln().  Not sure how robust this thing is.
+
+
+
+
+
+Also, not sure how widely supported the JS-include hack is.  On the other hand, Stephen Downes had made a good point in my blogchat the other day concerning JS-based hacks:  my visitors can turn them off by disabling Javascript.  Having been employed in the field of internet promotions these past 6 years, this seems like a nightmare.  But, having been reading the Cluetrain Manifesto and following smart blogs, I start to think this is a Good Thing.
+
+
+
+
+I see that JanneJalkanen  and crew are musing out an update to the XML-RPC wiki interface.  Having worked on my own implementations of this interface, I need to keep an eye on this, even if I can't quite be as active as I like.
+
+
+
+
+HTTP Extensions for a Content-Addressable Web seems hot as hell, especially for the future decentrallized publishing world I'm dreaming of.
+
+
+
+
+
+I'm updating my home linux box, Memoria, with Debian, defecting from Mandrake Linux.  Wish me luck.  Oh, and the HD in the machine has a few cranky parts from having been dropped.  Wish it luck.
+
+
+
+
+
+Running a telnet BBS at telnet://deus-x.dyndns.org:2323.  The domain may change to bbs.decafbad.com soon.  I miss the BBS days.  I may bemoan the loss of local community gateways onto the 'net someday soon.  I'm using Synchronet on a poor overworked Pentium 70Mhz PC running Win98, on which I also inflicted Radio UserLand for the time being.  No one really calls on my BBS.  I've been thinking of hosting the UNIX version on Memoria.
+
+
+
+
+
+Thinking of trying out Radio UserLand on Memoria under Wine.  I've seen mutterings which claim that this is possible.  Anyone?
+
+
+
+
+
+I want to wax pretentious with a few musings on the Singularity, birth control, anti-biotics, glasses, and self-modifying code.  I might not get around to it, though.
+
+
+
+
+
+Wasabi-coated peas are at once wonderful and terrifying.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/13/oooadi/"
+          >383&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/13/oooadi/">#</a>
+    <a class="time" href="2002/05/13/oooadi/">1:57 am</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 May 10</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/10/oooadh/">Onto the next day job subversion: K-Logging</a>
+      </h2>
+    
+    <p class="summary">
+      Speaking of software I want to get deployed at work (ie. time tracking), another thing I want to take the plunge with is k-logging.  Basically, I want some software to give every person here an internal blog or journal.  Immediately, I want this to capture internal narrative.  A future subversive idea I have for it is to eventually pipe some of these internal entries out to our public company website.  (Yes, I'm reading The Cluetrain Manifesto again.)
+
+
+I've gotten almost everyone here on the wiki bandwagon, and we're using it regularly as a knowledge capture and collaboration tool.  So, they're used to me throwing odd new tech at them.  Unfortunately, the wiki isn't precisely suitable to what I want for the k-logs.  These are my requirements so far:
+
+
+Must be dead simple to use in all aspects, so that it sits far below the laziness threshold it takes to record an idea or narrative as it occurs.
+Rich set of categories and metadata by which an entry can be tagged.  (ie. On what project were you working?  On what project task?  With what products?  How much time did you spend?)
+Arbitrary views on weblog entries, querying on category and metadata, maybe even on full-text search.  I want to be able to weave together, on the fly, the narrative of any person, project, product, or any other topic.
+
+
+
+
+I'm looking, hopefully, for something free.  At the moment, I'd have a hard time campaigning for the purchase of a fleet of Radio UserLand subscriptions for all of us, unfortunately.  Someday, perhaps.  (I could just imagine the insane possibilities of a Radio on every employee's desktop.)  But, is there anything out there like this now?  It's simple enough that I could probably roll my own in a weekend or less, but it'd be nice to jump on the bandwagon of an established k-log tool.
+
+
+Also really looking at more ways to lower the laziness threshold.  We just converted the entire company over to using Jabber as our official instant messaging platform, so I thought it'd be pretty keen to have the k-log system establish a presence to receive IM'ed journal entries.  Along the lines of the wiki adoption, I'd probably have to get everyone to embed a certain style of keywords or some other convention to get the k-log system to pick up categories.
+
+
+Or, to make it even lazier, could I get the k-log system to automatically discover categories by the mention of keywords?  Hmm, this could be fun.
+
+
+Anyone out there working at a k-logged company?
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/10/oooadh/"
+          >1018&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/10/oooadh/">#</a>
+    <a class="time" href="2002/05/10/oooadh/">1:55 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/10/oooadg/">It&#39;s about-time.</a>
+      </h2>
+    
+    <p class="summary">
+      Oh, and I've swung away from keeping track of it, but I need to get back to looking at masukomi's about-time time tracking software.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/10/oooadg/"
+          >25&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/10/oooadg/">#</a>
+    <a class="time" href="2002/05/10/oooadg/">1:28 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/10/oooadf/">Simple, neat elegance: Wiki, weblog, and design</a>
+      </h2>
+    
+    <p class="summary">
+      Noticed two things from Mike James this morning:
+An interesting melding of weblog and wiki over at www.tesugen.com.  The combination of Blosxom, which elegantly composes the weblog from a simple pile of files, and UseModWiki, which can cache its pages in a simple pile of files, makes me think about the combination myself...  (Oh, and TWiki does this, too, not in caching but in the storage of page content in the raw.)  I could make Blosxom search for files by regex (ie. Blog*) and post to the weblog in ?UseModWiki with a naming convention of pages.  Seems neatly elegant.
+And the second thing are the MovableWorksOfArt that Mike cites.  Again, simple and neat elegance.  I'm with Mike:  I've got a lot to learn, and a lot to strip down from the design of this site.  I also really need to dig into some proper CSS.  Mark Pilgrim's CSS magic shames me.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/10/oooadf/"
+          >218&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/10/oooadf/">#</a>
+    <a class="time" href="2002/05/10/oooadf/">1:17 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/10/oooade/">Great minds can now blog alike with Radio</a>
+      </h2>
+    
+    <p class="summary">
+      Yay!  It appears that the new Multi-Author Weblog Tool does almost exactly what I'd mused about doing as a GroupsWeblogWithRadioUserLand, were I to ever get around to it.  Been drifting away from Radio lately, but I need to get it working on a decent machine.  It ate my iBook CPU time like dingoes eat babies, and on my home desktop Windows machine it would eat enough CPU to cripple my PVR functions.  I'd like to see about either moving that PVR function to a  Linux box, or trying to run Radio under Wine.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/10/oooade/"
+          >94&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/10/oooade/">#</a>
+    <a class="time" href="2002/05/10/oooade/">12:28 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 May 09</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/09/oooadd/">back up and about, limping a bit</a>
+      </h2>
+    
+    <p class="summary">
+      0xDECAFBAD was out cold today for some hours, due to the suspension of my webhosting account.
+Seems the SSI-and-CGI combination I was using around here had turned into a monster, and the sysadmins decided things had gone rogue on my site.  So, I get suspended, to be later restored with a lecture on the nature of CGI.  My scripts were called "fucking insane" by the admin who finally gave me back my keys.  And, on top of it, I got a lesson in UNIX file permissions while he was at it.
+Well, the thing is... of course I understand CGI, and the expense of launching external processes.  And I gathered that the SSI-and-CGI combination was braindead at the end of the day.  And I understand the necessity for restrictive file permissions.  But still, even with all that, I let things get sloppy.  
+This is vaguely embarassing.
+So, today I hastily reimplemented everything using that SSI-and-CGI scheme in PHP.  I'd started leisurely on the PHP replacements this weekend, but this was a kick in the ass to finish it.  Almost every *.shtml page is a *.phtml page now.  I rewrote my referral link listing code, as well as my RSS feed display code, in PHP functions.  There are still some places where things are broken (most notably the referrals in the wiki), but I'll get around to fixing them.  Not too bad for starting from zero PHP exposure (somehow) until this weekend.
+I'd like to think that this won't happen again, but I suspect it might.
+The problem is that this site is my mad science laboratory.  I mix things together, set things on fire, and occasionally have something explode.  I get enthusiastic about seeing what I can do, without a whole lot of regard toward safety or keeping the wires out of sight.  I figure that I'll tighten up the bolts and polish up the shells of the interesting experiments, and just archive the ones that turn out boring.
+Occasionally, this leads to me playing loose with security and resource conservation.  I really need to watch this more, since the sysadmin reminded me, "Remember, your account is on a multi-user, time-sharing UNIX operating system."  My first reaction to this was, "Well, duh," but then my second reaction was... "Oops."  It's not that I don't know these things.  It's just that I get quite a bit ahead of them in tinkering.
+I have to try to find a balance between boiling beakers and safety goggles.
+And, I wonder if this webhost is the right place for this site.  They certainly don't have the world's best customer service.  It's low touch, high grumble BOFH service.  It appears that the people running the show are experts (I see the name of one of the admins all over various Open Source projects' patch submissions), but don't have a whole lot of time or patience for bullshit.  But, I pretty much knew that going in.  It makes things cheap, but it's also a bozo filter.
+And with some of the things I'll be doing, I'm likely to be a continual bozo.
+The best thing would be, as DJ suggested earlier today in blogchat, to find a cheap-cheap colocation somewhere.  It's not as if I don't have machines to spare-- I just need a safe, constant full peer and static IP net connection.  I'd love to have something I could run persistent servers on, play with a few different app servers, a couple generations of Apache, etc.  The things I want to do can be done safely, given that I pay attention, but I doubt that they will make for a quiet neighborhood.  On any server I play, I'll be the noisy bastard down the street blaring the metal and practicing with his band every night.
+Hmm.. have to think about that co-lo thing.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/09/oooadd/"
+          >726&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/09/oooadd/">#</a>
+    <a class="time" href="2002/05/09/oooadd/">2:31 am</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 May 07</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/07/oooadc/">More visitors come calling</a>
+      </h2>
+    
+    <p class="summary">
+      Oh, and Ken ?MacLeod was another visitor to my blogchat today.  Along with humoring some of my RESTian musings (which I think I understand much better now, thanks), he'd observed the multiple links back to the same blog entries awhile back.  We chatted a bit about the linkback thing and the scalability of BlogVersations.      Talked a little about the robot link detective I just babbled about.
+Also, he pointed me to Purple, which appears to be an decent system to use for arbitrary mid-document linking in a blogspace lacking universal XHTML and XLink adoption.  This means something, too.
+Time to go home.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/07/oooadc/"
+          >103&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/07/oooadc/">#</a>
+    <a class="time" href="2002/05/07/oooadc/">9:19 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/07/oooadb/">Linkbacks, robots, laziness, the semantic web, and you.</a>
+      </h2>
+    
+    <p class="summary">
+      I just noticed Ghosts of Xanadu published on Disenchanted, where they make an analysis of the linkback meme and it's historic roots.  They cover pretty much all the big ideas I've been poking at in my head, and give props to Xanadu.  Heck, they even mention Godel, Escher, & Bach (which my girlfriend & I have started reading again) and ant scent trails.
+So along with the ?JavaScript-powered linkback thing, something else I've been thinking about is a little semantic sugar to add to the mix.  I keep forgetting to mention it, but what makes Disenchanted's linkback system very good is that Disenchanted "personally visits all pages that point to us and may write a short note that will accompany the returning link."  They manually visit and annotate their links back, whereas my site just trundles along publishing blind links.
+I'd like to change that with my site.  The first thing I'll probably do is set up some triggers to track new referring links to my pages, and maybe give me an interface to queue them up, browse them, visit them, and annotate them.  
+But the second thing is something that would require a little group participation from out there in blogspace.  It might not work.  Then again, it might catch on like crazy.  I want to investigate links back automatically, and generate annotations.  I'm lazy and don't want to visit everyone linking to me, which sounds rude, but I think that the best improvements to blogspace come with automation.  (In reality, I do tend to obsessively explore the links that show up in my referral log, but bear with me.)
+I can respect the manual effort Disenchanted goes through, but I don't wanna.  So, I want a robot to travel back up referring links.  What will it find there?  Well, at present, probably just an HTML page.  Likely a weblog entry, maybe a wiki page.  What can I reasonably expect to derive from that page?  Maybe a title, possibly an author if I inform the robot a bit about what to look for. (ie. some simple scraping rules for blogs I know regularly link to me.)  
+What else can I scrape?
+Well, if bloggers (or blog software authors) out there help me a bit, I might be able to scrape a whole lot.  I just stuck a Wander-Lust button on my weblog, and I read about their blog syndication service.  You can throw in specially constructed HTML comments that their robot can scrape to automatically slurp and syndicate some of your content.  Not a new idea, but it reminds me.
+So bloggers could have their software leave some semantic milk & cookies out for my robot when it wanders back up their referring links.  Maybe it could be in a crude HTML comment format.
+Or maybe it could be in a bit of embedded RDF.  Hmm.  Anyone?
+What would be useful to go in there?  I might like to know a unique URL for the page I'm looking at, versus having many links back to the same blog entry (on the front page, in archives, as an individual page with comments, etc.)  I might also like to know who you are, where you're coming from, and maybe (just maybe) a little blurb about why you just linked to me.  I'd like to publish all these things along with my link back to you, in order to describe the nature of the link and record the structure we're forming.
+This seems like another idea blogs could push along, semantic web tech as applied to two-way links.
+Of course, the important thing here is laziness.  I'm lazy and want to investigate your link to me with a robot.  But you're lazy too.  There's no way that you'll want to do more work that I do to provide me with the data for my robot to harvest.  So... how to make this as easy as making a link to me is now-- or better yet, can we make it easier to make a richly described link?  That would really set some fires.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/07/oooadb/"
+          >796&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/07/oooadb/">#</a>
+    <a class="time" href="2002/05/07/oooadb/">9:13 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/07/oooada/">Linkbacks, biology, and killer P2P blog plumbing.</a>
+      </h2>
+    
+    <p class="summary">
+      I meant to post a quick thank you to Jon Udell for the link in his recent O'Reilly Network article, Blogspace Under the Microscope.  But beyond the fact that he mentions me, I really like the biological metaphor for blogspace he explores there.  
+In the short time I've had this blog out here, I've tossed in a few handfuls of small hacks that have incrementally connected it to others and made discovery of some connections automatic.  What I'm doing is mostly inspired by what I see other bloggers doing.  Something about all this feels very different from what's happened on the web thus far.  I don't have, nor likely will ever have, one of the more popular blogs on the block-- but for the short time I've had it, this thing has gotten more connected than anything else I've ever done on the web.  It's certainly by no genius of my own that this has happened.  There's something big to this.
+Pardon the pretention, but it seems that there's this "Reverse-Entropy"  going on here through these incremental tweaks and the construction of these small, elegant connecting channels between walls are what will very shortly raise the level of blogspace to.. what, a singularity?  Not sure, but it's seeming more and more like David Brin's Earth.  (I've got to read that again and pull some quotes.)
+So (back to practical matters), Stephen Downes dropped into my blogchat for a visit and we chatted briefly about the linkback meme.  One thing we'd touched on was a fully ?JavaScript exploiting referrer service one could use on a site where one could not host dynamic content like SSI, PHP, etc.   Jon also touches on pretty much the same thing in musing about a backlink display in Radio.
+More centralized services bug me-- I really want to see a completely decentrallized blogspace.  But, it's baby steps that need to be taken.  Since there's no P2P killer app plumbing for blogspace yet, we need full peers to get hosted.  
+Some, like mine, are hosted where dynamic content is available and I am capable (and willing) to hack at the dynamic bits.  Others are hosted where content must be static, and others have owners who either can't or don't want to bother with hacking on the plumbing.  So some central services are still needed to prop up blogs.  Baby steps.  Get the tech working, observe the flying sparks, and get bored tinkering with what doesn't work.
+But it would be brilliant if someday soon, something like Radio can become 100% decentrallized, with installations collaborating to form the space via firewall-piercing instant messaging conduits, pub/sub connections, content store-and-forward, distributed indexing, and the whole utopian bunch of Napster dreamy stuff.
+Okay, back to work.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/07/oooada/"
+          >518&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/07/oooada/">#</a>
+    <a class="time" href="2002/05/07/oooada/">6:17 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/07/oooado/">Blosxom.  Why ask why?</a>
+      </h2>
+    
+    <p class="summary">
+      DJ makes a convincing argument for using Blosxom.  I tend to agree, having called it a kind of code haiku awhile back.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/07/oooado/"
+          >23&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/07/oooado/">#</a>
+    <a class="time" href="2002/05/07/oooado/">4:40 am</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/07/oooaci/">How many blogs do you have, and why?</a>
+      </h2>
+    
+    <p class="summary">
+      I have 3 blogs right now, including this one.  The other two are 1) on LiveJournal and 2) managed by Radio UserLand.
+My Radio blog has been pretty dormant of late, since I never quite got completely pulled into it or migrated my LJ or MT blog to it.  Instead, LJ seems not itchy enough to abandon (and I have friends there), and MT seems comfy enough for now.  So, Radio remains a place of bunsen burners and exploding beakers for me for now.  (This is not a complaint, this is a cause for gleeful and evil rubbing of hands together.)
+My LiveJournal, however, was my first successful blog.  And by successful, I mean that I managed to keep writing there, usually trying to babble more at length than just copying a few headlines.  My writing there is pretty random, by intention.  I'd originally started it to supplement my daily writing in my paper journal, as some other outlet for words to keep me writing and maintain my ability to string more than two words together coherently.  
+On LiveJournal, I'm more likely to rant about things like religion and touchy issues.  I'm also more likely to talk about my girlfriend and other events in life more interesting to my closer circle of friends.
+I consider 0xDECAFBAD to be my nerd-blog, or my "professional" blog.  It's where I'm more likely to ramble about things in my life as a geekish craftsperson.  I could draw a Venn diagram, but suffice it to say that I think there are different, but overlapping, audiences for my high-nerdity versus my more personal ramblings.
+Does anyone else do this?  I'm sure I'm not alone in cordoning my blog faces off from each other.  But should I feel the need to separate things like this?  Although I can't find a link to it, I seem to remember Shelley Powers writing about tearing down her cordons between her nerd-core and normal-person blog sides.  Of course, I try to thin the barriers at least by displaying my LiveJournal RSS feed over on the side as a "sibling" blog.
+On the one hand, its a strange form of self-classification.  On the other, though, it seems to work for me.  Visit 0xDECAFBAD to see my vaguely professional high-nerdity.  But if you want to get closer to me as a human being, come visit my LiveJournal and see me and my place in the community there.  If you really want to know me... well, email me or maybe IM me.  And maybe, just maybe, if you happen to be in town, let's head down to the pub.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/07/oooaci/"
+          >592&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/07/oooaci/">#</a>
+    <a class="time" href="2002/05/07/oooaci/">4:15 am</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/07/oooach/">Homebrew PVR, or TiVo?</a>
+      </h2>
+    
+    <p class="summary">
+      Okay, so it's a given that I'm not giving up my PVR soon.  So, which ones work best?  And why?
+So far, all of mine have been homebrew, thanks mostly to ATI video cap / tuner cards.  I've never owned a ?TiVO, although I've lusted over them.  But my current setup seems serviceable.  I managed to record the entire run of the third season of Buffy in rerun onto VCDs with the ATI Multimedia Center software.  (No cracks on the Buffster.  If you don't like it, try s/Buffy/Babylon 5/ or maybe s/Buffy/Nova/ in your head.)
+Now, I'm looking to replace the Windows this runs on with a Linux install.  I already record radio shows under Linux with a PCI radio tuner, and under OS X sometimes with a USB FM tuner.  So now I see this VCR HOWTO which claims: This is a guide to setting up your GNU/Linux workstation as a digital VCR using the video4linux driver and a supported tuner card. A section has been added for creating VCD's that can be played in any DVD/VCD player as well.
+
+Sounds precisely like what I'm doing right now.  And I think that my ATI All-in-Wonder Radeon card can be supported under Linux.  If not, I have a backup BT848-based Zoltrix TV tuner that works for sure, but that one only seems to have mono audio, unfortunately.
+Has anyone put together a working Linux setup as described in the HOWTO?  If so, how do you like it?
+On the other hand...  Should I still think of getting a ?TiVo?  What's so special about it, other than dead simple ease of use?  I'd want to immediately crack it open and start hacking more HD space into it, as well as TiVo ?AirNET Ethernet Adapter Board.  But I think my Linux box will do this, and more.  Though, I'm not sure if Linux supports the TV-out for my ATI card.  I've also heard that ?TiVo captures closed captioning.  Eh, neat, but I don't need it.  Not at the moment, anyway.  Then I hear about things like SonicBlue being ordered to spy on PVR users, and I feel much safer having a home-cobbled PVR.
+What d'you think?
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/07/oooach/"
+          >711&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/07/oooach/">#</a>
+    <a class="time" href="2002/05/07/oooach/">3:48 am</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/07/oooacf/">Bathroom breaks and golden geese</a>
+      </h2>
+    
+    <p class="summary">
+      Earlier last week, I'd ranted in my LiveJournal about the head of Turner calling me a thief.  Now, I'm reading what Mike James has to say about what Brad Templeton has to say about the ?TiVO, PVR's, and what they are gonna do.  
+Brad offers up a few very good suggestions-- ways to offer more options with regards to TV funding, ways to mix up and better target ads and ways to buy out the ad time.  Some of the "enter the keyword from the ad" suggestions strike me as eerily similar to the ways warez and porn trading servers on the Hotline network.  Go visit 3 sites, usually casino sites and other banners, spend about 30 seconds exposed to each site searching for a certain keyboard, come back to the warez/pr0n server with your keywords in hand.
+Again, the porn leads the way.  :)  Well, sort of.  The Hotline servers are pirating the porn industry, but porn tends to always be one of the drivers of tech.  I wonder if purveyors of porn might not also be the first to hit on the new business model that rakes in the cash from what's coming?
+I can't help but think of this in terms of golden geese.  TV studios have had a golden goose in advertisers, and she's laid wonderful eggs for decades.  But now the old gal's tired and the eggs are getting smaller and less shiny.  Must be something in the water or the goose feed that's changed.  Seems that there just might be another goose out there that'll lay even bigger eggs.  Not only that, but I hear that this new goose might even deliver the eggs right to them, and maybe even thank them for it.  But, rather than questing and finding this new   kind of goose, they're trying to sow the goose feed fields with salt and poisons.  And they're looking for thicker chains for the current goose's ankles, and reinforcing the bars of the cage.
+I really must be missing something.  I can't help but think that consumers wouldn't mind being treated like customers, finally, and not as assumed thieves.  I have to think that some very smart people work in the entertainment industry.  At least a few of them must have read the Cluetrain Manfesto and come away with something.  Is this just naive to think?  Seems vaguely incomprehensible to me that fear has them working this hard to maintain an aging business model, where the rewards would be staggering if they put that much effort into exploiting a new one.  And they'd be praised instead of pissing everyone off.
+Wish I could remember the quote (was it Heinlein?) about companies and their making money, which basically gets summed up in Mike's quoting of Spidey, "I think I missed the part where this became my problem."  It's already been heavily quoted, but it's worth repeating.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/07/oooacf/"
+          >483&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/07/oooacf/">#</a>
+    <a class="time" href="2002/05/07/oooacf/">3:29 am</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 May 04</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/04/oooace/">Boy, do I dislike Verisign.</a>
+      </h2>
+    
+    <p class="summary">
+      Boy, do I dislike Verisign.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/04/oooace/"
+          >6&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/04/oooace/">#</a>
+    <a class="time" href="2002/05/04/oooace/">6:27 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 May 03</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/03/oooacd/">Micropoll: verdict=nifty</a>
+      </h2>
+    
+    <p class="summary">
+      I just grabbed Micropoll to play with from technoerotica.net
+Let's see if this works: 
+Kinda fits with the other little SSI widgets I've been cramming in here.  Now if only I could figure out which one is delaying the load of my main page.  Aw hell, I was going to throw it all into PHP anyway.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/03/oooacd/"
+          >57&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/03/oooacd/">#</a>
+    <a class="time" href="2002/05/03/oooacd/">8:58 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/03/oooacc/">Facelift needed around here?</a>
+      </h2>
+    
+    <p class="summary">
+      Tinkering around with CSS again for this site.  Getting a bit busy and crowded around here, and Liorean had mentioned to me in a visit to my blogchat that things were a bit hard to read and for want of white space.  I think I agree on this.  Though, I don't want to explode everything out with huge fonts and spacing...  Hmm.
+Anyone have some hints, suggestions, or complaints about how things look now?
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/03/oooacc/"
+          >75&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/03/oooacc/">#</a>
+    <a class="time" href="2002/05/03/oooacc/">7:25 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/03/oooacb/">Digging my heels in on the Windows</a>
+      </h2>
+    
+    <p class="summary">
+      I've been trying out WinXP on my token Wintel box at home, and it really doesn't impress me.  I was running Win2K, and Win98 before that, and I can't really see the big deal.  
+To be fair, I can say that I don't make fun of Windows for crashing as much anymore, although XP did just crash this week with a big fat bluescreen which took out the entire body of preferences in my user account including all my digital VCR schedules.  So that was annoying.  But rare now, anyway.  And most times it can be blamed on drivers or non-Windows software...  but gah.
+But as for the rest of XP... I can't stand Luna.  I turn off all the bells and whistles until it starts looking like Win98.  I reduce my Windows Explorer down to about what it looked like in '96, just a folder tree on the left and detail-view on the right.  Most of the other "helpful" features of WinXP just annoy the crap out of me.  Am I missing the benefits of XP?  It just really seems like hairs are being split and sugar's being poured in since about 1998 with Windows.  Maybe the thing is that no one's come up with any new dramatic, paradigm-shattering new things, so incremental perfection is all that's left for Windows.
+So here's what I'm getting to:  I'm thinking of downgrading my home PC to either ?WinME or Win98, and I might just stop the upgrade cycle there.  And I'll stop it for good unless I see some dire need to upgrade my Microsoft OS.  I don't seem to have any software which requires WinXP.  Rarely, something requires Win2K or NT, but most of that stuff I replace with a Unix app.  At work I've been running Win98 in a Virtual PC instance on my OS X machine, and all my daily-use software runs fine on it.  And it really doesn't crash all that much.
+And this isn't just an anti-Microsoft thing.  Well, to be honest, in part it is.  And in part, I don't want my Windows habit to suck me into recurring Microsoft payments, should they perfect the licensing enforcement and stop letting me buy the thing once and make me sign up for a monthly fee.  Unless they can start showing me something like the Radio UserLand radio.root changes RSS feed, I don't see a benefit to me to pay on a subscription basis.  I suppose their list of patches and things fits that bill, but it's not the same to me.  With Radio, I see a stream of improvements and new features.  With Microsoft, I see largely a stream of fixes and replacements for things they've already sold me.  But, I suppose it's apples and oranges.  Radio can afford to bootstrap and occasionally break, whereas Windows must strive to be solid as a rock.
+This makes me feel vaguely luddite.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/03/oooacb/"
+          >698&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/03/oooacb/">#</a>
+    <a class="time" href="2002/05/03/oooacb/">1:05 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/05/03/oooaca/">Down, but not out.</a>
+      </h2>
+    
+    <p class="summary">
+      My webhost had a bit of an outtage, and the machine on which this site is hosted suffered a nasty hard drive crash.  Things were down for about a day or so, and when they came back up most everything was broken.  Seems that the sysadmin of this server added a few security improvements, such as disallowing execution of CGI scripts with dangerous permissions, which revealed my sloppy and "atrocious" (the sysadmin's word) use of them.  
+*gulp*  Bad me.  Shows that it's been a long while since I had a website on a multi-user machine-- not that that's a very valid excuse, but it seems less urgent to tighten up permissions when you own the machine, have a small and trusted team working on it, and it sits behind two firewalls.
+Hmm.  I need to get schooled in some security mojo with the quickness.  Loving the Wiki Way is one thing, but bending over like the goatse.cx guy (no, I'm not linking to it) is another thing altogether.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/05/03/oooaca/"
+          >169&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/05/03/oooaca/">#</a>
+    <a class="time" href="2002/05/03/oooaca/">12:36 pm</a>
+    
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

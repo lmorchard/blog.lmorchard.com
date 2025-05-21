@@ -12,7 +12,7 @@ tags:
 
 <!--more-->
 
-<img src="./cover.png" class="fullwidth" />
+<figure class="wide"><img src="./cover.png" /></figure>
 
 The night his Mitra died, Marek decided not to indulge in heartbreak.
 

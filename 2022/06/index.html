@@ -1,287 +1,573 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>2022/06 - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>2022/06 - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Month: 2022/06</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post has-thumb tag-fiction tag-flashfiction tag-scifi"
-          >
-            <time class="date" datetime="2022-06-23T12:00:00+00:00">
-              2022
-              June
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/06/23/pet-intersect/">
-              <span class="infoContainer">
-                <span class="title">Pet Intersect</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/06/23/pet-intersect/cover.png" />
-          </li><li
-            class="post has-thumb tag-fiction tag-flashfiction tag-tarot"
-          >
-            <time class="date" datetime="2022-06-22T12:00:00+00:00">
-              2022
-              June
-              22
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/06/22/sorinas-magic-eyes/">
-              <span class="infoContainer">
-                <span class="title">Sorina&#39;s Magic Eyes</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/06/22/sorinas-magic-eyes/cover.png" />
-          </li><li
-            class="post has-thumb tag-fiction tag-flashfiction tag-fantasy"
-          >
-            <time class="date" datetime="2022-06-20T12:00:00+00:00">
-              2022
-              June
-              20
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/06/20/radmilo-and-helenka/">
-              <span class="infoContainer">
-                <span class="title">Radmilo and Helenka</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/06/20/radmilo-and-helenka/cover.png" />
-          </li><li
-            class="post has-thumb tag-fiction tag-flashfiction tag-scifi"
-          >
-            <time class="date" datetime="2022-06-17T12:00:00+00:00">
-              2022
-              June
-              17
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/06/17/cozy-hyperspace/">
-              <span class="infoContainer">
-                <span class="title">Cozy Hyperspace</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/06/17/cozy-hyperspace/cover.png" />
-          </li><li
-            class="post has-thumb tag-fiction tag-flashfiction tag-tarot"
-          >
-            <time class="date" datetime="2022-06-16T12:00:00+00:00">
-              2022
-              June
-              16
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/06/16/sando-aggro/">
-              <span class="infoContainer">
-                <span class="title">Sando Aggro</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/06/16/sando-aggro/cover.png" />
-          </li><li
-            class="post has-thumb tag-fiction tag-flashfiction tag-scifi"
-          >
-            <time class="date" datetime="2022-06-14T12:00:00+00:00">
-              2022
-              June
-              14
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/06/14/solid-state-children/">
-              <span class="infoContainer">
-                <span class="title">Solid State Children</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/06/14/solid-state-children/cover.png" />
-          </li><li
-            class="post has-thumb tag-fiction tag-flashfiction tag-scifi"
-          >
-            <time class="date" datetime="2022-06-13T12:00:00+00:00">
-              2022
-              June
-              13
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/06/13/vegas-nerves/">
-              <span class="infoContainer">
-                <span class="title">Vegas Nerves</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/06/13/vegas-nerves/cover.png" />
-          </li><li
-            class="post has-thumb tag-fiction tag-flashfiction tag-tarot tag-scifi"
-          >
-            <time class="date" datetime="2022-06-12T12:00:00+00:00">
-              2022
-              June
-              12
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/06/12/jays-machine-friends/">
-              <span class="infoContainer">
-                <span class="title">Jay&#39;s Machine Friends</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/06/12/jays-machine-friends/cover.png" />
-          </li><li
-            class="post has-thumb tag-writing tag-dalle tag-metablogging"
-          >
-            <time class="date" datetime="2022-06-12T12:00:00+00:00">
-              2022
-              June
-              12
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/06/12/writing-habit-recap-no-3/">
-              <span class="infoContainer">
-                <span class="title">Writing Habit Recap No. 3</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/06/12/writing-habit-recap-no-3/cover.png" />
-          </li><li
-            class="post has-thumb tag-fiction tag-flashfiction tag-tarot"
-          >
-            <time class="date" datetime="2022-06-10T12:00:00+00:00">
-              2022
-              June
-              10
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/06/10/konnors-first-paycheck/">
-              <span class="infoContainer">
-                <span class="title">Konnor&#39;s First Paycheck</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/06/10/konnors-first-paycheck/cover.png" />
-          </li><li
-            class="post has-thumb tag-fiction tag-flashfiction tag-tarot"
-          >
-            <time class="date" datetime="2022-06-09T12:00:00+00:00">
-              2022
-              June
-              09
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/06/09/radmilo-and-dominik/">
-              <span class="infoContainer">
-                <span class="title">Radmilo and Dominik</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/06/09/radmilo-and-dominik/cover.png" />
-          </li><li
-            class="post has-thumb tag-fiction tag-flashfiction tag-tarot"
-          >
-            <time class="date" datetime="2022-06-08T12:00:00+00:00">
-              2022
-              June
-              08
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/06/08/judge-rhisart/">
-              <span class="infoContainer">
-                <span class="title">Judge Rhisart</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/06/08/judge-rhisart/cover.png" />
-          </li><li
-            class="post has-thumb tag-fiction"
-          >
-            <time class="date" datetime="2022-06-07T12:00:00+00:00">
-              2022
-              June
-              07
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/06/07/finley-and-charley/">
-              <span class="infoContainer">
-                <span class="title">Finley and Charley</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/06/07/finley-and-charley/cover.png" />
-          </li><li
-            class="post has-thumb tag-fiction tag-flashfiction tag-tarot"
-          >
-            <time class="date" datetime="2022-06-07T12:00:00+00:00">
-              2022
-              June
-              07
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/06/07/kyleigh-and-helenka/">
-              <span class="infoContainer">
-                <span class="title">Kyleigh and Helenka</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/06/07/kyleigh-and-helenka/cover.png" />
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Month: 2022/06</h2>
+        </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2022 June 23</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-fiction tag-flashfiction tag-scifi">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2022/06/23/pet-intersect/">Pet Intersect</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2022/06/23/pet-intersect/cover.png" />
+    </div>
+    <p class="summary">
+      I'm trying to build a daily creative writing habit. This post is the result of an exercise toward that end. It's probably an awful first draft of a little flash fiction scene, unless I've tried something especially weird or decided to write something meta. Let me know what you think!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2022/06/23/pet-intersect/"
+          >486&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2022/06/23/pet-intersect/">#</a>
+    <a class="time" href="2022/06/23/pet-intersect/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/scifi/">scifi</a>
           </li>
     </ul>
-    
-  </section>
-      </section>
-        </section>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2022 June 22</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-fiction tag-flashfiction tag-tarot">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2022/06/22/sorinas-magic-eyes/">Sorina&#39;s Magic Eyes</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2022/06/22/sorinas-magic-eyes/cover.png" />
+    </div>
+    <p class="summary">
+      I'm trying to build a daily creative writing habit. This post is the result of an exercise toward that end. It's probably an awful first draft of a little flash fiction scene, unless I've tried something especially weird or decided to write something meta. Let me know what you think!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2022/06/22/sorinas-magic-eyes/"
+          >421&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2022/06/22/sorinas-magic-eyes/">#</a>
+    <a class="time" href="2022/06/22/sorinas-magic-eyes/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tarot/">tarot</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2022 June 20</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-fiction tag-flashfiction tag-fantasy">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2022/06/20/radmilo-and-helenka/">Radmilo and Helenka</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2022/06/20/radmilo-and-helenka/cover.png" />
+    </div>
+    <p class="summary">
+      I'm trying to build a daily creative writing habit. This post is the result of an exercise toward that end. It's probably an awful first draft of a little flash fiction scene, unless I've tried something especially weird or decided to write something meta. Let me know what you think!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2022/06/20/radmilo-and-helenka/"
+          >534&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2022/06/20/radmilo-and-helenka/">#</a>
+    <a class="time" href="2022/06/20/radmilo-and-helenka/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/fantasy/">fantasy</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2022 June 17</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-fiction tag-flashfiction tag-scifi">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2022/06/17/cozy-hyperspace/">Cozy Hyperspace</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2022/06/17/cozy-hyperspace/cover.png" />
+    </div>
+    <p class="summary">
+      I'm trying to build a daily creative writing habit. This post is the result of an exercise toward that end. It's probably an awful first draft of a little flash fiction scene, unless I've tried something especially weird or decided to write something meta. Let me know what you think!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2022/06/17/cozy-hyperspace/"
+          >884&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2022/06/17/cozy-hyperspace/">#</a>
+    <a class="time" href="2022/06/17/cozy-hyperspace/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/scifi/">scifi</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2022 June 16</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-fiction tag-flashfiction tag-tarot">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2022/06/16/sando-aggro/">Sando Aggro</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2022/06/16/sando-aggro/cover.png" />
+    </div>
+    <p class="summary">
+      I'm trying to build a daily creative writing habit. This post is the result of an exercise toward that end. It's probably an awful first draft of a little flash fiction scene, unless I've tried something especially weird or decided to write something meta. Let me know what you think!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2022/06/16/sando-aggro/"
+          >506&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2022/06/16/sando-aggro/">#</a>
+    <a class="time" href="2022/06/16/sando-aggro/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tarot/">tarot</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2022 June 14</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-fiction tag-flashfiction tag-scifi">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2022/06/14/solid-state-children/">Solid State Children</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2022/06/14/solid-state-children/cover.png" />
+    </div>
+    <p class="summary">
+      I'm trying to build a daily creative writing habit. This post is the result of an exercise toward that end. It's probably an awful first draft of a little flash fiction scene, unless I've tried something especially weird or decided to write something meta. Let me know what you think!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2022/06/14/solid-state-children/"
+          >497&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2022/06/14/solid-state-children/">#</a>
+    <a class="time" href="2022/06/14/solid-state-children/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/scifi/">scifi</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2022 June 13</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-fiction tag-flashfiction tag-scifi">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2022/06/13/vegas-nerves/">Vegas Nerves</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2022/06/13/vegas-nerves/cover.png" />
+    </div>
+    <p class="summary">
+      I'm trying to build a daily creative writing habit. This post is the result of an exercise toward that end. It's probably an awful first draft of a little flash fiction scene, unless I've tried something especially weird or decided to write something meta. Let me know what you think!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2022/06/13/vegas-nerves/"
+          >619&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2022/06/13/vegas-nerves/">#</a>
+    <a class="time" href="2022/06/13/vegas-nerves/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/scifi/">scifi</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2022 June 12</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-fiction tag-flashfiction tag-tarot tag-scifi">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2022/06/12/jays-machine-friends/">Jay&#39;s Machine Friends</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2022/06/12/jays-machine-friends/cover.png" />
+    </div>
+    <p class="summary">
+      I'm trying to build a daily creative writing habit. This post is the result of an exercise toward that end. It's probably an awful first draft of a little flash fiction scene, unless I've tried something especially weird or decided to write something meta. Let me know what you think!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2022/06/12/jays-machine-friends/"
+          >715&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2022/06/12/jays-machine-friends/">#</a>
+    <a class="time" href="2022/06/12/jays-machine-friends/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tarot/">tarot</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/scifi/">scifi</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry has-thumb tag-writing tag-dalle tag-metablogging">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2022/06/12/writing-habit-recap-no-3/">Writing Habit Recap No. 3</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2022/06/12/writing-habit-recap-no-3/cover.png" />
+    </div>
+    <p class="summary">
+       I'd meant to do these recap posts every week. But, oops: it's been a month since the last one. Now that I sit down to write this, though, I think I've done more than I thought.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2022/06/12/writing-habit-recap-no-3/"
+          >667&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2022/06/12/writing-habit-recap-no-3/">#</a>
+    <a class="time" href="2022/06/12/writing-habit-recap-no-3/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/writing/">writing</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/dalle/">dalle</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2022 June 10</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-fiction tag-flashfiction tag-tarot">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2022/06/10/konnors-first-paycheck/">Konnor&#39;s First Paycheck</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2022/06/10/konnors-first-paycheck/cover.png" />
+    </div>
+    <p class="summary">
+      I'm trying to build a daily creative writing habit. This post is the result of an exercise toward that end. It's probably an awful first draft of a little flash fiction scene, unless I've tried something especially weird or decided to write something meta. Let me know what you think!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2022/06/10/konnors-first-paycheck/"
+          >579&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2022/06/10/konnors-first-paycheck/">#</a>
+    <a class="time" href="2022/06/10/konnors-first-paycheck/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tarot/">tarot</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2022 June 09</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-fiction tag-flashfiction tag-tarot">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2022/06/09/radmilo-and-dominik/">Radmilo and Dominik</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2022/06/09/radmilo-and-dominik/cover.png" />
+    </div>
+    <p class="summary">
+      I'm trying to build a daily creative writing habit. This post is the result of an exercise toward that end. It's probably an awful first draft of a little flash fiction scene, unless I've tried something especially weird or decided to write something meta. Let me know what you think!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2022/06/09/radmilo-and-dominik/"
+          >397&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2022/06/09/radmilo-and-dominik/">#</a>
+    <a class="time" href="2022/06/09/radmilo-and-dominik/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tarot/">tarot</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2022 June 08</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-fiction tag-flashfiction tag-tarot">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2022/06/08/judge-rhisart/">Judge Rhisart</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2022/06/08/judge-rhisart/cover.png" />
+    </div>
+    <p class="summary">
+      I'm trying to build a daily creative writing habit. This post is the result of an exercise toward that end. It's probably an awful first draft of a little flash fiction scene, unless I've tried something especially weird or decided to write something meta. Let me know what you think!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2022/06/08/judge-rhisart/"
+          >632&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2022/06/08/judge-rhisart/">#</a>
+    <a class="time" href="2022/06/08/judge-rhisart/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tarot/">tarot</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2022 June 07</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-fiction">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2022/06/07/finley-and-charley/">Finley and Charley</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2022/06/07/finley-and-charley/cover.png" />
+    </div>
+    <p class="summary">
+      I'm trying to build a creative writing habit. This is a draft of a short story. I'm posting it here to get feedback. Tell me what you think!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2022/06/07/finley-and-charley/"
+          >5786&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2022/06/07/finley-and-charley/">#</a>
+    <a class="time" href="2022/06/07/finley-and-charley/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry has-thumb tag-fiction tag-flashfiction tag-tarot">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2022/06/07/kyleigh-and-helenka/">Kyleigh and Helenka</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2022/06/07/kyleigh-and-helenka/cover.png" />
+    </div>
+    <p class="summary">
+      I'm trying to build a daily creative writing habit. This post is the result of an exercise toward that end. It's probably an awful first draft of a little flash fiction scene, unless I've tried something especially weird or decided to write something meta. Let me know what you think!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2022/06/07/kyleigh-and-helenka/"
+          >492&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2022/06/07/kyleigh-and-helenka/">#</a>
+    <a class="time" href="2022/06/07/kyleigh-and-helenka/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tarot/">tarot</a>
+          </li>
+    </ul>
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
 
-        <footer>
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

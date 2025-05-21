@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>Agent Frank isn&#39;t the only one. - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="Agent Frank isn&#39;t the only one." />
+    <html>
+      <head>
+        <title>Agent Frank isn&#39;t the only one. - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="Agent Frank isn&#39;t the only one." />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2003/02/17/ooodac/"
@@ -42,118 +49,236 @@
         
         <meta property="og:description" content="Oh, and I completely forgot to toss a link his way, but Kevin Smith of electricanvil.com is working on a Java PersonalWebProxy project also.  With AgentFrank, I&#39;ve been leaning toward patching the core together as quickly as possible to enable the plugins and scripting I wanted to play with.  But it looks like Kevin&#39;s spending more time carefully architecting the core using Jakarta Phoenix &amp; some homebrew proxy work.  Would be nice to borrow from his work soon.
 Who else has code out there that could be assimilated? :)" />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post "
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post "
       >
-        <time
-          title="2003-02-17T22:10:38+00:00"
-          pubdate="2003-02-17T22:10:38+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2003/"
-            >2003</a
+        <header>
+          <time
+            title="2003-02-17T17:10:38-05:00"
+            pubdate="2003-02-17T17:10:38-05:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2003/02/"
-            >February</a
-          >
-          &raquo;
-          <span>17</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="Still here, still reading."
+                href="/blog.lmorchard.com/2003/02/20/ooodad/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2003/"
+                >2003</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2003/02/"
+                >February</a
+              >
+              &#8226;
+              <span>17</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Agent Frank&#39;s first download?"
+                href="/blog.lmorchard.com/2003/02/15/ooodab/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">Agent Frank isn't the only one.</h1>
+          
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2003/02/20/ooodad/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2003/02/15/ooodab/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">Agent Frank isn&#39;t the only one.</h1>
-        
-        <section class="post-content">
-          <p>Oh, and I completely forgot to toss a link his way, but <a href="http://www.electricanvil.com/">Kevin Smith of electricanvil.com</a> is working on a Java <a href="http://www.decafbad.com/twiki/bin/view/Main/PersonalWebProxy">PersonalWebProxy</a> project also.  With <a href="http://www.decafbad.com/twiki/bin/view/Main/AgentFrank">AgentFrank</a>, I've been leaning toward patching the core together as quickly as possible to enable the plugins and scripting I wanted to play with.  But it looks like Kevin's spending more time carefully architecting the core using <a href="http://jakarta.apache.org/avalon/phoenix">Jakarta Phoenix</a> &amp; some homebrew proxy work.  Would be nice to borrow from his work soon.</p>
+        <p>Oh, and I completely forgot to toss a link his way, but <a href="http://www.electricanvil.com/">Kevin Smith of electricanvil.com</a> is working on a Java <a href="http://www.decafbad.com/twiki/bin/view/Main/PersonalWebProxy">PersonalWebProxy</a> project also.  With <a href="http://www.decafbad.com/twiki/bin/view/Main/AgentFrank">AgentFrank</a>, I've been leaning toward patching the core together as quickly as possible to enable the plugins and scripting I wanted to play with.  But it looks like Kevin's spending more time carefully architecting the core using <a href="http://jakarta.apache.org/avalon/phoenix">Jakarta Phoenix</a> &amp; some homebrew proxy work.  Would be nice to borrow from his work soon.</p>
 <p>Who else has code out there that could be assimilated? :)</p>
-<!--more-->
-shortname=ooodac
 
+
+<!--more-->
+
+
+<p>shortname=ooodac</p>
 <div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
 <ul class="comments">
 <li class="comment" id="comment-221088162">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=607fafd93695a84738e1a72c911e2e7c&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="">Slim</a>
+<a class="avatar image" rel="nofollow" href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=607fafd93695a84738e1a72c911e2e7c&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="">Slim</a>
 </div>
-<a href="#comment-221088162" class="permalink"><time datetime="2003-02-17T17:50:21">2003-02-17T17:50:21</time></a>
+
+
+<p><a href="#comment-221088162" class="permalink"><time datetime="2003-02-17T17:50:21">2003-02-17T17:50:21</time></a></p>
 </div>
+
+
 <div class="content">Well... considering that "Frank" is already 18 MB over-weighted... what about a drastic diet instead?-)</div>
+
+
 </li>
 <li class="comment" id="comment-221088164">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://neuro.nolimits.ro"><img src="http://www.gravatar.com/avatar.php?gravatar_id=d125c7a3397ca7f4088b15235d41aacc&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://neuro.nolimits.ro">Remus Pereni</a>
+<a class="avatar image" rel="nofollow" href="http://neuro.nolimits.ro"><img src="http://www.gravatar.com/avatar.php?gravatar_id=d125c7a3397ca7f4088b15235d41aacc&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://neuro.nolimits.ro">Remus Pereni</a>
 </div>
-<a href="#comment-221088164" class="permalink"><time datetime="2003-02-18T08:13:51">2003-02-18T08:13:51</time></a>
+
+
+<p><a href="#comment-221088164" class="permalink"><time datetime="2003-02-18T08:13:51">2003-02-18T08:13:51</time></a></p>
 </div>
+
+
 <div class="content">Avalon and Phoenix rocks, it takes a bit of time till the whole idea and how it works click in but then there is no way back :)
 We did this way DataStore (Phoenix) and we are heavily using Avalon (the framework) to some other projects to.</div>
+
+
 </li>
 <li class="comment" id="comment-221088166">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://boston.conman.org/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=778e89305f331b88a87a94b348164df8&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://boston.conman.org/">Sean Conner</a>
+<a class="avatar image" rel="nofollow" href="http://boston.conman.org/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=778e89305f331b88a87a94b348164df8&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://boston.conman.org/">Sean Conner</a>
 </div>
-<a href="#comment-221088166" class="permalink"><time datetime="2003-02-18T11:19:07">2003-02-18T11:19:07</time></a>
+
+
+<p><a href="#comment-221088166" class="permalink"><time datetime="2003-02-18T11:19:07">2003-02-18T11:19:07</time></a></p>
 </div>
+
+
 <div class="content">What's wrong with using Squid as your web proxy?  It's already written, does a great job caching, and as long as it's local, you have access to its entire cache (and log files) to comb through.
 -spc (I mean, why go through the trouble of writing a web proxy when there's already one written ... )</div>
+
+
 </li>
 </ul>
+
+
 </div>
 
-        </section>
-      </article>
-        </section>
-
-        <footer>
-          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
-        </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
-      </section>
-    </body>
-  </html>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2003/02/20/ooodad/"
+                >Still here, still reading.</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2003/02/15/ooodab/"
+                >Agent Frank's first download?</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

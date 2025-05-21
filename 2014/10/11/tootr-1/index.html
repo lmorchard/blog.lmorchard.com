@@ -1,113 +1,181 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>tootr: microblogging app, hosting not included - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="tootr: microblogging app, hosting not included" />
+    <html>
+      <head>
+        <title>tootr: microblogging app, hosting not included - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="tootr: microblogging app, hosting not included" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2014/10/11/tootr-1/"
         />
         
         <meta property="og:description" content="In my last two posts, I wrote about how I’ve been thinking about building yet another microblogging tool and how I think it might be interesting to separate web publishing apps from web hosting. Well, I started tinkering, and I’ve got a rough prototype working." />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post tag-amazontag-metabloggingtag-s3tag-socialtag-tootrtag-webdev"
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post tag-amazontag-metabloggingtag-s3tag-socialtag-tootrtag-webdev"
       >
-        <time
-          title="2014-10-11T12:00:00+00:00"
-          pubdate="2014-10-11T12:00:00+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2014/"
-            >2014</a
+        <header>
+          <time
+            title="2014-10-11T12:00:00-07:00"
+            pubdate="2014-10-11T12:00:00-07:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2014/10/"
-            >October</a
-          >
-          &raquo;
-          <span>11</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="Static blog generation with Gulp and S3"
+                href="/blog.lmorchard.com/2014/10/20/static-blog-generation-with-gulp/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2014/"
+                >2014</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2014/10/"
+                >October</a
+              >
+              &#8226;
+              <span>11</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Separating publishing from hosting on the web"
+                href="/blog.lmorchard.com/2014/10/09/separating-publishing-from-hosting-on-the-web/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">tootr: microblogging app, hosting not included</h1>
+          <ul class="tags">
+              <li><a href="/blog.lmorchard.com/tag/amazon/">amazon</a></li><li><a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a></li><li><a href="/blog.lmorchard.com/tag/s3/">s3</a></li><li><a href="/blog.lmorchard.com/tag/social/">social</a></li><li><a href="/blog.lmorchard.com/tag/tootr/">tootr</a></li><li><a href="/blog.lmorchard.com/tag/webdev/">webdev</a></li>
+            </ul>
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2014/10/20/static-blog-generation-with-gulp/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2014/10/09/separating-publishing-from-hosting-on-the-web/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">tootr: microblogging app, hosting not included</h1>
-        <ul class="tags">
-            <li>
-                  <a href="/blog.lmorchard.com/tag/amazon/">amazon</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/s3/">s3</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/social/">social</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/tootr/">tootr</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
-                </li>
-          </ul>
-        <section class="post-content">
-          <div id="toc_container" class="toc_wrap_right no_bullets">
+        <div id="toc_container" class="toc_wrap_right no_bullets">
   <p class="toc_title">
     Contents
   </p>
@@ -129,29 +197,35 @@
       <a href="#Demo_time_and_next_steps"><span class="toc_number toc_depth_1">5</span> Demo time and next steps</a>
     </li>
   </ul>
+
+
 </div>
 
-<p>In my last two posts, I wrote about how I&#8217;ve been <a href="http://blog.lmorchard.com/2014/10/08/microblogging-like-its-2002">thinking about building yet another microblogging tool</a> and how I think it might be interesting to <a href="http://blog.lmorchard.com/2014/10/09/separating-publishing-from-hosting-on-the-web">separate web publishing apps from web hosting</a>. Well, I started tinkering, and I&#8217;ve got a rough prototype working.</p>
+
+
+<p>In my last two posts, I wrote about how I’ve been <a href="http://blog.lmorchard.com/2014/10/08/microblogging-like-its-2002">thinking about building yet another microblogging tool</a> and how I think it might be interesting to <a href="http://blog.lmorchard.com/2014/10/09/separating-publishing-from-hosting-on-the-web">separate web publishing apps from web hosting</a>. Well, I started tinkering, and I’ve got a rough prototype working.</p>
 <!--more-->
+
+
 
 <h2 style="text-align: left;">
   <span id="S3_is_not_simple_enough">S3 is not simple enough</span>
 </h2>
 
 <p style="text-align: left;">
-  When I think about dead simple web hosting, the first thing that comes to mind is <a href="http://aws.amazon.com/s3/">Amazon S3</a>. I&#8217;ve been a fan of S3 for long enough that <a href="https://twitter.com/lmorchard/status/518228792780005376">digging up my old code freaked me out</a>.
+  When I think about dead simple web hosting, the first thing that comes to mind is <a href="http://aws.amazon.com/s3/">Amazon S3</a>. I’ve been a fan of S3 for long enough that <a href="https://twitter.com/lmorchard/status/518228792780005376">digging up my old code freaked me out</a>.
 </p>
 
 <p style="text-align: left;">
-  There&#8217;s not much to the API: GET, PUT, & DELETE web content in URLspace under a &#8220;bucket&#8221; that you pay for by the byte. Overall S3 fits my criteria of &#8220;<a href="http://blog.lmorchard.com/2014/10/09/separating-publishing-from-hosting-on-the-web#p[IadIcc]">dead simple hosting service</a>&#8221; rather nicely.
+  There’s not much to the API: GET, PUT, &amp; DELETE web content in URLspace under a “bucket” that you pay for by the byte. Overall S3 fits my criteria of “<a href="http://blog.lmorchard.com/2014/10/09/separating-publishing-from-hosting-on-the-web#p[IadIcc]">dead simple hosting service</a>” rather nicely.
 </p>
 
 <p style="text-align: left;">
-  Amazon S3 is <a href="http://aws.amazon.com/s3/pricing/">super cheap</a>. I&#8217;ve never paid much more than US$0.50 in a month, and that&#8217;s even when I was experimenting with <a href="https://github.com/lmorchard/S3Ajax/blob/master/js/wiki.js">a public-access wiki built atop the service</a> that folks from Amazon itself were playing with. I&#8217;ll probably move my blog there, someday, once I get the notion to revisit static site generators again.
+  Amazon S3 is <a href="http://aws.amazon.com/s3/pricing/">super cheap</a>. I’ve never paid much more than US$0.50 in a month, and that’s even when I was experimenting with <a href="https://github.com/lmorchard/S3Ajax/blob/master/js/wiki.js">a public-access wiki built atop the service</a> that folks from Amazon itself were playing with. I’ll probably move my blog there, someday, once I get the notion to revisit static site generators again.
 </p>
 
 <p style="text-align: left;">
-  Amazon S3 is, however, <a href="http://www.team.net/mjb/hawg.html">a professional&#8217;s tool</a>. It expects documentation to be read and training to be had. For a busy person with non-developer things do to, it&#8217;s <a href="http://en.wikipedia.org/wiki/Colossal_Cave_Adventure">a twisty maze of passages, all alike</a>. That makes it a poor consumer product.
+  Amazon S3 is, however, <a href="http://www.team.net/mjb/hawg.html">a professional’s tool</a>. It expects documentation to be read and training to be had. For a busy person with non-developer things do to, it’s <a href="http://en.wikipedia.org/wiki/Colossal_Cave_Adventure">a twisty maze of passages, all alike</a>. That makes it a poor consumer product.
 </p>
 
 <p>So, I wondered: How hard would it be to smooth over some of the rough parts and make the experience almost as easy as a normal social media site?</p>
@@ -160,15 +234,15 @@
 </h2>
 
 <p style="text-align: left;">
-  First, the on-ramp has to be easy. Filling out a form with username, password, nickname, and email address would be an okay start. (Billing info would be nice, too, but let&#8217;s not go there quite yet.)
+  First, the on-ramp has to be easy. Filling out a form with username, password, nickname, and email address would be an okay start. (Billing info would be nice, too, but let’s not go there quite yet.)
 </p>
 
 <p style="text-align: left;">
-  What would be even better, though, is to click one button and reuse data already filled out elsewhere! Filling out forms with personal data is part of the problem web wonks call &#8220;identity&#8221;. Apropos of that, did you know that <a href="http://login.amazon.com/website">Amazon has an identity service</a>? I didn&#8217;t, at least not until last weekend. (<a href="http://mobile.awsblog.com/post/Tx3UKF4SV4V0LV3/Announcing-Web-Identity-Federation">Man, am I behind</a>!)
+  What would be even better, though, is to click one button and reuse data already filled out elsewhere! Filling out forms with personal data is part of the problem web wonks call “identity”. Apropos of that, did you know that <a href="http://login.amazon.com/website">Amazon has an identity service</a>? I didn’t, at least not until last weekend. (<a href="http://mobile.awsblog.com/post/Tx3UKF4SV4V0LV3/Announcing-Web-Identity-Federation">Man, am I behind</a>!)
 </p>
 
 <p style="text-align: left;">
-  I can put a &#8220;<a href="http://login.amazon.com/">Login with Amazon</a>&#8221; button on my web app. You login with your Amazon username & password, but my app doesn&#8217;t see them. Instead, Amazon offers my app some simple profile details &#8211; user ID, email, & full name.
+  I can put a “<a href="http://login.amazon.com/">Login with Amazon</a>” button on my web app. You login with your Amazon username &amp; password, but my app doesn’t see them. Instead, Amazon offers my app some simple profile details – user ID, email, &amp; full name.
 </p>
 
 <p style="text-align: left;">
@@ -176,7 +250,7 @@
 </p>
 
 <li style="text-align: left;">
-  Clicking &#8220;<a href="http://login.amazon.com/">Login with Amazon</a>&#8221; gives your Amazon identity to my app.
+  Clicking “<a href="http://login.amazon.com/">Login with Amazon</a>” gives your Amazon identity to my app.
 </li>
 <li style="text-align: left;">
   My app can use your Amazon identity to assume a temporary role.
@@ -190,7 +264,7 @@
 </p>
 
 <p style="text-align: left;">
-  Well, one of the things my app receives when you click the &#8220;Login&#8221; button is an <a href="http://login.amazon.com/glossary#access_token"><code>access_token</code></a>. Chasing that <code>access_token</code> down the rabbit hole, I rediscovered Amazon IAM and STS &#8211; <a href="http://aws.amazon.com/iam/">Identity & Access Management</a> and <a href="http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html">Secure Token Service</a>.
+  Well, one of the things my app receives when you click the “Login” button is an <a href="http://login.amazon.com/glossary#access_token"><code>access_token</code></a>. Chasing that <code>access_token</code> down the rabbit hole, I rediscovered Amazon IAM and STS – <a href="http://aws.amazon.com/iam/">Identity &amp; Access Management</a> and <a href="http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html">Secure Token Service</a>.
 </p>
 
 <h2 style="text-align: left;">
@@ -198,17 +272,17 @@
 </h2>
 
 <p style="text-align: left;">
-  Among other things, Amazon IAM lets you define roles and associate them with apps. Roles contain policies that grant access to resources controlled by your account &#8211; e.g. an S3 bucket.
+  Among other things, Amazon IAM lets you define roles and associate them with apps. Roles contain policies that grant access to resources controlled by your account – e.g. an S3 bucket.
 </p>
 
 <p style="text-align: left;">
-  For example, here&#8217;s a policy snippet for a role I created on IAM:
+  For example, here’s a policy snippet for a role I created on IAM:
 </p>
 
-<pre class="language-javascript" style="text-align: left;">{
+<pre style="text-align: left;"><code class="language-javascript">{
  "Effect": "Allow",
  "Action": [
-   "s3:PutObject",
+&nbsp;  "s3:PutObject",
    "s3:PutObjectAcl",
    "s3:DeleteObject",
    "s3:GetObject",
@@ -218,10 +292,10 @@
    "arn:aws:s3:::tootr/users/amazon/${www.amazon.com:user_id}",
    "arn:aws:s3:::tootr/users/amazon/${www.amazon.com:user_id}/*"
  ]
-}</pre>
+}</code></pre>
 
 <p style="text-align: left;">
-  This role grants access to GET, PUT, & DELETE web resources in my S3 bucket named &#8220;tootr&#8221; &#8211; but only as long as the resources are under the &#8220;<code>users/amazon/{USER_ID}</code>&#8221; URLspace, where <code>{USER_ID}</code> is a uniquely generated identifier supplied by an Amazon profile.
+  This role grants access to GET, PUT, &amp; DELETE web resources in my S3 bucket named “tootr” – but only as long as the resources are under the “<code>users/amazon/{USER_ID}</code>” URLspace, where <code>{USER_ID}</code> is a uniquely generated identifier supplied by an Amazon profile.
 </p>
 
 <h2 style="text-align: left;">
@@ -229,7 +303,7 @@
 </h2>
 
 <p style="text-align: left;">
-  So, how can someone assume such a role? That&#8217;s <a href="https://github.com/lmorchard/tootr/blob/master/src/javascript/publishers/AmazonS3.js#L103">where Amazon STS comes in</a>:
+  So, how can someone assume such a role? That’s <a href="https://github.com/lmorchard/tootr/blob/master/src/javascript/publishers/AmazonS3.js#L103">where Amazon STS comes in</a>:
 </p>
 
 <pre style="text-align: left;"><code class="language-javascript">$.ajax('https://sts.amazonaws.com/?' + $.param({
@@ -260,19 +334,19 @@
   Those credentials look something like this:
 </p>
 
-<pre class="language-javascript" style="text-align: left;">{
+<pre><code class="language-javascript">{
   "SessionToken":"NIweiunfiunIUWNLFIsd87",
   "Expiration":"2014-10-11T19:15:58Z",
   "AccessKeyId":"ASIAQWERTYUIOP",
   "SecretAccessKey":"SKLN9869KJnisdhfli"
-}</pre>
+}</code></pre>
 
 <p style="text-align: left;">
   As it turns out, <a href="https://github.com/lmorchard/tootr/blob/master/src/javascript/publishers/AmazonS3.js#L148">these credentials work with Amazon S3</a>. So, after accepting a login and doing the <code>AssumeRoleWithWebIdentity</code> dance, my app can manage web hosting at Amazon S3 on your behalf.
 </p>
 
 <p style="text-align: left;">
-  For further reading, check out &#8220;<a href="docs.aws.amazon.com/STS/latest/UsingSTS/CreatingWIF.html">Creating Temporary Security Credentials for Mobile Apps Using Identity Providers</a>&#8221; in Amazon&#8217;s documentation. That&#8217;s from where I stole most of this stuff.
+  For further reading, check out “<a href="docs.aws.amazon.com/STS/latest/UsingSTS/CreatingWIF.html">Creating Temporary Security Credentials for Mobile Apps Using Identity Providers</a>” in Amazon’s documentation. That’s from where I stole most of this stuff.
 </p>
 
 <h2 style="text-align: left;">
@@ -280,52 +354,79 @@
 </h2>
 
 <p style="text-align: left;">
-  I&#8217;ve rolled all of this into <a href="https://github.com/lmorchard/tootr">a microblogging app called &#8220;tootr&#8221;</a>. Here&#8217;s a demo:
+  I’ve rolled all of this into <a href="https://github.com/lmorchard/tootr">a microblogging app called “tootr”</a>. Here’s a demo:
 </p>
 
 <li style="text-align: left;">
   <a href="https://lmorchard.github.io/tootr/">https://lmorchard.github.io/tootr/</a>
 </li>
 
-<p>You can visit the app, click &#8220;Login with Amazon&#8221;, and you&#8217;ll soon be tooting up a storm. But, you should notice some serious drawbacks:</p>
+<p>You can visit the app, click “Login with Amazon”, and you’ll soon be tooting up a storm. But, you should notice some serious drawbacks:</p>
 <ul>
 <li>The app is terrible and missing almost every interesting feature.</li>
-<li>Your username is something like <a href="https://tootr.s3.amazonaws.com/users/amazon/amzn1.account.AF5OSES2YSFJEKYBANBHRFB25RXQ/index.html">AF5OSES2YSFJEKYBANBHRFB25RXQ</a> and that&#8217;s also terrible.</li>
-<li>You&#8217;re tooting into my Amazon S3 bucket. You&#8217;re not paying me or Amazon. I <em>will</em> vandalize &amp; delete your stuff and not feel bad about it.</li>
+<li>Your username is something like <a href="https://tootr.s3.amazonaws.com/users/amazon/amzn1.account.AF5OSES2YSFJEKYBANBHRFB25RXQ/index.html">AF5OSES2YSFJEKYBANBHRFB25RXQ</a> and that’s also terrible.</li>
+<li>You’re tooting into my Amazon S3 bucket. You’re not paying me or Amazon. I <em>will</em> vandalize &amp; delete your stuff and not feel bad about it.</li>
 </ul>
-<p>As a proof-of-concept, though, I think it works: The &#8220;tootr&#8221; app at <a href="https://lmorchard.github.io/tootr/">lmorchard.github.io</a> publishes to a hosting API at <a href="http://s3.amazonaws.com">s3.amazonaws.com</a>. The on-ramp is a single button click and an Amazon sign-in dialog.</p>
-<p>But, I think all the above issues can be addressed. Also, Amazon is an interesting core for this stuff: Many people have an Amazon account, and Amazon is a place where people generally pay for things. So, it&#8217;s different territory than most social media sites.</p>
-<p>The challenge will be keeping the on-ramp simple while improving the app and switching to a user-owned web hosting space. Still, I think this is promising stuff. At any rate, it&#8217;s tinkering I&#8217;ve been procrastinating for years now, so I&#8217;ve got plenty of ideas to chase down.</p>
+<p>As a proof-of-concept, though, I think it works: The “tootr” app at <a href="https://lmorchard.github.io/tootr/">lmorchard.github.io</a> publishes to a hosting API at <a href="http://s3.amazonaws.com">s3.amazonaws.com</a>. The on-ramp is a single button click and an Amazon sign-in dialog.</p>
+<p>But, I think all the above issues can be addressed. Also, Amazon is an interesting core for this stuff: Many people have an Amazon account, and Amazon is a place where people generally pay for things. So, it’s different territory than most social media sites.</p>
+<p>The challenge will be keeping the on-ramp simple while improving the app and switching to a user-owned web hosting space. Still, I think this is promising stuff. At any rate, it’s tinkering I’ve been procrastinating for years now, so I’ve got plenty of ideas to chase down.</p>
 
-        </section>
+        <section class="comments" id="comments">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+              var disqus_needs_loading = true;
+              var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com/2014/10/11/tootr-1/";
+            </script>
+            <noscript
+              >Please enable JavaScript to view the
+              <a href="http://disqus.com/?ref_noscript"
+                >comments powered by Disqus.</a
+              ></noscript
+            >
+            <a href="http://disqus.com" class="dsq-brlink"
+              >blog comments powered by
+              <span class="logo-disqus">Disqus</span></a
+            >
+          </section>
       </article>
 
-      <section class="comments" id="comments">
-          <div id="disqus_thread"></div>
-          <script type="text/javascript">
-            var disqus_needs_loading = true;
-            var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com/2014/10/11/tootr-1/";
-          </script>
-          <noscript
-            >Please enable JavaScript to view the
-            <a href="http://disqus.com/?ref_noscript"
-              >comments powered by Disqus.</a
-            ></noscript
-          >
-          <a href="http://disqus.com" class="dsq-brlink"
-            >blog comments powered by <span class="logo-disqus">Disqus</span></a
-          >
-        </section>
-        </section>
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2014/10/20/static-blog-generation-with-gulp/"
+                >Static blog generation with Gulp and S3</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2014/10/09/separating-publishing-from-hosting-on-the-web/"
+                >Separating publishing from hosting on the web</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
 
-        <footer>
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

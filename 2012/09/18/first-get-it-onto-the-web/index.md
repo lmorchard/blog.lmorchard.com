@@ -20,7 +20,6 @@
         </li>
       </ul>
     </li>
-    
     <li>
       <a href="#In_conclusion"><span class="toc_number toc_depth_1">5</span> In conclusion</a>
     </li>
@@ -124,7 +123,8 @@ Apropos of that, I have a small trick on OS X that makes Amazon S3 as convenient
 *   Install [s3cmd][18] and configure it with your S3 credentials;
 *   Run [this][19] from your project directory in a terminal: 
     kicker -c -e &#8216;s3cmd -vfrP &#8211;exclude=&#8221;*swp&#8221; &#8211;exclude=&#8221;.git*&#8221; sync . s3://my-project.lmorchard.com/&#8217;</li> </ul> 
-    What this does is start `kicker` to monitor your files. Whenever anything changes, `s3cmd` uploads the changes to Amazon S3. After the first run, my content shows up at an URL like:
+
+What this does is start `kicker` to monitor your files. Whenever anything changes, `s3cmd` uploads the changes to Amazon S3. After the first run, my content shows up at an URL like:
     
         http://my-project.lmorchard.com/README.md
 

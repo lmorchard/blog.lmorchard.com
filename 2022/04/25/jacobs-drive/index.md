@@ -10,7 +10,7 @@ tags:
 
 <!--more-->
 
-<img src="./cover.png" class="fullwidth" />
+<figure class="wide"><img src="./cover.png" /></figure>
 
 Staring at his monitor, Jacob fought to stay awake, to appear engaged. His face appeared alongside seven other teammates in a column along the right of his screen. The bulk of the screen was occupied by a spreadsheet listing work items for the week. Document conversions, metadata updates, quality checks - none of it particularly hard or exciting. 
 

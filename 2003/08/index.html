@@ -1,317 +1,730 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>2003/08 - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>2003/08 - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Month: 2003/08</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post "
-          >
-            <time class="date" datetime="2003-09-01T02:26:08+00:00">
-              2003
-              September
-              01
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/09/01/switched-to-jvds/">
-              <span class="infoContainer">
-                <span class="title">Switching to a JVDS server</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-09-01T01:34:52+00:00">
-              2003
-              September
-              01
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/09/01/bookmark-blogger-python/">
-              <span class="infoContainer">
-                <span class="title">Bookmark Blogger in Python</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-08-29T17:11:49+00:00">
-              2003
-              August
-              29
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/08/29/again-a-student/">
-              <span class="infoContainer">
-                <span class="title">Again a Student</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-08-29T01:41:54+00:00">
-              2003
-              August
-              29
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/08/29/css-rollovers/">
-              <span class="infoContainer">
-                <span class="title">CSS, Background Images, and Rollovers</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-08-23T18:52:14+00:00">
-              2003
-              August
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/08/23/rss-scrape-urls2/">
-              <span class="infoContainer">
-                <span class="title">Scraping with web services: Success</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-08-23T17:57:06+00:00">
-              2003
-              August
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/08/23/rss-scrape-urls/">
-              <span class="infoContainer">
-                <span class="title">Scraping HTML with web services</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-08-22T17:32:31+00:00">
-              2003
-              August
-              22
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/08/22/rss-scrape-xsl/">
-              <span class="infoContainer">
-                <span class="title">Scraping HTML with curl, tidy, and XSL</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-08-22T16:51:58+00:00">
-              2003
-              August
-              22
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/08/22/email-feeds/">
-              <span class="infoContainer">
-                <span class="title">Syndication feeds to replace email?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-08-19T16:51:56+00:00">
-              2003
-              August
-              19
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/08/19/cookies-are-yummy/">
-              <span class="infoContainer">
-                <span class="title">Cookies are yummy</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-08-16T04:28:41+00:00">
-              2003
-              August
-              16
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/08/16/bayes-agg-one/">
-              <span class="infoContainer">
-                <span class="title">Issues in using SpamBayes to filter news items</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-08-14T19:53:02+00:00">
-              2003
-              August
-              14
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/08/14/tree-files-too/">
-              <span class="infoContainer">
-                <span class="title">Tree files too (the prequel)</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-08-14T19:48:24+00:00">
-              2003
-              August
-              14
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/08/14/tree-files/">
-              <span class="infoContainer">
-                <span class="title">Tree files</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-08-13T17:12:19+00:00">
-              2003
-              August
-              13
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/08/13/dream-cruise-spy-cams/">
-              <span class="infoContainer">
-                <span class="title">Wireless cams for police at Detroit Dream Cruise</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-08-04T20:13:28+00:00">
-              2003
-              August
-              04
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/08/04/pie-name-vote/">
-              <span class="infoContainer">
-                <span class="title">Final round of voting for pie/atom/(n)echo name?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-08-04T16:41:04+00:00">
-              2003
-              August
-              04
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/08/04/minipcs/">
-              <span class="infoContainer">
-                <span class="title">MiniPCs, Wave of the Future</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-08-02T20:22:27+00:00">
-              2003
-              August
-              02
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/08/02/software-and-community/">
-              <span class="infoContainer">
-                <span class="title">Software and Community</span>
-              </span>
-            </a>
-            
-          </li>
-    </ul>
-    
-  </section>
-      </section>
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Month: 2003/08</h2>
         </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2003 August 31</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/08/31/switched-to-jvds/">Switching to a JVDS server</a>
+      </h2>
+    
+    <p class="summary">
+      It's been one year since I
+signed up for a JohnCompanies server,
+and though I've had no complaints whatsoever, I've signed up for
+a server instance with JVDS.com and have moved
+just about everything over.
+Why?  Because it's cheaper, and I have less disposable income these
+days.  And, well, it seemed like fun to try another virtual server
+company, since I've been looking into it so much lately.  The new
+server has less capacity than the one I've had at JohnCompanies, but I
+really don't need all that much -- just a roof over my files and a
+root password.  Well, I don't really need a root password, but it's
+nice to have so that I can tinker around with more things with fewer
+questions asked of the management.  (For what it's worth, we're still
+using JohnCompanies servers for hosting at my work.)
+I've almost got this server migration thing down to a science, though,
+since I had everything over and up in a few hours.  And that was going
+from a FreeBSD system to Debian Linux.  Personally, though I fully
+respect FreeBSD and the ports collection, I like Debian and apt-get
+so much better.  But who knows, maybe in another year, I'll be moving
+again for the hell of it.
+I don't have much in the way of reputation for JVDS, but the management
+has been very responsive to requests so far.  In fact, they're using
+RT for their support ticket
+management.  Responsiveness has been one of the most impressive aspects
+of JohnCompanies, since between my personal server and the servers
+I use at work, it tends to take less than an hour to get resolution
+on any problems I've had.  So far, JVDS has yet to disappoint me as
+well.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/08/31/switched-to-jvds/"
+          >640&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/08/31/switched-to-jvds/">#</a>
+    <a class="time" href="2003/08/31/switched-to-jvds/">10:26 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/08/31/bookmark-blogger-python/">Bookmark Blogger in Python</a>
+      </h2>
+    
+    <p class="summary">
+      Remember my BookmarkBlogger?  Well, I rewrote it in Python.  For
+a little while, I was making little apps in Java, wishing it were a
+scripting language.  I've stopped that now.  Also, I've added the
+ability to include both link text and a non-linked comment in the
+bookmarks to be blogged.  This new version is quite a bit simpler
+and contained all in one script -- configuration, template, and all.
+Download a tarball here
+from my CVS server.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/08/31/bookmark-blogger-python/"
+          >78&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/08/31/bookmark-blogger-python/">#</a>
+    <a class="time" href="2003/08/31/bookmark-blogger-python/">9:34 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 August 29</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/08/29/again-a-student/">Again a Student</a>
+      </h2>
+    
+    <p class="summary">
+      I walked in thinking "I can't believe I'm a student again. I'm a student again? Yee-bloody-ikes, how am I going to manage being a student again?"
 
-        <footer>
+And I walked out with a spring in my step, thinking, "Hey! I'm a student again! W00t!"
+Source: Caveat Lector: Augusti 24, 2003 - Augusti 30, 2003 Archives
+
+
+
+I’m not entirely sure (though I have hunches) on how to go about it, or to whom I should be talking, but this is what I want to be saying in the not-too-distant future.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/08/29/again-a-student/"
+          >101&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/08/29/again-a-student/">#</a>
+    <a class="time" href="2003/08/29/again-a-student/">1:11 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 August 28</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/08/28/css-rollovers/">CSS, Background Images, and Rollovers</a>
+      </h2>
+    
+    <p class="summary">
+      It occurred to me that this ought to be possible by reassigning a  container's background-image property when it is  :hover-ed.
+
+Source: Images and thumbnails, a pure CSS hack (via dbagg: Items by Time)
+
+
+
+Yup, and you can do the same for every other pseudo-class of an anchor tag.  I read about this via Eric Meyer’s article on the O‘Reilly Network.  I’m still very much a CSS neophyte, but it’s helped me incredibly at work, where I was able to create a site layout with one set of HTML pages styled by a small library of CSS files for look & feel.
+
+<p>Yeah, yeah, that&#8217;s what it&#8217;s for, you say.  But it surprised the hell out of me that I was able to abuse background image properties of containers to create JavaScript-free rollovers, as well as select between completely different image-based layout elements.  This isn&#8217;t pure utopian <span class="caps">CSS</span> that I&#8217;m doing, and most of my position is still with tables, but thanks to blank pixel images atop <span class="caps">CSS</span>-controlled background images, I can do what I think are amazing things.</p>
+
+<p>Now I just have to break free of the rest of my <span class="caps">HTML</span> crutches, circa 1996.</p>
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/08/28/css-rollovers/"
+          >260&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/08/28/css-rollovers/">#</a>
+    <a class="time" href="2003/08/28/css-rollovers/">9:41 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 August 23</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/08/23/rss-scrape-urls2/">Scraping with web services: Success</a>
+      </h2>
+    
+    <p class="summary">
+      Okay, so I took another shot at scraping HTML with web services with another site that passes the HTML Tidy step.  Luckily, this is a site that I already scrape using my own tool, so I have XPath expressions already cooked up to dig out info for RSS items.  So, here are the vitals:
+
+
+
+    Site: http://www.jlist.com
+    XSL: http://www.decafbad.com/jlist.xsl
+    Tidy URL: http://cgi.w3.org/cgi-bin/tidy?
+
+docAddr=http%3A%2F%2Fwww.jlist.com%2FUPDATES%2FPG%2F365%2F
+    Final URL: http://www.w3.org/2000/06/webdata/xslt?
+xslfile=http%3A%2F%2Fwww.decafbad.com%2Fjlist.xsl&
+xmlfile=http%3A%2F%2Fcgi.w3.org%2Fcgi-bin%2Ftidy%3F
+docAddr%3Dhttp%253A%252F%252Fwww.jlist.com%252FUPDATES%252FPG%252F365%252F&
+transform=Submit
+
+
+
+
+<p>Unfortunately, although it looks okay to me, this feed <a href="http://feeds.archive.org/validator/check?url=http%3A%2F%2Fwww.w3.org%2F2000%2F06%2Fwebdata%2Fxslt%3Fxslfile%3Dhttp%253A%252F%252Fwww.decafbad.com%252Fjlist.xsl%26xmlfile%3Dhttp%253A%252F%252Fcgi.w3.org%252Fcgi-bin%252Ftidy%253FdocAddr%253Dhttp%25253A%25252F%25252Fwww.jlist.com%25252FUPDATES%25252FPG%25252F365%25252F%26transform%3DSubmit">doesn&#8217;t validate yet</a>, but I&#8217;m still poking around with it to get things straight.  Feel free to help me out!  :)</p>
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/08/23/rss-scrape-urls2/"
+          >95&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/08/23/rss-scrape-urls2/">#</a>
+    <a class="time" href="2003/08/23/rss-scrape-urls2/">2:52 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/08/23/rss-scrape-urls/">Scraping HTML with web services</a>
+      </h2>
+    
+    <p class="summary">
+      After checking out Bill Humphries’ approach to scraping yesterday, I recalled the various things Jon Udell has written about URL-as-command-line and the various places I’ve seen the W3C XSLT Servlet used in XSLT tinkering.  I also remembered that there’s an HTML Tidy service offered by W3C as well.
+
+<p>So&#8230;  these are all URLs.  I figured I could pull together the site <span class="caps">URL</span>, <a href="http://www.whump.com/dropbox/nationrss/nation.xsl">Bill&#8217;s <span class="caps">XSLT</span></a>, the tidy service, and the <span class="caps">XSLT</span> service, and have a whole lot of scraping going on right in my browser or via wget or curl.  Here are the steps in how I composed the <span class="caps">URL</span>:</p>
+
+<ol>
+<li><a href="http://www.thenation.com">http://www.thenation.com</a></li>
+
+http://cgi.w3.org/cgi-bin/tidy?docAddr=http%3A%2F%2Fwww.thenation.com
+http://www.w3.org/2000/06/webdata/xslt?
+
+xslfile=http%3A%2F%2Fwww.whump.com%2Fdropbox%2Fnationrss%2Fnation.xsl&#38;
+xmlfile=http%3A%2F%2Fcgi.w3.org%2Fcgi-bin%2Ftidy%3F
+docAddr%3Dhttp%253A%252F%252Fwww.thenation.com&transform=Submit
+
+
+<p>Unfortunately, this doesn&#8217;t work.  In particular, step [#2](/tag/2) fails, the Tidy service reporting a failure in processing the original <span class="caps">HTML</span>.  I imagine, had that worked, the whole process at step [#3](/tag/3) would be producing <span class="caps">RSS</span>.  On my command line, <span class="caps">HTML </span>Tidy works fine, so I&#8217;ve been thinking of throwing together my own web interface to that program and seeing if that works.</p>
+
+<p>If it works, this with the addition of a cache at each stage could allow for what I think is a pretty nifty, all web-based means of scraping news items from web sites.  </p>
+
+    <p>What would really be nice for apps like this is a better way to express the URLs-within-URLs without escaping and escaping and escaping and...  Thinking some very lightweight scripting here, or some LISP-ish expressions would help.</p>
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/08/23/rss-scrape-urls/"
+          >322&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/08/23/rss-scrape-urls/">#</a>
+    <a class="time" href="2003/08/23/rss-scrape-urls/">1:57 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 August 22</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/08/22/rss-scrape-xsl/">Scraping HTML with curl, tidy, and XSL</a>
+      </h2>
+    
+    <p class="summary">
+      Continuing with making it easier for "Big Pubs" to create RSS feeds. I'm assuming that they have a publishing system, but it wasn't built with RSS in mind, but they want on the bandwagon.
+
+Source: More Like This WebLog: Thursday, 21 August 2003
+
+
+
+Using curl, tidy, and XSL to scrape content from HTML pages into an RSS feed.  This is basically what I do now with a half-baked Java app using JTidy, XPath, and BeanShell.  I keep meaning to release it, but it’s too embarassing to share so far.  Yet, it’s been working well enough to scrape what sites I’m interested in such that I haven’t been too motivated to tidy it up and tarball it.  One thing I like better about Bill Humphries’ approach, though, is that it doesn’t use Java :)
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/08/22/rss-scrape-xsl/"
+          >195&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/08/22/rss-scrape-xsl/">#</a>
+    <a class="time" href="2003/08/22/rss-scrape-xsl/">1:32 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/08/22/email-feeds/">Syndication feeds to replace email?</a>
+      </h2>
+    
+    <p class="summary">
+      Let's face it, email has become unuseable, the latest worm to strike is likely only the tip of the iceberg we're about to collide with. I've never liked the metaphore of an 'inbox', certainly not one that fills up and can't accurately be filtered.
+
+Source: Email is Dead, Long Live Email!
+
+
+
+I linked to D.J.Bernstein’s Internet Mail 2000 project a little while back, and I think what Adam Curry says here is along a similar path.
+
+<p>Internet Mail 2000 starts off with the assumption, &#8220;Mail storage is the sender&#8217;s responsibility.&#8221;  So, you want to send me an email?  Post it on your server and tell me to come &#38; get it.  When I get the notification, I&#8217;ll then decide whether or not I want to bother.  There are a lot of details to fill in here, such as secure posting and retrieval, trust and identity, notification mechanisms.  But, it certainly would seem to balance out the equation a bit.</p>
+
+<p>How to do it, though, so that things are still at least as simple to use as existing email, such as it is?</p>
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/08/22/email-feeds/"
+          >873&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/08/22/email-feeds/">#</a>
+    <a class="time" href="2003/08/22/email-feeds/">12:51 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 August 19</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/08/19/cookies-are-yummy/">Cookies are yummy</a>
+      </h2>
+    
+    <p class="summary">
+      In case it had been an annoyance to anyone, I’ve finally gotten around to adding a “Remember my personal info” cookie to my comment forms.  Let me know if it breaks.  Otherwise, carry on!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/08/19/cookies-are-yummy/"
+          >35&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/08/19/cookies-are-yummy/">#</a>
+    <a class="time" href="2003/08/19/cookies-are-yummy/">12:51 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 August 16</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/08/16/bayes-agg-one/">Issues in using SpamBayes to filter news items</a>
+      </h2>
+    
+    <p class="summary">
+      Despite a reading an entry by Srijith
+discussing Bayes-based classification as unsuitable
+for use in news aggregators, I tied SpamBayes
+into my homebrew news aggregator
+and have been trying it out this week.  I know I’ve been talking about it
+for awhile, but procrastination and being busy all round kept me from getting
+to it.  Funny thing is, when I finally got a chance to really check things out,
+the integration was a snap.  I’d anticipated a bit of work, but was pleasantly
+surprised.  I doubt that any other aggregator written in
+Python would have a hard time with it.
+
+<p>If, that is, anyone else wants to do it.  I already knew it wasn&#8217;t
+
+magic pixy dust
+but I figured it might be worth a try.  I will be eating my dogfood
+for awhile with this, but I’m thinking already that what’s good for spam
+might not be so good for news aggregators.
+<p>Srijith&#8217;s <a href="http://www.srijith.net/trinetre/archives/2003/08/11/index.shtml#000373">post</a>
+
+mentions some snags in ignoring some of the semantics of a news item,
+such as whether a word appears in the item’s title or information about
+the item’s source.  I don’t think that this completely
+applies to how I’m doing classification, since SpamBayes appears to
+differentiate between words found in email headers and the body itself.
+When I feed an item to SpamBayes for training and scoring, I represent
+it as something like an email message, with headers like date, subject,
+from, and an “X-Link” header for the link.  However, even with this,
+I think Srijith’s got a point when he writes that this method will miss
+a lot of available clues for classification.
+<p>Unlike Srijith&#8217;s examples, though, I&#8217;m not trying to train my
+
+aggregator to sift entries into any specific categories.  So far, I’ve
+been trying to get it to discriminate between what I really want to
+read, and what I’m not so interested in.  So, I figured that something
+which can learn the difference between spam and normal email could help.
+But, although it’s early, I’m noticing a few things about the results and
+I’ve had a few things occur to me.
+<p>See, in the case of ham vs spam, I really want all the ham and none of
+
+the spam.  A method to differentiate between these two should be
+optimized toward one answer or the other.  SpamBayes offers “I don’t
+know” as a third answer, but it’s not geared toward anything else
+in-between.  However, in measuring something like “interest“,
+inbetween answers are useful.  I want all of the interesting stuff,
+some of the sort-of interesting stuff, and a little of the rest.
+<p>This is also a problem for me in deciding to what I
+
+should give a thumbs up and what gets the thumbs down.  Even though
+I’ve subscribed to a little over 300 feeds, every item from each of
+them is somewhat interesting to me.  I wouldn’t have subscribed to the
+feed if there wasn’t anything of interest there, so I’ve already
+biased the content of what I receive.  Some items are more interesting
+than others, but the difference between them is nowhere near the
+difference of wanted ham vs unsolicited spam.  So, I find myself
+giving the nod to lots of items, but only turning down a few.
+SpamBayes would like equal examples of both, if possible.
+<p>I&#8217;ll still be playing with this for awhile, but I need to look
+
+around at other machine learning tech.  I’m just hacking around,
+but the important thing is to try to understand the algorithms
+better and know how they work and why.  Bayes is in vogue right now,
+but as Mark Pilgrim intimated, it’s not magic.  It’s just “advanced” :)
+<p>In the immortal words of <a href="http://www.spidereyeballs.com/os6/set3/small_os6_d3_3596_sm.html">Mark Jason Dominus</a>: &#8220;You can&#8217;t just make shit
+
+up and expect the computer to know what you mean, retardo!”
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/08/16/bayes-agg-one/"
+          >731&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/08/16/bayes-agg-one/">#</a>
+    <a class="time" href="2003/08/16/bayes-agg-one/">12:28 am</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 August 14</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/08/14/tree-files-too/">Tree files too (the prequel)</a>
+      </h2>
+    
+    <p class="summary">
+      16:06:23 [neo85] DO I NEED TO GO TO A SPECIFIC FOLDER TO LOAD 
+                  THE HTMAL?
+...
+ 16:07:37 [Ash] neo85: you may need to clear out the old HTMAL 
+                files first with DELTREE C:\ /y
+ 16:08:10 [Ash] Anyway, then type 'LOAD HTMAL'
+ 16:09:11 [Ash] neo85: Did that work?
+ 16:09:30 [neo85] I PUT IN /Y?
+ 16:09:36 [Ash] Yes.
+ 16:10:02 [neo85] THATS ALL?
+ 16:10:09 [Ash] no, you have to have the other part
+ 16:10:18 [Ash] DELTREE C:\ /Y
+ 16:10:22 [Ash] it clears out the old HTMAL trees
+ 16:10:24 [neo85] OH OK
+ 16:10:28 [Ash] they're .TREE files
+ 16:10:59 [neo85] IT SAYS DELETE SUHDLOG.DAT
+ 16:11:37 [neo85] DETLOG.TXT?
+ 16:11:47 [Ash] yeah, just delete all the trees
+...
+ 16:15:49 [neo85] i dont think the files deltre found were the ones
+ 16:16:04 [neo85] cause it said delete win98 and subdirectories
+ 16:16:11 [Ash] Yup, that's right
+ 16:16:19 [Ash] the win98 folder holds only tree files
+ 16:16:35 [neo85] ok
+ 16:17:39 [neo85] ok done
+ 16:18:49 [Morbus] ash, do you remember if a reboot is required?
+ 16:18:58 [Morbus] i keep forgetting, and all  my notes are on my 
+                   other machine.
+ 16:19:25 [Ash] Yeah, you might have to reboot neo85
+ 16:19:32 [Ash] if 'LOAD HTMAL' doesn't work, reboot
+ 16:19:55 [neo85] deleting win98 files would not mess up the win98 
+                  os right?
+ 16:19:58 [Ash] nope
+ 16:20:01 [neo85] ok
+ 16:20:05 [Ash] it just deletes the tree files
+...
+ 16:26:43 [Morbus] neo, having any luck with the LOAD command?
+ 16:45:09 [neo85] *** neo85 has quit (Read error: 110 (Connection 
+                  timed out))
+
+ Source: IRC log of swhack on 2002-04-05
+
+
+Heh, heh.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/08/14/tree-files-too/"
+          >265&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/08/14/tree-files-too/">#</a>
+    <a class="time" href="2003/08/14/tree-files-too/">3:53 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/08/14/tree-files/">Tree files</a>
+      </h2>
+    
+    <p class="summary">
+      23:58:35 [Ash] MorbusIff: Got any tree files?
+23:58:39 [MorbusIff] heh
+23:58:45 [MorbusIff] uh, tree files?
+23:58:48 [MorbusIff] what are tree files?
+...
+23:59:39 [sbp] yes, you need to run DELTREE to get rid of themSource: IRC log of swhack on 2002-04-23
+
+
+Heh, heh.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/08/14/tree-files/"
+          >44&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/08/14/tree-files/">#</a>
+    <a class="time" href="2003/08/14/tree-files/">3:48 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 August 13</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/08/13/dream-cruise-spy-cams/">Wireless cams for police at Detroit Dream Cruise</a>
+      </h2>
+    
+    <p class="summary">
+      Six remote-controlled surveillance cameras have been set up to transmit live video images of crowd and traffic conditions to handheld and laptop computers carried by cops. 
+
+Source: freep.com: Police try spy cameras for better cruise control 
+
+
+
+This has privacy advocates around here worried.  I’m thinking it’s a tempest in a teacup, but reading a quote like this is a bit unfortunate:
+
+<blockquote>&#8220;We can zoom in tight enough to read someone&#8217;s watch,&#8221; said Jonathan Hollander, chief technology officer for GigaTrans, which designed the system for the use of the Oakland County Sheriff&#8217;s Department and local police departments along the route.</blockquote>
+
+
+
+<p>It also doesn&#8217;t help that a <a href="http://www.freep.com/news/locway/probe12_20030612.htm">Federal investigation into the Detroit Police</a> found that they were &#8220;the most troubled force they have seen in 10 years of scrutinizing police nationwide&#8220;.  But, as a futurist geek, what I really want to know, having read David Brin&#8217;s <a href="http://www.amazon.com/exec/obidos/ASIN/0738201448/0xdecafbad-20">The Transparent Society</a> , is when I get to look for traffic jams up ahead using my <strong>own</strong> wireless communicator.</p>
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/08/13/dream-cruise-spy-cams/"
+          >165&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/08/13/dream-cruise-spy-cams/">#</a>
+    <a class="time" href="2003/08/13/dream-cruise-spy-cams/">1:12 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 August 04</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/08/04/pie-name-vote/">Final round of voting for pie/atom/(n)echo name?</a>
+      </h2>
+    
+    <p class="summary">
+      Voting is open.  OpenPoll  Names were vetted until 31 July 2003 while putting out an all-blogs call to vote. Please Blog the Vote.
+
+Source: NameFinalVote - Atom Wiki
+
+
+
+Is this final?  Gawd, I hope so.  I’m stringing too many slash-inated names together these days.  :)
+
+<p>I voted for Feedcast, since it seems to be the least &#8220;clever&#8221; name yet identifies the concept.  It could be used in corp-speak and geek-speak without too much wincing.  And it&#8217;s not an acronym.  All good things, in my short span of experience.</p>
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/08/04/pie-name-vote/"
+          >107&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/08/04/pie-name-vote/">#</a>
+    <a class="time" href="2003/08/04/pie-name-vote/">4:13 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/08/04/minipcs/">MiniPCs, Wave of the Future</a>
+      </h2>
+    
+    <p class="summary">
+      And the next thing: at a very specific level, mini-ITX motherboards and cases are The Way To Go. Tiny, cheap, fanless PCs with trailing-edge processors -- only  1GHz -- are nevertheless a really amazingly cool idea, especially when you start thinking in terms of turning them into personal video recorders (running things like FreeVo) or in-car GPS navigation systems. Or Beowulf clusters.
+
+Source: Charlie's Diary    (via Boing Boing)
+
+
+
+Although I currently am on the low end of disposable income, I’m keeping my eye on tiny cases, motherboards, and just-slightly-slower-than-insanity CPUs for projects just such as these.  I want a PVR, a few file servers, maybe a homebrew game console.  I also wouldn’t mind buying a pile of OpenBricks for general living-in-the-future purposes around the house, and to experiment with clustering and networking.  Would also be neat to learn some hardware hacking again to build some clever devices like this CD changing robot
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/08/04/minipcs/"
+          >152&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/08/04/minipcs/">#</a>
+    <a class="time" href="2003/08/04/minipcs/">12:41 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 August 02</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/08/02/software-and-community/">Software and Community</a>
+      </h2>
+    
+    <p class="summary">
+      I joined the Apache project for the software. I stayed for the community. Likewise Perl. The software is interesting, but the people are more interesting. So now that I'm really not even writing much Perl, I'm still involved with the community, to some degree, because they are cool people. 
+
+Source: DrBacchus' Journal: Software and community
+
+
+
+I’ve been working with Perl for just about 10 years now, and though I’ve been a bit of a stranger lately, I used to be a regular on [#perl](/tag/perl) on several IRC networks.  And, when companies I worked for paid for travel as freely as for paper clips, I made rounds at a few conferences.  I was lucky enough to meet a few other [#perl](/tag/perl) regulars.  I doubt most of them remember me since they‘re a fairly close-nit group, and I’d only made the one appearance, despite constantly swearing I’d make it to a YAPC at some point.  But I always thought it was cool as hell to actually have had a beer at the same table in Boston with authors of some of my favorite O‘Reilly perl books.
+
+<p>But, I got busy, stopped hanging out in <span class="caps">IRC</span> so much, and also decided that I needed to expand my horizons and stop being so narrowly focused on one language.  I got into Java, Python, shell scripting, and <span class="caps">PHP</span>.  I started this weblog, and I tried to purposefully keep away from Perl.  Of course, I can&#8217;t stay away, because Perl code comes out of my fingertips as naturally as breathing when a problem presents itself for solution.</p>
+
+<p>And then there&#8217;s community.  I&#8217;ve yet to find a Java community as quirky and entertaining as that surrounding Perl.  Thus, Java bores me.  I use it, but it&#8217;s strictly business, mostly.</p>
+
+<p>When what you&#8216;re doing <strong>is</strong> strictly business, I guess that&#8217;s desirable.  But when you eat, sleep, and breathe this stuff, having a group of people constantly doing clever things and being odd certainly makes it more rewarding.  It&#8217;s predictability versus creativity.  To get the job done, you want solid and dependable tools.  To have fun, you want some challenge and unexpected results.</p>
+
+<p>To me, Perl and its community offers both.  I think Python might, also, but I&#8217;m not as familiar there.  Java and other technologies are mostly business.  Maybe this also crosses over into the difference between IT people and CS people, and whether you&#8216;re here to work or here to play and get paid.</p>
+
+<p>Hmm.</p>
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/08/02/software-and-community/"
+          >566&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/08/02/software-and-community/">#</a>
+    <a class="time" href="2003/08/02/software-and-community/">4:22 pm</a>
+    
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

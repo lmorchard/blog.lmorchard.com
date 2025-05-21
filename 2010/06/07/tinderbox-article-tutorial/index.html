@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>Using Tinderbox to write articles for the web - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="Using Tinderbox to write articles for the web" />
+    <html>
+      <head>
+        <title>Using Tinderbox to write articles for the web - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="Using Tinderbox to write articles for the web" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2010/06/07/tinderbox-article-tutorial/"
@@ -43,94 +50,183 @@
             property="og:image"
             content="http://farm4.static.flickr.com/3105/2476581071_7a55c565dd.jpg"
           />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post tag-metabloggingtag-webdevtag-writingtag-tinderboxtag-entriestag-html"
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post tag-metabloggingtag-webdevtag-writingtag-tinderboxtag-entriestag-html"
       >
-        <time
-          title="2010-06-07T04:41:03+00:00"
-          pubdate="2010-06-07T04:41:03+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2010/"
-            >2010</a
+        <header>
+          <time
+            title="2010-06-07T00:41:03-04:00"
+            pubdate="2010-06-07T00:41:03-04:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2010/06/"
-            >June</a
-          >
-          &raquo;
-          <span>07</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="Case Study: Building a Bookmark Management UI for Mozilla&#39;s BYOB"
+                href="/blog.lmorchard.com/2010/06/22/case-study-building-a-bookmark-management-ui-for-mozillas-byob/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2010/"
+                >2010</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2010/06/"
+                >June</a
+              >
+              &#8226;
+              <span>07</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Don&#39;t Thank the Gnomes"
+                href="/blog.lmorchard.com/2010/05/19/dont-thank-the-gnomes/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">Using Tinderbox to write articles for the web</h1>
+          <ul class="tags">
+              <li><a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a></li><li><a href="/blog.lmorchard.com/tag/webdev/">webdev</a></li><li><a href="/blog.lmorchard.com/tag/writing/">writing</a></li><li><a href="/blog.lmorchard.com/tag/tinderbox/">tinderbox</a></li><li><a href="/blog.lmorchard.com/tag/entries/">entries</a></li><li><a href="/blog.lmorchard.com/tag/html/">html</a></li>
+            </ul>
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2010/06/22/case-study-building-a-bookmark-management-ui-for-mozillas-byob/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2010/05/19/dont-thank-the-gnomes/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">Using Tinderbox to write articles for the web</h1>
-        <ul class="tags">
-            <li>
-                  <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/writing/">writing</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/tinderbox/">tinderbox</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/entries/">entries</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/html/">html</a>
-                </li>
-          </ul>
-        <section class="post-content">
-          <p><em><strong>TL;DR:</strong> I just put together <a href="http://decafbad.com/2010/06/tinderbox-article-tutorial/article.html">a tutorial about writing an article in HTML</a> using <a href="http://www.eastgate.com/Tinderbox/">Tinderbox</a> from <a href="http://www.eastgate.com/">Eastgate Systems, Inc</a>.</em></p>
-<p><em><strong>Update:</strong></em> There&#39;s a <a href="http://pc.de/pages/tinderbox-tutorial-be">Belorussian</a> translation of this post provided by <a href="http://pc.de/">PC</a> - very cool!</p>
-<p><img src="http://farm4.static.flickr.com/3105/2476581071_7a55c565dd.jpg" alt="tinderboxicon"></p>
+        <p><em><strong>TL;DR:</strong> I just put together <a href="http://decafbad.com/2010/06/tinderbox-article-tutorial/article.html">a tutorial about writing an article in HTML</a> using <a href="http://www.eastgate.com/Tinderbox/">Tinderbox</a> from <a href="http://www.eastgate.com/">Eastgate Systems, Inc</a>.</em></p>
+<p><em><strong>Update:</strong></em> There's a <a href="http://pc.de/pages/tinderbox-tutorial-be">Belorussian</a> translation of this post provided by <a href="http://pc.de/">PC</a> - very cool!</p>
+<p><img src="http://farm4.static.flickr.com/3105/2476581071_7a55c565dd.jpg" alt="tinderboxicon" width="" height=""></p>
 <p><em>Tinderbox Icon by Bryan Bell, via <a href="http://www.flickr.com/photos/factoryjoe/2476581071/">flickr.com/photos/factoryjoe</a></em></p>
-<p>I&#39;ve been toying with a set of writing topics to get my blog going again, apropos of <a href="http://decafbad.com/blog/2010/03/10/pondering-the-cobwebs">my notion of writing for myself</a>. But, I like to write at length and have finally decided that life&#39;s too short to write in browser <code>&lt;textarea&gt;</code>&#39;s, no matter how cleverly augmented.</p>
+<p>I've been toying with a set of writing topics to get my blog going again, apropos of <a href="http://decafbad.com/blog/2010/03/10/pondering-the-cobwebs">my notion of writing for myself</a>. But, I like to write at length and have finally decided that life's too short to write in browser <code>&lt;textarea&gt;</code>'s, no matter how cleverly augmented.</p>
 <p>I did buy <a href="http://www.red-sweater.com/marsedit/">MarsEdit 3</a>, which is a fine app for dashing off short entries. But, for longer things, I found myself doing the actual writing elsewhere and pasting the text into MarsEdit for posting later. I even wrote and posted <a href="http://decafbad.com/skein/2010/03/11/alpha-vs-delta/">a whole fanfic novella</a> this way, and it was a silly way to do things.</p>
-<p>Well, one of the places where writing actually happens for me over the past few years is within <a href="http://www.eastgate.com/Tinderbox/">Tinderbox</a> documents. And, as it turns out, <a href="http://www.eastgate.com/Tinderbox/">Tinderbox</a> has some powerful HTML export facilities that I&#39;ve left underused until some things finally clicked for me.</p>
-<p>So, I thought I&#39;d try turning that experience back upon itself to produce something worth writing. Without further ado, here&#39;s the <a href="http://github.com/lmorchard/tinderbox-article-tutorial">source in GitHub</a>, and the <a href="http://decafbad.com/2010/06/tinderbox-article-tutorial/article.html">article exported to HTML for easy reading</a>.</p>
-<p>The funny thing is, I started working on this tutorial in the middle of writing another article. So, this post is a particularly advanced form of <a href="http://catb.org/jargon/html/Y/yak-shaving.html">Yak Shaving</a>. I hope it ends up handy for someone, and I hope it leads to the <em>real</em> articles I&#39;m hoping to produce.</p>
+<p>Well, one of the places where writing actually happens for me over the past few years is within <a href="http://www.eastgate.com/Tinderbox/">Tinderbox</a> documents. And, as it turns out, <a href="http://www.eastgate.com/Tinderbox/">Tinderbox</a> has some powerful HTML export facilities that I've left underused until some things finally clicked for me.</p>
+<p>So, I thought I'd try turning that experience back upon itself to produce something worth writing. Without further ado, here's the <a href="http://github.com/lmorchard/tinderbox-article-tutorial">source in GitHub</a>, and the <a href="http://decafbad.com/2010/06/tinderbox-article-tutorial/article.html">article exported to HTML for easy reading</a>.</p>
+<p>The funny thing is, I started working on this tutorial in the middle of writing another article. So, this post is a particularly advanced form of <a href="http://catb.org/jargon/html/Y/yak-shaving.html">Yak Shaving</a>. I hope it ends up handy for someone, and I hope it leads to the <em>real</em> articles I'm hoping to produce.</p>
 
-        </section>
-      </article>
-        </section>
-
-        <footer>
-          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
-        </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
-      </section>
-    </body>
-  </html>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2010/06/22/case-study-building-a-bookmark-management-ui-for-mozillas-byob/"
+                >Case Study: Building a Bookmark Management UI for Mozilla's BYOB</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2010/05/19/dont-thank-the-gnomes/"
+                >Don't Thank the Gnomes</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

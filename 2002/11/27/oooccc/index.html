@@ -1,144 +1,240 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>XML-RPC case study redux, Part I: Setting - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="XML-RPC case study redux, Part I: Setting" />
+    <html>
+      <head>
+        <title>XML-RPC case study redux, Part I: Setting - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="XML-RPC case study redux, Part I: Setting" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2002/11/27/oooccc/"
         />
         
         <meta property="og:description" content="So, my little off the cuff case study with XmlRpc from yesterday got a ton of flow from Dave.  Got some comments and some email, and a very good response / rebuttal from Paul Prescod.  Thanks to everyone for reading &amp; responding!
-
 I think a few things from that case study, the response to it, and Paul&#39;s comments need some more consideration.  And, I think some more clarification of my situation would work as well.  So I&#39;ll start with that:
-
 The first thing is that I think the quote Dave pulled from my case study nails my situation: &quot;I get it, my boss gets it, his boss gets it, the sales guys get it, and the marketing guy who&#39;s always our first contact at a client gets it.&quot;
-
 I work at a promotions company.  Because we act as a sort of application service provider and host everything ourselves, we can do and have done some pretty nifty things within our walls.
-
 On our clients&#39; side, though, they&#39;re hiring us to do nifty things that don&#39;t require them to do much at all.  In fact, the vast majority of the time, our direct client contact is a marketing/PR person who has little, if any, access to technical resources.  It&#39;s a major undertaking for this person to get an image tag or a javascript pop-up window slipped into an HTML page somewhere on the company website - anything further than that leads down a trail of tears and a week&#39;s worth of conference calls with grumpy people.  We&#39;ve spent more than 4 years streamlining everything down to the acceptance of this fact.
-
-So then, in walks the client who wants a lot more, like the aforementioned client for whom XmlRpc worked swimmingly for integration between their site, their commerce vendor, and us.  Our direct contact is still a marketing person, but she has a bit more technical support behind her.  She might be able to get up to 4 hours&#39; time from a junior engineer over there to whip up a CGI or JSP, assuming that the team in charge of the website approves permission to do so.
+So then, in walks the client who wants a lot more, like the aforementioned client for whom XmlRpc worked swimmingly for integration between their site, their commerce vendor, and us.  Our direct contact is still a marketing person, but she has a bit more technical support behind her.  She might be able to get up to 4 hours&#39; time from a junior engineer over there to whip up a CGI or JSP, assuming that the team in charge of the website approves permission to do so.  
 As part of that junior engineer&#39;s time, I have one half-hour conference call to explain our points of integration, how everything&#39;s going to work, and where to go for resources on how to do it.  I barrage the person with email, offer availability on at least 3 different instant messaging networks, but when it comes down to it this 1/2 hour phone call is all anyone remembers.  We&#39;ve been working on improving this situation, but the only traction comes from where we&#39;ve been able to gain the confidence of a client as a long term strategy partner.  Otherwise, we&#39;re just some random vendor who gets tossed away if we make too much noise.
-
 What this all boils down to is that I&#39;ve needed to develop a scheme of integration between web apps that can be explained mainly in 30 minutes to a developer of unknown competence to whom I&#39;m barely a priority.  This is my situation at present.  The situation has room for improvement - but the power to make those improvements are largely beyond my influence - so I&#39;ve applied XmlRpc successfully so far as a solution.
-
 So, I&#39;ll post this, and in the next installment (if you&#39;re still with me), I&#39;ll voice my concerns with the solution I&#39;ve chosen, and consider what Paul&#39;s written.  As always, I encourage you to tell me where I&#39;m full of it, and why." />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post "
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post "
       >
-        <time
-          title="2002-11-27T19:55:11+00:00"
-          pubdate="2002-11-27T19:55:11+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2002/"
-            >2002</a
+        <header>
+          <time
+            title="2002-11-27T14:55:11-05:00"
+            pubdate="2002-11-27T14:55:11-05:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2002/11/"
-            >November</a
-          >
-          &raquo;
-          <span>27</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="XML-RPC case study redux, Part II: REST and I"
+                href="/blog.lmorchard.com/2002/11/27/oooccd/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2002/"
+                >2002</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2002/11/"
+                >November</a
+              >
+              &#8226;
+              <span>27</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="XML-RPC, a mini case study"
+                href="/blog.lmorchard.com/2002/11/26/oooccb/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">XML-RPC case study redux, Part I: Setting</h1>
+          
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2002/11/27/oooccd/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2002/11/26/oooccb/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">XML-RPC case study redux, Part I: Setting</h1>
-        
-        <section class="post-content">
-          <p>So, my little <a href="http://www.decafbad.com/news_archives/000332.phtml">off the cuff case study</a> with <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a> from yesterday got a ton of flow <a href="http://scriptingnews.userland.com/backissues/2002/11/26#When:8:22:26AM">from Dave</a>.  Got some comments and some email, and a very good <a href="http://www.blogstream.com/pauls/1038403139">response / rebuttal from Paul Prescod.</a>  Thanks to everyone for reading &amp; responding!
-<br /><br />
-I think a few things from that case study, the response to it, and <a href="http://www.blogstream.com/pauls/1038403139">Paul&#39;s comments</a> need some more consideration.  And, I think some more clarification of my situation would work as well.  So I&#39;ll start with that:
-<br /><br />
-The first thing is that I think the quote Dave pulled from my case study nails my situation: &quot;I get it, my boss gets it, his boss gets it, the sales guys get it, and the marketing guy who&#39;s always our first contact at a client gets it.&quot;
-<br /><br />
-I work at <a href="http://www.eprize.net">a promotions company</a>.  Because we act as a sort of application service provider and host everything ourselves, we can do and have done some pretty nifty things within our walls.
-<br /><br />
-On our clients&#39; side, though, they&#39;re hiring us to do nifty things that don&#39;t require them to do much at all.  In fact, the vast majority of the time, our direct client contact is a marketing/PR person who has little, if any, access to technical resources.  It&#39;s a major undertaking for this person to get an image tag or a javascript pop-up window slipped into an HTML page somewhere on the company website - anything further than that leads down a trail of tears and a week&#39;s worth of conference calls with grumpy people.  We&#39;ve spent more than 4 years streamlining everything down to the acceptance of this fact.
-<br /><br />
-So then, in walks the client who wants a lot more, like the aforementioned client for whom <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a> worked swimmingly for integration between their site, their commerce vendor, and us.  Our direct contact is still a marketing person, but she has a <em>bit</em> more technical support behind her.  She might be able to get up to 4 hours&#39; time from a junior engineer over there to whip up a CGI or JSP, assuming that the team in charge of the website approves permission to do so.<br><br /><br />
-As part of that junior engineer&#39;s time, I have one half-hour conference call to explain our points of integration, how everything&#39;s going to work, and where to go for resources on how to do it.  I barrage the person with email, offer availability on at least 3 different instant messaging networks, but when it comes down to it this 1/2 hour phone call is all anyone remembers.  We&#39;ve been working on improving this situation, but the only traction comes from where we&#39;ve been able to gain the confidence of a client as a long term strategy partner.  Otherwise, we&#39;re just some random vendor who gets tossed away if we make too much noise.
-<br /><br />
-What this all boils down to is that I&#39;ve needed to develop a scheme of integration between web apps that can be explained mainly in 30 minutes to a developer of unknown competence to whom I&#39;m barely a priority.  This is my situation at present.  The situation has room for improvement - but the power to make those improvements are largely beyond my influence - so I&#39;ve applied <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a> successfully <strong>so far</strong> as a solution.
-<br /><br />
-So, I&#39;ll post this, and in the next installment (if you&#39;re still with me), I&#39;ll voice my concerns with the solution I&#39;ve chosen, and consider what Paul&#39;s written.  As always, I encourage you to tell me where I&#39;m full of it, and why.</p>
+        <p>So, my little <a href="http://www.decafbad.com/news_archives/000332.phtml">off the cuff case study</a> with <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a> from yesterday got a ton of flow <a href="http://scriptingnews.userland.com/backissues/2002/11/26#When:8:22:26AM">from Dave</a>.  Got some comments and some email, and a very good <a href="http://www.blogstream.com/pauls/1038403139">response / rebuttal from Paul Prescod.</a>  Thanks to everyone for reading &amp; responding!</p>
+<p>I think a few things from that case study, the response to it, and <a href="http://www.blogstream.com/pauls/1038403139">Paul's comments</a> need some more consideration.  And, I think some more clarification of my situation would work as well.  So I'll start with that:</p>
+<p>The first thing is that I think the quote Dave pulled from my case study nails my situation: "I get it, my boss gets it, his boss gets it, the sales guys get it, and the marketing guy who's always our first contact at a client gets it."</p>
+<p>I work at <a href="http://www.eprize.net">a promotions company</a>.  Because we act as a sort of application service provider and host everything ourselves, we can do and have done some pretty nifty things within our walls.</p>
+<p>On our clients' side, though, they're hiring us to do nifty things that don't require them to do much at all.  In fact, the vast majority of the time, our direct client contact is a marketing/PR person who has little, if any, access to technical resources.  It's a major undertaking for this person to get an image tag or a javascript pop-up window slipped into an HTML page somewhere on the company website - anything further than that leads down a trail of tears and a week's worth of conference calls with grumpy people.  We've spent more than 4 years streamlining everything down to the acceptance of this fact.</p>
+<p>So then, in walks the client who wants a lot more, like the aforementioned client for whom <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a> worked swimmingly for integration between their site, their commerce vendor, and us.  Our direct contact is still a marketing person, but she has a <em>bit</em> more technical support behind her.  She might be able to get up to 4 hours' time from a junior engineer over there to whip up a CGI or JSP, assuming that the team in charge of the website approves permission to do so.  </p>
+<p>As part of that junior engineer's time, I have one half-hour conference call to explain our points of integration, how everything's going to work, and where to go for resources on how to do it.  I barrage the person with email, offer availability on at least 3 different instant messaging networks, but when it comes down to it this 1/2 hour phone call is all anyone remembers.  We've been working on improving this situation, but the only traction comes from where we've been able to gain the confidence of a client as a long term strategy partner.  Otherwise, we're just some random vendor who gets tossed away if we make too much noise.</p>
+<p>What this all boils down to is that I've needed to develop a scheme of integration between web apps that can be explained mainly in 30 minutes to a developer of unknown competence to whom I'm barely a priority.  This is my situation at present.  The situation has room for improvement - but the power to make those improvements are largely beyond my influence - so I've applied <a href="http://www.decafbad.com/twiki/bin/view/Main/XmlRpc">XmlRpc</a> successfully <strong>so far</strong> as a solution.</p>
+<p>So, I'll post this, and in the next installment (if you're still with me), I'll voice my concerns with the solution I've chosen, and consider what Paul's written.  As always, I encourage you to tell me where I'm full of it, and why.</p>
 <!--more-->
+
+
 <p>shortname=oooccc</p>
 
-        </section>
-      </article>
-        </section>
-
-        <footer>
-          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
-        </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
-      </section>
-    </body>
-  </html>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2002/11/27/oooccd/"
+                >XML-RPC case study redux, Part II: REST and I</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2002/11/26/oooccb/"
+                >XML-RPC, a mini case study</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

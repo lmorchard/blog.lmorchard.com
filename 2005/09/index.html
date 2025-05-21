@@ -1,527 +1,905 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>2005/09 - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>2005/09 - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Month: 2005/09</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post tag-asides tag-projects tag-python tag-decafbad tag-trac"
-          >
-            <time class="date" datetime="2005-09-30T16:11:09+00:00">
-              2005
-              September
-              30
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/09/30/trac-rocks-like-a-really-rocking-thing/">
-              <span class="infoContainer">
-                <span class="title">Trac rocks like a really rocking thing</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post has-thumb tag-asides"
-          >
-            <time class="date" datetime="2005-09-29T20:09:38+00:00">
-              2005
-              September
-              29
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/09/29/ode-to-a-vertical-tab-strip-in-firefox/">
-              <span class="infoContainer">
-                <span class="title">Ode to a vertical tab strip in Firefox</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://www.decafbad.com/blog_attachments/firefox-vertical-tabs-tm.jpg" />
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-09-28T20:44:00+00:00">
-              2005
-              September
-              28
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/09/28/mits-100-laptop/">
-              <span class="infoContainer">
-                <span class="title">MIT&#39;s $100 laptop</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-09-28T14:56:27+00:00">
-              2005
-              September
-              28
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/09/28/racking-up-the-amazon-associate-sales/">
-              <span class="infoContainer">
-                <span class="title">Racking up the Amazon Associate sales</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-09-28T14:16:00+00:00">
-              2005
-              September
-              28
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/09/28/livejournal-uber-social-software/">
-              <span class="infoContainer">
-                <span class="title">LiveJournal, Ã¼ber social software</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-09-27T20:52:06+00:00">
-              2005
-              September
-              27
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/09/27/hello-colophon/">
-              <span class="infoContainer">
-                <span class="title">Hello Colophon</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2005-09-27T20:30:38+00:00">
-              2005
-              September
-              27
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/09/27/colophon/">
-              <span class="infoContainer">
-                <span class="title">Colophon</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-09-27T18:04:03+00:00">
-              2005
-              September
-              27
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/09/27/my-arent-we-posty/">
-              <span class="infoContainer">
-                <span class="title">My, aren&#39;t we posty?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-09-27T17:55:54+00:00">
-              2005
-              September
-              27
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/09/27/on-attempted-conversions-via-blog-comment/">
-              <span class="infoContainer">
-                <span class="title">On attempted conversions via blog comment</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-09-27T15:27:17+00:00">
-              2005
-              September
-              27
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/09/27/intelligent-design-and-the-cessation-of-naming-of-things/">
-              <span class="infoContainer">
-                <span class="title">Intelligent Design and the cessation of naming of things</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-09-27T13:21:02+00:00">
-              2005
-              September
-              27
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/09/27/ssh-and-screen-better-together/">
-              <span class="infoContainer">
-                <span class="title">SSH and screen, better together</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-09-27T11:43:56+00:00">
-              2005
-              September
-              27
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/09/27/chewbaccas-a-pervert/">
-              <span class="infoContainer">
-                <span class="title">Chewbacca&#39;s a pervert</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-09-26T21:43:58+00:00">
-              2005
-              September
-              26
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/09/26/comment-tweaks/">
-              <span class="infoContainer">
-                <span class="title">Comment Tweaks</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-09-26T20:37:42+00:00">
-              2005
-              September
-              26
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/09/26/21-headphone-salute/">
-              <span class="infoContainer">
-                <span class="title">21 Headphone Salute</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-09-26T20:25:57+00:00">
-              2005
-              September
-              26
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/09/26/itunes-podcasts-and-unplayed-episodes/">
-              <span class="infoContainer">
-                <span class="title">iTunes, Podcasts, and &quot;unplayed&quot; episodes</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-09-26T19:18:45+00:00">
-              2005
-              September
-              26
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/09/26/another-glowing-review-of-hacking-rss-and-atom/">
-              <span class="infoContainer">
-                <span class="title">Another glowing review of Hacking RSS and Atom</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-09-26T19:05:37+00:00">
-              2005
-              September
-              26
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/09/26/glowing-review-from-geek-news-central-for-hacking-rss-and-atom/">
-              <span class="infoContainer">
-                <span class="title">Glowing review from Geek News Central for Hacking RSS and Atom</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-09-26T14:12:05+00:00">
-              2005
-              September
-              26
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/09/26/making-the-xbox-maker-friendly/">
-              <span class="infoContainer">
-                <span class="title">Making the Xbox maker friendly</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-09-26T13:44:52+00:00">
-              2005
-              September
-              26
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/09/26/let-there-be-no-serenity-1701b/">
-              <span class="infoContainer">
-                <span class="title">Let there be no Serenity 1701B</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-webdev tag-rss tag-syndication tag-webservices tag-atom tag-xml"
-          >
-            <time class="date" datetime="2005-09-26T01:12:46+00:00">
-              2005
-              September
-              26
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/09/26/templates-good-or-evil/">
-              <span class="infoContainer">
-                <span class="title">Templates:  Good or Evil?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-09-25T16:12:03+00:00">
-              2005
-              September
-              25
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/09/25/battlestar-galacticas-opening-teaser/">
-              <span class="infoContainer">
-                <span class="title">Battlestar Galactica&#39;s opening teaser</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-09-25T16:07:25+00:00">
-              2005
-              September
-              25
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/09/25/scifi-and-truncated-opening-credits/">
-              <span class="infoContainer">
-                <span class="title">SciFi and truncated opening credits</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-entertainment tag-video tag-review tag-warez"
-          >
-            <time class="date" datetime="2005-09-24T17:46:15+00:00">
-              2005
-              September
-              24
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/09/24/the-scene-and-geek-cinema-verite/">
-              <span class="infoContainer">
-                <span class="title">The Scene and geek cinÃ©ma vÃ©ritÃ©</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-syndication tag-feeds tag-aggregation tag-hackingfeeds"
-          >
-            <time class="date" datetime="2005-09-23T16:03:12+00:00">
-              2005
-              September
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/09/23/the-zen-of-firehose-drinking/">
-              <span class="infoContainer">
-                <span class="title">The zen of firehose drinking</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-09-23T14:26:09+00:00">
-              2005
-              September
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/09/23/aeria-gloris/">
-              <span class="infoContainer">
-                <span class="title">Aeria Gloris</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-09-23T13:55:49+00:00">
-              2005
-              September
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/09/23/hacking-categories-and-tags/">
-              <span class="infoContainer">
-                <span class="title">Hacking categories and tags</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-09-23T13:53:00+00:00">
-              2005
-              September
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/09/23/here-goes-nothing/">
-              <span class="infoContainer">
-                <span class="title">Here goes nothing</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-metablogging tag-syndication tag-gaming tag-writing tag-feeds tag-thebook tag-yaks"
-          >
-            <time class="date" datetime="2005-09-22T20:31:16+00:00">
-              2005
-              September
-              22
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/09/22/yaks-books-feeds/">
-              <span class="infoContainer">
-                <span class="title">Yak shaving, book pimping, and feed spooling</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post has-thumb tag-rss tag-syndication tag-writing tag-atom tag-xml tag-books tag-hackingrssandatom"
-          >
-            <time class="date" datetime="2005-09-13T23:45:47+00:00">
-              2005
-              September
-              13
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/09/13/hacking-rss-and-atom-is-out/">
-              <span class="infoContainer">
-                <span class="title">Hacking RSS and Atom is out!</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://www.decafbad.com/blog_attachments/IMG_3554-1-tm.jpg" />
-          </li><li
-            class="post has-thumb tag-wordpress tag-metablogging tag-writing tag-thebook tag-redesign"
-          >
-            <time class="date" datetime="2005-09-13T03:51:56+00:00">
-              2005
-              September
-              13
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/09/13/redesigninprogress/">
-              <span class="infoContainer">
-                <span class="title">Redesign in progress (or, no need to adjust your set)</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://www.decafbad.com/2005/09/IMG_3562_th.JPG" />
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Month: 2005/09</h2>
+        </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2005 September 30</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-projects tag-python tag-decafbad tag-trac">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/09/30/trac-rocks-like-a-really-rocking-thing/">Trac rocks like a really rocking thing</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/09/30/trac-rocks-like-a-really-rocking-thing/"
+          >425&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/09/30/trac-rocks-like-a-really-rocking-thing/">#</a>
+    <a class="time" href="2005/09/30/trac-rocks-like-a-really-rocking-thing/">12:11 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/projects/">projects</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/python/">python</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/decafbad/">decafbad</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/trac/">trac</a>
           </li>
     </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 September 29</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/09/29/ode-to-a-vertical-tab-strip-in-firefox/">Ode to a vertical tab strip in Firefox</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://www.decafbad.com/blog_attachments/firefox-vertical-tabs-tm.jpg" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/09/29/ode-to-a-vertical-tab-strip-in-firefox/"
+          >515&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/09/29/ode-to-a-vertical-tab-strip-in-firefox/">#</a>
+    <a class="time" href="2005/09/29/ode-to-a-vertical-tab-strip-in-firefox/">4:09 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 September 28</h2>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/09/28/mits-100-laptop/">MIT&#39;s $100 laptop</a>
+      </h2>
     
-  </section>
-      </section>
-        </section>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/09/28/mits-100-laptop/"
+          >598&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/09/28/mits-100-laptop/">#</a>
+    <a class="time" href="2005/09/28/mits-100-laptop/">4:44 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/09/28/racking-up-the-amazon-associate-sales/">Racking up the Amazon Associate sales</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/09/28/racking-up-the-amazon-associate-sales/"
+          >349&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/09/28/racking-up-the-amazon-associate-sales/">#</a>
+    <a class="time" href="2005/09/28/racking-up-the-amazon-associate-sales/">10:56 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/09/28/livejournal-uber-social-software/">LiveJournal, Ã¼ber social software</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/09/28/livejournal-uber-social-software/"
+          >1039&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/09/28/livejournal-uber-social-software/">#</a>
+    <a class="time" href="2005/09/28/livejournal-uber-social-software/">10:16 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 September 27</h2>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/09/27/hello-colophon/">Hello Colophon</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/09/27/hello-colophon/"
+          >22&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/09/27/hello-colophon/">#</a>
+    <a class="time" href="2005/09/27/hello-colophon/">4:52 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/09/27/colophon/">Colophon</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/09/27/colophon/"
+          >582&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/09/27/colophon/">#</a>
+    <a class="time" href="2005/09/27/colophon/">4:30 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/09/27/my-arent-we-posty/">My, aren&#39;t we posty?</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/09/27/my-arent-we-posty/"
+          >230&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/09/27/my-arent-we-posty/">#</a>
+    <a class="time" href="2005/09/27/my-arent-we-posty/">2:04 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/09/27/on-attempted-conversions-via-blog-comment/">On attempted conversions via blog comment</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/09/27/on-attempted-conversions-via-blog-comment/"
+          >439&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/09/27/on-attempted-conversions-via-blog-comment/">#</a>
+    <a class="time" href="2005/09/27/on-attempted-conversions-via-blog-comment/">1:55 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/09/27/intelligent-design-and-the-cessation-of-naming-of-things/">Intelligent Design and the cessation of naming of things</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/09/27/intelligent-design-and-the-cessation-of-naming-of-things/"
+          >250&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/09/27/intelligent-design-and-the-cessation-of-naming-of-things/">#</a>
+    <a class="time" href="2005/09/27/intelligent-design-and-the-cessation-of-naming-of-things/">11:27 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/09/27/ssh-and-screen-better-together/">SSH and screen, better together</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/09/27/ssh-and-screen-better-together/"
+          >1149&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/09/27/ssh-and-screen-better-together/">#</a>
+    <a class="time" href="2005/09/27/ssh-and-screen-better-together/">9:21 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/09/27/chewbaccas-a-pervert/">Chewbacca&#39;s a pervert</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/09/27/chewbaccas-a-pervert/"
+          >405&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/09/27/chewbaccas-a-pervert/">#</a>
+    <a class="time" href="2005/09/27/chewbaccas-a-pervert/">7:43 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 September 26</h2>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/09/26/comment-tweaks/">Comment Tweaks</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/09/26/comment-tweaks/"
+          >159&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/09/26/comment-tweaks/">#</a>
+    <a class="time" href="2005/09/26/comment-tweaks/">5:43 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/09/26/21-headphone-salute/">21 Headphone Salute</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/09/26/21-headphone-salute/"
+          >173&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/09/26/21-headphone-salute/">#</a>
+    <a class="time" href="2005/09/26/21-headphone-salute/">4:37 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/09/26/itunes-podcasts-and-unplayed-episodes/">iTunes, Podcasts, and &quot;unplayed&quot; episodes</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/09/26/itunes-podcasts-and-unplayed-episodes/"
+          >154&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/09/26/itunes-podcasts-and-unplayed-episodes/">#</a>
+    <a class="time" href="2005/09/26/itunes-podcasts-and-unplayed-episodes/">4:25 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/09/26/another-glowing-review-of-hacking-rss-and-atom/">Another glowing review of Hacking RSS and Atom</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/09/26/another-glowing-review-of-hacking-rss-and-atom/"
+          >171&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/09/26/another-glowing-review-of-hacking-rss-and-atom/">#</a>
+    <a class="time" href="2005/09/26/another-glowing-review-of-hacking-rss-and-atom/">3:18 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/09/26/glowing-review-from-geek-news-central-for-hacking-rss-and-atom/">Glowing review from Geek News Central for Hacking RSS and Atom</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/09/26/glowing-review-from-geek-news-central-for-hacking-rss-and-atom/"
+          >204&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/09/26/glowing-review-from-geek-news-central-for-hacking-rss-and-atom/">#</a>
+    <a class="time" href="2005/09/26/glowing-review-from-geek-news-central-for-hacking-rss-and-atom/">3:05 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/09/26/making-the-xbox-maker-friendly/">Making the Xbox maker friendly</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/09/26/making-the-xbox-maker-friendly/"
+          >193&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/09/26/making-the-xbox-maker-friendly/">#</a>
+    <a class="time" href="2005/09/26/making-the-xbox-maker-friendly/">10:12 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/09/26/let-there-be-no-serenity-1701b/">Let there be no Serenity 1701B</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/09/26/let-there-be-no-serenity-1701b/"
+          >151&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/09/26/let-there-be-no-serenity-1701b/">#</a>
+    <a class="time" href="2005/09/26/let-there-be-no-serenity-1701b/">9:44 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 September 25</h2>
+  </li><li class="content-grid post post-type-entry tag-webdev tag-rss tag-syndication tag-webservices tag-atom tag-xml">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/09/25/templates-good-or-evil/">Templates:  Good or Evil?</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/09/25/templates-good-or-evil/"
+          >2037&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/09/25/templates-good-or-evil/">#</a>
+    <a class="time" href="2005/09/25/templates-good-or-evil/">9:12 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/rss/">rss</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webservices/">webservices</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/atom/">atom</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xml/">xml</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/09/25/battlestar-galacticas-opening-teaser/">Battlestar Galactica&#39;s opening teaser</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/09/25/battlestar-galacticas-opening-teaser/"
+          >59&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/09/25/battlestar-galacticas-opening-teaser/">#</a>
+    <a class="time" href="2005/09/25/battlestar-galacticas-opening-teaser/">12:12 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/09/25/scifi-and-truncated-opening-credits/">SciFi and truncated opening credits</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/09/25/scifi-and-truncated-opening-credits/"
+          >164&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/09/25/scifi-and-truncated-opening-credits/">#</a>
+    <a class="time" href="2005/09/25/scifi-and-truncated-opening-credits/">12:07 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 September 24</h2>
+  </li><li class="content-grid post post-type-entry tag-entertainment tag-video tag-review tag-warez">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/09/24/the-scene-and-geek-cinema-verite/">The Scene and geek cinÃ©ma vÃ©ritÃ©</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/09/24/the-scene-and-geek-cinema-verite/"
+          >204&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/09/24/the-scene-and-geek-cinema-verite/">#</a>
+    <a class="time" href="2005/09/24/the-scene-and-geek-cinema-verite/">1:46 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/entertainment/">entertainment</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/video/">video</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/review/">review</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/warez/">warez</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 September 23</h2>
+  </li><li class="content-grid post post-type-entry tag-syndication tag-feeds tag-aggregation tag-hackingfeeds">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/09/23/the-zen-of-firehose-drinking/">The zen of firehose drinking</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/09/23/the-zen-of-firehose-drinking/"
+          >626&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/09/23/the-zen-of-firehose-drinking/">#</a>
+    <a class="time" href="2005/09/23/the-zen-of-firehose-drinking/">12:03 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/feeds/">feeds</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/aggregation/">aggregation</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/hackingfeeds/">hackingfeeds</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/09/23/aeria-gloris/">Aeria Gloris</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/09/23/aeria-gloris/"
+          >195&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/09/23/aeria-gloris/">#</a>
+    <a class="time" href="2005/09/23/aeria-gloris/">10:26 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/09/23/hacking-categories-and-tags/">Hacking categories and tags</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/09/23/hacking-categories-and-tags/"
+          >88&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/09/23/hacking-categories-and-tags/">#</a>
+    <a class="time" href="2005/09/23/hacking-categories-and-tags/">9:55 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/09/23/here-goes-nothing/">Here goes nothing</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/09/23/here-goes-nothing/"
+          >42&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/09/23/here-goes-nothing/">#</a>
+    <a class="time" href="2005/09/23/here-goes-nothing/">9:53 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 September 22</h2>
+  </li><li class="content-grid post post-type-entry tag-metablogging tag-syndication tag-gaming tag-writing tag-feeds tag-thebook tag-yaks">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/09/22/yaks-books-feeds/">Yak shaving, book pimping, and feed spooling</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/09/22/yaks-books-feeds/"
+          >707&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/09/22/yaks-books-feeds/">#</a>
+    <a class="time" href="2005/09/22/yaks-books-feeds/">4:31 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/gaming/">gaming</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/writing/">writing</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/feeds/">feeds</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/thebook/">thebook</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/yaks/">yaks</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 September 13</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-rss tag-syndication tag-writing tag-atom tag-xml tag-books tag-hackingrssandatom">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/09/13/hacking-rss-and-atom-is-out/">Hacking RSS and Atom is out!</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://www.decafbad.com/blog_attachments/IMG_3554-1-tm.jpg" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/09/13/hacking-rss-and-atom-is-out/"
+          >421&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/09/13/hacking-rss-and-atom-is-out/">#</a>
+    <a class="time" href="2005/09/13/hacking-rss-and-atom-is-out/">7:45 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/rss/">rss</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/writing/">writing</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/atom/">atom</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xml/">xml</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/books/">books</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/hackingrssandatom/">hackingrssandatom</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 September 12</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-wordpress tag-metablogging tag-writing tag-thebook tag-redesign">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/09/12/redesigninprogress/">Redesign in progress (or, no need to adjust your set)</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://www.decafbad.com/2005/09/IMG_3562_th.JPG" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/09/12/redesigninprogress/"
+          >427&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/09/12/redesigninprogress/">#</a>
+    <a class="time" href="2005/09/12/redesigninprogress/">11:51 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/wordpress/">wordpress</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/writing/">writing</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/thebook/">thebook</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/redesign/">redesign</a>
+          </li>
+    </ul>
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
 
-        <footer>
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

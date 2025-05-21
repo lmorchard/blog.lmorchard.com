@@ -11,7 +11,7 @@ tags:
 
 <!--more-->
 
-<img src="./cover.png" class="fullwidth" />
+<figure class="wide"><img src="./cover.png" /></figure>
 
 Poppy had been vocally crypto-skeptic for months on Twitter. So, she was baffled when Zack messaged her about about a collab. 
 

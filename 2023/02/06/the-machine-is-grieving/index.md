@@ -11,7 +11,7 @@ tags:
 
 <!--more-->
 
-<img title="The machine is grieving" src="./cover.png" class="fullwidth" />
+<img title="The machine is grieving" src="./cover.png" class="wide" />
 
 "The machine is grieving," she said, leaning over his shoulder and squinting at the fast-scrolling screen.
 

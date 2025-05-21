@@ -98,7 +98,7 @@ So, I wondered: How hard would it be to smooth over some of the rough parts and 
   For example, here&#8217;s a policy snippet for a role I created on IAM:
 </p>
 
-<pre class="language-javascript" style="text-align: left;">{
+<pre style="text-align: left;"><code class="language-javascript">{
  "Effect": "Allow",
  "Action": [
    "s3:PutObject",
@@ -111,7 +111,7 @@ So, I wondered: How hard would it be to smooth over some of the rough parts and 
    "arn:aws:s3:::tootr/users/amazon/${www.amazon.com:user_id}",
    "arn:aws:s3:::tootr/users/amazon/${www.amazon.com:user_id}/*"
  ]
-}</pre>
+}</code></pre>
 
 <p style="text-align: left;">
   This role grants access to GET, PUT, & DELETE web resources in my S3 bucket named &#8220;tootr&#8221; &#8211; but only as long as the resources are under the &#8220;<code>users/amazon/{USER_ID}</code>&#8221; URLspace, where <code>{USER_ID}</code> is a uniquely generated identifier supplied by an Amazon profile.
@@ -153,12 +153,12 @@ So, I wondered: How hard would it be to smooth over some of the rough parts and 
   Those credentials look something like this:
 </p>
 
-<pre class="language-javascript" style="text-align: left;">{
+<pre><code class="language-javascript">{
   "SessionToken":"NIweiunfiunIUWNLFIsd87",
   "Expiration":"2014-10-11T19:15:58Z",
   "AccessKeyId":"ASIAQWERTYUIOP",
   "SecretAccessKey":"SKLN9869KJnisdhfli"
-}</pre>
+}</code></pre>
 
 <p style="text-align: left;">
   As it turns out, <a href="https://github.com/lmorchard/tootr/blob/master/src/javascript/publishers/AmazonS3.js#L148">these credentials work with Amazon S3</a>. So, after accepting a login and doing the <code>AssumeRoleWithWebIdentity</code> dance, my app can manage web hosting at Amazon S3 on your behalf.

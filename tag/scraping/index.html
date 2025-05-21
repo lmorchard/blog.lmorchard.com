@@ -1,107 +1,235 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>scraping - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>scraping - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/tag/scraping/index.rss"
+          rel="alternate"
+          title="Tag: scraping - blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/tag/scraping.rss"
+                rel="alternate"
+                title="Tag: scraping - blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/tag/scraping/index.rss" title="Tag: scraping - blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Tag: scraping</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post has-thumb tag-mashups tag-music tag-bsh tag-bigsonicheaven tag-spotify tag-javascript tag-nodejs tag-scraping"
-          >
-            <time class="date" datetime="2021-04-26T12:00:00+00:00">
-              2021
-              April
-              26
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2021/04/26/big-sonic-heaven-spy/">
-              <span class="infoContainer">
-                <span class="title">Spying on Big Sonic Heaven</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2021/04/26/big-sonic-heaven-spy/feature-image.png" />
-          </li><li
-            class="post tag-hacks tag-rss tag-atom tag-xsl tag-ficlets tag-scrapers tag-scraping"
-          >
-            <time class="date" datetime="2007-04-05T05:37:00+00:00">
-              2007
-              April
-              05
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2007/04/05/ficlets-enhanced-author-feed-an-xsl-scraper-hack/">
-              <span class="infoContainer">
-                <span class="title">Ficlets enhanced author feed, an XSL scraper hack</span>
-              </span>
-            </a>
-            
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Tag: scraping</h2>
+        </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2021 April 26</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-mashups tag-music tag-bsh tag-bigsonicheaven tag-spotify tag-javascript tag-nodejs tag-scraping">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2021/04/26/big-sonic-heaven-spy/">Spying on Big Sonic Heaven</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2021/04/26/big-sonic-heaven-spy/feature-image.png" />
+    </div>
+    <p class="summary">
+      A little over a year ago, one of my favorite radio DJs, Darren Revell, started up a new streaming radio station named Big Sonic Heaven. I got the idea to try building a Spotify playlist collected from the music he plays. My quick & dirty program for doing that turned 1-year-old on April 24 and the playlist has collected over 2000 songs, so far.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2021/04/26/big-sonic-heaven-spy/"
+          >1443&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2021/04/26/big-sonic-heaven-spy/">#</a>
+    <a class="time" href="2021/04/26/big-sonic-heaven-spy/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/mashups/">mashups</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/music/">music</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/bsh/">bsh</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/bigsonicheaven/">bigsonicheaven</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/spotify/">spotify</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/javascript/">javascript</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/nodejs/">nodejs</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/scraping/">scraping</a>
           </li>
     </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2007 April 05</h2>
+  </li><li class="content-grid post post-type-entry tag-hacks tag-rss tag-atom tag-xsl tag-ficlets tag-scrapers tag-scraping">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2007/04/05/ficlets-enhanced-author-feed-an-xsl-scraper-hack/">Ficlets enhanced author feed, an XSL scraper hack</a>
+      </h2>
     
-  </section>
-      </section>
-        </section>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2007/04/05/ficlets-enhanced-author-feed-an-xsl-scraper-hack/"
+          >839&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2007/04/05/ficlets-enhanced-author-feed-an-xsl-scraper-hack/">#</a>
+    <a class="time" href="2007/04/05/ficlets-enhanced-author-feed-an-xsl-scraper-hack/">1:37 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/rss/">rss</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/atom/">atom</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xsl/">xsl</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ficlets/">ficlets</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/scrapers/">scrapers</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/scraping/">scraping</a>
+          </li>
+    </ul>
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
 
-        <footer>
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/tag/scraping/index.rss" title="Tag: scraping - blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

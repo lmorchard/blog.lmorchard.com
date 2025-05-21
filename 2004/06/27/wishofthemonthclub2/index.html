@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+    <html>
+      <head>
+        <title>Wish-of-the-Month Club, Part 2 of 3 - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="Wish-of-the-Month Club, Part 2 of 3" />
+        <meta
+          property="og:url"
+          content="https://lmorchard.github.io/blog.lmorchard.com/2004/06/27/wishofthemonthclub2/"
+        />
+        
+        <meta property="og:description" content="Here&#39;s the next installment of the Wish-of-the-Month Club.  You can revisit the first part, too, if you&#39;ve missed it.  I&#39;d meant to post it within a week of the first part, so apologies all around to anyone who has been tapping a foot waiting for it.  Enjoy!
+Paging Through Wishes
+Some ready-made files are available for this section:
+
+wishes-ex2.xsl: The second iteration of the stylesheet in development.
+
+Now we&#39;ve got a way to make queries against Amazon Web Services, not entirely unlike what you might be used to if you tinker with MySQL databases on a regular basis.  At this point, though, we still have a bit of refining to make to this query.  If you take a look at the data produced by the query in its current state, and compare that to what you see on wishlists in your browser, you should notice some things missing.
+If you look at my wishlist, you&#39;ll notice that items span several pages when visited by browser.  As it turns out, AWS queries work in a similar fashion--each query returns only a limited number of items (about 10), and an additional parameter supplied to further queries is required to step through further pages of results.  So, using what we&#39;ve built so far will only get us to the first page of wishlist items; to get all of the items, we&#39;ll need a way to step through all of the pages.
+In playing with this, I experienced a bit of hairpulling frustration:  The AWS documentation, under &quot;Generating Additional Product Results&quot;, claims that XML returned by the service will supply a count of the total pages available for a given query.  And although I see this element present in other types of searches, the TotalPages element is absent when querying on wishlists.  This may be a bug, or it may be an undocumented change in the service--either way, it was a surprise and leaves me with no official way to know how many pages I need to ask for in order to have a complete set of data.  
+With some further tinkering, though, I figured out a workaround: If a query is made for a page number beyond the final page, the XML returned will be a duplicate of the final page.  Once I see a duplicate item appear, I know it&#39;s time to stop paging through results.  This is completely undocumented behavior, and could break at any time (ie. if Amazon decided to start issuing an error for a page index out of bounds), but it&#39;ll work for now.
+This calls for reworking the processWishlist template.  For a given wishlist, it will need to iterate through a sequence of page numbers, requesting XML from AWS for each, stopping when the first duplicate page is found.  Since XSLT is heavily steeped in functional programming concepts, this sort of iteration in XSLT is best done with recursion:
+  &lt;xsl:template name=&quot;processWishlist&quot;&gt;
+
+    &lt;xsl:param name=&quot;wishlist&quot; /&gt;              &lt;!-- Wishlist ID --&gt;
+    &lt;xsl:param name=&quot;max&quot;   select=&quot;50&quot; /&gt;     &lt;!-- Arbitrary upper loop limit --&gt;
+    &lt;xsl:param name=&quot;curr_page&quot; select=&quot;1&quot; /&gt;  &lt;!-- Curr page # --&gt;
+    &lt;xsl:param name=&quot;prev_first_asin&quot; /&gt;       &lt;!-- Keeping track of repeats --&gt;
+
+The first modification to this template is the addition of three parameters:
+
+max provides an arbitrary upper limit to the number of pages through which this template will iterate.
+curr_page contains the number of the page to be requested in this iteration.
+prev_first_asin will contain the ASIN number of the first item from the previous iteration&#39;s page of results.
+
+Next, we modify the URL used to query for wishlist data:
+    &lt;!-- Fetch the wishlist products --&gt;
+    &lt;xsl:variable name=&quot;details&quot; select=&quot;document(concat(
+                  &#39;http://xml.amazon.com/onca/xml3?&#39;,
+                  &#39;t=&#39;,$associate,&#39;&amp;amp;&#39;,
+                  &#39;dev-t=&#39;,$devtoken,&#39;&amp;amp;&#39;,
+                  &#39;WishlistSearch=&#39;,$wishlist,&#39;&amp;amp;&#39;,
+                  &#39;type=lite&amp;amp;f=xml&amp;amp;&#39;,
+                  &#39;page=&#39;,$curr_page))//Details&quot; /&gt;
+
+The only addition here beyond the previous version is the page parameter in the URL.  Not much mystery here--this parameter specifies which page of results we want.  Now, let&#39;s build the loop:
+    &lt;!-- Snag the first item Asin --&gt;
+    &lt;xsl:variable name=&quot;curr_first_asin&quot; select=&quot;$details/Asin/text()&quot; /&gt;
+
+    &lt;!-- If we haven&#39;t exceeded the loop limit, and this first Asin isn&#39;t --&gt;
+    &lt;!-- a repeat of the previous loop (indicating we&#39;ve run out of new   --&gt;
+    &lt;!-- pages), then go ahead...                                         --&gt;
+    &lt;xsl:if test=&quot;(($curr_page+1) &amp;lt; $max) and
+                  (string-length($curr_first_asin) &amp;gt; 0) and
+                  not($curr_first_asin = $prev_first_asin)&quot;&gt;
+  
+
+We capture the ASIN of the first item in this page of results and check to see if we should continue.  This if conditional first ensures that we&#39;re not past the sanity guard for loop iterations, makes sure that we actually got a non-empty current first ASIN, then checks our current first product&#39;s ASIN against what was passed in as the previous iteration&#39;s first product&#39;s ASIN.  If this was the first time through the loop, this value should be empty and therefore wouldn&#39;t match the current ASIN.  But, if we&#39;ve gone past the end of results, the previous and current ASIN values should match, and the conditional will fail.
+Moving along into the body of the conditional, we copy in wishlist products filtered on a price maximum, just as before:
+      &lt;!-- Copy products, filtering on a maximum price --&gt;
+      &lt;xsl:copy-of select=&quot;$details/OurPrice[number(substring(
+                   text(),2)) &amp;lt; $maxprice]/..&quot; /&gt;
+
+Having done that, we move onto the recursive end of this template:
+      &lt;!-- Loop by recursion to get the next page --&gt;
+      &lt;xsl:call-template name=&quot;processWishlist&quot;&gt;
+        &lt;xsl:with-param name=&quot;wishlist&quot;        select=&quot;$wishlist&quot; /&gt;
+        &lt;xsl:with-param name=&quot;max&quot;             select=&quot;$max&quot; /&gt;
+        &lt;xsl:with-param name=&quot;curr_page&quot;       select=&quot;$curr_page + 1&quot; /&gt;
+        &lt;xsl:with-param name=&quot;prev_first_asin&quot; select=&quot;$curr_first_asin&quot; /&gt;
+      &lt;/xsl:call-template&gt;
+
+    &lt;/xsl:if&gt;    
+  &lt;/xsl:template&gt;
+
+Here, the template makes a recursive call back to itself, passing through the wishlist ID and the maximum iteration count.  Since variables in XSLT are immutable, meaning that their values can&#39;t be changed once they&#39;ve been set, we can&#39;t increment $curr_page in-place like a loop counter in other languages--so, the current page count value is incremented and passed to the recursive call as a parameter.  Finally, the current first item&#39;s ASIN is passed along, to become the previous ASIN for the next iteration.
+Note that when the conditional fails--that is, if the loop limit is passed or a duplicate page is detected--the loop ends.  In other words, nothing further happens and execution pops back up out of all the levels of recursion and the top-level template ends.  
+I wrote &quot;when the conditional fails&quot;.  This is a key point: for the loop to eventually end, this conditional must fail (or be made to fail) at some point, else this loop will happily progress through page requests forever.  This is the reason for the $max parameter limiting the number of iterations, in case something goes haywire--like, oh say, a failure of our duplicate-page detection hack as a loop ending condition.  A useful exercise for the reader might be to add some additional diagnostic code to report that the limit was hit versus a natural end to results.
+Random Numbers
+Some ready-made files are available for this section:
+
+wishes-ex3.xsl: The third iteration of the stylesheet in development.
+random-xml: A Perl CGI script used as a web service to generate random numbers.
+
+Armed with a template that will query against the full set of items in a wishlist, we&#39;re ready to look into making a random selection from a list of products.  
+But first, we need to pick a random number.  Unfortunately, there doesn&#39;t appear to be any random() function in the XPath or XSLT standards.  There is a math:random() from EXSLT implemented in libxslt, but I seem to be having a bit of a problem getting it to produce anything other than the same sequence of numbers.  I suspect there&#39;s a problem in seeding the random number generator, but I&#39;ve yet to work out how to fix it.  (Suggestions welcome.)
+So, I cheated and made another workaround with a CGI script on my web server that generates random numbers in a simple XML document.  Currently, it&#39;s hosted here:
+http://www.decafbad.com/2004/05/random-xml
+
+And this is what the script looks like:
+#!/usr/bin/perl
+
+use strict;
+use CGI;
+
+my $q = new CGI();
+
+my $min = $q-&gt;param(&#39;min&#39;) or 0;
+my $max = $q-&gt;param(&#39;max&#39;) or 1;
+my $int = $q-&gt;param(&#39;int&#39;);
+
+my $num = $min + ( rand() * ($max - $min));
+if ($int) { $num = int($num); }
+
+print $q-&gt;header(&#39;text/xml&#39;);
+print &quot;&lt;rand&gt;$num&lt;/rand&gt;\n&quot;;
+
+This is a very simple CGI.  It accepts the parameters max, min, and int.  The values of these parameters determine the maximum and minimum value for the random number returned, and whether or not it should be an integer.  For example, the following URL should return an integer between 10 and 20:
+http://www.decafbad.com/2004/05/random-xml?
+int=1&amp;#38;min=10&amp;#38;max=20
+
+Using this as a web service in the stylesheet with the document() function, we can get a random number.  If you&#39;ve got web space where you can host CGI scripts, I suggest you host a copy of this script yourself, since I can&#39;t guarantee how long mine will stick around.  But, for as long at works, feel free to use the service from my server.
+Moving along, let&#39;s add a new named template to the stylesheet, called randomWishlistProduct:
+  &lt;xsl:template name=&quot;randomWishlistProduct&quot;&gt;
+
+    &lt;xsl:param name=&quot;wishlist&quot; /&gt; &lt;!-- Wishlist ID --&gt;
+    
+    &lt;!-- Gather all the products for the current wishlist --&gt;
+    &lt;xsl:variable name=&quot;products&quot;&gt;
+      &lt;xsl:call-template name=&quot;processWishlist&quot;&gt;
+        &lt;xsl:with-param name=&quot;wishlist&quot; select=&quot;$wishlist&quot; /&gt;
+      &lt;/xsl:call-template&gt;
+    &lt;/xsl:variable&gt;
+
+Just like the processWishlist template, we start by defining the parameter wishlist to accept a wishlist ID.  Using this ID, we call the processWishlist template itself and store the complete list of products queried from the wishlist into the variable $products.
+    &lt;!-- Count the products in the wishlist --&gt;
+    &lt;xsl:variable name=&quot;max_products&quot;
+                  select=&quot;count(exsl:node-set($products)/Details)&quot; /&gt;
+
+This next step counts the number of products found in the wishlist.  The one tricky bit here is the use of the EXSLT function exsl:node-set(): The $products variable contains what&#39;s called a result tree fragment, which is a kind of cross between XML data nodes and a plain old string.  This type of data does not normally allow the full set of XPath operators to be used on it, so first we need to use exsl:node-set() to turn it into a full-fledged node set.  Then we can look up the Details element nodes and count them.  
+    &lt;!-- Conjure up a random index within the list of products --&gt;
+    &lt;xsl:variable name=&quot;rand_product_num&quot;
+                  select=&quot;document(concat(
+                  &#39;http://www.decafbad.com/2004/05/random-xml?&#39;,
+                  &#39;int=1&amp;amp;&#39;,
+                  &#39;min=1&amp;amp;&#39;,
+                  &#39;max=&#39;,$max_products))/rand&quot; /&gt;
+
+Here is where the random number service comes in handy.  The concat() function is used to build the URL to the service, with parameters specifying that the number should be an integer, and should fall between 1 and the number of products in the wishlist.  The document() function grabs the XML document from the service, and the value is extracted from the single element the document contains.
+There is an alternative to this last bit, should you happen to have a properly working math:random() function in your XSLT processor:
+    &lt;xsl:variable name=&quot;rand_product_num&quot; select=&quot;round( math:random() *
+                  $max_products ) + 1&quot; /&gt;
+
+If you can use this instead, you&#39;ll have no need for the random number web service.  This version is obviously more concise, and doesn&#39;t require another trip out to a web service.  You might want to try it--but if you find that you keep getting the same wishlist items selected, then you&#39;ve run into the problem I found with the random number generator.
+Now, let&#39;s wrap this template up by selecting an item:
+    &lt;!-- Copy the product as indexed by the random number --&gt;
+    &lt;xsl:copy-of select=&quot;exsl:node-set($products)/Details[
+                 position()=$rand_product_num]&quot; /&gt;
+       
+  &lt;/xsl:template&gt;
+
+Again, we need to use the exsl:node-set() function to turn the result tree fragment in the $products variable into a node set, from which we select and copy the Details element whose position in the data is indexed by the random number we just selected.  Just one last tweak needed to wrap up this iteration of our stylesheet.  We need to swap out the call to the processWishlist function at the end and replace it with a call to randomWishlistProduct:
+  &lt;xsl:template match=&quot;/wishes:wishes&quot;&gt;
+
+    &lt;xsl:for-each select=&quot;//wishes:wishlist&quot;&gt;
+      &lt;wishes:wishitem&gt;
+        &lt;xsl:copy-of select=&quot;.&quot; /&gt;
+        &lt;xsl:call-template name=&quot;randomWishlistProduct&quot;&gt;
+          &lt;xsl:with-param name=&quot;wishlist&quot; select=&quot;.&quot; /&gt;
+        &lt;/xsl:call-template&gt;
+      &lt;/wishes:wishitem&gt;
+    &lt;/xsl:for-each&gt;
+
+  &lt;/xsl:template&gt;
+
+After these changes, you should be able to run the stylesheet ([wishes-ex3.xsl][wishes_ex3]) and get something like the following:
+&lt;wishes:wishitem xmlns:wishes=&quot;http://www.decafbad.com/2004/05/wishes&quot;&gt;
+    &lt;wishes:wishlist label=&quot;The Girl&quot;&gt;35OIOYWQ9XQAE&lt;/wishes:wishlist&gt;
+    &lt;Details ...&gt;...&lt;/Details&gt;
+&lt;/wishes:wishitem&gt;
+&lt;wishes:wishitem xmlns:wishes=&quot;http://www.decafbad.com/2004/05/wishes&quot;&gt;
+    &lt;wishes:wishlist label=&quot;Me&quot;&gt;1QWYI6P2JF3Q5&lt;/wishes:wishlist&gt;
+    &lt;Details ...&gt;...&lt;/Details&gt;
+&lt;/wishes:wishitem&gt;
+
+This is similar to the output of the previous iteration of the stylesheet, but this time there&#39;s only one product selected at random for each wishlist.  
+Shopping Carts
+Some ready-made files are available for this section:
+
+wishes-ex4.xsl: The fourth iteration of the stylesheet in development.
+
+By this point, we&#39;ve been able to query and filter products in Amazon wishlists, and we&#39;ve selected an item at random from each wishlist we&#39;ve queried.  Now, let&#39;s enable some purchases.
+The AWS provides for Remote Shopping Cart functionality, whereby items can be added to an Amazon.com shopping cart programmatically.  This is about as close as we can get to automating the purchase of items selected from the wishlists--there is no API functionality for actually completing the ordering of items.  If you really think about it, this really is a good thing and should demand human intervention; we certainly wouldn&#39;t want this script going crazy and accidentally buying up everything on a wishlist.
+Documentation for the AWS Remote Shopping Cart explains that a shopping cart can be created and items added with a URL like the following:
+http://xml.amazon.com/onca/xml3?
+ShoppingCart=add&amp;#38;
+f=xml&amp;#38;
+dev-t=[Developer Token goes here]&amp;#38;
+t=[Associates ID goes here]&amp;#38;
+Asin.[ASIN goes here]=[quantity goes here]&amp;#38;
+sims=true
+
+Part of this should look familiar, so we already know what to do with the developer token and the associates ID.  The last part, specifying product ASIN and quantity, can be filled out with information contained in the product records selected at random from the wishlists.  
+So, let&#39;s start by revising the template at the end of the stylesheet:
+&lt;xsl:template match=&quot;/wishes:wishes&quot;&gt;
+
+    &lt;xsl:variable name=&quot;random_products&quot;&gt;      
+      &lt;xsl:for-each select=&quot;//wishes:wishlist&quot;&gt;
+        &lt;wishes:wishitem&gt;
+          &lt;xsl:copy-of select=&quot;.&quot; /&gt;
+          &lt;xsl:call-template name=&quot;randomWishlistProduct&quot;&gt;
+            &lt;xsl:with-param name=&quot;wishlist&quot; select=&quot;.&quot; /&gt;
+          &lt;/xsl:call-template&gt;
+        &lt;/wishes:wishitem&gt;
+      &lt;/xsl:for-each&gt;
+    &lt;/xsl:variable&gt;
+
+Here, we&#39;ve taken what was the output of the previous iteration of the stylesheet and stuffed it into the variable $random_products.  Next, let&#39;s fill in the blanks and build a Remote Shopping Cart URL:
+    &lt;xsl:variable name=&quot;shopping_cart_create_url&quot;&gt;
+      &lt;!-- Standard AWS URL --&gt;
+      &lt;xsl:text&gt;http://xml.amazon.com/onca/xml3?&lt;/xsl:text&gt;
+
+      &lt;!-- Add in the selected items --&gt;
+      &lt;xsl:for-each select=&quot;exsl:node-set($random_products)
+                            /wishes:wishitem/Details&quot;&gt;
+        &lt;xsl:text&gt;Asin.&lt;/xsl:text&gt;&lt;xsl:value-of select=&quot;Asin&quot; /&gt;
+        &lt;xsl:text&gt;=1&amp;amp;&lt;/xsl:text&gt;
+      &lt;/xsl:for-each&gt;
+
+      &lt;!-- Wrap up with the shopping cart function and required tokens --&gt;
+      &lt;xsl:text&gt;ShoppingCart=add&amp;amp;&lt;/xsl:text&gt;
+      &lt;xsl:text&gt;f=xml&amp;amp;&lt;/xsl:text&gt;
+      &lt;xsl:text&gt;dev-t=&lt;/xsl:text&gt;&lt;xsl:value-of select=&quot;$devtoken&quot; /&gt;
+      &lt;xsl:text&gt;&amp;amp;&lt;/xsl:text&gt;
+      &lt;xsl:text&gt;t=&lt;/xsl:text&gt;&lt;xsl:value-of select=&quot;$associate&quot; /&gt;
+    &lt;/xsl:variable&gt;
+
+Since simple XPath doesn&#39;t allow for the looping needed for multiple items, we can&#39;t just concatenate this URL together in a select expression like we did with the wishlist item query.  So, we use xslt:foreach to build this with blocks of text using the xsl:text element.  We iterate though the random products chosen from wishlists and add an ASIN for each to the URL with a quantity of 1. Then, we use the $devtoken and $associate variables to fill in their respective spots.
+Note that this could have been written without using the xsl:text elements like so:
+    &lt;xsl:variable name=&quot;shopping_cart_create_url&quot;&gt;http://xml.amazon.
+    com/onca/xml3?ShoppingCart=add&amp;amp;f=xml&amp;amp;dev-t=&lt;xsl:value-of 
+    select=&quot;$devtoken&quot; /&gt;&amp;amp;t=&lt;xsl:value-of select=&quot;$associate&quot; /&gt;
+    &amp;amp;&lt;xsl:for-each select=&quot;exsl:node-set($random_products)/
+    wishes:wishitem/Details&quot;&gt;Asin.&lt;xsl:value-of select=&quot;Asin&quot; /&gt;=1
+    &amp;amp;&lt;/xsl:for-each&gt;&lt;/xsl:variable&gt;
+
+This removes the clutter of all the xsl:text elements, but it would need to be piled all on one line in order to keep undesired whitespace from getting into the URL.  I made a small attempt at wrapping this line here, but line breaks and spaces would leave us with a non-functioning shopping cart URL.  It&#39;s up to you to decide which to use--personally, I prefer the xsl:text clutter for the ability to add in comments and clarify things a bit.
+Finally, having built the shopping cart URL, let&#39;s use it to get a shopping cart and wrap things up:
+    &lt;xsl:variable name=&quot;shopping_cart&quot;
+                  select=&quot;document($shopping_cart_create_url)&quot; /&gt;
+
+    &lt;xsl:copy-of select=&quot;$shopping_cart&quot; /&gt;
+
+&lt;/xsl:template&gt;  
+
+As an aside, this part is pushing the concept of a REST web service a bit: In the REST philosophy, requests using the GET method (which is what document() uses) should only return existing resources and not create new resources or cause modifications to happen.  Instead, these sorts of actions should use a POST request.  But, since we&#39;ve already accepted a few rough edges and workarounds in this project so far, we won&#39;t let a point of esoterica like that stop us.  (That and, well, this is the way Amazon designed their web service, so we&#39;ll take what we can get.)
+Once you run this iteration of the stylesheet ([wishes-ex4.xsl][wishes_ex4]), you should get something like this XML as output:
+&lt;ShoppingCartResponse ...&gt;
+  ...
+  &lt;ShoppingCart&gt;
+   &lt;CartId&gt;...&lt;/CartId&gt;
+   &lt;HMAC&gt;...&lt;/HMAC&gt;
+   &lt;PurchaseUrl&gt;...&lt;/PurchaseUrl&gt;
+   &lt;Items&gt;
+    &lt;Item&gt;...&lt;/item&gt;
+    &lt;Item&gt;...&lt;/item&gt;
+   &lt;/Items&gt;
+  &lt;/ShoppingCart&gt;
+  ...
+&lt;/ShoppingCartResponse&gt;
+
+The AWS documentation describes the vital elements here like so:
+
+CartId - The Cart ID is the unique identifier for a given shopping cart.
+HMAC - The HMAC is a security token that must be passed back to Amazon Web Services for using an existing cart.
+PurchaseUrl - Use the purchase URL to transfer the remote shopping cart from your application to Amazon so that your application&#39;s users may complete their purchases.  The purchase URL merges the remote shopping cart with the Amazon.com shopping cart.
+
+So, in short, whenever we want to do any sort of manipulation on this Remote Shopping Cart via AWS, we&#39;ll need to remember and later supply both the CartId and HMAC found in the XML returned at its creation.  And, once we&#39;re all ready to check out, the PurchaseUrl points to where we&#39;ll need to browse in person.
+Stay Tuned!
+This concludes Part 2 of the Wish-of-the-Month Club.  Following this will be the final part, where we tie everything together and start firing off monthly emails!" />
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
+            <ul>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post tag-hackstag-xml"
+      >
+        <header>
+          <time
+            title="2004-06-27T21:44:51-04:00"
+            pubdate="2004-06-27T21:44:51-04:00"
+          >
+            <span class="prevpost">
+              <a
+                title="A mini-scraper for the playlist at radioio Rock"
+                href="/blog.lmorchard.com/2004/06/28/radioiorock-scraper/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2004/"
+                >2004</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2004/06/"
+                >June</a
+              >
+              &#8226;
+              <span>27</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Wish-of-the-Month Club, Part 1 of 3"
+                href="/blog.lmorchard.com/2004/06/16/wishofthemonthclub1/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">Wish-of-the-Month Club, Part 2 of 3</h1>
+          <ul class="tags">
+              <li><a href="/blog.lmorchard.com/tag/hacks/">hacks</a></li><li><a href="/blog.lmorchard.com/tag/xml/">xml</a></li>
+            </ul>
+        </header>
+
+        <p><i>Here's the next installment of the Wish-of-the-Month Club.  You can <a href="http://www.decafbad.com/blog/2004/06/16/wishofthemonthclub1">revisit the first part</a>, too, if you've missed it.  I'd meant to post it within a week of the first part, so apologies all around to anyone who has been tapping a foot waiting for it.  Enjoy!</i></p>
+<h3 id="paging-through-wishes">Paging Through Wishes</h3>
+<p>Some ready-made files are available for this section:</p>
+<ul>
+<li><a href="http://www.decafbad.com/cvs/*checkout*/hacks/wishes/wishes-ex2.xsl"><code>wishes-ex2.xsl</code></a>: The second iteration of the stylesheet in development.</li>
+</ul>
+<p>Now we've got a way to make queries against Amazon Web Services, not entirely unlike what you might be used to if you tinker with MySQL databases on a regular basis.  At this point, though, we still have a bit of refining to make to this query.  If you take a look at the data produced by the query in its current state, and compare that to what you see on wishlists in your browser, you should notice some things missing.</p>
+<p>If you look at <a href="http://www.amazon.com/exec/obidos/registry/1QWYI6P2JF3Q5" title="Buy me something, will ya?">my wishlist</a>, you'll notice that items span several pages when visited by browser.  As it turns out, AWS queries work in a similar fashion--each query returns only a limited number of items (about 10), and an additional parameter supplied to further queries is required to step through further pages of results.  So, using what we've built so far will only get us to the first page of wishlist items; to get all of the items, we'll need a way to step through all of the pages.</p>
+<p>In playing with this, I experienced a bit of hairpulling frustration:  The AWS documentation, under "Generating Additional Product Results", claims that XML returned by the service will supply a count of the total pages available for a given query.  And although I see this element present in other types of searches, the <code>TotalPages</code> element is absent when querying on wishlists.  This may be a bug, or it may be an undocumented change in the service--either way, it was a surprise and leaves me with no official way to know how many pages I need to ask for in order to have a complete set of data.  </p>
+<p>With some further tinkering, though, I figured out a workaround: If a query is made for a page number beyond the final page, the XML returned will be a duplicate of the final page.  Once I see a duplicate item appear, I know it's time to stop paging through results.  This is completely undocumented behavior, and could break at any time (ie. if Amazon decided to start issuing an error for a page index out of bounds), but it'll work for now.</p>
+<p>This calls for reworking the <code>processWishlist</code> template.  For a given wishlist, it will need to iterate through a sequence of page numbers, requesting XML from AWS for each, stopping when the first duplicate page is found.  Since XSLT is heavily steeped in functional programming concepts, this sort of <a href="http://www.dpawson.co.uk/xsl/sect2/N4806.html" title="Iteration in XSLT">iteration in XSLT</a> is best done <a href="http://www-106.ibm.com/developerworks/xml/library/x-xslrecur/" title="Use recursion effectively in XSL">with recursion</a>:</p>
+<pre><code>  &lt;xsl:template name="processWishlist"&gt;
+
+    &lt;xsl:param name="wishlist" /&gt;              &lt;!-- Wishlist ID --&gt;
+    &lt;xsl:param name="max"   select="50" /&gt;     &lt;!-- Arbitrary upper loop limit --&gt;
+    &lt;xsl:param name="curr_page" select="1" /&gt;  &lt;!-- Curr page # --&gt;
+    &lt;xsl:param name="prev_first_asin" /&gt;       &lt;!-- Keeping track of repeats --&gt;
+</code></pre>
+<p>The first modification to this template is the addition of three parameters:</p>
+<ul>
+<li><code>max</code> provides an arbitrary upper limit to the number of pages through which this template will iterate.</li>
+<li><code>curr_page</code> contains the number of the page to be requested in this iteration.</li>
+<li><code>prev_first_asin</code> will contain the ASIN number of the first item from the previous iteration's page of results.</li>
+</ul>
+<p>Next, we modify the URL used to query for wishlist data:</p>
+<pre><code>    &lt;!-- Fetch the wishlist products --&gt;
+    &lt;xsl:variable name="details" select="document(concat(
+                  'http://xml.amazon.com/onca/xml3?',
+                  't=',$associate,'&amp;amp;',
+                  'dev-t=',$devtoken,'&amp;amp;',
+                  'WishlistSearch=',$wishlist,'&amp;amp;',
+                  'type=lite&amp;amp;f=xml&amp;amp;',
+                  'page=',$curr_page))//Details" /&gt;
+</code></pre>
+<p>The only addition here beyond the previous version is the <code>page</code> parameter in the URL.  Not much mystery here--this parameter specifies which page of results we want.  Now, let's build the loop:</p>
+<pre><code>    &lt;!-- Snag the first item Asin --&gt;
+    &lt;xsl:variable name="curr_first_asin" select="$details/Asin/text()" /&gt;
+
+    &lt;!-- If we haven't exceeded the loop limit, and this first Asin isn't --&gt;
+    &lt;!-- a repeat of the previous loop (indicating we've run out of new   --&gt;
+    &lt;!-- pages), then go ahead...                                         --&gt;
+    &lt;xsl:if test="(($curr_page+1) &amp;lt; $max) and
+                  (string-length($curr_first_asin) &amp;gt; 0) and
+                  not($curr_first_asin = $prev_first_asin)"&gt;
+  
+</code></pre>
+<p>We capture the ASIN of the first item in this page of results and check to see if we should continue.  This <code>if</code> conditional first ensures that we're not past the sanity guard for loop iterations, makes sure that we actually got a non-empty current first ASIN, then checks our current first product's ASIN against what was passed in as the previous iteration's first product's ASIN.  If this was the first time through the loop, this value should be empty and therefore wouldn't match the current ASIN.  But, if we've gone past the end of results, the previous and current ASIN values should match, and the conditional will fail.</p>
+<p>Moving along into the body of the conditional, we copy in wishlist products filtered on a price maximum, just as before:</p>
+<pre><code>      &lt;!-- Copy products, filtering on a maximum price --&gt;
+      &lt;xsl:copy-of select="$details/OurPrice[number(substring(
+                   text(),2)) &amp;lt; $maxprice]/.." /&gt;
+</code></pre>
+<p>Having done that, we move onto the recursive end of this template:</p>
+<pre><code>      &lt;!-- Loop by recursion to get the next page --&gt;
+      &lt;xsl:call-template name="processWishlist"&gt;
+        &lt;xsl:with-param name="wishlist"        select="$wishlist" /&gt;
+        &lt;xsl:with-param name="max"             select="$max" /&gt;
+        &lt;xsl:with-param name="curr_page"       select="$curr_page + 1" /&gt;
+        &lt;xsl:with-param name="prev_first_asin" select="$curr_first_asin" /&gt;
+      &lt;/xsl:call-template&gt;
+
+    &lt;/xsl:if&gt;    
+  &lt;/xsl:template&gt;
+</code></pre>
+<p>Here, the template makes a recursive call back to itself, passing through the wishlist ID and the maximum iteration count.  Since variables in XSLT are immutable, meaning that their values can't be changed once they've been set, we can't increment <code>$curr_page</code> in-place like a loop counter in other languages--so, the current page count <em>value</em> is incremented and passed to the recursive call as a parameter.  Finally, the current first item's ASIN is passed along, to become the previous ASIN for the next iteration.</p>
+<p>Note that when the conditional fails--that is, if the loop limit is passed or a duplicate page is detected--the loop ends.  In other words, nothing further happens and execution pops back up out of all the levels of recursion and the top-level template ends.  </p>
+<p>I wrote "<em>when</em> the conditional fails".  This is a key point: for the loop to eventually end, this conditional <em>must</em> fail (or be made to fail) at some point, else this loop will happily progress through page requests forever.  This is the reason for the <code>$max</code> parameter limiting the number of iterations, in case something goes haywire--like, oh say, a failure of our duplicate-page detection hack as a loop ending condition.  A useful exercise for the reader might be to add some additional diagnostic code to report that the limit was hit versus a natural end to results.</p>
+<h3 id="random-numbers">Random Numbers</h3>
+<p>Some ready-made files are available for this section:</p>
+<ul>
+<li><a href="http://www.decafbad.com/cvs/*checkout*/hacks/wishes/wishes-ex3.xsl"><code>wishes-ex3.xsl</code></a>: The third iteration of the stylesheet in development.</li>
+<li><a href="http://www.decafbad.com/cvs/*checkout*/hacks/wishes/random-xml"><code>random-xml</code></a>: A Perl CGI script used as a web service to generate random numbers.</li>
+</ul>
+<p>Armed with a template that will query against the full set of items in a wishlist, we're ready to look into making a random selection from a list of products.  </p>
+<p>But first, we need to pick a random number.  Unfortunately, there doesn't appear to be any <code>random()</code> function in the XPath or XSLT standards.  There <em>is</em> a <a href="http://www.exslt.org/math/functions/random/index.html"><code>math:random()</code></a> from EXSLT implemented in <code>libxslt</code>, but I seem to be having a bit of a problem getting it to produce anything other than the same sequence of numbers.  I suspect there's a problem in seeding the random number generator, but I've yet to work out how to fix it.  (Suggestions welcome.)</p>
+<p>So, I cheated and made another workaround with a CGI script on my web server that generates random numbers in a simple XML document.  Currently, it's hosted here:</p>
+<pre><code>http://www.decafbad.com/2004/05/random-xml
+</code></pre>
+<p>And this is what the script looks like:</p>
+<pre><code>#!/usr/bin/perl
+
+use strict;
+use CGI;
+
+my $q = new CGI();
+
+my $min = $q-&gt;param('min') or 0;
+my $max = $q-&gt;param('max') or 1;
+my $int = $q-&gt;param('int');
+
+my $num = $min + ( rand() * ($max - $min));
+if ($int) { $num = int($num); }
+
+print $q-&gt;header('text/xml');
+print "&lt;rand&gt;$num&lt;/rand&gt;\n";
+</code></pre>
+<p>This is a very simple CGI.  It accepts the parameters <code>max</code>, <code>min</code>, and <code>int</code>.  The values of these parameters determine the maximum and minimum value for the random number returned, and whether or not it should be an integer.  For example, the <a href="http://www.decafbad.com/2004/05/random-xml?int=1&amp;min=10&amp;max=20" title="A random integer between 10 and 20, in XML">following URL</a> should return an integer between 10 and 20:</p>
+<pre><code>http://www.decafbad.com/2004/05/random-xml?
+int=1&amp;#38;min=10&amp;#38;max=20
+</code></pre>
+<p>Using this as a web service in the stylesheet with the <code>document()</code> function, we can get a random number.  If you've got web space where you can host CGI scripts, I suggest you host a copy of this script yourself, since I can't guarantee how long mine will stick around.  But, for as long at works, feel free to use the service from my server.</p>
+<p>Moving along, let's add a new named template to the stylesheet, called <code>randomWishlistProduct</code>:</p>
+<pre><code>  &lt;xsl:template name="randomWishlistProduct"&gt;
+
+    &lt;xsl:param name="wishlist" /&gt; &lt;!-- Wishlist ID --&gt;
+    
+    &lt;!-- Gather all the products for the current wishlist --&gt;
+    &lt;xsl:variable name="products"&gt;
+      &lt;xsl:call-template name="processWishlist"&gt;
+        &lt;xsl:with-param name="wishlist" select="$wishlist" /&gt;
+      &lt;/xsl:call-template&gt;
+    &lt;/xsl:variable&gt;
+</code></pre>
+<p>Just like the <code>processWishlist</code> template, we start by defining the parameter <code>wishlist</code> to accept a wishlist ID.  Using this ID, we call the <code>processWishlist</code> template itself and store the complete list of products queried from the wishlist into the variable <code>$products</code>.</p>
+<pre><code>    &lt;!-- Count the products in the wishlist --&gt;
+    &lt;xsl:variable name="max_products"
+                  select="count(exsl:node-set($products)/Details)" /&gt;
+</code></pre>
+<p>This next step counts the number of products found in the wishlist.  The one tricky bit here is the use of the EXSLT function <a href="http://www.exslt.org/exsl/functions/node-set/index.html"><code>exsl:node-set()</code></a>: The <code>$products</code> variable contains what's called a <a href="http://www.w3.org/TR/xslt#section-Result-Tree-Fragments"><em>result tree fragment</em></a>, which is a kind of cross between XML data nodes and a plain old string.  This type of data does not normally allow the full set of XPath operators to be used on it, so first we need to use <code>exsl:node-set()</code> to turn it into a full-fledged node set.  Then we can look up the <code>Details</code> element nodes and count them.  </p>
+<pre><code>    &lt;!-- Conjure up a random index within the list of products --&gt;
+    &lt;xsl:variable name="rand_product_num"
+                  select="document(concat(
+                  'http://www.decafbad.com/2004/05/random-xml?',
+                  'int=1&amp;amp;',
+                  'min=1&amp;amp;',
+                  'max=',$max_products))/rand" /&gt;
+</code></pre>
+<p>Here is where the random number service comes in handy.  The <code>concat()</code> function is used to build the URL to the service, with parameters specifying that the number should be an integer, and should fall between 1 and the number of products in the wishlist.  The <code>document()</code> function grabs the XML document from the service, and the value is extracted from the single element the document contains.</p>
+<p>There is an alternative to this last bit, should you happen to have a properly working <code>math:random()</code> function in your XSLT processor:</p>
+<pre><code>    &lt;xsl:variable name="rand_product_num" select="round( math:random() *
+                  $max_products ) + 1" /&gt;
+</code></pre>
+<p>If you can use this instead, you'll have no need for the random number web service.  This version is obviously more concise, and doesn't require another trip out to a web service.  You might want to try it--but if you find that you keep getting the same wishlist items selected, then you've run into the problem I found with the random number generator.</p>
+<p>Now, let's wrap this template up by selecting an item:</p>
+<pre><code>    &lt;!-- Copy the product as indexed by the random number --&gt;
+    &lt;xsl:copy-of select="exsl:node-set($products)/Details[
+                 position()=$rand_product_num]" /&gt;
+       
+  &lt;/xsl:template&gt;
+</code></pre>
+<p>Again, we need to use the <code>exsl:node-set()</code> function to turn the result tree fragment in the <code>$products</code> variable into a node set, from which we select and copy the <code>Details</code> element whose position in the data is indexed by the random number we just selected.  Just one last tweak needed to wrap up this iteration of our stylesheet.  We need to swap out the call to the <code>processWishlist</code> function at the end and replace it with a call to <code>randomWishlistProduct</code>:</p>
+<pre><code>  &lt;xsl:template match="/wishes:wishes"&gt;
+
+    &lt;xsl:for-each select="//wishes:wishlist"&gt;
+      &lt;wishes:wishitem&gt;
+        &lt;xsl:copy-of select="." /&gt;
+        &lt;xsl:call-template name="randomWishlistProduct"&gt;
+          &lt;xsl:with-param name="wishlist" select="." /&gt;
+        &lt;/xsl:call-template&gt;
+      &lt;/wishes:wishitem&gt;
+    &lt;/xsl:for-each&gt;
+
+  &lt;/xsl:template&gt;
+</code></pre>
+<p>After these changes, you should be able to run the stylesheet ([wishes-ex3.xsl][wishes_ex3]) and get something like the following:</p>
+<pre><code>&lt;wishes:wishitem xmlns:wishes="http://www.decafbad.com/2004/05/wishes"&gt;
+    &lt;wishes:wishlist label="The Girl"&gt;35OIOYWQ9XQAE&lt;/wishes:wishlist&gt;
+    &lt;Details ...&gt;...&lt;/Details&gt;
+&lt;/wishes:wishitem&gt;
+&lt;wishes:wishitem xmlns:wishes="http://www.decafbad.com/2004/05/wishes"&gt;
+    &lt;wishes:wishlist label="Me"&gt;1QWYI6P2JF3Q5&lt;/wishes:wishlist&gt;
+    &lt;Details ...&gt;...&lt;/Details&gt;
+&lt;/wishes:wishitem&gt;
+</code></pre>
+<p>This is similar to the output of the previous iteration of the stylesheet, but this time there's only one product selected at random for each wishlist.  </p>
+<h3 id="shopping-carts">Shopping Carts</h3>
+<p>Some ready-made files are available for this section:</p>
+<ul>
+<li><a href="http://www.decafbad.com/cvs/*checkout*/hacks/wishes/wishes-ex4.xsl"><code>wishes-ex4.xsl</code></a>: The fourth iteration of the stylesheet in development.</li>
+</ul>
+<p>By this point, we've been able to query and filter products in Amazon wishlists, and we've selected an item at random from each wishlist we've queried.  Now, let's enable some purchases.</p>
+<p>The AWS provides for Remote Shopping Cart functionality, whereby items can be added to an Amazon.com shopping cart programmatically.  This is about as close as we can get to automating the purchase of items selected from the wishlists--there is no API functionality for actually completing the ordering of items.  If you really think about it, this really is a good thing and <em>should</em> demand human intervention; we certainly wouldn't want this script going crazy and accidentally buying up everything on a wishlist.</p>
+<p>Documentation for the AWS Remote Shopping Cart explains that a shopping cart can be created and items added with a URL like the following:</p>
+<pre><code>http://xml.amazon.com/onca/xml3?
+ShoppingCart=add&amp;#38;
+f=xml&amp;#38;
+dev-t=[Developer Token goes here]&amp;#38;
+t=[Associates ID goes here]&amp;#38;
+Asin.[ASIN goes here]=[quantity goes here]&amp;#38;
+sims=true
+</code></pre>
+<p>Part of this should look familiar, so we already know what to do with the developer token and the associates ID.  The last part, specifying product ASIN and quantity, can be filled out with information contained in the product records selected at random from the wishlists.  </p>
+<p>So, let's start by revising the template at the end of the stylesheet:</p>
+<pre><code>&lt;xsl:template match="/wishes:wishes"&gt;
+
+    &lt;xsl:variable name="random_products"&gt;      
+      &lt;xsl:for-each select="//wishes:wishlist"&gt;
+        &lt;wishes:wishitem&gt;
+          &lt;xsl:copy-of select="." /&gt;
+          &lt;xsl:call-template name="randomWishlistProduct"&gt;
+            &lt;xsl:with-param name="wishlist" select="." /&gt;
+          &lt;/xsl:call-template&gt;
+        &lt;/wishes:wishitem&gt;
+      &lt;/xsl:for-each&gt;
+    &lt;/xsl:variable&gt;
+</code></pre>
+<p>Here, we've taken what was the output of the previous iteration of the stylesheet and stuffed it into the variable <code>$random_products</code>.  Next, let's fill in the blanks and build a Remote Shopping Cart URL:</p>
+<pre><code>    &lt;xsl:variable name="shopping_cart_create_url"&gt;
+      &lt;!-- Standard AWS URL --&gt;
+      &lt;xsl:text&gt;http://xml.amazon.com/onca/xml3?&lt;/xsl:text&gt;
+
+      &lt;!-- Add in the selected items --&gt;
+      &lt;xsl:for-each select="exsl:node-set($random_products)
+                            /wishes:wishitem/Details"&gt;
+        &lt;xsl:text&gt;Asin.&lt;/xsl:text&gt;&lt;xsl:value-of select="Asin" /&gt;
+        &lt;xsl:text&gt;=1&amp;amp;&lt;/xsl:text&gt;
+      &lt;/xsl:for-each&gt;
+
+      &lt;!-- Wrap up with the shopping cart function and required tokens --&gt;
+      &lt;xsl:text&gt;ShoppingCart=add&amp;amp;&lt;/xsl:text&gt;
+      &lt;xsl:text&gt;f=xml&amp;amp;&lt;/xsl:text&gt;
+      &lt;xsl:text&gt;dev-t=&lt;/xsl:text&gt;&lt;xsl:value-of select="$devtoken" /&gt;
+      &lt;xsl:text&gt;&amp;amp;&lt;/xsl:text&gt;
+      &lt;xsl:text&gt;t=&lt;/xsl:text&gt;&lt;xsl:value-of select="$associate" /&gt;
+    &lt;/xsl:variable&gt;
+</code></pre>
+<p>Since simple XPath doesn't allow for the looping needed for multiple items, we can't just concatenate this URL together in a <code>select</code> expression like we did with the wishlist item query.  So, we use <code>xslt:foreach</code> to build this with blocks of text using the <code>xsl:text</code> element.  We iterate though the random products chosen from wishlists and add an ASIN for each to the URL with a quantity of 1. Then, we use the <code>$devtoken</code> and <code>$associate</code> variables to fill in their respective spots.</p>
+<p>Note that this could have been written without using the <code>xsl:text</code> elements like so:</p>
+<pre><code>    &lt;xsl:variable name="shopping_cart_create_url"&gt;http://xml.amazon.
+    com/onca/xml3?ShoppingCart=add&amp;amp;f=xml&amp;amp;dev-t=&lt;xsl:value-of 
+    select="$devtoken" /&gt;&amp;amp;t=&lt;xsl:value-of select="$associate" /&gt;
+    &amp;amp;&lt;xsl:for-each select="exsl:node-set($random_products)/
+    wishes:wishitem/Details"&gt;Asin.&lt;xsl:value-of select="Asin" /&gt;=1
+    &amp;amp;&lt;/xsl:for-each&gt;&lt;/xsl:variable&gt;
+</code></pre>
+<p>This removes the clutter of all the <code>xsl:text</code> elements, but it would need to be piled all on one line in order to keep undesired whitespace from getting into the URL.  I made a small attempt at wrapping this line here, but line breaks and spaces would leave us with a non-functioning shopping cart URL.  It's up to you to decide which to use--personally, I prefer the <code>xsl:text</code> clutter for the ability to add in comments and clarify things a bit.</p>
+<p>Finally, having built the shopping cart URL, let's use it to get a shopping cart and wrap things up:</p>
+<pre><code>    &lt;xsl:variable name="shopping_cart"
+                  select="document($shopping_cart_create_url)" /&gt;
+
+    &lt;xsl:copy-of select="$shopping_cart" /&gt;
+
+&lt;/xsl:template&gt;  
+</code></pre>
+<p>As an aside, this part is pushing the concept of a REST web service a bit: In the REST philosophy, requests using the GET method (which is what <code>document()</code> uses) should only return existing resources and not create new resources or cause modifications to happen.  Instead, these sorts of actions should use a POST request.  But, since we've already accepted a few rough edges and workarounds in this project so far, we won't let a point of esoterica like that stop us.  (That and, well, this is the way Amazon designed their web service, so we'll take what we can get.)</p>
+<p>Once you run this iteration of the stylesheet ([wishes-ex4.xsl][wishes_ex4]), you should get something like this XML as output:</p>
+<pre><code>&lt;ShoppingCartResponse ...&gt;
+  ...
+  &lt;ShoppingCart&gt;
+   &lt;CartId&gt;...&lt;/CartId&gt;
+   &lt;HMAC&gt;...&lt;/HMAC&gt;
+   &lt;PurchaseUrl&gt;...&lt;/PurchaseUrl&gt;
+   &lt;Items&gt;
+    &lt;Item&gt;...&lt;/item&gt;
+    &lt;Item&gt;...&lt;/item&gt;
+   &lt;/Items&gt;
+  &lt;/ShoppingCart&gt;
+  ...
+&lt;/ShoppingCartResponse&gt;
+</code></pre>
+<p>The AWS documentation describes the vital elements here like so:</p>
+<ul>
+<li><code>CartId</code> - The Cart ID is the unique identifier for a given shopping cart.</li>
+<li><code>HMAC</code> - The HMAC is a security token that must be passed back to Amazon Web Services for using an existing cart.</li>
+<li><code>PurchaseUrl</code> - Use the purchase URL to transfer the remote shopping cart from your application to Amazon so that your application's users may complete their purchases.&nbsp; The purchase URL merges the remote shopping cart with the Amazon.com shopping cart.</li>
+</ul>
+<p>So, in short, whenever we want to do any sort of manipulation on this Remote Shopping Cart via AWS, we'll need to remember and later supply both the <code>CartId</code> and <code>HMAC</code> found in the XML returned at its creation.  And, once we're all ready to check out, the <code>PurchaseUrl</code> points to where we'll need to browse in person.</p>
+<h3 id="stay-tuned">Stay Tuned!</h3>
+<p>This concludes Part 2 of the Wish-of-the-Month Club.  Following this will be the final part, where we tie everything together and start firing off monthly emails!</p>
+<!-- links -->
+
+<!--more-->
+
+
+<p>shortname=wishofthemonthclub2</p>
+
+        
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2004/06/28/radioiorock-scraper/"
+                >A mini-scraper for the playlist at radioio Rock</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2004/06/16/wishofthemonthclub1/"
+                >Wish-of-the-Month Club, Part 1 of 3</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

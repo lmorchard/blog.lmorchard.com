@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+    <html>
+      <head>
+        <title>I like automations for inclusive development - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="I like automations for inclusive development" />
+        <meta
+          property="og:url"
+          content="https://lmorchard.github.io/blog.lmorchard.com/2024/03/13/github-actions-for-didthis/"
+        />
+        <meta
+            property="og:image"
+            content="https://lmorchard.github.io/blog.lmorchard.com/blog.lmorchard.com/2024/03/13/github-actions-for-didthis/shaven_yak.png"
+          />
+        <meta property="og:description" content="TL;DR: I like deploying robots to include more of the team in our core development loop" />
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
+            <ul>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post tag-didthistag-githubtag-githubactionstag-mobiletag-webdev"
+      >
+        <header>
+          <time
+            title="2024-03-13T12:00:00-07:00"
+            pubdate="2024-03-13T12:00:00-07:00"
+          >
+            <span class="prevpost">
+              <a
+                title="Clustering ideas by topic with machine learning and generative AI"
+                href="/blog.lmorchard.com/2024/04/27/topic-clustering-gen-ai/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2024/"
+                >2024</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2024/03/"
+                >March</a
+              >
+              &#8226;
+              <span>13</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Dance like the bots aren&#39;t watching?"
+                href="/blog.lmorchard.com/2024/03/11/dance-for-the-bots/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">I like automations for inclusive development</h1>
+          <ul class="tags">
+              <li><a href="/blog.lmorchard.com/tag/didthis/">didthis</a></li><li><a href="/blog.lmorchard.com/tag/github/">github</a></li><li><a href="/blog.lmorchard.com/tag/githubactions/">githubactions</a></li><li><a href="/blog.lmorchard.com/tag/mobile/">mobile</a></li><li><a href="/blog.lmorchard.com/tag/webdev/">webdev</a></li>
+            </ul>
+        </header>
+
+        <p><strong>TL;DR</strong>: I like deploying robots to include more of the team in our core development loop</p>
+<!--more-->
+
+
+
+<p>Although it's very dangerously close to <a href="https://blog.lmorchard.com/2016/08/31/yak-shaving-habits/">Yak Shaving</a>, a thing I really enjoy doing is taking a dive deep into tools &amp; automations for a project at work. In a job interview, I'd tell you that's because I learned the value of being a "force multiplier" from <a href="https://dougengelbart.org/content/view/192/">Douglas Engelbart's ABCs of Organizational Improvement</a>.</p>
+<figure class="inset right">
+  <img src="./shaven_yak.png" width="" height="">
+  <figcaption>A photo of my Shaven Yak figurine from Ren &amp; Stimpy</figcaption>
+</figure>
+
+<p>And, while that's not untrue, I also like <a href="https://en.wikipedia.org/wiki/Rube_Goldberg_machine">Rube Goldberg machines</a> that tell me I did a good job - especially if there are great big green checkmarks involved. ✅</p>
+<h2 id="empowering-teammates-with-robots">Empowering teammates with robots</h2>
+<p>Besides getting praise from robots 🤖, I also like deploying them in systems to include more of the team in our core development loop.</p>
+<p>For example, in web development, an evergreen problem is where you have to run the whole stack on your laptop just to get a look at work in progress.</p>
+<p>But, there are usually other folks on the team who <em>don't</em> primarily code or fuss with servers for a living - e.g. product managers, designers, writers, researchers, et al. I'd like to empower these folks to help contribute to the development process just as easily as any coder.</p>
+<h2 id="storybook">Storybook</h2>
+<p>A lightweight tool I've used toward this end is <a href="https://storybook.js.org/">Storybook</a>. It helps you build a browsable catalog of pre-defined scenarios for web UI components - kind of a cross between unit tests and a style guide.</p>
+<figure class="fullwidth">
+  <img src="./GitHub Actions for Didthis - storybook.png" width="" height="">
+  <figcaption>A screenshot of <a href="https://storybook.js.org/">Storybook</a></figcaption>
+</figure>
+
+<p>The catch is that it only really exercises the client-side frontend, in isolation from the server-side backend. Still, you can mock up scenarios which might be accessible only through tediously arranged circumstances on the full application stack.</p>
+<p>The neat trick, though, is that Storybook can <a href="https://storybook.js.org/docs/sharing/publish-storybook#build-storybook-as-a-static-web-application">generate a static web site</a>. That's inevitably cheaper to deploy and keep available than a full replica of a live production environment. In fact, it's so cheap that I've built GitHub Actions workflows to publish Storybook snapshots to GitHub Pages for every commit in a busy project and the system never broke a sweat.</p>
+<p>Here's an example workflow from one of my work projects, which builds a Storybook snapshot and publishes it to GitHub Pages for a subset of branches. The only real hacky part is hitting the GitHub API to derive the base URL for the project's GitHub Pages site, but the rest is straightforward:</p>
+<pre><code class="language-yaml">name: "Build &amp; Deploy Storybook"
+on:
+  push:
+    branches:
+      - 'main'
+      - 'preview/**'
+permissions:
+  contents: write
+  checks: write
+  pages: write
+  statuses: write
+jobs:
+  storybook:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: appserver
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "lts/*"
+          cache: "yarn"
+          cache-dependency-path: "appserver/yarn.lock"
+      - name: Install Dependencies
+        run: yarn install
+      - name: Build Storybook
+        run: yarn build-storybook
+      - name: Deploy Storybook
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: appserver/storybook-static
+          target-folder: storybooks/${{ github.head_ref || github.ref_name }}/
+      - name: Get Github Pages Base URL
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          githubPagesUrl="$(gh api "repos/$GITHUB_REPOSITORY/pages" --jq '.html_url')"
+          echo 'GITHUB_PAGES_URL='$githubPagesUrl &gt;&gt; $GITHUB_ENV
+      - name: Create Status Check
+        uses: Sibz/github-status-action@v1
+        with:
+          authToken: ${{ secrets.GITHUB_TOKEN }}
+          sha: ${{ github.event.pull_request.head.sha || github.sha }}
+          state: 'success'
+          context: 'Storybook Deployment'
+          description: 'Storybook Deployment for ${{ github.head_ref || github.ref_name }}'
+          target_url: '${{ env.GITHUB_PAGES_URL }}storybooks/${{ github.head_ref || github.ref_name }}/index.html'
+</code></pre>
+<p>The great thing about a workflow like this is every commit maps to a URL with a preview of the work. Here, that's used to set a <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks">GitHub Status Check</a> result for the commit.</p>
+<p>So, anyone on the team with a browser can click the "Details" link to preview the work and chime in with review comments. (By the way, have you clicked on the little green checkmark for a commit in GitHub? Lots of interesting info behind there.)</p>
+<img src="./GitHub Actions for Didthis - commit status checks.png" width="" height="">
+
+<h2 id="react-native-and-expo">React Native and Expo</h2>
+<p>So, that's all fine for web applications - but what about mobile apps? This came up for me last Fall, when our team decided to pivot from a web-based experience to <a href="https://apps.apple.com/us/app/mozilla-didthis/id6468680088">an installable iOS app in the Store</a>.</p>
+<p>In building this app, I chose to go with <a href="https://reactnative.dev/">React Native</a> and <a href="https://docs.expo.dev/">Expo</a> as the foundation. This seemed like a good idea <a href="https://blog.lmorchard.com/2015/07/22/react-multiplatform/">to further leverage our React chops</a> and <a href="https://blog.lmorchard.com/2015/09/21/react-native-android/">maybe even reuse some code</a>.</p>
+<p>One of the things I've found frustrating is getting development builds onto teammates' devices on a regular cadence. Apple and Google both have mechanisms for installing in-progress app builds, but they have their quirks &amp; limitations.</p>
+<p>Building atop React Native, though, <a href="https://docs.expo.dev/eas-update/how-it-works/">Expo Updates</a> offers some particular architectural advantages:</p>
+<figure>
+  <img src="GitHub Actions for Didthis - expo updates.png" width="" height="">
+  <figcaption>A diagram showing <a href="https://docs.expo.dev/eas-update/how-it-works/">the native and update layers of an Expo App</a></figcaption>
+</figure>
+
+<p>One half of an Expo app is a native runtime shell that hosts the JavaScript engine and bindings to native capabilities. The other half is a bundle of JavaScript and application assets executed by the runtime shell. The runtime shell is least likely to change.</p>
+<p>So, Expo Updates makes it easy to swap in fresh revisions of the application bundle without having to rebuild the whole application - i.e. <a href="https://docs.expo.dev/eas-update/how-it-works/#publishing-an-update">"Over the Air" updates</a>. Since it fetches these bundles via URL from the web, that makes deploying new bundles <em>almost</em> as easy as updating a static web site.</p>
+<p>Maybe you can see where I'm going with this?</p>
+<h2 id="expo-go-and-storybook">Expo Go and Storybook</h2>
+<figure class="inset right">
+  <img src="IMG_5002.PNG" width="" height="">
+  <figcaption>A screenshot of Expo Go on my iPhone running a Storybook build</figcaption>
+</figure>
+
+<p>Relatedly, <a href="https://docs.expo.dev/get-started/expo-go/">Expo Go</a> is a fun utility app in this ecosystem: Since many apps use a common subset of native capabilities, it's reasonable to build a big, common kitchen-sink runtime that supports most of what you might want to use in an app.</p>
+<p>You wouldn't really want to distribute your app with this runtime, per se. But, if you squint a certain way, Expo Go looks like a peculiar kind of web browser - it lets your device load application code on demand via URL or QR code.</p>
+<p>And, as it turns out, <a href="https://storybook.js.org/tutorials/intro-to-storybook/react-native/en/get-started/">Storybook also supports React Native</a>. It provides a pre-built component that renders the browsable catalog of application scenarios right on your device. From there, you can change the component used as the entry point via an environment variable during build.</p>
+<h2 id="expo-application-services-and-github-actions">Expo Application Services and GitHub Actions</h2>
+<p>Putting this all together led me to another set of GitHub Actions - I can build <em>two</em> app bundles for every commit: One builds the app proper, while the other builds it in Storybook mode.</p>
+<p>Rather than publishing to GitHub Pages, though, these workflows take advantage of <a href="https://expo.dev/eas">Expo Application Services</a> (or EAS). There's a lot more to it but, in a nutshell, you can use EAS to host application bundles at unique URLs tagged with various bits of metadata useful for over-the-air updates.</p>
+<p>The really neat part, though, is that you can get a QR code for each application bundle uploaded to EAS. And that, in turn, can be automatically posted as a comment in a Pull Request - thus making it easy for any teammate to point their phone's camera at the PR to preview the work-in-progress using Expo Go! </p>
+<p>Here's what that looks like in a Pull Request:</p>
+<figure>
+  <img src="GitHub Actions for Didthis - QR codes.png" width="" height="">
+  <figcaption>Screenshot of a GitHub Pull Request with QR codes for Expo Go in comments</figcaption>
+</figure>
+
+<p>These QR codes might even work for you, if you install Expo Go on your own device. Since <a href="https://apps.apple.com/us/app/mozilla-didthis/id6468680088">the app's already released</a>, I don't think I'm revealing any secrets by including these.</p>
+<p>Your mileage may vary, though, by the time you read this. Our server-side APIs may have moved on from compatibility with this particular app build, or the builds may eventually get garbage collected from the EAS servers.</p>
+<p>Here's a peek at the GitHub Actions workflow for building the normal application bundle:</p>
+<pre><code class="language-yaml">name: "Build Expo Preview for PR"
+on:
+  pull_request:
+jobs:
+  tests:
+    uses: ./.github/workflows/tests.yml
+  preview:
+    needs: tests
+    permissions:
+      contents: read
+      pull-requests: write # Allow comments on PRs
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🏗 Setup repo
+        uses: actions/checkout@v3
+      - name: 🏗 Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: yarn
+      - name: 🏗 Setup EAS
+        uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+      - name: 📦 Install dependencies
+        run: yarn install
+      - name: 🚀 Create preview
+        id: preview
+        env:
+          EXPO_PUBLIC_GIT_TAG: ${{ github.sha }}
+        uses: expo/expo-github-action/preview@v8
+        with:
+          command: eas update --auto --branch=pr-${{ github.event.number }}
+          comment: false
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          comment_tag: preview-app-build
+          message: |
+            🚀 **App** [preview update](${{ steps.preview.outputs.link }}) is ready for use with [Expo Go](https://expo.dev/expo-go):
+
+            &lt;a href="${{ steps.preview.outputs.link }}"&gt;&lt;img src="${{ steps.preview.outputs.qr }}" width="250px" height="250px" /&gt;&lt;/a&gt;
+</code></pre>
+<p>And, here's the YAML for the Storybook workflow:</p>
+<pre><code class="language-yaml">name: "Build Expo Storybook for PR"
+on:
+  pull_request:
+env:
+  EXPO_PUBLIC_STORYBOOK_ENABLED: true
+jobs:
+  tests:
+    uses: ./.github/workflows/tests.yml
+  preview:
+    needs: tests
+    permissions:
+      contents: read
+      pull-requests: write # Allow comments on PRs
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🏗 Setup repo
+        uses: actions/checkout@v3
+      - name: 🏗 Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: yarn
+      - name: 🏗 Setup EAS
+        uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+      - name: 📦 Install dependencies
+        run: yarn install
+      - name: 🚀 Create preview
+        id: preview
+        uses: expo/expo-github-action/preview@v8
+        with:
+          command: eas update --auto --branch=pr-${{ github.event.number }}-storybook
+          comment: false
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          comment_tag: preview-storybook-build
+          message: |
+            📓 **Storybook** [preview update](${{ steps.preview.outputs.link }}) is ready for use with [Expo Go](https://expo.dev/expo-go):
+
+            &lt;a href="${{ steps.preview.outputs.link }}"&gt;&lt;img src="${{ steps.preview.outputs.qr }}" width="250px" height="250px" /&gt;&lt;/a&gt;
+</code></pre>
+<p>You can see that these workflows are essentially identical - except for some unique IDs and flipping the <code>EXPO_PUBLIC_STORYBOOK_ENABLED</code> variable to <code>true</code> during the Storybook build.</p>
+<p>Also, using the <code>comment_tag</code> option of the <a href="https://github.com/thollander/actions-comment-pull-request"><code>thollander/actions-comment-pull-request@v2</code></a> step with distinct values (e.g. <code>preview-app-build</code> vs <code>preview-storybook-build</code>) means the workflow will edit those existing comments on subsequent builds - rather than posting new comments every time.</p>
+<p>The end result of these workflows were that, all along the journey of getting this app ready for <a href="https://apps.apple.com/us/app/mozilla-didthis/id6468680088">an App Store release</a>, everyone on the team with an iPhone could scan a QR code to pull up a preview of any branch in progress and chime in with comments and suggestions. We also got a lot of early bug reports, since everyone on the team had a slightly different device model with fun edge cases to exercise.</p>
+<h2 id="summing-up">Summing up</h2>
+<p>The central notion is that I like making it easier to include the whole team in review cycles during feature development. It doesn't even have to be that hard - the implementations I describe here were mainly just hacking and gluing things together. It can be quick &amp; dirty, but the payoff can be huge for empowering everyone to contribute.</p>
+
+        <section class="comments" id="comments">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+              var disqus_needs_loading = true;
+              var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com/2024/03/13/github-actions-for-didthis/";
+            </script>
+            <noscript
+              >Please enable JavaScript to view the
+              <a href="http://disqus.com/?ref_noscript"
+                >comments powered by Disqus.</a
+              ></noscript
+            >
+            <a href="http://disqus.com" class="dsq-brlink"
+              >blog comments powered by
+              <span class="logo-disqus">Disqus</span></a
+            >
+          </section>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2024/04/27/topic-clustering-gen-ai/"
+                >Clustering ideas by topic with machine learning and generative AI</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2024/03/11/dance-for-the-bots/"
+                >Dance like the bots aren't watching?</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

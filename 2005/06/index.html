@@ -1,362 +1,622 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>2005/06 - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>2005/06 - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Month: 2005/06</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post "
-          >
-            <time class="date" datetime="2005-06-29T03:21:42+00:00">
-              2005
-              June
-              29
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/06/29/building-a-proper-shared-syndication-feed-foundation/">
-              <span class="infoContainer">
-                <span class="title">Building a proper shared syndication feed foundation</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2005-06-28T17:59:32+00:00">
-              2005
-              June
-              28
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/06/28/quick-postlunch/">
-              <span class="infoContainer">
-                <span class="title">Quick post-lunch OS X and iTunes dribblings</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2005-06-28T15:53:35+00:00">
-              2005
-              June
-              28
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/06/28/safarirssdb/">
-              <span class="infoContainer">
-                <span class="title">Safari RSS databases in Mac OS X Tiger - or Monkeys and Ninjas and Pirates and Robots, oh my!</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2005-06-28T15:21:30+00:00">
-              2005
-              June
-              28
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/06/28/four-thoughts-on-ms-rss-so-far/">
-              <span class="infoContainer">
-                <span class="title">Four thoughts on MS RSS so far</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2005-06-25T16:03:22+00:00">
-              2005
-              June
-              25
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/06/25/microsoft-rss-godzilla-tiptoes-into-tokyo/">
-              <span class="infoContainer">
-                <span class="title">Microsoft + RSS: Godzilla tiptoes into Tokyo</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2005-06-24T14:52:17+00:00">
-              2005
-              June
-              24
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/06/24/locking-down-mac-os-x-for-intel/">
-              <span class="infoContainer">
-                <span class="title">Locking down Mac OS X for Intel</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2005-06-24T04:27:39+00:00">
-              2005
-              June
-              24
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/06/24/decafbot-update-faqs/">
-              <span class="infoContainer">
-                <span class="title">decafbot update &amp; FAQs</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2005-06-23T21:23:52+00:00">
-              2005
-              June
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/06/23/quick-mind-interface-thoughts/">
-              <span class="infoContainer">
-                <span class="title">Quick mind interface thoughts</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2005-06-22T22:23:47+00:00">
-              2005
-              June
-              22
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/06/22/fun-and-not-so-fun/">
-              <span class="infoContainer">
-                <span class="title">Fun and not-so-fun</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2005-06-17T15:30:33+00:00">
-              2005
-              June
-              17
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/06/17/were-engaged/">
-              <span class="infoContainer">
-                <span class="title">We&#39;re engaged!</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2005-06-15T16:37:20+00:00">
-              2005
-              June
-              15
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/06/15/spotlight-bummers-and-the-cc-metadata-importer/">
-              <span class="infoContainer">
-                <span class="title">Spotlight Bummers and the CC Metadata Importer</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2005-06-14T23:02:01+00:00">
-              2005
-              June
-              14
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/06/14/two-unrelated-quick-thoughts/">
-              <span class="infoContainer">
-                <span class="title">Two unrelated quick thoughts</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2005-06-14T18:27:00+00:00">
-              2005
-              June
-              14
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/06/14/gadget-flashback/">
-              <span class="infoContainer">
-                <span class="title">Gadget Flashback</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2005-06-10T14:41:29+00:00">
-              2005
-              June
-              10
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/06/10/downloaded-brains-versus-vger/">
-              <span class="infoContainer">
-                <span class="title">Downloaded Brains versus VGER</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2005-06-10T13:53:10+00:00">
-              2005
-              June
-              10
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/06/10/blosxom-tiger-and-spotlight/">
-              <span class="infoContainer">
-                <span class="title">Blosxom, Tiger, and Spotlight</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2005-06-09T18:06:08+00:00">
-              2005
-              June
-              09
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/06/09/post-lunch-quicks/">
-              <span class="infoContainer">
-                <span class="title">Post-Lunch Quicks</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2005-06-08T21:35:53+00:00">
-              2005
-              June
-              08
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/06/08/back-to-the-quickies/">
-              <span class="infoContainer">
-                <span class="title">Back to the Quickies</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2005-06-08T20:47:56+00:00">
-              2005
-              June
-              08
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/06/08/further-greasemonkey/">
-              <span class="infoContainer">
-                <span class="title">Further quick thoughts on GreaseMonkey</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post has-thumb "
-          >
-            <time class="date" datetime="2005-06-08T20:15:43+00:00">
-              2005
-              June
-              08
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/06/08/greasemonkey-magic/">
-              <span class="infoContainer">
-                <span class="title">Magic Microformat Forms Redux, Now with GreaseMonkey!</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://www.decafbad.com/2005/06/magic_hcalendar.jpg" />
-          </li>
-    </ul>
-    
-  </section>
-      </section>
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Month: 2005/06</h2>
         </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2005 June 28</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/06/28/building-a-proper-shared-syndication-feed-foundation/">Building a proper shared syndication feed foundation</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/06/28/building-a-proper-shared-syndication-feed-foundation/"
+          >1838&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/06/28/building-a-proper-shared-syndication-feed-foundation/">#</a>
+    <a class="time" href="2005/06/28/building-a-proper-shared-syndication-feed-foundation/">11:21 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/06/28/quick-postlunch/">Quick post-lunch OS X and iTunes dribblings</a>
+      </h2>
+    
+    <p class="summary">
+      iTunes podcasting support... I want it all, and I want it now, because it has so much potential in and of itself, and so much potential for driving podcast tuner UI into the future.  
+The subscriptions are listed alphabetically?  Come on, let me sort them in last-updated order.  And what, no OPML import / export?  
+Not many podcast-related additions to the AppleScript scripting dictionary for iTunes.  I see a subscribe method, but I was hoping I could at least hack in some support for subscription list import / export.  Not having access to the subscription list puts a crimp in that. 
+Update: Hooray for people who know what they're talking about.  Turns out there are a few more additions to iTunes' AppleScript support I missed, but I'm still not finding my way down to accessing the list of podcast subscriptions.
+Update 2: Looks like someone's already worked on the import side of things: OPML2iTunes : AppleScript to import OPML podcast subscriptions into iTunes
 
-        <footer>
+
+
+And in the Bizzarro-Verse, Microsoft is more community-oriented than Apple when it comes to RSS extension creation.  Pretty odd.  I can see a few spots where the iTunes tags are defensible, but couldn't most or all of these have been established using Dublin Core or other prior work?
+
+
+Bummer.  It seems like the new podcasting support in iTunes doesn't use Syndication.framework, or at least the feeds subscribed in iTunes don't show up in the Sources table in the database I was snooping around in.
+And here I was hoping for Tiger to have already quietly included a shared syndication feed architecture similar to what's proposed for Longhorn. 
+Otherwise, podcasting in iTunes seems interesting so far.  Now, if it used BitTorrent out of the box...
+
+
+
+Can I just say I hate the new binary plists in OS X Tiger?  I got so used to futzing with them using vim and shell-side friends that it's jarring to get a face full of garbage now when I poke at them.
+And yeah, I know about /usr/bin/plutil--but, yuck.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/06/28/quick-postlunch/"
+          >486&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/06/28/quick-postlunch/">#</a>
+    <a class="time" href="2005/06/28/quick-postlunch/">1:59 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/06/28/safarirssdb/">Safari RSS databases in Mac OS X Tiger - or Monkeys and Ninjas and Pirates and Robots, oh my!</a>
+      </h2>
+    
+    <p class="summary">
+      Hey, what do you know?  The database used by Syndication.framework on OS X is accessible with SQLite 3, assumedly by virtue of Core Data.  Check out this barely presentable capture of what I just did in a shell window:
+[11:34:49] deusx@Caffeina2:~/Library/Syndication$ sqlite3 Database3 
+SQLite version 3.0.8
+Enter ".help" for instructions
+sqlite> .tables
+
+Articles  Sources 
+
+sqlite> .schema Articles
+
+CREATE TABLE Articles (id INTEGER PRIMARY KEY,
+source_id INTEGER,author TEXT,title TEXT,contentType INT(1),
+contents TEXT,excerpt TEXT,GUID TEXT,permalink TEXT,iconURL TEXT,
+categories TEXT,date DATETIME,dateReceived DATETIME,unread INT(1),
+flagged INT(1),collapsed INT(1),noComments INT(1));
+CREATE INDEX ArticleCurrents ON Articles (noComments);
+CREATE INDEX ArticleDates ON Articles (date);
+CREATE INDEX ArticleDatesRcvd ON Articles (dateReceived);
+CREATE INDEX ArticleSources ON Articles (source_id);
+CREATE INDEX ArticleUnreads ON Articles (unread);
+
+sqlite> .schema Sources
+
+CREATE TABLE Sources (id INTEGER PRIMARY KEY,URL TEXT,
+subscribed INT(1),title TEXT,iconURL TEXT,date INT,lastCheck INT,
+lastUpdate INT,slider INT(1),description TEXT,homePage TEXT,
+timespan INT(1),sort INT(1),HTTPdate VARCHAR,feedHash VARCHAR(40),
+FOAFURL TEXT,protocol VARCHAR,lastError VARCHAR,maxDays INT(2),
+maxArticles INT(2),x_monkey TEXT,x_ninja TEXT,x_pirate TEXT,
+x_robot TEXT);
+
+sqlite> select * from Sources;
+
+id|URL|subscribed|title|iconURL|date|lastCheck|lastUpdate|slider|description|homePage|timespan|sort|HTTPdate|feedHash|FOAFURL|protocol|lastError|maxDays|maxArticles|x_monkey|x_ninja|x_pirate|x_robot
+1|http://www.apple.com/main/rss/hotnews/hotnews.rss|1|Apple Hot News||141617700|141648125|141648128|||http://www.apple.com/hotnews/|||Tue, 28 Jun 2005 02:15:00 GMT|150fdf111cd223367f5c0cb8d28c65ec2a4ec195||RSS|||||||
+2|http://ax.phobos.apple.com.edgesuite.net/WebObjects/MZStore.woa/wpa/MRSS/newreleases/limit=25/rss.xml|1|iTunes 25 New Releases|/images/rss/badge.gif|141577349|141648124|141648126|||http://phobos.apple.com/WebObjects/MZStore.woa/wa/com.apple.jingle.app.store.DirectAction/viewNewReleases?pageType=newReleases&id=1|||Mon, 27 Jun 2005 18:02:29 GMT|8a2c02423581414b223f4533f0bf89211e1aa6c7||RSS|||||||
+
+...
+
+sqlite> select * from Articles;
+
+id|source_id|author|title|contentType|contents|excerpt|GUID|permalink|iconURL|categories|date|dateReceived|unread|flagged|collapsed|noComments
+2003|5||'Mactel' desktops may offer triple-threat OS|0||Also: GE, IBM and GM: the welfare kings|http://news.com.com/News.com+Extra/2001-9373_3-0.html?part=rss&tag=rsspr.5748612&subj=news|http://news.com.com/News.com+Extra/2001-9373_3-0.html?part=rss&tag=rsspr.5748612&subj=news|||140527020|140612922|1|||0
+2004|5||Virtual property becomes a reality|0||Blog: With the recent sentencing of a Chinese man who murdered an acquaintance in a dispute over a virtual sword, talk of the growing...|http://news.com.com/2061-10786_3-5748748.html?part=rss&tag=5748748&subj=news|http://news.com.com/2061-10786_3-5748748.html?part=rss&tag=5748748&subj=news|||140579040|140612922|1|||0
+
+
+There's one piece up there that had me do a coffee spit-take, though:
+x_monkey TEXT,x_ninja TEXT,x_pirate TEXT,x_robot TEXT
+Seems like the Syndication Wars have progressed, and the various sides have enlisted all of these combatting factions.  Monkey vs Robot, Pirates vs Ninja--I only wonder whether the Ninjas and Robots will ally against the Monkeys and Pirates?  It just seems natural.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/06/28/safarirssdb/"
+          >418&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/06/28/safarirssdb/">#</a>
+    <a class="time" href="2005/06/28/safarirssdb/">11:53 am</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/06/28/four-thoughts-on-ms-rss-so-far/">Four thoughts on MS RSS so far</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/06/28/four-thoughts-on-ms-rss-so-far/"
+          >772&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/06/28/four-thoughts-on-ms-rss-so-far/">#</a>
+    <a class="time" href="2005/06/28/four-thoughts-on-ms-rss-so-far/">11:21 am</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 June 25</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/06/25/microsoft-rss-godzilla-tiptoes-into-tokyo/">Microsoft + RSS: Godzilla tiptoes into Tokyo</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/06/25/microsoft-rss-godzilla-tiptoes-into-tokyo/"
+          >291&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/06/25/microsoft-rss-godzilla-tiptoes-into-tokyo/">#</a>
+    <a class="time" href="2005/06/25/microsoft-rss-godzilla-tiptoes-into-tokyo/">12:03 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 June 24</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/06/24/locking-down-mac-os-x-for-intel/">Locking down Mac OS X for Intel</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/06/24/locking-down-mac-os-x-for-intel/"
+          >1160&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/06/24/locking-down-mac-os-x-for-intel/">#</a>
+    <a class="time" href="2005/06/24/locking-down-mac-os-x-for-intel/">10:52 am</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/06/24/decafbot-update-faqs/">decafbot update &amp; FAQs</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/06/24/decafbot-update-faqs/"
+          >414&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/06/24/decafbot-update-faqs/">#</a>
+    <a class="time" href="2005/06/24/decafbot-update-faqs/">12:27 am</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 June 23</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/06/23/quick-mind-interface-thoughts/">Quick mind interface thoughts</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/06/23/quick-mind-interface-thoughts/"
+          >373&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/06/23/quick-mind-interface-thoughts/">#</a>
+    <a class="time" href="2005/06/23/quick-mind-interface-thoughts/">5:23 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 June 22</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/06/22/fun-and-not-so-fun/">Fun and not-so-fun</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/06/22/fun-and-not-so-fun/"
+          >609&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/06/22/fun-and-not-so-fun/">#</a>
+    <a class="time" href="2005/06/22/fun-and-not-so-fun/">6:23 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 June 17</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/06/17/were-engaged/">We&#39;re engaged!</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/06/17/were-engaged/"
+          >697&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/06/17/were-engaged/">#</a>
+    <a class="time" href="2005/06/17/were-engaged/">11:30 am</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 June 15</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/06/15/spotlight-bummers-and-the-cc-metadata-importer/">Spotlight Bummers and the CC Metadata Importer</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/06/15/spotlight-bummers-and-the-cc-metadata-importer/"
+          >641&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/06/15/spotlight-bummers-and-the-cc-metadata-importer/">#</a>
+    <a class="time" href="2005/06/15/spotlight-bummers-and-the-cc-metadata-importer/">12:37 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 June 14</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/06/14/two-unrelated-quick-thoughts/">Two unrelated quick thoughts</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/06/14/two-unrelated-quick-thoughts/"
+          >899&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/06/14/two-unrelated-quick-thoughts/">#</a>
+    <a class="time" href="2005/06/14/two-unrelated-quick-thoughts/">7:02 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/06/14/gadget-flashback/">Gadget Flashback</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/06/14/gadget-flashback/"
+          >1481&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/06/14/gadget-flashback/">#</a>
+    <a class="time" href="2005/06/14/gadget-flashback/">2:27 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 June 10</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/06/10/downloaded-brains-versus-vger/">Downloaded Brains versus VGER</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/06/10/downloaded-brains-versus-vger/"
+          >750&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/06/10/downloaded-brains-versus-vger/">#</a>
+    <a class="time" href="2005/06/10/downloaded-brains-versus-vger/">10:41 am</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/06/10/blosxom-tiger-and-spotlight/">Blosxom, Tiger, and Spotlight</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/06/10/blosxom-tiger-and-spotlight/"
+          >597&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/06/10/blosxom-tiger-and-spotlight/">#</a>
+    <a class="time" href="2005/06/10/blosxom-tiger-and-spotlight/">9:53 am</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 June 09</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/06/09/post-lunch-quicks/">Post-Lunch Quicks</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/06/09/post-lunch-quicks/"
+          >518&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/06/09/post-lunch-quicks/">#</a>
+    <a class="time" href="2005/06/09/post-lunch-quicks/">2:06 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 June 08</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/06/08/back-to-the-quickies/">Back to the Quickies</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/06/08/back-to-the-quickies/"
+          >267&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/06/08/back-to-the-quickies/">#</a>
+    <a class="time" href="2005/06/08/back-to-the-quickies/">5:35 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/06/08/further-greasemonkey/">Further quick thoughts on GreaseMonkey</a>
+      </h2>
+    
+    <p class="summary">
+      Now for some quick GreaseMonkey spew, recorded without any effort to actually see what's up in the community or reading any FAQs:
+
+I want to separate script code into reusable modules.
+That said, am I an Architecture Astronaut when I can't get more than 10 minutes into a quick project without already starting to digress into building a reusable framework?
+Is it wrong that I felt like I was working in Perl again when I wrote that script?
+That said, I wish JavaScript had either multi-line quotes ala Python or Perl heredoc syntax.
+Doing some twisty regex search-and-replace in Vi lets you do a lot of refactoring / recoding damage to source code in no time flat.
+Can I just say how nice it is to not worry about other browsers when coding?
+
+I've also got a few ideas I'd like to record and pursue for future GreaseMonkey endeavors:
+
+Record the URL of all form submissions via XMLHTTPRequest to a remote server, with blog comment forms in mind.  Track changes on those URLs.  Notify me via Atom feed when new comments arrive in places where I posted comments.
+Clean up and abstract that magic form thing I did into a more general way to make all kinds of magic textarea forms.  (More microformats?  .sig files for LiveJournal responses?  /usr/bin/banner for annoying blog comments?)
+Revive Third Voice in GreaseMonkey style.  Subscribe to arbitrary REST API'ed annotation servers, fetch & aggregate annotations for current URL via XMLHTTPRequest, build cute floating stickies with rude comments from friends.
+Auto-ROT13 en/decoder ring, because there's a need for that.
+Script which redirects all links to books on Amazon.com to point at my new book.  I will install this on all computers at CompUSA and the Apple Store.
+
+I've suddenly realized that a lot of the things I wanted to do with Agent Frank are possible with GreaseMonkey.  Also, I wonder how long it'll be before I get sucked into further FireFox extension hacking.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/06/08/further-greasemonkey/"
+          >740&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/06/08/further-greasemonkey/">#</a>
+    <a class="time" href="2005/06/08/further-greasemonkey/">4:47 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry has-thumb">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/06/08/greasemonkey-magic/">Magic Microformat Forms Redux, Now with GreaseMonkey!</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://www.decafbad.com/2005/06/magic_hcalendar.jpg" />
+    </div>
+    <p class="summary">
+      Update (6/9): One quick note-- I've noticed that this little hack of mine has been called a "hack for Movable Type".  However, while I personally use Movable Type, this is a hack for textareas in FireFox. 
+Movable Type just happens to use textareas.  It's worth noting, however, that WordPress uses textareas too.  So does LiveJournal.  So do most comment posting forms.  This is bigger than a single blog package plugin-- that's the point.
+Whew.  So it looks like the book is out of my hands now, having finished the final reviews.  I have some more to say about that, but first I want to post the results of the last day or so of hacking I've done.
+I've been working on the stuff for the book so long that I just had to do something else (ie. not RSS or Atom) to help clear my head.  But, I'm addicted to learning and building stuff.  So, although I did relax a bit since the main effort of the book passed--that is, relax as normal people define it--I just can't stop making things.  
+So, I had a beer, cracked open Dive Into GreaseMonkey, and decided to make good on that idea I wrote about last month.  Not only that, but I had a little free time over lunch today, so I downloaded a trial of Snapz Pro X 2 to try my hand at a little screencasting, ala Jon Udell.
+I've got more things to say about all this, and my new found excitement for GreaseMonkey, but first I'll share the goods.
+If you want to risk running my horribly premature code on your machine, here's the script:
+
+magic_hcalendar.user.js
+
+If you'd like a preview of what it does, here's a movie:
+
+magic_hcalendar.mov
+
+And, just for the sake of completeness, here's a quick screen grab:
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/06/08/greasemonkey-magic/"
+          >584&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/06/08/greasemonkey-magic/">#</a>
+    <a class="time" href="2005/06/08/greasemonkey-magic/">4:15 pm</a>
+    
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

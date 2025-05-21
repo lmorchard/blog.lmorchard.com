@@ -4,120 +4,122 @@
       <title>blog.lmorchard.com</title>
       <description>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</description>
       <link>https://lmorchard.github.io/blog.lmorchard.com</link>
-      <atom:link href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" rel="self" type="application/rss+xml" />      
+      <atom:link href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" rel="self" type="application/rss+xml" />
       <item>
           <title>Pingback and embedded metadata in (X)HTML</title>
-          <description>More on Pingback vs TrackBack on Hixie&#39;s Natural Log.
-
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;More on Pingback vs TrackBack on Hixie&#39;s Natural Log.
 How embarassing - he points to my referrers as a typical list.  :)  Mine are crap.  Look at how Mark Pilgrim handles referrers.  Yesterday I was working at making my referrer tracking harvest titles, clean out false links, and collapse redundant backlinks, but I&#39;m far from perfecting that.  But, at the same time, I agree:  Referrers are not enough.  They&#39;re one source, the most noise-ridden but the most effortless on the part of the outside contributor.  But you can only do so much with almost nothing.  :)
-
 I think, when it comes down to it, my only issue with Pingback is not a Pingback-specific issue at all:  How to harvest machine readable metadata from a web resource.  This applies to my referrer links, Pingback, and TrackBack alike.  TrackBack has a bit of a solution, with embedded RDF, but that&#39;s got its own issues.  Ian suggests a few things to me in comments, such as harvesting the title from the HTML title tag (a no brainer), and then harvesting further data from DublinCore-based data in meta tags in the page.  I&#39;ve seen this last convention only once before, in the geographical data consumed by Syndic8.com.
-
 Is this a pretty common convention?  I&#39;ve not seen it done much, but the I obviously have not seen everything or a large chunk of anything.  :)  If this is a known convention, it makes me happy and I think it would answer a question I asked back in May.
-
-Update:  Duh.  Yes, it&#39;s a known convention.  It&#39;s even got an RFC:  RFC2731: Encoding Dublin Core Metadata in HTML  Simple Google search.  Sometimes I can be so daft.  :)  Now I just have to start using this more - and I wonder why more people aren&#39;t using it?  Most likely because there&#39;s been not much in it for them.</description>
+Update:  Duh.  Yes, it&#39;s a known convention.  It&#39;s even got an RFC:  RFC2731: Encoding Dublin Core Metadata in HTML  Simple Google search.  Sometimes I can be so daft.  :)  Now I just have to start using this more - and I wonder why more people aren&#39;t using it?  Most likely because there&#39;s been not much in it for them.&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Sat, 28 Sep 2002 20:29:13 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2002/09/28/ooocoo/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2002/09/28/ooocoo/</guid>
         </item><item>
           <title>On RSS and Namespaces</title>
-          <description>Dave writes on &quot;RSS and Namespaces&quot;:... there are some XML parsers that don&#39;t properly deal with namespace attributes on the top-level element of a source.Agreed.  These parsers are often cheaper to deal with when you know that the format you&#39;re expecting doesn&#39;t involve namespaces.  You trade some flexibility for some ease of development.For these guys, just introducing an xmlns attribute is enough to make them reject the feed. So while they could handle a 0.92 feed, as soon as we introduced the xmlns attribute, they gave up.Yes, because they weren&#39;t expecting to be fed something with namespaces, since they&#39;d been designed around v0.92 and family, and had been fed v2.0 with the expectation that it was 100% backward-compatible....Presumably RSS 1.0 doesn&#39;t have the same problem we tripped over yesterday with RSS 2.0. So I looked at a few RSS 1.0 feeds, and guess what, they do the same thing we were doing with the 2.0 feeds. ...  I conclude that the same broken parsers that didn&#39;t like the 2.0 feeds with the xmlns attributes, must also not like the 1.0 feeds.And your conclusion would likely be correct - because those parsers weren&#39;t expecting to consume namespace-using XML, and they shouldn&#39;t be expecting RSS v1.0.  If an application is designed with RSS 1.0 in mind, then the author should be using a namespace-aware parser and correctly handle the namespaces, since that&#39;s the nature of the beast.  To neglect or mishandle namespaces in consuming RSS 1.0 is a mistake.
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Dave writes on &quot;RSS and Namespaces&quot;:... there are some XML parsers that don&#39;t properly deal with namespace attributes on the top-level element of a source.
+Agreed.  These parsers are often cheaper to deal with when you know that the format you&#39;re expecting doesn&#39;t involve namespaces.  You trade some flexibility for some ease of development.For these guys, just introducing an xmlns attribute is enough to make them reject the feed. So while they could handle a 0.92 feed, as soon as we introduced the xmlns attribute, they gave up.
+Yes, because they weren&#39;t expecting to be fed something with namespaces, since they&#39;d been designed around v0.92 and family, and had been fed v2.0 with the expectation that it was 100% backward-compatible....Presumably RSS 1.0 doesn&#39;t have the same problem we tripped over yesterday with RSS 2.0. So I looked at a few RSS 1.0 feeds, and guess what, they do the same thing we were doing with the 2.0 feeds. ...  I conclude that the same broken parsers that didn&#39;t like the 2.0 feeds with the xmlns attributes, must also not like the 1.0 feeds.
+And your conclusion would likely be correct - because those parsers weren&#39;t expecting to consume namespace-using XML, and they shouldn&#39;t be expecting RSS v1.0.  If an application is designed with RSS 1.0 in mind, then the author should be using a namespace-aware parser and correctly handle the namespaces, since that&#39;s the nature of the beast.  To neglect or mishandle namespaces in consuming RSS 1.0 is a mistake.  
 Admittedly, some applications which apparently consume RSS v1.0 feeds correctly may be broken in this way - this is not unique to RSS v2.0.  If they&#39;re broken, they need fixing.   But that&#39;s another story...
-
 So, on to the conclusion:If this is true, we can&#39;t design using namespaces until:
-
 
 All the parsers are fixed, or
 
 Users/content providers expect and accept this kind of breakage (I don&#39;t want to be the one delivering that bit of bad news, got burned not only by the users, but by developers too, people generally don&#39;t know about this problem, or if they do know are not being responsible with the info).
 
-Anyway it looks to me like there&#39;s a big problem in the strategy of formats that intend to organize around namespaces.Well, of course, end users should not expect breakage.  This is obvious to me.  No one really wants that.
+
+Anyway it looks to me like there&#39;s a big problem in the strategy of formats that intend to organize around namespaces.
+Well, of course, end users should not expect breakage.  This is obvious to me.  No one really wants that.  
 The big problem I see in the strategy, though, is this:  RSS 2.0 claims to be backward-compatible with the 0.9x family, but the addition of namespaces in XML is enough of a fundamental change to break this.  I think what Shelly wrote in RSS-DEV is correct:  &quot;Namespace support is NOT a
 trivial change, and will break several technologies, including PHP if
 namespace support isn&#39;t compiled in. This isn&#39;t something that can be
 hacked out.&quot;
-
 When I originally read about the emergence of something called RSS 2.0, I said &quot;Go man, go!&quot;  But I also said, &quot;What&#39;s the catch?&quot;  Well, this appears to be a catch.  But I think it can be worked through.  This is not a fundamental problem with namespaces themselves.  This is a versioning problem, and a problem with anticipating all the implications the new version brings to the table.  This goes for RSS 2.0, as well as RSS 1.0.
-
 The first thing is to nail a few things down about version numbers and reverse-compatibility.  It&#39;s been my experience that, when some thing experiences an increment to its major version number, reverse-compatibility is not guaranteed.  So, I would assume that from a v0.94 to a v2.0, things are sufficiently different that using it would require that, indeed, &quot;All the parsers are fixed&quot; to support the new major version.  So for the most part, v2.0 follows the v0.94 tradition faithfully, but on this issue it parts ways - and yes, potential consumers of v2.0 feeds will need to adjust from their v0.94 code.  Thems the breaks, I&#39;ve been told, when it comes to major version upgrades.
-
-So, again, I don&#39;t think that this is a fundamental flaw with RSS 1.0, RSS 2.0, or namespaces.  This is an issue of versioning, understanding the technology&#39;s implications, and reverse-compatibility.</description>
+So, again, I don&#39;t think that this is a fundamental flaw with RSS 1.0, RSS 2.0, or namespaces.  This is an issue of versioning, understanding the technology&#39;s implications, and reverse-compatibility.&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Sat, 28 Sep 2002 19:58:39 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2002/09/28/ooobii/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2002/09/28/ooobii/</guid>
         </item><item>
           <title>Yes, chicks do dig Mac OS X.</title>
-          <description>Mark Pilgrim seems to have implied that chicks dig Mac OS X.  Well..  I certainly can&#39;t dispute him.  :)</description>
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Mark Pilgrim seems to have implied that chicks dig Mac OS X.  Well..  I certainly can&#39;t dispute him.  :)&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Sat, 28 Sep 2002 02:21:48 GMT</pubDate>
-          <link>https://lmorchard.github.io/blog.lmorchard.com/2002/09/28/ooobih/</link>
-          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2002/09/28/ooobih/</guid>
+          <link>https://lmorchard.github.io/blog.lmorchard.com/2002/09/27/ooobih/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2002/09/27/ooobih/</guid>
         </item><item>
           <title>Packaging tweak to MTCleanHTMLPlugin</title>
-          <description>Quick update to MTCleanHTMLPlugin:  renamed the directory extdir in the tarball to extlib, which is what it should have been for easy drop-in installation.  Thanks to John of illuminent.com, whose weblog gets me funny looks at work.  :)</description>
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Quick update to MTCleanHTMLPlugin:  renamed the directory extdir in the tarball to extlib, which is what it should have been for easy drop-in installation.  Thanks to John of illuminent.com, whose weblog gets me funny looks at work.  :)&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Fri, 27 Sep 2002 20:06:57 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2002/09/27/ooobig/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2002/09/27/ooobig/</guid>
         </item><item>
           <title>MTCleanHTMLPlugin - borrowing a page from LJ, literally.</title>
-          <description>Tonight, I borrowed LiveJournal&#39;s comment filtering code and made it into a MovableType plugin: MTCleanHTMLPlugin
-
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Tonight, I borrowed LiveJournal&#39;s comment filtering code and made it into a MovableType plugin: MTCleanHTMLPlugin
 After all that ramble about having open system and not having been the victim of an exploit, SamRuby inadvertently revealed one gapingly wide hole for me.  Not that he did anything to exploit it - I just realized that a bug he tripped over could be used for more nefarious purposes.  So, I closed the hole, and after a bit of quick research went a bit further and made a new MovableType plugin.  Borrowing LiveJournal&#39;s code yields a filter which strips out most nasty ?JavaScript exploits, and attempts to close tags left lazily open.
-
-Hope someone finds a use for it.</description>
+Hope someone finds a use for it.&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Thu, 26 Sep 2002 07:52:05 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2002/09/26/ooobif/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2002/09/26/ooobif/</guid>
         </item><item>
           <title>Automated Pingback vs Human Talkback - Which is more humane?</title>
-          <description>I completely disagree with Ray Ozzie (&quot;I&#39;m thinking right now that I&#39;d prefer to stick with human talkback rather than automated pingback&quot;), John Robb (&quot;I don&#39;t want pingback, trackback, or refererback.&quot;), and Sam Gentile (&quot;Amen to that.&quot;).
-
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;I completely disagree with Ray Ozzie (&quot;I&#39;m thinking right now that I&#39;d prefer to stick with human talkback rather than automated pingback&quot;), John Robb (&quot;I don&#39;t want pingback, trackback, or refererback.&quot;), and Sam Gentile (&quot;Amen to that.&quot;).
 I want as much automated and intervention-free invitation to participation in my blog as I can provide.  I want manufactured serendipty to operate here while I&#39;m away or asleep.  I want this site to help me discover connections and uncover links, whether by automated agent or by friendly visitor.  I want to lower the thresholds to interaction as far as I can.  I love it when I&#39;ve seen a few visitors to my site talk amongst themselves while I was on my drive to work.
-
 Of course, I&#39;ve never been cracked or assaulted by an exploit of my systems.  I don&#39;t have unwanted stalkers or abusive anti-fans or malicious kids or babbling spammers after me in this space.  Perhaps if I did, my systems might not tend toward such openness.  I think this is a statement on many things beyond blogs, but that&#39;s a post for other days.  Maybe some day I&#39;ll have these negative elements facing me, and I&#39;ll have to revise my systems and their direction to account for them.
-
 On the other hand, I&#39;ve got a naive notion that the openness itself can counteract much of the reason to become closed in the first place.  Should the need arise, I think I can come up with some measures to deflect inane and juvenile attacks.  As for spammers, I tend to think that their days are numbered anyway - but if they do arrive on my weblog I think I can leverage many of the technologies I use right now with great effectiveness on my email inbox.  But, to defuse real frustration behind attacks, I tend to think that more communication, not less, is what&#39;s needed.
-
 But I&#39;m not sure at all, though, whether or not the threat of abuse is what motivates Ray and John to leave automated discussion channels closed.  It&#39;s just one motive I&#39;ve seen discussed before.  I think they want more &quot;human&quot; and personal contact.
-
 With regards to that:  The irony in my life is that, with my lack of much free time,  automated agents, aggregators, and weblogs have given me more personal contact with human beings than I might have been able to achieve without them.  I&#39;m trying to remember the thread a few months ago between DaveWiner, JonUdell, and others concerning humans with the uncanny ability to connect other people together.  This very thing was supposed:  That aggregators and weblogs could augment one&#39;s ability to act as such a superconnector.  In that regard, I consider my agents, aggregators, and weblogs as integral to me as the new and improved pair of glasses I picked up last week.  Just as I can&#39;t see road signs without my glasses, I can&#39;t keep track of people without my agents.
-
 ShareAndEnjoy.
-
-Update: And happily, Greg Graham, someone I&#39;ve not met before, sends me an unexpected TrackBack ping and invites me to another blog I&#39;ve never visited.</description>
+Update: And happily, Greg Graham, someone I&#39;ve not met before, sends me an unexpected TrackBack ping and invites me to another blog I&#39;ve never visited.&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Wed, 25 Sep 2002 21:23:13 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2002/09/25/ooobie/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2002/09/25/ooobie/</guid>
         </item><item>
           <title>Exodus to JohnCompanies in progress</title>
-          <description>Okay.  Enough&#39;s enough - the phpwebhosting server&#39;s disk filled up again, and my JohnCompanies server has been idle all this time.  I&#39;ve moved everything over, made a cursory set of tests to see if everything&#39;s okay, and flipped the DNS switch.
-
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Okay.  Enough&#39;s enough - the phpwebhosting server&#39;s disk filled up again, and my JohnCompanies server has been idle all this time.  I&#39;ve moved everything over, made a cursory set of tests to see if everything&#39;s okay, and flipped the DNS switch.
 Hopefully, you&#39;re seeing this post.  Otherwise, you probably saw a test pattern until the DNS wave of mutilation reached your corner of the net.  In the mean time, a few random things will likely be broken.  I&#39;ll be sorting through those in the next week or so.  If you feel like letting me know when you find something, I&#39;d be much appreciative.
-
-Thanks!</description>
+Thanks!&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Wed, 25 Sep 2002 06:57:10 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2002/09/25/ooobid/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2002/09/25/ooobid/</guid>
         </item><item>
           <title>TrackBack strikes back</title>
-          <description>And of course, Ben of MovableType is not unaware of Pingback:In current implementations of TrackBack, the user sending the ping must take some action: either by selecting the post he wishes to send a TrackBack ping to via a pulldown menu, or by retrieving the ping URL and pasting it into the entry form. And yes, we agree on the point that transparency is the ultimate goal*.
-
-But note the emphasis on &quot;current implementations&quot;--there is nothing inherent in TrackBack that would prevent an implementation from making it completely transparent.Interesting.  Let&#39;s see where he goes with this.  He does raise a concern with more automation though:* (I do worry slightly about the impact of content management systems fetching and scanning every external link in an entry to determine if it&#39;s ping-able. But that&#39;s not really the issue.)Hmm - I suppose if a site gets heavily referred to, that&#39;s a double-Slashdot-effect?  And this investigative process has the potential to add more overhead to the publishing process.  But.. hmm, until I see some convincing ConsideredHarmful arguments, I think the flow producing qualities of this sort of thing are worth it.</description>
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;And of course, Ben of MovableType is not unaware of Pingback:In current implementations of TrackBack, the user sending the ping must take some action: either by selecting the post he wishes to send a TrackBack ping to via a pulldown menu, or by retrieving the ping URL and pasting it into the entry form. And yes, we agree on the point that transparency is the ultimate goal*.
+But note the emphasis on &quot;current implementations&quot;--there is nothing inherent in TrackBack that would prevent an implementation from making it completely transparent.
+Interesting.  Let&#39;s see where he goes with this.  He does raise a concern with more automation though:* (I do worry slightly about the impact of content management systems fetching and scanning every external link in an entry to determine if it&#39;s ping-able. But that&#39;s not really the issue.)
+Hmm - I suppose if a site gets heavily referred to, that&#39;s a double-Slashdot-effect?  And this investigative process has the potential to add more overhead to the publishing process.  But.. hmm, until I see some convincing ConsideredHarmful arguments, I think the flow producing qualities of this sort of thing are worth it.&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Tue, 24 Sep 2002 18:46:22 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2002/09/24/ooobic/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2002/09/24/ooobic/</guid>
         </item><item>
           <title>Pingback may one-up TrackBack</title>
-          <description>I&#39;ve got some further thoughts on Pingback, provided that my server humors me.
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;I&#39;ve got some further thoughts on Pingback, provided that my server humors me.  
 David Watson says, &quot;uh, no,&quot; citing a horrible experience in actually trying to see the spec in the first place, and a lack of working code.  Not to mention that my site was having a seizure last night - not good things to recommend that one check out a new technology. 
-
 Well, I did manage to see the spec, but haven&#39;t tried implementing it yet.  (Though it shouldn&#39;t be too hard, given a few round tuits.)  A few things, in particular that I like about Pingback:
 
  URIs are used to specify the source and target of the ping, no other information is involved in setting up the relation (ie. arbitrary IDs, etc).  This makes site-wide integration of Pingback drop-dead simple - everything&#39;s already identifiable via URI.
@@ -127,73 +129,76 @@ Well, I did manage to see the spec, but haven&#39;t tried implementing it yet.  
  The XML-RPC server is not tied to any sites it may serve.  I could offer one here, and you could point to it from your site, and if I allowed it I could record pings for you as a service.
 
 
+
+
 All-in-all, Pingback just seems like a more direct, intentional form of referrer log.
-
 One thing I don&#39;t like about Pingback, though (and the same for referrer logs):  It&#39;s just about URIs and links between them.  It says nothing much about titles or excerpts or comment bodies.  The spec suggests that a Pingback server might retrieve &quot;other data required from the content of Alice&#39;s new post,&quot; but makes no statement on how this is to happen.  I like that TrackBack sets down how to provide a bit more information.
-
 I&#39;ve got a vague idea in my little head, and I think it&#39;s something Sam Ruby touched on:  ShowReferers, form-submitted comments, TrackBack, and Pingback are all just different on-ramps to inviting open participation in discussion on one&#39;s blog.  I want to take a shot at implementing Pingback very soon - but I might also try taking a shot at implementing a unified comment system that accepts comments for any URI from any of the aforementioned sources.  I&#39;d also like something that scans a blog entry I post for links, then investigate those links for Pingback/TrackBack availability - all to make the system even more automatic.  I doubt that it would be very difficult, though I am notoriously naive.  On the other hand, I&#39;ve been on a run of making hard things simple lately.  :)
-
-But I sense my round tuits slipping away - back to work!</description>
+But I sense my round tuits slipping away - back to work!&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Tue, 24 Sep 2002 17:37:23 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2002/09/24/ooobib/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2002/09/24/ooobib/</guid>
         </item><item>
           <title>Pingback one-ups TrackBack</title>
-          <description>Amongst his heavily medicated rantings, Mark Pilgrim points at something called Pingback.  At a cursory glance, it seems to answer all my initial gripes about TrackBack.  So, I think I&#39;m going to take more than a cursory glance, and make an implementation in the next few days if I can&#39;t find one ready-made.
-
-Some initial wishes for Pingback:  How about making it two way?  Ping a URL via its autodetected Pingback server, and also retrieve a list of pings for that URL from that server.  Another idea, add a pub/sub method: I supply a URI to monitor and a URI of my own, and the remote Pingback server will ping me at my URI (via my Pingback server) when the monitored URI gets new pings at the remote URI.  Require that the subscription be renewed weekly/daily.  Make sense?  One way to track conversations.</description>
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Amongst his heavily medicated rantings, Mark Pilgrim points at something called Pingback.  At a cursory glance, it seems to answer all my initial gripes about TrackBack.  So, I think I&#39;m going to take more than a cursory glance, and make an implementation in the next few days if I can&#39;t find one ready-made.
+Some initial wishes for Pingback:  How about making it two way?  Ping a URL via its autodetected Pingback server, and also retrieve a list of pings for that URL from that server.  Another idea, add a pub/sub method: I supply a URI to monitor and a URI of my own, and the remote Pingback server will ping me at my URI (via my Pingback server) when the monitored URI gets new pings at the remote URI.  Require that the subscription be renewed weekly/daily.  Make sense?  One way to track conversations.&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Tue, 24 Sep 2002 03:04:17 GMT</pubDate>
-          <link>https://lmorchard.github.io/blog.lmorchard.com/2002/09/24/ooobia/</link>
-          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2002/09/24/ooobia/</guid>
+          <link>https://lmorchard.github.io/blog.lmorchard.com/2002/09/23/ooobia/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2002/09/23/ooobia/</guid>
         </item><item>
           <title>Per-post comment RSS feeds</title>
-          <description>After following the thread on Sam Ruby&#39;s blog about Dave&#39;s  comment tracking feature request, I figured I&#39;d try RSS-izing comments on each of my posts.  As things seem to have been going lately, I&#39;d underestimated MovableType, and it turned out so much easier than I&#39;d thought.  :)  I&#39;d had an RSS feed for comments overall on my site, but now I have individual RSS feeds for each post.  (Notice the  in the comments section now.)  The RSS feed is also linked in the head as per RSS autodiscovery discussions.
-
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;After following the thread on Sam Ruby&#39;s blog about Dave&#39;s  comment tracking feature request, I figured I&#39;d try RSS-izing comments on each of my posts.  As things seem to have been going lately, I&#39;d underestimated MovableType, and it turned out so much easier than I&#39;d thought.  :)  I&#39;d had an RSS feed for comments overall on my site, but now I have individual RSS feeds for each post.  (Notice the  in the comments section now.)  The RSS feed is also linked in the head as per RSS autodiscovery discussions.
 I don&#39;t think aggregators are really ready yet for these per-post comment RSS feeds, but the availability of the data gives food for hacking.  Being that they&#39;re pretty disposable and of interest for a very short time, aggregators will likely need to implement expiry times for feeds, or watch for a period of inactivity before unsubbing.  Grouing feeds would be nice too, in case I wanted to round up all my points of weblog discussion participation.  I&#39;ve got a few things of this sort in my AmphetaOutlinesWishList, with which I hope to play with further aggregator ideas.
-
-If you use MovableType and you&#39;re interested in trying this, check out these two templates:  recent_comments_rss.xml.tmpl, for blog-wide comments; and archive_entry.rss.tmpl, for per-post comments.  The former template is added as an index template in MovableType, whereas the latter is an archive template.  Also, the per-post archive template will need to be added to the list of individual archive templates in the Archiving section of your blog config.  You&#39;ll want to give it a template for the filename, perhaps something like &lt;$MTEntryID pad=&quot;1&quot;$&gt;.rss.
-
-At present, I&#39;m publishing in what I think is vaguely RSS 0.92 format.  Whether it complies with the spec, I&#39;m not quite sure because I was lazy.  I plan to revisit this soon to make it at least comply with RSS 1.0.  ShareAndEnjoy.</description>
+If you use MovableType and you&#39;re interested in trying this, check out these two templates:  recent_comments_rss.xml.tmpl, for blog-wide comments; and archive_entry.rss.tmpl, for per-post comments.  The former template is added as an index template in MovableType, whereas the latter is an archive template.  Also, the per-post archive template will need to be added to the list of individual archive templates in the Archiving section of your blog config.  You&#39;ll want to give it a template for the filename, perhaps something like &amp;lt;$MTEntryID pad=&quot;1&quot;$&amp;gt;.rss.
+At present, I&#39;m publishing in what I think is vaguely RSS 0.92 format.  Whether it complies with the spec, I&#39;m not quite sure because I was lazy.  I plan to revisit this soon to make it at least comply with RSS 1.0.  ShareAndEnjoy.&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Mon, 23 Sep 2002 01:39:58 GMT</pubDate>
-          <link>https://lmorchard.github.io/blog.lmorchard.com/2002/09/23/ooobio/</link>
-          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2002/09/23/ooobio/</guid>
+          <link>https://lmorchard.github.io/blog.lmorchard.com/2002/09/22/ooobio/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2002/09/22/ooobio/</guid>
         </item><item>
           <title>Running Classic from a disk image?</title>
-          <description>So I was just reminded by Mike James  about this tip on running Classic from a disk image on OS X that I&#39;d previously found via Mark Pilgrim.  I think I need to try this the next time I feel like wiping and reinstalling my iBook.  I&#39;ve been meaning to try a different file system under OS X - like, you know, one that&#39;s case-sensitive so that something like /usr/bin/HEAD doesn&#39;t overwrite /usr/bin/head.  That, and I just don&#39;t have very much use for Classic anyway, other than for 2 or 3 apps.</description>
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;So I was just reminded by Mike James  about this tip on running Classic from a disk image on OS X that I&#39;d previously found via Mark Pilgrim.  I think I need to try this the next time I feel like wiping and reinstalling my iBook.  I&#39;ve been meaning to try a different file system under OS X - like, you know, one that&#39;s case-sensitive so that something like /usr/bin/HEAD doesn&#39;t overwrite /usr/bin/head.  That, and I just don&#39;t have very much use for Classic anyway, other than for 2 or 3 apps.&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Sat, 21 Sep 2002 19:41:55 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2002/09/21/ooobhi/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2002/09/21/ooobhi/</guid>
         </item><item>
           <title>FOAF me, FOAF you, FOAF everyone</title>
-          <description>For the hell of it, I have a FOAF document now: lmo-foaf.rdf.  I don&#39;t yet completely understand the spec, but via a referrer left by Tanya Rabourn, I found Leigh Dodds&#39;  FOAF-a-matic and gave it a shot.  Need to do more research.</description>
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;For the hell of it, I have a FOAF document now: lmo-foaf.rdf.  I don&#39;t yet completely understand the spec, but via a referrer left by Tanya Rabourn, I found Leigh Dodds&#39;  FOAF-a-matic and gave it a shot.  Need to do more research.&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Fri, 20 Sep 2002 23:46:32 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2002/09/20/ooobhh/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2002/09/20/ooobhh/</guid>
         </item><item>
           <title>I like JohnCompanies servers</title>
-          <description>Oh, and a quick thing I feel compelled to share:  JohnCompanies is the best hosting I&#39;ve had so far since I started this domain.  I have yet to move everything over to it, but I&#39;m so very impressed at the notices I&#39;ve been getting.  There were two brief outages recently, one planned and one not planned, but the important bit is that I received email telling me about them and what happened before I was even aware there was a situation.
-
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Oh, and a quick thing I feel compelled to share:  JohnCompanies is the best hosting I&#39;ve had so far since I started this domain.  I have yet to move everything over to it, but I&#39;m so very impressed at the notices I&#39;ve been getting.  There were two brief outages recently, one planned and one not planned, but the important bit is that I received email telling me about them and what happened before I was even aware there was a situation.
 I like that.
-
-Update: Shawn Yeager commented that the outage wasn&#39;t really all that brief - 9 hours in fact.  So... well, that does suck.  Personally, I didn&#39;t suffer from it, having yet to completely rely on them.  I do, still, enjoy having gotten the email.  :)</description>
+Update: Shawn Yeager commented that the outage wasn&#39;t really all that brief - 9 hours in fact.  So... well, that does suck.  Personally, I didn&#39;t suffer from it, having yet to completely rely on them.  I do, still, enjoy having gotten the email.  :)&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Fri, 20 Sep 2002 23:29:57 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2002/09/20/ooobhg/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2002/09/20/ooobhg/</guid>
         </item><item>
           <title>The line between man and machine</title>
-          <description>Saw this on Jon Udell&#39;s blog via the #RDFIG chump feed, from Sergey Brin: &quot;I&#39;d rather make progress by having computers understand what humans write, than by forcing humans to write in ways computers can understand.&quot;
-
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Saw this on Jon Udell&#39;s blog via the #RDFIG chump feed, from Sergey Brin: &quot;I&#39;d rather make progress by having computers understand what humans write, than by forcing humans to write in ways computers can understand.&quot;
 Well, sandro on #rdfig writes &quot;Why am I arguing with a sound-bite?&quot;  Why not? :)  Here&#39;s a counter-sound-bite:  Use Newton handwriting recognition, then try Palm&#39;s Graffiti and come back and tell me which seemed more worth while.
-
 The way I look at it, people have muscle memory and can form habitual patterns  and can adapt around interfaces that can become transparent and second nature.  That is, if the interface doesn&#39;t go too far away from usability.  I think Graffiti was a good compromise between machine and human understanding.  Let the machine focus with its autistic intensity on the task at hand, and let the human fill in the gaps.  This is why I fully expect to see Intelligence Amplification arrive many, many moons before Artificial Intelligence arrives, if ever.
-
-I doubt that machines will ever come up far enough to meet man, but man and machine can meet halfway and still have an astonishing relationship.  So, one can spend enormous resources trying to make computers understand people (who barely understand themselves), or we can make understandable interfaces and mostly intelligible systems and fudge the rest.</description>
+I doubt that machines will ever come up far enough to meet man, but man and machine can meet halfway and still have an astonishing relationship.  So, one can spend enormous resources trying to make computers understand people (who barely understand themselves), or we can make understandable interfaces and mostly intelligible systems and fudge the rest.&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Fri, 20 Sep 2002 23:04:15 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2002/09/20/ooobhf/</link>

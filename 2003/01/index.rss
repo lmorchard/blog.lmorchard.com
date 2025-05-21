@@ -4,115 +4,171 @@
       <title>blog.lmorchard.com</title>
       <description>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</description>
       <link>https://lmorchard.github.io/blog.lmorchard.com</link>
-      <atom:link href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" rel="self" type="application/rss+xml" />      
+      <atom:link href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" rel="self" type="application/rss+xml" />
       <item>
           <title>An end to my referrer abuse</title>
-          <description>Amen. I’ve always found it irritating that news aggregators insert their URL into the referrer field. ... It would be nice if there was some sort of browser header the aggregator could send to identify itself instead of using the referrer field. Oh, that’s right, there is. It’s called User-Agent. 
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Amen. I’ve always found it irritating that news aggregators insert their URL into the referrer field. ... It would be nice if there was some sort of browser header the aggregator could send to identify itself instead of using the referrer field. Oh, that’s right, there is. It’s called User-Agent. 
 The user agent field is designed for browsers, robots, and other user agents to identify themselves to the Web server. You can even add additional information, like a contact URL or email address. I’d like to see aggregators start using it. 
+
+
+
+
 Source:Kalsey Consulting Group: Referral Abuse.
+
+
+
+
 Hmm, being mostly a standards neophyte, I thought this was a great idea, you know, NeatLikeDigitalWatches.  I thought this was more a semi-clever overloading of the referer, rather than outright abuse.  And this, I thought, was reasonably okay since there wasn&#39;t, I thought, anywhere else to stick a backlink to myself while consuming RSS feeds.
 Well, yeah, now that I read some of the complaints against this use of referers, I agree.  And, yes, now that I read the fine RFC, I see that the User-Agent string is more appropriate for this purpose.
 So!  From now on, hits from my copy of AmphetaDesk will leave behind a User-Agent string similar to this:
 &quot;AmphetaDesk/0.93 (darwin; http: //www.disobey.com/amphetadesk/; http: //www.decafbad.com/thanks-for-feeding-me.phtml)&quot;
 I tack my own personal thanks URL onto the end of the list within the parenthesis.  In addition, I no longer send a referrer string when I download RSS feeds.  How did I do it?  Very simply.
 First, I modify my AmphetaDesk/data/mySettings.xml file by hand to supply a blank referer and a new user URL (having some angle-bracket problems, bear with me):
+
+
 [user]
-    ... 
-    [http_referer][/http_referer]
-    [user_url]http://www.decafbad.com/thanks-for-feeding-me.phtml[/user_url]
-    ...
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;... 
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;[http_referer][/http_referer]
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;[user_url]http://www.decafbad.com/thanks-for-feeding-me.phtml[/user_url]
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;...
 [/user]
+
+
+
 
 Second, I modified AmphetaDesk/lib/AmphetaDesk/Settings.pm to account for the new setting:...
    $SETTINGS{user_http_referer}               = &quot;http://www.disobey.com/amphetadesk/&quot;;
    $SETTINGS{user_user_url}                   = &quot;http://www.disobey.com/amphetadesk/&quot;;
    $SETTINGS{user_link_target}                = &quot;_blank&quot;;
-...Third, I modified the create_ua() subroutine in AmphetaDesk/lib/AmphetaDesk/WWW.pm to actually use the new setting:
+...
+Third, I modified the create_ua() subroutine in AmphetaDesk/lib/AmphetaDesk/WWW.pm to actually use the new setting:
 sub create_ua {
 ...
-    my $ua = new LWP::UserAgent; $ua-&gt;env_proxy();
-    $ua-&gt;timeout(get_setting(&quot;user_request_timeout&quot;));
-    my ($app_v, $app_u, $app_o, $user_u) = (get_setting(&quot;app_version&quot;),
-            get_setting(&quot;app_url&quot;), get_setting(&quot;app_os&quot;), get_setting(&quot;user_user_url&quot;));
-    $ua-&gt;agent(&quot;AmphetaDesk/$app_v ($app_o; $app_u; $user_u)&quot;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;my $ua = new LWP::UserAgent; $ua-&amp;gt;env_proxy();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$ua-&amp;gt;timeout(get_setting(&quot;user_request_timeout&quot;));
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;my ($app_v, $app_u, $app_o, $user_u) = (get_setting(&quot;app_version&quot;),
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;get_setting(&quot;app_url&quot;), get_setting(&quot;app_os&quot;), get_setting(&quot;user_user_url&quot;));
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$ua-&amp;gt;agent(&quot;AmphetaDesk/$app_v ($app_o; $app_u; $user_u)&quot;);
 ...
 }
-And voila - no more referer abuse.  If you want to discover my thank-you message, examine the User-Agent string.  Seems like this would be a good idea for all news aggregators to pick up.  And if I get ambitious and have spare time today, I&#39;ll be sending off a patch to Morbus &amp; friends later today.
-Update: Gagh!  This has been the hardest post to try to format correctly within the fancy schmancy auto-formatting widgets I have piped together.  All apologies for content resembling garbage.  I think I&#39;ll use this excuse in the future whenever I write something completely daft.  (Which means I&#39;ll be using it a lot, most likely.)</description>
+
+And voila - no more referer abuse.  If you want to discover my thank-you message, examine the User-Agent string.  Seems like this would be a good idea for all news aggregators to pick up.  And if I get ambitious and have spare time today, I&#39;ll be sending off a patch to Morbus &amp;amp; friends later today.
+Update: Gagh!  This has been the hardest post to try to format correctly within the fancy schmancy auto-formatting widgets I have piped together.  All apologies for content resembling garbage.  I think I&#39;ll use this excuse in the future whenever I write something completely daft.  (Which means I&#39;ll be using it a lot, most likely.)&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Fri, 31 Jan 2003 19:50:51 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/01/31/ooodoe/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/01/31/ooodoe/</guid>
         </item><item>
           <title>INN + blagg + plugin = News Aggregation via NNTP</title>
-          <description>I couldn&#39;t resist a bit of tinkering with NNTP, partly to follow up a little bit myself on RSS to/via NNTP, but mostly in fact to re-acquaint myself with the wonderfully arcane configuration of the  majestic beast that is inn . In addition, there&#39;s been talk recently of aggregators moving out of the realms of satellite applications and into the browser itself. The Blagg and Blosxom powered Morning Reading page - my personal (but open) news aggregator - is already web-based, so I thought I&#39;d have a look in the other direction. Source:DJ&#39;s Weblog: Tinkering with RSS and NNTP .
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;I couldn&#39;t resist a bit of tinkering with NNTP, partly to follow up a little bit myself on RSS to/via NNTP, but mostly in fact to re-acquaint myself with the wonderfully arcane configuration of the  majestic beast that is inn . In addition, there&#39;s been talk recently of aggregators moving out of the realms of satellite applications and into the browser itself. The Blagg and Blosxom powered Morning Reading page - my personal (but open) news aggregator - is already web-based, so I thought I&#39;d have a look in the other direction. 
+
+Source:DJ&#39;s Weblog: Tinkering with RSS and NNTP .
+
+
+
+
 I&#39;ve been toying around with doing this with inn for quite some time now, so I&#39;m happy to see someone else actually follow through and give it a whirl.  And, using blagg with a plugin to do the posting seems just the right twist of clever.
 Yeah, inn&#39;s a beast and meant for Usenet-scale beating, but it&#39;s Just There on many Linux installations.  And blagg seems to do a decent job of prying content out of RSS feeds, with just a few regular expression incantations.  DJ didn&#39;t have to reinvent an NNTP server, or create a brand new aggregator - just a few tweaks and glue, and two existing apps are joined in a completely new and interestingly complementary way.
 Though one thing he says:  &quot;As I saw it, there are two approaches to newsgroup article creation ... Send items from all weblogs to the same newsgroup ... Send items from each weblog to a separate newsgroup.&quot;  First thing I was wondering is:  Why not cross-post the articles and have both?
 And then there&#39;re the ideas for experimentation that come first to mind: &quot;... Combining the various weblog trackbacking mechanisms with NNTP article IDs to link  articles together in a thread; replying (to the newsgroup) to an  article might send a comment to the post at the source weblog.&quot;
-Kinda retro, kinda nouveau, joining the new distributed RSS net up with the semi-distributed NNTP net.</description>
+Kinda retro, kinda nouveau, joining the new distributed RSS net up with the semi-distributed NNTP net.&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Thu, 30 Jan 2003 18:03:59 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/01/30/ooodod/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/01/30/ooodod/</guid>
         </item><item>
           <title>How to make a multi-platform monster</title>
-          <description>So I&#39;m thinking that I might prematurely release some code before the week is out, so anyone who&#39;s interested can point and laugh at my PersonalWebProxy exploits - this time in Java.
-One thing that disturbs me a bit about this thing so far is that, for what I have in mind, I&#39;ll have built a mini-OS when all is said and done.  It&#39;ll have a web server, a web proxy, telnet-able shell, scripting languages, scheduler, full text search and index engine, persistence &amp; metadata storage, and whatever else I can eventually think to toss in.  There are just so many nice toys for Java, and most are a snap to glue together.  But, I can&#39;t really use any of the toys that come with the OS itself.
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;So I&#39;m thinking that I might prematurely release some code before the week is out, so anyone who&#39;s interested can point and laugh at my PersonalWebProxy exploits - this time in Java.
+One thing that disturbs me a bit about this thing so far is that, for what I have in mind, I&#39;ll have built a mini-OS when all is said and done.  It&#39;ll have a web server, a web proxy, telnet-able shell, scripting languages, scheduler, full text search and index engine, persistence &amp;amp; metadata storage, and whatever else I can eventually think to toss in.  There are just so many nice toys for Java, and most are a snap to glue together.  But, I can&#39;t really use any of the toys that come with the OS itself.
 It&#39;s something I&#39;ve rambled on about before, as has Jon Udell in his old Byte column: Zope Lessons Learned.  If this thing is to run on more than one platform, it can&#39;t rely on the facilities of any particular platform.  So, all these lovely things I like OS X for are somewhat off limits.
-On the other hand, if I get tired of doing this thing in Java, I could always just finally embrace the platform and go straight for Cocoa.  :)  Yes, that would make for 3 environments tried, but hey - it&#39;s still fun for me!</description>
+On the other hand, if I get tired of doing this thing in Java, I could always just finally embrace the platform and go straight for Cocoa.  :)  Yes, that would make for 3 environments tried, but hey - it&#39;s still fun for me!&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Tue, 28 Jan 2003 07:07:53 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/01/28/ooodoc/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/01/28/ooodoc/</guid>
         </item><item>
           <title>Etiquette with friends &amp; relationships in FOAF?</title>
-          <description>interestingly, it seems that besides myself there are a goodly number of people wondering about the etiquette surrounding foaf friend declaration. while it&#39;s mostly a social and not technical problem, it&#39;s precisely the sort of thing that will keep foaf from reaching any kind of critical mass. Source:snowdeal.org, ex machina.
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;interestingly, it seems that besides myself there are a goodly number of people wondering about the etiquette surrounding foaf friend declaration. while it&#39;s mostly a social and not technical problem, it&#39;s precisely the sort of thing that will keep foaf from reaching any kind of critical mass. 
+
+Source:snowdeal.org, ex machina.
+
+
+
+
 I&#39;ve wondered a bit about this, too.  If I&#39;ve heard of you, can I list you as a friend?  If I&#39;ve emailed you once or twice?  How about if I&#39;ve dated your sister?
-However, Eric Vitiello Jr. has an interesting schema for further specifying relationships in FOAF.</description>
+However, Eric Vitiello Jr. has an interesting schema for further specifying relationships in FOAF.&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Sat, 25 Jan 2003 21:29:49 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/01/25/ooodob/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/01/25/ooodob/</guid>
         </item><item>
           <title>Yes, Virginia, there is a Log4Perl.</title>
-          <description>Log::Log4perl is different. It is a pure Perl port of the widely popular Apache/Jakarta log4j library for Java, a project made public in 1999, which has been actively supported and enhanced by a team around head honcho Ceki Gülcü during the years. 
-The comforting facts about log4j are that it&#39;s really well thought out, it&#39;s the alternative logging standard for Java and it&#39;s been in use for years with numerous projects. If you don&#39;t like Java, then don&#39;t worry, you&#39;re not alone -- the Log::Log4perl authors (yours truly among them) are all Perl hardliners who made sure Log::Log4perl is real Perl. Source:perl.com: Retire your debugger, log smartly with Log::Log4perl! .
-Wow, I hadn&#39;t noticed this before.  We&#39;ve been looking for a Log4J-workalike in for our perl-based web apps at work, and thought CPAN:Log::Agent was where it&#39;s at - and it still may be - but CPAN:Log::Log4Perl looks very keen now.</description>
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Log::Log4perl is different. It is a pure Perl port of the widely popular Apache/Jakarta log4j library for Java, a project made public in 1999, which has been actively supported and enhanced by a team around head honcho Ceki Gülcü during the years. 
+The comforting facts about log4j are that it&#39;s really well thought out, it&#39;s the alternative logging standard for Java and it&#39;s been in use for years with numerous projects. If you don&#39;t like Java, then don&#39;t worry, you&#39;re not alone -- the Log::Log4perl authors (yours truly among them) are all Perl hardliners who made sure Log::Log4perl is real Perl. 
+
+Source:perl.com: Retire your debugger, log smartly with Log::Log4perl! .
+
+
+
+
+Wow, I hadn&#39;t noticed this before.  We&#39;ve been looking for a Log4J-workalike in for our perl-based web apps at work, and thought CPAN:Log::Agent was where it&#39;s at - and it still may be - but CPAN:Log::Log4Perl looks very keen now.&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Sat, 25 Jan 2003 18:35:22 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/01/25/ooodoa/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/01/25/ooodoa/</guid>
         </item><item>
           <title>Dive into Premium!</title>
-          <description>A new and better way to experience the &quot;Dive Into&quot; empire!  For only a few cents a day, you get fast, uncluttered access to your favorite &quot;Dive Into&quot; sites, with premium features available only to subscribers. Source:Dive Into Premium .
-Finally!  All of those pop-ups, pop-unders, DoubleClick cookies, and epilepsy-inducing banners were really getting to me.  And if Mark Pilgrim can do for full frontal nudity what he did for web accessibility, I&#39;m sure we&#39;re seeing the start of something big here.</description>
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;A new and better way to experience the &quot;Dive Into&quot; empire!  For only a few cents a day, you get fast, uncluttered access to your favorite &quot;Dive Into&quot; sites, with premium features available only to subscribers. 
+
+Source:Dive Into Premium .
+
+
+
+
+Finally!  All of those pop-ups, pop-unders, DoubleClick cookies, and epilepsy-inducing banners were really getting to me.  And if Mark Pilgrim can do for full frontal nudity what he did for web accessibility, I&#39;m sure we&#39;re seeing the start of something big here.&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Fri, 24 Jan 2003 09:11:43 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/01/24/ooodoo/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/01/24/ooodoo/</guid>
         </item><item>
           <title>Super-lazy link blogging &amp; in-bookmarks RSS aggregation via AppleScript?</title>
-          <description>And one more post for the night:  I wish Safari gave AppleScript access to read and manipulate bookmarks.  If it does, I can&#39;t find it.  I&#39;ve been playing around with AppleScript folder actions, Matt Webb&#39;s link blogging folder hack, and BlogScript.  I&#39;ve been thinking, for good or bad, I&#39;d like to do more link blogging.  Well, in Safari, I&#39;ve created a toolbar bookmark folder called &quot;READ/BLOG QUEUE&quot; into which I drop links for later reading and/or blogging.
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;And one more post for the night:  I wish Safari gave AppleScript access to read and manipulate bookmarks.  If it does, I can&#39;t find it.  I&#39;ve been playing around with AppleScript folder actions, Matt Webb&#39;s link blogging folder hack, and BlogScript.  I&#39;ve been thinking, for good or bad, I&#39;d like to do more link blogging.  Well, in Safari, I&#39;ve created a toolbar bookmark folder called &quot;READ/BLOG QUEUE&quot; into which I drop links for later reading and/or blogging.
 So...  If I could get at that bookmark folder via AppleScript, I could schedule and generate a templated blog entry for auto-posting every night, listing just the links I&#39;ve left in that bookmark folder, and clear it out when it&#39;s all done.  I could do the same thing with just a Folder Action enabled desktop folder, but it&#39;s just so much more convenient to drop things on the toolbar.
-And then, there&#39;s the other wild idea I&#39;d use scriptable bookmarks for:  RSS aggregation.  Imagine bookmark folders dynamically generated and updated from RSS feeds.  Maybe even one big bookmark folder with RSS items aggregated from many feeds.  This seems somewhat appealing to me.</description>
+And then, there&#39;s the other wild idea I&#39;d use scriptable bookmarks for:  RSS aggregation.  Imagine bookmark folders dynamically generated and updated from RSS feeds.  Maybe even one big bookmark folder with RSS items aggregated from many feeds.  This seems somewhat appealing to me.&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Fri, 24 Jan 2003 07:42:25 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/01/24/ooocii/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/01/24/ooocii/</guid>
         </item><item>
           <title>BeanShell rocks - and, oh yeah, a personal proxy in Java</title>
-          <description>Have I mentioned lately that I ♥ BeanShell for Java?
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Have I mentioned lately that I ♥ BeanShell for Java?
 I haven&#39;t said much about it lately, but I&#39;m still working on my PersonalWebProxy - only this time I&#39;m playing with Java and all the goodies I was wishing for while in Python.  I&#39;ve got Jena and Lucene and HSQL and BSF and Quartz and Muffin and...  well, a lot of stuff that feels pretty nice to me.
 But, with respect to BeanShell in particular, I&#39;ve got a lot of the nifty live hackability that I had with the things I was playing with in Python.  With no more than 5 lines of code, I&#39;ve tossed a live interactive shell into my running proxy, into which I can telnet or access via Java console in a browser.  With this, I can get into the machinery before I take the time composing a UI, inserting/removing plugins at will, tossing together new proxy filters on the fly, composing RDQL queries adhoc, tweaking Lucene searches.
-Fun stuff, and so easy.  But, sorry, no further code from me yet.  It&#39;s very ugly, and barely works, but it&#39;s just a sketchpad at the moment.  I hope to have a little something before the end of the month to pass around, should anyone still be interested.</description>
+Fun stuff, and so easy.  But, sorry, no further code from me yet.  It&#39;s very ugly, and barely works, but it&#39;s just a sketchpad at the moment.  I hope to have a little something before the end of the month to pass around, should anyone still be interested.&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Fri, 24 Jan 2003 07:12:39 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/01/24/ooocih/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/01/24/ooocih/</guid>
         </item><item>
           <title>AppleScript and application services in the closet</title>
-          <description>Apple&#39;s Script Editor 2.0 for OS 10.2.3 has support for Application Services . Basically, you can hilight some valid AppleScript text in any supporting application (like Safari, for instance) and 
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Apple&#39;s Script Editor 2.0 for OS 10.2.3 has support for Application Services . Basically, you can hilight some valid AppleScript text in any supporting application (like Safari, for instance) and 
 
  execute the script [or] 
 
@@ -121,64 +177,119 @@ Fun stuff, and so easy.  But, sorry, no further code from me yet.  It&#39;s very
  put the text into Script Editor. 
 
 
+
+
 Source:Mac OS X Hints: Run AppleScripts via system services.
+
+
+
+
 Neat!  Now...  can we do something about making access to those services a bit more prominent?  System-wide functions buried in a menu obscurely labeled &quot;Services&quot; under an app-specific menu label doesn&#39;t seem very inviting or intuitive.  AppleScript gets insanely better treatment than this.  I&#39;d like to see these services pushed just as far forward, and more easily discoverable.  It&#39;s been awhile since I played in Cocoa, but for awhile I was wondering if rearrange things a bit, maybe pull the service items for the currently active app into a menu extra or something.  Or, at least pull the menu up a level, maybe stick it next to the &quot;Script&quot; where appropriate.  And, I&#39;d love to be able to customize the keyboard shortcuts assigned to them - some have shortcuts and I&#39;ll rarely use them, while others have no shortcut and I wish I could use them all the time.
-It&#39;s good stuff, Apple, show it off.</description>
+It&#39;s good stuff, Apple, show it off.&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Fri, 24 Jan 2003 03:40:23 GMT</pubDate>
-          <link>https://lmorchard.github.io/blog.lmorchard.com/2003/01/24/ooocig/</link>
-          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/01/24/ooocig/</guid>
+          <link>https://lmorchard.github.io/blog.lmorchard.com/2003/01/23/ooocig/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/01/23/ooocig/</guid>
         </item><item>
           <title>Vellum and coffee rings</title>
-          <description>Vellum is a server-hosted application to run weblogs for you. It&#39;s like MovableType or b2, in that it&#39;s hosted on your web server. And it&#39;s written in Python. Source:Vellum: a weblogging system in Python .
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Vellum is a server-hosted application to run weblogs for you. It&#39;s like MovableType or b2, in that it&#39;s hosted on your web server. And it&#39;s written in Python. 
+
+Source:Vellum: a weblogging system in Python .
+
+
+
+
 Need to check this out, have been itching to revamp this place and rethink what I want to do around here since it&#39;s coming up on my 1st full year out here in the blogosphere at large.
-Funny thing, too, is that the coffee-ring-like background image on that page looks exactly like some of the first designs I played around with for my site.  Only his looks much better than mine did.  :)</description>
+Funny thing, too, is that the coffee-ring-like background image on that page looks exactly like some of the first designs I played around with for my site.  Only his looks much better than mine did.  :)&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Thu, 23 Jan 2003 23:49:41 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/01/23/ooocif/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/01/23/ooocif/</guid>
         </item><item>
           <title>Looking for variable row height in your NSOutlineViews and NSTableViews?</title>
-          <description>Apple&#39;s Cocoa library contains two very good table controls, ?NSTableView and it&#39;s close relative, ?NSOutlineView . However, both of these controls have one large limitation: All the rows must be the same height. This is an issue when displaying table cells with content that varies in height, such as large amounts of text or images. Luckily, Apple&#39;s Cocoa controls were also very well designed, making it possible to add this functionality simply by subclassing the table views. ?RowResizableTableView is an ?NSTableView subclass which allows each row to have variable heights, and ?RowResizableOutlineView is an ?NSOutlineView subclass with the same functionality. Source:RowResizableTableView: Variable Row Height Tables and Outlines .
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Apple&#39;s Cocoa library contains two very good table controls, ?NSTableView and it&#39;s close relative, ?NSOutlineView . However, both of these controls have one large limitation: All the rows must be the same height. This is an issue when displaying table cells with content that varies in height, such as large amounts of text or images. Luckily, Apple&#39;s Cocoa controls were also very well designed, making it possible to add this functionality simply by subclassing the table views. ?RowResizableTableView is an ?NSTableView subclass which allows each row to have variable heights, and ?RowResizableOutlineView is an ?NSOutlineView subclass with the same functionality. 
+
+Source:RowResizableTableView: Variable Row Height Tables and Outlines .
+
+
+
+
 Wow.  Although I think my Arboretum project is very likely asleep for good, it was the want for this particular component that most discouraged me from continuing with my outliner.  Nowadays what keeps me away is the absolute brilliant quality OmniGroup&#39;s OmniOutliner and the fact that it supports AppleScript, and furthermore, the fact that AppleScript has its tendrils in abso-freaking-lutely every app that seems to matter to me.  So, I can pretty much have everything I wanted to have out of Arboretum right now.
-But I&#39;d still like to come up with a decent project in Cocoa for myself.  It&#39;s just so damn comfy to develop with.</description>
+But I&#39;d still like to come up with a decent project in Cocoa for myself.  It&#39;s just so damn comfy to develop with.&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Thu, 23 Jan 2003 23:44:07 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/01/23/ooocie/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/01/23/ooocie/</guid>
         </item><item>
           <title>Python is for superheroes</title>
-          <description>I&#39;ve been wasting some of my time playing the superhero role-playing computer game Freedom Force, which turns out to be done in Python. Source:The Happiest Geek on Earth: Python for superheroes .
-Swanky!  I&#39;ve been thinking about getting that game, off and on, wondering if my aging 600Mhz desktop PC would run it.  It looks like a hoot - and if it&#39;s that nifty under the hood, it should be pretty fun to hack with occasionally.  :)</description>
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;I&#39;ve been wasting some of my time playing the superhero role-playing computer game Freedom Force, which turns out to be done in Python. 
+
+Source:The Happiest Geek on Earth: Python for superheroes .
+
+
+
+
+Swanky!  I&#39;ve been thinking about getting that game, off and on, wondering if my aging 600Mhz desktop PC would run it.  It looks like a hoot - and if it&#39;s that nifty under the hood, it should be pretty fun to hack with occasionally.  :)&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Wed, 22 Jan 2003 17:44:02 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/01/22/ooocid/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/01/22/ooocid/</guid>
         </item><item>
           <title>Why Moblog?</title>
-          <description>It&#39;s only day two, yet I have nothing to Moblog today. Yesterday I was bopping around the city from my main office to the Sun testing center to lunch with my wife. Today I&#39;m at the office in front of my computer, where I will probably remain until after dark. I guess I can moblog my lunch... It probably won&#39;t be that exciting. Source:Russell Beattie Notebook: Moblogging Thoughts .
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;It&#39;s only day two, yet I have nothing to Moblog today. Yesterday I was bopping around the city from my main office to the Sun testing center to lunch with my wife. Today I&#39;m at the office in front of my computer, where I will probably remain until after dark. I guess I can moblog my lunch... It probably won&#39;t be that exciting. 
+
+Source:Russell Beattie Notebook: Moblogging Thoughts .
+
+
+
+
 Is Russell losing the Moblogging faith already?  :)  He raises an interesting, mostly obvious point:  After all the whiz-bang setup and build up - what do you have that&#39;s so important that it&#39;s worth covering in mobile multimedia splendor?
 On one hand, some would say, &quot;Nada mucho,&quot; and hang up their camera peripheral.  Me, well, I don&#39;t have the hardware yet to deluge my corner of the web with instant snaps and clips of me, my girl, the cats, and co-workers.  (Though I have gotten a start on it.)  But, I find what Russell&#39;s posted so far to be fascinating and amusing.  Of course, he&#39;s in an exotic locale with respect to me.  Why else, unless he was a photographic genius, would his lunch seem interesting to me?  Then again, I might be in an exotic locale with respect to someone else.
-Anyway, after all the fun of connecting various bits together, you always come back to finding a reason to use it if you hadn&#39;t had one to begin with.  Sometimes the reason ends up being that it&#39;s just fun to play with bits connected together, and that someone somewhere might just find the result interesting.  No one&#39;s forcing anyone to look at all the pictures of the world&#39;s cats, you know?</description>
+Anyway, after all the fun of connecting various bits together, you always come back to finding a reason to use it if you hadn&#39;t had one to begin with.  Sometimes the reason ends up being that it&#39;s just fun to play with bits connected together, and that someone somewhere might just find the result interesting.  No one&#39;s forcing anyone to look at all the pictures of the world&#39;s cats, you know?&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Tue, 21 Jan 2003 18:03:09 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/01/21/ooocic/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/01/21/ooocic/</guid>
         </item><item>
           <title>RSS as a more generalized message queue for people</title>
-          <description>It seems that beyond carrying syndication information, RSS is a very useful and flexible way to get all sorts of application data pushed to a user over time. In the same way that a web browser is a universal canvas upon which limitless services and information can be painted, so (in an  albeit much smaller way) an RSS reader/aggregator might also find its  place as an inbox for time-related delivery of all sorts of information. Source:DJ&#39;s Weblog: The universal canvas and RSS apps .
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;It seems that beyond carrying syndication information, RSS is a very useful and flexible way to get all sorts of application data pushed to a user over time. In the same way that a web browser is a universal canvas upon which limitless services and information can be painted, so (in an  albeit much smaller way) an RSS reader/aggregator might also find its  place as an inbox for time-related delivery of all sorts of information. 
+
+Source:DJ&#39;s Weblog: The universal canvas and RSS apps .
+
+
+
+
 My thoughts exactly.  Not sure if I&#39;ve posted here about it, but I know during the whole RSS hubbub this fall, I&#39;d babbled something about RSS being a messaging queue from machines to humans.  Or a transport for timely ephemera to people.  Or something like that.  Basically, I&#39;d like to see RSS, or something like it, used beyond just headlines.  This is why I&#39;ve leaned toward the RDF-in-RSS camp - I want to see lots of things besides titles and excerpts hung off the individual message events, and RDF seems downright nifty to me for this.
-But either way, I like the expanded notion of RSS usage as a timestream-oriented stream of messages targeted at subscribed people.</description>
+But either way, I like the expanded notion of RSS usage as a timestream-oriented stream of messages targeted at subscribed people.&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Tue, 21 Jan 2003 17:23:01 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/01/21/ooocib/</link>
           <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2003/01/21/ooocib/</guid>
         </item><item>
           <title>You had 1200 baud?  Sheer luxury!</title>
-          <description>I used an HP 1200bps external modem.  To connect to BBSes.  When I was in elementary school.  I remember tearing through the latest Focke&#39;s BBS list.  It was the definitive guide to DC-metro BBSes.  I&#39;d print it out on my Okidata dot-matrix printer on fan-folded continuous feed paper with the holes on the sides.  Then I&#39;d grab a pen or pencil, mark up some interesting BBSes, fire up Procomm and try to connect. Source:postneo: 1200 bps .
+          <description
+                >&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;I used an HP 1200bps external modem.&amp;nbsp; To connect to BBSes.&amp;nbsp; When I was in elementary school.&amp;nbsp; I remember tearing through the latest Focke&#39;s BBS list.&amp;nbsp; It was the definitive guide to DC-metro BBSes.&amp;nbsp; I&#39;d print it out on my Okidata dot-matrix printer on fan-folded continuous feed paper with the holes on the sides.&amp;nbsp; Then I&#39;d grab&amp;nbsp;a pen or pencil, mark up some interesting BBSes, fire up Procomm and try to connect. 
+
+Source:postneo: 1200 bps .
+
+
+
+
 Oh yeah?  Well, my first experience with dialing up in Jr. High was with a 300 bps modem on a C=64.  I used to pour over Horst Mann&#39;s 313 area code BBS list and sneak in calls to long-distance BBSes throughout Michigan, for which I&#39;d later pay dearly out of my allowance.  :)  I remember coveting my friend&#39;s hulking Tandy PC and its 1200 baud modem (nearly a full screen of text at one time when playing BBS games).  Then, I bought a 2400 baud modem with an adapter, and became the envy of everyone - until they all moved up to 2400 and then 14.4K.
 I&#39;m sure someone else can give me an oh yeah, too, and we can work up a skit ala Monty Python&#39;s &quot;We Were Poor&quot;.  (&quot;You were lucky to have a lake! There were 15 of us living in a cardboard box in the middle of the road!&quot;)
-What I really miss from the BBS days, though, is the local community.  Used to be that far away places were far away, and near places were near, and you had to go through the near places first before you could visit far places.  So, communities formed around BBSes, even as those around be began changing into mere portals onto the internet, and then later to become fledgling dialup ISPs.  Nowadays, the distance between points on the net is measured in terms of interest, attention, and affinity, without regard to physical location.  It&#39;s so much harder to get together for a cup of coffee with the people behind the keyboards these days.  :)</description>
+What I really miss from the BBS days, though, is the local community.  Used to be that far away places were far away, and near places were near, and you had to go through the near places first before you could visit far places.  So, communities formed around BBSes, even as those around be began changing into mere portals onto the internet, and then later to become fledgling dialup ISPs.  Nowadays, the distance between points on the net is measured in terms of interest, attention, and affinity, without regard to physical location.  It&#39;s so much harder to get together for a cup of coffee with the people behind the keyboards these days.  :)&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Tue, 21 Jan 2003 16:13:46 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2003/01/21/ooocia/</link>

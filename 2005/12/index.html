@@ -1,452 +1,805 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>2005/12 - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>2005/12 - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Month: 2005/12</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-12-31T20:19:18+00:00">
-              2005
-              December
-              31
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/12/31/chatbots-rss-hot/">
-              <span class="infoContainer">
-                <span class="title">Chatbots + RSS = Hot?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2005-12-31T19:54:00+00:00">
-              2005
-              December
-              31
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/12/31/on-choosing-python-for-hacking-rss-and-atom/">
-              <span class="infoContainer">
-                <span class="title">On choosing Python for Hacking RSS and Atom</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-12-29T19:35:36+00:00">
-              2005
-              December
-              29
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/12/29/stray-bullets-of-incoherent-thought/">
-              <span class="infoContainer">
-                <span class="title">Stray bullets of incoherent thought</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-12-23T21:46:30+00:00">
-              2005
-              December
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/12/23/like-a-blonde-ouroboros/">
-              <span class="infoContainer">
-                <span class="title">Like a blonde ouroboros</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-12-22T17:17:19+00:00">
-              2005
-              December
-              22
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/12/22/modding-is-not-the-same-as-piracy/">
-              <span class="infoContainer">
-                <span class="title">Modding is not the same as piracy</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-xml tag-feedmagick tag-lazyweb tag-syndcation tag-facepalm"
-          >
-            <time class="date" datetime="2005-12-19T23:15:03+00:00">
-              2005
-              December
-              19
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/12/19/sometimes-the-lazyweb-delivers-with-a-deluge/">
-              <span class="infoContainer">
-                <span class="title">Sometimes the lazyweb delivers with a deluge</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-12-19T11:01:08+00:00">
-              2005
-              December
-              19
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/12/19/feedburner-feeds-give-heartburn-to-php-xml-parsers/">
-              <span class="infoContainer">
-                <span class="title">FeedBurner feeds give heartburn to PHP XML parsers?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-ajax tag-json tag-webdev tag-xml"
-          >
-            <time class="date" datetime="2005-12-19T04:17:55+00:00">
-              2005
-              December
-              19
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/12/19/okay-okay-json-is-pretty-hot/">
-              <span class="infoContainer">
-                <span class="title">Okay, okay, JSON is pretty hot</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-webdev tag-javascript"
-          >
-            <time class="date" datetime="2005-12-19T03:59:31+00:00">
-              2005
-              December
-              19
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/12/19/js-versus-php/">
-              <span class="infoContainer">
-                <span class="title">JS versus PHP?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-webdev tag-python tag-ruby tag-perl"
-          >
-            <time class="date" datetime="2005-12-19T03:50:25+00:00">
-              2005
-              December
-              19
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/12/19/not-so-deep-php-thoughts/">
-              <span class="infoContainer">
-                <span class="title">Not-so-deep PHP thoughts</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-ajax tag-json tag-webdev tag-web20 tag-rss tag-syndication tag-atom tag-javascript"
-          >
-            <time class="date" datetime="2005-12-19T03:01:51+00:00">
-              2005
-              December
-              19
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/12/19/feedmagick-gains-an-rss-to-json-filter/">
-              <span class="infoContainer">
-                <span class="title">FeedMagick gains an RSS-to-JSON filter</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-hacks tag-fun tag-nifty tag-fax"
-          >
-            <time class="date" datetime="2005-12-15T21:55:58+00:00">
-              2005
-              December
-              15
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/12/15/stupid-fun-with-fax-machines/">
-              <span class="infoContainer">
-                <span class="title">Stupid fun with fax machines</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-12-14T17:08:46+00:00">
-              2005
-              December
-              14
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/12/14/hacking-delicious-is-a-real-book/">
-              <span class="infoContainer">
-                <span class="title">Hacking del.icio.us is a real book!</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-rss tag-syndication tag-atom tag-osx tag-ninja tag-pirate tag-monkey tag-robot"
-          >
-            <time class="date" datetime="2005-12-13T21:08:06+00:00">
-              2005
-              December
-              13
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/12/13/safari-rss-database-columns-not-so-mysterious-now/">
-              <span class="infoContainer">
-                <span class="title">Safari RSS database columns not so mysterious now</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-rss tag-syndication tag-atom tag-osx tag-feeds"
-          >
-            <time class="date" datetime="2005-12-13T13:50:13+00:00">
-              2005
-              December
-              13
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/12/13/more-on-ignorant-feed-handling/">
-              <span class="infoContainer">
-                <span class="title">More on ignorant feed handling</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2005-12-13T06:26:42+00:00">
-              2005
-              December
-              13
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/12/13/feedmagick-the-feed-filter-that-doesnt-know-much-about-feeds/">
-              <span class="infoContainer">
-                <span class="title">FeedMagick, the feed filter that doesn&#39;t know much about feeds</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-12-13T06:23:44+00:00">
-              2005
-              December
-              13
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/12/13/feedmagick-the-show-me-dont-tell-me-edition/">
-              <span class="infoContainer">
-                <span class="title">FeedMagick, the show-me-don&#39;t-tell-me edition</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-12-12T04:34:10+00:00">
-              2005
-              December
-              12
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/12/12/whos-using-natural-docs/">
-              <span class="infoContainer">
-                <span class="title">Who&#39;s using Natural Docs?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-12-09T21:04:55+00:00">
-              2005
-              December
-              09
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/12/09/delicious-and-yahoo-sitting-in-a-tree/">
-              <span class="infoContainer">
-                <span class="title">del.icio.us and Yahoo! sitting in a tree</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-12-09T13:54:22+00:00">
-              2005
-              December
-              09
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/12/09/mochis-basic/">
-              <span class="infoContainer">
-                <span class="title">Mochi&#39;s Basic</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-12-09T06:45:39+00:00">
-              2005
-              December
-              09
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/12/09/but-i-thought-this-was-tuesday/">
-              <span class="infoContainer">
-                <span class="title">But I thought this was Tuesday</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-12-09T06:45:30+00:00">
-              2005
-              December
-              09
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/12/09/rss-plumbing-in-php-nowhere-to-be-found/">
-              <span class="infoContainer">
-                <span class="title">RSS plumbing in PHP nowhere to be found?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-12-02T05:52:51+00:00">
-              2005
-              December
-              02
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/12/02/tab-sidebar-update-and-more-userchromecss-hacking/">
-              <span class="infoContainer">
-                <span class="title">Tab Sidebar update and more userChrome.css hacking</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-12-01T19:11:28+00:00">
-              2005
-              December
-              01
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/12/01/blogrolls-grow-up-to-become-feedrolls/">
-              <span class="infoContainer">
-                <span class="title">Blogrolls grow up to become feedrolls?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2005-12-01T13:06:07+00:00">
-              2005
-              December
-              01
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/12/01/feedrolls-in-xoxo-from-opml-via-xslt-and-url-line-magic/">
-              <span class="infoContainer">
-                <span class="title">Feedrolls in XOXO from OPML via XSLT and URL-line Magic</span>
-              </span>
-            </a>
-            
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Month: 2005/12</h2>
+        </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2005 December 31</h2>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/12/31/chatbots-rss-hot/">Chatbots + RSS = Hot?</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/12/31/chatbots-rss-hot/"
+          >117&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/12/31/chatbots-rss-hot/">#</a>
+    <a class="time" href="2005/12/31/chatbots-rss-hot/">3:19 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
           </li>
     </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/12/31/on-choosing-python-for-hacking-rss-and-atom/">On choosing Python for Hacking RSS and Atom</a>
+      </h2>
     
-  </section>
-      </section>
-        </section>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/12/31/on-choosing-python-for-hacking-rss-and-atom/"
+          >1429&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/12/31/on-choosing-python-for-hacking-rss-and-atom/">#</a>
+    <a class="time" href="2005/12/31/on-choosing-python-for-hacking-rss-and-atom/">2:54 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 December 29</h2>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/12/29/stray-bullets-of-incoherent-thought/">Stray bullets of incoherent thought</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/12/29/stray-bullets-of-incoherent-thought/"
+          >185&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/12/29/stray-bullets-of-incoherent-thought/">#</a>
+    <a class="time" href="2005/12/29/stray-bullets-of-incoherent-thought/">2:35 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 December 23</h2>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/12/23/like-a-blonde-ouroboros/">Like a blonde ouroboros</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/12/23/like-a-blonde-ouroboros/"
+          >53&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/12/23/like-a-blonde-ouroboros/">#</a>
+    <a class="time" href="2005/12/23/like-a-blonde-ouroboros/">4:46 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 December 22</h2>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/12/22/modding-is-not-the-same-as-piracy/">Modding is not the same as piracy</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/12/22/modding-is-not-the-same-as-piracy/"
+          >263&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/12/22/modding-is-not-the-same-as-piracy/">#</a>
+    <a class="time" href="2005/12/22/modding-is-not-the-same-as-piracy/">12:17 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 December 19</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-xml tag-feedmagick tag-lazyweb tag-syndcation tag-facepalm">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/12/19/sometimes-the-lazyweb-delivers-with-a-deluge/">Sometimes the lazyweb delivers with a deluge</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/12/19/sometimes-the-lazyweb-delivers-with-a-deluge/"
+          >235&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/12/19/sometimes-the-lazyweb-delivers-with-a-deluge/">#</a>
+    <a class="time" href="2005/12/19/sometimes-the-lazyweb-delivers-with-a-deluge/">6:15 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xml/">xml</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/feedmagick/">feedmagick</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/lazyweb/">lazyweb</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndcation/">syndcation</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/facepalm/">facepalm</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/12/19/feedburner-feeds-give-heartburn-to-php-xml-parsers/">FeedBurner feeds give heartburn to PHP XML parsers?</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/12/19/feedburner-feeds-give-heartburn-to-php-xml-parsers/"
+          >800&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/12/19/feedburner-feeds-give-heartburn-to-php-xml-parsers/">#</a>
+    <a class="time" href="2005/12/19/feedburner-feeds-give-heartburn-to-php-xml-parsers/">6:01 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 December 18</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-ajax tag-json tag-webdev tag-xml">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/12/18/okay-okay-json-is-pretty-hot/">Okay, okay, JSON is pretty hot</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/12/18/okay-okay-json-is-pretty-hot/"
+          >205&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/12/18/okay-okay-json-is-pretty-hot/">#</a>
+    <a class="time" href="2005/12/18/okay-okay-json-is-pretty-hot/">11:17 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ajax/">ajax</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/json/">json</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xml/">xml</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides tag-webdev tag-javascript">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/12/18/js-versus-php/">JS versus PHP?</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/12/18/js-versus-php/"
+          >291&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/12/18/js-versus-php/">#</a>
+    <a class="time" href="2005/12/18/js-versus-php/">10:59 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/javascript/">javascript</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides tag-webdev tag-python tag-ruby tag-perl">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/12/18/not-so-deep-php-thoughts/">Not-so-deep PHP thoughts</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/12/18/not-so-deep-php-thoughts/"
+          >353&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/12/18/not-so-deep-php-thoughts/">#</a>
+    <a class="time" href="2005/12/18/not-so-deep-php-thoughts/">10:50 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/python/">python</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ruby/">ruby</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/perl/">perl</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides tag-ajax tag-json tag-webdev tag-web20 tag-rss tag-syndication tag-atom tag-javascript">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/12/18/feedmagick-gains-an-rss-to-json-filter/">FeedMagick gains an RSS-to-JSON filter</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/12/18/feedmagick-gains-an-rss-to-json-filter/"
+          >96&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/12/18/feedmagick-gains-an-rss-to-json-filter/">#</a>
+    <a class="time" href="2005/12/18/feedmagick-gains-an-rss-to-json-filter/">10:01 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ajax/">ajax</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/json/">json</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/web20/">web20</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/rss/">rss</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/atom/">atom</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/javascript/">javascript</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 December 15</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-hacks tag-fun tag-nifty tag-fax">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/12/15/stupid-fun-with-fax-machines/">Stupid fun with fax machines</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/12/15/stupid-fun-with-fax-machines/"
+          >49&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/12/15/stupid-fun-with-fax-machines/">#</a>
+    <a class="time" href="2005/12/15/stupid-fun-with-fax-machines/">4:55 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/fun/">fun</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/nifty/">nifty</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/fax/">fax</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 December 14</h2>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/12/14/hacking-delicious-is-a-real-book/">Hacking del.icio.us is a real book!</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/12/14/hacking-delicious-is-a-real-book/"
+          >407&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/12/14/hacking-delicious-is-a-real-book/">#</a>
+    <a class="time" href="2005/12/14/hacking-delicious-is-a-real-book/">12:08 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 December 13</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-rss tag-syndication tag-atom tag-osx tag-ninja tag-pirate tag-monkey tag-robot">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/12/13/safari-rss-database-columns-not-so-mysterious-now/">Safari RSS database columns not so mysterious now</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/12/13/safari-rss-database-columns-not-so-mysterious-now/"
+          >142&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/12/13/safari-rss-database-columns-not-so-mysterious-now/">#</a>
+    <a class="time" href="2005/12/13/safari-rss-database-columns-not-so-mysterious-now/">4:08 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/rss/">rss</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/atom/">atom</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/osx/">osx</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ninja/">ninja</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/pirate/">pirate</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/monkey/">monkey</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/robot/">robot</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-rss tag-syndication tag-atom tag-osx tag-feeds">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/12/13/more-on-ignorant-feed-handling/">More on ignorant feed handling</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/12/13/more-on-ignorant-feed-handling/"
+          >1422&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/12/13/more-on-ignorant-feed-handling/">#</a>
+    <a class="time" href="2005/12/13/more-on-ignorant-feed-handling/">8:50 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/rss/">rss</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/atom/">atom</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/osx/">osx</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/feeds/">feeds</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/12/13/feedmagick-the-feed-filter-that-doesnt-know-much-about-feeds/">FeedMagick, the feed filter that doesn&#39;t know much about feeds</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/12/13/feedmagick-the-feed-filter-that-doesnt-know-much-about-feeds/"
+          >906&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/12/13/feedmagick-the-feed-filter-that-doesnt-know-much-about-feeds/">#</a>
+    <a class="time" href="2005/12/13/feedmagick-the-feed-filter-that-doesnt-know-much-about-feeds/">1:26 am</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/12/13/feedmagick-the-show-me-dont-tell-me-edition/">FeedMagick, the show-me-don&#39;t-tell-me edition</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/12/13/feedmagick-the-show-me-dont-tell-me-edition/"
+          >158&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/12/13/feedmagick-the-show-me-dont-tell-me-edition/">#</a>
+    <a class="time" href="2005/12/13/feedmagick-the-show-me-dont-tell-me-edition/">1:23 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 December 11</h2>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/12/11/whos-using-natural-docs/">Who&#39;s using Natural Docs?</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/12/11/whos-using-natural-docs/"
+          >285&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/12/11/whos-using-natural-docs/">#</a>
+    <a class="time" href="2005/12/11/whos-using-natural-docs/">11:34 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 December 09</h2>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/12/09/delicious-and-yahoo-sitting-in-a-tree/">del.icio.us and Yahoo! sitting in a tree</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/12/09/delicious-and-yahoo-sitting-in-a-tree/"
+          >99&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/12/09/delicious-and-yahoo-sitting-in-a-tree/">#</a>
+    <a class="time" href="2005/12/09/delicious-and-yahoo-sitting-in-a-tree/">4:04 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/12/09/mochis-basic/">Mochi&#39;s Basic</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/12/09/mochis-basic/"
+          >288&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/12/09/mochis-basic/">#</a>
+    <a class="time" href="2005/12/09/mochis-basic/">8:54 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/12/09/but-i-thought-this-was-tuesday/">But I thought this was Tuesday</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/12/09/but-i-thought-this-was-tuesday/"
+          >78&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/12/09/but-i-thought-this-was-tuesday/">#</a>
+    <a class="time" href="2005/12/09/but-i-thought-this-was-tuesday/">1:45 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/12/09/rss-plumbing-in-php-nowhere-to-be-found/">RSS plumbing in PHP nowhere to be found?</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/12/09/rss-plumbing-in-php-nowhere-to-be-found/"
+          >563&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/12/09/rss-plumbing-in-php-nowhere-to-be-found/">#</a>
+    <a class="time" href="2005/12/09/rss-plumbing-in-php-nowhere-to-be-found/">1:45 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 December 02</h2>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/12/02/tab-sidebar-update-and-more-userchromecss-hacking/">Tab Sidebar update and more userChrome.css hacking</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/12/02/tab-sidebar-update-and-more-userchromecss-hacking/"
+          >175&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/12/02/tab-sidebar-update-and-more-userchromecss-hacking/">#</a>
+    <a class="time" href="2005/12/02/tab-sidebar-update-and-more-userchromecss-hacking/">12:52 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 December 01</h2>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/12/01/blogrolls-grow-up-to-become-feedrolls/">Blogrolls grow up to become feedrolls?</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/12/01/blogrolls-grow-up-to-become-feedrolls/"
+          >376&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/12/01/blogrolls-grow-up-to-become-feedrolls/">#</a>
+    <a class="time" href="2005/12/01/blogrolls-grow-up-to-become-feedrolls/">2:11 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/12/01/feedrolls-in-xoxo-from-opml-via-xslt-and-url-line-magic/">Feedrolls in XOXO from OPML via XSLT and URL-line Magic</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/12/01/feedrolls-in-xoxo-from-opml-via-xslt-and-url-line-magic/"
+          >265&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/12/01/feedrolls-in-xoxo-from-opml-via-xslt-and-url-line-magic/">#</a>
+    <a class="time" href="2005/12/01/feedrolls-in-xoxo-from-opml-via-xslt-and-url-line-magic/">8:06 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
 
-        <footer>
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

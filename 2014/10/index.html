@@ -1,212 +1,466 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>2014/10 - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>2014/10 - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Month: 2014/10</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post tag-daybook tag-thoughts tag-webdev tag-mobile tag-social"
-          >
-            <time class="date" datetime="2014-10-27T12:00:00+00:00">
-              2014
-              October
-              27
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2014/10/27/thoughts/">
-              <span class="infoContainer">
-                <span class="title">Random thoughts for 2014 Oct 27</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-nodejs tag-webdev tag-javascript tag-gulp tag-heroku"
-          >
-            <time class="date" datetime="2014-10-23T12:00:00+00:00">
-              2014
-              October
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2014/10/23/node-project-layout/">
-              <span class="infoContainer">
-                <span class="title">Playing with a node.js app project layout</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-daybook tag-thoughts tag-tinderbox tag-mashups tag-twitter tag-social"
-          >
-            <time class="date" datetime="2014-10-23T12:00:00+00:00">
-              2014
-              October
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2014/10/23/thoughts/">
-              <span class="infoContainer">
-                <span class="title">Random thoughts for 2014 Oct 23</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-metablogging tag-tootr tag-social tag-toots tag-twitter"
-          >
-            <time class="date" datetime="2014-10-23T12:00:00+00:00">
-              2014
-              October
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2014/10/23/toot-toot/">
-              <span class="infoContainer">
-                <span class="title">Toot = Tiny Outburst of Text</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-metablogging tag-writing tag-opml tag-tinderbox"
-          >
-            <time class="date" datetime="2014-10-23T12:00:00+00:00">
-              2014
-              October
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2014/10/23/wtfomgbullets/">
-              <span class="infoContainer">
-                <span class="title">What were all those bullets for?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-metablogging tag-webdev tag-js tag-gulp tag-jekyll tag-wordpress"
-          >
-            <time class="date" datetime="2014-10-20T12:00:00+00:00">
-              2014
-              October
-              20
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2014/10/20/static-blog-generation-with-gulp/">
-              <span class="infoContainer">
-                <span class="title">Static blog generation with Gulp and S3</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-amazon tag-metablogging tag-s3 tag-social tag-tootr tag-webdev"
-          >
-            <time class="date" datetime="2014-10-11T12:00:00+00:00">
-              2014
-              October
-              11
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2014/10/11/tootr-1/">
-              <span class="infoContainer">
-                <span class="title">tootr: microblogging app, hosting not included</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-facebook tag-metablogging tag-social tag-tootr tag-twitter tag-webdev"
-          >
-            <time class="date" datetime="2014-10-09T12:00:00+00:00">
-              2014
-              October
-              09
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2014/10/09/separating-publishing-from-hosting-on-the-web/">
-              <span class="infoContainer">
-                <span class="title">Separating publishing from hosting on the web</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-facebook tag-metablogging tag-social tag-tootr tag-twitter tag-web"
-          >
-            <time class="date" datetime="2014-10-08T12:00:00+00:00">
-              2014
-              October
-              08
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2014/10/08/microblogging-like-its-2002/">
-              <span class="infoContainer">
-                <span class="title">Microblogging like it&amp;#8217;s 2002</span>
-              </span>
-            </a>
-            
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Month: 2014/10</h2>
+        </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2014 October 27</h2>
+  </li><li class="content-grid post post-type-entry tag-daybook tag-thoughts tag-webdev tag-mobile tag-social">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2014/10/27/thoughts/">Random thoughts for 2014 Oct 27</a>
+      </h2>
+    
+    <p class="summary">
+      More random stuff collected and updated throughout the day.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2014/10/27/thoughts/"
+          >281&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2014/10/27/thoughts/">#</a>
+    <a class="time" href="2014/10/27/thoughts/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/daybook/">daybook</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/thoughts/">thoughts</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mobile/">mobile</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/social/">social</a>
           </li>
     </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2014 October 23</h2>
+  </li><li class="content-grid post post-type-entry tag-nodejs tag-webdev tag-javascript tag-gulp tag-heroku">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2014/10/23/node-project-layout/">Playing with a node.js app project layout</a>
+      </h2>
     
-  </section>
-      </section>
-        </section>
+    <p class="summary">
+      I'm pleased with this project layout for a node.js-based web client /
+server app.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2014/10/23/node-project-layout/"
+          >296&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2014/10/23/node-project-layout/">#</a>
+    <a class="time" href="2014/10/23/node-project-layout/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/nodejs/">nodejs</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/javascript/">javascript</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/gulp/">gulp</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/heroku/">heroku</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-daybook tag-thoughts tag-tinderbox tag-mashups tag-twitter tag-social">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2014/10/23/thoughts/">Random thoughts for 2014 Oct 23</a>
+      </h2>
+    
+    <p class="summary">
+      This is a bunch of stuff I just randomly collected throughout the day.
+Look here for a bit of explanation. I may or may not do this again.
+I'm experimenting and entertaining myself.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2014/10/23/thoughts/"
+          >309&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2014/10/23/thoughts/">#</a>
+    <a class="time" href="2014/10/23/thoughts/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/daybook/">daybook</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/thoughts/">thoughts</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tinderbox/">tinderbox</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mashups/">mashups</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/twitter/">twitter</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/social/">social</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-metablogging tag-tootr tag-social tag-toots tag-twitter">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2014/10/23/toot-toot/">Toot = Tiny Outburst of Text</a>
+      </h2>
+    
+    <p class="summary">
+      I've been toying with something Twitterish lately, and thought I needed a
+different word to describe the central social object. So, I started using
+toot, which means "tiny outburst of text". Of course, I started by
+making fart jokes to myself before that expansion appeared in my head. But, I
+think it's fun.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2014/10/23/toot-toot/"
+          >232&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2014/10/23/toot-toot/">#</a>
+    <a class="time" href="2014/10/23/toot-toot/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tootr/">tootr</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/social/">social</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/toots/">toots</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/twitter/">twitter</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-metablogging tag-writing tag-opml tag-tinderbox">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2014/10/23/wtfomgbullets/">What were all those bullets for?</a>
+      </h2>
+    
+    <p class="summary">
+      Did you see that thing I just posted? Weird. Back when I used Dave
+Winer's OPML Editor, I used to have a daily habit of opening a
+new outline and popping over to it throughout the day to collect random
+thoughts.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2014/10/23/wtfomgbullets/"
+          >186&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2014/10/23/wtfomgbullets/">#</a>
+    <a class="time" href="2014/10/23/wtfomgbullets/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/writing/">writing</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/opml/">opml</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tinderbox/">tinderbox</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2014 October 20</h2>
+  </li><li class="content-grid post post-type-entry tag-metablogging tag-webdev tag-js tag-gulp tag-jekyll tag-wordpress">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2014/10/20/static-blog-generation-with-gulp/">Static blog generation with Gulp and S3</a>
+      </h2>
+    
+    <p class="summary">
+      I've long agreed that many sites, like blogs, are better baked than
+fried. It makes for web hosting that's cheaper to run and simpler to
+maintain. I've also often thought that using a database can be an
+anti-pattern for managing content. But, what I've also found is
+that baked sites often yield a poor writing environment. That said, I think
+I'm going to give it another try, because I think I might have found a new
+approach that works for me.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2014/10/20/static-blog-generation-with-gulp/"
+          >1195&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2014/10/20/static-blog-generation-with-gulp/">#</a>
+    <a class="time" href="2014/10/20/static-blog-generation-with-gulp/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/js/">js</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/gulp/">gulp</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/jekyll/">jekyll</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/wordpress/">wordpress</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2014 October 11</h2>
+  </li><li class="content-grid post post-type-entry tag-amazon tag-metablogging tag-s3 tag-social tag-tootr tag-webdev">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2014/10/11/tootr-1/">tootr: microblogging app, hosting not included</a>
+      </h2>
+    
+    <p class="summary">
+      In my last two posts, I wrote about how I’ve been thinking about building yet another microblogging tool and how I think it might be interesting to separate web publishing apps from web hosting. Well, I started tinkering, and I’ve got a rough prototype working.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2014/10/11/tootr-1/"
+          >1014&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2014/10/11/tootr-1/">#</a>
+    <a class="time" href="2014/10/11/tootr-1/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/amazon/">amazon</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/s3/">s3</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/social/">social</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tootr/">tootr</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2014 October 09</h2>
+  </li><li class="content-grid post post-type-entry tag-facebook tag-metablogging tag-social tag-tootr tag-twitter tag-webdev">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2014/10/09/separating-publishing-from-hosting-on-the-web/">Separating publishing from hosting on the web</a>
+      </h2>
+    
+    <p class="summary">
+      Social media like Twitter and Facebook combine web publishing and hosting. You can’t run different software, and you can’t move your stuff. So, if you’re unhappy, your choices are a) deal with it or b) abandon your stuff and your friends. Those are pretty rough options.
+But, what if you could move your stuff? And what if you could switch apps?
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2014/10/09/separating-publishing-from-hosting-on-the-web/"
+          >727&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2014/10/09/separating-publishing-from-hosting-on-the-web/">#</a>
+    <a class="time" href="2014/10/09/separating-publishing-from-hosting-on-the-web/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/facebook/">facebook</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/social/">social</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tootr/">tootr</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/twitter/">twitter</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2014 October 08</h2>
+  </li><li class="content-grid post post-type-entry tag-facebook tag-metablogging tag-social tag-tootr tag-twitter tag-web">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2014/10/08/microblogging-like-its-2002/">Microblogging like it&amp;#8217;s 2002</a>
+      </h2>
+    
+    <p class="summary">
+      Every year or so, I (re)join the ranks of hackers who decide they’d like to try building a microblogging tool. It’s sometimes after Twitter or Facebook does something cruddy to remind me that I’m the product. Sometimes, it’s when jerks have the run of the place and no one can do anything about it. Often these things are highly correlated.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2014/10/08/microblogging-like-its-2002/"
+          >1041&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2014/10/08/microblogging-like-its-2002/">#</a>
+    <a class="time" href="2014/10/08/microblogging-like-its-2002/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/facebook/">facebook</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/social/">social</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tootr/">tootr</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/twitter/">twitter</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/web/">web</a>
+          </li>
+    </ul>
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
 
-        <footer>
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

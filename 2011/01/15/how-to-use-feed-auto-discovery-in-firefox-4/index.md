@@ -8,7 +8,7 @@ This post is one of [several on this subject](http://decafbad.com/blog/tag/bug57
 
 Feeds are so successful and ubiquitous that it's simpler to assume every site has one, rather than keeping an un-lit indicator around to tell you when one's missing. So, Firefox 4 has an option in the bookmark menu to subscribe to the current page:
 
-<img src="http://decafbad.com/blog/wp-content/uploads/2011/01/feed-sub-002.png" alt="feed-sub-00.png" border="0" width="600" height="242" />
+<img src="http://decafbad.com/blog/wp-content/uploads/2011/01/feed-sub-002.png" alt="feed-sub-00.png" border="0" />
 
 The only indicator of a missing feed is that the menu item greys out. Since feeds are everywhere, you should feel comfortable reaching for that subscription menu whenever you like. Of course, this assumes that subscribing to a page falls into the same thought process as bookmarking it—but I don't think that's an unreasonable notion.
 
@@ -22,23 +22,23 @@ Even with the new bookmark menu item, the feed subscription button is still avai
 
 First, right-click somewhere in the empty space of your Firefox 4 toolbar. Try somewhere after the tabs, or somewhere between the toolbar buttons. [This is how it works on Windows](http://blog.fligtar.com/2011/01/16/how-to-customize-firefox-4s-ui/), and this is what it looks like on my Mac:
 
-<img src="http://decafbad.com/blog/wp-content/uploads/2011/01/feed-sub-toolbarmenu.png" alt="feed-sub-toolbarmenu.png" border="0" width="220" height="161" />
+<img src="http://decafbad.com/blog/wp-content/uploads/2011/01/feed-sub-toolbarmenu.png" alt="feed-sub-toolbarmenu.png" border="0" />
 
 Click Customize, and you'll get a panel like this:
 
-<p><img src="http://decafbad.com/blog/wp-content/uploads/2011/01/feed-sub-01.png" alt="feed-sub-01.png" border="0" width="500" height="" />
+<p><img src="http://decafbad.com/blog/wp-content/uploads/2011/01/feed-sub-01.png" alt="feed-sub-01.png" border="0" />
 
 This lets you customize which buttons and controls appear on the toolbar. If you scroll down in the panel, you'll see a "**Subscribe**" button. Drag that from the panel to a position in the toolbar, and you'll get a result like this:
 
-<img src="http://decafbad.com/blog/wp-content/uploads/2011/01/feed-sub-02.png" alt="feed-sub-02.png" border="0" width="500" height="" />
+<img src="http://decafbad.com/blog/wp-content/uploads/2011/01/feed-sub-02.png" alt="feed-sub-02.png" border="0" />
 
 Click "**Done**", and your browser should end up like this:
 
-<img src="http://decafbad.com/blog/wp-content/uploads/2011/01/feed-sub-03.png" alt="feed-sub-03.png" border="0" width="600" height="203" />
+<img src="http://decafbad.com/blog/wp-content/uploads/2011/01/feed-sub-03.png" alt="feed-sub-03.png" border="0" />
 
 I took my browser screenshots with [Dave Winer's screenshot of the old Firefox feed icon](http://scripting.com/stories/2011/01/15/mozillaPleaseKeepTheRssIco.html) for comparison. The result is different, but not radically so. It even enables and darkens when you visit a site with a feed:
 
-<img src="http://decafbad.com/blog/wp-content/uploads/2011/01/feed-sub-04.png" alt="feed-sub-04.png" border="0" width="600" height="271" />
+<img src="http://decafbad.com/blog/wp-content/uploads/2011/01/feed-sub-04.png" alt="feed-sub-04.png" border="0" />
 
 The main difference is that Dave's screenshot is the default in Firefox 3.6, whereas mine is the result of the last few screenshots of toolbar customization in Firefox 4 beta 9. That customization is easy, if you know it's possible—but the worry is, as they say: out of sight, out of mind. 
 

@@ -1,249 +1,397 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>Fighting phishing with counter-passwords - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="Fighting phishing with counter-passwords" />
+    <html>
+      <head>
+        <title>Fighting phishing with counter-passwords - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="Fighting phishing with counter-passwords" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2005/10/13/fighting-phishing-with-counter-passwords/"
         />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post tag-asides"
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post tag-asides"
       >
-        <time
-          title="2005-10-13T16:42:52+00:00"
-          pubdate="2005-10-13T16:42:52+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2005/"
-            >2005</a
+        <header>
+          <time
+            title="2005-10-13T12:42:52-04:00"
+            pubdate="2005-10-13T12:42:52-04:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2005/10/"
-            >October</a
-          >
-          &raquo;
-          <span>13</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="Serenity is a Big Damn Roller Coaster"
+                href="/blog.lmorchard.com/2005/10/16/serenity-is-a-big-damn-roller-coaster/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2005/"
+                >2005</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2005/10/"
+                >October</a
+              >
+              &#8226;
+              <span>13</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Internet TV: Where&#39;s the Feed?"
+                href="/blog.lmorchard.com/2005/10/13/internet-tv-wheres-the-feed/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">Fighting phishing with counter-passwords</h1>
+          <ul class="tags">
+              <li><a href="/blog.lmorchard.com/tag/asides/">asides</a></li>
+            </ul>
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2005/10/16/serenity-is-a-big-damn-roller-coaster/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2005/10/13/internet-tv-wheres-the-feed/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">Fighting phishing with counter-passwords</h1>
-        <ul class="tags">
-            <li>
-                  <a href="/blog.lmorchard.com/tag/asides/">asides</a>
-                </li>
-          </ul>
-        <section class="post-content">
-          <p>I just had a nutty idea to use against phishing scams:</p>
+        <p>I just had a nutty idea to use against phishing scams:</p>
 <p>When I visit a financial site, it generally requires me to enter a username and a password or PIN number in order to recognize me.  </p>
-<p>What if the sites I deal with included some personalized passphrase or shibboleth in every communication sent to me?  That way, I&#39;d recognize that that message came from some source with which I&#39;d shared that code or mark, and that it wasn&#39;t a spoofed mass-mailing from an outside phisher.  It&#39;d be like them authenticating with my brain.</p>
-<p>For example, say that my bank included the phrase &quot;Oh, and say hello to Francis for me&quot; in every email I received.  Or maybe they chose from a set of 10 literary quotes pre-selected by me.</p>
-<p>Now, assuming that financial sites didn&#39;t regularly expose their counter-password database, this might just work.  Too complicated?  Also, I don&#39;t think counter-password is <em>quite</em> the right phrase.</p>
+<p>What if the sites I deal with included some personalized passphrase or shibboleth in every communication sent to me?  That way, I'd recognize that that message came from some source with which I'd shared that code or mark, and that it wasn't a spoofed mass-mailing from an outside phisher.  It'd be like them authenticating with my brain.</p>
+<p>For example, say that my bank included the phrase "Oh, and say hello to Francis for me" in every email I received.  Or maybe they chose from a set of 10 literary quotes pre-selected by me.</p>
+<p>Now, assuming that financial sites didn't regularly expose their counter-password database, this might just work.  Too complicated?  Also, I don't think counter-password is <em>quite</em> the right phrase.</p>
 <div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
 <ul class="comments">
 <li class="comment" id="comment-221086760">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://admin.support.journurl.com/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=5f89d3df08b8dedac1a0fde900a586db&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://admin.support.journurl.com/">Roger Benningfield</a>
+<a class="avatar image" rel="nofollow" href="http://admin.support.journurl.com/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=5f89d3df08b8dedac1a0fde900a586db&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://admin.support.journurl.com/">Roger Benningfield</a>
 </div>
-<a href="#comment-221086760" class="permalink"><time datetime="2005-10-13T17:23:20">2005-10-13T17:23:20</time></a>
+
+
+<p><a href="#comment-221086760" class="permalink"><time datetime="2005-10-13T17:23:20">2005-10-13T17:23:20</time></a></p>
 </div>
+
+
 <div class="content"><p>How about "lightweight credentials"?</p></div>
+
+
 </li>
 <li class="comment" id="comment-221086761">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://cavlec.yarinareth.net/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=fa15e41d4cf102273b0e8f209c52c288&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://cavlec.yarinareth.net/">Dorothea</a>
+<a class="avatar image" rel="nofollow" href="http://cavlec.yarinareth.net/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=fa15e41d4cf102273b0e8f209c52c288&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://cavlec.yarinareth.net/">Dorothea</a>
 </div>
-<a href="#comment-221086761" class="permalink"><time datetime="2005-10-13T17:53:41">2005-10-13T17:53:41</time></a>
+
+
+<p><a href="#comment-221086761" class="permalink"><time datetime="2005-10-13T17:53:41">2005-10-13T17:53:41</time></a></p>
 </div>
+
+
 <div class="content"><p>The credit union I used in Madison (uwcu.org) does this. I gave their system an incredibly silly but highly memorable phrase from a college roleplaying campaign, and they include it in the email they send me.</p>
 <p>Which never fails to make me grin. Added bonus.</p></div>
+
+
 </li>
 <li class="comment" id="comment-221086763">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.sencer.de"><img src="http://www.gravatar.com/avatar.php?gravatar_id=0e94b4d4662542b91df48f0ff3b36d26&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.sencer.de">Sencer</a>
+<a class="avatar image" rel="nofollow" href="http://www.sencer.de"><img src="http://www.gravatar.com/avatar.php?gravatar_id=0e94b4d4662542b91df48f0ff3b36d26&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.sencer.de">Sencer</a>
 </div>
-<a href="#comment-221086763" class="permalink"><time datetime="2005-10-13T18:01:39">2005-10-13T18:01:39</time></a>
+
+
+<p><a href="#comment-221086763" class="permalink"><time datetime="2005-10-13T18:01:39">2005-10-13T18:01:39</time></a></p>
 </div>
+
+
 <div class="content"><p>Actually that's already being done by some banks in a slightly different way. Schneier was writing on hos blog about it a while back. Here is an example of it:</p>
 <p>http://www.bankofamerica.com/privacy/passmark/</p></div>
+
+
 </li>
 <li class="comment" id="comment-221086765">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://edey.org"><img src="http://www.gravatar.com/avatar.php?gravatar_id=6558a34bd2590143d0e945e7020b49bf&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://edey.org">mike</a>
+<a class="avatar image" rel="nofollow" href="http://edey.org"><img src="http://www.gravatar.com/avatar.php?gravatar_id=6558a34bd2590143d0e945e7020b49bf&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://edey.org">mike</a>
 </div>
-<a href="#comment-221086765" class="permalink"><time datetime="2005-10-13T18:13:12">2005-10-13T18:13:12</time></a>
+
+
+<p><a href="#comment-221086765" class="permalink"><time datetime="2005-10-13T18:13:12">2005-10-13T18:13:12</time></a></p>
 </div>
+
+
 <div class="content"><p>Ummm why fool around with stenography when we've got such an abundance of public key schemes? And no I don't think 'lightweight' or 'too hard for aunt minnie' count as reasonable answers. If it's worth doing it's worth doing well.</p></div>
+
+
 </li>
 <li class="comment" id="comment-221086766">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.8dot3.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2d870e8df3af0d62fa636b336b17cd60&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.8dot3.com">Nick</a>
+<a class="avatar image" rel="nofollow" href="http://www.8dot3.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2d870e8df3af0d62fa636b336b17cd60&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.8dot3.com">Nick</a>
 </div>
-<a href="#comment-221086766" class="permalink"><time datetime="2005-10-13T18:43:59">2005-10-13T18:43:59</time></a>
+
+
+<p><a href="#comment-221086766" class="permalink"><time datetime="2005-10-13T18:43:59">2005-10-13T18:43:59</time></a></p>
 </div>
+
+
 <div class="content"><p><i><b>Psycho:</b> The name's Francis Sawyer, but everybody calls me Psycho. Any of you guys call me Francis, and I'll kill you.</i></p>
 <p><i><b>Leon:</b> Ooooooh.</i></p>
 <p><i><b>Psycho:</b> You just made the list, buddy. Also, I don't like no one touching my stuff. So just keep your meathooks off. If I catch any of you guys in my stuff, I'll kill you. And I don't like nobody touching me. Any of you homos touch me, and I'll kill you.</i></p>
 <p><i><b>Sergeant Hulka:</b> Lighten up, Francis. </i>
 I notice that the Bank of America website calls it a passmark.  I like that.</p></div>
+
+
 </li>
 <li class="comment" id="comment-221086767">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://advogato.org/person/mbrubeck/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=85232f8499fd6ee91623408fc23835d1&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://advogato.org/person/mbrubeck/">Matt Brubeck</a>
+<a class="avatar image" rel="nofollow" href="http://advogato.org/person/mbrubeck/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=85232f8499fd6ee91623408fc23835d1&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://advogato.org/person/mbrubeck/">Matt Brubeck</a>
 </div>
-<a href="#comment-221086767" class="permalink"><time datetime="2005-10-13T18:53:20">2005-10-13T18:53:20</time></a>
+
+
+<p><a href="#comment-221086767" class="permalink"><time datetime="2005-10-13T18:53:20">2005-10-13T18:53:20</time></a></p>
 </div>
+
+
 <div class="content"><p>This has the <a href="http://usablesecurity.com/2005/07/23/simon-says/" rel="nofollow">Simon Says problem</a>:  It requires users to notice when something is <em>not</em> present.  For the same reason that users don't notice the absense of the SSL "lock" icon, they won't notice the absence of the counter-password or passmark or whatever -- at least not enough of the time.</p></div>
+
+
 </li>
 <li class="comment" id="comment-221086768">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://webseitz.fluxent.com/wiki"><img src="http://www.gravatar.com/avatar.php?gravatar_id=8157a5907b244071cda98ba5aa7a9635&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://webseitz.fluxent.com/wiki">Bill Seitz</a>
+<a class="avatar image" rel="nofollow" href="http://webseitz.fluxent.com/wiki"><img src="http://www.gravatar.com/avatar.php?gravatar_id=8157a5907b244071cda98ba5aa7a9635&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://webseitz.fluxent.com/wiki">Bill Seitz</a>
 </div>
-<a href="#comment-221086768" class="permalink"><time datetime="2005-10-13T19:26:08">2005-10-13T19:26:08</time></a>
+
+
+<p><a href="#comment-221086768" class="permalink"><time datetime="2005-10-13T19:26:08">2005-10-13T19:26:08</time></a></p>
 </div>
+
+
 <div class="content"><p>Wouldn't it be simpler to generate a custom From address which you could add to your AddressBook/WhiteList? Of course, you have to worry about having multiple computers with unsynched WhiteLists...</p>
 <p>Then of course there's the custom RSS feed to get you to subscribe to...</p></div>
+
+
 </li>
 <li class="comment" id="comment-221086769">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://bhiv.com/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=a13775e56482ca85af50d0da0b401873&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://bhiv.com/">bhiv</a>
+<a class="avatar image" rel="nofollow" href="http://bhiv.com/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=a13775e56482ca85af50d0da0b401873&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://bhiv.com/">bhiv</a>
 </div>
-<a href="#comment-221086769" class="permalink"><time datetime="2005-10-13T20:40:47">2005-10-13T20:40:47</time></a>
+
+
+<p><a href="#comment-221086769" class="permalink"><time datetime="2005-10-13T20:40:47">2005-10-13T20:40:47</time></a></p>
 </div>
+
+
 <div class="content"><p>How about entering a serious of gibberish into the phisher's database? This way, when they try out their database the institution (say paypal.com) can notice that there are many failed logins from them? Or even automate it (amavis flags phishing attempts)</p></div>
+
+
 </li>
 <li class="comment" id="comment-221086771">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://go-blog-go.blogspot.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=a9c49b00e73397cbd99fcf159104dd90&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://go-blog-go.blogspot.com">Saltation</a>
+<a class="avatar image" rel="nofollow" href="http://go-blog-go.blogspot.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=a9c49b00e73397cbd99fcf159104dd90&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://go-blog-go.blogspot.com">Saltation</a>
 </div>
-<a href="#comment-221086771" class="permalink"><time datetime="2005-10-14T13:55:26">2005-10-14T13:55:26</time></a>
+
+
+<p><a href="#comment-221086771" class="permalink"><time datetime="2005-10-14T13:55:26">2005-10-14T13:55:26</time></a></p>
 </div>
+
+
 <div class="content"><p>gads, someone who knows what "shibboleth" means</p></div>
+
+
 </li>
 <li class="comment" id="comment-221086772">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://dougal.gunters.org/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=81717a172b6918071fbea1a52483294b&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://dougal.gunters.org/">Dougal Campbell</a>
+<a class="avatar image" rel="nofollow" href="http://dougal.gunters.org/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=81717a172b6918071fbea1a52483294b&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://dougal.gunters.org/">Dougal Campbell</a>
 </div>
-<a href="#comment-221086772" class="permalink"><time datetime="2005-10-14T21:31:50">2005-10-14T21:31:50</time></a>
+
+
+<p><a href="#comment-221086772" class="permalink"><time datetime="2005-10-14T21:31:50">2005-10-14T21:31:50</time></a></p>
 </div>
+
+
 <div class="content"><p>Several sites I deal with already do something along these lines. For example, many banks and credit card companies will start the messages with something like "This message is in regard to your account ending with 9876". And some other sites will include your full name and/or login name. Which may or may not be useful, depending on how public that information is on that particular site (or in general).</p></div>
+
+
 </li>
 </ul>
+
+
 </div>
 
-        </section>
-      </article>
-        </section>
-
-        <footer>
-          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
-        </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
-      </section>
-    </body>
-  </html>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2005/10/16/serenity-is-a-big-damn-roller-coaster/"
+                >Serenity is a Big Damn Roller Coaster</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2005/10/13/internet-tv-wheres-the-feed/"
+                >Internet TV: Where's the Feed?</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

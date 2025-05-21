@@ -1,0 +1,22 @@
+
+- Hello world!
+- Looks like I ended up with an AI-heavy posting day, today. I think I broke the seal yesterday. I'll probably post about other things in the near future.
+- I've been meaning to write something up about the Rube Goldberg machine that runs this blog now. Writing this bullet point to irritate myself to do it soon, maybe.
+- I bought a [BOOX Tab Ultra C](https://shop.boox.com/collections/all/products/tabultrac) almost 2 years ago. I use it almost daily for writing notes and journal entries. It's also been pretty great for reading comics in color. Two things I really don't like about it:
+	- It's got a camera bump on the back, so it doesn't sit flat on a table without a case on.
+	- The case that came with it is disintegrating into dust.
+	- So, I'm considering trying to design my own replacement case - or at least a layer to stick on the back to even out the camera bump. 
+	- Hoping to use #3dprinting and embed magnets that line up with the device's own internal case mounting magnets.
+- But, like, why put a camera bump on a tablet?
+	- Why design a camera bump into anything, really? Just make the device thicker and fill the rest of the space with battery.
+	- I need to stop before I go on a cranky rant about my intense disgust for camera bumps and notches and other failures of design from Apple that the rest of the industry have just copied.
+	- Really, I'm just caremad, because I used to be a huge fan of Apple - had the sticker on my car and everything. But, they have *betrayed* me over the years with stuff that seems to matter only to me. 🤷‍♂️
+- Just noticed that [jpmonette/feed](https://github.com/jpmonette/feed) - a node.js module for generating RSS, Atom, and JSON feeds - got [a new release](https://github.com/jpmonette/feed/releases/tag/5.0.1) a couple days ago after about 4 years of dormancy. 
+	- Looks like they may have possibly fixed a few of the issues I had with it, when last I tried using it. 🤔
+- I need to work links & bookmarks into this new blog in a better way. Like these:
+- [Nintendo Revises User Agreement, And If You Break It, Nintendo Reserves The Right to Brick Your Switch](https://www.ign.com/articles/nintendo-revises-user-agreement-and-if-you-break-it-nintendo-reserves-the-right-to-brick-your-switch)
+	- Well, that just makes me want to jailbreak my Switch even more and then never again connect it to the internet.
+- [Critical Warning for External Purchases in App Store](https://mjtsai.com/blog/2025/05/14/critical-warning-for-external-purchases-in-app-store/)
+	- Yeah, it's stuff like this that's got me fixed on switching back to Android with my next phone.
+	- I've only bought one iPhone and I've never felt the Courage or the Magic the whole time I've used it. It's never felt like *my* phone, always felt like a loaner with a breathalyzer and a bill acceptor slot.
+	- That said, the thing is physically a tank and will probably survive intact to annoy me for a few more years before I can justify the replacement cost.

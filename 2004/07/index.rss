@@ -4,14 +4,14 @@
       <title>blog.lmorchard.com</title>
       <description>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</description>
       <link>https://lmorchard.github.io/blog.lmorchard.com</link>
-      <atom:link href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" rel="self" type="application/rss+xml" />      
+      <atom:link href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" rel="self" type="application/rss+xml" />
       <item>
           <title>Kibo Kibo Kibo</title>
           
           
           <pubDate>Fri, 30 Jul 2004 03:22:32 GMT</pubDate>
-          <link>https://lmorchard.github.io/blog.lmorchard.com/2004/07/30/kibo-kibo-kibo/</link>
-          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2004/07/30/kibo-kibo-kibo/</guid>
+          <link>https://lmorchard.github.io/blog.lmorchard.com/2004/07/29/kibo-kibo-kibo/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2004/07/29/kibo-kibo-kibo/</guid>
         </item><item>
           <title>Use Control-Click for button3 in Apple&#39;s X11</title>
           
@@ -24,11 +24,12 @@
           
           
           <pubDate>Thu, 15 Jul 2004 02:32:55 GMT</pubDate>
-          <link>https://lmorchard.github.io/blog.lmorchard.com/2004/07/15/dork-funk/</link>
-          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2004/07/15/dork-funk/</guid>
+          <link>https://lmorchard.github.io/blog.lmorchard.com/2004/07/14/dork-funk/</link>
+          <guid isPermaLink="true">https://lmorchard.github.io/blog.lmorchard.com/2004/07/14/dork-funk/</guid>
         </item><item>
           <title>Wish-of-the-Month Club, Part 3 of 3</title>
-          <description>This is the exciting conclusion of the Wish-of-the-Month Club.  Before continuing on, you may want to catch up with parts one and two.
+          <description
+                >&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;This is the exciting conclusion of the Wish-of-the-Month Club.  Before continuing on, you may want to catch up with parts one and two.
 Presenting the Results
 Some ready-made files are available for this section:
 
@@ -37,19 +38,18 @@ wishes.html: Sample output in HTML
 
 We&#39;ve finally gotten together all the bits of information we need--wishlists have been queried; random items have been selected; and a shopping cart has been prepared.  Now we just have to present the selections and a link to check out with the shopping cart.
 First, locate the following line toward the end of the stylesheet as we left it in the last section:
-    &lt;xsl:copy-of select=&quot;$shopping_cart&quot; /&gt;
+    &lt;xsl:copy-of select=&quot;$shopping_cart&quot;&gt;
 
 Delete this, and let&#39;s replace it by building some HTML:
-    &lt;xsl:variable name=&quot;shopping_cart_purchase_url&quot; 
-                  select=&quot;exsl:node-set($shopping_cart)//PurchaseUrl&quot; /&gt;
+    &lt;xsl:variable name=&quot;shopping_cart_purchase_url&quot; select=&quot;exsl:node-set($shopping_cart)//PurchaseUrl&quot;&gt;
     
-    &lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
-      &lt;head&gt;&lt;title&gt;Wishlist Shopping Cart&lt;/title&gt;\&lt;/head&gt;
-      &lt;body&gt;
+    
+      &lt;title&gt;Wishlist Shopping Cart&lt;/title&gt;\
+      
         &lt;p class=&quot;title&quot;&gt;
           Here are your wishlist items
           &lt;a href=&quot;{$shopping_cart_purchase_url}&quot;&gt;
-            &lt;img src=&quot;http://g-images.amazon.com/images/G/01/detail/shoppingcart-header-02.gif&quot; /&gt;
+            &lt;img src=&quot;http://g-images.amazon.com/images/G/01/detail/shoppingcart-header-02.gif&quot;&gt;
           &lt;/a&gt; 
           items:
         &lt;/p&gt;
@@ -60,72 +60,84 @@ Next, let&#39;s build a display of the items selected by iterating first through
           &lt;div class=&quot;Detail&quot;&gt;
 
             &lt;p class=&quot;wishlistLabel&quot;&gt;
-              &lt;xsl:value-of select=&quot;wishes:wishlist/@label&quot; /&gt;
-            &lt;/p&gt;
+              &lt;xsl:value-of select=&quot;wishes:wishlist/@label&quot;&gt;
+            &lt;/xsl:value-of&gt;&lt;/p&gt;
 
 This begins a block for each wishlist, starting off with a paragraph containing the label we gave each wishlist.  Next, let&#39;s include a few details about the product chosen.  Again, all of the bits of data included for each product are described in the AWS documentation in the Overview under Amazon Web Services Data Model.  Checking that out, we can see that the data includes a URL to images of several sizes representing the product.  Let&#39;s include the medium-sized image as a link to the product&#39;s detail page:
             &lt;p class=&quot;Product&quot;&gt;
               &lt;a href=&quot;{Details/@url}&quot;&gt;
-                &lt;img src=&quot;{Details/ImageUrlMedium}&quot; /&gt;
+                &lt;img src=&quot;/blog.lmorchard.com/2004/07/06/wishofthemonthclub3/{Details/ImageUrlMedium}&quot;&gt;
               &lt;/a&gt;
-              &lt;br /&gt;
+              
 
 We can also include the product&#39;s name as a link:
               &lt;span class=&quot;ProductName&quot;&gt;
                 &lt;a href=&quot;{Details/@url}&quot;&gt;
-                  &lt;xsl:value-of select=&quot;Details/ProductName&quot; /&gt;
-                &lt;/a&gt;
+                  &lt;xsl:value-of select=&quot;Details/ProductName&quot;&gt;
+                &lt;/xsl:value-of&gt;&lt;/a&gt;
               &lt;/span&gt;
-              &lt;br /&gt;
+              
 
 And, it would be nice to provide a listing of people involved in creating the product (ie. the artists and/or authors):
           &lt;xsl:for-each select=&quot;./Details/Artists/Artist | 
                                 ./Details/Authors/Author&quot;&gt;
-            &lt;span class=&quot;Author&quot;&gt;by &lt;xsl:value-of select=&quot;.&quot; /&gt;&lt;/span&gt;&lt;br /&gt;
+            &lt;span class=&quot;Author&quot;&gt;by &lt;xsl:value-of select=&quot;.&quot;&gt;&lt;/xsl:value-of&gt;&lt;/span&gt;
+
+
           &lt;/xsl:for-each&gt;
 
 Note that here, the XPath selecting the data is just a bit more involved, since this information can be found in both Artist and Author elements.  In another case, we might care to make a distinction, but it really isn&#39;t all that important for this project.  The data model also provides an indication of from which catalog this product came, as well as its date of release.  Let&#39;s include that for good measure:
           (
-          &lt;xsl:value-of select=&quot;Details/Catalog&quot; /&gt; -
+          &lt;xsl:value-of select=&quot;Details/Catalog&quot;&gt; -
           &lt;span class=&quot;ReleaseDate&quot;&gt;
-            &lt;xsl:value-of select=&quot;Details/ReleaseDate&quot; /&gt;
-          &lt;/span&gt;
+            &lt;xsl:value-of select=&quot;Details/ReleaseDate&quot;&gt;
+          &lt;/xsl:value-of&gt;&lt;/span&gt;
           )
-          &lt;br /&gt;
-        &lt;/p&gt;
+          
+
+
+        &lt;/xsl:value-of&gt;&lt;/p&gt;
 
 Another thing that would be nice to know is how much this thing costs--we&#39;ve got this information provided in the XML data as well, so let&#39;s include it:
         &lt;p&gt;
           &lt;span class=&quot;PriceLabel&quot;&gt;List Price:&lt;/span&gt; 
           &lt;span class=&quot;ListPrice&quot;&gt;
-            &lt;xsl:value-of select=&quot;Details/ListPrice&quot; /&gt;
-          &lt;/span&gt;
-          &lt;br /&gt;
+            &lt;xsl:value-of select=&quot;Details/ListPrice&quot;&gt;
+          &lt;/xsl:value-of&gt;&lt;/span&gt;
+          
+
+
           
           &lt;span class=&quot;PriceLabel&quot;&gt;Our Price:&lt;/span&gt;
           &lt;span class=&quot;OurPrice&quot;&gt;
-            &lt;xsl:value-of select=&quot;Details/OurPrice&quot; /&gt;
-          &lt;/span&gt;
-          &lt;br /&gt;
+            &lt;xsl:value-of select=&quot;Details/OurPrice&quot;&gt;
+          &lt;/xsl:value-of&gt;&lt;/span&gt;
+          
+
+
 
           &lt;span class=&quot;PriceLabel&quot;&gt;Used Price:&lt;/span&gt; 
           &lt;span class=&quot;UsedPrice&quot;&gt;
-            &lt;xsl:value-of select=&quot;Details/UsedPrice&quot; /&gt;
-          &lt;/span&gt;
-          &lt;br /&gt;
+            &lt;xsl:value-of select=&quot;Details/UsedPrice&quot;&gt;
+          &lt;/xsl:value-of&gt;&lt;/span&gt;
+          
+
+
         &lt;/p&gt;
 
 Something to note about these prices, too, is that although the used price is listed, the shopping cart will contain new items from Amazon&#39;s shelves.  You might want to compare these prices though, and make a change to the shopping cart when you get there, if a used item is acceptable.  (Another good reason for manual intervention in our Wish-of-the-Month club.)
 Oh yeah, and we should include one other bit of information:
-        &lt;p&gt;(&lt;xsl:value-of select=&quot;Details/Availability&quot; /&gt;)&lt;/p&gt;
+        &lt;p&gt;(&lt;xsl:value-of select=&quot;Details/Availability&quot;&gt;)&lt;/xsl:value-of&gt;&lt;/p&gt;
 
 This tells us whether or not this item can actually be bought, at present.  Although we used this data earlier to try to filter out unavailable items, we should still display this information just in case we missed something.
 Finally, let&#39;s clean up and finish the HTML:
       &lt;/div&gt;
+
+
     &lt;/xsl:for-each&gt;
     
-  &lt;/body&gt;
-&lt;/html&gt;
+  
+
 
 Running this stylesheet (wishes-ex5.xsl) should give you a page that looks something like this in a browser:
 
@@ -152,9 +164,9 @@ Content-Transfer-Encoding: 7bit
 Content-Disposition: inline
 Content-Base: &quot;http://www.decafbad.com/&quot;
 
-&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+
     &lt;p&gt;Some HTML representation goes here...&lt;/p&gt;
-&lt;/html&gt;
+
 
 --theBoundaryString--
 
@@ -171,11 +183,11 @@ I&#39;ve snuck in the idea of providing both an HTML version (which we&#39;ve al
 &lt;/wishes&gt;
 
 Let&#39;s extract this data into a global variable near the start of the stylesheet:
-  &lt;xsl:variable name=&quot;email_to&quot;  select=&quot;/wishes:wishes/wishes:email&quot; /&gt;
+  &lt;xsl:variable name=&quot;email_to&quot; select=&quot;/wishes:wishes/wishes:email&quot;&gt;
 
 Start editing the final template of the stylesheet, inserting before the start of HTML content:
     &lt;!-- Eat all the line breaks generated so far --&gt;
-    &lt;xsl:text&gt;To: &lt;/xsl:text&gt;&lt;xsl:value-of select=&quot;$email_to&quot; /&gt;   
+    &lt;xsl:text&gt;To: &lt;/xsl:text&gt;&lt;xsl:value-of select=&quot;$email_to&quot;&gt;   
 Subject: 0xDECAFBAD&#39;s Amazon Wish-of-the-Month Club
 MIME-Version: 1.0
 Content-Type: multipart/alternative; boundary=&quot;theBoundaryString&quot;
@@ -189,48 +201,38 @@ Content-Type: text/plain
 This begins the plain text section of the email, using the boundary string as defined in the headers to delinieate the section&#39;s beginning.  The section can also have its own set of headers, of which we use only one: Content-Type.  Moving along, let&#39;s work on the text content itself.
 Here are your wishlist items:
 
-&lt;xsl:value-of select=&quot;$shopping_cart_purchase_url&quot; /&gt;&lt;xsl:text&gt;
+&lt;xsl:value-of select=&quot;$shopping_cart_purchase_url&quot;&gt;&lt;xsl:text&gt;
 &lt;/xsl:text&gt;
 
 No shopping cart image here, but this includes the human-viewable URL which leads to a shopping cart on Amazon.com.  The usage of xsl:text here forces a line break where there otherwise wouldn&#39;t have been one with the usage of xsl:value-of.  Now, let&#39;s iterate through each of the wishlists and list out the product details:
 &lt;xsl:for-each select=&quot;exsl:node-set($random_products)/wishes:wishitem&quot;&gt;
 ---------------------------------------------------------------------------
-&lt;xsl:value-of select=&quot;wishes:wishlist/@label&quot; 
-       disable-output-escaping=&quot;yes&quot; /&gt;
+&lt;xsl:value-of select=&quot;wishes:wishlist/@label&quot; disable-output-escaping=&quot;yes&quot;&gt;
 ---------------------------------------------------------------------------
 
-&lt;xsl:value-of select=&quot;Details/ProductName&quot; 
-       disable-output-escaping=&quot;yes&quot; /&gt;
+&lt;xsl:value-of select=&quot;Details/ProductName&quot; disable-output-escaping=&quot;yes&quot;&gt;
 
 &lt;xsl:for-each select=&quot;./Details/Artists/Artist | 
                       ./Details/Authors/Author&quot;&gt;
-by &lt;xsl:value-of select=&quot;.&quot;  
-   disable-output-escaping=&quot;yes&quot;/&gt;
-&lt;/xsl:for-each&gt;
+by &lt;xsl:value-of select=&quot;.&quot; disable-output-escaping=&quot;yes&quot;&gt;
+&lt;/xsl:value-of&gt;&lt;/xsl:for-each&gt;
 
-Catalog:      &lt;xsl:value-of select=&quot;Details/Catalog&quot; 
-   disable-output-escaping=&quot;yes&quot; /&gt;
-Released:     &lt;xsl:value-of select=&quot;Details/ReleaseDate&quot; 
-   disable-output-escaping=&quot;yes&quot; /&gt;
+Catalog:      &lt;xsl:value-of select=&quot;Details/Catalog&quot; disable-output-escaping=&quot;yes&quot;&gt;
+Released:     &lt;xsl:value-of select=&quot;Details/ReleaseDate&quot; disable-output-escaping=&quot;yes&quot;&gt;
 
-List Price:   &lt;xsl:value-of select=&quot;Details/ListPrice&quot;  
-     disable-output-escaping=&quot;yes&quot;/&gt; 
-Our  Price:   &lt;xsl:value-of select=&quot;Details/UsedPrice&quot;  
-     disable-output-escaping=&quot;yes&quot;/&gt; 
-Used Price:   &lt;xsl:value-of select=&quot;Details/OurPrice&quot;  
-     disable-output-escaping=&quot;yes&quot;/&gt; 
+List Price:   &lt;xsl:value-of select=&quot;Details/ListPrice&quot; disable-output-escaping=&quot;yes&quot;&gt; 
+Our  Price:   &lt;xsl:value-of select=&quot;Details/UsedPrice&quot; disable-output-escaping=&quot;yes&quot;&gt; 
+Used Price:   &lt;xsl:value-of select=&quot;Details/OurPrice&quot; disable-output-escaping=&quot;yes&quot;&gt; 
         
-Availability: &lt;xsl:value-of select=&quot;Details/Availability&quot;  
-       disable-output-escaping=&quot;yes&quot;/&gt;
+Availability: &lt;xsl:value-of select=&quot;Details/Availability&quot; disable-output-escaping=&quot;yes&quot;&gt;
 &lt;xsl:text&gt;
 
 &lt;/xsl:text&gt;
-&lt;xsl:value-of select=&quot;Details/@url&quot;  
-       disable-output-escaping=&quot;yes&quot;/&gt;
+&lt;xsl:value-of select=&quot;Details/@url&quot; disable-output-escaping=&quot;yes&quot;&gt;
 &lt;xsl:text&gt;
 &lt;/xsl:text&gt;
 
-&lt;/xsl:for-each&gt;
+&lt;/xsl:value-of&gt;&lt;/xsl:value-of&gt;&lt;/xsl:value-of&gt;&lt;/xsl:value-of&gt;&lt;/xsl:value-of&gt;&lt;/xsl:value-of&gt;&lt;/xsl:value-of&gt;&lt;/xsl:value-of&gt;&lt;/xsl:value-of&gt;&lt;/xsl:for-each&gt;
 
 Most everything in this stretch should look very similar to the HTML version we just finished.  The biggest difference is that every bit of information pulled in using xsl:value-of is done using the disable-output-escaping option.  When this is yes, things like ampersands are no longer escaped for valid XML output.  Since this bit of the email is plain text, we don&#39;t want to see &amp;amp; in album titles, so this will cause ampersands to appear unmolested.
 That&#39;s the plain text version finished.  Now let&#39;s create the HTML version:
@@ -242,9 +244,9 @@ Content-Base: &quot;http://www.decafbad.com/2004/05/wishes&quot;
 
 The boundary string appears again, signifying the end of the plain text section and the start of the HTML section.  Headers appear here which specify that what follows is HTML; that it&#39;s encoded in 7-bit characters; that it should be included in the message display itself (rather than presented as an attachment to be saved); and that all relative URLs which might appear in the HTML should be treated as having a base URL as specified.  This last part allows HTML in email to refer to images and other pages on another site without making all the URLs absolute.
 We don&#39;t need to make any modifications to the HTML as we built it in the last iteration of the stylesheet, so we can just include it unchanged:
-&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+
 ...
-&lt;/html&gt;
+
 
 --theBoundaryString--
 
@@ -278,7 +280,8 @@ I still don&#39;t know why exsl:random doesn&#39;t work for me.  Although I thou
 The HTML presentation could certainly use some good CSS to make it more attractive.
 
 
-Feel free to send me any suggestions, criticisms, or complaints related to this article!</description>
+Feel free to send me any suggestions, criticisms, or complaints related to this article!&lt;/xsl:value-of&gt;&lt;/xsl:value-of&gt;&lt;/xsl:variable&gt;&lt;/xsl:variable&gt;&lt;/xsl:copy-of&gt;&lt;/body&gt;&lt;/html&gt;</description
+              >
           
           <pubDate>Tue, 06 Jul 2004 21:05:45 GMT</pubDate>
           <link>https://lmorchard.github.io/blog.lmorchard.com/2004/07/06/wishofthemonthclub3/</link>

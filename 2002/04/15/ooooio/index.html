@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>A personal server &amp; Multi-threaded vs Async / Event-driven programming - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="A personal server &amp; Multi-threaded vs Async / Event-driven programming" />
+    <html>
+      <head>
+        <title>A personal server &amp; Multi-threaded vs Async / Event-driven programming - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="A personal server &amp; Multi-threaded vs Async / Event-driven programming" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2002/04/15/ooooio/"
@@ -51,59 +58,132 @@ The problem is that, to take code that you would have written for a forking or m
 Hmm... trying to think of more re-think examples, but the main one I can think of is that long-running loops and processes need to be sliced and diced.  I seem to remember more pain than that.
 Anyway, I&#39;d rather use threads.  In threads, there needs to be a bit of re-think too, in terms of protecting resources from concurrency, but at least the main logic of my code can remain straightforward.  Perl doesn&#39;t have threads that I want to touch yet.  Python has threads, but I&#39;m not sure how kosher they are.  Of course, there&#39;s always Java, but I want to avoid Java I think.
 Anyone tuned in out there with any thoughts?  Mostly thinking out loud right now." />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post "
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post "
       >
-        <time
-          title="2002-04-15T18:54:03+00:00"
-          pubdate="2002-04-15T18:54:03+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2002/"
-            >2002</a
+        <header>
+          <time
+            title="2002-04-15T14:54:03-04:00"
+            pubdate="2002-04-15T14:54:03-04:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2002/04/"
-            >April</a
-          >
-          &raquo;
-          <span>15</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="LiveJournal XML-RPC + metaWeblog API"
+                href="/blog.lmorchard.com/2002/04/15/ooooia/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2002/"
+                >2002</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2002/04/"
+                >April</a
+              >
+              &#8226;
+              <span>15</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="web bug / cgi-based access_log emulator?"
+                href="/blog.lmorchard.com/2002/04/15/oooohi/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">A personal server & Multi-threaded vs Async / Event-driven programming</h1>
+          
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2002/04/15/ooooia/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2002/04/15/oooohi/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">A personal server &amp; Multi-threaded vs Async / Event-driven programming</h1>
-        
-        <section class="post-content">
-          <p>Okay after the <a href="http://radio.weblogs.com/0101679/2002/04/14.html#a351">vote of confidence from Sam Ruby</a> about my thinking out loud about a <a href="http://www.decafbad.com/news_archives/000087.shtml#000087">"404 correction" proxy server</a>, I've been thinking more about writing a Radio-like desktop app server.  I want to do more than make a <a href="http://www.decafbad.com/twiki/bin/view/Main/DesktopWebsite">DesktopWebsite</a>, though.  I want to make a full-blown <a href="http://www.decafbad.com/twiki/bin/view/Main/PersonalServer">PersonalServer</a> app, capable of hosting things like a <a href="http://www.decafbad.com/twiki/bin/view/Main/PersonalMailServer">PersonalMailServer</a> and a slew of other little local web services &amp; etc.  I may end up giving up and working more within Radio, but <a href="http://www.decafbad.com/news_archives/000080.shtml#000080">as I noted before</a> I have some issues with Radio's performance and stability, which though balanced by my appreciation of the elegance of the system, is being gradually outweighed by my fears of lock-in and pre-existing experience with other technologies.  </p>
+        <p>Okay after the <a href="http://radio.weblogs.com/0101679/2002/04/14.html#a351">vote of confidence from Sam Ruby</a> about my thinking out loud about a <a href="http://www.decafbad.com/news_archives/000087.shtml#000087">"404 correction" proxy server</a>, I've been thinking more about writing a Radio-like desktop app server.  I want to do more than make a <a href="http://www.decafbad.com/twiki/bin/view/Main/DesktopWebsite">DesktopWebsite</a>, though.  I want to make a full-blown <a href="http://www.decafbad.com/twiki/bin/view/Main/PersonalServer">PersonalServer</a> app, capable of hosting things like a <a href="http://www.decafbad.com/twiki/bin/view/Main/PersonalMailServer">PersonalMailServer</a> and a slew of other little local web services &amp; etc.  I may end up giving up and working more within Radio, but <a href="http://www.decafbad.com/news_archives/000080.shtml#000080">as I noted before</a> I have some issues with Radio's performance and stability, which though balanced by my appreciation of the elegance of the system, is being gradually outweighed by my fears of lock-in and pre-existing experience with other technologies.  </p>
 <p>Then again, this thing probably won't replace <a href="http://www.decafbad.com/twiki/bin/view/Main/RadioUserLand">RadioUserLand</a> for me.  I use it daily, I bought it, and it's not as exciting to reimplement what I already have.  Unless it is exciting.  Make any sense?</p>
 <p>So, speaking of technologies... which ones should I use to start working on a personal server?  My main goals are mumbled <a href="http://www.decafbad.com/twiki/bin/view/Main/DesktopWebAppServer">over here</a>.</p>
 <p>I've got a large amount of experience with Perl, and have written desktop apps with it for Mac OS X and Win32.  I'm having more fun with Python, however, and though I haven't written the same apps I imagine that it's on par with Perl.</p>
@@ -114,40 +194,77 @@ Anyone tuned in out there with any thoughts?  Mostly thinking out loud right now
 <p>Hmm... trying to think of more re-think examples, but the main one I can think of is that long-running loops and processes need to be sliced and diced.  I seem to remember more pain than that.</p>
 <p>Anyway, I'd rather use threads.  In threads, there needs to be a bit of re-think too, in terms of protecting resources from concurrency, but at least the main logic of my code can remain straightforward.  Perl doesn't have threads that I want to touch yet.  Python has threads, but I'm not sure how kosher they are.  Of course, there's always Java, but I want to avoid Java I think.</p>
 <p>Anyone tuned in out there with any thoughts?  Mostly thinking out loud right now.</p>
-<!--more-->
-shortname=ooooio
 
+
+<!--more-->
+
+
+<p>shortname=ooooio</p>
 <div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
 <ul class="comments">
 <li class="comment" id="comment-221082996">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=8c9c26bbf07df8085f59ae0f8982a3eb&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="">Ashutosh</a>
+<a class="avatar image" rel="nofollow" href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=8c9c26bbf07df8085f59ae0f8982a3eb&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="">Ashutosh</a>
 </div>
-<a href="#comment-221082996" class="permalink"><time datetime="2002-04-18T04:54:35">2002-04-18T04:54:35</time></a>
+
+
+<p><a href="#comment-221082996" class="permalink"><time datetime="2002-04-18T04:54:35">2002-04-18T04:54:35</time></a></p>
 </div>
+
+
 <div class="content">I've been playing around with exactly the same idea - of a PersonalWebServer with built-in scheduler, object database etc. And again, Perl is my comfort zone. And the lack of decent thread support has been a stumbling block. I have too much work done in top level apps in Perl to change over to Python or anything else.
 Anyway, I used threads to invoke a scheduler thread and a http daemon thread as an experiment, and they seem to work pretty fine together.
 I plan to keep the Perl object database (presently embedded in my top level apps - using Storable persistant objects indexed using an RDBMS for searches using pre-configured object attributes) as an external server, and plan to get the PersonalWebAppServer to talk to the database server using XML-RPC.</div>
+
+
 </li>
 </ul>
+
+
 </div>
 
-        </section>
-      </article>
-        </section>
-
-        <footer>
-          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
-        </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
-      </section>
-    </body>
-  </html>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2002/04/15/ooooia/"
+                >LiveJournal XML-RPC + metaWeblog API</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2002/04/15/oooohi/"
+                >web bug / cgi-based access_log emulator?</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

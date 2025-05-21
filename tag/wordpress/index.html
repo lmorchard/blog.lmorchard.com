@@ -1,302 +1,667 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>wordpress - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>wordpress - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/tag/wordpress/index.rss"
+          rel="alternate"
+          title="Tag: wordpress - blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/tag/wordpress.rss"
+                rel="alternate"
+                title="Tag: wordpress - blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/tag/wordpress/index.rss" title="Tag: wordpress - blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Tag: wordpress</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post tag-metablogging tag-webdev tag-js tag-gulp tag-jekyll tag-wordpress"
-          >
-            <time class="date" datetime="2014-10-20T12:00:00+00:00">
-              2014
-              October
-              20
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2014/10/20/static-blog-generation-with-gulp/">
-              <span class="infoContainer">
-                <span class="title">Static blog generation with Gulp and S3</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-git tag-hacking tag-jekyll tag-metablogging tag-wordpress tag-writing"
-          >
-            <time class="date" datetime="2012-06-16T12:00:00+00:00">
-              2012
-              June
-              16
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2012/06/16/blogging-like-a-blogger/">
-              <span class="infoContainer">
-                <span class="title">Blogging Like a Blogger</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post has-thumb tag-blogging tag-decafbad tag-metablogging tag-wordpress tag-jekyll"
-          >
-            <time class="date" datetime="2012-06-15T21:12:36+00:00">
-              2012
-              June
-              15
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2012/06/15/303-see-other/">
-              <span class="infoContainer">
-                <span class="title">303 See Other</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://farm5.staticflickr.com/4041/4213397611_b4eba76403.jpg" />
-          </li><li
-            class="post tag-asides tag-wordpress tag-metablogging"
-          >
-            <time class="date" datetime="2006-10-27T22:10:58+00:00">
-              2006
-              October
-              27
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/10/27/too-much-information-running-through-my-brain/">
-              <span class="infoContainer">
-                <span class="title">too much information running through my brain</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-wordpress tag-metablogging tag-sandbox tag-hemingway tag-css"
-          >
-            <time class="date" datetime="2006-10-27T16:39:45+00:00">
-              2006
-              October
-              27
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/10/27/sandbox-with-a-hemingway-like-rich-footer/">
-              <span class="infoContainer">
-                <span class="title">sandbox with a hemingway-like rich footer</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-wordpress tag-metablogging tag-hemmingway"
-          >
-            <time class="date" datetime="2006-10-26T20:06:13+00:00">
-              2006
-              October
-              26
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/10/26/hemingway-theme-blocks-and-widgets/">
-              <span class="infoContainer">
-                <span class="title">hemingway theme blocks and widgets</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-wordpress tag-metablogging tag-akismet tag-spam tag-beansandspam"
-          >
-            <time class="date" datetime="2006-08-27T18:04:39+00:00">
-              2006
-              August
-              27
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/08/27/akismet-down/">
-              <span class="infoContainer">
-                <span class="title">we have an akismet piper down!</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-wordpress tag-metablogging tag-sandbox tag-themes tag-skins"
-          >
-            <time class="date" datetime="2006-08-21T16:41:28+00:00">
-              2006
-              August
-              21
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/08/21/sandbox-is-nifty/">
-              <span class="infoContainer">
-                <span class="title">sandbox is nifty</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-wordpress tag-metablogging tag-webdev tag-identity"
-          >
-            <time class="date" datetime="2006-08-19T19:18:42+00:00">
-              2006
-              August
-              19
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/08/19/about-me-as-a-plugin/">
-              <span class="infoContainer">
-                <span class="title">about me as a plugin</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-wordpress tag-metablogging tag-identity tag-claimid"
-          >
-            <time class="date" datetime="2006-08-18T16:11:43+00:00">
-              2006
-              August
-              18
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/08/18/see-also/">
-              <span class="infoContainer">
-                <span class="title">see also</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-wordpress tag-metablogging tag-webdev tag-amazon"
-          >
-            <time class="date" datetime="2006-08-18T05:22:56+00:00">
-              2006
-              August
-              18
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/08/18/no-amazon-iframes-for-me/">
-              <span class="infoContainer">
-                <span class="title">no amazon iframes for me</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-wordpress tag-widgets tag-metablogging"
-          >
-            <time class="date" datetime="2006-08-15T22:33:43+00:00">
-              2006
-              August
-              15
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/08/15/969/">
-              <span class="infoContainer">
-                <span class="title"></span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-links tag-asides tag-wordpress tag-metablogging tag-delicious tag-redesign tag-reboot tag-linkblogging"
-          >
-            <time class="date" datetime="2006-01-20T17:19:57+00:00">
-              2006
-              January
-              20
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/01/20/re-introducing-nightly-link-posts/">
-              <span class="infoContainer">
-                <span class="title">Re-introducing nightly link posts</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-wordpress tag-webdev tag-syndication tag-python tag-programming tag-perl tag-templating tag-smarty tag-dtml tag-cheetah tag-reblog tag-evil"
-          >
-            <time class="date" datetime="2006-01-08T01:33:47+00:00">
-              2006
-              January
-              08
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/01/08/smarty-is-on-my-evil-list/">
-              <span class="infoContainer">
-                <span class="title">Smarty is on my evil list</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post has-thumb tag-wordpress tag-metablogging tag-writing tag-thebook tag-redesign"
-          >
-            <time class="date" datetime="2005-09-13T03:51:56+00:00">
-              2005
-              September
-              13
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/09/13/redesigninprogress/">
-              <span class="infoContainer">
-                <span class="title">Redesign in progress (or, no need to adjust your set)</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://www.decafbad.com/2005/09/IMG_3562_th.JPG" />
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Tag: wordpress</h2>
+        </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2014 October 20</h2>
+  </li><li class="content-grid post post-type-entry tag-metablogging tag-webdev tag-js tag-gulp tag-jekyll tag-wordpress">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2014/10/20/static-blog-generation-with-gulp/">Static blog generation with Gulp and S3</a>
+      </h2>
+    
+    <p class="summary">
+      I've long agreed that many sites, like blogs, are better baked than
+fried. It makes for web hosting that's cheaper to run and simpler to
+maintain. I've also often thought that using a database can be an
+anti-pattern for managing content. But, what I've also found is
+that baked sites often yield a poor writing environment. That said, I think
+I'm going to give it another try, because I think I might have found a new
+approach that works for me.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2014/10/20/static-blog-generation-with-gulp/"
+          >1195&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2014/10/20/static-blog-generation-with-gulp/">#</a>
+    <a class="time" href="2014/10/20/static-blog-generation-with-gulp/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/js/">js</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/gulp/">gulp</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/jekyll/">jekyll</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/wordpress/">wordpress</a>
           </li>
     </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2012 June 16</h2>
+  </li><li class="content-grid post post-type-entry tag-git tag-hacking tag-jekyll tag-metablogging tag-wordpress tag-writing">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2012/06/16/blogging-like-a-blogger/">Blogging Like a Blogger</a>
+      </h2>
     
-  </section>
-      </section>
-        </section>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2012/06/16/blogging-like-a-blogger/"
+          >611&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2012/06/16/blogging-like-a-blogger/">#</a>
+    <a class="time" href="2012/06/16/blogging-like-a-blogger/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/git/">git</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacking/">hacking</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/jekyll/">jekyll</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/wordpress/">wordpress</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/writing/">writing</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2012 June 15</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-blogging tag-decafbad tag-metablogging tag-wordpress tag-jekyll">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2012/06/15/303-see-other/">303 See Other</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://farm5.staticflickr.com/4041/4213397611_b4eba76403.jpg" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2012/06/15/303-see-other/"
+          >259&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2012/06/15/303-see-other/">#</a>
+    <a class="time" href="2012/06/15/303-see-other/">9:12 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/blogging/">blogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/decafbad/">decafbad</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/wordpress/">wordpress</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/jekyll/">jekyll</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 October 27</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-wordpress tag-metablogging">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/10/27/too-much-information-running-through-my-brain/">too much information running through my brain</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/10/27/too-much-information-running-through-my-brain/"
+          >224&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/10/27/too-much-information-running-through-my-brain/">#</a>
+    <a class="time" href="2006/10/27/too-much-information-running-through-my-brain/">6:10 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/wordpress/">wordpress</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides tag-wordpress tag-metablogging tag-sandbox tag-hemingway tag-css">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/10/27/sandbox-with-a-hemingway-like-rich-footer/">sandbox with a hemingway-like rich footer</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/10/27/sandbox-with-a-hemingway-like-rich-footer/"
+          >149&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/10/27/sandbox-with-a-hemingway-like-rich-footer/">#</a>
+    <a class="time" href="2006/10/27/sandbox-with-a-hemingway-like-rich-footer/">12:39 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/wordpress/">wordpress</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/sandbox/">sandbox</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/hemingway/">hemingway</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/css/">css</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 October 26</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-wordpress tag-metablogging tag-hemmingway">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/10/26/hemingway-theme-blocks-and-widgets/">hemingway theme blocks and widgets</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/10/26/hemingway-theme-blocks-and-widgets/"
+          >255&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/10/26/hemingway-theme-blocks-and-widgets/">#</a>
+    <a class="time" href="2006/10/26/hemingway-theme-blocks-and-widgets/">4:06 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/wordpress/">wordpress</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/hemmingway/">hemmingway</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 August 27</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-wordpress tag-metablogging tag-akismet tag-spam tag-beansandspam">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/08/27/akismet-down/">we have an akismet piper down!</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/08/27/akismet-down/"
+          >275&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/08/27/akismet-down/">#</a>
+    <a class="time" href="2006/08/27/akismet-down/">2:04 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/wordpress/">wordpress</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/akismet/">akismet</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/spam/">spam</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/beansandspam/">beansandspam</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 August 21</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-wordpress tag-metablogging tag-sandbox tag-themes tag-skins">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/08/21/sandbox-is-nifty/">sandbox is nifty</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/08/21/sandbox-is-nifty/"
+          >311&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/08/21/sandbox-is-nifty/">#</a>
+    <a class="time" href="2006/08/21/sandbox-is-nifty/">12:41 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/wordpress/">wordpress</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/sandbox/">sandbox</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/themes/">themes</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/skins/">skins</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 August 19</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-wordpress tag-metablogging tag-webdev tag-identity">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/08/19/about-me-as-a-plugin/">about me as a plugin</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/08/19/about-me-as-a-plugin/"
+          >319&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/08/19/about-me-as-a-plugin/">#</a>
+    <a class="time" href="2006/08/19/about-me-as-a-plugin/">3:18 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/wordpress/">wordpress</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/identity/">identity</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 August 18</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-wordpress tag-metablogging tag-identity tag-claimid">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/08/18/see-also/">see also</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/08/18/see-also/"
+          >55&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/08/18/see-also/">#</a>
+    <a class="time" href="2006/08/18/see-also/">12:11 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/wordpress/">wordpress</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/identity/">identity</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/claimid/">claimid</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides tag-wordpress tag-metablogging tag-webdev tag-amazon">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/08/18/no-amazon-iframes-for-me/">no amazon iframes for me</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/08/18/no-amazon-iframes-for-me/"
+          >196&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/08/18/no-amazon-iframes-for-me/">#</a>
+    <a class="time" href="2006/08/18/no-amazon-iframes-for-me/">1:22 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/wordpress/">wordpress</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/amazon/">amazon</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 August 15</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-wordpress tag-widgets tag-metablogging">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/08/15/969/">Archived Comments</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/08/15/969/"
+          >104&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/08/15/969/">#</a>
+    <a class="time" href="2006/08/15/969/">6:33 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/wordpress/">wordpress</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/widgets/">widgets</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 January 20</h2>
+  </li><li class="content-grid post post-type-entry tag-links tag-asides tag-wordpress tag-metablogging tag-delicious tag-redesign tag-reboot tag-linkblogging">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/01/20/re-introducing-nightly-link-posts/">Re-introducing nightly link posts</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/01/20/re-introducing-nightly-link-posts/"
+          >78&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/01/20/re-introducing-nightly-link-posts/">#</a>
+    <a class="time" href="2006/01/20/re-introducing-nightly-link-posts/">12:19 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/links/">links</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/wordpress/">wordpress</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/delicious/">delicious</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/redesign/">redesign</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/reboot/">reboot</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/linkblogging/">linkblogging</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 January 07</h2>
+  </li><li class="content-grid post post-type-entry tag-wordpress tag-webdev tag-syndication tag-python tag-programming tag-perl tag-templating tag-smarty tag-dtml tag-cheetah tag-reblog tag-evil">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/01/07/smarty-is-on-my-evil-list/">Smarty is on my evil list</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/01/07/smarty-is-on-my-evil-list/"
+          >1899&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/01/07/smarty-is-on-my-evil-list/">#</a>
+    <a class="time" href="2006/01/07/smarty-is-on-my-evil-list/">8:33 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/wordpress/">wordpress</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/python/">python</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/programming/">programming</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/perl/">perl</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/templating/">templating</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/smarty/">smarty</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/dtml/">dtml</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/cheetah/">cheetah</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/reblog/">reblog</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/evil/">evil</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 September 12</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-wordpress tag-metablogging tag-writing tag-thebook tag-redesign">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/09/12/redesigninprogress/">Redesign in progress (or, no need to adjust your set)</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://www.decafbad.com/2005/09/IMG_3562_th.JPG" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/09/12/redesigninprogress/"
+          >427&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/09/12/redesigninprogress/">#</a>
+    <a class="time" href="2005/09/12/redesigninprogress/">11:51 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/wordpress/">wordpress</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/writing/">writing</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/thebook/">thebook</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/redesign/">redesign</a>
+          </li>
+    </ul>
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
 
-        <footer>
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/tag/wordpress/index.rss" title="Tag: wordpress - blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

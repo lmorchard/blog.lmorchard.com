@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>Adding Android to a multi-platform React app - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="Adding Android to a multi-platform React app" />
+    <html>
+      <head>
+        <title>Adding Android to a multi-platform React app - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="Adding Android to a multi-platform React app" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2015/09/21/react-native-android/"
@@ -43,77 +50,134 @@
             property="og:image"
             content="https://lmorchard.github.io/blog.lmorchard.com/blog.lmorchard.com/uploads/2015/react-native-android/shared-overall.svg"
           />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post tag-webdevtag-nativetag-reacttag-reactnativetag-androidtag-iostag-mobiletag-mozilla"
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post tag-webdevtag-nativetag-reacttag-reactnativetag-androidtag-iostag-mobiletag-mozilla"
       >
-        <time
-          title="2015-09-21T12:00:00+00:00"
-          pubdate="2015-09-21T12:00:00+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2015/"
-            >2015</a
+        <header>
+          <time
+            title="2015-09-21T12:00:00-07:00"
+            pubdate="2015-09-21T12:00:00-07:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2015/09/"
-            >September</a
-          >
-          &raquo;
-          <span>21</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="The day the web shrugged?"
+                href="/blog.lmorchard.com/2015/09/21/blocked/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2015/"
+                >2015</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2015/09/"
+                >September</a
+              >
+              &#8226;
+              <span>21</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="The web is awesome"
+                href="/blog.lmorchard.com/2015/08/07/web-awesome/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">Adding Android to a multi-platform React app</h1>
+          <ul class="tags">
+              <li><a href="/blog.lmorchard.com/tag/webdev/">webdev</a></li><li><a href="/blog.lmorchard.com/tag/native/">native</a></li><li><a href="/blog.lmorchard.com/tag/react/">react</a></li><li><a href="/blog.lmorchard.com/tag/reactnative/">reactnative</a></li><li><a href="/blog.lmorchard.com/tag/android/">android</a></li><li><a href="/blog.lmorchard.com/tag/ios/">ios</a></li><li><a href="/blog.lmorchard.com/tag/mobile/">mobile</a></li><li><a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a></li>
+            </ul>
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2015/09/21/blocked/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2015/08/07/web-awesome/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">Adding Android to a multi-platform React app</h1>
-        <ul class="tags">
-            <li>
-                  <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/native/">native</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/react/">react</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/reactnative/">reactnative</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/android/">android</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/ios/">ios</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/mobile/">mobile</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
-                </li>
-          </ul>
-        <section class="post-content">
-          <nav role="navigation" class="table-of-contents"></nav>
+        <nav role="navigation" class="table-of-contents"></nav>
 
 <p>TL;DR: A couple of months back, <a href="http://blog.lmorchard.com/2015/07/22/react-multiplatform/">I wrote about a TODO app built using React
 for web and React Native for iOS</a>. </p>
@@ -132,7 +196,7 @@ tweaks</a> to account for differences in native component sets. That got my
 base app functionality working.</p>
 <p>Then, <a href="https://github.com/lmorchard/react-multiplatform/commit/dd8b6b307c31b67fde23c6b090e7b1f1d8b0f579">I squashed the iOS &amp; Android models together</a> when I realized that
 code was identical between the React Native platforms. That could change in
-the future, but there&#39;s no need for a difference right now.</p>
+the future, but there's no need for a difference right now.</p>
 <p>After sleeping on it, <a href="https://github.com/lmorchard/react-multiplatform/commit/ea7abb421b7e0486b2d3de42001724343f832901">I refactored some common mixins</a> to take advantage of
 additional sharing opportunities I found between iOS &amp; Android views. That
 helped to further shrink the lines of duplicated code.</p>
@@ -143,21 +207,21 @@ and code shared between the iOS and Android native platforms.</p>
 <p>Finally, in an attempt to start automating my code metrics, <a href="https://github.com/lmorchard/react-multiplatform/commit/d5149768e116571d0a1a059d1ff16e1cfc45fcfd">I added
 <code>loc-metrics.sh</code></a>.</p>
 <h2 id="visualizing-the-code-metrics">Visualizing the code metrics</h2>
-<p>So, I tried drawing some Venn diagrams in my notebook. But, I&#39;m terrible at
-drawing. That&#39;s when I remembered that SVG is a thing where I can draw by
+<p>So, I tried drawing some Venn diagrams in my notebook. But, I'm terrible at
+drawing. That's when I remembered that SVG is a thing where I can draw by
 writing code. So, <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial">I spent an afternoon teaching myself some SVG</a>
 and <a href="https://github.com/lmorchard/react-multiplatform/commit/0014232c9858e082414e094be021170fda19aab0">reworked my metrics shell script</a>.</p>
-<p>I&#39;m not going to bother trying to make the areas actually proportional to the
-lines of code. But, here&#39;s a rough picture of code sharing:</p>
-<img style="width: 240px" src="/uploads/2015/react-native-android/shared-overall.svg">
-<img style="width: 240px" src="/uploads/2015/react-native-android/shared-models.svg">
-<img style="width: 240px" src="/uploads/2015/react-native-android/shared-views.svg">
+<p>I'm not going to bother trying to make the areas actually proportional to the
+lines of code. But, here's a rough picture of code sharing:</p>
+<img style="width: 240px" src="/uploads/2015/react-native-android/shared-overall.svg" width="" height="">
+<img style="width: 240px" src="/uploads/2015/react-native-android/shared-models.svg" width="" height="">
+<img style="width: 240px" src="/uploads/2015/react-native-android/shared-views.svg" width="" height="">
 
-<p>If you can&#39;t see those images, then you&#39;ll need to find a browser that understands
+<p>If you can't see those images, then you'll need to find a browser that understands
 SVG until I can be bothered to convert to PNG. (Pull requests welcome!)</p>
 <h2 id="conclusions-revisited">Conclusions revisited</h2>
 <p>As before, most of the models code is shared between web and both native
-platforms. What&#39;s unique is mostly boilerplate wrapping <a href="http://blog.lmorchard.com/2015/07/22/react-multiplatform/#forking-sharing-model-code-for-persistence">the localStorage /
+platforms. What's unique is mostly boilerplate wrapping <a href="http://blog.lmorchard.com/2015/07/22/react-multiplatform/#forking-sharing-model-code-for-persistence">the localStorage /
 asyncStorage split between web and native</a>.</p>
 <p>On the view side, however, things are a bit more spread out. In a nutshell,
 React patterns in general allow a decent chunk of code to be shared between
@@ -165,15 +229,15 @@ web and native. And even more code can be shared between the iOS and Android
 platforms.</p>
 <p>But, unique concerns in each platform - web, iOS, and Android - call for
 unique code for each case. This is not actually a failing, though: Varying the
-UX between web &amp; iOS &amp; Android is a flexibility you&#39;ll probably appreciate. </p>
+UX between web &amp; iOS &amp; Android is a flexibility you'll probably appreciate. </p>
 <p>In other words, use components &amp; conventions unique to each
 platform without your app suffering from the lowest-common-denominator UX
 problem historically found in a lot of multi-platform apps. In the case of this
 TODO app, that just boils down to trivialities like checkboxes &amp; switches &amp;
-segmented controls. In a larger app, I&#39;d expect this concern to grow.</p>
-<p>I&#39;m being lazy and not coding up the math in percentages. This approach shared
+segmented controls. In a larger app, I'd expect this concern to grow.</p>
+<p>I'm being lazy and not coding up the math in percentages. This approach shared
 about half the code from the web app, and even more than that for each of the
-native apps. I think that&#39;s a significant advantage over writing separate
+native apps. I think that's a significant advantage over writing separate
 apps.</p>
 <p>Of course, <a href="http://blog.lmorchard.com/2015/07/22/react-multiplatform/#conclusion">all my caveats from the first go
 around</a> still apply: This is a very simple app. The code devoted to
@@ -184,35 +248,62 @@ model site.</p>
 <p>I think this approach toward building apps remains interesting &amp; promising. </p>
 <!-- vim: set wrap wm=5 syntax=markdown textwidth=78: -->
 
-        </section>
+        <section class="comments" id="comments">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+              var disqus_needs_loading = true;
+              var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com/2015/09/21/react-native-android/";
+            </script>
+            <noscript
+              >Please enable JavaScript to view the
+              <a href="http://disqus.com/?ref_noscript"
+                >comments powered by Disqus.</a
+              ></noscript
+            >
+            <a href="http://disqus.com" class="dsq-brlink"
+              >blog comments powered by
+              <span class="logo-disqus">Disqus</span></a
+            >
+          </section>
       </article>
 
-      <section class="comments" id="comments">
-          <div id="disqus_thread"></div>
-          <script type="text/javascript">
-            var disqus_needs_loading = true;
-            var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com/2015/09/21/react-native-android/";
-          </script>
-          <noscript
-            >Please enable JavaScript to view the
-            <a href="http://disqus.com/?ref_noscript"
-              >comments powered by Disqus.</a
-            ></noscript
-          >
-          <a href="http://disqus.com" class="dsq-brlink"
-            >blog comments powered by <span class="logo-disqus">Disqus</span></a
-          >
-        </section>
-        </section>
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2015/09/21/blocked/"
+                >The day the web shrugged?</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2015/08/07/web-awesome/"
+                >The web is awesome</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
 
-        <footer>
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

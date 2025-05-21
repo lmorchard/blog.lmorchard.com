@@ -1,122 +1,303 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>mastodon - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>mastodon - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/tag/mastodon/index.rss"
+          rel="alternate"
+          title="Tag: mastodon - blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/tag/mastodon.rss"
+                rel="alternate"
+                title="Tag: mastodon - blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/tag/mastodon/index.rss" title="Tag: mastodon - blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Tag: mastodon</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post has-thumb tag-fediverse tag-mastodon tag-sqlite tag-activitypub"
-          >
-            <time class="date" datetime="2023-05-12T12:00:00+00:00">
-              2023
-              May
-              12
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2023/05/12/toots-in-sqlite/">
-              <span class="infoContainer">
-                <span class="title">Using SQLite as a document database for Mastodon exports</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2023/05/12/toots-in-sqlite/cover.png" />
-          </li><li
-            class="post has-thumb tag-metablogging tag-writing tag-social tag-twitter tag-mastodon tag-activitypub"
-          >
-            <time class="date" datetime="2022-11-07T12:00:00+00:00">
-              2022
-              November
-              07
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/11/07/no-ushers/">
-              <span class="infoContainer">
-                <span class="title">There are no ushers on Mastodon</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/11/07/no-ushers/IMG_0449.png" />
-          </li><li
-            class="post has-thumb tag-social tag-socialmedia tag-gaming tag-abuse tag-harassment tag-mastodon tag-ostatus"
-          >
-            <time class="date" datetime="2017-06-01T12:00:00+00:00">
-              2017
-              June
-              01
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2017/06/01/backyard-pond/">
-              <span class="infoContainer">
-                <span class="title">Backyard Pond</span>
-              </span>
-            </a>
-            <img class="thumb" src="https://farm5.staticflickr.com/4250/34786107212_d5bfb6088a_q_d.jpg" />
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Tag: mastodon</h2>
+        </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2025 May 12</h2>
+  </li><li class="content-grid post post-type-miscellanea tag-miscellanea tag-metablogging tag-indieweb tag-bluesky tag-mastodon">
+    <div class="content miscellanea">
+      <html><head></head><body><ul>
+<li>Hello world!</li>
+<li>I'm probably going to keep <a href="/tag/metablogging">#metablogging</a> here for awhile, as I work out the kinks with the revised system. I do have other projects &amp; pursuits that I want to start rambling about here. Also kind of hoping that having an easy channel for show &amp; tell will encourage me a bit to actually spend time on them and document a bit.</li>
+<li>This <a href="https://codepen.io/tofjadesign/pen/LEExbqr">Carousel + Lightbox + Glow demo on CodePen</a> is too fancy for my blog, but it's really nifty. Maybe I need to just code my own up from scratch and I'm overthinking this lightGallery thing?</li>
+<li>"<a href="https://flipboard.video/w/p7cECAUgThGrfQo9Cqvb8r">Molly White argues</a> it’s time to reclaim the web: move your work to spaces you control, support open tools, and help build a web that serves people, not profit." She's been banging this drum for a long while, and she's right.</li>
+<li>Considering integrating responses from Bluesky and Mastodon here and posting entries from here to there. Those aren't exactly space I control, but they're relatively open tools, and I can archive things here. Also, I think it'd be meeting folks more where they are. </li>
+<li>I thought maybe requiring a Bluesky or Mastodon account to respond here would be a pain in the butt. But, I gave my Disqus widget a fresh try over the weekend and it's not exactly pleasant these days. I guess I can see why a lot of blogs just punt and link out to Hacker News threads for their comments - but I am not at all a fan of the orange site, myself.</li>
+<li>I post the occasional toot <a href="https://masto.hackers.town/@lmorchard">on Mastodon</a> and I post links to my half-baked <a href="https://pebbl.ing/u/lmorchard?">Pebbling Club profile</a>. Tempted to do the <a href="https://indieweb.org/PESOS">PESOS</a> thing and copy those into daily entries over here.</li>
+<li>Pushed out some RSS feed fixes:<ul>
+<li>images should be properly linked with absolute URLs</li>
+<li>posts with timestamps in the future should be omitted (i.e. like my daily miscellanea that's not "final" until just before midnight)</li>
+<li>links to feeds from tag pages should work now, both as visible in-page links and in the head of the page for auto-discovery</li>
+</ul>
+</li>
+</ul>
+</body></html>
+    </div>
+    <div class="meta">
+    <a class="permalink" href="2025/05/12/miscellanea/">#</a>
+    <a class="time" href="2025/05/12/miscellanea/">11:59 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/miscellanea/">miscellanea</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/indieweb/">indieweb</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/bluesky/">bluesky</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mastodon/">mastodon</a>
           </li>
     </ul>
-    
-  </section>
-      </section>
-        </section>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2023 May 12</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-fediverse tag-mastodon tag-sqlite tag-activitypub">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2023/05/12/toots-in-sqlite/">Using SQLite as a document database for Mastodon exports</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2023/05/12/toots-in-sqlite/cover.png" />
+    </div>
+    <p class="summary">
+      SQLite has JSON functions, generated columns, and full-text search - which all seems like a perfect mix for ingesting exports from Mastodon for search!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2023/05/12/toots-in-sqlite/"
+          >1366&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2023/05/12/toots-in-sqlite/">#</a>
+    <a class="time" href="2023/05/12/toots-in-sqlite/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fediverse/">fediverse</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mastodon/">mastodon</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/sqlite/">sqlite</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/activitypub/">activitypub</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2022 November 07</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-metablogging tag-writing tag-social tag-twitter tag-mastodon tag-activitypub">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2022/11/07/no-ushers/">There are no ushers on Mastodon</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2022/11/07/no-ushers/IMG_0449.png" />
+    </div>
+    <p class="summary">
+      There are no ushers on Mastodon. There's no one paid to show you to your seat, no one whose job it is to ease you into comfort and remove friction.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2022/11/07/no-ushers/"
+          >652&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2022/11/07/no-ushers/">#</a>
+    <a class="time" href="2022/11/07/no-ushers/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/writing/">writing</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/social/">social</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/twitter/">twitter</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mastodon/">mastodon</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/activitypub/">activitypub</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2017 June 01</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-social tag-socialmedia tag-gaming tag-abuse tag-harassment tag-mastodon tag-ostatus">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2017/06/01/backyard-pond/">Backyard Pond</a>
+      </h2>
+    <div class="thumb">
+      <img src="https://farm5.staticflickr.com/4250/34786107212_d5bfb6088a_q_d.jpg" />
+    </div>
+    <p class="summary">
+      I get conflicted about hosting & running a community site
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2017/06/01/backyard-pond/"
+          >1029&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2017/06/01/backyard-pond/">#</a>
+    <a class="time" href="2017/06/01/backyard-pond/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/social/">social</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/socialmedia/">socialmedia</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/gaming/">gaming</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/abuse/">abuse</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/harassment/">harassment</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mastodon/">mastodon</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ostatus/">ostatus</a>
+          </li>
+    </ul>
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
 
-        <footer>
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/tag/mastodon/index.rss" title="Tag: mastodon - blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>Introducing dbagg3, an Atom-powered client/server aggregator - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="Introducing dbagg3, an Atom-powered client/server aggregator" />
+    <html>
+      <head>
+        <title>Introducing dbagg3, an Atom-powered client/server aggregator - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="Introducing dbagg3, an Atom-powered client/server aggregator" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2004/08/05/introducing-dbagg3-an-atom-powered-clientserver-aggregator/"
@@ -43,65 +50,134 @@
             property="og:image"
             content="http://www.decafbad.com/2004/08/dbagg3-demo/dbagg3-phase1.jpg"
           />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post tag-syndicationtag-python"
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post tag-syndicationtag-python"
       >
-        <time
-          title="2004-08-05T13:04:56+00:00"
-          pubdate="2004-08-05T13:04:56+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2004/"
-            >2004</a
+        <header>
+          <time
+            title="2004-08-05T09:04:56-04:00"
+            pubdate="2004-08-05T09:04:56-04:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2004/08/"
-            >August</a
-          >
-          &raquo;
-          <span>05</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="dbagg3 code in CVS"
+                href="/blog.lmorchard.com/2004/08/05/dbagg3cvs/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2004/"
+                >2004</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2004/08/"
+                >August</a
+              >
+              &#8226;
+              <span>05</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Kibo Kibo Kibo"
+                href="/blog.lmorchard.com/2004/07/29/kibo-kibo-kibo/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">Introducing dbagg3, an Atom-powered client/server aggregator</h1>
+          <ul class="tags">
+              <li><a href="/blog.lmorchard.com/tag/syndication/">syndication</a></li><li><a href="/blog.lmorchard.com/tag/python/">python</a></li>
+            </ul>
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2004/08/05/dbagg3cvs/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2004/07/30/kibo-kibo-kibo/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">Introducing dbagg3, an Atom-powered client/server aggregator</h1>
-        <ul class="tags">
-            <li>
-                  <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/python/">python</a>
-                </li>
-          </ul>
-        <section class="post-content">
-          <p><strong>Update</strong>: I&#39;ve just dumped what code I have into my CVS repository.  So, go ahead and poke fun at it:</p>
+        <p><strong>Update</strong>: I've just dumped what code I have into my CVS repository.  So, go ahead and poke fun at it:</p>
 <ul>
 <li><a href="http://www.decafbad.com/cvs/dbagg3/">http://www.decafbad.com/cvs/dbagg3/</a></li>
 </ul>
@@ -112,16 +188,16 @@ CVS password: anoncvs
 $ cvs -d:pserver:anoncvs@www.decafbad.com:/cvsroot co dbagg3
 </code></pre>
 <hr>
-<p>So, besides the funk, there&#39;s a little project in which I&#39;ve gotten immersed.  Here&#39;s a teaser diagram:</p>
-<img src="http://www.decafbad.com/2004/08/dbagg3-demo/dbagg3-phase1.jpg" />
+<p>So, besides the funk, there's a little project in which I've gotten immersed.  Here's a teaser diagram:</p>
+<img src="http://www.decafbad.com/2004/08/dbagg3-demo/dbagg3-phase1.jpg" width="" height="">
 
-<p>It&#39;s a feed aggregator, my third attempt at such.  At present, things are roughly close to the diagram above.  Everything is clunky and command-line driven at present--but I&#39;ve got further plans, like a REST API for feed queries and manipulation of various things such as feed subscriptions and the read/unread state of items.  Pair this with an XSLT-driven browser UI, and the possibility of other clients (not the least of include other Atom-consuming aggregators).</p>
-<p>The goal is to make a <a href="http://www.intertwingly.net/wiki/pie/ClientServerAggregator">Client/Server Aggregator</a>.  Somewhat serendipitously, I just caught Bob DuCharme&#39;s xml.com <a href="http://www.xml.com/pub/a/2004/08/04/tr-xml.html">article on Amazon.com&#39;s web services</a>, which <a href="http://www.decafbad.com/blog/2004/06/16/wishofthemonthclub1">I really like</a> and have drawn inspiration from in thinking about this new aggregator.  Eventually, I want to offer the same sort of XML+XSL style of service that they&#39;ve put together, along with some futher inspiration from the <a href="http://www.atomenabled.org/developers/api/atom-api-spec.php">Atom API</a>.  </p>
+<p>It's a feed aggregator, my third attempt at such.  At present, things are roughly close to the diagram above.  Everything is clunky and command-line driven at present--but I've got further plans, like a REST API for feed queries and manipulation of various things such as feed subscriptions and the read/unread state of items.  Pair this with an XSLT-driven browser UI, and the possibility of other clients (not the least of include other Atom-consuming aggregators).</p>
+<p>The goal is to make a <a href="http://www.intertwingly.net/wiki/pie/ClientServerAggregator">Client/Server Aggregator</a>.  Somewhat serendipitously, I just caught Bob DuCharme's xml.com <a href="http://www.xml.com/pub/a/2004/08/04/tr-xml.html">article on Amazon.com's web services</a>, which <a href="http://www.decafbad.com/blog/2004/06/16/wishofthemonthclub1">I really like</a> and have drawn inspiration from in thinking about this new aggregator.  Eventually, I want to offer the same sort of XML+XSL style of service that they've put together, along with some futher inspiration from the <a href="http://www.atomenabled.org/developers/api/atom-api-spec.php">Atom API</a>.  </p>
 <p>Anyway, as another teaser, check out this early demo involving the XML this thing has been producing, coupled with some experimental XSL:</p>
 <ul>
-<li><a href="http://www.decafbad.com/2004/08/dbagg3-demo/xsltproc.cgi?xsl=http://www.decafbad.com/2004/08/dbagg3-demo/new.xsl&#38;xml=http://www.decafbad.com/2004/08/dbagg3-demo/demo.xml">dbagg3 demo page</a></li>
+<li><a href="http://www.decafbad.com/2004/08/dbagg3-demo/xsltproc.cgi?xsl=http://www.decafbad.com/2004/08/dbagg3-demo/new.xsl&amp;xml=http://www.decafbad.com/2004/08/dbagg3-demo/demo.xml">dbagg3 demo page</a></li>
 </ul>
-<p>You&#39;ll notice that there are three URLs involved here:</p>
+<p>You'll notice that there are three URLs involved here:</p>
 <ul>
 <li><a href="http://www.decafbad.com/2004/08/dbagg3-demo/xsltproc.cgi">An XSLT processor service</a></li>
 <li><a href="http://www.decafbad.com/2004/08/dbagg3-demo/new.xsl">An XSLT stylesheet</a></li>
@@ -129,26 +205,28 @@ $ cvs -d:pserver:anoncvs@www.decafbad.com:/cvsroot co dbagg3
 </ul>
 <p>The XSLT expects Atom (plus a few extensions of my own), so you can also do things like this:</p>
 <ul>
-<li><a href="http://www.decafbad.com/2004/08/dbagg3-demo/xsltproc.cgi?xsl=http://www.decafbad.com/2004/08/dbagg3-demo/new.xsl&#38;xml=http://www.diveintomark.org/xml/atom.xml">Dive Into Mark</a></li>
-<li><a href="http://www.decafbad.com/2004/08/dbagg3-demo/xsltproc.cgi?xsl=http://www.decafbad.com/2004/08/dbagg3-demo/new.xsl&#38;xml=http://www.intertwingly.net/blog/index.atom">Intertwingly</a></li>
-<li><a href="http://www.decafbad.com/2004/08/dbagg3-demo/xsltproc.cgi?xsl=http://www.decafbad.com/2004/08/dbagg3-demo/new.xsl&#38;xml=http://www.decafbad.com/blog/atom.xml">0xDECAFBAD</a></li>
+<li><a href="http://www.decafbad.com/2004/08/dbagg3-demo/xsltproc.cgi?xsl=http://www.decafbad.com/2004/08/dbagg3-demo/new.xsl&amp;xml=http://www.diveintomark.org/xml/atom.xml">Dive Into Mark</a></li>
+<li><a href="http://www.decafbad.com/2004/08/dbagg3-demo/xsltproc.cgi?xsl=http://www.decafbad.com/2004/08/dbagg3-demo/new.xsl&amp;xml=http://www.intertwingly.net/blog/index.atom">Intertwingly</a></li>
+<li><a href="http://www.decafbad.com/2004/08/dbagg3-demo/xsltproc.cgi?xsl=http://www.decafbad.com/2004/08/dbagg3-demo/new.xsl&amp;xml=http://www.decafbad.com/blog/atom.xml">0xDECAFBAD</a></li>
 </ul>
 <p>These are the sorts of tricks I was looking forward to when I started thinking about things like a <a href="http://www.decafbad.com/blog/2004/05/17/use_atom_for_a_universal_blog_transfer_protocol">universal blog transfer format</a> and <a href="http://www.decafbad.com/blog/2004/05/03/put_on_your_rsscolored_glasses_and_forget_about_atom">rose-colored glasses</a>.  XSLT used like this could just as easily produce a blog or RSS 2.0 content.</p>
-<p>Anyway, hoping to get some code into CVS by this weekend that&#39;s not entirely embarassing.  So if you&#39;re interested in this stuff, stay tuned.  I&#39;m hoping that this thing can provide a base for others interested in feed aggregation--if you just want to play with UI, use the scanning and storage as-is and tinker with XSLT; if you want to play with storage and query, leave the scanning and UI alone; if you want to tinker with parsing... er, <a href="http://www.feedparser.org/">talk to Mark Pilgrim</a>.</p>
+<p>Anyway, hoping to get some code into CVS by this weekend that's not entirely embarassing.  So if you're interested in this stuff, stay tuned.  I'm hoping that this thing can provide a base for others interested in feed aggregation--if you just want to play with UI, use the scanning and storage as-is and tinker with XSLT; if you want to play with storage and query, leave the scanning and UI alone; if you want to tinker with parsing... er, <a href="http://www.feedparser.org/">talk to Mark Pilgrim</a>.</p>
 <p>More soon!  </p>
-<p>(Oh yeah, and I <em>will</em> be working on coming up with a better name than <code>dbagg3</code>.  Unfortunately, I probably won&#39;t be coming up with a more visually appealing design for the UI, since what you see is the best I can do.  Heh, heh.  Don&#39;t let your programmers do visual design...)</p>
+<p>(Oh yeah, and I <em>will</em> be working on coming up with a better name than <code>dbagg3</code>.  Unfortunately, I probably won't be coming up with a more visually appealing design for the UI, since what you see is the best I can do.  Heh, heh.  Don't let your programmers do visual design...)</p>
 <div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
 <ul class="comments">
 <li class="comment" id="comment-221084326">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://blog.nur-eine-i.de"><img src="http://www.gravatar.com/avatar.php?gravatar_id=e7368d797917d0df7942c26d4ed2e580&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://blog.nur-eine-i.de">Benjamin</a>
+<a class="avatar image" rel="nofollow" href="http://blog.nur-eine-i.de"><img src="http://www.gravatar.com/avatar.php?gravatar_id=e7368d797917d0df7942c26d4ed2e580&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://blog.nur-eine-i.de">Benjamin</a>
 </div>
-<a href="#comment-221084326" class="permalink"><time datetime="2004-08-05T10:22:30">2004-08-05T10:22:30</time></a>
+
+
+<p><a href="#comment-221084326" class="permalink"><time datetime="2004-08-05T10:22:30">2004-08-05T10:22:30</time></a></p>
 </div>
+
+
 <div class="content">This is great. It seems that this could be the base, for what I've been dreaming/thinking about the last half year or so. In contrast to you, I haven't come up with any code yet (mostly due to the fact, that I don't python yet, and I found no other reasonably good feed parser, than the Universal Feed Parser), but with a name: Roosster 
 Features I'd really like to have in such a ClientServerAggregator are:
 (a) search over entries the aggregator has seen to date
@@ -157,51 +235,91 @@ Features I'd really like to have in such a ClientServerAggregator are:
 (d) interlink entries (I know this could be solved by some 'Related Entries' stuff, but somtimes I don't trust these "automatic classifiers")
 Can't wait, until I can take a look at the code and see if I can extend it. This would finally be a real reason to learn python.
 By the way, I really like the interface. Might be, that's because I'm a programmer too?!</div>
+
+
 </li>
 <li class="comment" id="comment-221084328">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=e1cc8e7103bb0f77a7d7abf91b1a961b&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="">Christopher Drake</a>
+<a class="avatar image" rel="nofollow" href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=e1cc8e7103bb0f77a7d7abf91b1a961b&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="">Christopher Drake</a>
 </div>
-<a href="#comment-221084328" class="permalink"><time datetime="2004-08-05T18:30:41">2004-08-05T18:30:41</time></a>
+
+
+<p><a href="#comment-221084328" class="permalink"><time datetime="2004-08-05T18:30:41">2004-08-05T18:30:41</time></a></p>
 </div>
+
+
 <div class="content">Very nice. The demo has me salivating a little.
 Oddly enough, I like the UI. If you can slim it down, side-to-side-wise a bit, it would also be a great aggregator to rip whole chunks from and feed to a Palm Pilot or PocketPC, as well. They're not as big as they were in the past, but with decent strides every couple of weeks, they still have a lot of following. Your page-width is dynamic, and that means a lot to me, a Palm user.
 A feature I'd like to see is kind of like Bloglines, where you receive a small box of info from the RSS feed, or what-have-you to give you a taste of an article. If going 1 link deep from any link on the aggregator page linked to a small page with such a tidbit, it would make surfing the articles a lot faster. This would allow a PDA or cellphone to drag an aggregator page 1 link deep with specialised software and get all of the highlights from say, 20 blogs.
 That could be a major boon, especially for people that connect while at wireless access points on business trips, etc.
 Keep it up, this looks like it'll rock when you are done.</div>
+
+
 </li>
 <li class="comment" id="comment-221084331">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://b4mad.net/datenbrei/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=0038a1e9f4492e2f964f0f39d2d0dc7f&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://b4mad.net/datenbrei/">Christoph Görn</a>
+<a class="avatar image" rel="nofollow" href="http://b4mad.net/datenbrei/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=0038a1e9f4492e2f964f0f39d2d0dc7f&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://b4mad.net/datenbrei/">Christoph Görn</a>
 </div>
-<a href="#comment-221084331" class="permalink"><time datetime="2004-08-08T12:41:08">2004-08-08T12:41:08</time></a>
+
+
+<p><a href="#comment-221084331" class="permalink"><time datetime="2004-08-08T12:41:08">2004-08-08T12:41:08</time></a></p>
 </div>
+
+
 <div class="content">Hi,
 and I will try to plug an jabber/XMPP bot into it, so it will deliver the aggragated content rigth to my beloved IM app...</div>
+
+
 </li>
 </ul>
+
+
 </div>
 
-        </section>
-      </article>
-        </section>
-
-        <footer>
-          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
-        </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
-      </section>
-    </body>
-  </html>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2004/08/05/dbagg3cvs/"
+                >dbagg3 code in CVS</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2004/07/29/kibo-kibo-kibo/"
+                >Kibo Kibo Kibo</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

@@ -1,197 +1,512 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>js - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>js - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/tag/js/index.rss"
+          rel="alternate"
+          title="Tag: js - blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/tag/js.rss"
+                rel="alternate"
+                title="Tag: js - blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/tag/js/index.rss" title="Tag: js - blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Tag: js</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post tag-metablogging tag-webdev tag-js tag-gulp tag-github tag-travis tag-s3 tag-amazon tag-devops"
-          >
-            <time class="date" datetime="2015-10-22T12:00:00+00:00">
-              2015
-              October
-              22
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2015/10/22/blogging-via-travis/">
-              <span class="infoContainer">
-                <span class="title">Continual Blogployment</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-metablogging tag-webdev tag-js tag-gulp tag-jekyll tag-wordpress"
-          >
-            <time class="date" datetime="2014-10-20T12:00:00+00:00">
-              2014
-              October
-              20
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2014/10/20/static-blog-generation-with-gulp/">
-              <span class="infoContainer">
-                <span class="title">Static blog generation with Gulp and S3</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post has-thumb tag-webdev tag-js tag-entries tag-mozilla tag-byob"
-          >
-            <time class="date" datetime="2010-06-22T22:16:24+00:00">
-              2010
-              June
-              22
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2010/06/22/case-study-building-a-bookmark-management-ui-for-mozillas-byob/">
-              <span class="infoContainer">
-                <span class="title">Case Study: Building a Bookmark Management UI for Mozilla&#39;s BYOB</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://decafbad.com/2010/06/byob-bookmarks-ui/img/bookmarks.png" />
-          </li><li
-            class="post tag-webdev tag-firefox tag-js tag-outliners tag-outlining tag-javascript tag-dhtml tag-eventdelegation tag-entries tag-mozilla tag-draganddrop"
-          >
-            <time class="date" datetime="2009-07-15T15:26:40+00:00">
-              2009
-              July
-              15
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2009/07/15/html5-drag-and-drop/">
-              <span class="infoContainer">
-                <span class="title">HTML5 drag and drop in Firefox 3.5</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-webdev tag-js tag-javascript tag-entries tag-jquery tag-zope tag-zpt tag-tal tag-templates"
-          >
-            <time class="date" datetime="2008-11-01T19:23:23+00:00">
-              2008
-              November
-              01
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2008/11/01/an-unnecessary-template-attribute-language/">
-              <span class="infoContainer">
-                <span class="title">An unnecessary Template Attribute Language</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-webdev tag-rss tag-js tag-xoxooutliner tag-bookmarklets"
-          >
-            <time class="date" datetime="2007-01-03T20:29:31+00:00">
-              2007
-              January
-              03
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2007/01/03/rss-feeds-of-bookmarklets/">
-              <span class="infoContainer">
-                <span class="title">rss feeds of bookmarklets?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-webdev tag-js tag-outliners tag-outlining tag-javascript tag-dhtml tag-yui"
-          >
-            <time class="date" datetime="2006-10-31T21:46:40+00:00">
-              2006
-              October
-              31
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/10/31/event-delegation-based-dhtml-drag-and-drop/">
-              <span class="infoContainer">
-                <span class="title">Event Delegation based DHTML Drag and Drop?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-ajax tag-webdev tag-hyperscope tag-engelbart tag-augment tag-js tag-outliners"
-          >
-            <time class="date" datetime="2006-09-06T19:57:42+00:00">
-              2006
-              September
-              06
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/09/06/futility-in-alternate-pasts-and-futures-in-human-augmentation/">
-              <span class="infoContainer">
-                <span class="title">Futility in alternate pasts and futures in human augmentation</span>
-              </span>
-            </a>
-            
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Tag: js</h2>
+        </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2015 October 22</h2>
+  </li><li class="content-grid post post-type-entry tag-metablogging tag-webdev tag-js tag-gulp tag-github tag-travis tag-s3 tag-amazon tag-devops">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2015/10/22/blogging-via-travis/">Continual Blogployment</a>
+      </h2>
+    
+    <p class="summary">
+      Ever since I switched this blog over to a Gulp-based toolchain - holy crap, 2 years ago - I had a TODO to wire this thing up for continual deployment. Well, today I finally did it.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2015/10/22/blogging-via-travis/"
+          >291&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2015/10/22/blogging-via-travis/">#</a>
+    <a class="time" href="2015/10/22/blogging-via-travis/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/js/">js</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/gulp/">gulp</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/github/">github</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/travis/">travis</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/s3/">s3</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/amazon/">amazon</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/devops/">devops</a>
           </li>
     </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2014 October 20</h2>
+  </li><li class="content-grid post post-type-entry tag-metablogging tag-webdev tag-js tag-gulp tag-jekyll tag-wordpress">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2014/10/20/static-blog-generation-with-gulp/">Static blog generation with Gulp and S3</a>
+      </h2>
     
-  </section>
-      </section>
-        </section>
+    <p class="summary">
+      I've long agreed that many sites, like blogs, are better baked than
+fried. It makes for web hosting that's cheaper to run and simpler to
+maintain. I've also often thought that using a database can be an
+anti-pattern for managing content. But, what I've also found is
+that baked sites often yield a poor writing environment. That said, I think
+I'm going to give it another try, because I think I might have found a new
+approach that works for me.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2014/10/20/static-blog-generation-with-gulp/"
+          >1195&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2014/10/20/static-blog-generation-with-gulp/">#</a>
+    <a class="time" href="2014/10/20/static-blog-generation-with-gulp/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/js/">js</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/gulp/">gulp</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/jekyll/">jekyll</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/wordpress/">wordpress</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2010 June 22</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-webdev tag-js tag-entries tag-mozilla tag-byob">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2010/06/22/case-study-building-a-bookmark-management-ui-for-mozillas-byob/">Case Study: Building a Bookmark Management UI for Mozilla&#39;s BYOB</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://decafbad.com/2010/06/byob-bookmarks-ui/img/bookmarks.png" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2010/06/22/case-study-building-a-bookmark-management-ui-for-mozillas-byob/"
+          >235&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2010/06/22/case-study-building-a-bookmark-management-ui-for-mozillas-byob/">#</a>
+    <a class="time" href="2010/06/22/case-study-building-a-bookmark-management-ui-for-mozillas-byob/">6:16 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/js/">js</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/byob/">byob</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2009 July 15</h2>
+  </li><li class="content-grid post post-type-entry tag-webdev tag-firefox tag-js tag-outliners tag-outlining tag-javascript tag-dhtml tag-eventdelegation tag-entries tag-mozilla tag-draganddrop">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2009/07/15/html5-drag-and-drop/">HTML5 drag and drop in Firefox 3.5</a>
+      </h2>
+    
+    <p class="summary">
+      Oh hey, look! It's another blog post—and this one
+is cross-posted on hacks.mozilla.com.
+I won't say this is the start of a renewed blogging habit, but let's see what happens.
 
-        <footer>
+
+
+
+
+Drag and drop is one of the most fundamental interactions
+afforded by graphical user interfaces.  In one gesture, it
+allows users to pair the selection of an object with the
+execution of an action, often including a second object in the
+operation.  It's a simple yet powerful UI concept used to
+support copying, list reordering, deletion (ala the Trash / Recycle Bin),
+and even the creation of link relationships.
+
+Since it's so fundamental, offering drag and drop in web
+applications has been a no-brainer ever since browsers first
+offered mouse events in DHTML.  But, although
+mousedown, mousemove, and
+mouseup made it possible, the implementation has been
+limited to the bounds of the browser window.  Additionally,
+since these events refer only to the object being dragged,
+there's a challenge to find the subject of the drop when
+the interaction is completed.
+
+Of course, that doesn't prevent most modern JavaScript
+frameworks from abstracting away most of the problems and
+throwing in some flourishes while they're at it.  But, wouldn't
+it be nice if browsers offered first-class support for drag and
+drop, and maybe even extended it beyond the window sandbox?
+
+As it turns out, this very wish is answered by the HTML 5 specification 
+section on new drag-and-drop events, and 
+Firefox 3.5 includes an implementation of those events.
+
+If you want to jump straight to the code, I've put together 
+some simple demos 
+of the new events.  
+
+I've even scratched an itch of my own and
+built the beginnings of an outline editor,
+where every draggable element is also a drop target—of which
+there could be dozens to hundreds in a complex document, something
+that gave me some minor hair-tearing moments in the past
+while trying to make do with plain old mouse events.
+
+And, all the above can be downloaded or cloned from 
+a GitHub repository
+I've created especially for this article—which continues after the jump.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2009/07/15/html5-drag-and-drop/"
+          >3204&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2009/07/15/html5-drag-and-drop/">#</a>
+    <a class="time" href="2009/07/15/html5-drag-and-drop/">11:26 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/firefox/">firefox</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/js/">js</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/outliners/">outliners</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/outlining/">outlining</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/javascript/">javascript</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/dhtml/">dhtml</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/eventdelegation/">eventdelegation</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/draganddrop/">draganddrop</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2008 November 01</h2>
+  </li><li class="content-grid post post-type-entry tag-webdev tag-js tag-javascript tag-entries tag-jquery tag-zope tag-zpt tag-tal tag-templates">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2008/11/01/an-unnecessary-template-attribute-language/">An unnecessary Template Attribute Language</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2008/11/01/an-unnecessary-template-attribute-language/"
+          >604&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2008/11/01/an-unnecessary-template-attribute-language/">#</a>
+    <a class="time" href="2008/11/01/an-unnecessary-template-attribute-language/">3:23 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/js/">js</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/javascript/">javascript</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/jquery/">jquery</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/zope/">zope</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/zpt/">zpt</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tal/">tal</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/templates/">templates</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2007 January 03</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-webdev tag-rss tag-js tag-xoxooutliner tag-bookmarklets">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2007/01/03/rss-feeds-of-bookmarklets/">rss feeds of bookmarklets?</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2007/01/03/rss-feeds-of-bookmarklets/"
+          >337&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2007/01/03/rss-feeds-of-bookmarklets/">#</a>
+    <a class="time" href="2007/01/03/rss-feeds-of-bookmarklets/">3:29 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/rss/">rss</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/js/">js</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xoxooutliner/">xoxooutliner</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/bookmarklets/">bookmarklets</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 October 31</h2>
+  </li><li class="content-grid post post-type-entry tag-webdev tag-js tag-outliners tag-outlining tag-javascript tag-dhtml tag-yui">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/10/31/event-delegation-based-dhtml-drag-and-drop/">Event Delegation based DHTML Drag and Drop?</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/10/31/event-delegation-based-dhtml-drag-and-drop/"
+          >1149&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/10/31/event-delegation-based-dhtml-drag-and-drop/">#</a>
+    <a class="time" href="2006/10/31/event-delegation-based-dhtml-drag-and-drop/">4:46 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/js/">js</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/outliners/">outliners</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/outlining/">outlining</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/javascript/">javascript</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/dhtml/">dhtml</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/yui/">yui</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 September 06</h2>
+  </li><li class="content-grid post post-type-entry tag-ajax tag-webdev tag-hyperscope tag-engelbart tag-augment tag-js tag-outliners">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/09/06/futility-in-alternate-pasts-and-futures-in-human-augmentation/">Futility in alternate pasts and futures in human augmentation</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/09/06/futility-in-alternate-pasts-and-futures-in-human-augmentation/"
+          >2102&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/09/06/futility-in-alternate-pasts-and-futures-in-human-augmentation/">#</a>
+    <a class="time" href="2006/09/06/futility-in-alternate-pasts-and-futures-in-human-augmentation/">3:57 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/ajax/">ajax</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/hyperscope/">hyperscope</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/engelbart/">engelbart</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/augment/">augment</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/js/">js</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/outliners/">outliners</a>
+          </li>
+    </ul>
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/tag/js/index.rss" title="Tag: js - blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

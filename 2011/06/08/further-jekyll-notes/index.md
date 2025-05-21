@@ -17,7 +17,7 @@ publish it. I may even subsequently update it from time to time, after that.
       I'm starting from scratch, though.
 
 * Since related posts via LSI is such a bear, I may try doing something with
-  tags. That is: 
+  tags. That is:
     * take all the tags from a post;
     * find the 5 latest posts for each tag;
     * display the unique set of posts
@@ -32,35 +32,35 @@ publish it. I may even subsequently update it from time to time, after that.
     * So, I'm using the `pretty` permalinks setting, and I have this in my
       nginx config:
         * `if (-f $request_filename/index.html) { rewrite ^(.+)$ $1/index.html last; }`
-      
+
 [pages]: http://pages.github.com/
 [davedash]: https://github.com/davedash/davedash.github.com
 
 <div id="comments" class="comments archived-comments">
             <h3>Archived Comments</h3>
-            
+
         <ul class="comments">
-            
+
         <li class="comment" id="comment-221995558">
             <div class="meta">
                 <div class="author">
-                    <a class="avatar image" rel="nofollow" 
+                    <a class="avatar image" rel="nofollow"
                        href="http://beesbuzz.biz/"><img src="http://disqus.com/api/users/avatars/plaidfluff.jpg"/></a>
-                    <a class="avatar name" rel="nofollow" 
+                    <a class="avatar name" rel="nofollow"
                        href="http://beesbuzz.biz/">fluffy</a>
                 </div>
                 <a href="#comment-221995558" class="permalink"><time datetime="2011-06-09T04:55:35">2011-06-09T04:55:35</time></a>
             </div>
             <div class="content">I appreciate the notion behind the no-trailing-slash permalink (because really the only thing that should care about the specific format is the user-agent, and that's what content-type is for), but does that particular rule possibly wreak havoc on relative links? Or do you ever even use those anyway? I'm one of those few weirdos who actually does use relative links wherever possible, even on blog entries with a potentially weird URL (since I like uploading one-off images to the same directory as the published entry, and only having them visible "below the cut" as all the cool kids are calling "extended entry" these days).</div>
-            
+
         </li>
-    
+
         <li class="comment" id="comment-289436387">
             <div class="meta">
                 <div class="author">
-                    <a class="avatar image" rel="nofollow" 
+                    <a class="avatar image" rel="nofollow"
                        href="http://www.michel-kraemer.de"><img src="http://disqus.com/api/users/avatars/michelkraemer.jpg"/></a>
-                    <a class="avatar name" rel="nofollow" 
+                    <a class="avatar name" rel="nofollow"
                        href="http://www.michel-kraemer.de">Michel Krämer</a>
                 </div>
                 <a href="#comment-289436387" class="permalink"><time datetime="2011-08-17T19:19:29">2011-08-17T19:19:29</time></a>
@@ -69,28 +69,27 @@ publish it. I may even subsequently update it from time to time, after that.
 
 Thanks,
 Michel</div>
-            
+
         <ul class="comments">
-            
+
         <li class="comment" id="comment-289452539">
             <div class="meta">
                 <div class="author">
-                    <a class="avatar image" rel="nofollow" 
+                    <a class="avatar image" rel="nofollow"
                        href="http://decafbad.com/"><img src="http://disqus.com/api/users/avatars/lmorchard.jpg"/></a>
-                    <a class="avatar name" rel="nofollow" 
+                    <a class="avatar name" rel="nofollow"
                        href="http://decafbad.com/">Les Orchard</a>
                 </div>
                 <a href="#comment-289452539" class="permalink"><time datetime="2011-08-17T19:44:18">2011-08-17T19:44:18</time></a>
             </div>
             <div class="content">Alas, I haven't gotten around to the related posts stuff, yet</div>
-            
+
         </li>
-    
+
         </ul>
-    
+
         </li>
-    
+
         </ul>
-    
+
         </div>
-    

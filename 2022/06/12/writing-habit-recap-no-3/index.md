@@ -10,7 +10,10 @@ tags:
 
 <!--more-->
 
-<img title="Maybe a pair of witches having tea? Who knows." src="cover.png" class="fullwidth" />
+<figure class="wide">
+  <img title="Maybe a pair of witches having tea? Who knows." src="cover.png" />
+  <figcaption>Maybe a pair of witches having tea? Who knows.</figcaption>
+</figure>
 
 ## Finley and Charley, a short story
 

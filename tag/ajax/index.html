@@ -1,167 +1,371 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>ajax - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>ajax - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/tag/ajax/index.rss"
+          rel="alternate"
+          title="Tag: ajax - blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/tag/ajax.rss"
+                rel="alternate"
+                title="Tag: ajax - blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/tag/ajax/index.rss" title="Tag: ajax - blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Tag: ajax</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post tag-ajax tag-webdev tag-hyperscope tag-engelbart tag-augment tag-js tag-outliners"
-          >
-            <time class="date" datetime="2006-09-06T19:57:42+00:00">
-              2006
-              September
-              06
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/09/06/futility-in-alternate-pasts-and-futures-in-human-augmentation/">
-              <span class="infoContainer">
-                <span class="title">Futility in alternate pasts and futures in human augmentation</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-delicious tag-book tag-hacks tag-ajax tag-json tag-webdev"
-          >
-            <time class="date" datetime="2006-08-16T13:12:07+00:00">
-              2006
-              August
-              16
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/08/16/ajaxitagging/">
-              <span class="infoContainer">
-                <span class="title">Ajaxitagging</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-links tag-asides tag-metablogging tag-delicious tag-ajax tag-feedmagick tag-geegaws"
-          >
-            <time class="date" datetime="2006-02-09T15:49:42+00:00">
-              2006
-              February
-              09
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/09/pulling-the-linkmobile-back-into-the-garage/">
-              <span class="infoContainer">
-                <span class="title">Pulling the Linkmobile back into the garage</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-ajax tag-json tag-webdev tag-xml"
-          >
-            <time class="date" datetime="2005-12-19T04:17:55+00:00">
-              2005
-              December
-              19
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/12/19/okay-okay-json-is-pretty-hot/">
-              <span class="infoContainer">
-                <span class="title">Okay, okay, JSON is pretty hot</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-ajax tag-json tag-webdev tag-web20 tag-rss tag-syndication tag-atom tag-javascript"
-          >
-            <time class="date" datetime="2005-12-19T03:01:51+00:00">
-              2005
-              December
-              19
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/12/19/feedmagick-gains-an-rss-to-json-filter/">
-              <span class="infoContainer">
-                <span class="title">FeedMagick gains an RSS-to-JSON filter</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-ajax tag-aggregators tag-rss tag-syndication tag-atom tag-google"
-          >
-            <time class="date" datetime="2005-10-08T17:47:15+00:00">
-              2005
-              October
-              08
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/10/08/google-reader-is-good/">
-              <span class="infoContainer">
-                <span class="title">Google Reader is good</span>
-              </span>
-            </a>
-            
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Tag: ajax</h2>
+        </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2006 September 06</h2>
+  </li><li class="content-grid post post-type-entry tag-ajax tag-webdev tag-hyperscope tag-engelbart tag-augment tag-js tag-outliners">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/09/06/futility-in-alternate-pasts-and-futures-in-human-augmentation/">Futility in alternate pasts and futures in human augmentation</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/09/06/futility-in-alternate-pasts-and-futures-in-human-augmentation/"
+          >2102&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/09/06/futility-in-alternate-pasts-and-futures-in-human-augmentation/">#</a>
+    <a class="time" href="2006/09/06/futility-in-alternate-pasts-and-futures-in-human-augmentation/">3:57 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/ajax/">ajax</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/hyperscope/">hyperscope</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/engelbart/">engelbart</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/augment/">augment</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/js/">js</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/outliners/">outliners</a>
           </li>
     </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 August 16</h2>
+  </li><li class="content-grid post post-type-entry tag-delicious tag-book tag-hacks tag-ajax tag-json tag-webdev">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/08/16/ajaxitagging/">Ajaxitagging</a>
+      </h2>
     
-  </section>
-      </section>
-        </section>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/08/16/ajaxitagging/"
+          >151&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/08/16/ajaxitagging/">#</a>
+    <a class="time" href="2006/08/16/ajaxitagging/">9:12 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/delicious/">delicious</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/book/">book</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ajax/">ajax</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/json/">json</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 February 09</h2>
+  </li><li class="content-grid post post-type-entry tag-links tag-asides tag-metablogging tag-delicious tag-ajax tag-feedmagick tag-geegaws">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/09/pulling-the-linkmobile-back-into-the-garage/">Pulling the Linkmobile back into the garage</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/09/pulling-the-linkmobile-back-into-the-garage/"
+          >191&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/09/pulling-the-linkmobile-back-into-the-garage/">#</a>
+    <a class="time" href="2006/02/09/pulling-the-linkmobile-back-into-the-garage/">10:49 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/links/">links</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/delicious/">delicious</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ajax/">ajax</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/feedmagick/">feedmagick</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/geegaws/">geegaws</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 December 18</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-ajax tag-json tag-webdev tag-xml">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/12/18/okay-okay-json-is-pretty-hot/">Okay, okay, JSON is pretty hot</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/12/18/okay-okay-json-is-pretty-hot/"
+          >205&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/12/18/okay-okay-json-is-pretty-hot/">#</a>
+    <a class="time" href="2005/12/18/okay-okay-json-is-pretty-hot/">11:17 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ajax/">ajax</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/json/">json</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xml/">xml</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides tag-ajax tag-json tag-webdev tag-web20 tag-rss tag-syndication tag-atom tag-javascript">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/12/18/feedmagick-gains-an-rss-to-json-filter/">FeedMagick gains an RSS-to-JSON filter</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/12/18/feedmagick-gains-an-rss-to-json-filter/"
+          >96&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/12/18/feedmagick-gains-an-rss-to-json-filter/">#</a>
+    <a class="time" href="2005/12/18/feedmagick-gains-an-rss-to-json-filter/">10:01 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ajax/">ajax</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/json/">json</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/web20/">web20</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/rss/">rss</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/atom/">atom</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/javascript/">javascript</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 October 08</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-ajax tag-aggregators tag-rss tag-syndication tag-atom tag-google">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/10/08/google-reader-is-good/">Google Reader is good</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/10/08/google-reader-is-good/"
+          >420&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/10/08/google-reader-is-good/">#</a>
+    <a class="time" href="2005/10/08/google-reader-is-good/">1:47 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ajax/">ajax</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/aggregators/">aggregators</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/rss/">rss</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/atom/">atom</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/google/">google</a>
+          </li>
+    </ul>
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
 
-        <footer>
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/tag/ajax/index.rss" title="Tag: ajax - blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

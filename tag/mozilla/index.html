@@ -1,602 +1,1387 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>mozilla - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>mozilla - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/tag/mozilla/index.rss"
+          rel="alternate"
+          title="Tag: mozilla - blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/tag/mozilla.rss"
+                rel="alternate"
+                title="Tag: mozilla - blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/tag/mozilla/index.rss" title="Tag: mozilla - blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Tag: mozilla</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post has-thumb tag-mozilla tag-firefox tag-themes tag-themer tag-quantum tag-addons tag-webpack tag-node tag-webdev"
-          >
-            <time class="date" datetime="2018-03-01T12:00:00+00:00">
-              2018
-              March
-              01
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2018/03/01/themesrfun/">
-              <span class="infoContainer">
-                <span class="title">Fun with Themes in Firefox</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2018/03/01/themesrfun/image_1.png" />
-          </li><li
-            class="post has-thumb tag-mozilla tag-testpilot tag-webdev tag-django tag-gulp"
-          >
-            <time class="date" datetime="2016-09-26T12:00:00+00:00">
-              2016
-              September
-              26
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2016/09/26/testpilot-static/">
-              <span class="infoContainer">
-                <span class="title">Firefox Test Pilot: The Flattening</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/uploads/2016/tp-flat.png" />
-          </li><li
-            class="post has-thumb tag-webdev tag-native tag-react tag-reactnative tag-android tag-ios tag-mobile tag-mozilla"
-          >
-            <time class="date" datetime="2015-09-21T12:00:00+00:00">
-              2015
-              September
-              21
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2015/09/21/react-native-android/">
-              <span class="infoContainer">
-                <span class="title">Adding Android to a multi-platform React app</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/uploads/2015/react-native-android/shared-overall.svg" />
-          </li><li
-            class="post tag-webdev tag-native tag-react tag-reactnative tag-ios tag-mobile tag-mozilla"
-          >
-            <time class="date" datetime="2015-07-22T12:00:00+00:00">
-              2015
-              July
-              22
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2015/07/22/react-multiplatform/">
-              <span class="infoContainer">
-                <span class="title">Experimenting with a multi-platform app using React</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post has-thumb tag-badger tag-badges tag-django tag-mozilla tag-webdev"
-          >
-            <time class="date" datetime="2013-02-23T12:00:00+00:00">
-              2013
-              February
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2013/02/23/looking-for-a-django-app-to-manage-roles-within-groups/">
-              <span class="infoContainer">
-                <span class="title">Looking for a Django app to manage Roles within Groups</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://images2.wikia.nocookie.net/__cb20091106224144/wowwiki/images/thumb/3/3e/Guild_list_%28interface%29.png/450px-Guild_list_%28interface%29.png" />
-          </li><li
-            class="post tag-mdn tag-mozilla tag-wiki"
-          >
-            <time class="date" datetime="2013-02-21T12:00:00+00:00">
-              2013
-              February
-              21
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2013/02/21/kumascript/">
-              <span class="infoContainer">
-                <span class="title">KumaScript: Bringing scripting to the wiki bears</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-firefoxos tag-mobile tag-mozilla tag-webdev"
-          >
-            <time class="date" datetime="2012-11-15T12:00:00+00:00">
-              2012
-              November
-              15
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2012/11/15/my-experience-in-becoming-a-firefoxos-contributor/">
-              <span class="infoContainer">
-                <span class="title">My experience in becoming a FirefoxOS contributor</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-facebook tag-mozilla tag-social tag-socialmedia tag-web"
-          >
-            <time class="date" datetime="2012-10-01T12:00:00+00:00">
-              2012
-              October
-              01
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2012/10/01/privacy-and-social-media/">
-              <span class="infoContainer">
-                <span class="title">Privacy and Social Media</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-apple tag-b2g tag-choice tag-firefoxos tag-mozilla tag-tech"
-          >
-            <time class="date" datetime="2012-09-27T12:00:00+00:00">
-              2012
-              September
-              27
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2012/09/27/freedom-to-change-your-mind/">
-              <span class="infoContainer">
-                <span class="title">Freedom to Change Your Mind</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-freedom tag-mozilla tag-tech"
-          >
-            <time class="date" datetime="2012-09-24T12:00:00+00:00">
-              2012
-              September
-              24
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2012/09/24/freedom-of-from-choice/">
-              <span class="infoContainer">
-                <span class="title">Freedom {of,from} Choice</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-apps tag-mozilla tag-openwebapps tag-webdev"
-          >
-            <time class="date" datetime="2012-09-18T12:00:00+00:00">
-              2012
-              September
-              18
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2012/09/18/first-get-it-onto-the-web/">
-              <span class="infoContainer">
-                <span class="title">Developing Open Web Apps: First, get it onto the web</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-mdn tag-mozilla tag-work"
-          >
-            <time class="date" datetime="2012-09-17T12:00:00+00:00">
-              2012
-              September
-              17
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2012/09/17/on-the-other-end-of-a-self-imposed-death-march-project/">
-              <span class="infoContainer">
-                <span class="title">On the other end of a self-imposed death march project</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-mozilla"
-          >
-            <time class="date" datetime="2012-07-10T12:00:00+00:00">
-              2012
-              July
-              10
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2012/07/10/note-to-self-file-a-bug-to-get/">
-              <span class="infoContainer">
-                <span class="title">Note to self File a bug to get&amp;#8230;</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post has-thumb tag-mozilla tag-space tag-webdev"
-          >
-            <time class="date" datetime="2012-07-10T12:00:00+00:00">
-              2012
-              July
-              10
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2012/07/10/webdev-in-spac/">
-              <span class="infoContainer">
-                <span class="title">How webdev is like space exploration</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://marsrovers.jpl.nasa.gov/overview/rover_low_angle_200.jpg" />
-          </li><li
-            class="post has-thumb tag-devops tag-mozilla tag-webdev"
-          >
-            <time class="date" datetime="2012-07-10T12:00:00+00:00">
-              2012
-              July
-              10
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2012/07/10/webdev-more-better/">
-              <span class="infoContainer">
-                <span class="title">How webdev has been getting better</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://ecx.images-amazon.com/images/I/41AvY4p2haL._SL160_.jpg" />
-          </li><li
-            class="post has-thumb tag-coding tag-learning tag-work tag-webdev tag-mozilla"
-          >
-            <time class="date" datetime="2012-05-16T13:00:00+00:00">
-              2012
-              May
-              16
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2012/05/16/please-learn-to-code/">
-              <span class="infoContainer">
-                <span class="title">Please Do Learn To Code</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://farm3.static.flickr.com/2001/2508770940_b88b955aaa.jpg" />
-          </li><li
-            class="post has-thumb tag-mozilla tag-contributors tag-volunteers tag-vagrant tag-puppet tag-virtualization tag-webdev"
-          >
-            <time class="date" datetime="2011-10-02T22:45:37+00:00">
-              2011
-              October
-              02
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2011/10/02/putting-clouds-in-boxes/">
-              <span class="infoContainer">
-                <span class="title">Putting clouds in boxes for webdevs at Mozilla</span>
-              </span>
-            </a>
-            <img class="thumb" src="https://decafbad.com/blog/images/cloud-box.jpg" />
-          </li><li
-            class="post has-thumb tag-badger tag-social tag-python tag-mozilla tag-django"
-          >
-            <time class="date" datetime="2011-07-18T15:03:13+00:00">
-              2011
-              July
-              18
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2011/07/18/badger2/">
-              <span class="infoContainer">
-                <span class="title">Badger 2: Return of the Mustelidae</span>
-              </span>
-            </a>
-            <img class="thumb" src="https://decafbad.com/blog/images/badger-logo-working.png" />
-          </li><li
-            class="post has-thumb tag-firefox tag-browsers tag-feeds tag-entries tag-mozilla tag-payphones tag-livemarks"
-          >
-            <time class="date" datetime="2011-02-07T04:32:31+00:00">
-              2011
-              February
-              07
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2011/02/07/pay-phones-and-firefox-features/">
-              <span class="infoContainer">
-                <span class="title">Pay phones and Firefox features</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://farm5.static.flickr.com/4099/4925985819_9ccbb166f7.jpg" />
-          </li><li
-            class="post has-thumb tag-rss tag-firefox tag-feeds tag-entries tag-mozilla tag-autodiscovery tag-bug578967"
-          >
-            <time class="date" datetime="2011-01-27T06:11:00+00:00">
-              2011
-              January
-              27
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2011/01/27/what-should-be-done-about-feeds-in-browsers/">
-              <span class="infoContainer">
-                <span class="title">What should be done about feeds in browsers?</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://farm3.static.flickr.com/2003/2261662706_db086ea4bb_m.jpg" />
-          </li><li
-            class="post has-thumb tag-rss tag-firefox tag-feeds tag-entries tag-mozilla tag-autodiscovery tag-bug578967"
-          >
-            <time class="date" datetime="2011-01-15T17:20:22+00:00">
-              2011
-              January
-              15
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2011/01/15/how-to-use-feed-auto-discovery-in-firefox-4/">
-              <span class="infoContainer">
-                <span class="title">How to use feed auto-discovery in Firefox 4</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://decafbad.com/blog/wp-content/uploads/2011/01/feed-sub-002.png" />
-          </li><li
-            class="post has-thumb tag-rss tag-firefox tag-feeds tag-entries tag-mozilla tag-autodiscovery tag-bug578967"
-          >
-            <time class="date" datetime="2011-01-15T16:18:56+00:00">
-              2011
-              January
-              15
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2011/01/15/what-happened-to-feed-autodiscovery-in-firefox-4/">
-              <span class="infoContainer">
-                <span class="title">What happened to feed auto-discovery in Firefox 4?</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://decafbad.com/blog/wp-content/uploads/2011/01/heatmap.png" />
-          </li><li
-            class="post has-thumb tag-webdev tag-firefox tag-google tag-python tag-entries tag-mozilla tag-sync tag-appengine"
-          >
-            <time class="date" datetime="2010-07-05T23:00:56+00:00">
-              2010
-              July
-              05
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2010/07/05/firefox-sync-server-on-google-app-engine/">
-              <span class="infoContainer">
-                <span class="title">Firefox Sync server on Google App Engine</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://mozcom-cdn.mozilla.net/img/firefox/sync/sync-background.png" />
-          </li><li
-            class="post has-thumb tag-webdev tag-js tag-entries tag-mozilla tag-byob"
-          >
-            <time class="date" datetime="2010-06-22T22:16:24+00:00">
-              2010
-              June
-              22
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2010/06/22/case-study-building-a-bookmark-management-ui-for-mozillas-byob/">
-              <span class="infoContainer">
-                <span class="title">Case Study: Building a Bookmark Management UI for Mozilla&#39;s BYOB</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://decafbad.com/2010/06/byob-bookmarks-ui/img/bookmarks.png" />
-          </li><li
-            class="post tag-webdev tag-firefox tag-js tag-outliners tag-outlining tag-javascript tag-dhtml tag-eventdelegation tag-entries tag-mozilla tag-draganddrop"
-          >
-            <time class="date" datetime="2009-07-15T15:26:40+00:00">
-              2009
-              July
-              15
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2009/07/15/html5-drag-and-drop/">
-              <span class="infoContainer">
-                <span class="title">HTML5 drag and drop in Firefox 3.5</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-entries tag-mozilla tag-7things tag-memes"
-          >
-            <time class="date" datetime="2009-01-23T16:59:54+00:00">
-              2009
-              January
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2009/01/23/7-facts-about-me/">
-              <span class="infoContainer">
-                <span class="title">7 facts about me</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post has-thumb tag-json tag-webdev tag-rss tag-atom tag-entries tag-mozilla tag-lizardfeeder tag-activitystreams"
-          >
-            <time class="date" datetime="2009-01-06T00:01:54+00:00">
-              2009
-              January
-              06
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2009/01/06/enter-the-lizardfeeder/">
-              <span class="infoContainer">
-                <span class="title">Enter the LizardFeeder</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://decafbad.com/blog/wp-content/uploads/2009/01/moz-tree.jpg" />
-          </li><li
-            class="post has-thumb tag-delicious tag-web20 tag-firefox tag-entries tag-mozilla tag-ubiquity"
-          >
-            <time class="date" datetime="2008-09-07T05:20:20+00:00">
-              2008
-              September
-              07
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2008/09/07/improving-my-delicious-command-for-ubiquity/">
-              <span class="infoContainer">
-                <span class="title">Improving my Delicious command for Ubiquity</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://decafbad.com/2008/ubiq-del-status.jpg" />
-          </li><li
-            class="post has-thumb tag-delicious tag-webdev tag-javascript tag-greasemonkey tag-entries tag-mozilla tag-ubiquity"
-          >
-            <time class="date" datetime="2008-09-01T04:37:03+00:00">
-              2008
-              September
-              01
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2008/09/01/writing-a-delicious-command-for-ubiquity/">
-              <span class="infoContainer">
-                <span class="title">Writing a Delicious command for Ubiquity</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2008/ubiq-share-on-delicious-list.jpg" />
-          </li><li
-            class="post tag-webdev tag-mashups tag-javascript tag-entries tag-mozilla tag-ubiquity"
-          >
-            <time class="date" datetime="2008-08-31T04:07:22+00:00">
-              2008
-              August
-              31
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2008/08/31/ubiquity-cracks-open-personal-mashup-tinkering/">
-              <span class="infoContainer">
-                <span class="title">Ubiquity cracks open personal mashup tinkering</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-entries tag-mozilla tag-summit tag-moz08"
-          >
-            <time class="date" datetime="2008-08-04T20:15:23+00:00">
-              2008
-              August
-              04
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2008/08/04/moz08-rockslides-and-blackouts-and-bears-oh-my/">
-              <span class="infoContainer">
-                <span class="title">Moz08: Rockslides and Blackouts and Bears - Oh My!</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-firefox tag-themes tag-mozilla tag-amo"
-          >
-            <time class="date" datetime="2008-06-16T16:07:46+00:00">
-              2008
-              June
-              16
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2008/06/16/putting-the-sexy-into-firefox-theme-browsing/">
-              <span class="infoContainer">
-                <span class="title">Putting the Sexy into Firefox Theme Browsing</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-firefox tag-entries tag-mozilla tag-downloadday"
-          >
-            <time class="date" datetime="2008-06-16T15:55:04+00:00">
-              2008
-              June
-              16
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2008/06/16/firefox-3-download-day-mega-widget/">
-              <span class="infoContainer">
-                <span class="title">Firefox 3 Download Day Mega Widget</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-entries tag-mozilla"
-          >
-            <time class="date" datetime="2008-05-23T01:04:20+00:00">
-              2008
-              May
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2008/05/23/week-3-at-mozilla/">
-              <span class="infoContainer">
-                <span class="title">Week 3 at Mozilla</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-entries tag-mozilla"
-          >
-            <time class="date" datetime="2008-05-14T21:01:37+00:00">
-              2008
-              May
-              14
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2008/05/14/go-midwest-young-man/">
-              <span class="infoContainer">
-                <span class="title">Go Midwest, Young Man!</span>
-              </span>
-            </a>
-            
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Tag: mozilla</h2>
+        </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2018 March 01</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-mozilla tag-firefox tag-themes tag-themer tag-quantum tag-addons tag-webpack tag-node tag-webdev">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2018/03/01/themesrfun/">Fun with Themes in Firefox</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2018/03/01/themesrfun/image_1.png" />
+    </div>
+    <p class="summary">
+      Last year, I started work on a new Test Pilot experiment playing with themes in Firefox.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2018/03/01/themesrfun/"
+          >1864&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2018/03/01/themesrfun/">#</a>
+    <a class="time" href="2018/03/01/themesrfun/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/firefox/">firefox</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/themes/">themes</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/themer/">themer</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/quantum/">quantum</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/addons/">addons</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webpack/">webpack</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/node/">node</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
           </li>
     </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2016 September 26</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-mozilla tag-testpilot tag-webdev tag-django tag-gulp">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2016/09/26/testpilot-static/">Firefox Test Pilot: The Flattening</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/uploads/2016/tp-flat.png" />
+    </div>
+    <p class="summary">
+      Firefox Test Pilot is becoming a statically-generated site from content in flat files. We're moving away from Django and PostgreSQL, and it's been a bit of a journey.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2016/09/26/testpilot-static/"
+          >1128&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2016/09/26/testpilot-static/">#</a>
+    <a class="time" href="2016/09/26/testpilot-static/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/testpilot/">testpilot</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/django/">django</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/gulp/">gulp</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2015 September 21</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-webdev tag-native tag-react tag-reactnative tag-android tag-ios tag-mobile tag-mozilla">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2015/09/21/react-native-android/">Adding Android to a multi-platform React app</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/uploads/2015/react-native-android/shared-overall.svg" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2015/09/21/react-native-android/"
+          >703&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2015/09/21/react-native-android/">#</a>
+    <a class="time" href="2015/09/21/react-native-android/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/native/">native</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/react/">react</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/reactnative/">reactnative</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/android/">android</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ios/">ios</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mobile/">mobile</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2015 July 22</h2>
+  </li><li class="content-grid post post-type-entry tag-webdev tag-native tag-react tag-reactnative tag-ios tag-mobile tag-mozilla">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2015/07/22/react-multiplatform/">Experimenting with a multi-platform app using React</a>
+      </h2>
     
-  </section>
-      </section>
-        </section>
+    <p class="summary">
+      I built a toy app using React for web and native to get a feel for whether this hybrid approach is worth using. I think the answer is "yes" - but mainly for apps whose business logic & data models are more complex than their views.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2015/07/22/react-multiplatform/"
+          >1648&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2015/07/22/react-multiplatform/">#</a>
+    <a class="time" href="2015/07/22/react-multiplatform/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/native/">native</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/react/">react</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/reactnative/">reactnative</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ios/">ios</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mobile/">mobile</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2013 February 23</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-badger tag-badges tag-django tag-mozilla tag-webdev">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2013/02/23/looking-for-a-django-app-to-manage-roles-within-groups/">Looking for a Django app to manage Roles within Groups</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://images2.wikia.nocookie.net/__cb20091106224144/wowwiki/images/thumb/3/3e/Guild_list_%28interface%29.png/450px-Guild_list_%28interface%29.png" />
+    </div>
+    <p class="summary">
+      I want to add some team-based features to django-badger. I was hoping that someone had already built a reusable app to do most of the work for me. This happens quite a lot when I’m working with Django. Unfortunately, I haven’t quite found what I’m looking for yet. Consider this blog post either the product of my thinking out loud toward a rough spec, or a long-winded lazyweb search query.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2013/02/23/looking-for-a-django-app-to-manage-roles-within-groups/"
+          >418&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2013/02/23/looking-for-a-django-app-to-manage-roles-within-groups/">#</a>
+    <a class="time" href="2013/02/23/looking-for-a-django-app-to-manage-roles-within-groups/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/badger/">badger</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/badges/">badges</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/django/">django</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2013 February 21</h2>
+  </li><li class="content-grid post post-type-entry tag-mdn tag-mozilla tag-wiki">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2013/02/21/kumascript/">KumaScript: Bringing scripting to the wiki bears</a>
+      </h2>
+    
+    <p class="summary">
+      KumaScript turned one year old back at the end of January, and I’m sad to say no one celebrated its birthday – not even me. I’m pretty sure very few people outside of the core team at the Mozilla Developer Network even know what KumaScript is. So, I guess it’s about time I do something about that.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2013/02/21/kumascript/"
+          >2394&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2013/02/21/kumascript/">#</a>
+    <a class="time" href="2013/02/21/kumascript/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/mdn/">mdn</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/wiki/">wiki</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2012 November 15</h2>
+  </li><li class="content-grid post post-type-entry tag-firefoxos tag-mobile tag-mozilla tag-webdev">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2012/11/15/my-experience-in-becoming-a-firefoxos-contributor/">My experience in becoming a FirefoxOS contributor</a>
+      </h2>
+    
+    <p class="summary">
+      Back in September, I wrote that I wasn’t leaving MDN. And, I’m not, really. But, it turns out that FirefoxOS needs some help to reach its first release milestones. So, some of us webdevs from around Mozilla are temporarily switching our daily efforts over to slay bugs on Gaia. That’s the layer of FirefoxOS which provides the overall system UI and core apps.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2012/11/15/my-experience-in-becoming-a-firefoxos-contributor/"
+          >1651&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2012/11/15/my-experience-in-becoming-a-firefoxos-contributor/">#</a>
+    <a class="time" href="2012/11/15/my-experience-in-becoming-a-firefoxos-contributor/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/firefoxos/">firefoxos</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mobile/">mobile</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2012 October 01</h2>
+  </li><li class="content-grid post post-type-entry tag-facebook tag-mozilla tag-social tag-socialmedia tag-web">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2012/10/01/privacy-and-social-media/">Privacy and Social Media</a>
+      </h2>
+    
+    <p class="summary">
+      Somewhat apropos of what I posted recently about freedoms, there’s been a kerfuffle about Facebook and privacy (again). A particular post I just read kind of set me off, so I decided to expand on a comment I left there.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2012/10/01/privacy-and-social-media/"
+          >835&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2012/10/01/privacy-and-social-media/">#</a>
+    <a class="time" href="2012/10/01/privacy-and-social-media/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/facebook/">facebook</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/social/">social</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/socialmedia/">socialmedia</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/web/">web</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2012 September 27</h2>
+  </li><li class="content-grid post post-type-entry tag-apple tag-b2g tag-choice tag-firefoxos tag-mozilla tag-tech">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2012/09/27/freedom-to-change-your-mind/">Freedom to Change Your Mind</a>
+      </h2>
+    
+    <p class="summary">
+      I posted a few days ago about freedom of and from choice, but I think there’s something orthogonal to that spectrum: The freedom to change your mind, both figuratively and literally.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2012/09/27/freedom-to-change-your-mind/"
+          >978&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2012/09/27/freedom-to-change-your-mind/">#</a>
+    <a class="time" href="2012/09/27/freedom-to-change-your-mind/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/apple/">apple</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/b2g/">b2g</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/choice/">choice</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/firefoxos/">firefoxos</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tech/">tech</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2012 September 24</h2>
+  </li><li class="content-grid post post-type-entry tag-freedom tag-mozilla tag-tech">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2012/09/24/freedom-of-from-choice/">Freedom {of,from} Choice</a>
+      </h2>
+    
+    <p class="summary">
+      Freedom of choice and freedom from choice lay on a spectrum. And, in technology, it’s no coincidence that more choice tends to be messier and complex, less choice tends to be cleaner and simple. It’s a trade-off between what you choose and what you leave up to an expert.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2012/09/24/freedom-of-from-choice/"
+          >1216&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2012/09/24/freedom-of-from-choice/">#</a>
+    <a class="time" href="2012/09/24/freedom-of-from-choice/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/freedom/">freedom</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tech/">tech</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2012 September 18</h2>
+  </li><li class="content-grid post post-type-entry tag-apps tag-mozilla tag-openwebapps tag-webdev">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2012/09/18/first-get-it-onto-the-web/">Developing Open Web Apps: First, get it onto the web</a>
+      </h2>
+    
+    <p class="summary">
+      I’ve been interested in developing open web apps (aka the single-page app) for years. But, it feels like the space is really on fire now, since the advent of HTML5 tech and the recent moves by Mozilla and Google toward truly “appifying” these things to compete with offerings from iOS and Android. Lots of pieces have come into alignment, and great things are coming together—never mind what the folks at Facebook say.
+So, I think I’m going to build a simple app and blog about it. And, these days, the first thing I think about when starting a web app is: How do I get it onto the web?
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2012/09/18/first-get-it-onto-the-web/"
+          >1502&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2012/09/18/first-get-it-onto-the-web/">#</a>
+    <a class="time" href="2012/09/18/first-get-it-onto-the-web/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/apps/">apps</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/openwebapps/">openwebapps</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2012 September 17</h2>
+  </li><li class="content-grid post post-type-entry tag-mdn tag-mozilla tag-work">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2012/09/17/on-the-other-end-of-a-self-imposed-death-march-project/">On the other end of a self-imposed death march project</a>
+      </h2>
+    
+    <p class="summary">
+      So, I’m a couple of weeks back from a well-deserved vacation taken after the launch of a project well over 18 months in the making. I kind of overworked myself, voluntarily, and that needs to change.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2012/09/17/on-the-other-end-of-a-self-imposed-death-march-project/"
+          >527&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2012/09/17/on-the-other-end-of-a-self-imposed-death-march-project/">#</a>
+    <a class="time" href="2012/09/17/on-the-other-end-of-a-self-imposed-death-march-project/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/mdn/">mdn</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/work/">work</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2012 July 10</h2>
+  </li><li class="content-grid post post-type-entry tag-mozilla">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2012/07/10/note-to-self-file-a-bug-to-get/">Note to self File a bug to get&amp;#8230;</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2012/07/10/note-to-self-file-a-bug-to-get/"
+          >19&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2012/07/10/note-to-self-file-a-bug-to-get/">#</a>
+    <a class="time" href="2012/07/10/note-to-self-file-a-bug-to-get/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry has-thumb tag-mozilla tag-space tag-webdev">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2012/07/10/webdev-in-spac/">How webdev is like space exploration</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://marsrovers.jpl.nasa.gov/overview/rover_low_angle_200.jpg" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2012/07/10/webdev-in-spac/"
+          >452&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2012/07/10/webdev-in-spac/">#</a>
+    <a class="time" href="2012/07/10/webdev-in-spac/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/space/">space</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry has-thumb tag-devops tag-mozilla tag-webdev">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2012/07/10/webdev-more-better/">How webdev has been getting better</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://ecx.images-amazon.com/images/I/41AvY4p2haL._SL160_.jpg" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2012/07/10/webdev-more-better/"
+          >384&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2012/07/10/webdev-more-better/">#</a>
+    <a class="time" href="2012/07/10/webdev-more-better/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/devops/">devops</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2012 May 16</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-coding tag-learning tag-work tag-webdev tag-mozilla">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2012/05/16/please-learn-to-code/">Please Do Learn To Code</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://farm3.static.flickr.com/2001/2508770940_b88b955aaa.jpg" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2012/05/16/please-learn-to-code/"
+          >1077&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2012/05/16/please-learn-to-code/">#</a>
+    <a class="time" href="2012/05/16/please-learn-to-code/">1:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/coding/">coding</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/learning/">learning</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/work/">work</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2011 October 02</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-mozilla tag-contributors tag-volunteers tag-vagrant tag-puppet tag-virtualization tag-webdev">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2011/10/02/putting-clouds-in-boxes/">Putting clouds in boxes for webdevs at Mozilla</a>
+      </h2>
+    <div class="thumb">
+      <img src="https://decafbad.com/blog/images/cloud-box.jpg" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2011/10/02/putting-clouds-in-boxes/"
+          >1031&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2011/10/02/putting-clouds-in-boxes/">#</a>
+    <a class="time" href="2011/10/02/putting-clouds-in-boxes/">10:45 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/contributors/">contributors</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/volunteers/">volunteers</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/vagrant/">vagrant</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/puppet/">puppet</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/virtualization/">virtualization</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2011 July 18</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-badger tag-social tag-python tag-mozilla tag-django">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2011/07/18/badger2/">Badger 2: Return of the Mustelidae</a>
+      </h2>
+    <div class="thumb">
+      <img src="https://decafbad.com/blog/images/badger-logo-working.png" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2011/07/18/badger2/"
+          >1443&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2011/07/18/badger2/">#</a>
+    <a class="time" href="2011/07/18/badger2/">3:03 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/badger/">badger</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/social/">social</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/python/">python</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/django/">django</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2011 February 06</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-firefox tag-browsers tag-feeds tag-entries tag-mozilla tag-payphones tag-livemarks">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2011/02/06/pay-phones-and-firefox-features/">Pay phones and Firefox features</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://farm5.static.flickr.com/4099/4925985819_9ccbb166f7.jpg" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2011/02/06/pay-phones-and-firefox-features/"
+          >4643&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2011/02/06/pay-phones-and-firefox-features/">#</a>
+    <a class="time" href="2011/02/06/pay-phones-and-firefox-features/">11:32 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/firefox/">firefox</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/browsers/">browsers</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/feeds/">feeds</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/payphones/">payphones</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/livemarks/">livemarks</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2011 January 27</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-rss tag-firefox tag-feeds tag-entries tag-mozilla tag-autodiscovery tag-bug578967">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2011/01/27/what-should-be-done-about-feeds-in-browsers/">What should be done about feeds in browsers?</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://farm3.static.flickr.com/2003/2261662706_db086ea4bb_m.jpg" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2011/01/27/what-should-be-done-about-feeds-in-browsers/"
+          >2623&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2011/01/27/what-should-be-done-about-feeds-in-browsers/">#</a>
+    <a class="time" href="2011/01/27/what-should-be-done-about-feeds-in-browsers/">1:11 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/rss/">rss</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/firefox/">firefox</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/feeds/">feeds</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/autodiscovery/">autodiscovery</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/bug578967/">bug578967</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2011 January 15</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-rss tag-firefox tag-feeds tag-entries tag-mozilla tag-autodiscovery tag-bug578967">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2011/01/15/how-to-use-feed-auto-discovery-in-firefox-4/">How to use feed auto-discovery in Firefox 4</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://decafbad.com/blog/wp-content/uploads/2011/01/feed-sub-002.png" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2011/01/15/how-to-use-feed-auto-discovery-in-firefox-4/"
+          >2526&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2011/01/15/how-to-use-feed-auto-discovery-in-firefox-4/">#</a>
+    <a class="time" href="2011/01/15/how-to-use-feed-auto-discovery-in-firefox-4/">12:20 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/rss/">rss</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/firefox/">firefox</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/feeds/">feeds</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/autodiscovery/">autodiscovery</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/bug578967/">bug578967</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry has-thumb tag-rss tag-firefox tag-feeds tag-entries tag-mozilla tag-autodiscovery tag-bug578967">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2011/01/15/what-happened-to-feed-autodiscovery-in-firefox-4/">What happened to feed auto-discovery in Firefox 4?</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://decafbad.com/blog/wp-content/uploads/2011/01/heatmap.png" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2011/01/15/what-happened-to-feed-autodiscovery-in-firefox-4/"
+          >2976&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2011/01/15/what-happened-to-feed-autodiscovery-in-firefox-4/">#</a>
+    <a class="time" href="2011/01/15/what-happened-to-feed-autodiscovery-in-firefox-4/">11:18 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/rss/">rss</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/firefox/">firefox</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/feeds/">feeds</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/autodiscovery/">autodiscovery</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/bug578967/">bug578967</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2010 July 05</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-webdev tag-firefox tag-google tag-python tag-entries tag-mozilla tag-sync tag-appengine">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2010/07/05/firefox-sync-server-on-google-app-engine/">Firefox Sync server on Google App Engine</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://mozcom-cdn.mozilla.net/img/firefox/sync/sync-background.png" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2010/07/05/firefox-sync-server-on-google-app-engine/"
+          >947&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2010/07/05/firefox-sync-server-on-google-app-engine/">#</a>
+    <a class="time" href="2010/07/05/firefox-sync-server-on-google-app-engine/">7:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/firefox/">firefox</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/google/">google</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/python/">python</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/sync/">sync</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/appengine/">appengine</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2010 June 22</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-webdev tag-js tag-entries tag-mozilla tag-byob">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2010/06/22/case-study-building-a-bookmark-management-ui-for-mozillas-byob/">Case Study: Building a Bookmark Management UI for Mozilla&#39;s BYOB</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://decafbad.com/2010/06/byob-bookmarks-ui/img/bookmarks.png" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2010/06/22/case-study-building-a-bookmark-management-ui-for-mozillas-byob/"
+          >235&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2010/06/22/case-study-building-a-bookmark-management-ui-for-mozillas-byob/">#</a>
+    <a class="time" href="2010/06/22/case-study-building-a-bookmark-management-ui-for-mozillas-byob/">6:16 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/js/">js</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/byob/">byob</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2009 July 15</h2>
+  </li><li class="content-grid post post-type-entry tag-webdev tag-firefox tag-js tag-outliners tag-outlining tag-javascript tag-dhtml tag-eventdelegation tag-entries tag-mozilla tag-draganddrop">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2009/07/15/html5-drag-and-drop/">HTML5 drag and drop in Firefox 3.5</a>
+      </h2>
+    
+    <p class="summary">
+      Oh hey, look! It's another blog post—and this one
+is cross-posted on hacks.mozilla.com.
+I won't say this is the start of a renewed blogging habit, but let's see what happens.
 
-        <footer>
+
+
+
+
+Drag and drop is one of the most fundamental interactions
+afforded by graphical user interfaces.  In one gesture, it
+allows users to pair the selection of an object with the
+execution of an action, often including a second object in the
+operation.  It's a simple yet powerful UI concept used to
+support copying, list reordering, deletion (ala the Trash / Recycle Bin),
+and even the creation of link relationships.
+
+Since it's so fundamental, offering drag and drop in web
+applications has been a no-brainer ever since browsers first
+offered mouse events in DHTML.  But, although
+mousedown, mousemove, and
+mouseup made it possible, the implementation has been
+limited to the bounds of the browser window.  Additionally,
+since these events refer only to the object being dragged,
+there's a challenge to find the subject of the drop when
+the interaction is completed.
+
+Of course, that doesn't prevent most modern JavaScript
+frameworks from abstracting away most of the problems and
+throwing in some flourishes while they're at it.  But, wouldn't
+it be nice if browsers offered first-class support for drag and
+drop, and maybe even extended it beyond the window sandbox?
+
+As it turns out, this very wish is answered by the HTML 5 specification 
+section on new drag-and-drop events, and 
+Firefox 3.5 includes an implementation of those events.
+
+If you want to jump straight to the code, I've put together 
+some simple demos 
+of the new events.  
+
+I've even scratched an itch of my own and
+built the beginnings of an outline editor,
+where every draggable element is also a drop target—of which
+there could be dozens to hundreds in a complex document, something
+that gave me some minor hair-tearing moments in the past
+while trying to make do with plain old mouse events.
+
+And, all the above can be downloaded or cloned from 
+a GitHub repository
+I've created especially for this article—which continues after the jump.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2009/07/15/html5-drag-and-drop/"
+          >3204&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2009/07/15/html5-drag-and-drop/">#</a>
+    <a class="time" href="2009/07/15/html5-drag-and-drop/">11:26 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/firefox/">firefox</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/js/">js</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/outliners/">outliners</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/outlining/">outlining</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/javascript/">javascript</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/dhtml/">dhtml</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/eventdelegation/">eventdelegation</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/draganddrop/">draganddrop</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2009 January 23</h2>
+  </li><li class="content-grid post post-type-entry tag-entries tag-mozilla tag-7things tag-memes">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2009/01/23/7-facts-about-me/">7 facts about me</a>
+      </h2>
+    
+    <p class="summary">
+      So, it finally happened—I've been tagged by Stephen Donner.  I've not been one to follow memes in this blog, but this one's been going around the Mozillasphere for awhile now and has been kind of interesting.  I'm half-tempted to bookmark and tag all the entries I've caught so far.  Anyway, the rules:
+
+Link to your original tagger(s) and list these rules in your post.
+Share seven facts about yourself in the post.
+Tag seven people at the end of your post by leaving their names and the links to their blogs.
+Let them know they’ve been tagged.
+
+Now, for your random facts, after the jump:
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2009/01/23/7-facts-about-me/"
+          >780&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2009/01/23/7-facts-about-me/">#</a>
+    <a class="time" href="2009/01/23/7-facts-about-me/">11:59 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/7things/">7things</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/memes/">memes</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2009 January 05</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-json tag-webdev tag-rss tag-atom tag-entries tag-mozilla tag-lizardfeeder tag-activitystreams">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2009/01/05/enter-the-lizardfeeder/">Enter the LizardFeeder</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://decafbad.com/blog/wp-content/uploads/2009/01/moz-tree.jpg" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2009/01/05/enter-the-lizardfeeder/"
+          >746&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2009/01/05/enter-the-lizardfeeder/">#</a>
+    <a class="time" href="2009/01/05/enter-the-lizardfeeder/">7:01 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/json/">json</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/rss/">rss</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/atom/">atom</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/lizardfeeder/">lizardfeeder</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/activitystreams/">activitystreams</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2008 September 07</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-delicious tag-web20 tag-firefox tag-entries tag-mozilla tag-ubiquity">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2008/09/07/improving-my-delicious-command-for-ubiquity/">Improving my Delicious command for Ubiquity</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://decafbad.com/2008/ubiq-del-status.jpg" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2008/09/07/improving-my-delicious-command-for-ubiquity/"
+          >1135&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2008/09/07/improving-my-delicious-command-for-ubiquity/">#</a>
+    <a class="time" href="2008/09/07/improving-my-delicious-command-for-ubiquity/">1:20 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/delicious/">delicious</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/web20/">web20</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/firefox/">firefox</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ubiquity/">ubiquity</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2008 September 01</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-delicious tag-webdev tag-javascript tag-greasemonkey tag-entries tag-mozilla tag-ubiquity">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2008/09/01/writing-a-delicious-command-for-ubiquity/">Writing a Delicious command for Ubiquity</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2008/ubiq-share-on-delicious-list.jpg" />
+    </div>
+    <p class="summary">
+      In my last post, I got all fluffy about how cool Ubiquity is but didn't share any code to prove the point.  As it happens, I have come up with at least one useful command that I'm starting to use habitually in posting bookmarks to Delicious.  You can subscribe to my command or check out the full source—this post will serve as a dissection of the thing.  Since this will be fairly lengthy, follow along after the jump.
+Oh, and it's been awhile since I posted something this in-depth around here, so feel free to let me know how this first draft works.  And, bug reports and patches are of course welcome.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2008/09/01/writing-a-delicious-command-for-ubiquity/"
+          >3181&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2008/09/01/writing-a-delicious-command-for-ubiquity/">#</a>
+    <a class="time" href="2008/09/01/writing-a-delicious-command-for-ubiquity/">12:37 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/delicious/">delicious</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/javascript/">javascript</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/greasemonkey/">greasemonkey</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ubiquity/">ubiquity</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2008 August 31</h2>
+  </li><li class="content-grid post post-type-entry tag-webdev tag-mashups tag-javascript tag-entries tag-mozilla tag-ubiquity">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2008/08/31/ubiquity-cracks-open-personal-mashup-tinkering/">Ubiquity cracks open personal mashup tinkering</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2008/08/31/ubiquity-cracks-open-personal-mashup-tinkering/"
+          >1079&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2008/08/31/ubiquity-cracks-open-personal-mashup-tinkering/">#</a>
+    <a class="time" href="2008/08/31/ubiquity-cracks-open-personal-mashup-tinkering/">12:07 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mashups/">mashups</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/javascript/">javascript</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ubiquity/">ubiquity</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2008 August 04</h2>
+  </li><li class="content-grid post post-type-entry tag-entries tag-mozilla tag-summit tag-moz08">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2008/08/04/moz08-rockslides-and-blackouts-and-bears-oh-my/">Moz08: Rockslides and Blackouts and Bears - Oh My!</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2008/08/04/moz08-rockslides-and-blackouts-and-bears-oh-my/"
+          >671&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2008/08/04/moz08-rockslides-and-blackouts-and-bears-oh-my/">#</a>
+    <a class="time" href="2008/08/04/moz08-rockslides-and-blackouts-and-bears-oh-my/">4:15 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/summit/">summit</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/moz08/">moz08</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2008 June 16</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-firefox tag-themes tag-mozilla tag-amo">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2008/06/16/putting-the-sexy-into-firefox-theme-browsing/">Putting the Sexy into Firefox Theme Browsing</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2008/06/16/putting-the-sexy-into-firefox-theme-browsing/"
+          >96&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2008/06/16/putting-the-sexy-into-firefox-theme-browsing/">#</a>
+    <a class="time" href="2008/06/16/putting-the-sexy-into-firefox-theme-browsing/">12:07 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/firefox/">firefox</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/themes/">themes</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/amo/">amo</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-firefox tag-entries tag-mozilla tag-downloadday">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2008/06/16/firefox-3-download-day-mega-widget/">Firefox 3 Download Day Mega Widget</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2008/06/16/firefox-3-download-day-mega-widget/"
+          >1230&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2008/06/16/firefox-3-download-day-mega-widget/">#</a>
+    <a class="time" href="2008/06/16/firefox-3-download-day-mega-widget/">11:55 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/firefox/">firefox</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/downloadday/">downloadday</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2008 May 22</h2>
+  </li><li class="content-grid post post-type-entry tag-entries tag-mozilla">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2008/05/22/week-3-at-mozilla/">Week 3 at Mozilla</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2008/05/22/week-3-at-mozilla/"
+          >573&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2008/05/22/week-3-at-mozilla/">#</a>
+    <a class="time" href="2008/05/22/week-3-at-mozilla/">9:04 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2008 May 14</h2>
+  </li><li class="content-grid post post-type-entry tag-entries tag-mozilla">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2008/05/14/go-midwest-young-man/">Go Midwest, Young Man!</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2008/05/14/go-midwest-young-man/"
+          >722&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2008/05/14/go-midwest-young-man/">#</a>
+    <a class="time" href="2008/05/14/go-midwest-young-man/">5:01 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li>
+    </ul>
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/tag/mozilla/index.rss" title="Tag: mozilla - blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+    <html>
+      <head>
+        <title>Whitelist / reverse-filtering spam shield - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="Whitelist / reverse-filtering spam shield" />
+        <meta
+          property="og:url"
+          content="https://lmorchard.github.io/blog.lmorchard.com/2002/06/11/oooaib/"
+        />
+        
+        <meta property="og:description" content="Another thing to think about again: Whitelist-based spam filtering.  The spam is just getting heavier, raunchier, and less coherent these days.  I&#39;d mused about it awhile ago, along with looking at an application of RDF to share whitelists between trusted people.
+Then I see this article up at osOpinion.com on the subject (calling it &quot;reverse filtering&quot;).  I hadn&#39;t thought of it before, but I could probably set up a quick auto-responder for unknown addresses, asking politely for a response requiring human thought, or a click by a person at a URL somewhere, to get them auto-added to my whitelist.  If the laziness/rudeness factor toward friends and acquaintences, current and potential, doesn&#39;t outweight the benefits, this might be a very good solution.  I wouldn&#39;t throw mail away outright, but it would be put in a rotating bin that I might look at every day or so, and wipe every week or so.
+That osOpinion.com article wraps up with a little bit of a carrot / challenge to for a business plan around a whitelist / reverse-filtering scheme for mail.  I wonder how much people would pay for it, and whether people would be put off by an auto-response asking for proof of humanity?  If it would go over well, I&#39;d love to see pobox.com implement something like this.  (Oh have I ever mentioned that I love pobox.com, and think you should all sign up there?)
+In the end, this seems pretty amusing to me.  Humans sending robots to mail humans.  Humans setting up robots to intercept robots.  Humans sending mail to humans again.  Oh I&#39;m sure the spammers will try harder with their robots, but eventually the bastards just have to give up.  Maybe not.  But at least I can ignore them." />
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
+            <ul>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post "
+      >
+        <header>
+          <time
+            title="2002-06-11T20:49:56-04:00"
+            pubdate="2002-06-11T20:49:56-04:00"
+          >
+            <span class="prevpost">
+              <a
+                title="IRC quotes database sucking my productivity"
+                href="/blog.lmorchard.com/2002/06/12/oooaic/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2002/"
+                >2002</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2002/06/"
+                >June</a
+              >
+              &#8226;
+              <span>11</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="(Re)defining the News Aggregator"
+                href="/blog.lmorchard.com/2002/06/11/oooaia/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">Whitelist / reverse-filtering spam shield</h1>
+          
+        </header>
+
+        <p>Another thing to think about again: <a href="http://impressive.net/people/gerald/2000/12/spam-filtering.html">Whitelist-based spam filtering</a>.  The spam is just getting heavier, raunchier, and less coherent these days.  I'd <a href="http://www.decafbad.com/news_archives/000129.shtml">mused about it</a> awhile ago, along with looking at an <a href="http://www.w3.org/2001/12/rubyrdf/util/foafwhite/intro.html">application of </a><a href="http://www.decafbad.com/twiki/bin/view/Main/RDF">RDF</a> to share whitelists between trusted people.</p>
+<p>Then I see <a href="http://www.osopinion.com/perl/story/18180.html">this article</a> up at <a href="http://www.osopinion.com">osOpinion.com</a> on the subject (calling it "reverse filtering").  I hadn't thought of it before, but I could probably set up a quick auto-responder for unknown addresses, asking politely for a response requiring human thought, or a click by a person at a URL somewhere, to get them auto-added to my whitelist.  If the laziness/rudeness factor toward friends and acquaintences, current and potential, doesn't outweight the benefits, this might be a very good solution.  I wouldn't throw mail away outright, but it would be put in a rotating bin that I might look at every day or so, and wipe every week or so.</p>
+<p>That osOpinion.com article wraps up with a little bit of a carrot / challenge to for a business plan around a whitelist / reverse-filtering scheme for mail.  I wonder how much people <i>would</i> pay for it, and whether people would be put off by an auto-response asking for proof of humanity?  If it would go over well, I'd love to see <a href="http://www.pobox.com">pobox.com</a> implement something like this.  (Oh have I ever mentioned that I love <a href="http://www.pobox.com">pobox.com</a>, and think you should all sign up there?)</p>
+<p>In the end, this seems pretty amusing to me.  Humans sending robots to mail humans.  Humans setting up robots to intercept robots.  Humans sending mail to humans again.  Oh I'm sure the spammers will try harder with their robots, but eventually the bastards just have to give up.  Maybe not.  But at least I can ignore them.</p>
+
+
+<!--more-->
+
+
+<p>shortname=oooaib</p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221090403">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" href="http://adawggie.diaryland.com/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=cafdb24c10f753b30ca63ab423530ee6&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://adawggie.diaryland.com/">anuj</a>
+</div>
+
+
+<p><a href="#comment-221090403" class="permalink"><time datetime="2002-06-12T07:32:20">2002-06-12T07:32:20</time></a></p>
+</div>
+
+
+<div class="content">this has aboslutely nothing to do with your entry, but i caught the blogsnob ad, and seeing as how i'm a computer engineering major up studying for finals drinking many cans of starbucks espresso doubleshots, 0xDECAFBAD just rocked my world.
+thanks :)
+~A</div>
+
+
+</li>
+<li class="comment" id="comment-221090404">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" href="http://www.procode.com.au/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=7e3203a644a18781c6858c535a26f21a&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.procode.com.au/">JJ</a>
+</div>
+
+
+<p><a href="#comment-221090404" class="permalink"><time datetime="2003-01-09T22:19:55">2003-01-09T22:19:55</time></a></p>
+</div>
+
+
+<div class="content">Such as scheme for "reverse filtering" has been implemented in the SpamTector email utility.
+www.spamtector.com</div>
+
+
+</li>
+</ul>
+
+
+</div>
+
+        
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2002/06/12/oooaic/"
+                >IRC quotes database sucking my productivity</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2002/06/11/oooaia/"
+                >(Re)defining the News Aggregator</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

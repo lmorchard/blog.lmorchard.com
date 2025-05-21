@@ -1,101 +1,179 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>Greasemonkey Hivemind - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="Greasemonkey Hivemind" />
+    <html>
+      <head>
+        <title>Greasemonkey Hivemind - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="Greasemonkey Hivemind" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2006/04/04/greasemonkey-hivemind-2/"
         />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post tag-asides"
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post tag-asides"
       >
-        <time
-          title="2006-04-04T19:32:52+00:00"
-          pubdate="2006-04-04T19:32:52+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2006/"
-            >2006</a
+        <header>
+          <time
+            title="2006-04-04T15:32:52-04:00"
+            pubdate="2006-04-04T15:32:52-04:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2006/04/"
-            >April</a
-          >
-          &raquo;
-          <span>04</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="S3: Next Big Thing?"
+                href="/blog.lmorchard.com/2006/04/04/s3-next-big-thing/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2006/"
+                >2006</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2006/04/"
+                >April</a
+              >
+              &#8226;
+              <span>04</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="In search of: A server reference implementation of the Atom Publishing Protocol?"
+                href="/blog.lmorchard.com/2006/04/03/in-search-of-a-server-reference-implementation-of-the-atom-publishing-protocol/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">Greasemonkey Hivemind</h1>
+          <ul class="tags">
+              <li><a href="/blog.lmorchard.com/tag/asides/">asides</a></li>
+            </ul>
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2006/04/04/s3-next-big-thing/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2006/04/03/in-search-of-a-server-reference-implementation-of-the-atom-publishing-protocol/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">Greasemonkey Hivemind</h1>
-        <ul class="tags">
-            <li>
-                  <a href="/blog.lmorchard.com/tag/asides/">asides</a>
-                </li>
-          </ul>
-        <section class="post-content">
-           <p>Here's an evil concept I threw together at work:  A Greasemonkey script that uses GM_xmlhttpRequest to load up and eval further GM scripts from a central behind-firewall intranet repository managed via Subversion.</p>
+        <p>Here's an evil concept I threw together at work:  A Greasemonkey script that uses GM_xmlhttpRequest to load up and eval further GM scripts from a central behind-firewall intranet repository managed via Subversion.</p>
  <p>Everyone in our team installs one GM script, and after that we can all deploy new GM code to each others' browsers on the fly.  It's very, very evil and exploitable code - but we all trust each other so far, and the code's totally available for view from Subversion.</p>
  <p>I could probably sneak something in to steal everyone's MySpace passwords, but that wouldn't last long.</p>
 
@@ -104,46 +182,84 @@
 <li class="comment" id="comment-221082923">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.mpwilson.com/uccu/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=02ffe238ed68da35e8037df461552234&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.mpwilson.com/uccu/">Michael Wilson</a>
+<a class="avatar image" rel="nofollow" href="http://www.mpwilson.com/uccu/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=02ffe238ed68da35e8037df461552234&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.mpwilson.com/uccu/">Michael Wilson</a>
 </div>
-<a href="#comment-221082923" class="permalink"><time datetime="2006-04-04T20:47:32">2006-04-04T20:47:32</time></a>
+
+
+<p><a href="#comment-221082923" class="permalink"><time datetime="2006-04-04T20:47:32">2006-04-04T20:47:32</time></a></p>
 </div>
+
+
 <div class="content"><p>That sounds pretty funkilicious.  I'd absolutely go for something like that.</p>
 <p>My first thought is that I'd need opera around "just in case".</p></div>
+
+
 </li>
 <li class="comment" id="comment-221082924">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.8dot3.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2d870e8df3af0d62fa636b336b17cd60&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.8dot3.com">Nick</a>
+<a class="avatar image" rel="nofollow" href="http://www.8dot3.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2d870e8df3af0d62fa636b336b17cd60&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.8dot3.com">Nick</a>
 </div>
-<a href="#comment-221082924" class="permalink"><time datetime="2006-04-04T21:24:43">2006-04-04T21:24:43</time></a>
+
+
+<p><a href="#comment-221082924" class="permalink"><time datetime="2006-04-04T21:24:43">2006-04-04T21:24:43</time></a></p>
 </div>
+
+
 <div class="content"><p><i>I could probably sneak something in to steal everyone’s MySpace passwords..</i></p>
 <p>But think of how dirty you'd feel...  I mean, stealing MYSPACE passwords, for God sake.</p>
 <p>It's MySpace after all.</p>
 <p>I mean, I have an account too, but at least I'm not stealing passwords for it.  hehe</p></div>
+
+
 </li>
 </ul>
+
+
 </div>
 
-        </section>
-      </article>
-        </section>
-
-        <footer>
-          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
-        </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
-      </section>
-    </body>
-  </html>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2006/04/04/s3-next-big-thing/"
+                >S3: Next Big Thing?</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2006/04/03/in-search-of-a-server-reference-implementation-of-the-atom-publishing-protocol/"
+                >In search of: A server reference implementation of the Atom Publishing Protocol?</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

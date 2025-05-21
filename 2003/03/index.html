@@ -1,332 +1,908 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>2003/03 - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>2003/03 - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Month: 2003/03</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post "
-          >
-            <time class="date" datetime="2003-03-26T23:01:45+00:00">
-              2003
-              March
-              26
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/03/26/arthurs-blogroll/">
-              <span class="infoContainer">
-                <span class="title">Arthur&#39;s got a bulging blogroll</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-03-26T20:42:11+00:00">
-              2003
-              March
-              26
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/03/26/a500-not-3g/">
-              <span class="infoContainer">
-                <span class="title">The A500 ain&#39;t 3G</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-03-26T17:32:49+00:00">
-              2003
-              March
-              26
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/03/26/singularity-vs-human-nature/">
-              <span class="infoContainer">
-                <span class="title">The Singularity vs Human Nature</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-03-25T21:59:37+00:00">
-              2003
-              March
-              25
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/03/25/i-want-a-gp32/">
-              <span class="infoContainer">
-                <span class="title">I want to trade my Gameboy Advance for a GP32.</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-03-24T20:29:20+00:00">
-              2003
-              March
-              24
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/03/24/new-bookmark-blogger/">
-              <span class="infoContainer">
-                <span class="title">New release of BookmarkBlogger available</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-03-17T19:20:55+00:00">
-              2003
-              March
-              17
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/03/17/dot-net-newbie/">
-              <span class="infoContainer">
-                <span class="title">.NET Newbie</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-03-17T18:40:51+00:00">
-              2003
-              March
-              17
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/03/17/no-more-searchling/">
-              <span class="infoContainer">
-                <span class="title">No More Searchling?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-03-17T16:12:45+00:00">
-              2003
-              March
-              17
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/03/17/blosxom-paginate/">
-              <span class="infoContainer">
-                <span class="title">Pagination for Blosxom</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-03-17T13:57:42+00:00">
-              2003
-              March
-              17
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/03/17/first-week-off/">
-              <span class="infoContainer">
-                <span class="title">Happy Trails to Me, I&#39;m Job-Free: Week One</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-03-12T02:25:00+00:00">
-              2003
-              March
-              12
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/03/12/thirsty-ibook/">
-              <span class="infoContainer">
-                <span class="title">iBooks Don&#39;t Get Thirsty</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-03-10T01:27:00+00:00">
-              2003
-              March
-              10
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/03/10/ping-pong/">
-              <span class="infoContainer">
-                <span class="title">Ping Pong to Weblogs Dot Com</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-03-06T17:39:00+00:00">
-              2003
-              March
-              06
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/03/06/web-service-pipelines/">
-              <span class="infoContainer">
-                <span class="title">Building Pipelines with Web Services</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-03-06T17:21:00+00:00">
-              2003
-              March
-              06
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/03/06/throwable-phone/">
-              <span class="infoContainer">
-                <span class="title">Did I dream the urchin phone?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-03-05T17:56:00+00:00">
-              2003
-              March
-              05
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/03/05/bad-apple-no-battery/">
-              <span class="infoContainer">
-                <span class="title">Bad Apple, No Battery</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post has-thumb "
-          >
-            <time class="date" datetime="2003-03-04T15:18:00+00:00">
-              2003
-              March
-              04
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/03/04/feeling-lucky/">
-              <span class="infoContainer">
-                <span class="title">Oh, I&#39;m feeling lucky.</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/blog-images/lucky-sm.jpg" />
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-03-04T15:02:00+00:00">
-              2003
-              March
-              04
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/03/04/some-turbluence/">
-              <span class="infoContainer">
-                <span class="title">Heading through some turbulence, folks.</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-03-02T01:27:00+00:00">
-              2003
-              March
-              02
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/03/02/oooooa/">
-              <span class="infoContainer">
-                <span class="title">Welcome to 0xDECAFBAD v2.0</span>
-              </span>
-            </a>
-            
-          </li>
-    </ul>
-    
-  </section>
-      </section>
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Month: 2003/03</h2>
         </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2003 March 26</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/03/26/arthurs-blogroll/">Arthur&#39;s got a bulging blogroll</a>
+      </h2>
+    
+    <p class="summary">
+      0xDECAFBAD (I love that name) has a new design, powered by Blosxom. I like it. You're going in my bulging blogroll, Les.
 
-        <footer>
+
+Source:Time is Tight: 0xDECAFBAD v2.0
+
+
+
+
+
+
+
+My referrer monitoring scripts have been out of action since shortly
+after I revised my site design, so I've been missing links.  Today, I
+fired things up again for the first time since the beginning of the
+months and caught the above.  Wow, and I'm an Elite Geek, at that!
+Welcome to 0xDECAFBAD!  You can do anything at 0xDECAFBAD!  The
+unattainable is unknown at 0xDECAFBAD!  Yes, this is 0xDECAFBAD, and
+welcome to you who have come to 0xDECAFBAD!  Welcome!
+(Please tell me someone out there knows what I'm going on about.)
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/03/26/arthurs-blogroll/"
+          >232&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/03/26/arthurs-blogroll/">#</a>
+    <a class="time" href="2003/03/26/arthurs-blogroll/">6:01 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/03/26/a500-not-3g/">The A500 ain&#39;t 3G</a>
+      </h2>
+    
+    <p class="summary">
+      Sheesh. Okay, come back to us when you get a real phone.
+
+
+Source:Mobitopia: Slashdot - Life in 3G
+
+
+
+
+
+
+
+So says Mr. Beattie.  And I say, "Hey, that's my phone!"  And then I
+say, "Oh yeah, that's right, that's my phone."  I like my phone, it's a
+nice phone.  I had a Treo Communicator, but it went kaput.  I thought the
+A500 would be a decent 3G device.  It's not.  But it's a nice phone...
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/03/26/a500-not-3g/"
+          >75&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/03/26/a500-not-3g/">#</a>
+    <a class="time" href="2003/03/26/a500-not-3g/">3:42 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/03/26/singularity-vs-human-nature/">The Singularity vs Human Nature</a>
+      </h2>
+    
+    <p class="summary">
+      Apologies in advance if this post-cum-essay runs a bit long...
+We could conclude that modern human intelligence is an unfinished product, and something that nature hasn't quite got around to polishing yet. The problem-solving intelligence part can be tuned and revved up to high levels, but it becomes unstable like early supersonic jet prototypes that shook themselves to pieces just after reaching the sound barrier. Nature has outstripped itself, producing a freak organism with a feature that's obscenely over-developed but under-refined. We've seen examples of evolution getting ahead of itself before, like the rapid conversion to an erect, bipedal skeletal frame without properly modifying the spine to withstand the back-aching load of pregnancy. To get a better grip of human failings, and human stupidity, you have to realize that modern Homo sapiens sapiens just isn't done yet.
+
+
+Source:Disenchanted: * Early prototype, expect instability
+
+
+
+
+When our own instincts are inadequate, or become a hazard, and the surrogate activities to control them aren't sufficient anymore, then there certainly will be a push to change human nature to fit his new, self-crafted niche. And the answer to my original question?that man will invent something that knocks him out of his niche with fatal consequences?is yes. Homo sapien will die, and homo modified will inherit the earth.
+
+
+Source:Disenchanted: Invent this and die
+
+
+
+
+
+
+
+There's only an essay or two per month published over at Disenchanted,
+but they're gems, each and every one.  And what I read almost never
+fails to resonate with something I've been thinking or musing about,
+from my perspective as a geek wondering about life, the universe, and
+everything and as a fan of Kurzweil, Vinge, and all of post-humanity.
+But my anticipation of the Singularity is constantly swayed by things
+such as the theses of the above quoted essays.
+See, as an irredeemable believer in the ways of better living through
+technology, I look forward to our increasing ability to further
+self-improve and bootstrap to higher levels of living, longevity,
+ability, understanding, and exploration.  But, there's a neopagan
+mystic and naturalist in me who keeps looking for the catch.  There
+must be natural limits we don't yet understand.
+No matter the precocious cleverness of our species, there's got to be
+plenty of good reasons it takes millions of years to achieve progress
+in forms and patterns of life.  There are lots of little subtle
+details to be easily missed.  We're smart, but not yet endowed with
+the patience and wisdom that eternity grants.  I both breathlessly
+await and fear the arrival of our ability to fundamentally change
+human nature directly through genetic manipulation and device
+implantation.
+As the first essay quoted above asserts, I believe the human species
+is unfinished.  But as with the second essay, I think we've outpaced
+evolution in terms of changing the conditions under which the process
+itself occurs.
+Just look around you.  You're likely indoors, in a building composed
+of simple straight lines which register easily on your visual pattern
+recognizers, with corridors and doorways and rooms proportioned to
+your bodily dimensions.  The air is conditioned to your respiratory
+and temperature tolerances.  Things are padded and accessible.  Food
+and drink are likely plentiful.  The only predators you're likely to
+meet up with during your day are of your own species.  Nothing really
+challenges your basic nature.
+Yet, this is just what the universe has been doing to forms of life
+throughout the history of evolution.  Only now, we've jumped the
+tracks, reversed the flow of control, and have reshaped our corner of
+the universe to fit our status quo.  So, where does that leave the
+natural process of evolution with regard to us?  Stopped or slowed to
+a crawl, that's where.  Maybe falling backward, since we have
+prosthetics, glasses, and other forms of propping up imperfections
+that would have otherwise been faced with disincentives by natural
+selection.
+So, where are we without a natural evolution?  We're left as an
+unfinished species, with a peculiar mix of awesome abilities matched
+with amazing disabilities.  Very clever people, but with a lot of
+blind spots.  There are certain ways in which it is very difficult and
+sometimes nearly impossible for us to think.  We have biases toward
+grouping things by similarity, dividing them by difference - which
+allows for a very elegant economy of memory and thought, but allows
+for peculiarly devastating things like racism and xenophobia.
+Critical thinking is counterintuitive, yet is one of our most powerful
+tools.
+And there are definite flaws in our perceptions of reality, as any
+book of optical illusions will tell you.  One thing that struck me
+like a thunderbolt came from a human biology class: Ever try following
+a common housefly with your eyes?  Isn't it frustrating how it just
+seems to vanish from your sight?  I can't find a reference to back
+me up, so this is just from memory: I was taught that flies have
+developed a particularly zig-zaggy and erratic flight pattern to evade
+just our kind of mammalian vision system.  But, studies of fly-eating
+frogs have shown that their vision systems appear particularly tweaked
+to react to a fly's midair dance.  Imagine what else slips past us, or
+comes to our attention garbled because our very apparatus contains
+biases of which we're yet to even conceive?
+Here we are, then, flawed and incomplete yet with a growing ability to
+self-modify.  As an amateur computer scientist, I shudder a bit at any
+code that's self-modifying.  It can be done, and it can be powerfully
+enabling, but it's just so damn easy to blow a foot off with the
+technique.  So too with ourselves, then.  There's a possiblity that we
+can push ourselves into a richer level of thought and perception and
+ability without destroying ourselves completely.  But, we're going to
+miss things, important things.
+If we're lucky, we'll roll with it and survive.  But, as the second
+Disenchanted essay explores, we'll most certainly render the species
+as we know it extinct, and push ourselves our of a natural niche and
+into a wholly artificial niche in need of perpetual maintenance and
+renewal.  Maybe this artifical niche will be easily sustained and
+portable enough to take with us if we want to leave the planet.  On
+the other hand, maybe this artificial niche will prove our undoing as
+it outstrips our ability to keep it up.
+So, given all this, I think the inevitable predicted verticality of
+the Singularity's curve has an incredibly strong counter-force
+stemming from human nature itself.  What does this mean?  Not sure.
+What to do?  Not sure.  But it tells me that the Kurzweilan and
+Vingian predictions of which I'm so fond face some severe reality
+checks.
+More thinking to do.  Thanks to Disenchanted for making me think this
+far today.  :)
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/03/26/singularity-vs-human-nature/"
+          >1507&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/03/26/singularity-vs-human-nature/">#</a>
+    <a class="time" href="2003/03/26/singularity-vs-human-nature/">12:32 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 March 25</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/03/25/i-want-a-gp32/">I want to trade my Gameboy Advance for a GP32.</a>
+      </h2>
+    
+    <p class="summary">
+      It comes out the box with an English manual, a PC link cable, the GP32
+uses PC smartMedia as its Hard disk and has 8meg of internal ram + its
+(upgradeable) OS, a USB port, a large hires screen (which is SO much
+better than the GBA one), two stereo speakers (one on each side), a
+joypad and 6 buttons (4 on front and 2 shoulder buttons), a 3v in
+socket, a headphone socket, volume control, battery compartment (2xAA
+for 10-14 hours) & an EXT out port which allows you to do many things
+including using the gp32 on your TV or for wireless multiplayer.
+...The console is open source and fully supports people making their
+own programs for it, there is a GCC based devkit complete with
+graphics and sound libs.
+
+
+
+Source:GBAx.com review of the GP32
+
+
+
+
+
+
+
+Just read a review of the GP32,
+a handheld game console I'd never heard of before.
+Pictures of it look amazing,
+and the specs aren't too shabby either.  Powerful enough to run
+emulators of a sickening array of game platforms, uses ?SmartMedia
+cards, support wireless multiplayer via cell phone.  And, oh yeah, it
+looks like you can actually see the screen.
+The biggest flaw I see in this thing is that it would be so easy to
+pirate games for it.  Supposedly there were some attempts to provide
+for a mechanism to "lock" games to a particular handheld, but that
+appears to already have been circumvented.  So, while the thing looks
+like a dream machine to me, it probably looks like a nightmare to game
+producers.
+Still, though, I want one.  And I bet Russell Beattie wouldn't mind
+one either, if he hasn't heard about it yet, given his
+professed love for his GameBoy Advance.
+And, speaking of Russell, I wonder just how well that wireless
+multiplayer support works...
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/03/25/i-want-a-gp32/"
+          >307&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/03/25/i-want-a-gp32/">#</a>
+    <a class="time" href="2003/03/25/i-want-a-gp32/">4:59 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 March 24</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/03/24/new-bookmark-blogger/">New release of BookmarkBlogger available</a>
+      </h2>
+    
+    <p class="summary">
+      Playing with a few other little widgets here and there, I thought I'd 
+fire off a new revision to the BookmarkBlogger for Safari I've been using
+off and on.  This one's a big more OS-X-ish, and uses a properties file
+for configuration instead of completely confusing command line options.
+ShareAndEnjoy!  
+Also working on a lil DOM4J-, JTidy-, and ?BeanShell-based scraper
+for producing RSS from arbitrary web sites.  Yeah, it's been done before,
+but not by me and not quite like this.  And eventually I think I want to 
+try turning both this and the BookmarkBlogger into dual-purpose standalone
+and AgentFrank plugin packages.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/03/24/new-bookmark-blogger/"
+          >132&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/03/24/new-bookmark-blogger/">#</a>
+    <a class="time" href="2003/03/24/new-bookmark-blogger/">3:29 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 March 17</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/03/17/dot-net-newbie/">.NET Newbie</a>
+      </h2>
+    
+    <p class="summary">
+      So, while my time is mine, I've decided that I want to expand my
+practical horizons.  And, one of the first things I can think of is to
+go lateral and approach something I've looked upon with mild disdain:
+Microsoft technologies.  In particular: .NET
+I already understand Unix well enough to do damn near anything -- this
+is not to say that there aren't still years worth of things left for
+me to learn in that sphere, but I'm not nearly as adept with
+Microsoft's offerings.  And, besides the practical concerns with being
+flexible enough to take on what work the world offers me, I also have
+a hunch that this .NET thing will make me think as differently about
+Microsoft as OS X made me change my mind about Apple.
+Maybe.  But it's still a good attitude with which a punk unixhead can
+approach the subject, I think.  I'm going to assume that brighter
+people than myself have applied themselves to the creation of .NET and
+prepare to be surprised.  This attitude has always served me well in
+the past when trying something new.  (Take Python, for instance.)
+Okay.  Got a good attitude.  Have installations of WinXP and Win2003
+preview (which I'm kinda, grudgingly digging so far) running in
+Virtual PC on my ?PowerBook.  Could even draft a PC at home into
+service running an appropriate OS if need be.  Have downloaded the
+.NET Framework and installed it on XP and Win2k3.
+Now what?  Were this Java, I'd pop open an emacs window and start
+playing.  I'd grab some free app servers and check some things out.
+Being on a fixed budget, I don't think I can spring for any packages
+like Visual Studio .NET.  And being a unixhead, I'm used to being able
+to find dev tools for free.
+Anyway, this absolute newbie is continuing to poke around.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/03/17/dot-net-newbie/"
+          >1204&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/03/17/dot-net-newbie/">#</a>
+    <a class="time" href="2003/03/17/dot-net-newbie/">2:20 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/03/17/no-more-searchling/">No More Searchling?</a>
+      </h2>
+    
+    <p class="summary">
+      So, as I'm working to recover all the old tools I knew and loved on my
+iBook, I see this on the
+Searchling home page:
+Work on Searchling has ceased to focus on its successor
+-- iSeek.
+
+
+...and there are no downloads for searchling available, neither binary
+nor source.  Harumph!  
+And the screenshots of iSeek don't please me much -- I see a search
+field wodged into the menu bar in place of the nice, slick ghostly
+search field that would materialize with a quick Cmd-Space or a click
+of the magnifying glass.  Gagh.  My menu bar's already crowded enough
+with menu entries on this 12" screen as it is.
+But, if I'm completely wrong, and there ends up being a feature to
+make iSeek work and feel just like my old friend the Searchling...
+well, then I say congratulations to its author for cobbling together a
+saleable lil widget, and I'll be waiting impatiently for its release.
+:)
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/03/17/no-more-searchling/"
+          >237&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/03/17/no-more-searchling/">#</a>
+    <a class="time" href="2003/03/17/no-more-searchling/">1:40 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/03/17/blosxom-paginate/">Pagination for Blosxom</a>
+      </h2>
+    
+    <p class="summary">
+      Here's a little something I whipped up last week:  BlosxomPaginate.
+I've been using Blosxom and Blagg for my news aggregator lately, just
+for a change, and one thing I was really missing was some way to see
+entries that fell off the end of the front page.  
+So, I made this.  It
+lets me flip back and forth between pages of Blosxom entries, and I
+even went so wild as to include full flavour-based template support of
+the display of the navigation elements.
+ShareAndEnjoy
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/03/17/blosxom-paginate/"
+          >342&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/03/17/blosxom-paginate/">#</a>
+    <a class="time" href="2003/03/17/blosxom-paginate/">11:12 am</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/03/17/first-week-off/">Happy Trails to Me, I&#39;m Job-Free: Week One</a>
+      </h2>
+    
+    <p class="summary">
+      I hadn't written much last week, between the job search and getting
+myself hooked up with a new laptop.  I'd meant to revise my initial
+post announcing my being laid of - but instead, I simply lost it
+when the iBook got doused.
+So, to those of you who haven't heard my news: I was laid off a little
+over a week and a weekend ago.  No hard feelings or fireworks, just
+typical bad economy reasons.  Nevertheless, it took me by surprise.
+So now I'm shopping my resume around.
+If you're interested, my resume is available here:
+
+ http://www.decafbad.com/2003/03/l-m-orchard-resume.doc
+
+ http://www.decafbad.com/2003/03/l-m-orchard-resume.pdf
+
+
+
+
+
+
+
+Last week was strange.  Having been let go on a Friday, I had a
+weekend to pretend things were all as usual.  But, when Monday hit,
+things were different.  I still got up at the usual time, did the
+usual morning things, and got out of the apartment as if I were going
+to work.  But instead of heading for the highway, I headed for a
+coffee shop
+near campus with wireless internet.  Trying to keep the old
+patterns as normal as possible, only now my job is finding a job and
+getting myself in shape for what's out there.
+It wouldn't be news to anyone to hear that the job market, at least
+what I've seen of it so far, is nothing like the verdant plains and
+valleys of even 3 years ago - which is about the last time I took a
+serious look.  After a first survey of a few job boards online, I
+fired off a handful of resumes and apps, and took notes on what's
+being asked for so as to prepare some semblance of a learning plan
+while I'm off.
+So by the end of last week, I'd accomplished these various and sundry
+things:
+
+ 5 cups of coffee consumed per day
+
+ 1 resume updated and revised
+
+ 6 resumes emailed and 4 online applications filled
+
+ 5 profiles completed at online recruiting sites
+
+ 1 application for unemployment filed
+
+ 1 12" G4 ?PowerBook acquired and configured
+
+ 3 Microsoft operating systems installed and configured under Virtual PC
+
+ 1 .NET Framework installed and exploration begun
+
+ 1 novel finished, Close to the Machine by Ellen Ullman
+
+ 6 hours of Metroid Prime played
+
+
+
+
+There's been more, but it's the amount of Metroid Prime play I'm most
+proud of - had I not gotten out of the apartment in the morning, the
+hours invested in that would have been immensely greater.  Maybe after
+I've fired off a few more resumes, I'll feel better about actually
+taking a rest since my brane's been going full speed for months now at
+work.
+Thought a bit about striking out on my own with freelance work, but
+the Ellen Ullman book has given me a bit of a strange mood.  She makes
+working for oneself sound both promising and desolate at once - though
+the promising bits would seem to be the things that disappeared with
+the 90's.  So that leaves it sounding pretty unpalatable.  Who knows,
+though - I always wanted to work from (but not at) a coffee shop.  
+Well, back to searching and my first baby steps with .NET - wish me
+luck.  And if you happen to be in town, stop by and say haloo.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/03/17/first-week-off/"
+          >812&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/03/17/first-week-off/">#</a>
+    <a class="time" href="2003/03/17/first-week-off/">8:57 am</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 March 11</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/03/11/thirsty-ibook/">iBooks Don&#39;t Get Thirsty</a>
+      </h2>
+    
+    <p class="summary">
+      Just for future reference:  No matter what your cats think, iBooks 
+never get thirsty for a nice big tumbler of water.  Nor do they
+ever have a need to soak in the contents of said tumbler overnight.
+Although now, I have an expensive, dead laptop that makes white
+noise sounds not unlike the ocean when it's plugged in.  And it 
+smells like the magic blue smoke when it's let out of the chip.
+I just hope that the hard drive is recoverable.  Updates will be
+sporadic as I try to reconstruct my environment and remember passwords
+and try to find serial numbers.
+Oh yeah, and still on the trail of the job hunt.  Going to be
+tweaking some things around here as I have time, to make things
+a bit more presentable for company.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/03/11/thirsty-ibook/"
+          >552&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/03/11/thirsty-ibook/">#</a>
+    <a class="time" href="2003/03/11/thirsty-ibook/">9:25 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 March 09</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/03/09/ping-pong/">Ping Pong to Weblogs Dot Com</a>
+      </h2>
+    
+    <p class="summary">
+      Simon Willison writes
+that he'd read my blog more if I
+pinged weblogs.com
+more often.  I used to, via MovableType, but my new blog doesn't.  Enter
+ping_weblogs_com,
+a Blosxom plugin to ping weblogs.com.  I've
+just installed it.
+Let's see if he notices.  :)
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/03/09/ping-pong/"
+          >182&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/03/09/ping-pong/">#</a>
+    <a class="time" href="2003/03/09/ping-pong/">8:27 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 March 06</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/03/06/web-service-pipelines/">Building Pipelines with Web Services</a>
+      </h2>
+    
+    <p class="summary">
+      So on this day last year,
+I was excitely thinking about pipelining webservices together like commands in a
+UNIX command line shell.  Lately, I've been doing quite a bit of work at the
+command line level, more so than I ever have before.  And for all the clunkiness
+and inelegances to be found there, I think the zen has stuck me.
+Sure, it's an ass-ugly string of characters that connects commands
+like find, sort, awk, sed, grep, and ssh together.  But, in constructing such
+monstrosities, I find myself generating new disposable tools at a rate
+of at least one every minute or so.  And, though a few have found themselves graduating
+into fuller, cleaner, more general tools, I would have been stuck for
+hours were it not for a quick multi-file grep across a vast plain of comma-separated
+value files digested by a tag team of sed and awk.  Then, like magic, I toss in
+an incredibly slow yet, at the time, convenient call to mysql on another server
+behind a firewall via ssh with a SQL call constructed from the regurgitations
+of said sed and awk brothers.
+So, I'm thinking again:  How hot would this be if it were web services replacing
+each of my commands?  How hot would it be if there was a STDIN, STDOUT, and STDERR
+for a whole class of web services?  Imagine an enhanced bash or zsh piping these
+beasts together.  For awhile, I thought my XmlRpcFilteringPipe API was the way to
+go, but lately I've been thinking more in the direction of REST.  I have to admit
+that the XML-RPC API is a bit clunky to use, and besides, no one's really paid
+it much notice besides using it in the peculiar fashion I do to make my WeblogWithWiki.
+How about this for a simpler API:  Post data to a URL, receive data in response.
+There's your STDIN and STDOUT.  What about STDERR?  Well, I suppose it's an
+either-or affair, but standard HTTP header error codes can fill in there.  What
+about command line arguments?  Use query parameters on the URL to which you're
+posting.  This all seems very web-natural.
+Now I just have to write a shell that treats URLs as executable commands.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/03/06/web-service-pipelines/"
+          >725&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/03/06/web-service-pipelines/">#</a>
+    <a class="time" href="2003/03/06/web-service-pipelines/">12:39 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/03/06/throwable-phone/">Did I dream the urchin phone?</a>
+      </h2>
+    
+    <p class="summary">
+      Okay, I don't think I made this up:  I was reading Wired Magazine a
+few months ago, and I saw a phone featured in the Fetish section
+that was designed like a KooshTM ball or a sea-urchin.
+The idea is that it would be used in a teleconference, thrown back
+and forth across the room from speaker to speaker.
+We need this at my work.
+Has anyone else seen this thing, remember what it was called, or
+where they're selling it?  I can't seem to find it again in any of
+the Wired issues I can find in my apartment and office.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/03/06/throwable-phone/"
+          >203&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/03/06/throwable-phone/">#</a>
+    <a class="time" href="2003/03/06/throwable-phone/">12:21 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 March 05</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/03/05/bad-apple-no-battery/">Bad Apple, No Battery</a>
+      </h2>
+    
+    <p class="summary">
+      So, sometime around last November, my iBook started having battery 
+problems.  It went from 3 hours of life, down to an hour, and finally
+down to about 15 minutes' worth of life.  Being lazy and busy, and 
+having my iBook mostly at desks near outlets, I put off taking it into
+the shop -- I'd just taken it there to replace the hard drive, and I
+didn't feel like parting with it again.  Stupid, I know.  Lazy, I know.
+Well, since then, the problem hasn't gotten better, and I was just about 
+to get off my ass to do something about it when I see this:
+MacNN: iBook users experience 10.2.4 battery bug
+So after browsing around forums a bit, I learned how to reset my Power Management Unit,
+did so, and discovered that the battery began to charge again.  I left 
+the iBook off and watched the 4 LEDs on the battery gradually light up
+over a bit of time while working on my desktop.  Looks like the problem's
+solved for now.
+Ugh.  I'm glad, at least, that it wasn't a physically dead battery.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/03/05/bad-apple-no-battery/"
+          >206&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/03/05/bad-apple-no-battery/">#</a>
+    <a class="time" href="2003/03/05/bad-apple-no-battery/">12:56 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 March 04</h2>
+  </li><li class="content-grid post post-type-entry has-thumb">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/03/04/feeling-lucky/">Oh, I&#39;m feeling lucky.</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/blog-images/lucky-sm.jpg" />
+    </div>
+    <p class="summary">
+      Oh yeah, and a giggle for me today:  
+
+ Go to Google.  
+
+ Enter "I'm Feeling Lucky".  
+
+ Click "I'm Feeling Lucky".  
+
+
+
+
+What do you see?  If you're seeing what I'm seeing, it's this very site!Now, I'm not sure how long this will last, or whether it means someone at
+Google H.Q. loves me, but it's pretty dern nifty.
+Thanks to Nathan Steiner of web-graphics.com for the tip!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/03/04/feeling-lucky/"
+          >439&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/03/04/feeling-lucky/">#</a>
+    <a class="time" href="2003/03/04/feeling-lucky/">10:18 am</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/03/04/some-turbluence/">Heading through some turbulence, folks.</a>
+      </h2>
+    
+    <p class="summary">
+      Thanks for bearing with me out there in the blogopshere.  This transition, though
+smoother going than I'd thought, is still exposing some rough spots and things
+I hadn't thought to check.  Seems my RSS feed hasn't come through quite as intact
+as I'd hoped -- and an unexpected bug in the rss10 plugin for ?Blosxom seems
+to have caused some news aggregators to implode.  Apologies all around!
+But, I'm watching, and tweaking, and will be shortly reporting all that I've done
+around here to change things.  I'll be cleaning up and releasing my small pile of
+blosxom plugins and patches, once I have a bit more time to do so.  In the meantime,
+I've got an error log rolling in one window, and I'm keeping an eye on comments and
+email.  Hopefully all this will be nice and smooth before the end of the week.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/03/04/some-turbluence/"
+          >151&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/03/04/some-turbluence/">#</a>
+    <a class="time" href="2003/03/04/some-turbluence/">10:02 am</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 March 01</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/03/01/oooooa/">Welcome to 0xDECAFBAD v2.0</a>
+      </h2>
+    
+    <p class="summary">
+      Not much to see here yet, but I've burnt down my old weblog and
+replaced it with this.  Planning to start out simple and gradually
+re-introduce features from the previous incarnation very slowly and
+carefully.  I've enjoyed many of the toys I've piled on top of this
+blog, but its time to revise and simplify.
+I've also been thinking of expanding the focus around here a bit: Up
+until now, this place has just been the home of my nerdy brane dumps.
+But, I'd like to entertain the notion of opening the place up to more
+of my writing.  Assuming, that is, that I can reacquaint myself with
+certain muses and notions of free time and management thereof.
+I really appreciate every reader of this site, though, so I've tried
+to minimize the impact of changes.  Broken links are bad.  Links to
+individual blog entries from the old site should redirect themselves
+to their newly converted counterparts.  And, no matter what new trash
+I start publishing here, the old RSS feed will continue to show mostly
+nerdy brane dumps.  Should you want to follow any expanded content I
+start to spew here, you'll need to update your links and
+subscriptions.  It's up to you.
+Anyway, thanks for reading, bear with me, and wish me luck.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/03/01/oooooa/"
+          >299&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/03/01/oooooa/">#</a>
+    <a class="time" href="2003/03/01/oooooa/">8:27 pm</a>
+    
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

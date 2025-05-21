@@ -1,151 +1,261 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>On tilling a plot to plant a Semantic Garden - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="On tilling a plot to plant a Semantic Garden" />
+    <html>
+      <head>
+        <title>On tilling a plot to plant a Semantic Garden - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="On tilling a plot to plant a Semantic Garden" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2002/11/08/ooocbo/"
         />
         
-        <meta property="og:description" content="So, with regards to things SemanticWeb, I think I&#39;m about to eat dogfood in considering a BlueSky project at work.  We&#39;ve been tossing around ideas for a kind of uber-space or organization-wide brain in which to gather all kinds of details about clients, projects, project details and components, lifecycle, etc.
+        <meta property="og:description" content="So, with regards to things SemanticWeb, I think I&#39;m about to eat dogfood in considering a BlueSky project at work.  We&#39;ve been tossing around ideas for a kind of uber-space or organization-wide brain in which to gather all kinds of details about clients, projects, project details and components, lifecycle, etc.  
 We want this thing to be as flexible as possible, without filling up a wall with printouts of database tables and relations - in fact, we want the thing to provide ad-hoc relations we hadn&#39;t thought of at first.  We want people (ie. project managers, sales) and robots (ie. metrics engine) to contribute data, and then people (ie. sales and clients) and robots (ie. automated project build) to be able to query and use this data.  We want roles and access control.  We want scalable centralization of data items.  (ie. Why should the start date of a project be maintained in 12 different places?)
-
 I&#39;m certainly not naive or ignorant enough to think that this is virgin territory.  There are entire industries devoted to these issues of business data integration - but here, budgets are very slim yet we love to play with new tech.  It continues to astound, but with a little ingenuity (okay - a lot of ingenuity - we have smart people working here), this has led us time and time again to a combination of Open Source software and homegrown code that treats us better than any outside vendor solution.  So, I&#39;m hoping to pull another hat trick here and have some fun expanding my brane at the same time.
-
 One of the first notions was to ease more information into our LDAP servers, since it has a very nice hierarchical layout and can accept arbitrary name-value attributes for items.  But then the topic of RDF came up, and the discussion really caught on fire as everyone came to understand what RDF is - at least insofar as I understand it, since I seem to have become the local domain expert.
-
-So, first thing is:  I hope I really do grok this stuff, at least at a gut mojo level.  No one&#39;s called me clueless about it yet.  But the second thing is:  Any practical tool suggestions, case studies, prior art, etc that I should be looking at?  I&#39;ve started with a Google search for RDF and I&#39;ve been wandering W3C documents - but I need a Busy Developer&#39;s Guide.  My ultimate hope through all of this, is that even if things are still baking, that there&#39;s enough out there with which to make something practical.
+So, first thing is:  I hope I really do grok this stuff, at least at a gut mojo level.  No one&#39;s called me clueless about it yet.  But the second thing is:  Any practical tool suggestions, case studies, prior art, etc that I should be looking at?  I&#39;ve started with a Google search for RDF and I&#39;ve been wandering W3C documents - but I need a Busy Developer&#39;s Guide.  My ultimate hope through all of this, is that even if things are still baking, that there&#39;s enough out there with which to make something practical.  
 The goals are gigantic, but my intuition is that using SemanticWeb tech will let us start out small and simple and then add vocabularies and items as needed without massive tool rebuilding.  This is the key thing - the ability to do some initial, fairly easy things that show early results without a heavy, multi-month process to get the thing providing value.  My gut tells me it&#39;s possible.  Am I mad?" />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post "
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post "
       >
-        <time
-          title="2002-11-08T20:43:21+00:00"
-          pubdate="2002-11-08T20:43:21+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2002/"
-            >2002</a
+        <header>
+          <time
+            title="2002-11-08T15:43:21-05:00"
+            pubdate="2002-11-08T15:43:21-05:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2002/11/"
-            >November</a
-          >
-          &raquo;
-          <span>08</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="Bitterness from the halls of Xanadu"
+                href="/blog.lmorchard.com/2002/11/11/ooocba/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2002/"
+                >2002</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2002/11/"
+                >November</a
+              >
+              &#8226;
+              <span>08</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Why the frell hasn&#39;t the Semantic Web bloomed yet?"
+                href="/blog.lmorchard.com/2002/11/05/ooocai/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">On tilling a plot to plant a Semantic Garden</h1>
+          
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2002/11/11/ooocba/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2002/11/05/ooocai/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">On tilling a plot to plant a Semantic Garden</h1>
-        
-        <section class="post-content">
-          <p>So, with regards to things <a href="http://www.decafbad.com/twiki/bin/view/Main/SemanticWeb">SemanticWeb</a>, I think I&#39;m about to eat dogfood in considering a <a href="http://www.decafbad.com/twiki/bin/view/Main/BlueSky">BlueSky</a> project at work.  We&#39;ve been tossing around ideas for a kind of uber-space or organization-wide brain in which to gather all kinds of details about clients, projects, project details and components, lifecycle, etc.<br><br /><br />
-We want this thing to be as flexible as possible, without filling up a wall with printouts of database tables and relations - in fact, we want the thing to provide ad-hoc relations we hadn&#39;t thought of at first.  We want people (ie. project managers, sales) and robots (ie. metrics engine) to contribute data, and then people (ie. sales and clients) and robots (ie. automated project build) to be able to query and use this data.  We want roles and access control.  We want scalable centralization of data items.  (ie. Why should the start date of a project be maintained in 12 different places?)
-<br /><br />
-I&#39;m certainly not naive or ignorant enough to think that this is virgin territory.  There are entire industries devoted to these issues of business data integration - but here, budgets are very slim yet we love to play with new tech.  It continues to astound, but with a little ingenuity (okay - a lot of ingenuity - we have smart people working here), this has led us time and time again to a combination of Open Source software and homegrown code that treats us better than any outside vendor solution.  So, I&#39;m hoping to pull another hat trick here and have some fun expanding my brane at the same time.
-<br /><br />
-One of the first notions was to ease more information into our LDAP servers, since it has a very nice hierarchical layout and can accept arbitrary name-value attributes for items.  But then the topic of <a href="http://www.decafbad.com/twiki/bin/view/Main/RDF">RDF</a> came up, and the discussion really caught on fire as everyone came to understand what <a href="http://www.decafbad.com/twiki/bin/view/Main/RDF">RDF</a> is - at least insofar as I understand it, since I seem to have become the local domain expert.
-<br /><br />
-So, first thing is:  I hope I really do grok this stuff, at least at a gut mojo level.  No one&#39;s called me clueless about it yet.  But the second thing is:  Any practical tool suggestions, case studies, prior art, etc that I should be looking at?  I&#39;ve started with a Google search for <a href="http://www.decafbad.com/twiki/bin/view/Main/RDF">RDF</a> and I&#39;ve been wandering W3C documents - but I need a Busy Developer&#39;s Guide.  My ultimate hope through all of this, is that even if things are still baking, that there&#39;s enough out there with which to make something practical.<br><br /><br />
-The goals are gigantic, but my intuition is that using <a href="http://www.decafbad.com/twiki/bin/view/Main/SemanticWeb">SemanticWeb</a> tech will let us start out small and simple and then add vocabularies and items as needed without massive tool rebuilding.  This is the key thing - the ability to do some initial, fairly easy things that show early results without a heavy, multi-month process to get the thing providing value.  My gut tells me it&#39;s possible.  Am I mad?</p>
+        <p>So, with regards to things <a href="http://www.decafbad.com/twiki/bin/view/Main/SemanticWeb">SemanticWeb</a>, I think I'm about to eat dogfood in considering a <a href="http://www.decafbad.com/twiki/bin/view/Main/BlueSky">BlueSky</a> project at work.  We've been tossing around ideas for a kind of uber-space or organization-wide brain in which to gather all kinds of details about clients, projects, project details and components, lifecycle, etc.  </p>
+<p>We want this thing to be as flexible as possible, without filling up a wall with printouts of database tables and relations - in fact, we want the thing to provide ad-hoc relations we hadn't thought of at first.  We want people (ie. project managers, sales) and robots (ie. metrics engine) to contribute data, and then people (ie. sales and clients) and robots (ie. automated project build) to be able to query and use this data.  We want roles and access control.  We want scalable centralization of data items.  (ie. Why should the start date of a project be maintained in 12 different places?)</p>
+<p>I'm certainly not naive or ignorant enough to think that this is virgin territory.  There are entire industries devoted to these issues of business data integration - but here, budgets are very slim yet we love to play with new tech.  It continues to astound, but with a little ingenuity (okay - a lot of ingenuity - we have smart people working here), this has led us time and time again to a combination of Open Source software and homegrown code that treats us better than any outside vendor solution.  So, I'm hoping to pull another hat trick here and have some fun expanding my brane at the same time.</p>
+<p>One of the first notions was to ease more information into our LDAP servers, since it has a very nice hierarchical layout and can accept arbitrary name-value attributes for items.  But then the topic of <a href="http://www.decafbad.com/twiki/bin/view/Main/RDF">RDF</a> came up, and the discussion really caught on fire as everyone came to understand what <a href="http://www.decafbad.com/twiki/bin/view/Main/RDF">RDF</a> is - at least insofar as I understand it, since I seem to have become the local domain expert.</p>
+<p>So, first thing is:  I hope I really do grok this stuff, at least at a gut mojo level.  No one's called me clueless about it yet.  But the second thing is:  Any practical tool suggestions, case studies, prior art, etc that I should be looking at?  I've started with a Google search for <a href="http://www.decafbad.com/twiki/bin/view/Main/RDF">RDF</a> and I've been wandering W3C documents - but I need a Busy Developer's Guide.  My ultimate hope through all of this, is that even if things are still baking, that there's enough out there with which to make something practical.  </p>
+<p>The goals are gigantic, but my intuition is that using <a href="http://www.decafbad.com/twiki/bin/view/Main/SemanticWeb">SemanticWeb</a> tech will let us start out small and simple and then add vocabularies and items as needed without massive tool rebuilding.  This is the key thing - the ability to do some initial, fairly easy things that show early results without a heavy, multi-month process to get the thing providing value.  My gut tells me it's possible.  Am I mad?</p>
 <!--more-->
+
+
 <p>shortname=ooocbo</p>
 <div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
 <ul class="comments">
 <li class="comment" id="comment-221083396">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://webseitz.fluxent.com/wiki"><img src="http://www.gravatar.com/avatar.php?gravatar_id=5a70d939a73fa73603f2a9255ab81d21&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://webseitz.fluxent.com/wiki">BillSeitz</a>
+<a class="avatar image" rel="nofollow" href="http://webseitz.fluxent.com/wiki"><img src="http://www.gravatar.com/avatar.php?gravatar_id=5a70d939a73fa73603f2a9255ab81d21&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://webseitz.fluxent.com/wiki">BillSeitz</a>
 </div>
-<a href="#comment-221083396" class="permalink"><time datetime="2002-11-08T17:20:36">2002-11-08T17:20:36</time></a>
+
+
+<p><a href="#comment-221083396" class="permalink"><time datetime="2002-11-08T17:20:36">2002-11-08T17:20:36</time></a></p>
 </div>
+
+
 <div class="content">I haven't seen anything to dissuade me that this stuff isn't ready for use, even by (non-RDF-focused) developers. I could be wrong. That could also change quickly if OSAF/Chandler sticks with RDF.
 Could you give an example of a benefit such a system would provide beyond what you might accomplish through a combo similar to this very site using blog, wiki, and a file server (for excel files, etc., no text allowed there)?
 Still, if you want to go with RDF, I'd be inclined to use 4suite, which supports some "real" backends.
 You might also want to chat with AaronSwartz, with a focus on what's practical *now*...
 http://webseitz.fluxent.com/wiki/RDF
 http://webseitz.fluxent.com/wiki/RDF/backlinks</div>
+
+
 </li>
 </ul>
+
+
 </div>
 
-        </section>
-      </article>
-        </section>
-
-        <footer>
-          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
-        </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
-      </section>
-    </body>
-  </html>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2002/11/11/ooocba/"
+                >Bitterness from the halls of Xanadu</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2002/11/05/ooocai/"
+                >Why the frell hasn't the Semantic Web bloomed yet?</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

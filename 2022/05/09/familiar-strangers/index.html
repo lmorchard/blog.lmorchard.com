@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>Familiar Strangers - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="Familiar Strangers" />
+    <html>
+      <head>
+        <title>Familiar Strangers - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="Familiar Strangers" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2022/05/09/familiar-strangers/"
@@ -44,119 +51,215 @@
             content="https://lmorchard.github.io/blog.lmorchard.com/blog.lmorchard.com/2022/05/09/familiar-strangers/cover.png"
           />
         <meta property="og:description" content="TL;DR: I&#39;m trying to build a daily creative writing habit. This post is the result of an exercise toward that end. It&#39;s probably an awful first draft of a little flash fiction scene, unless I&#39;ve tried something especially weird or decided to write something meta. Let me know what you think!" />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post tag-fictiontag-flashfictiontag-tarot"
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post tag-fictiontag-flashfictiontag-tarot"
       >
-        <time
-          title="2022-05-09T12:00:00+00:00"
-          pubdate="2022-05-09T12:00:00+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2022/"
-            >2022</a
+        <header>
+          <time
+            title="2022-05-09T12:00:00-07:00"
+            pubdate="2022-05-09T12:00:00-07:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2022/05/"
-            >May</a
-          >
-          &raquo;
-          <span>09</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="Megachurch of the Shattered"
+                href="/blog.lmorchard.com/2022/05/10/megachurch-of-the-shattered/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2022/"
+                >2022</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2022/05/"
+                >May</a
+              >
+              &#8226;
+              <span>09</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Vincent&#39;s Voyage"
+                href="/blog.lmorchard.com/2022/05/08/vincents-voyage/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">Familiar Strangers</h1>
+          <ul class="tags">
+              <li><a href="/blog.lmorchard.com/tag/fiction/">fiction</a></li><li><a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a></li><li><a href="/blog.lmorchard.com/tag/tarot/">tarot</a></li>
+            </ul>
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2022/05/10/megachurch-of-the-shattered/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2022/05/08/vincents-voyage/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">Familiar Strangers</h1>
-        <ul class="tags">
-            <li>
-                  <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/tarot/">tarot</a>
-                </li>
-          </ul>
-        <section class="post-content">
-          <p><strong>TL;DR</strong>: <em><a href="https://blog.lmorchard.com/2022/04/20/building-a-new-creative-writing-habit/">I&#39;m trying to build a daily creative writing habit.</a> This post is the result of an exercise toward that end. It&#39;s probably an awful first draft of a little <a href="https://blog.lmorchard.com/tag/flashfiction/">flash fiction</a> scene, unless I&#39;ve tried something especially weird or decided to write something <a href="https://blog.lmorchard.com/tag/metablogging/">meta</a>. Let me know what you think!</em></p>
+        <p><strong>TL;DR</strong>: <em><a href="https://blog.lmorchard.com/2022/04/20/building-a-new-creative-writing-habit/">I'm trying to build a daily creative writing habit.</a> This post is the result of an exercise toward that end. It's probably an awful first draft of a little <a href="https://blog.lmorchard.com/tag/flashfiction/">flash fiction</a> scene, unless I've tried something especially weird or decided to write something <a href="https://blog.lmorchard.com/tag/metablogging/">meta</a>. Let me know what you think!</em></p>
 <!--more-->
 
-<img src="./cover.png" class="fullwidth" />
+
+
+<figure class="wide"><img src="./cover.png" width="" height=""></figure>
 
 <p>Jae had walked through that park for years. It was on the way between work and home, and the pod of food carts across the way never got old for lunch.</p>
 <p>As a creature of habit, Jae became accustomed to a lot of the same faces every day. Mostly just passing by in mutual oblivion, but there were always a few habitual nods or smiles.</p>
-<p>When the pandemic hit, Jae hunkered down into a lonely work-at-home hermitage. It hadn&#39;t even occurred to them that they&#39;d miss all those faces in the park. But, as the languishing stretched into weeks and months, they found themselves sometimes dreaming of strangers. </p>
+<p>When the pandemic hit, Jae hunkered down into a lonely work-at-home hermitage. It hadn't even occurred to them that they'd miss all those faces in the park. But, as the languishing stretched into weeks and months, they found themselves sometimes dreaming of strangers. </p>
 <p>When they had left the house over the interminable span of days, it was always away from the city center and away from people. The more deserted the route the better. They crossed the street whenever someone else appeared on the sidewalk, no nods or smiles.</p>
 <p>Eventually, the pandemic waned enough for Jae to feel like risking a walk through the old park to the office to pick up a few things. They had no real idea what to expect. </p>
 <p>Still, a part of them somehow anticipated the old crowds. Like life had just continued in the old rhythms and habits without them. But, it turned out to be nearly as deserted as their meandering neighborhood walk. For almost the first time, the pandemic seemed like a thing that had happened to the world and not just them. </p>
 <p>Halfway across the park, a familiar stranger approached. Jae caught her eye, cocked their head. As the woman passed, her eyes narrowed in mild confusion, then she smiled. She turned back and Jae stopped, ten feet away. </p>
-<p>&quot;I don&#39;t know you,&quot; she said, &quot;do I?&quot;</p>
-<p>&quot;No,&quot; they said, &quot;I don&#39;t think we&#39;ve met.&quot;</p>
-<p>&quot;But we have seen each other before, right?&quot;</p>
-<p>&quot;I think... yes? I&#39;m sorry, I think I&#39;ve forgotten how to be around people.&quot;</p>
-<p>She laughed. &quot;Yeah, me too.&quot;</p>
+<p>"I don't know you," she said, "do I?"</p>
+<p>"No," they said, "I don't think we've met."</p>
+<p>"But we have seen each other before, right?"</p>
+<p>"I think... yes? I'm sorry, I think I've forgotten how to be around people."</p>
+<p>She laughed. "Yeah, me too."</p>
 <p>An awkward pause, then. She shifted on her feet. Jae suddenly felt like being back home.</p>
-<p>&quot;Well, okay then,&quot; said Jae. &quot;Maybe I&#39;ll see you around.&quot;</p>
-<p>&quot;Yeah, maybe,&quot; she said, a little sad. Then she turned and continued on her way.</p>
+<p>"Well, okay then," said Jae. "Maybe I'll see you around."</p>
+<p>"Yeah, maybe," she said, a little sad. Then she turned and continued on her way.</p>
 <h2 id="prompt">Prompt</h2>
-<p>A 3-card spread from my <a href="https://lmorchard.github.io/tarot-thing/?card=Seven+of+Pentacles&card=%21Ace+of+Cups&card=%21Seven+of+Cups">Tarot Thing</a>:</p>
-<p><img src="20220509075711.png" alt=""></p>
+<p>A 3-card spread from my <a href="https://lmorchard.github.io/tarot-thing/?card=Seven+of+Pentacles&amp;card=%21Ace+of+Cups&amp;card=%21Seven+of+Cups">Tarot Thing</a>:</p>
+<p><img src="20220509075711.png" alt="" width="" height=""></p>
 
-        </section>
+        <section class="comments" id="comments">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+              var disqus_needs_loading = true;
+              var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com/2022/05/09/familiar-strangers/";
+            </script>
+            <noscript
+              >Please enable JavaScript to view the
+              <a href="http://disqus.com/?ref_noscript"
+                >comments powered by Disqus.</a
+              ></noscript
+            >
+            <a href="http://disqus.com" class="dsq-brlink"
+              >blog comments powered by
+              <span class="logo-disqus">Disqus</span></a
+            >
+          </section>
       </article>
 
-      <section class="comments" id="comments">
-          <div id="disqus_thread"></div>
-          <script type="text/javascript">
-            var disqus_needs_loading = true;
-            var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com/2022/05/09/familiar-strangers/";
-          </script>
-          <noscript
-            >Please enable JavaScript to view the
-            <a href="http://disqus.com/?ref_noscript"
-              >comments powered by Disqus.</a
-            ></noscript
-          >
-          <a href="http://disqus.com" class="dsq-brlink"
-            >blog comments powered by <span class="logo-disqus">Disqus</span></a
-          >
-        </section>
-        </section>
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2022/05/10/megachurch-of-the-shattered/"
+                >Megachurch of the Shattered</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2022/05/08/vincents-voyage/"
+                >Vincent's Voyage</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
 
-        <footer>
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

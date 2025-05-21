@@ -9,7 +9,17 @@
 
       var title = document.createElement('p');
       title.classList.add('title');
-      title.innerHTML = 'Contents';
+
+      const metaTitle = document.querySelector('meta[property="og:title"]');
+      const h1 = document.querySelector('article.post header h1');
+      if (metaTitle) {
+        title.innerHTML = metaTitle.getAttribute("content");
+      } else if (h1) {
+        title.innerHTML = h1.innerHTML
+      } else {
+        title.innerHTML = 'Contents';
+      }
+
       tocRoot.appendChild(title);
 
       var list = document.createElement('ol');

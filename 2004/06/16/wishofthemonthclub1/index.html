@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>Wish-of-the-Month Club, Part 1 of 3 - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="Wish-of-the-Month Club, Part 1 of 3" />
+    <html>
+      <head>
+        <title>Wish-of-the-Month Club, Part 1 of 3 - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="Wish-of-the-Month Club, Part 1 of 3" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2004/06/16/wishofthemonthclub1/"
@@ -201,80 +208,149 @@ Alternately, you could check it out using TestXSLT under OS X.  You should get s
 Obviously, this example XML is much abridged, but hopefully you can get the gist:  For each wishlist ID, there is a containing wishitem element.  It contains a copy of the wishlist element from the input XML, followed by all the Details elements filtered and copied from the Amazon XML with the help of the processWishlist template.
 That&#39;s All for Now!
 And that&#39;s the end of Part 1.  Next up, we&#39;ll be delving into a few more wrinkles in the wishlist querying process, selecting random items in XSLT, and the Remote Shopping Cart interface in Amazon Web Services.  Stay tuned!" />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post tag-hackstag-xml"
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post tag-hackstag-xml"
       >
-        <time
-          title="2004-06-16T11:42:48+00:00"
-          pubdate="2004-06-16T11:42:48+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2004/"
-            >2004</a
+        <header>
+          <time
+            title="2004-06-16T07:42:48-04:00"
+            pubdate="2004-06-16T07:42:48-04:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2004/06/"
-            >June</a
-          >
-          &raquo;
-          <span>16</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="Wish-of-the-Month Club, Part 2 of 3"
+                href="/blog.lmorchard.com/2004/06/27/wishofthemonthclub2/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2004/"
+                >2004</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2004/06/"
+                >June</a
+              >
+              &#8226;
+              <span>16</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Info Freako, or who&#39;s already past arguing about syndication formats?"
+                href="/blog.lmorchard.com/2004/06/14/info-freako-or-whos-already-past-arguing-about-syndication-formats/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">Wish-of-the-Month Club, Part 1 of 3</h1>
+          <ul class="tags">
+              <li><a href="/blog.lmorchard.com/tag/hacks/">hacks</a></li><li><a href="/blog.lmorchard.com/tag/xml/">xml</a></li>
+            </ul>
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2004/06/28/wishofthemonthclub2/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2004/06/14/info-freako-or-whos-already-past-arguing-about-syndication-formats/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">Wish-of-the-Month Club, Part 1 of 3</h1>
-        <ul class="tags">
-            <li>
-                  <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/xml/">xml</a>
-                </li>
-          </ul>
-        <section class="post-content">
-          <p><i>Remember that <a href="http://www.decafbad.com/blog/2004/05/25/i_was_a_preteen_transactor_author_wannabe_and_still_am">I wrote a little while ago</a> about wanting to publish some articles here that I&#39;d want to read?  Well, I&#39;ve been hard at work since then to turn out the first set and I think I&#39;ve finally got something for you.  I <a href="http://www.decafbad.com/blog/2004/06/13/i_will_do_the_fandango">mentioned</a> earlier this week that I was taking this seriously, so I hope it shows.  So, with many thanks to <a href="http://missadroit.livejournal.com" title="Miss Adroit, my favorite girl in the world">my girlfriend&#39;s</a> kind editorial help, and with some measure of anxiety, here goes...</i></p>
+        <p><i>Remember that <a href="http://www.decafbad.com/blog/2004/05/25/i_was_a_preteen_transactor_author_wannabe_and_still_am">I wrote a little while ago</a> about wanting to publish some articles here that I'd want to read?  Well, I've been hard at work since then to turn out the first set and I think I've finally got something for you.  I <a href="http://www.decafbad.com/blog/2004/06/13/i_will_do_the_fandango">mentioned</a> earlier this week that I was taking this seriously, so I hope it shows.  So, with many thanks to <a href="http://missadroit.livejournal.com" title="Miss Adroit, my favorite girl in the world">my girlfriend's</a> kind editorial help, and with some measure of anxiety, here goes...</i></p>
 <h3 id="introduction">Introduction</h3>
-<p>For some time now, my girlfriend and I have been accumulating things we want in wishlists on Amazon.com.  <a href="http://www.amazon.com/exec/obidos/registry/1QWYI6P2JF3Q5">Here&#39;s mine</a> and <a href="http://www.amazon.com/exec/obidos/registry/35OIOYWQ9XQAE">here&#39;s hers</a> - if you visit them, you can see we&#39;ve both got quite a few things listed.  Though they have come in handy with relatives at Christmas and on birthdays, neither of us really expects to see a regular flow of gifts from them.  For the most part, they&#39;ve just become holding tanks for things we intend to buy for each other or ourselves.  </p>
-<p>However, I tend to forget we have these lists except for occasional visit to Amazon when I think, &quot;Oh yeah, wishlists.  I should pick up a thing or two, there&#39;s some good stuff piled up in them.&quot;  On one particular visit, though, the notion of a Wish-of-the-Month club popped into my head: We could afford to grab at least one item for each of us from our wishlists on a monthly basis, provided that we remembered to place an order.  It&#39;d be better than signing up for a book or music club, driven by someone else&#39;s idea of what we wanted.  Unfortunately, there&#39;s that problem for busy, absentminded, and people like us: remembering to place an order.</p>
-<p>But wait, isn&#39;t this the sort of thing computers are for?  I should be able to cobble something together that would peruse our wishlists and--given some criteria like a price maximum--select an item at random for each of us and send them on their way.  With this, I could schedule a monthly run and start whittling down those lists.</p>
+<p>For some time now, my girlfriend and I have been accumulating things we want in wishlists on Amazon.com.  <a href="http://www.amazon.com/exec/obidos/registry/1QWYI6P2JF3Q5">Here's mine</a> and <a href="http://www.amazon.com/exec/obidos/registry/35OIOYWQ9XQAE">here's hers</a> - if you visit them, you can see we've both got quite a few things listed.  Though they have come in handy with relatives at Christmas and on birthdays, neither of us really expects to see a regular flow of gifts from them.  For the most part, they've just become holding tanks for things we intend to buy for each other or ourselves.  </p>
+<p>However, I tend to forget we have these lists except for occasional visit to Amazon when I think, "Oh yeah, wishlists.  I should pick up a thing or two, there's some good stuff piled up in them."  On one particular visit, though, the notion of a Wish-of-the-Month club popped into my head: We could afford to grab at least one item for each of us from our wishlists on a monthly basis, provided that we remembered to place an order.  It'd be better than signing up for a book or music club, driven by someone else's idea of what we wanted.  Unfortunately, there's that problem for busy, absentminded, and people like us: remembering to place an order.</p>
+<p>But wait, isn't this the sort of thing computers are for?  I should be able to cobble something together that would peruse our wishlists and--given some criteria like a price maximum--select an item at random for each of us and send them on their way.  With this, I could schedule a monthly run and start whittling down those lists.</p>
 <h3 id="gathering-tools">Gathering Tools</h3>
-<p>Before I start working through the project itself, let&#39;s establish some assumptions and then gather some tools and materials:</p>
-<p>I&#39;m going to assume that you&#39;re using a UN*X operating system (ie. Linux, Mac OS X, etc.) and that you&#39;re reasonably familiar with getting around in a shell and editing files.  Things presented here could be adapted for Windows fairly easily, but I&#39;ll leave that as an exercise to the reader.  Also, you may need to build and install a package or two, so know-how in that regard will serve as well.  And finally: some familiarity with XML and XSLT would be useful, but you won&#39;t need to be a guru with either.</p>
-<p>Oh, and all the files I&#39;ll be introducing in this project can be downloaded from my website as a tarball:  <a href="http://www.decafbad.com/cvs/hacks/wishes/wishes.tar.gz?tarball=1" title="All Wish-of-the-Month Club files wrapped up in a tarball"><code>wishes.tar.gz</code></a>.  If you feel like browsing, you can see these files in my <a href="http://www.decafbad.com/cvs/hacks/wishes/">CVS repository</a>.  And if you feel like checking out a copy via anonymous CVS, the username is <code>anoncvs</code> and the password is blank--email me for help, if you need it.</p>
-<p>So, how do we get a look at these wishlists?  Lately, I&#39;ve been tinkering a bit with <a href="http://www.decafbad.com/twiki/bin/view/Main/XslScraper" title="Scrape RSS and Atom from HTML using Tidy and XSLT">scraping information from</a> and <a href="http://www.amazon.com/exec/obidos/ASIN/0596005776/0xdecafbad-20" title="O&#39;Reilly&#39;s Spidering Hacks">automating access to</a> websites.  It&#39;s a bit like a puzzle game, with all the accompanying frustrations and happy breakthroughs.  However, where most puzzle games are designed with a solution in mind, this game isn&#39;t even necessarily meant to be played depending on the intentions of website owners.</p>
-<p>Fortunately, the folks at Amazon.com have made things very friendly to tinkerers by providing an API, called <a href="http://www.amazon.com/gp/aws/landing.html" title="Amazon Web Services">Amazon Web Services</a> (or AWS).  You&#39;ll want to <a href="http://www.amazon.com/gp/browse.html/ref=sc_fe_c_2/002-7899886-3676027?%5Fencoding=UTF8&#38;node=3434641&#38;no=3435361&#38;me=A36L942TSJ2AJA">download</a> the AWS developer&#39;s kit, which contains a wealth of documentation and examples.  After downloading these materials, you should <a href="https://associates.amazon.com/exec/panama/associates/join/developer/application.html">apply for a developer&#39;s token</a> for use with the service.  AWS provides both SOAP and REST interfaces to functionality and data at their site; personally, I prefer the HTTP-and-XML approach taken by the REST interface, so that&#39;s what we&#39;ll be using here. </p>
-<p>To handle the XML produced by AWS, we&#39;ll be using the <code>xsltproc</code> command from <a href="http://www.xmlsoft.org/XSLT.html">the XML C parser and toolkit of Gnome</a>.  There are other XSLT processors--such as <a href="http://xml.apache.org/xalan-j/">Xalan</a>, <a href="http://www.gingerall.com/charlie/ga/xml/p_sab.xml">Sablotron</a>, and <a href="http://saxon.sourceforge.net/">Saxon</a>--but I&#39;ve found <a href="http://www.xmlsoft.org/XSLT.html">libxslt</a> easiest to feed and care for on the various platforms with which I tinker.  It also seems to support a very large swath of <a href="http://www.exslt.org/">EXSLT extensions</a>, all of which come in very handy, yet seem to receive uneven support in other XSLT processors.  We&#39;ll be pulling a trick or two out of that bag, so its support is key.</p>
-<p>You may or may not already have <a href="http://www.xmlsoft.org/XSLT.html">libsxlt</a> installed.  Depending on your variant of Linux, it might be as simple as a single package-management command or it might be a bit more complex if you need to compile from source.  For Mac OS X, I recommend using <a href="http://fink.sourceforge.net">Fink</a> for your packaging needs.  Although, <a href="http://darwinports.opendarwin.org/">DarwinPorts</a> is nice as well, if you&#39;re used to The BSD Way.</p>
+<p>Before I start working through the project itself, let's establish some assumptions and then gather some tools and materials:</p>
+<p>I'm going to assume that you're using a UN*X operating system (ie. Linux, Mac OS X, etc.) and that you're reasonably familiar with getting around in a shell and editing files.  Things presented here could be adapted for Windows fairly easily, but I'll leave that as an exercise to the reader.  Also, you may need to build and install a package or two, so know-how in that regard will serve as well.  And finally: some familiarity with XML and XSLT would be useful, but you won't need to be a guru with either.</p>
+<p>Oh, and all the files I'll be introducing in this project can be downloaded from my website as a tarball:  <a href="http://www.decafbad.com/cvs/hacks/wishes/wishes.tar.gz?tarball=1" title="All Wish-of-the-Month Club files wrapped up in a tarball"><code>wishes.tar.gz</code></a>.  If you feel like browsing, you can see these files in my <a href="http://www.decafbad.com/cvs/hacks/wishes/">CVS repository</a>.  And if you feel like checking out a copy via anonymous CVS, the username is <code>anoncvs</code> and the password is blank--email me for help, if you need it.</p>
+<p>So, how do we get a look at these wishlists?  Lately, I've been tinkering a bit with <a href="http://www.decafbad.com/twiki/bin/view/Main/XslScraper" title="Scrape RSS and Atom from HTML using Tidy and XSLT">scraping information from</a> and <a href="http://www.amazon.com/exec/obidos/ASIN/0596005776/0xdecafbad-20" title="O'Reilly's Spidering Hacks">automating access to</a> websites.  It's a bit like a puzzle game, with all the accompanying frustrations and happy breakthroughs.  However, where most puzzle games are designed with a solution in mind, this game isn't even necessarily meant to be played depending on the intentions of website owners.</p>
+<p>Fortunately, the folks at Amazon.com have made things very friendly to tinkerers by providing an API, called <a href="http://www.amazon.com/gp/aws/landing.html" title="Amazon Web Services">Amazon Web Services</a> (or AWS).  You'll want to <a href="http://www.amazon.com/gp/browse.html/ref=sc_fe_c_2/002-7899886-3676027?%5Fencoding=UTF8&amp;node=3434641&amp;no=3435361&amp;me=A36L942TSJ2AJA">download</a> the AWS developer's kit, which contains a wealth of documentation and examples.  After downloading these materials, you should <a href="https://associates.amazon.com/exec/panama/associates/join/developer/application.html">apply for a developer's token</a> for use with the service.  AWS provides both SOAP and REST interfaces to functionality and data at their site; personally, I prefer the HTTP-and-XML approach taken by the REST interface, so that's what we'll be using here. </p>
+<p>To handle the XML produced by AWS, we'll be using the <code>xsltproc</code> command from <a href="http://www.xmlsoft.org/XSLT.html">the XML C parser and toolkit of Gnome</a>.  There are other XSLT processors--such as <a href="http://xml.apache.org/xalan-j/">Xalan</a>, <a href="http://www.gingerall.com/charlie/ga/xml/p_sab.xml">Sablotron</a>, and <a href="http://saxon.sourceforge.net/">Saxon</a>--but I've found <a href="http://www.xmlsoft.org/XSLT.html">libxslt</a> easiest to feed and care for on the various platforms with which I tinker.  It also seems to support a very large swath of <a href="http://www.exslt.org/">EXSLT extensions</a>, all of which come in very handy, yet seem to receive uneven support in other XSLT processors.  We'll be pulling a trick or two out of that bag, so its support is key.</p>
+<p>You may or may not already have <a href="http://www.xmlsoft.org/XSLT.html">libsxlt</a> installed.  Depending on your variant of Linux, it might be as simple as a single package-management command or it might be a bit more complex if you need to compile from source.  For Mac OS X, I recommend using <a href="http://fink.sourceforge.net">Fink</a> for your packaging needs.  Although, <a href="http://darwinports.opendarwin.org/">DarwinPorts</a> is nice as well, if you're used to The BSD Way.</p>
 <p>A bonus for OS X users: Marc Liyanage has provided a great Open Source tool named <a href="http://www.entropy.ch:16080/software/macosx/#testxslt">TestXSLT</a> that embeds <a href="http://www.xmlsoft.org/XSLT.html">libxslt</a>, among other XSLT processors, in a slick GUI for easier use.  This might come in handy for you as things develop.</p>
 <h3 id="wishlists-in-xml">Wishlists in XML</h3>
-<p>Okay, we&#39;ve got a working environment, a head start on accessing Amazon wishlists as XML, and a way to manipulate that XML using <code>xsltproc</code>.  Let&#39;s start playing.  First things first, we need to gain access to Amazon wishlists in XML form.  Reading through the <a href="http://www.amazon.com/gp/browse.html/ref=sc_fe_c_2/002-7899886-3676027?%5Fencoding=UTF8&#38;node=3434641&#38;no=3435361&#38;me=A36L942TSJ2AJA">AWS documentation</a> reveals that wish list searches are available via a URL constructed like so:</p>
+<p>Okay, we've got a working environment, a head start on accessing Amazon wishlists as XML, and a way to manipulate that XML using <code>xsltproc</code>.  Let's start playing.  First things first, we need to gain access to Amazon wishlists in XML form.  Reading through the <a href="http://www.amazon.com/gp/browse.html/ref=sc_fe_c_2/002-7899886-3676027?%5Fencoding=UTF8&amp;node=3434641&amp;no=3435361&amp;me=A36L942TSJ2AJA">AWS documentation</a> reveals that wish list searches are available via a URL constructed like so:</p>
 <pre><code>http://xml.amazon.com/onca/xml3?
 t=[Associates ID goes here]&amp;#38;
 dev-t=[Developer Token goes here]&amp;#38;
@@ -282,17 +358,17 @@ WishlistSearch=[wishlist ID goes here]&amp;#38;
 type=[lite or heavy]&amp;#38;
 f=xml
 </code></pre>
-<p>I received an ID of <code>0xdecafbad-20</code> when I <a href="http://associates.amazon.com">signed up to be an associate</a> a few years ago.  This will ensure that I get credited for sales made via the API--which isn&#39;t as important for the present project, since I&#39;ll be buying items myself, but it&#39;ll come in handy in later projects.  Also, when I <a href="https://associates.amazon.com/exec/panama/associates/join/developer/application.html">signed up for a developer&#39;s token</a>, this is what I was given: <code>D8HVH869XA0NP</code>  I&#39;m disclosing my own here for the sake of example, but you should <a href="https://associates.amazon.com/exec/panama/associates/join/developer/application.html">sign up</a> and get your own.</p>
-<p>So, that fills in the first two parts of the URL.  For the purposes of this project, let&#39;s just go with the <code>lite</code> option for type.  As for the wishlist ID, let&#39;s take a look the wishlist URLs to which I linked earlier:</p>
+<p>I received an ID of <code>0xdecafbad-20</code> when I <a href="http://associates.amazon.com">signed up to be an associate</a> a few years ago.  This will ensure that I get credited for sales made via the API--which isn't as important for the present project, since I'll be buying items myself, but it'll come in handy in later projects.  Also, when I <a href="https://associates.amazon.com/exec/panama/associates/join/developer/application.html">signed up for a developer's token</a>, this is what I was given: <code>D8HVH869XA0NP</code>  I'm disclosing my own here for the sake of example, but you should <a href="https://associates.amazon.com/exec/panama/associates/join/developer/application.html">sign up</a> and get your own.</p>
+<p>So, that fills in the first two parts of the URL.  For the purposes of this project, let's just go with the <code>lite</code> option for type.  As for the wishlist ID, let's take a look the wishlist URLs to which I linked earlier:</p>
 <pre><code>http://www.amazon.com/exec/obidos/registry/35OIOYWQ9XQAE
 http://www.amazon.com/exec/obidos/registry/1QWYI6P2JF3Q5
 </code></pre>
-<p>You can discover these wishlist URLs using <a href="http://www.amazon.com/gp/registry/search.html/002-7899886-3676027?%5Fencoding=UTF8&#38;type=wishlist">Amazon&#39;s Wish List Search</a> feature, in which case a wishlist URL might appear like so:</p>
+<p>You can discover these wishlist URLs using <a href="http://www.amazon.com/gp/registry/search.html/002-7899886-3676027?%5Fencoding=UTF8&amp;type=wishlist">Amazon's Wish List Search</a> feature, in which case a wishlist URL might appear like so:</p>
 <pre><code>http://www.amazon.com/gp/registry/registry.html/
 002-7899886-3676027?%5Fencoding=UTF8&amp;#38;
 id=35OIOYWQ9XQAE
 </code></pre>
-<p>In either case, there is a 13-character ID in each variety of wish list URL: this string is the wish list ID.  So, the ID for my girlfriend&#39;s wishlist is <code> 35OIOYWQ9XQAE</code> and mine is <code>1QWYI6P2JF3Q5</code>.  Given this piece of the puzzle, we can fill in the blanks to come up with the following URL for my girlfriend&#39;s wish list:</p>
+<p>In either case, there is a 13-character ID in each variety of wish list URL: this string is the wish list ID.  So, the ID for my girlfriend's wishlist is <code> 35OIOYWQ9XQAE</code> and mine is <code>1QWYI6P2JF3Q5</code>.  Given this piece of the puzzle, we can fill in the blanks to come up with the following URL for my girlfriend's wish list:</p>
 <pre><code>http://xml.amazon.com/onca/xml3?
 t=0xdecafbad-20&amp;#38;
 dev-t=D8HVH869XA0NP&amp;#38;
@@ -300,10 +376,10 @@ type=lite&amp;#38;
 WishlistSearch=35OIOYWQ9XQAE&amp;#38;
 f=xml
 </code></pre>
-<p><a href="http://xml.amazon.com/onca/xml3?t=0xdecafbad-20&#38;dev-t=D8HVH869XA0NP&#38;type=lite&#38;WishlistSearch=35OIOYWQ9XQAE&#38;f=xml">Check out the XML resulting from this URL</a>--you may want to use a tool such as <code>curl</code> or <code>wget</code> instead of viewing this directly in your browser.  You&#39;ll see some XML that looks something like this:</p>
+<p><a href="http://xml.amazon.com/onca/xml3?t=0xdecafbad-20&amp;dev-t=D8HVH869XA0NP&amp;type=lite&amp;WishlistSearch=35OIOYWQ9XQAE&amp;f=xml">Check out the XML resulting from this URL</a>--you may want to use a tool such as <code>curl</code> or <code>wget</code> instead of viewing this directly in your browser.  You'll see some XML that looks something like this:</p>
 <pre><code>&lt;ProductInfo&gt;
 ...
-&lt;Details url=&quot;(some long URL)&quot;&gt;
+&lt;Details url="(some long URL)"&gt;
   &lt;Asin&gt;0262133601&lt;/Asin&gt;
   &lt;ProductName&gt;Foundations of Statistical Natural Language Processing&lt;/ProductName&gt;
   &lt;Catalog&gt;Book&lt;/Catalog&gt;
@@ -324,75 +400,75 @@ f=xml
 ...
 &lt;/ProductInfo&gt;
 </code></pre>
-<p>Note that the <a href="http://www.amazon.com/exec/obidos/ASIN/0262133601/0xdecafbad-20?dev-t=D8HVH869XA0NP%26camp=2025%26link_code=xm2">long URL</a> in the <code>Detail</code> element&#39;s <code>url</code> attribute links to the human-viewable product detail page at Amazon.  I&#39;ve also left a few other things out, such as the URLs to product images; I just thought I&#39;d edit it a bit to be friendlier to your browser at home.  There&#39;s a <a href="http://xml.amazon.com/schemas3/dev-lite.xsd">schema</a> for this XML data, and the ins-and-outs are explained in the AWS documentation under &quot;Amazon Web Services Data Model&quot;.</p>
+<p>Note that the <a href="http://www.amazon.com/exec/obidos/ASIN/0262133601/0xdecafbad-20?dev-t=D8HVH869XA0NP%26camp=2025%26link_code=xm2">long URL</a> in the <code>Detail</code> element's <code>url</code> attribute links to the human-viewable product detail page at Amazon.  I've also left a few other things out, such as the URLs to product images; I just thought I'd edit it a bit to be friendlier to your browser at home.  There's a <a href="http://xml.amazon.com/schemas3/dev-lite.xsd">schema</a> for this XML data, and the ins-and-outs are explained in the AWS documentation under "Amazon Web Services Data Model".</p>
 <h3 id="querying-the-wishes">Querying The Wishes</h3>
 <p>Some ready-made files are available for this section:</p>
 <ul>
 <li><a href="http://www.decafbad.com/cvs/*checkout*/hacks/wishes/wishes-ex1.xsl"><code>wishes-ex1.xsl</code></a>: The first iteration of the stylesheet in development.</li>
 <li><a href="http://www.decafbad.com/cvs/*checkout*/hacks/wishes/wishes.xml"><code>wishes.xml</code></a>: An XML document used as input with the stylesheet.</li>
 </ul>
-<p>Now that we&#39;ve got some XML from Amazon to play with, let&#39;s start tinkering with an XSLT stylesheet to process it.  In the interests of flexibility and reusability, we can parameterize a few things in XML before starting in on the stylesheet:</p>
-<pre><code>&lt;wishes xmlns=&quot;http://www.decafbad.com/2004/05/wishes&quot;&gt;
+<p>Now that we've got some XML from Amazon to play with, let's start tinkering with an XSLT stylesheet to process it.  In the interests of flexibility and reusability, we can parameterize a few things in XML before starting in on the stylesheet:</p>
+<pre><code>&lt;wishes xmlns="http://www.decafbad.com/2004/05/wishes"&gt;
   &lt;maxprice&gt;15.00&lt;/maxprice&gt;
   &lt;associate&gt;0xdecafbad-20&lt;/associate&gt;
   &lt;devtoken&gt;D8HVH869XA0NP&lt;/devtoken&gt;
   &lt;email&gt;deus_x@pobox.com&lt;/email&gt;
   &lt;wishlists&gt;
-    &lt;wishlist label=&quot;The Girl&quot;&gt;35OIOYWQ9XQAE&lt;/wishlist&gt;
-    &lt;wishlist label=&quot;Me&quot;&gt;1QWYI6P2JF3Q5&lt;/wishlist&gt;
+    &lt;wishlist label="The Girl"&gt;35OIOYWQ9XQAE&lt;/wishlist&gt;
+    &lt;wishlist label="Me"&gt;1QWYI6P2JF3Q5&lt;/wishlist&gt;
   &lt;/wishlists&gt;
 &lt;/wishes&gt;
 </code></pre>
-<p>Hopefully, the data here is fairly self-explanatory:  I&#39;ve established a maximum price for item selection; provided my associate ID and developer token; there&#39;s an email address to which I eventually want to send the results of all this work; and I&#39;ve made a list of wishlist IDs, each with a readable label. Given this, let&#39;s start out simple and  use this to get some data from Amazon:</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot;?&gt;
-&lt;xsl:stylesheet version=&quot;1.0&quot;
-            xmlns:wishes=&quot;http://www.decafbad.com/2004/05/wishes&quot;
-            xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;&gt;
-  &lt;xsl:output indent=&quot;yes&quot; /&gt;
+<p>Hopefully, the data here is fairly self-explanatory:  I've established a maximum price for item selection; provided my associate ID and developer token; there's an email address to which I eventually want to send the results of all this work; and I've made a list of wishlist IDs, each with a readable label. Given this, let's start out simple and  use this to get some data from Amazon:</p>
+<pre><code>&lt;?xml version="1.0"?&gt;
+&lt;xsl:stylesheet version="1.0"
+            xmlns:wishes="http://www.decafbad.com/2004/05/wishes"
+            xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+  &lt;xsl:output indent="yes" /&gt;
 
   &lt;!-- Grab our global settings --&gt;
-  &lt;xsl:variable name=&quot;maxprice&quot;  select=&quot;/wishes:wishes/wishes:maxprice&quot; /&gt;  
-  &lt;xsl:variable name=&quot;associate&quot; select=&quot;/wishes:wishes/wishes:associate&quot; /&gt;
-  &lt;xsl:variable name=&quot;devtoken&quot;  select=&quot;/wishes:wishes/wishes:devtoken&quot; /&gt;
+  &lt;xsl:variable name="maxprice"  select="/wishes:wishes/wishes:maxprice" /&gt;  
+  &lt;xsl:variable name="associate" select="/wishes:wishes/wishes:associate" /&gt;
+  &lt;xsl:variable name="devtoken"  select="/wishes:wishes/wishes:devtoken" /&gt;
 </code></pre>
-<p>So far so good--things start off by pulling in some of the parameters into variables.  Next, let&#39;s dig into actually querying wishlist data with a reusable template:</p>
-<pre><code>  &lt;xsl:template name=&quot;processWishlist&quot;&gt;
-    &lt;xsl:param name=&quot;wishlist&quot; /&gt;
+<p>So far so good--things start off by pulling in some of the parameters into variables.  Next, let's dig into actually querying wishlist data with a reusable template:</p>
+<pre><code>  &lt;xsl:template name="processWishlist"&gt;
+    &lt;xsl:param name="wishlist" /&gt;
 
-    &lt;xsl:variable name=&quot;details&quot; select=&quot;document(concat(
-        &#39;http://xml.amazon.com/onca/xml3?&#39;,
-        &#39;t=&#39;,$associate,&#39;&amp;amp;&#39;,
-        &#39;dev-t=&#39;,$devtoken,&#39;&amp;amp;&#39;,
-        &#39;WishlistSearch=&#39;,$wishlist,&#39;&amp;amp;&#39;,
-        &#39;type=lite&amp;amp;f=xml&#39;))//Details&quot; /&gt;
+    &lt;xsl:variable name="details" select="document(concat(
+        'http://xml.amazon.com/onca/xml3?',
+        't=',$associate,'&amp;amp;',
+        'dev-t=',$devtoken,'&amp;amp;',
+        'WishlistSearch=',$wishlist,'&amp;amp;',
+        'type=lite&amp;amp;f=xml'))//Details" /&gt;
 </code></pre>
-<p>First thing into this template, we accept a parameter named <code>wishlist</code> which is expected to contain a wishlist ID string.  Next, we build an AWS URL by concatenating together the pieces we have in variables (associate ID, developer&#39;s token, and wishlist ID) using the XPath function <a href="http://www.w3.org/TR/2002/WD-xquery-operators-20020816/#func-concat"><code>concat()</code></a>.  Once we have this URL, we use the function <a href="http://www.w3.org/TR/2002/WD-xquery-operators-20020816/#func-document"><code>document()</code></a> to make a request and fetch the XML data for that URL.  From this, we select all the <code>Details</code> elements.  </p>
+<p>First thing into this template, we accept a parameter named <code>wishlist</code> which is expected to contain a wishlist ID string.  Next, we build an AWS URL by concatenating together the pieces we have in variables (associate ID, developer's token, and wishlist ID) using the XPath function <a href="http://www.w3.org/TR/2002/WD-xquery-operators-20020816/#func-concat"><code>concat()</code></a>.  Once we have this URL, we use the function <a href="http://www.w3.org/TR/2002/WD-xquery-operators-20020816/#func-document"><code>document()</code></a> to make a request and fetch the XML data for that URL.  From this, we select all the <code>Details</code> elements.  </p>
 <p>Then with that data, we can do some filtering on the price and availability.  We want to make sure that not only will we select items that are within our budget, but that they are available to buy in the first place:</p>
-<pre><code>    &lt;xsl:copy-of select=&quot;$details[
+<pre><code>    &lt;xsl:copy-of select="$details[
       number(substring(OurPrice/text(),2)) &amp;lt; $maxprice
       and
-      contains(Availability, &#39;Usually ships within&#39;)
-      ]&quot; /&gt;
+      contains(Availability, 'Usually ships within')
+      ]" /&gt;
 
   &lt;/xsl:template&gt;
 </code></pre>
-<p>This code is just a little bit funky, since the price data given by Amazon contains a dollar sign, and we want to make a numerical comparison.  So, we chop the dollar sign off and convert to a number before making the comparison.  Also, there&#39;s an assumption here about what will show up in the <code>Availability</code> element: &quot;Usually ships within&quot;  Other things that might show up will declare that the item is out of stock, discontinued, or otherwise not shipping.  This might need some tweaking someday, but it seems to work for now.</p>
+<p>This code is just a little bit funky, since the price data given by Amazon contains a dollar sign, and we want to make a numerical comparison.  So, we chop the dollar sign off and convert to a number before making the comparison.  Also, there's an assumption here about what will show up in the <code>Availability</code> element: "Usually ships within"  Other things that might show up will declare that the item is out of stock, discontinued, or otherwise not shipping.  This might need some tweaking someday, but it seems to work for now.</p>
 <p>Taken all together, this template has the effect of a SQL SELECT statement somewhat like this:</p>
 <pre><code>SELECT * 
 FROM Amazon.WishlistItems 
 WHERE WishlistID = $wishlist AND 
       OurPrice &lt; $maxprice AND
-      Availability like &#39;%Usually ships within%&#39;;
+      Availability like '%Usually ships within%';
 </code></pre>
-<p><code>document()</code> is a very useful XPath function.  It allows us to pull in XML from external files and, in our case, from external URLs via HTTP requests.  This gives us the ability to make queries against REST web services like AWS--which, among many other reasons, is why I prefer REST web services over SOAP.  (I don&#39;t even want to think about trying to access a SOAP service from XSLT.)</p>
-<p>Now, let&#39;s wrap up this first iteration of the stylesheet by trying out the query template on each of the wishlist IDs:</p>
-<pre><code>  &lt;xsl:template match=&quot;/wishes:wishes&quot;&gt;
-    &lt;xsl:for-each select=&quot;//wishes:wishlist&quot;&gt;
+<p><code>document()</code> is a very useful XPath function.  It allows us to pull in XML from external files and, in our case, from external URLs via HTTP requests.  This gives us the ability to make queries against REST web services like AWS--which, among many other reasons, is why I prefer REST web services over SOAP.  (I don't even want to think about trying to access a SOAP service from XSLT.)</p>
+<p>Now, let's wrap up this first iteration of the stylesheet by trying out the query template on each of the wishlist IDs:</p>
+<pre><code>  &lt;xsl:template match="/wishes:wishes"&gt;
+    &lt;xsl:for-each select="//wishes:wishlist"&gt;
       &lt;wishes:wishitem&gt;
-        &lt;xsl:copy-of select=&quot;.&quot; /&gt;
-        &lt;xsl:call-template name=&quot;processWishlist&quot;&gt;
-              &lt;xsl:with-param name=&quot;wishlist&quot; 
-                              select=&quot;.&quot; /&gt;
+        &lt;xsl:copy-of select="." /&gt;
+        &lt;xsl:call-template name="processWishlist"&gt;
+              &lt;xsl:with-param name="wishlist" 
+                              select="." /&gt;
         &lt;/xsl:call-template&gt;
       &lt;/wishes:wishitem&gt;
     &lt;/xsl:for-each&gt;
@@ -400,74 +476,114 @@ WHERE WishlistID = $wishlist AND
 
 &lt;/xsl:stylesheet&gt;
 </code></pre>
-<p>You can get a <a href="http://www.decafbad.com/cvs/*checkout*/hacks/wishes/wishes-ex1.xsl">completed version of this stylesheet</a>, along with <a href="http://www.decafbad.com/cvs/*checkout*/hacks/wishes/wishes.xml">the input XML</a>, in case you haven&#39;t been cutting and pasting together a copy of your own along the way.  Try it out in a shell with:</p>
+<p>You can get a <a href="http://www.decafbad.com/cvs/*checkout*/hacks/wishes/wishes-ex1.xsl">completed version of this stylesheet</a>, along with <a href="http://www.decafbad.com/cvs/*checkout*/hacks/wishes/wishes.xml">the input XML</a>, in case you haven't been cutting and pasting together a copy of your own along the way.  Try it out in a shell with:</p>
 <pre><code>$ xsltproc wishes_ex1.xsl wishes.xml
 </code></pre>
 <p>Alternately, you could check it out using <a href="http://www.entropy.ch:16080/software/macosx/#testxslt">TestXSLT</a> under OS X.  You should get something like the following:</p>
-<pre><code>&lt;wishes:wishitem xmlns:wishes=&quot;http://www.decafbad.com/2004/05/wishes&quot;&gt;
-    &lt;wishes:wishlist label=&quot;The Girl&quot;&gt;35OIOYWQ9XQAE&lt;/wishes:wishlist&gt;
+<pre><code>&lt;wishes:wishitem xmlns:wishes="http://www.decafbad.com/2004/05/wishes"&gt;
+    &lt;wishes:wishlist label="The Girl"&gt;35OIOYWQ9XQAE&lt;/wishes:wishlist&gt;
     &lt;Details ...&gt;...&lt;/Details&gt;
     &lt;Details ...&gt;...&lt;/Details&gt;
     ...
 &lt;/wishes:wishitem&gt;
-&lt;wishes:wishitem xmlns:wishes=&quot;http://www.decafbad.com/2004/05/wishes&quot;&gt;
-    &lt;wishes:wishlist label=&quot;Me&quot;&gt;1QWYI6P2JF3Q5&lt;/wishes:wishlist&gt;
+&lt;wishes:wishitem xmlns:wishes="http://www.decafbad.com/2004/05/wishes"&gt;
+    &lt;wishes:wishlist label="Me"&gt;1QWYI6P2JF3Q5&lt;/wishes:wishlist&gt;
     &lt;Details ...&gt;...&lt;/Details&gt;
     &lt;Details ...&gt;...&lt;/Details&gt;
     ...
 &lt;/wishes:wishitem&gt;
 </code></pre>
 <p>Obviously, this example XML is much abridged, but hopefully you can get the gist:  For each wishlist ID, there is a containing <code>wishitem</code> element.  It contains a copy of the <code>wishlist</code> element from the input XML, followed by all the <code>Details</code> elements filtered and copied from the Amazon XML with the help of the <code>processWishlist</code> template.</p>
-<h3 id="thats-all-for-now">That&#39;s All for Now!</h3>
-<p>And that&#39;s the end of Part 1.  Next up, we&#39;ll be delving into a few more wrinkles in the wishlist querying process, selecting random items in XSLT, and the Remote Shopping Cart interface in Amazon Web Services.  Stay tuned!</p>
+<h3 id="thats-all-for-now">That's All for Now!</h3>
+<p>And that's the end of Part 1.  Next up, we'll be delving into a few more wrinkles in the wishlist querying process, selecting random items in XSLT, and the Remote Shopping Cart interface in Amazon Web Services.  Stay tuned!</p>
 <!-- links -->
 
 <!--more-->
+
+
 <p>shortname=wishofthemonthclub1</p>
 <div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
 <ul class="comments">
 <li class="comment" id="comment-221082740">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://inflatus.net"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2c0ee9a9038c85c0510a7a5fd3f030ab&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://inflatus.net">poepping</a>
+<a class="avatar image" rel="nofollow" href="http://inflatus.net"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2c0ee9a9038c85c0510a7a5fd3f030ab&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://inflatus.net">poepping</a>
 </div>
-<a href="#comment-221082740" class="permalink"><time datetime="2004-06-16T17:24:01">2004-06-16T17:24:01</time></a>
+
+
+<p><a href="#comment-221082740" class="permalink"><time datetime="2004-06-16T17:24:01">2004-06-16T17:24:01</time></a></p>
 </div>
+
+
 <div class="content">I was using the amazon wish list api a few months ago, and back then the wish list was out of date, and was missing the newest week or two of stuff.  You might want to check this if this is important to you.
 In the future, you could add the feature of ordering the stuff that has a higher priority on it. :)
 Cool project though. I think i'm going to go back through my old code and try it again to see if they fixed the delay.
 btw, I miss your links of the day.</div>
+
+
 </li>
 <li class="comment" id="comment-221082741">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.mpwilson.com/uccu/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=99b77c34a0e26fd04a058f8c2dbab290&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.mpwilson.com/uccu/">Mad William Flint</a>
+<a class="avatar image" rel="nofollow" href="http://www.mpwilson.com/uccu/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=99b77c34a0e26fd04a058f8c2dbab290&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.mpwilson.com/uccu/">Mad William Flint</a>
 </div>
-<a href="#comment-221082741" class="permalink"><time datetime="2004-06-16T19:40:55">2004-06-16T19:40:55</time></a>
+
+
+<p><a href="#comment-221082741" class="permalink"><time datetime="2004-06-16T19:40:55">2004-06-16T19:40:55</time></a></p>
 </div>
+
+
 <div class="content">very nice.  whipping out my emacs now...</div>
+
+
 </li>
 </ul>
+
+
 </div>
 
-        </section>
-      </article>
-        </section>
-
-        <footer>
-          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
-        </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
-      </section>
-    </body>
-  </html>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2004/06/27/wishofthemonthclub2/"
+                >Wish-of-the-Month Club, Part 2 of 3</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2004/06/14/info-freako-or-whos-already-past-arguing-about-syndication-formats/"
+                >Info Freako, or who's already past arguing about syndication formats?</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

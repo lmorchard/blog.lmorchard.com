@@ -1,257 +1,511 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>2012/06 - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>2012/06 - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Month: 2012/06</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post tag-metablogging tag-p2"
-          >
-            <time class="date" datetime="2012-06-16T12:00:00+00:00">
-              2012
-              June
-              16
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2012/06/16/and-just-to-make-my-more-than-twitter/">
-              <span class="infoContainer">
-                <span class="title">And just to make my more than twitter&amp;#8230;</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-git tag-hacking tag-jekyll tag-metablogging tag-wordpress tag-writing"
-          >
-            <time class="date" datetime="2012-06-16T12:00:00+00:00">
-              2012
-              June
-              16
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2012/06/16/blogging-like-a-blogger/">
-              <span class="infoContainer">
-                <span class="title">Blogging Like a Blogger</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post has-thumb tag-blogging tag-decafbad tag-metablogging tag-wordpress tag-jekyll"
-          >
-            <time class="date" datetime="2012-06-15T21:12:36+00:00">
-              2012
-              June
-              15
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2012/06/15/303-see-other/">
-              <span class="infoContainer">
-                <span class="title">303 See Other</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://farm5.staticflickr.com/4041/4213397611_b4eba76403.jpg" />
-          </li><li
-            class="post has-thumb tag-music tag-rush"
-          >
-            <time class="date" datetime="2012-06-12T12:00:00+00:00">
-              2012
-              June
-              12
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2012/06/12/today-is-rush-day/">
-              <span class="infoContainer">
-                <span class="title">Today is Rush Day</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://www.assoc-amazon.com/e/ir?t=0xdecafbad01-20&amp;l=as2&amp;o=1&amp;a=B007I2BZIE" />
-          </li><li
-            class="post has-thumb tag-anniversary tag-booze tag-scotch"
-          >
-            <time class="date" datetime="2012-06-09T12:00:00+00:00">
-              2012
-              June
-              09
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2012/06/09/happy-anniversary-to-me/">
-              <span class="infoContainer">
-                <span class="title">Happy anniversary to me! (oh and for us too)</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://blog.lmorchard.com/wp-content/uploads/2012/06/wpid-2012-06-09_17-26-37_945.jpg" />
-          </li><li
-            class="post tag-fiction tag-flashfiction tag-homebrew tag-scifi"
-          >
-            <time class="date" datetime="2012-06-09T12:00:00+00:00">
-              2012
-              June
-              09
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2012/06/09/homebrew-biotech-club/">
-              <span class="infoContainer">
-                <span class="title">Homebrew Biotech Club</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-fiction tag-flashfiction tag-future tag-moving tag-NaFicWriMo tag-scifi"
-          >
-            <time class="date" datetime="2012-06-09T12:00:00+00:00">
-              2012
-              June
-              09
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2012/06/09/on-the-market/">
-              <span class="infoContainer">
-                <span class="title">On the Market</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-coffee tag-retro tag-videos"
-          >
-            <time class="date" datetime="2012-06-09T12:00:00+00:00">
-              2012
-              June
-              09
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2012/06/09/this-is-coffee/">
-              <span class="infoContainer">
-                <span class="title">THIS IS COFFEE.</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-books tag-fiction tag-future"
-          >
-            <time class="date" datetime="2012-06-04T13:00:00+00:00">
-              2012
-              June
-              04
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2012/06/04/bookshelves/">
-              <span class="infoContainer">
-                <span class="title">Bookshelves</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-fiction tag-flashfiction tag-rocketmen tag-scifi"
-          >
-            <time class="date" datetime="2012-06-04T12:00:00+00:00">
-              2012
-              June
-              04
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2012/06/04/lonely-timeless-flight/">
-              <span class="infoContainer">
-                <span class="title">Lonely Timeless Flight</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-fiction tag-flashfiction tag-moravec tag-robots tag-vats"
-          >
-            <time class="date" datetime="2012-06-04T12:00:00+00:00">
-              2012
-              June
-              04
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2012/06/04/moravecs-cats/">
-              <span class="infoContainer">
-                <span class="title">Moravec&amp;#8217;s Cats</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-fiction tag-flashfiction tag-NaFicWriMo tag-scifi tag-stuxnet"
-          >
-            <time class="date" datetime="2012-06-04T12:00:00+00:00">
-              2012
-              June
-              04
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2012/06/04/stuxnet-was-awesome-right/">
-              <span class="infoContainer">
-                <span class="title">Stuxnet was awesome, right?</span>
-              </span>
-            </a>
-            
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Month: 2012/06</h2>
+        </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2012 June 16</h2>
+  </li><li class="content-grid post post-type-entry tag-metablogging tag-p2">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2012/06/16/and-just-to-make-my-more-than-twitter/">And just to make my more than twitter&amp;#8230;</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2012/06/16/and-just-to-make-my-more-than-twitter/"
+          >22&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2012/06/16/and-just-to-make-my-more-than-twitter/">#</a>
+    <a class="time" href="2012/06/16/and-just-to-make-my-more-than-twitter/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/p2/">p2</a>
           </li>
     </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-git tag-hacking tag-jekyll tag-metablogging tag-wordpress tag-writing">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2012/06/16/blogging-like-a-blogger/">Blogging Like a Blogger</a>
+      </h2>
     
-  </section>
-      </section>
-        </section>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2012/06/16/blogging-like-a-blogger/"
+          >611&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2012/06/16/blogging-like-a-blogger/">#</a>
+    <a class="time" href="2012/06/16/blogging-like-a-blogger/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/git/">git</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacking/">hacking</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/jekyll/">jekyll</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/wordpress/">wordpress</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/writing/">writing</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2012 June 15</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-blogging tag-decafbad tag-metablogging tag-wordpress tag-jekyll">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2012/06/15/303-see-other/">303 See Other</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://farm5.staticflickr.com/4041/4213397611_b4eba76403.jpg" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2012/06/15/303-see-other/"
+          >259&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2012/06/15/303-see-other/">#</a>
+    <a class="time" href="2012/06/15/303-see-other/">9:12 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/blogging/">blogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/decafbad/">decafbad</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/wordpress/">wordpress</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/jekyll/">jekyll</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2012 June 12</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-music tag-rush">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2012/06/12/today-is-rush-day/">Today is Rush Day</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://www.assoc-amazon.com/e/ir?t=0xdecafbad01-20&amp;l=as2&amp;o=1&amp;a=B007I2BZIE" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2012/06/12/today-is-rush-day/"
+          >215&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2012/06/12/today-is-rush-day/">#</a>
+    <a class="time" href="2012/06/12/today-is-rush-day/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/music/">music</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/rush/">rush</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2012 June 09</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-anniversary tag-booze tag-scotch">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2012/06/09/happy-anniversary-to-me/">Happy anniversary to me! (oh and for us too)</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://blog.lmorchard.com/wp-content/uploads/2012/06/wpid-2012-06-09_17-26-37_945.jpg" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2012/06/09/happy-anniversary-to-me/"
+          >1&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2012/06/09/happy-anniversary-to-me/">#</a>
+    <a class="time" href="2012/06/09/happy-anniversary-to-me/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/anniversary/">anniversary</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/booze/">booze</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/scotch/">scotch</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-fiction tag-flashfiction tag-homebrew tag-scifi">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2012/06/09/homebrew-biotech-club/">Homebrew Biotech Club</a>
+      </h2>
+    
+    <p class="summary">
+      The homebrew club got real interesting last night. Jerry started dating this girl Maddy, and she was something else: purple hair, piercings, and a load of tattoos. And then there’s Jerry: bearded, balding, and been carrying a spare tire for years now. I can see the appeal for him, but she’s out of his league.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2012/06/09/homebrew-biotech-club/"
+          >181&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2012/06/09/homebrew-biotech-club/">#</a>
+    <a class="time" href="2012/06/09/homebrew-biotech-club/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/homebrew/">homebrew</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/scifi/">scifi</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-fiction tag-flashfiction tag-future tag-moving tag-NaFicWriMo tag-scifi">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2012/06/09/on-the-market/">On the Market</a>
+      </h2>
+    
+    <p class="summary">
+      It had been a busy week: she’d had her teeth whitened, removed four tattoos, dyed her hair back to its natural color, and gotten her optical implants updated. She’d also lost 4 pounds, working furiously over the past month in the fitness center on the ground floor of her apartment building. Her body had never looked more toned. She almost didn’t want to leave it.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2012/06/09/on-the-market/"
+          >183&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2012/06/09/on-the-market/">#</a>
+    <a class="time" href="2012/06/09/on-the-market/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/future/">future</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/moving/">moving</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/NaFicWriMo/">NaFicWriMo</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/scifi/">scifi</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-coffee tag-retro tag-videos">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2012/06/09/this-is-coffee/">THIS IS COFFEE.</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2012/06/09/this-is-coffee/"
+          >1&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2012/06/09/this-is-coffee/">#</a>
+    <a class="time" href="2012/06/09/this-is-coffee/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/coffee/">coffee</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/retro/">retro</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/videos/">videos</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2012 June 04</h2>
+  </li><li class="content-grid post post-type-entry tag-fiction tag-flashfiction tag-rocketmen tag-scifi">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2012/06/04/lonely-timeless-flight/">Lonely Timeless Flight</a>
+      </h2>
+    
+    <p class="summary">
+      He kicks back, alone at a corner table in low-g. He nurses a high gravity beer for the alcoholic irony. It’s his fourth, and the faces around him are blurred. Funny thing, though: with his glasses on, the faces would have been blurred even if he’d been sober.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2012/06/04/lonely-timeless-flight/"
+          >184&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2012/06/04/lonely-timeless-flight/">#</a>
+    <a class="time" href="2012/06/04/lonely-timeless-flight/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/rocketmen/">rocketmen</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/scifi/">scifi</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-fiction tag-flashfiction tag-moravec tag-robots tag-vats">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2012/06/04/moravecs-cats/">Moravec&amp;#8217;s Cats</a>
+      </h2>
+    
+    <p class="summary">
+      Every ship-morning, I woke up covered in a half-dozen cats. Sometime in the ship-night, they’d wander in from the ducts and find spots to curl up around my sleeping body, virtually pinning me under the sheet and all purring from speaker grilles when I stirred.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2012/06/04/moravecs-cats/"
+          >175&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2012/06/04/moravecs-cats/">#</a>
+    <a class="time" href="2012/06/04/moravecs-cats/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/moravec/">moravec</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/robots/">robots</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/vats/">vats</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-fiction tag-flashfiction tag-NaFicWriMo tag-scifi tag-stuxnet">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2012/06/04/stuxnet-was-awesome-right/">Stuxnet was awesome, right?</a>
+      </h2>
+    
+    <p class="summary">
+      The toaster wouldn’t toast, and the microwave wouldn’t—umm—make tiny heat waves, or whatever it does. The fridge, though, the fridge had slow-cooked everything inside overnight and the apartment stank like delicious death.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2012/06/04/stuxnet-was-awesome-right/"
+          >177&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2012/06/04/stuxnet-was-awesome-right/">#</a>
+    <a class="time" href="2012/06/04/stuxnet-was-awesome-right/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/NaFicWriMo/">NaFicWriMo</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/scifi/">scifi</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/stuxnet/">stuxnet</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-books tag-fiction tag-future">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2012/06/04/bookshelves/">Bookshelves</a>
+      </h2>
+    
+    <p class="summary">
+      The day they moved in together, he remarked upon how heavy and numerous were all her boxes of books.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2012/06/04/bookshelves/"
+          >182&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2012/06/04/bookshelves/">#</a>
+    <a class="time" href="2012/06/04/bookshelves/">1:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/books/">books</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/future/">future</a>
+          </li>
+    </ul>
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
 
-        <footer>
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

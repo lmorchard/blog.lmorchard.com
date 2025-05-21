@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>Blo.gs Pings Gone Wild - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="Blo.gs Pings Gone Wild" />
+    <html>
+      <head>
+        <title>Blo.gs Pings Gone Wild - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="Blo.gs Pings Gone Wild" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2003/06/02/blo-gs-gone-wild/"
@@ -44,9 +51,7 @@
 me know that my blog has apparently been pinging blo.gs like crazy today, and
 since he&#39;s set to recieve IM&#39;s on blog updates from blo.gs, he&#39;s been getting
 flooded with IMs.
-
 First off, if this is happening to you:  Sorry out there!
-
 Second thing, this
 might be interesting for anyone using a blosxom plugin to ping blo.gs or weblogs.com like me.
 Basically, I took the ping_weblogs_com
@@ -55,19 +60,16 @@ and searched for the pattern &#39;congratulations&#39; instead of &#39;Thanks fo
 in the response.  Finding the pattern is assumed to mean the ping was successful.
 A successful ping, then, causes the plugin to update the contents and timestamp
 of the status file with the response.
-
 The status file is used by the plugin to determine whether or not a ping
 should be sent.  This check is made everytime an item is viewed on my blog,
 and if the plugin sees a blog item whose timestamp is newer than that of
 the status file, a ping is sent.
-
 So!  Onto the punch-line: The appearance of the word &#39;congratulations&#39; and
 the successful registration of a ping are not the same thing.  Apparently,
 blo.gs has been throwing up an error message in response to a ping, while
 still registering a ping.  This error message does not contain the word
 &#39;congratulations&#39;, and so my plugin never updates the status file, and so
 it happily tries pinging blo.gs again with the next blog view.
-
 Two lessons learned here:
 
  When using a web service, whether a &quot;real&quot; service or a &quot;scraped&quot; service, be very sure to know and handle the difference between a valid response and an exception or error in the service itself.
@@ -76,136 +78,241 @@ Two lessons learned here:
 
 
 
+
+
 My plugin doesn&#39;t know the real meaning of the response to a ping.  And further,
 the fact that it&#39;s designed to try, try again in the case of apparent failure
 is not the greatest choice for a usage pattern.
-
 So... longwinded post, but I think the realizations are valuable." />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post "
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post "
       >
-        <time
-          title="2003-06-02T20:10:33+00:00"
-          pubdate="2003-06-02T20:10:33+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2003/"
-            >2003</a
+        <header>
+          <time
+            title="2003-06-02T16:10:33-04:00"
+            pubdate="2003-06-02T16:10:33-04:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2003/06/"
-            >June</a
-          >
-          &raquo;
-          <span>02</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="Newly Digital in 1983"
+                href="/blog.lmorchard.com/2003/06/13/newly-digital/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2003/"
+                >2003</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2003/06/"
+                >June</a
+              >
+              &#8226;
+              <span>02</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Don&#39;t Call It an Obsession"
+                href="/blog.lmorchard.com/2003/05/31/games-stuff/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">Blo.gs Pings Gone Wild</h1>
+          
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2003/06/13/newly-digital/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2003/05/31/games-stuff/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">Blo.gs Pings Gone Wild</h1>
-        
-        <section class="post-content">
-          <p><a href="http://shawnyeager.com/WebHome" target="_top">Shawn Yeager</a> just dropped me a line to let
+        <p><a href="http://shawnyeager.com/WebHome" target="_top">Shawn Yeager</a> just dropped me a line to let
 me know that my blog has apparently been pinging <a href="http://www.blo.gs" target="_top">blo.gs</a> like crazy today, and
-since he&#39;s set to recieve IM&#39;s on blog updates from <a href="http://www.blo.gs" target="_top">blo.gs</a>, he&#39;s been getting
-flooded with IMs.
-<br /><br />
-First off, if this is happening to you:  Sorry out there!
-<br /><br />
-Second thing, this
+since he's set to recieve IM's on blog updates from <a href="http://www.blo.gs" target="_top">blo.gs</a>, he's been getting
+flooded with IMs.</p>
+<p>First off, if this is happening to you:  Sorry out there!</p>
+<p>Second thing, this
 might be interesting for anyone using a blosxom plugin to ping <a href="http://www.blo.gs" target="_top">blo.gs</a> or <a href="http://www.weblogs.com" target="_top">weblogs.com</a> like me.
 Basically, I took the <a href="http://www.raelity.org/apps/blosxom/plugins/output/ping_weblogs_com.individual" target="_top">ping_weblogs_com</a>
 plugin for blosxom, replaced the <a href="http://www.weblogs.com" target="_top">weblogs.com</a> request with one to <a href="http://www.blo.gs" target="_top">blo.gs</a>,
-and searched for the pattern &#39;congratulations&#39; instead of &#39;Thanks for the ping&#39;
+and searched for the pattern 'congratulations' instead of 'Thanks for the ping'
 in the response.  Finding the pattern is assumed to mean the ping was successful.
 A successful ping, then, causes the plugin to update the contents and timestamp
-of the status file with the response.
-<br /><br />
-The status file is used by the plugin to determine whether or not a ping
+of the status file with the response.</p>
+<p>The status file is used by the plugin to determine whether or not a ping
 should be sent.  This check is made everytime an item is viewed on my blog,
 and if the plugin sees a blog item whose timestamp is newer than that of
-the status file, a ping is sent.
-<br /><br />
-So!  Onto the punch-line: The appearance of the word &#39;congratulations&#39; and
+the status file, a ping is sent.</p>
+<p>So!  Onto the punch-line: The appearance of the word 'congratulations' and
 the successful registration of a ping are not the same thing.  Apparently,
 <a href="http://www.blo.gs" target="_top">blo.gs</a> has been throwing up an error message in response to a ping, while
 still registering a ping.  This error message does not contain the word
-&#39;congratulations&#39;, and so my plugin never updates the status file, and so
-it happily tries pinging <a href="http://www.blo.gs" target="_top">blo.gs</a> again with the next blog view.
-<br /><br />
-Two lessons learned here:</p>
+'congratulations', and so my plugin never updates the status file, and so
+it happily tries pinging <a href="http://www.blo.gs" target="_top">blo.gs</a> again with the next blog view.</p>
+<p>Two lessons learned here:</p>
 <ol>
 <li> When using a web service, whether a "real" service or a "scraped" service, be very sure to know and handle the difference between a valid response and an exception or error in the service itself.
 </li>
 <li> When using a web service, take care with your usage pattern.  That is, just how important is success?  Important enough to try again and again?  Or could you wait awhile, whether successful or not?  Or should you even try again?
 </li>
 </ol>
-<br /><br />
-My plugin doesn't know the real meaning of the response to a ping.  And further,
-the fact that it's designed to try, try again in the case of apparent failure
-is not the greatest choice for a usage pattern.
-<br /><br />
-So... longwinded post, but I think the realizations are valuable.
-<!--more-->
-shortname=blo_gs_gone_wild
 
+
+
+<p>My plugin doesn't know the real meaning of the response to a ping.  And further,
+the fact that it's designed to try, try again in the case of apparent failure
+is not the greatest choice for a usage pattern.</p>
+<p>So... longwinded post, but I think the realizations are valuable.</p>
+<!--more-->
+
+
+<p>shortname=blo_gs_gone_wild</p>
 <div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
 <ul class="comments">
 <li class="comment" id="comment-221083912">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://trikuare.cx/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=0a5b2c20fe4587a2b0abc3738c953e53&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://trikuare.cx/">magenta</a>
+<a class="avatar image" rel="nofollow" href="http://trikuare.cx/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=0a5b2c20fe4587a2b0abc3738c953e53&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://trikuare.cx/">magenta</a>
 </div>
-<a href="#comment-221083912" class="permalink"><time datetime="2003-06-05T00:29:21">2003-06-05T00:29:21</time></a>
+
+
+<p><a href="#comment-221083912" class="permalink"><time datetime="2003-06-05T00:29:21">2003-06-05T00:29:21</time></a></p>
 </div>
+
+
 <div class="content">What would be really nice is if the blo.gs response page made clever use of CSS like the W3C validator, by putting one (and, of course, only one) &lt;div id="result" class="valid"&gt; (or class="error") in the response, with the actual error message inside.  Makes it really easy to write a bulk-validation script.</div>
+
+
 </li>
 </ul>
+
+
 </div>
 
-        </section>
-      </article>
-        </section>
-
-        <footer>
-          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
-        </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
-      </section>
-    </body>
-  </html>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2003/06/13/newly-digital/"
+                >Newly Digital in 1983</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2003/05/31/games-stuff/"
+                >Don't Call It an Obsession</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

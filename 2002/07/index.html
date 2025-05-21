@@ -1,287 +1,476 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>2002/07 - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>2002/07 - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Month: 2002/07</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post "
-          >
-            <time class="date" datetime="2002-07-31T18:36:21+00:00">
-              2002
-              July
-              31
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/07/31/ooobbd/">
-              <span class="infoContainer">
-                <span class="title">The Natives are Growing Restless.</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-07-31T18:04:46+00:00">
-              2002
-              July
-              31
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/07/31/ooobbc/">
-              <span class="infoContainer">
-                <span class="title">AmphetaDesk + Outlines + iTunes 3, the next iteration</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-07-31T17:00:17+00:00">
-              2002
-              July
-              31
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/07/31/ooobbb/">
-              <span class="infoContainer">
-                <span class="title">Why I don&#39;t have to like &quot;Monday:&quot;</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-07-30T04:23:20+00:00">
-              2002
-              July
-              30
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/07/30/ooobba/">
-              <span class="infoContainer">
-                <span class="title">Throwing out babies with bathwater</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-07-28T07:30:10+00:00">
-              2002
-              July
-              28
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/07/28/ooobbo/">
-              <span class="infoContainer">
-                <span class="title">News Aggregation meets iTunes3 / Web vs Native GUI</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-07-28T07:10:58+00:00">
-              2002
-              July
-              28
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/07/28/ooobai/">
-              <span class="infoContainer">
-                <span class="title">Gone fishing?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-07-28T07:06:26+00:00">
-              2002
-              July
-              28
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/07/28/ooobah/">
-              <span class="infoContainer">
-                <span class="title">Open Source partition juggling?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-07-23T20:26:57+00:00">
-              2002
-              July
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/07/23/ooobag/">
-              <span class="infoContainer">
-                <span class="title">The Snake Oil wagon rolls through my referral logs</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-07-17T20:56:06+00:00">
-              2002
-              July
-              17
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/07/17/ooobaf/">
-              <span class="infoContainer">
-                <span class="title">Making a return to the fields of Java</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-07-17T20:37:49+00:00">
-              2002
-              July
-              17
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/07/17/ooobae/">
-              <span class="infoContainer">
-                <span class="title">Where in the world is L. M. Orchard?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-07-15T17:40:48+00:00">
-              2002
-              July
-              15
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/07/15/ooobad/">
-              <span class="infoContainer">
-                <span class="title">Adventures in DNS-land</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-07-09T06:29:32+00:00">
-              2002
-              July
-              09
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/07/09/ooobac/">
-              <span class="infoContainer">
-                <span class="title">LiveJournal adds news aggregation</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-07-08T16:30:27+00:00">
-              2002
-              July
-              08
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/07/08/ooobab/">
-              <span class="infoContainer">
-                <span class="title">The Heian Web</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-07-03T00:00:14+00:00">
-              2002
-              July
-              03
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/07/03/ooobaa/">
-              <span class="infoContainer">
-                <span class="title">YAPC 2002: &quot;They always shut up when you talk about boobies&quot;</span>
-              </span>
-            </a>
-            
-          </li>
-    </ul>
-    
-  </section>
-      </section>
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Month: 2002/07</h2>
         </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2002 July 31</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/07/31/ooobbd/">The Natives are Growing Restless.</a>
+      </h2>
+    
+    <p class="summary">
+      Everyone else is linking to it, but this is beautiful:
+Infrastructure: Why geeks build it, why Hollywood doesn't understand it, how business can take advantage of it. by Doc Searls, Co-author of The Cluetrain Manifesto
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/07/31/ooobbd/"
+          >36&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/07/31/ooobbd/">#</a>
+    <a class="time" href="2002/07/31/ooobbd/">2:36 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/07/31/ooobbc/">AmphetaDesk + Outlines + iTunes 3, the next iteration</a>
+      </h2>
+    
+    <p class="summary">
+      So this past weekend, I wrote (thanks for the link, Jenny!) about continuing down the road of my experiments with news aggregation and the tweaks I've been doing to AmphetaDesk's interface.  Well, I'm at it again.  I'm debating whether to post what I have so far for download yet, since I'm still refining some things, but I will very soon.  I've noticed that my first attempt gathered some fans, so you all might like what I'm adding now:Template code seems easier on memory usageMuch, much more sparing with tables, items are displayed using only DIV's and margin widths for indentation.  (Seems to have saved a lot of memory.)Outliner javascript now uses the browser DOM exclusively.  (Seems to be slimmer and faster.)Per-channel metadata annotation & storage - a feature already planned for Ampheta, but I was impatient and hacked a quick scheme together.  (The future AmphetaDesk implementaiton will replace this.)A new interstitial redirect page via which links are visited, to count clicksIn the per-channel metadata, I track:Unique MD5 signatures for itemsDate-first-seen for itemsNumber of times an item has been shownNumber of times an item's link has been clickedItems clicked for the channel as a whole 
 
-        <footer>
+Using the newly recorded metrics on channels and items, I do a few nifty things now:Item hiding thresholds can be set on # of appearences, # of clicks, and item age.  Hidden items disappear behind an expandable outline handle.Channels and items can be sorted on # of clicks, age/last update, number of items shown.Channels with no shown items can be automatically collapsed.
+
+
+
+The gist of all this:Channels and items I like and visit regularly tend to bubble toward the topStale channels and items tend to disappear and get demand less attention during my skim-and-scan.Hidden things are out of the way, but are still available within a click or two
+After letting this run for a few days (since all items are new at the first run), I've noticed that my news scanning has gotten much faster, even with occasional checks to be sure I'm not really missing anything with my thresholds.
+The reasons I haven't immediately uploaded it for all of you: No preferences for thresholds - I'm editing constants at the header of my template for now; dependancy on Perl modules that don't come with Ampheta - only a few, but I'd like to wean away from them.  Oh, and it's also nasty code that I want to refactor into a bunch of subroutines, some of which will be factored out of the template and eventually replaced with calls to core AmphetaDesk code.  (Too much logic in my template.)
+I also want to add some "karma" features so that, beyond metrics of age, visits, and appearances, you can add your own manual rating and opinion to the process of sorting and show/hide.  And then there's the idea of categories/playlists I want to steal from iTunes as well.  But, I might just clean up what I have by this weekend and do the early release thing so you can all cheer or jeer it at will.  I also need to drop back into the AmphetaDesk dev crowd.  I miss those guys...
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/07/31/ooobbc/"
+          >614&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/07/31/ooobbc/">#</a>
+    <a class="time" href="2002/07/31/ooobbc/">2:04 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/07/31/ooobbb/">Why I don&#39;t have to like &quot;Monday:&quot;</a>
+      </h2>
+    
+    <p class="summary">
+      So just a couple of weeks ago, I was laughing at Monday: (Their colon, not mine.  They wouldn't like my colon.)  The rebranding struck me as the last spastic hyper-hypo twitch of the 90s' super-high-energy-please-God-make-them-like-me theme.  The Register, bless their souls, don't like Monday:'s either.
+It reminds me of when one of my old employers tried rebranding themselves from a very lawyerly name (Wunderman Cato Johnson) to a suffix: ".ology"  It would have been great, I heard.  We would have been studies of everything: marketing.ology, analytics.ology, urinal-cake.ology.  
+Instead, at the last minute demand of an assumedly more rational high level muckety-muck, they dropped that and picked "Impiric (with a funny all-encompassing bracket)" at the last minute.  They also tossed out months of work and research into positioning, presentations, and common corp speak.  This new name, however, was to imply empirical knowledge of all our subjects - i.e. experience.  A fun, hip way to spin the fact that we were all working for a practically ancient company in the computer age.  I felt really bad for the team who had to jackknife their whole process, throw out their baby, and throw together a shitty last minute collection of branding consisting of a Fatboy Slim song ("Right Here, Right Now"), and a vaguely topical epileptic flashing stream of clip art images.
+But then, after about two years of this crap, they decide they (kinda) liked their original name better, and wandered back to "Wunderman".  Of course, it's worth noting that the "they" are probably the old guard who never wanted it changed in the first place and who are happy all the morons who thought "Impiric (funny all-encompassing bracket)" was a good name are out on the street now.
+And, today, The Register tells me that IBM has put Monday: out of our misery by purchasing them.  Monday: has now returned to the more respectable "PricewaterhouseCoopers Consulting", soon to become just "IBM".  Thankfully, Monday:'s demise took about a month.  Any longer, and I'd've been cringing at the day when we would have started pitching to them as a client.
+Thing is, I loved the 90's.  There were a lot of good things, even if many of them were all a "Who Shot J.R.?" dream.  I'd like to see the genuine ingenuity and innovation survive.  I'd also like to see all the fake raver-boy-wannabe marketing execs lined up and shot.  And, it'd be neat to see us all try again at a "new economy", only this time let's start with real things that do real stuff for real people and make real money.
+Hmm, which reminds me:  I wish my company would rebrand, and drop the 'e'.  It really doesn't do us justice since we survived the dot-com days with a real business model and solid products.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/07/31/ooobbb/"
+          >465&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/07/31/ooobbb/">#</a>
+    <a class="time" href="2002/07/31/ooobbb/">1:00 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 July 30</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/07/30/ooobba/">Throwing out babies with bathwater</a>
+      </h2>
+    
+    <p class="summary">
+      From The Shifted Librarian:I am a media company's dream. I get the whole digital cable package, I love music and own hundreds of CDs, I frequently go to movie theaters, my study is lined with books, I like DVDs because of the extras and the quality of the picture, I attend plays, I like going to concerts, I take my media with me, and I've always wanted my MTV.
+
+Ditto, on everything but the plays.  (I really need to start getting out to the great performances in my area.)  Here I am looking at ways to more effectively consume just the media I like, even to the point of building my own somewhat pricey entertainment-center PC to take care of DVR and radio recording functions.  I really would pay someone to help me with this, and not screw with me after.  And I really would rather pay for TV and radio, in return for zero-advertising (including product placement).
+/me jumps and waves at the satellites.  Hi up there.  I'm one of your best customers.  I have money.  /me waves money.  But you're not getting it unless you do what I want.  Hmm.
+Between Hollywood and my lovely government...  were this back in the days of eyepatches and parrots, they'd've had the Seven Seas drained to catch the scurvy bastards and then wondered where all the spices went at dinner time.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/07/30/ooobba/"
+          >293&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/07/30/ooobba/">#</a>
+    <a class="time" href="2002/07/30/ooobba/">12:23 am</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 July 28</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/07/28/ooobbo/">News Aggregation meets iTunes3 / Web vs Native GUI</a>
+      </h2>
+    
+    <p class="summary">
+      Oh, and one more thing:  I assume you've seen the new iTunes.  I want to steal the new features for my news aggregator.  I'd been thinking of these things long before the new version came out, but of course these are not unique ideas.  And how well they seem to work in iTunes now (for me at least) seems to be a good thing to point at and say "that's what I mean".
+So...  I want a count of how many times I "play" a channel (ie. visit a link or story from the RSS feed.)  I want to rate my channels.  I want to make "playlists" (ie. categories), and "smart playlists" (ie. active, persistent searches).  I'd also like to synch my subscriptions and things with my website and.. hmm, well, no one's made an iPod analogue for news aggregation/reading yet.  ...or have they?
+So far, I've been sticking with AmphetaDesk and still using my crappy old bloated hog of an Ampheta outline template.  (And I see that someone else has just mentioned it today.  I really need to revisit it and make a bunch of sorely-needed improvements, space savings, and updates.)
+I started playing with NetNewsWire a bit, and I think it's pretty keen.  But, I don't have the source to tinker with, so I'm less interested.  (No slight on the app, or the developer.  You might love it.  I'm just more D.I.Y.)  So I was starting to think of coding up my own work-a-like in Java, but then I start thinking further:  I don't think I can really learn to love a native-GUI web news aggregator, period.  I think it's got to be web-based in some way.  It's about context switching, in a way I think.  If RSS channels had all of the content from the sites they describe, then maybe I could just twiddle around in the UI of the app...  but I always end up in the browser.  So...  Why ever leave it?
+So, back to Ampheta I go, I think.  I just need to start hanging out on IRC more again.  I keep doing vanishing acts.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/07/28/ooobbo/"
+          >352&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/07/28/ooobbo/">#</a>
+    <a class="time" href="2002/07/28/ooobbo/">3:30 am</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/07/28/ooobai/">Gone fishing?</a>
+      </h2>
+    
+    <p class="summary">
+      Yes, I'm still out here.  Busy and occupied and A.W.O.L. from most of the communities in which I was squatting this Spring, but I want to wander back in.  Maybe I can consider this a Summer break of sorts, assuming that I rejoin with feeling when the weather gets colder.  Is this the experience for anyone else around here?  That your play tech projects suffer in nicer seasons and weather, and your blogging frequency drops way down?  I think this may be my cycle.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/07/28/ooobai/"
+          >85&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/07/28/ooobai/">#</a>
+    <a class="time" href="2002/07/28/ooobai/">3:10 am</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/07/28/ooobah/">Open Source partition juggling?</a>
+      </h2>
+    
+    <p class="summary">
+      Okay, I do this in what seems like an annual cycle:  Juggle hardware and operating systems around on my home PCs.  The tool I always seem to lose and need again is something to safely allow me to resize and move hard drive partitions, whether they be Linux or Windows.  Has anyone finally made a reliable Open Source tool for this yet?
+Generally, I reach for Partition Magic for the job.  It's never failed for me.  But, generally, I need to buy a new copy of it every time I get around to using it again.  I mean, who really needs to repartition a drive more than a few times in a year?  (Okay, you can put your hand down.  You need to get out more.)
+Well, this time it looks like I need it again.  I have v6.0, which apparently makes WinXP choke and drown in its own vomit.  I don't really want to buy Partition Magic again.  Could I just rent your copy for about $10-20 or so?  I've considered wiping WinXP and re-installing Win98 just because things seemed easier then.  It just seems like this is such a common task when you're screwing with Linux that this would be Done.
+Hmm, maybe I'll just pay for the fine product again.  :)  It does work flawlessly for me, even if I only do use it once.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/07/28/ooobah/"
+          >433&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/07/28/ooobah/">#</a>
+    <a class="time" href="2002/07/28/ooobah/">3:06 am</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 July 23</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/07/23/ooobag/">The Snake Oil wagon rolls through my referral logs</a>
+      </h2>
+    
+    <p class="summary">
+      Okay, so I've seen my first spam via my referrers.  Checked my referrers RSS feed this morning to see the following pages in the list:
+http://www.voodoomachine.com/sexenhancer.html
+
+
+http://www.voodoomachine.com/linkoftheweek.html<br />
+http://www.voodoomachine.com/druglinks.html<br />
+http://www.voodoomachine.com/awards.html
+Not linking directly to these pages, out of some vague sense of "Don't encourage 'em."  The pages don't really link to me either, of course, they're all just pointers to an ad-ware site for this AMAZING DEVICE that does everything from making sex feel better, helping you study, aiding in sleep...  it even makes DRUGS better!  Wow, this site is so amazingly derivative of the classic snake oil pitch, with a touch of the modern and dot-com-days (ie. Works with DRUGS! Click our FAQ link!).  But I can still hear the wheels on the wagon squeaking as it trundles through town.
+I'm just trying to imagine by what criteria they picked my site to spam - oh, that's right: there is no criteria.  They don't even know who I am.
+On one hand, I'm annoyed that whenever I get back around to working on referrers, I'll need to add a blacklist feature (shared / collaborative blacklists?).  On the other hand, I'm annoyed at the owners of that site, and even more annoyed at the 0.01% or so of their targets who'll BUY NOW.  And then, on another hand still (I have many hands in the blogosphere), I'm amused by the whole thing:  it's almost self-parodying in these post-Cluetrain days.
+Oh well, back to work...
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/07/23/ooobag/"
+          >445&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/07/23/ooobag/">#</a>
+    <a class="time" href="2002/07/23/ooobag/">4:26 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 July 17</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/07/17/ooobaf/">Making a return to the fields of Java</a>
+      </h2>
+    
+    <p class="summary">
+      So we've managed to get the go ahead at work on what seems like it should be a nightmare project:  We're going to re-examine, re-design, and re-implement our in-house web app platform, the Toybox.  Not only that, but we're going to switch languages, from Perl to Java.  It's got me immensely excited, though this may be naive of me.
+It's been years since I was last knee deep in Java, and years that I've spent up to my ears in Perl.  I'd almost forgotten how much of Java I'd reinvented to make my ideas work in Perl.  (This may not be so much an indictment of Perl as of the way I think.)  And the last time I worked seriously in Java, there were no IDEs yet, so starting to work with NetBeans or even Project Builder under OS X for Java work is a dream.  I love using NetBeans in particular, occasional hiccups aside.  Besides all the obvious integration of build, test, run, debug, etc, I love being able to highlight a keyword or class name and pop up the docs in an internal HTML browser.  I love that it makes suggested changes to classes when I change an interface they implement.
+Yeah, none of this is news to most of the world, but I've been steadfastly sticking to shells and bare emacs or pico for my editing.  Maybe a web browser handy for docs.  I haven't worked very much with IDEs these past years, since a lot of them just got in my way.  Or at least, with hubris, I thought that they did.  Then again, I don't see very many equivalent tools for a language as free-form and multiple choice as Perl.
+And, though I miss CPAN, I'm loving resources like the Jakarta project over at Apache.  Again, not news, but new to me.  I feel like a Rip Van Winkel-Java over here, since my last real work in Java was when the API was in 1.0 days, Servlets were this neat thing for the Java Web Server (now at the end of its life), and the dot-com boom was just starting to stretch its wings.
+Now, I haven't been completely oblivious to Java over this time.  I've poked at it, and played with a few things from time to time to at least stay somewhat current, and I've tried to vaguely keep up with things a bit.  I have an overall sense of what does what and where to find what, but really getting it under my fingernails again now is a different experience.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/07/17/ooobaf/"
+          >921&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/07/17/ooobaf/">#</a>
+    <a class="time" href="2002/07/17/ooobaf/">4:56 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/07/17/ooobae/">Where in the world is L. M. Orchard?</a>
+      </h2>
+    
+    <p class="summary">
+      Whew, so where have I been this month?  I didn't realize it, but here I am in the third week of July having only made 3 posts to this site.  Well, I've been busy at work and busy at life, and without much time for the free time hacking I've wanted this site to be about.  Maybe it's Summer - I'm sure once Fall and Winter hit, I'll be back here jabbering your virtual ears off.
+Anyway, I've got a few things I can jabber on about today, so I think I'll try to compose a few posts.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/07/17/ooobae/"
+          >99&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/07/17/ooobae/">#</a>
+    <a class="time" href="2002/07/17/ooobae/">4:37 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 July 15</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/07/15/ooobad/">Adventures in DNS-land</a>
+      </h2>
+    
+    <p class="summary">
+      Ack!  So I was trying to switch my PairNIC-hosted domain over to DynDNS's Custom DNS service last week.  I thought all was well, since I followed the directions exactly.  As it was, it really only consisted of "Set your domain's nameservers to ns[1-5].mydyndns.org".  So I did that, then left for a few days.  Come back and I see that it failed miserably, and took 36 hours or so to switch back to ZoneEdit.  Grr.  The only thing I noticed was that ?PairNIC's control panel appeared to randomize the order of the nameserver addresses I entered, and ?DynDNS had a note in the docs stating that I needed to have only ?DynDNS nameservers listed in my record and no mixing with other DNS hosts.  Could it be that ?DynDNS is picky about the order in which my record lists nameservers?
+Grr.  Well, I'm back on the air.  I just hope not too many of you out there with news aggregators and auto-unsub-on-error have had me slide off your lists.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/07/15/ooobad/"
+          >269&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/07/15/ooobad/">#</a>
+    <a class="time" href="2002/07/15/ooobad/">1:40 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 July 09</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/07/09/ooobac/">LiveJournal adds news aggregation</a>
+      </h2>
+    
+    <p class="summary">
+      So last month, the crew at LiveJournal finally fixed RSS feeds on all journals.  This month, LiveJournal becomes a centrallized news aggregator.  Plenty of paths in and out of the LJ "gated community" now to wire everyone up into blogspace at large.  This kind of tweak-by-tweak improvement is one reason why I stick around LiveJournal.  (I just hope that they're polite about it and periodically poll RSS feeds sparsely for the entire userbase. :)  I assume they're smart enough to figure that out.)  
+Need to get back to that LJ for K-Logs project...
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/07/09/ooobac/"
+          >207&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/07/09/ooobac/">#</a>
+    <a class="time" href="2002/07/09/ooobac/">2:29 am</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 July 08</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/07/08/ooobab/">The Heian Web</a>
+      </h2>
+    
+    <p class="summary">
+      A friend of mine on LiveJournal draws some interesting parallels between the intertextual relationships connecting pieces of Heian literature and the links connecting web pages:Large amounts of Heian poetry have survived, and scholars generally know what's what when it comes to references from one poem to another. These days, given that the average person (probably even in Japan) is no longer familiar with whole of the poetic tradition Heian poets were writing in, the poems can still be read. It just requires lots of footnotes that cite the poems that the original author was referring to, and the patience to actually read the footnotes.
+Some of what we've put on the internet will almost certainly survive us. But will it still be readable when all the links are long dead?
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/07/08/ooobab/"
+          >131&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/07/08/ooobab/">#</a>
+    <a class="time" href="2002/07/08/ooobab/">12:30 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 July 02</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/07/02/ooobaa/">YAPC 2002: &quot;They always shut up when you talk about boobies&quot;</a>
+      </h2>
+    
+    <p class="summary">
+      Okay, I've only met the people in this movie once, maybe twice, but it made me wet myself.  Run, do not walk, to see:
+YAPC 2002: THE MOVIE
+Damn.  One of these years, I have to make it to a YAPC...  (like I've been saying on IRC for the past 4 years)
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/07/02/ooobaa/"
+          >53&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/07/02/ooobaa/">#</a>
+    <a class="time" href="2002/07/02/ooobaa/">8:00 pm</a>
+    
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

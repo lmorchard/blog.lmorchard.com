@@ -1,302 +1,578 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>2004/09 - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>2004/09 - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Month: 2004/09</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post "
-          >
-            <time class="date" datetime="2004-09-29T22:55:58+00:00">
-              2004
-              September
-              29
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/09/29/testing-treo-600-avant-go/">
-              <span class="infoContainer">
-                <span class="title">testing treo 600 + avant go</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2004-09-22T13:54:49+00:00">
-              2004
-              September
-              22
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/09/22/bloggingyourbliss/">
-              <span class="infoContainer">
-                <span class="title">Blogging your bliss, or blog like no one&#39;s watching.</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2004-09-21T13:44:41+00:00">
-              2004
-              September
-              21
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/09/21/this-is-a-test-of/">
-              <span class="infoContainer">
-                <span class="title">This is a test of</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2004-09-20T20:19:30+00:00">
-              2004
-              September
-              20
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/09/20/bootstrapping-out-into-open-space/">
-              <span class="infoContainer">
-                <span class="title">Bootstrapping out into open space</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2004-09-20T19:47:46+00:00">
-              2004
-              September
-              20
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/09/20/hosting-advice/">
-              <span class="infoContainer">
-                <span class="title">Hosting advice?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-syndication"
-          >
-            <time class="date" datetime="2004-09-19T03:47:07+00:00">
-              2004
-              September
-              19
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/09/19/feedreactor-dbagg3-notes/">
-              <span class="infoContainer">
-                <span class="title">Initial dbagg3 / feedReactor notes in Kwiki</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-wiki"
-          >
-            <time class="date" datetime="2004-09-18T23:20:41+00:00">
-              2004
-              September
-              18
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/09/18/markdown-formatting-for-kwiki/">
-              <span class="infoContainer">
-                <span class="title">Markdown formatting for Kwiki</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2004-09-18T17:51:32+00:00">
-              2004
-              September
-              18
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/09/18/moving-toward-kwiki-away-from-twiki/">
-              <span class="infoContainer">
-                <span class="title">Moving toward Kwiki, away from TWiki</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2004-09-18T01:37:14+00:00">
-              2004
-              September
-              18
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/09/18/are-powerbook-hard-drives-supposed-to-sound-like-amiga-floppy-drives/">
-              <span class="infoContainer">
-                <span class="title">Are PowerBook hard drives supposed to sound like Amiga floppy drives?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-syndication tag-xml"
-          >
-            <time class="date" datetime="2004-09-17T13:32:30+00:00">
-              2004
-              September
-              17
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/09/17/dbagg3mess/">
-              <span class="infoContainer">
-                <span class="title">dbagg3: Please excuse the mess</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-syndication tag-xml"
-          >
-            <time class="date" datetime="2004-09-16T15:29:04+00:00">
-              2004
-              September
-              16
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/09/16/moving-time-from-cvs-to-subversion/">
-              <span class="infoContainer">
-                <span class="title">Moving time: From CVS to Subversion</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-xml"
-          >
-            <time class="date" datetime="2004-09-15T18:48:53+00:00">
-              2004
-              September
-              15
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/09/15/manipulating-aggregate-resources-in-a-rest-api/">
-              <span class="infoContainer">
-                <span class="title">Manipulating aggregate resources in a REST API?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-syndication tag-xml"
-          >
-            <time class="date" datetime="2004-09-13T22:11:41+00:00">
-              2004
-              September
-              13
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/09/13/dbagg3alive/">
-              <span class="infoContainer">
-                <span class="title">Early dbagg3 demo is alive and kicking</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2004-09-12T23:54:27+00:00">
-              2004
-              September
-              12
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/09/12/moving-time-again/">
-              <span class="infoContainer">
-                <span class="title">Moving time again</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-hacks tag-xml"
-          >
-            <time class="date" datetime="2004-09-01T10:47:41+00:00">
-              2004
-              September
-              01
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/09/01/xpath-based-python-dictionaries-on-loan/">
-              <span class="infoContainer">
-                <span class="title">XPath based Python dictionaries, on loan</span>
-              </span>
-            </a>
-            
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Month: 2004/09</h2>
+        </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2004 September 29</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/09/29/testing-treo-600-avant-go/">testing treo 600 + avant go</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/09/29/testing-treo-600-avant-go/"
+          >16&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/09/29/testing-treo-600-avant-go/">#</a>
+    <a class="time" href="2004/09/29/testing-treo-600-avant-go/">6:55 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2004 September 22</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/09/22/bloggingyourbliss/">Blogging your bliss, or blog like no one&#39;s watching.</a>
+      </h2>
+    
+    <p class="summary">
+      You, who ever you are, do what you want; but if you’re only here to be the next Kottke, or Scoble, or Stone, quit now. You’ll never get to their position aping their behavior or their rules; you’ll just end up miserable because you’re not writing the way you want, and for the joy of the act. Fuck me, too many sheep in this environment. How can your ‘ba-ah-ahh’ be heard when you’re surrounding by people bleating the same thing?
+
+
+
+Someone let in the wolves – it’s feeding time.
+Of course, you have to take what I write with a grain of salt. Domestic, refined, mined salt. I’m not as popular as Robert Scoble or Biz Stone, so one can assume that their suggestions work, while my ‘long form diatribe’ won’t do you a bit of good if all you want is to be known.
+ Or as a friend (someone who I actually like and respect as a person, regardless of how many hits he could send me) says: do what you want, anyway, because we’re all just making this stuff up.
+Source: Burningbird: This is Wrong on Oh So Many Levels
+
+
+
+
+
+I haven't been writing a lot here, but things have been percolating in my head.  I've gone through phases of wanting this place to be a bit of a techie zine, I've been in a funk, and lately I've been telling myself that I should blog like no one's watching.
+Funny thing is, between those thoughts and my recent activity on a project, I've been posting quite a bit more than I have in a long time.  If I were to critique recent posts, I'd beat myself up for being either far too nerdy and obscure, or being inane.  Yet, oddly enough, I'd gotten comments and emails that demonstrate obvious interest.
+But, it's not a thing to manipulate like search engine listings.  When I've written something that I expected to get a lot of comments, it didn't at first.  When I posted something that I expected to float by without much comment, it got eight right away.  I suppose one could carefully monitor and analyze trendy topics in blogs and try to post only things with high buzz factor, but the best thing is just to write like no one's watching and be pleasantly surprised when you do get attention.
+The way I perceive this whole blogosphere working, long term, is for bloggers to read some Joseph Campbell and “Follow Your Bliss”.  You could serve the whims of “traffic” for awhile, but if it's not following your bliss, you'll get tired of keeping up.  But if you hook into your bliss, there's bound to be traffic-a-plenty coming just to watch you do your own funky breakdance on that piece of cardboard you threw down on your domain name.
+Maybe I'm a bit too optimistic about noospheric homesteading, but I expect that the pressures of this space will eventually leave only two kinds of bloggers: the ones who get paid enough, and the ones who have to be here because their bliss won't let them do anything else.
+(And I expect the economics to slant in favor of bliss.)
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/09/22/bloggingyourbliss/"
+          >864&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/09/22/bloggingyourbliss/">#</a>
+    <a class="time" href="2004/09/22/bloggingyourbliss/">9:54 am</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2004 September 21</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/09/21/this-is-a-test-of/">This is a test of</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/09/21/this-is-a-test-of/"
+          >16&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/09/21/this-is-a-test-of/">#</a>
+    <a class="time" href="2004/09/21/this-is-a-test-of/">9:44 am</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2004 September 20</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/09/20/bootstrapping-out-into-open-space/">Bootstrapping out into open space</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/09/20/bootstrapping-out-into-open-space/"
+          >1032&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/09/20/bootstrapping-out-into-open-space/">#</a>
+    <a class="time" href="2004/09/20/bootstrapping-out-into-open-space/">4:19 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/09/20/hosting-advice/">Hosting advice?</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/09/20/hosting-advice/"
+          >1249&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/09/20/hosting-advice/">#</a>
+    <a class="time" href="2004/09/20/hosting-advice/">3:47 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2004 September 18</h2>
+  </li><li class="content-grid post post-type-entry tag-syndication">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/09/18/feedreactor-dbagg3-notes/">Initial dbagg3 / feedReactor notes in Kwiki</a>
+      </h2>
+    
+    <p class="summary">
+      While the girl does her Calculus and Statistics homework, I'm availing myself of this coffee shop wi-fi to make an initial brain-dump of FeedReactor details into Kwiki:
+
+Installation
+Quick Start
+Usage profiles
+
+
+Console feed manipulation
+Static blog publishing
+Desktop aggregator
+Personal server aggregator
+Personal dynamic blog publishing
+Multi-user dynamic blog publishing
+Multi-user aggregator
+
+
+
+Architecture
+Data model
+REST API
+Current TODO
+Future / Blue Sky
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/09/18/feedreactor-dbagg3-notes/"
+          >71&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/09/18/feedreactor-dbagg3-notes/">#</a>
+    <a class="time" href="2004/09/18/feedreactor-dbagg3-notes/">11:47 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
           </li>
     </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-wiki">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/09/18/markdown-formatting-for-kwiki/">Markdown formatting for Kwiki</a>
+      </h2>
     
-  </section>
-      </section>
-        </section>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/09/18/markdown-formatting-for-kwiki/"
+          >155&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/09/18/markdown-formatting-for-kwiki/">#</a>
+    <a class="time" href="2004/09/18/markdown-formatting-for-kwiki/">7:20 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/wiki/">wiki</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/09/18/moving-toward-kwiki-away-from-twiki/">Moving toward Kwiki, away from TWiki</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/09/18/moving-toward-kwiki-away-from-twiki/"
+          >216&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/09/18/moving-toward-kwiki-away-from-twiki/">#</a>
+    <a class="time" href="2004/09/18/moving-toward-kwiki-away-from-twiki/">1:51 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2004 September 17</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/09/17/are-powerbook-hard-drives-supposed-to-sound-like-amiga-floppy-drives/">Are PowerBook hard drives supposed to sound like Amiga floppy drives?</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/09/17/are-powerbook-hard-drives-supposed-to-sound-like-amiga-floppy-drives/"
+          >234&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/09/17/are-powerbook-hard-drives-supposed-to-sound-like-amiga-floppy-drives/">#</a>
+    <a class="time" href="2004/09/17/are-powerbook-hard-drives-supposed-to-sound-like-amiga-floppy-drives/">9:37 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry tag-syndication tag-xml">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/09/17/dbagg3mess/">dbagg3: Please excuse the mess</a>
+      </h2>
+    
+    <p class="summary">
+      Wow.  So it looks like there are some people starting to follow to what I'm doing with dbagg3, and they're showing me how woefully prepared I am for the attention from tinkerers who are actually trying to, you know, run my code.  Things have been crazy busy for me at work, so I haven't been getting done what I've planned.  But, I do need to pull a few things together and clean a few things up.  I'll soon be answering the smattering of email I've gotten so far, but until then, a few quick thoughts:
 
-        <footer>
+My source control is a bit of a mess at the moment.  Not only have I switched from CVS to SVN-- but even if you followed me in that migration, I've not kept committed code in working order.  I already know that this is a horrible habit, but since no one's really been looking, I haven't been called on it until now.  (Heh, heh--d'oh.)  Planning this weekend (but hopefully today) to resolve this, so that moving forward, svn trunk will be (as far as possible) in a working state at any given moment.
+
+I've hacked one of my dependencies, SQLObject, by applying a patch to support SELECT DISTINCT queries.  This has understandably caused problems for some people who have no idea what I did.  This patch has turned out to be essential, though I don't know if/when it will or would be included in a release of SQLObject.  So...  I wonder if I should dump my working copy of SQLObject into source control?  Otherwise, applying the DISTINCT patch to your SQLObject install should work.
+
+At some point very soon, I want to change the name of this thing to feedReactor.  Yes, I know there's already a feedparser, and a feeddemon, and a feedburner, and someone's probably got a feedkitchensink in the works, but I like this name and want to run with it.
+
+
+So, in the meantime while I straighten some things out, please excuse the mess and thanks for bearing with me!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/09/17/dbagg3mess/"
+          >433&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/09/17/dbagg3mess/">#</a>
+    <a class="time" href="2004/09/17/dbagg3mess/">9:32 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xml/">xml</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2004 September 16</h2>
+  </li><li class="content-grid post post-type-entry tag-syndication tag-xml">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/09/16/moving-time-from-cvs-to-subversion/">Moving time: From CVS to Subversion</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/09/16/moving-time-from-cvs-to-subversion/"
+          >478&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/09/16/moving-time-from-cvs-to-subversion/">#</a>
+    <a class="time" href="2004/09/16/moving-time-from-cvs-to-subversion/">11:29 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xml/">xml</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2004 September 15</h2>
+  </li><li class="content-grid post post-type-entry tag-xml">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/09/15/manipulating-aggregate-resources-in-a-rest-api/">Manipulating aggregate resources in a REST API?</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/09/15/manipulating-aggregate-resources-in-a-rest-api/"
+          >892&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/09/15/manipulating-aggregate-resources-in-a-rest-api/">#</a>
+    <a class="time" href="2004/09/15/manipulating-aggregate-resources-in-a-rest-api/">2:48 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/xml/">xml</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2004 September 13</h2>
+  </li><li class="content-grid post post-type-entry tag-syndication tag-xml">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/09/13/dbagg3alive/">Early dbagg3 demo is alive and kicking</a>
+      </h2>
+    
+    <p class="summary">
+      Got some very good work in this weekend on switching servers and getting dbagg3 in some semblance of working order somewhere other than on my overworked and decidedly non-publicly-demonstrable laptop.
+This stuff is so this side of premature, that I'm probably about to cause JohnCompanies to send hit-men out to cancel me, along with my hosting account (have I said that I really appreciate the help so far?).  But I just have to get this out: I'm easily excited by shiny code and gadgets, but it's so much easier to get excited when I can see something in working condition before taking a screwdriver to it.  So... remember when I mentioned all those URLs?  They're working out nicely.
+First, check out a simple two-pane view of news items, ala Bloglines:
+
+http://feeds.decafbad.com/api/users/demo.xml?xsl=xsl/two-pane/index.xsl&content-type=text/html
+
+Taking this apart, you can see:
+
+A user account: http://feeds.decafbad.com/api/users/demo.xml
+Some XSL: http://feeds.decafbad.com/xsl/two-pane/index.xsl
+... and a specified content type (text/html)
+
+If your curiosity is piqued by this, view source and pay attention to link URLs.  It's more of the same:  XML produced by a REST API, passed through XSL, delivered as HTML.
+Here, take a look at another view on this demo user's aggregated items:
+
+http://feeds.decafbad.com/api/users/demo/subscriptions/now-12.xml?xsl=xsl/outliner/index.xsl&content-type=text/html
+
+Unfortunately, this only seems to be working decently with Firefox and Safari.  MSIE seems to be balking at the dynamic stuff, though I've had it working there in a previous incarnation of this code.  So hopefully this will be fixed soon.
+At any rate, what you should see is a single-pane outliner-style display of feed entries.  This is the style of aggregator UI I've been using for almost 3 years now.  Disclosure triangles open entries up to show summaries and further content.  “[seen]” links hide the entries, while “[queue]” hides an entry while tossing it into a queue for viewing later.
+Speaking of that, you can see what's in the queue right now:
+
+http://feeds.decafbad.com/api/users/demo/subscriptions/now-12.xml?xsl=xsl/full.xsl&content-type=text/html&show_queued=1
+
+Here is a display of queued entries, with another stylesheet applied that shows everything in a flat and open blog-like template.  It's not reverse-chronological, but that's not hard to accomplish with a flag or a tweak to an <xsl:sort> tag.  
+So that's just the start of things.  Remember when I was rambling on about XML storage and query?  A URL like this is one product of that:
+
+http://feeds.decafbad.com/api/users/demo/subscriptions/now-12.xml?xsl=xsl/full.xsl&content-type=text/html&entry_xpath=//entry/title[contains(text(),'OS%20X')]
+
+This should show you a flat listing of all entries whose titles contain “OS X”.  This is far from perfect, but it's very exciting to me-- it's got a lot of promise, stuff that first caught my eye when I saw Jon Udell playing awhile back.
+Now, something that you might not notice until doing a bit more digging, is that all these attributes like “seen” and “query” are annotations made by the user on entries.  If you take a peek at some of the Javascript under the hood, you might notice some XmlHTTPRequest code going on.  To mark something as “seen” or “queued”, I POST XML to a URL like this:
+
+http://feeds.decafbad.com/api/users/demo/subscriptions/638/entries/60567/notes/
+
+The upshot of this is that these attributes are not limited to “seen” or “queued” flags-- in fact, these annotations can (well, in theory) be any pairing of arbitrary XML and a name.  This annotation then gets injected into the entry, when viewed by the user who owns the annotation, like so:
+
+http://feeds.decafbad.com/api/users/demo/subscriptions/638/entries/60567.xml
+
+In fact, you could invent a new annotation called 'tags' and filter for entries with this annotation with a URL like this:
+
+http://feeds.decafbad.com/api/users/demo/subscriptions/now-12.xml?xsl=xsl/full.xsl&content-type=text/html&entry\_notes\_xpath=//dbagg3:note[@name='tags' and contains(text(),'#food#') and contains(text(),'#odd#')]
+
+Eventually, what I'd really like to see this start doing is something akin to del.icio.us-style tagging while you're reading.  Then, you can have public queries that pull feeds based on your (and others') tags and spit things back out as feeds again with the proper XSL stylings.
+So at this point, it's all URLs and barely working HTML, but it's exciting to me at least.  And it's dogfood for me, since I'm using this crud to get my daily (hourly?) fix.  Pretty soon, I'll be diving into wrapping more of a proper usable web app around this, with user management and stuff that works in MSIE.  Until then, maybe someone else will see this and catch a buzz from it.
+Stay tuned.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/09/13/dbagg3alive/"
+          >849&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/09/13/dbagg3alive/">#</a>
+    <a class="time" href="2004/09/13/dbagg3alive/">6:11 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xml/">xml</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2004 September 12</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/09/12/moving-time-again/">Moving time again</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/09/12/moving-time-again/"
+          >116&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/09/12/moving-time-again/">#</a>
+    <a class="time" href="2004/09/12/moving-time-again/">7:54 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2004 September 01</h2>
+  </li><li class="content-grid post post-type-entry tag-hacks tag-xml">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/09/01/xpath-based-python-dictionaries-on-loan/">XPath based Python dictionaries, on loan</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/09/01/xpath-based-python-dictionaries-on-loan/"
+          >537&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/09/01/xpath-based-python-dictionaries-on-loan/">#</a>
+    <a class="time" href="2004/09/01/xpath-based-python-dictionaries-on-loan/">6:47 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xml/">xml</a>
+          </li>
+    </ul>
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>Perish - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="Perish" />
+    <html>
+      <head>
+        <title>Perish - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="Perish" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2022/04/23/perish/"
@@ -44,131 +51,227 @@
             content="https://lmorchard.github.io/blog.lmorchard.com/blog.lmorchard.com/2022/04/23/perish/cover.png"
           />
         <meta property="og:description" content="TL;DR: I&#39;m trying to build a daily creative writing habit. This post is the result of an exercise toward that end. It&#39;s probably an awful first draft of a little flash fiction scene, unless I&#39;ve tried something especially weird or decided to write something meta. Let me know what you think!" />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post tag-fictiontag-flashfictiontag-tarot"
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post tag-fictiontag-flashfictiontag-tarot"
       >
-        <time
-          title="2022-04-23T12:00:00+00:00"
-          pubdate="2022-04-23T12:00:00+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2022/"
-            >2022</a
+        <header>
+          <time
+            title="2022-04-23T12:00:00-07:00"
+            pubdate="2022-04-23T12:00:00-07:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2022/04/"
-            >April</a
-          >
-          &raquo;
-          <span>23</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="Mala&#39;s Daring"
+                href="/blog.lmorchard.com/2022/04/24/malas-daring/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2022/"
+                >2022</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2022/04/"
+                >April</a
+              >
+              &#8226;
+              <span>23</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Chemryth&#39;s Hoard"
+                href="/blog.lmorchard.com/2022/04/21/chemryths-hoard/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">Perish</h1>
+          <ul class="tags">
+              <li><a href="/blog.lmorchard.com/tag/fiction/">fiction</a></li><li><a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a></li><li><a href="/blog.lmorchard.com/tag/tarot/">tarot</a></li>
+            </ul>
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2022/04/24/malas-daring/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2022/04/21/chemryths-hoard/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">Perish</h1>
-        <ul class="tags">
-            <li>
-                  <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/tarot/">tarot</a>
-                </li>
-          </ul>
-        <section class="post-content">
-          <p><strong>TL;DR</strong>: <em><a href="https://blog.lmorchard.com/2022/04/20/building-a-new-creative-writing-habit/">I&#39;m trying to build a daily creative writing habit.</a> This post is the result of an exercise toward that end. It&#39;s probably an awful first draft of a little <a href="https://blog.lmorchard.com/tag/flashfiction/">flash fiction</a> scene, unless I&#39;ve tried something especially weird or decided to write something <a href="https://blog.lmorchard.com/tag/metablogging/">meta</a>. Let me know what you think!</em></p>
+        <p><strong>TL;DR</strong>: <em><a href="https://blog.lmorchard.com/2022/04/20/building-a-new-creative-writing-habit/">I'm trying to build a daily creative writing habit.</a> This post is the result of an exercise toward that end. It's probably an awful first draft of a little <a href="https://blog.lmorchard.com/tag/flashfiction/">flash fiction</a> scene, unless I've tried something especially weird or decided to write something <a href="https://blog.lmorchard.com/tag/metablogging/">meta</a>. Let me know what you think!</em></p>
 <!--more-->
 
-<img src="./cover.png" class="fullwidth" />
 
-<p>&quot;You were right, we don&#39;t know each other.&quot;</p>
-<p>&quot;No, that&#39;s not what I meant,&quot; he said. &quot;I just said we could stand to get to know each other better.&quot;</p>
-<p>&quot;<a href="https://curve.bandcamp.com/track/perish-3">We&#39;re staying together for the sake of our memories</a>,&quot; she said.</p>
-<p>He sighed. &quot;Yeah, we&#39;ve had a lot of good times together. We&#39;re still good. Together.&quot;</p>
-<p>&quot;There&#39;s a ghost in my house,&quot; she said. &quot;I realize it&#39;s you, but I see through you.&quot;</p>
-<p>&quot;What are you even talking about?&quot;</p>
-<p>&quot;Look,&quot; she said. &quot;You moved in with me here and it&#39;s like you faded away. You don&#39;t work on music anymore. You quit the band.&quot;</p>
-<p>&quot;The new job has has been busy. You know that. And besides, it&#39;s not like you&#39;ve been writing much yourself, either.&quot;</p>
-<p>&quot;I know,&quot; she said. &quot;And that&#39;s my point, really. It&#39;s like we think our souls will perish if we&#39;re apart, but it feels like that&#39;s happening the longer we&#39;re together.&quot;</p>
-<p>He scoffed. &quot;I guess you have been writing. That&#39;s so dramatic.&quot;</p>
-<p>&quot;This shouldn&#39;t be a misery contest,&quot; she said. &quot;I&#39;m not trying to let you down.&quot;</p>
-<p>&quot;I&#39;m not trying to let you down either!&quot;</p>
-<p>&quot;I know. And yet, we&#39;re doing it anyway.&quot;</p>
-<p>&quot;So let&#39;s stop doing it!&quot;</p>
-<p>&quot;I don&#39;t think we can.&quot;</p>
-<p>&quot;I don&#39;t even know what I&#39;m doing!&quot;</p>
-<p>&quot;Neither do I. But, you know we&#39;re doing it, right?&quot;</p>
-<p>&quot;Yeah, I know.&quot; He put his head in his hands. &quot;What happened? We didn&#39;t fight, we didn&#39;t cheat.&quot;</p>
-<p>&quot;It just kind of ran out.&quot;</p>
-<p>&quot;We can make it work again.&quot;</p>
-<p>&quot;How? What&#39;ll be different?&quot;</p>
-<p>&quot;I don&#39;t know.&quot;</p>
-<p>&quot;Me either.&quot;</p>
+
+<figure class="wide"><img src="./cover.png" width="" height=""></figure>
+
+<p>"You were right, we don't know each other."</p>
+<p>"No, that's not what I meant," he said. "I just said we could stand to get to know each other better."</p>
+<p>"<a href="https://curve.bandcamp.com/track/perish-3">We're staying together for the sake of our memories</a>," she said.</p>
+<p>He sighed. "Yeah, we've had a lot of good times together. We're still good. Together."</p>
+<p>"There's a ghost in my house," she said. "I realize it's you, but I see through you."</p>
+<p>"What are you even talking about?"</p>
+<p>"Look," she said. "You moved in with me here and it's like you faded away. You don't work on music anymore. You quit the band."</p>
+<p>"The new job has has been busy. You know that. And besides, it's not like you've been writing much yourself, either."</p>
+<p>"I know," she said. "And that's my point, really. It's like we think our souls will perish if we're apart, but it feels like that's happening the longer we're together."</p>
+<p>He scoffed. "I guess you have been writing. That's so dramatic."</p>
+<p>"This shouldn't be a misery contest," she said. "I'm not trying to let you down."</p>
+<p>"I'm not trying to let you down either!"</p>
+<p>"I know. And yet, we're doing it anyway."</p>
+<p>"So let's stop doing it!"</p>
+<p>"I don't think we can."</p>
+<p>"I don't even know what I'm doing!"</p>
+<p>"Neither do I. But, you know we're doing it, right?"</p>
+<p>"Yeah, I know." He put his head in his hands. "What happened? We didn't fight, we didn't cheat."</p>
+<p>"It just kind of ran out."</p>
+<p>"We can make it work again."</p>
+<p>"How? What'll be different?"</p>
+<p>"I don't know."</p>
+<p>"Me either."</p>
 <p>They were both silent for a few minutes. Each staring at a different wall. </p>
-<p>He cleared his throat. &quot;Do you remember the last time it was actually good?&quot;</p>
-<p>&quot;Not really. A long time ago.&quot;</p>
-<p>He nodded and stood. &quot;I should pack a bag.&quot;</p>
+<p>He cleared his throat. "Do you remember the last time it was actually good?"</p>
+<p>"Not really. A long time ago."</p>
+<p>He nodded and stood. "I should pack a bag."</p>
 <h2 id="prompt">Prompt</h2>
 <p><a href="https://app.labyrinthos.co/reading/ppf/SSTRWS/6,-13,55">Take a look at my Labyrinthos Tarot Reading!</a></p>
-<p><img src="20220423104251.png" alt=""></p>
+<p><img src="20220423104251.png" alt="" width="" height=""></p>
 
-        </section>
+        <section class="comments" id="comments">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+              var disqus_needs_loading = true;
+              var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com/2022/04/23/perish/";
+            </script>
+            <noscript
+              >Please enable JavaScript to view the
+              <a href="http://disqus.com/?ref_noscript"
+                >comments powered by Disqus.</a
+              ></noscript
+            >
+            <a href="http://disqus.com" class="dsq-brlink"
+              >blog comments powered by
+              <span class="logo-disqus">Disqus</span></a
+            >
+          </section>
       </article>
 
-      <section class="comments" id="comments">
-          <div id="disqus_thread"></div>
-          <script type="text/javascript">
-            var disqus_needs_loading = true;
-            var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com/2022/04/23/perish/";
-          </script>
-          <noscript
-            >Please enable JavaScript to view the
-            <a href="http://disqus.com/?ref_noscript"
-              >comments powered by Disqus.</a
-            ></noscript
-          >
-          <a href="http://disqus.com" class="dsq-brlink"
-            >blog comments powered by <span class="logo-disqus">Disqus</span></a
-          >
-        </section>
-        </section>
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2022/04/24/malas-daring/"
+                >Mala's Daring</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2022/04/21/chemryths-hoard/"
+                >Chemryth's Hoard</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
 
-        <footer>
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

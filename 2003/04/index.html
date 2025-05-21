@@ -1,257 +1,601 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>2003/04 - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>2003/04 - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Month: 2003/04</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post "
-          >
-            <time class="date" datetime="2003-04-30T18:22:57+00:00">
-              2003
-              April
-              30
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/04/30/strange-component-error/">
-              <span class="infoContainer">
-                <span class="title">Getting a Strange &quot;Component Manager&quot; Message Under OS X?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post has-thumb "
-          >
-            <time class="date" datetime="2003-04-29T23:10:37+00:00">
-              2003
-              April
-              29
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/04/29/itunes-does-drm/">
-              <span class="infoContainer">
-                <span class="title">iTunes Does Indeed Do DRM</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://www.scotlandsoftware.com/images/bah.png" />
-          </li><li
-            class="post has-thumb "
-          >
-            <time class="date" datetime="2003-04-29T20:24:56+00:00">
-              2003
-              April
-              29
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/04/29/isync-bookmarks-huh/">
-              <span class="infoContainer">
-                <span class="title">What is my iSync doing?</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://www.decafbad.com/downloads/isync-bookmarks.gif" />
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-04-29T12:28:02+00:00">
-              2003
-              April
-              29
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/04/29/rdf-tunes/">
-              <span class="infoContainer">
-                <span class="title">Indie Music Service (ala Apple)?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-04-23T03:00:25+00:00">
-              2003
-              April
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/04/23/wonders-of-rsync/">
-              <span class="infoContainer">
-                <span class="title">rsync: It&#39;s a damn brilliant thing.</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-04-22T16:22:50+00:00">
-              2003
-              April
-              22
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/04/22/flash-xml-magic/">
-              <span class="infoContainer">
-                <span class="title">Learning How to Do Magic with Flash and XML</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-04-22T05:28:17+00:00">
-              2003
-              April
-              22
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/04/22/shitstorms-abound-2/">
-              <span class="infoContainer">
-                <span class="title">Do NOT Taunt the Happy Fun Dave</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-04-22T05:09:01+00:00">
-              2003
-              April
-              22
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/04/22/shitstorms-abound/">
-              <span class="infoContainer">
-                <span class="title">Do Not Taunt Happy Fun Bloggers</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-04-21T18:30:20+00:00">
-              2003
-              April
-              21
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/04/21/down-and-out/">
-              <span class="infoContainer">
-                <span class="title">Further Bitchun Reading...</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-04-16T20:40:41+00:00">
-              2003
-              April
-              16
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/04/16/opml-vs-oml/">
-              <span class="infoContainer">
-                <span class="title">OPML vs OML - Fork but don&#39;t fight!</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-04-15T14:36:31+00:00">
-              2003
-              April
-              15
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/04/15/safari-tabs/">
-              <span class="infoContainer">
-                <span class="title">Safari has tabs now, but I&#39;ve changed my mind.</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2003-04-15T14:36:17+00:00">
-              2003
-              April
-              15
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2003/04/15/still-breathing/">
-              <span class="infoContainer">
-                <span class="title">Still Alive Out Here</span>
-              </span>
-            </a>
-            
-          </li>
-    </ul>
-    
-  </section>
-      </section>
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Month: 2003/04</h2>
         </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2003 April 30</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/04/30/strange-component-error/">Getting a Strange &quot;Component Manager&quot; Message Under OS X?</a>
+      </h2>
+    
+    <p class="summary">
+      Posting this just in case anyone needs it.  I've been getting the
+following strange message lately in logs and consoles under OS X:
+## Component Manager: attempting to find symbols in a component alias of type (regR/carP/x!bt)
 
-        <footer>
+
+
+
+
+As it turns out, I had just installed Toast.  A quick Google search
+leads me to blame Toast and remove a QuickTime component supporting Video CD.
+That's pretty obscure.  Hmph.  So much for never again worrying about strange drivers and
+cryptic error messages under OS X.  :)
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/04/30/strange-component-error/"
+          >122&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/04/30/strange-component-error/">#</a>
+    <a class="time" href="2003/04/30/strange-component-error/">2:22 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 April 29</h2>
+  </li><li class="content-grid post post-type-entry has-thumb">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/04/29/itunes-does-drm/">iTunes Does Indeed Do DRM</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://www.scotlandsoftware.com/images/bah.png" />
+    </div>
+    <p class="summary">
+      How unobservant am I?  It took 
+an article from The Register
+to make me realize that this new Apple music store does indeed
+use DRM to lock up purchased music.  The files aren't mine.  (Though, whoopie, I'm 
+allowed to use them on up to 3 computers.)
+Crap.  No thanks.  I guess
+that 10% of the catalog doesn't look quite so attractive at a buck-a-song now.
+I mean, I've already destroyed one computer 
+with a tumbler of water, why would
+I want to lose all my music with the next one I douse?  And what happens in 10
+years or so, when I want to listen to all those hypothetical Talking Heads
+tunes I bought?  Of course, I'm still listening to CDs and tapes I acquired back
+in junior high, and I don't need to query anyone's permission to do so.
+I hereby bestow this award to the Apple Music Store:
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/04/29/itunes-does-drm/"
+          >243&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/04/29/itunes-does-drm/">#</a>
+    <a class="time" href="2003/04/29/itunes-does-drm/">7:10 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry has-thumb">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/04/29/isync-bookmarks-huh/">What is my iSync doing?</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://www.decafbad.com/downloads/isync-bookmarks.gif" />
+    </div>
+    <p class="summary">
+      Umm...  what is iSync doing?  I didn't know that it had anything to do
+with my bookmarks.  Lately I've been using bookmarks more since I started
+using BookmarkBlogger.  Nearly every time I try dragging a bookmark into a
+toolbar folder, though, I'm rebuffed by this dialog.  What gives?  The bookmarks
+don't show up on my PDA, or my calendar.  With what are they being synched?
+
+
+
+I see that Scot Hacker has
+discovered the same thing happening to him.  Lots of comments, but still no
+answer as to what's up with this.  Hmm.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/04/29/isync-bookmarks-huh/"
+          >230&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/04/29/isync-bookmarks-huh/">#</a>
+    <a class="time" href="2003/04/29/isync-bookmarks-huh/">4:24 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/04/29/rdf-tunes/">Indie Music Service (ala Apple)?</a>
+      </h2>
+    
+    <p class="summary">
+      Okay, so in between all the other hecticity currently ongoing in my life,
+I managed to check out Apple's new music service.  Although I'm not interested
+in approximately 90% of the music offered so far, that still leaves me with
+2000 songs whose "buy" buttons call my name.  The process is simple, the files
+are mine and not locked up with DRM, and although I hope and expect the price
+structure to change (ie. maybe price based on popularity?), a dollar a song
+isn't horrendous considering that I get what I want on demand and without 
+hopping in the car and going anywhere.  So far, so good.
+So...  This got me to thinking in the last 10 minutes:  What about an indie
+clone of the Apple Music Service?  One using RDF or some other XML format to
+offer up the catalogues of record labels?  Include all artists, albums, songs,
+and any various and sundry bits of trivia about all the above.  Establish a
+modular mechanism for specifying payment process (ie. paypal, credit card,
+free, upload a song), and make the whole interface as slick and easy as
+iTunes'.
+The real trick I see in this, though, is to make the file format for music
+vendors fairly easy yet flexible.  It should be as easy or easier than an
+RSS feed for a blog.  Let a hundred of these mushrooms bloom, aggregate, 
+search, and buy.  Make it distributed and not dependant on any particular
+music company or technology company.
+Not a terribly original idea, but that's what I just thought of.  Sounds
+like a good semantic web app that could have some umph going for it in
+the immediate future.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/04/29/rdf-tunes/"
+          >366&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/04/29/rdf-tunes/">#</a>
+    <a class="time" href="2003/04/29/rdf-tunes/">8:28 am</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 April 22</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/04/22/wonders-of-rsync/">rsync: It&#39;s a damn brilliant thing.</a>
+      </h2>
+    
+    <p class="summary">
+      I take rsync for granted.  It's just the best way to keep stuff out there
+up to date with stuff over here, and vice versa.  And lately, I've been
+using it to supplant my usage of scp.  And it works.  Brilliantly.  And until
+recently, I hadn't stopped to realize:  Hey, you know, this thing somehow works
+out differences between files out there and over here long before
+what's here gets there.  I know, duh, but I just hadn't considered it.
+Well,
+Paul Holbrook reminded me
+of this tonight, with links to Andrew Tridgell's
+paper on the algorithm, among other things.  Damn, things like this remind me
+that I'm supposed to be getting my butt back into school...
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/04/22/wonders-of-rsync/"
+          >179&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/04/22/wonders-of-rsync/">#</a>
+    <a class="time" href="2003/04/22/wonders-of-rsync/">11:00 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/04/22/flash-xml-magic/">Learning How to Do Magic with Flash and XML</a>
+      </h2>
+    
+    <p class="summary">
+      Was thinking about learning new tech, and well, I haven't gotten much
+farther into .NET
+as I'd wanted to,
+given moving and a sudden appearance of work.  Instead, I've had
+a project hurled at me that combines Flash MX and XML, something I've
+just barely touched before.
+Wow, is this stuff fun.  And I write that without a trace of sarcasm--
+this app I've inherited for maintenance and extension, though it's a
+bit grungy and shows some signs of late-night expediency, does some
+neat things with actions and buttons dynamically wired up in response
+to XML config files loaded via URL, which are in turn generated from a
+database managed by a simple end-user admin interface.  Not sure how
+much more I should write about it, but I'm dying to post a link.  Of
+course, this isn't revolutionary stuff in general.  It's just a revelation
+to me.
+The last time I had an opportunity to really, really dig around in
+Flash was just about when Flash 5 came out.  I was immersed daily in
+Flash in the years between the initial acquisition by Macromedia, up
+through version 4, and just started drifting away, sadly, when things
+started getting really interesting with v5.  That was when my daily
+job swung entirely into the backend, and client-side concerns were
+no longer my task.
+But now I'm back in this old neighborhood, and I can see why some
+people would love nothing better but to build entire websites in
+Flash.  Yeah, that's evil, but it's sexy.  Despite some clunkiness,
+there are some very nice possibilities I see now.  I love Java, and
+loved cobbling together funky applets 5 years or so ago, but Flash
+makes me want to toy with rich client-side apps again.
+And then, there's this
+Sony Clie PEG-TG50
+handheld I've recently started pining for, and it appears to run a
+Flash 5 player.  It's probably underwhelming, but who knows?
+Anyway, back to work, but just had to spill some enthusiasm for
+Flash.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/04/22/flash-xml-magic/"
+          >543&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/04/22/flash-xml-magic/">#</a>
+    <a class="time" href="2003/04/22/flash-xml-magic/">12:22 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/04/22/shitstorms-abound-2/">Do NOT Taunt the Happy Fun Dave</a>
+      </h2>
+    
+    <p class="summary">
+      Mark Pilgrim asks: What's your Winer number?
+I duck & cover under our new futon.  The one that I broke already, but it's better than nothing.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/04/22/shitstorms-abound-2/"
+          >27&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/04/22/shitstorms-abound-2/">#</a>
+    <a class="time" href="2003/04/22/shitstorms-abound-2/">1:28 am</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/04/22/shitstorms-abound/">Do Not Taunt Happy Fun Bloggers</a>
+      </h2>
+    
+    <p class="summary">
+      Wow.  Missed this from Mark over
+the weekend, and then further missed Sam's link to it
+and the subsequent whirling mass of shitstorm that rolled past in its wake.  Well, at least everyone 
+just ends up being an asshole in the end, and no nazis or ethnicities 
+or monsters were invoked in the process.  And no one co-opted any acronyms, though I think
+someone got ketchup on their tie.  Hope it wasn't silk.  And does anyone know if all us assholes
+are actually alive or dead in Schroedinger's Trunk?
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/04/22/shitstorms-abound/"
+          >127&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/04/22/shitstorms-abound/">#</a>
+    <a class="time" href="2003/04/22/shitstorms-abound/">1:09 am</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 April 21</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/04/21/down-and-out/">Further Bitchun Reading...</a>
+      </h2>
+    
+    <p class="summary">
+      Finally got around to reading Cory Doctorow's Down & Out in the Magic Kingdom,
+and though I loved it, I wish it were longer.  Or, at least,
+I'd love to see more stories from the same setting or playing with the
+same themes of the Bitchun Society.  I have seen some of these things
+in stories before, though.  So, hey, I haven't posted anything here in
+a few days - have some babble and book links (feel free to comment and
+leave some more links):
+Of course I love the notion of ubiquitous computing and personal
+HUD's.  I've babbled about that at length for sure.  If you want more
+of that, go check out Vernor Vinge's
+Fast Times at Fairmont High.
+Mediated reality with P2P computing woven into clothing and projected
+across contact lens displays.  A little less obtrusive than
+seisure-inducing in-brain electronics, but just as post-human.
+And then there's backup-and-restore and the cure for death.  Although
+in David Brin's
+Kiln People,
+things start with disposable
+doppelgangers, survival of personality after bodily death is promised
+in the ending.  What could change human nature more than transcending
+mortality?
+As for deadheading, check out Vinge's
+Across Realtime
+series.  In
+particular, read up on bobbling in Marooned in Realtime.  There's also
+Orson Scott Card's The Worthing Saga.
+A one-way trip into the far future
+through geological periods of time seems particularly external to
+known human experience, especially when combined with immortality.
+One thing I've yet to see much in stories or speculations is how
+society could function in a post-mortality and post-scarcity
+conditions.  I've never been satisfied with the way Star Trek dodges
+the day-to-day realities of a post-capitalistic Federation of plenty.
+Walter Jon Williams' Aristoi
+explores an interesting track with a
+meritocratic society whose top members have godlike powers matched to
+godlike creativity and self-possession (not to mention possession by
+multiple selves).
+But so far, Whuffie and its currency in reputation is the best game
+I've seen yet.  Since, even if the problems of mortality and material
+scarcity are solved, human attention and cooperation will never be
+gratis.  So, how else do you herd the cats when you can neither
+threaten nor reward them via any physical means?  Seems like the
+blogosphere, gift culture, and open source noosphere brought to
+reality.
+Kinda makes me want to get back to fiction writing meself and finally
+get out the dozen or so stories I've had bouncing around in my head
+these past years.  Doesn't necessarily mean I'd churn out anything
+good, but who knows?  Maybe after some work and some stumbling I could
+produce something passable.  All those creative writing classes in
+college and short stories in spiral-bound notebooks from high school
+have to count for something.  I'd even love to squat in the Bitchun
+Society for a few stories, but that might be a bit presumptuous, even though
+Mr. Doctorow himself has let on
+that he's not likely to write more
+tales from the same Bitchun universe.
+Better to get some practice in before jamming in someone else's club.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/04/21/down-and-out/"
+          >703&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/04/21/down-and-out/">#</a>
+    <a class="time" href="2003/04/21/down-and-out/">2:30 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 April 16</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/04/16/opml-vs-oml/">OPML vs OML - Fork but don&#39;t fight!</a>
+      </h2>
+    
+    <p class="summary">
+      In my intermittent online presence, I've been happily watching Dave Winer's
+ramp-up with OPML toward OSCON with things like 
+"How to implement an OPML directory browser".
+I love outliners, and though it's been a little while since I played with Radio, I loved Instant Outlining
+and the transclusion of outside outlines into the
+one at hand via URL.  And when Dave first introduced the idea of an OPML-based distributed web directory,
+I figured it was the start of another nifty twist in the web fabric.  (You know, the kind that makes wrinkles?
+The kind of wrinkles that make brains smarter?)
+Anyway, even given all this, OPML has always bugged me, and I'm not alone.  In fact, today I found a
+link to OML, the Outline Markup Language project on ?SourceForge,
+which seems to seek to address many of the same things that have bugged me.  That is, things like
+UserLand application-specific tags, and extension via arbitrary attributes.  Though I'm no master
+of deep XML magic, these things struck me as grungy.
+But you know, we're designing for recombinant growth with the lazyweb here
+(or at least, Dave Winer was and is), and OPML looks like one of those dirty things that got
+thrown together quickly in order to enable a laundry list of further projects.  It works, isn't
+all that hard to grasp, and has gotten adopted quickly.  There's momentum there.  As 
+Dave says, there is no wait for
+tools.
+So, now there's also OML starting.  Hopefully this won't become another rehash of the RSS fight.Because, I sense many similar issues between the two.  Maybe it would have been better still if OML had been named something
+completely avoiding the letters O, P, M, or L.  I already see mailing list charters being called out in order to quiet unwanted
+discussion of fundamentals, but, hopefully we can avoid anyone claiming that they have the One True Format, all fighting for the
+same name and slapping each other around with version numbers.  Gah.
+Anyway.  I like OML but see some grunge in it as well.  At the moment, I'm using an OPML-supporting tool. I can't imagine that
+conversion would be more than an XSLT file away.  Well, maybe more than that.  Beyond that, let's agree to disagree and viva le
+fork.  Let the best, most demonstratably capable format win.  Meanwhile, I'm still considering that Tinderbox license to see if I
+might like multi-dimensional outlining...
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/04/16/opml-vs-oml/"
+          >741&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/04/16/opml-vs-oml/">#</a>
+    <a class="time" href="2003/04/16/opml-vs-oml/">4:40 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2003 April 15</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/04/15/safari-tabs/">Safari has tabs now, but I&#39;ve changed my mind.</a>
+      </h2>
+    
+    <p class="summary">
+      So yeah, I wanted tabs in Safari.  Or something like tabs.
+But since discovering that the "Window" menu in OS X is not painful to
+use, and that CMD-Backquote rotates between open windows, I've not missed
+tabs an incredible amount.  I think my tab usage was a response to my experience
+with Windows and Linux window managers, though even those have changed since
+I started using tabs in my browser.
+However, I still love using pwm as
+my window manager under X11, with its tab collections and windowshading.  Go
+figure.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/04/15/safari-tabs/"
+          >91&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/04/15/safari-tabs/">#</a>
+    <a class="time" href="2003/04/15/safari-tabs/">10:36 am</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2003/04/15/still-breathing/">Still Alive Out Here</a>
+      </h2>
+    
+    <p class="summary">
+      Been out of touch with my usual online haunts as of late, and have barely had time to think straight,
+let alone write. 
+My girlfriend and I have moved just from one end of town to the other, and we have an overlapping
+month of leases between the new place and old.  In theory, this is plenty of time to accomplish moving
+and cleaning and decorating.  But, some things are hard to move gradually, especially when both she
+and I have compact cars and trucks rent by the hour.  And then there's the fact that our new residence
+is found on the third floor, providing much exercise to the both of us.  So, it's been a hectic couple
+of weeks so far, though well worth it for us to start settling down in new and improved digs.
+And then, right in the middle of things, I was offered an opportunity for a few months' work as a
+contractor for a startup located almost (but not quite) within walking distance of the new apartment. 
+So, I decided to snatch that up, and since then things have been doubly busy.  Whew.  This'll give me
+some breathing room to figure out what's next, hopefully.
+So anyway, here's hoping things settle down a bit and stop feeling like I've jumped the tracks.  After
+getting life in general into some semblance of happy chaos, I hope to get a chance to catch up on
+happenings and maybe even take a stab at some of my projects around here again.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2003/04/15/still-breathing/"
+          >340&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2003/04/15/still-breathing/">#</a>
+    <a class="time" href="2003/04/15/still-breathing/">10:36 am</a>
+    
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

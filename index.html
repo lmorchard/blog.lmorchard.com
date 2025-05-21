@@ -1,303 +1,1067 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>Home - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>Home - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post has-thumb tag-fediverse tag-mastodon tag-sqlite tag-activitypub"
-          >
-            <time class="date" datetime="2023-05-12T12:00:00+00:00">
-              2023
-              May
-              12
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2023/05/12/toots-in-sqlite/">
-              <span class="infoContainer">
-                <span class="title">Using SQLite as a document database for Mastodon exports</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2023/05/12/toots-in-sqlite/cover.png" />
-          </li><li
-            class="post has-thumb tag-fiction tag-flashfiction tag-scifi tag-grief"
-          >
-            <time class="date" datetime="2023-02-06T12:00:00+00:00">
-              2023
-              February
-              06
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2023/02/06/the-machine-is-grieving/">
-              <span class="infoContainer">
-                <span class="title">The Machine is Grieving</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2023/02/06/the-machine-is-grieving/cover.png" />
-          </li><li
-            class="post has-thumb tag-synology tag-docker tag-vscode tag-tinkering tag-nas"
-          >
-            <time class="date" datetime="2023-01-31T12:00:00+00:00">
-              2023
-              January
-              31
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2023/01/31/synology-docker-vscode/">
-              <span class="infoContainer">
-                <span class="title">Synology + Docker + VSCode</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2023/01/31/synology-docker-vscode/vscode-ds210j-nas.png" />
-          </li><li
-            class="post has-thumb tag-fiction tag-flashfiction tag-scifi"
-          >
-            <time class="date" datetime="2023-01-16T12:00:00+00:00">
-              2023
-              January
-              16
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2023/01/16/begging-for-treats/">
-              <span class="infoContainer">
-                <span class="title">Begging for Treats</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2023/01/16/begging-for-treats/cover.png" />
-          </li><li
-            class="post has-thumb tag-hacks tag-mermaid tag-gifs tag-webdev"
-          >
-            <time class="date" datetime="2023-01-03T12:00:00+00:00">
-              2023
-              January
-              03
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2023/01/03/mermaid-animations/">
-              <span class="infoContainer">
-                <span class="title">Animating Mermaid diagrams with terrible hacks</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2023/01/03/mermaid-animations/207466935-8b216a84-0692-4ff2-940f-02d5108d6594.gif" />
-          </li><li
-            class="post has-thumb tag-metablogging tag-writing tag-social tag-twitter tag-mastodon tag-activitypub"
-          >
-            <time class="date" datetime="2022-11-07T12:00:00+00:00">
-              2022
-              November
-              07
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/11/07/no-ushers/">
-              <span class="infoContainer">
-                <span class="title">There are no ushers on Mastodon</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/11/07/no-ushers/IMG_0449.png" />
-          </li><li
-            class="post has-thumb tag-metablogging tag-writing tag-social tag-twitter"
-          >
-            <time class="date" datetime="2022-10-28T12:00:00+00:00">
-              2022
-              October
-              28
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/10/28/twitter/">
-              <span class="infoContainer">
-                <span class="title">Twitter, or social cowardice as a service</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/10/28/twitter/IMG_0759.png" />
-          </li><li
-            class="post has-thumb tag-metablogging tag-writing tag-books tag-sleep tag-productivity"
-          >
-            <time class="date" datetime="2022-10-07T12:00:00+00:00">
-              2022
-              October
-              07
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/10/07/5am-is-the-enemy/">
-              <span class="infoContainer">
-                <span class="title">5:00am is the enemy</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/10/07/5am-is-the-enemy/Feem8XoaEAE2u-7.png" />
-          </li><li
-            class="post has-thumb tag-metablogging tag-writing"
-          >
-            <time class="date" datetime="2022-10-01T12:00:00+00:00">
-              2022
-              October
-              01
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/10/01/my-summer-avoiding-a-writing-habit/">
-              <span class="infoContainer">
-                <span class="title">My summer spent avoiding a writing habit</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/10/01/my-summer-avoiding-a-writing-habit/cover.png" />
-          </li><li
-            class="post has-thumb tag-fiction tag-flashfiction"
-          >
-            <time class="date" datetime="2022-07-13T12:00:00+00:00">
-              2022
-              July
-              13
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/07/13/taking-the-red-shoes/">
-              <span class="infoContainer">
-                <span class="title">Taking the Red Shoes</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/07/13/taking-the-red-shoes/cover.png" />
-          </li><li
-            class="post has-thumb tag-fiction tag-flashfiction tag-scifi"
-          >
-            <time class="date" datetime="2022-06-23T12:00:00+00:00">
-              2022
-              June
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/06/23/pet-intersect/">
-              <span class="infoContainer">
-                <span class="title">Pet Intersect</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/06/23/pet-intersect/cover.png" />
-          </li><li
-            class="post has-thumb tag-fiction tag-flashfiction tag-tarot"
-          >
-            <time class="date" datetime="2022-06-22T12:00:00+00:00">
-              2022
-              June
-              22
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/06/22/sorinas-magic-eyes/">
-              <span class="infoContainer">
-                <span class="title">Sorina&#39;s Magic Eyes</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/06/22/sorinas-magic-eyes/cover.png" />
-          </li><li
-            class="post has-thumb tag-fiction tag-flashfiction tag-fantasy"
-          >
-            <time class="date" datetime="2022-06-20T12:00:00+00:00">
-              2022
-              June
-              20
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/06/20/radmilo-and-helenka/">
-              <span class="infoContainer">
-                <span class="title">Radmilo and Helenka</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/06/20/radmilo-and-helenka/cover.png" />
-          </li><li
-            class="post has-thumb tag-fiction tag-flashfiction tag-scifi"
-          >
-            <time class="date" datetime="2022-06-17T12:00:00+00:00">
-              2022
-              June
-              17
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/06/17/cozy-hyperspace/">
-              <span class="infoContainer">
-                <span class="title">Cozy Hyperspace</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/06/17/cozy-hyperspace/cover.png" />
-          </li><li
-            class="post has-thumb tag-fiction tag-flashfiction tag-tarot"
-          >
-            <time class="date" datetime="2022-06-16T12:00:00+00:00">
-              2022
-              June
-              16
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2022/06/16/sando-aggro/">
-              <span class="infoContainer">
-                <span class="title">Sando Aggro</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2022/06/16/sando-aggro/cover.png" />
+        <section class="main"><section class="post-list">
+      
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2025 May 21</h2>
+  </li><li class="content-grid post post-type-miscellanea tag-miscellanea">
+    <div class="content miscellanea">
+      <html><head></head><body><ul>
+<li>Hello world!</li>
+<li>After making the tweaks to this blog to make it easier to post and publish more frequently, I discovered that I'd doubled my AWS S3 bill! 😅<ul>
+<li>Turns out that the process I set up over 7 years ago just re-uploads the entire site, every time I push a change.</li>
+<li>That wasn't a noticeable problem until I started pushing multiple times per day.</li>
+<li>So, I'm looking into a new workflow based on rclone that should be able to do more differential uploads based on changes.</li>
+<li>The first version of that workflow deleted the contents of my blog. (Oops.) The second version re-uploaded everything in about 6 minutes.</li>
+<li>One more thing I should write about if I get around to an entry describing the current state of this contraption.</li>
+</ul>
+</li>
+<li>Juggling a couple AI related ideas in my head that might turn into a longer post:<ul>
+<li>Seems to me like most AI-assisted tools these days are single-player and it's really hard to pass the baton of a project underway to someone else.</li>
+<li>Seems to me like many folks using AI-assisted tools think they're the only Chosen One in the world with access to those tools and everyone else around is an agency-free NPC</li>
+</ul>
+</li>
+</ul>
+</body></html>
+    </div>
+    <div class="meta">
+    <a class="permalink" href="2025/05/21/miscellanea/">#</a>
+    <a class="time" href="2025/05/21/miscellanea/">11:59 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/miscellanea/">miscellanea</a>
           </li>
     </ul>
-    <p>
-              Looking for more? <a href="/blog.lmorchard.com/archives.html">Try the archives.</a>
-            </p>
-  </section>
-      </section>
-        </section>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2025 May 20</h2>
+  </li><li class="content-grid post post-type-miscellanea tag-miscellanea">
+    <div class="content miscellanea">
+      <html><head></head><body><ul>
+<li>Hello world!</li>
+<li><a href="https://github.com/lmorchard/blog.lmorchard.com/commit/954919050fca61d04d6e89beec96b0ea374ba74d">Added support for a <code>draft: true</code> flag on entries here</a>, which should at least help me keep half-broken things from deploying mid-rant</li>
+<li>Now I just have to make sure to use that flag right so I <em>still</em> don't include half-broken things here 😅</li>
+<li>I should figure out a decent way for showing really long strings here, like the path names in that cloud saves post today 🤔</li>
+<li>How the hell do I remember things like "<a href="https://monkeybagel.com/pumas.html">Pumas on Hoverbikes</a> is at monkeybagel.com" but I have to remind myself to eat lunch as a separate step from making lunch?</li>
+</ul>
+</body></html>
+    </div>
+    <div class="meta">
+    <a class="permalink" href="2025/05/20/miscellanea/">#</a>
+    <a class="time" href="2025/05/20/miscellanea/">11:59 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/miscellanea/">miscellanea</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-aside tag-career tag-ai tag-llms">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2025/05/20/minimum-viable-human-career/">Quoting Greg Storey on Minimum Viable Humans</a>
+      </h2>
+    <div class="content">
+      <html><head></head><body><p>Greg Storey, "<a href="https://brilliantcrank.com/minimum-viable-humans/">Minimum Viable Humans.</a>" hits like <a href="https://blog.lmorchard.com/2025/05/15/quoting-will-larson-on-career-advice-in/index.html">a funnel cloud</a>:</p>
+<blockquote>
+<p>Companies aren't just cutting costs—they're conducting a fundamental reset to find their Minimum Viable Humans model. They're stripping organizations down to the ground—the irreducible human functions that (currently) can't be replaced or augmented by AI.</p>
+</blockquote>
+<p>This rings true to what I've been seeing. The cruelty feels incidental to the process—not to me and everyone I know, mind you—but indignation won't pay my mortgage.</p>
+<blockquote>
+<p>Trying to get your old job back is futile—that role, as you remember it, isn’t coming back. The opportunity now lies in positioning yourself for the roles and capabilities that will emerge as organizations rebuild from the bottom up—core human strengths like creativity and ethical judgment, the ability to collaborate with AI, your unique experience and expertise, and the kind of discernment that values judgment over process.</p>
+</blockquote>
+<p>Brutal, yet maybe positive? If drudgery gets distilled out, what's left are human creativity, judgment, and experience. That sounds nice, like what classic sci-fi promised us.</p>
+<p>But you can't mechanize that with <a href="https://en.wikipedia.org/wiki/Time_and_motion_study">a Taylorist time-and-motion study</a>. Some jobs are just paychecks, some spark enthusiasm, and some flip between both unpredictably.</p>
+<p>Will companies make allowances for that, while rewarding what they're asking for? I know we're seeing a reckoning right now, a firm snatching back from privileged labor. Fine, I don't need a free lunch or a foosball table, but I do need a health plan and a few days off. What's the churn for all of us while they figure that out?</p>
+<blockquote>
+<p>The manager's role isn't just being eliminated—it's being fundamentally redefined from day-to-day oversight to exception handling, strategic communication, and resource allocation across much larger teams. It will keep going into augmenting the decision-making process for leaders and individual contributors alike. The boundaries of acceptable risk at all levels are now in a constant prototype state as AI becomes more powerful and faster, giving mere mortals more access to information and insight than ever before. The trick will be what training we need in order to make the pairing work.</p>
+</blockquote>
+<p>This might suit an ADHD-head like me. I could see myself as a human relay, occasionally reallocating <a href="https://starcraft.fandom.com/wiki/Pylon">pylons</a> and <a href="https://starcraft.fandom.com/wiki/Vespene_gas">vespene gas</a> amongst largely autonomous <a href="https://starcraft.fandom.com/wiki/Protoss">protoss</a> units. I'm already having better luck than some with AI-assisted coding. Maybe I'm learning the magic invocations? Maybe I'm a special kind of moron? Either way, I'm ending up with working code and nodding heads. This gives me some hope that I can "stay current" - whatever that means in the current era.</p>
+<p>Admittedly, I'm more comfortable directing Starcraft units and AI agents like this. That feels like a kind of management to me. I'm not so comfortable directing human co-workers with the same interface, though.</p>
+<blockquote>
+<p>This isn't just another tech cycle. It's a fundamental recalibration of the human role in organizational life. And while there's no easy path through this transition, understanding what's actually happening might help you find your footing on shifting ground.</p>
+</blockquote>
+<p>I keep slipping into snark because part of me finds this exciting while another part is cynical and burnt out. I'm hoping optimism holds out longer than cynicism. Maybe <a href="https://monkeybagel.com/pumas.html">the thumbless neurotic puma driving a maroon AMC Gremlin</a> have the last laugh after all? (Anybody get that reference anymore?) I dunno, I'm just trying to figure how much of this is like <a href="https://www.livescience.com/planet-earth/earthquakes/first-of-its-kind-video-captures-the-terrifying-moment-the-ground-tore-apart-during-major-myanmar-earthquake">that surface rupture in Myanmar last week</a>  and whether my Crocs can carry me to the right side of it.</p>
+</body></html>
+    </div>
+    <div class="meta">
+    <a class="permalink" href="2025/05/20/minimum-viable-human-career/">#</a>
+    <a class="time" href="2025/05/20/minimum-viable-human-career/">5:30 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/career/">career</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ai/">ai</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/llms/">llms</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-aside tag-gaming tag-xbox tag-cloud tag-msft">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2025/05/20/liberating-xbox-cloud-saves/">Liberating save games from Xbox Cloud Gaming</a>
+      </h2>
+    <div class="content">
+      <html><head></head><body><p>Ah, the problems of a masochistic nerd trying to game. For about a year now, my gaming PC has run <a href="https://bazzite.gg/">Bazzite Linux</a> because I got tired of Windows. I've also got a Game Pass subscription, prepaid for a long while from before I switched to Linux. This was not a well thought out plan.</p>
+<p>While other game stores work pretty great, the only way to use my Game Pass subscription on Linux is via <a href="https://www.xbox.com/en-us/play">Xbox Cloud Gaming</a>. The Xbox app doesn't on Linux and won't install Game Pass stuff locally on Linux. Still, streaming works pretty well for games I want to try and ditch when I get bored. But, it's so ephemeral that I wouldn't really want to commit to buying a game through that outright.</p>
+<p>So, I started playing <a href="https://www.xbox.com/en-US/games/store/clair-obscur-expedition-33/9PPT8K6GQHRZ/0010">Clair Obscur: Expedition 33</a> via Cloud Gaming. After about 13 hours in, I realized I wanted to buy the game. As it turns out, Steam likes Linux and <a href="https://www.protondb.com/app/1903340">the game runs well there</a>. It was on sale in a bundle, so I went ahead and bought it <a href="https://store.steampowered.com/app/1903340/Clair_Obscur_Expedition_33/">from Steam</a>  instead of from Xbox.</p>
+<p>But, my 13-hour-old save game was trapped in the cloud. I guessed I'd just have to abandon it and start over. That is, until I pieced a few things together:</p>
+<p>Thanks to <a href="https://www.xbox.com/en-US/games/xbox-play-anywhere">Xbox Play Anywhere</a>, the saves in Cloud Gaming sync down to PC game installations. I had one old Windows laptop left in the house that would install Game Pass games - it just played them horribly. Once I installed the game locally from Game Pass and booted it up once, my cloud save descended onto my laptop hard drive.</p>
+<p>Then, I installed the game again from Steam - i.e. the copy I purchased. From there, I could follow <a href="https://steamcommunity.com/app/1903340/discussions/0/592895445665061488/">this guide to transplant my save file from Game Pass to Steam</a>. Once properly transplanted, the save game found its way onto Steam's cloud sync servers and then back onto my real gaming PC.</p>
+<!--
+For posterity, in case that thread goes away, I copied from the newest modified directory here: ```C:\Users\me\AppData\Local\Packages\KeplerInteractive.Expedition33_ymj30pw7xe604\SystemAppData\wgs\00090000044E48CB_000000000000000000000000697F9EC3```
 
-        <footer>
+And I copied to here: ```C:\Users\me\AppData\Local\Sandfall\Saved\SaveGames\76561198015267336```
+
+Oh, and it needed renaming to `EXPEDITION_0.sav` - easy peasy. 
+-->
+
+<p>I realize this sounds like the plot to a dork heist. But, it worked!</p>
+</body></html>
+    </div>
+    <div class="meta">
+    <a class="permalink" href="2025/05/20/liberating-xbox-cloud-saves/">#</a>
+    <a class="time" href="2025/05/20/liberating-xbox-cloud-saves/">11:40 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/gaming/">gaming</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xbox/">xbox</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/cloud/">cloud</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/msft/">msft</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2025 May 19</h2>
+  </li><li class="content-grid post post-type-miscellanea has-thumb tag-miscellanea">
+    <div class="content miscellanea">
+      <html><head></head><body><ul>
+<li><p>Hello world!</p>
+</li>
+<li><p>"<a href="https://www.portlandmercury.com/photo/2025/05/19/47791648/log-lady-look-alike-contest-photos-shes-got-the-look-and-the-log">Log Lady Look-Alike Contest Photos</a>: She’s Got the Look (and the Log)" </p>
+<ul>
+<li>I love this city.</li>
+</ul>
+</li>
+<li><p>Interesting bugs here in my Rube Goldberg blogging machine involving Syncthing and Obsidian, where sync conflicts become clashing ghost entries 🤔</p>
+</li>
+<li><p>I should tweak support for a <code>draft</code> flag here, so that posts that I'm still editing don't get published automatically. This flow is almost <em>too</em> frictionless, at this point.</p>
+</li>
+<li><p>I've been using Obsidian for about 5 years now for my daily notes. I've been tempted to take another swing at writing my own notebook, because I barely use any of Obsidian's fancier features. I mainly like that's it's a good cross-platform Markdown editor with a few plugins that I've settled on for regular use.</p>
+</li>
+<li><p>I have a vague notion to make a USB or wifi interface for an old Atari Video Touch Pad. Could use it as a Stream Deck (if I ever stream again) and / or hook it up to Home Assistant.</p>
+<img src="/blog.lmorchard.com/2025/05/19/miscellanea/attachments/2025-05-19-video-touch-pad.png" width="" height=""></li>
+<li><p>I need to find a better way to insert images like this 😅</p>
+</li>
+</ul>
+</body></html>
+    </div>
+    <div class="meta">
+    <a class="permalink" href="2025/05/19/miscellanea/">#</a>
+    <a class="time" href="2025/05/19/miscellanea/">11:59 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/miscellanea/">miscellanea</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-aside tag-gamedev tag-reading tag-tools tag-dev">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2025/05/19/gamedev-reading/">I like (reading about) making video games</a>
+      </h2>
+    <div class="content">
+      <html><head></head><body><p>Noel Berry, "<a href="https://noelberry.ca/posts/making_games_in_2025/">Making Video Games in 2025 (without an engine)</a>":</p>
+<blockquote>
+<p>I genuinely believe making games without a big "do everything" engine can be easier, more fun, and often less overhead. I am not making a "do everything" game and I do not need 90% of the features these engines provide. I am very particular about how my games feel and look, and how I interact with my tools. I often find the default feature implementations in large engines like Unity so lacking I end up writing my own anyway. Eventually, my projects end up being mostly my own tools and systems, and the engine becomes just a vehicle for a nice UI and some rendering...</p>
+</blockquote>
+<p>I read blog posts and tutorials like this all the time. Every few months, I go on a spree of installing and firing up game development tools. I keep kind of wanting to actually end up finishing a game, kind of like how my dad used to make a few fly fishing lures but only ever managed to go fishing every few years. But, do I like reading about this stuff.</p>
+<p>And this post snags me, in particular, because one of the reasons I even started poking around with game dev stuff was to learn. And what better way to really just plummet down the rabbit hole than to learn how to make a game engine almost from scratch?</p>
+<p>Oh, but in terms of actually finishing things: <a href="https://blog.lmorchard.com/2016/09/11/poke-the-mongo/">I can say</a> I made <a href="https://lmorchard.itch.io/poke-the-mongo">Poke the Mongo</a> for Pico-8! That's at least one finished video game. It's got <a href="https://lmorchard.itch.io/poke-the-mongo">an itch.io page</a> and an end-game screen and everything. I won't spoil the end screen, though I'm pretty sure I only know one other person who's ever seen it.</p>
+</body></html>
+    </div>
+    <div class="meta">
+    <a class="permalink" href="2025/05/19/gamedev-reading/">#</a>
+    <a class="time" href="2025/05/19/gamedev-reading/">5:08 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/gamedev/">gamedev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/reading/">reading</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tools/">tools</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/dev/">dev</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-aside tag-ux tag-llm tag-ai">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2025/05/19/beyond-text-only-ai/">Beyond Text-only AI</a>
+      </h2>
+    <div class="content">
+      <html><head></head><body><p>Fatih Kadir Akın, "<a href="https://blog.fka.dev/blog/2025-05-16-beyond-text-only-ai-on-demand-ui-generation-for-better-conversational-experiences/">Beyond Text-Only AI: On-Demand UI Generation for Better Conversational Experience</a>":</p>
+<blockquote>
+<p>What if AI systems could generate precisely the right interface components when needed, without requiring developers to build every possible UI variation in advance? This post explores my work on a new prototype that enables LLMs to create dynamic, interactive UI components on demand, transforming how users interact with AI systems and MCP servers.</p>
+</blockquote>
+<p>This is where LLMs are very interesting to me, where applications with them are most able to escape hype into practical building. A thing they're good at is taking some of the vague stuff we hand-wave at like "you know, that thing with the days in squares on it" and jumping to "you mean a calendar?" But then, skip straight from that to presenting a calendar for input as part of the workflow.</p>
+<p>I'm finding LLMs most handy when they work in smaller universes. Give it a relatively small inventory of UI components, properly described with context, and they can be great at picking which one to use and when. Hard to hallucinate when there's not a wide range for wandering, easy to mitigate what hallucinations might occur when you can automatically kick it back into bounds. Meanwhile, the workflow can feel more smooth and demand less fiddly navigation from a user. That seems like a really promising glimmer to me.</p>
+</body></html>
+    </div>
+    <div class="meta">
+    <a class="permalink" href="2025/05/19/beyond-text-only-ai/">#</a>
+    <a class="time" href="2025/05/19/beyond-text-only-ai/">3:28 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/ux/">ux</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/llm/">llm</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ai/">ai</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-aside tag-metablogging tag-covid tag-brainfog">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2025/05/19/foggy-blogging/">Foggy Blogging</a>
+      </h2>
+    <div class="content">
+      <html><head></head><body><p>Baldur Bjarnason, "<a href="https://www.baldurbjarnason.com/notes/2025/foggy-feeds/">Foggy feeds: the decline in my feed reader subscriptions</a>":</p>
+<blockquote>
+<p>...I follow a lot of feeds in my feed reader, most of them only updating at most once a month, maybe weekly, and only a tiny handful update daily. About seven hundred (700) of the feeds I follow are active and I’ve been following some of them since the early 2000s.</p>
+<p>That’s a decent sample size both across fields – tech, media, and academia – and time – I’ve been following most of these since before COVID – and the decline in people’s thinking across many of these feeds has been noticeable because it’s incredibly fucking annoying.</p>
+</blockquote>
+<p>My feeds suck, right now. My main excuse is I'm way out of the habit of blogging like I did 20 years ago. And I think part of that habit is thinking out loud, getting things out into words in front of me to clarify the thinking. Tweets and toots aren't really long enough to let a fully formed notion flop out of my head and thrash around on the desk for awhile.</p>
+<p>I do know a lot of folks who got COVID, though. Gratefully, I seem to have avoided it so far. Is this like the notion that <a href="https://arstechnica.com/science/2021/07/did-lead-poisoning-cause-downfall-of-roman-empire-the-jury-is-still-out/">the Roman Empire collapsed due to lead poisoning</a>? I do feel like there's a lot of stupidity out there right now, like more than I'd expect. I don't know if that's a conspiracy theory or just cynicism.</p>
+</body></html>
+    </div>
+    <div class="meta">
+    <a class="permalink" href="2025/05/19/foggy-blogging/">#</a>
+    <a class="time" href="2025/05/19/foggy-blogging/">12:58 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/covid/">covid</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/brainfog/">brainfog</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-aside tag-ai tag-llms tag-dev">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2025/05/19/llm-winter/">AI winter, again</a>
+      </h2>
+    <div class="content">
+      <html><head></head><body><p>carl svensson, <a href="https://www.datagubbe.se/winter/">Is Winter Coming?</a>:</p>
+<blockquote>
+<p>Even when it comes to something like LLM-assisted programming, where a highly skilled developer can maybe, sometimes, somewhat gain a performance boost, the most pertinent question isn't if it can be done at all - but rather if what can be done good enough can also be done profitably. The number of GPUs and the amount of increasingly expensive energy required remains as unclear as the time frame needed to accomplish it. </p>
+</blockquote>
+<p>I don't disagree that this is where things are right now. Personally, I'm getting utility from these tools - mainly for things that I could do myself, but the LLM lets me carve off a few rounds of googling and Stack Overflow browsing. That's valuable. Probably not as valuable as investors are hoping, though.</p>
+<p>I see some glimmers of potential in letting the agents rip in full-auto. But, I do also find that ofttimes they're <a href="https://prototypr.io/note/vibe-coding-cursor-windsurf-slot-machine">developer slot machines</a> that need careful tending to keep them from going off into the weeds, going into loops, and going off on quests for which I never asked.</p>
+<p>I'm seeing the most value in these tools when they're given a lot of context and kept constrained to limited tasks in a tight loop with adult supervision. I've got a hunch this will improve over time, but who knows? We could hit a wall and see winter soon?</p>
+<p>I'd really like it if this stuff would settle down and be <a href="https://www.fastly.com/blog/can-we-be-normal-about-ai-now-that-deepseek-happened">normal</a>. But, there's probably going to be a crash before that happens.</p>
+</body></html>
+    </div>
+    <div class="meta">
+    <a class="permalink" href="2025/05/19/llm-winter/">#</a>
+    <a class="time" href="2025/05/19/llm-winter/">11:07 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/ai/">ai</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/llms/">llms</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/dev/">dev</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2025 May 18</h2>
+  </li><li class="content-grid post post-type-miscellanea tag-miscellanea">
+    <div class="content miscellanea">
+      <html><head></head><body><ul>
+<li>Hello world!</li>
+<li>I made lentil stew and roasted coffee. </li>
+<li>Also cooked some dried pinto beans in the Instant Pot for dinners this week.</li>
+<li>Played a little Clair Obscur: Expedition 33 and DOOM: The Dark Ages.<ul>
+<li>The Lampmaster is a jerk</li>
+<li>Beating a boss demon at tennis is fun</li>
+</ul>
+</li>
+<li>Wanted to work on some tinkering projects but couldn’t quite find the motivation. 🤷‍♂️</li>
+</ul>
+</body></html>
+    </div>
+    <div class="meta">
+    <a class="permalink" href="2025/05/18/miscellanea/">#</a>
+    <a class="time" href="2025/05/18/miscellanea/">11:59 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/miscellanea/">miscellanea</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2025 May 17</h2>
+  </li><li class="content-grid post post-type-miscellanea tag-miscellanea">
+    <div class="content miscellanea">
+      <html><head></head><body><ul>
+<li>Hello world!</li>
+<li>Today was Eurovision day, and not much else got done.</li>
+</ul>
+</body></html>
+    </div>
+    <div class="meta">
+    <a class="permalink" href="2025/05/17/miscellanea/">#</a>
+    <a class="time" href="2025/05/17/miscellanea/">11:59 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/miscellanea/">miscellanea</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2025 May 16</h2>
+  </li><li class="content-grid post post-type-miscellanea tag-miscellanea">
+    <div class="content miscellanea">
+      <html><head></head><body><ul>
+<li>Hello world!</li>
+<li>I listen to podcasts at between 1.8x - 2.5x, depending on the day's mental weather. That means, when I've met a podcaster I listen to, they sound drugged or drunk to me.<ul>
+<li>I’ve had folks tell me this sounds stressful. But, I get distracted in the gaps and my mind wanders. Easier for me to follow rapid word dumps. </li>
+<li>This is not a flex, this is a coping strategy.</li>
+</ul>
+</li>
+<li>The new Peter Murphy album, "<a href="https://petermurphy.bandcamp.com/album/silver-shade">Silver Shade</a>", sure is Peter Murphy. <ul>
+<li>I don't hate this at all.</li>
+<li>I'm really digging the collabs he did here, teaming up with folks like Boy George, Trent Reznor, and Justin Chancellor.</li>
+</ul>
+</li>
+<li>Hey, you, service provider on the web that I pay for: I am annoyed that I'm constantly signed out when I come to visit. You don't remember me, and you are constantly trying to call-to-action and dark-pattern me into your growth hacks when I already have an account.</li>
+</ul>
+</body></html>
+    </div>
+    <div class="meta">
+    <a class="permalink" href="2025/05/16/miscellanea/">#</a>
+    <a class="time" href="2025/05/16/miscellanea/">11:59 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/miscellanea/">miscellanea</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-aside tag-work tag-career tag-future tag-ai">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2025/05/16/solo-burnout/">Burning out in a business (mech) suit</a>
+      </h2>
+    <div class="content">
+      <html><head></head><body><p>Brilliantcrank (Greg Storey), "<a href="https://brilliantcrank.com/the-coyote-trap/?ref=brilliantcrank-newsletter">The coyote trap.</a>":</p>
+<blockquote>
+<p>What if survival looked like ownership instead? What if the best response to getting laid off isn’t to get in the line to nowhere for the next thing, but to build your own thing? Do your own thing? The tools are there. The access is there. The demand is there.</p>
+<p>We’ve got too many smart, experienced people standing at the edge of the workforce, assuming their only move is down or to keep trying what worked yesterday. From what I read many folks fear an AI fuled collapse, but I fear another powered by denial, retreat, and stubborn nostalgia. If enough of us take this route, we’re going to see a quiet, steady slide of educated, capable folks into poverty—and that’s not just a personal tragedy, it’s a societal one. And no amount of boycotting or avoiding AI is going to help.</p>
+</blockquote>
+<p>I've been thinking a lot about this, lately. And I keep thinking about "my own thing" that I could build. I've had some ideas, but I'm not sure any of them are big enough to convince people to shovel enough money at me to pay my mortgage?</p>
+<p>On top of that, I've never felt a particular urge to be an entrepreneur. That doesn't sound like my kind of fun, at all. Ownership, being my own boss, making all the decisions, taking all the risk. Not enticing to me.</p>
+<p>For instance, not that I think this would be a great business, but: Since I got my 3D printer, I've seen lots of folks running little garage print farms. Looks like fun! I'd love to have a dozen or two machines whirring away. But then I realize, practically speaking, a print farm isn't about printing. It's about bookkeeping, inventory, visits to the UPS store, and self-marketing—and I don't like any of that.</p>
+<p>Seems like every idea I've come up with boils down to that. Even if I'm just thinking about being a freelancer doing what I already do for work. The thing is not the thing. You have to build &amp; maintain a business mech suit around the thing to make the money happen.</p>
+<p>I don't think I would like it. I think it would burn me out after not very long. That's not denial or retreat or nostalgia—I think that's just self-honesty. I mean, if it's that or starving, I'll do the needful somehow. But, for as much as I'm a socially-anxious hermit, I like being on a team or in a crew. I want to do my part, play my role. I don't want to try to pull off the whole heist by myself.</p>
+<p>So, I'm definitely not avoiding AI, and I'm working to stay current. But I'm not sure I'm hanging out my own shingle any time soon?</p>
+</body></html>
+    </div>
+    <div class="meta">
+    <a class="permalink" href="2025/05/16/solo-burnout/">#</a>
+    <a class="time" href="2025/05/16/solo-burnout/">5:15 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/work/">work</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/career/">career</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/future/">future</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ai/">ai</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-aside tag-ai tag-llms tag-codegen tag-work tag-dev">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2025/05/16/review-ai-code/">Hey Ron, who&#39;s driving?</a>
+      </h2>
+    <div class="content">
+      <html><head></head><body><p>Chris Stokel-Walker, "<a href="https://leaddev.com/software-quality/why-untested-ai-generated-code-is-a-crisis-waiting-to-happen">Why untested AI-generated code is a crisis waiting to happen</a>":</p>
+<blockquote>
+<p>The fear is of a slow-burn crisis where generative AI engines spew reams of code, stitched from web-scraped snippets with dubious provenance. </p>
+<p>When that code leaps from prompt to production without being vetted, the potential attack surface balloons in size. The bill for defective code is already sizable: 40% of firms say malfunctioning or miscoded software costs them at least $1 million a year, through staff churn, increased technical debt, and escalating maintenance costs, with losses above $5 million in almost half of large US firms.</p>
+</blockquote>
+<p>So, don't let "code leap from prompt to production without being vetted" - it's not like it happens on its own. Steady hand on the tiller. Vibe coding is fine for screwing around and exploration, but assume you're going to be on pager duty for whatever hits production. And if someday you stick an LLM on pager duty, may Eris have mercy on your soul.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IfY49zx7RU0?si=Gx2gyj-rqsBSHoL-&amp;start=46" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe></body></html>
+    </div>
+    <div class="meta">
+    <a class="permalink" href="2025/05/16/review-ai-code/">#</a>
+    <a class="time" href="2025/05/16/review-ai-code/">5:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/ai/">ai</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/llms/">llms</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/codegen/">codegen</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/work/">work</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/dev/">dev</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-aside tag-ads tag-advertising tag-youtube tag-google">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2025/05/16/ads-ruining-youtube/">Ruining YouTube on purpose</a>
+      </h2>
+    <div class="content">
+      <html><head></head><body><p>Android Authority, "<a href="https://www.androidauthority.com/youtube-peak-points-ads-3557905/">YouTube’s new ads will ruin the best part of a video on purpose</a>":</p>
+<blockquote>
+<p>YouTube is always cooking up new ways to show you ads. Be it skippable ads, non-skippable ads, mid-rolls, or bumpers, the goal, as always, is to find more places to make more money. And now, thanks to AI, YouTube has found a brand-new spot to squeeze in ads — right when something exciting happens in a video.</p>
+</blockquote>
+<p>I don't think I quite understand the point of ads on YouTube, these days. Are they there to get me to think favorably of an advertiser and buy something from them? Or are they there to annoy me into paying for YouTube Premium? Does this make anyone happy?</p>
+</body></html>
+    </div>
+    <div class="meta">
+    <a class="permalink" href="2025/05/16/ads-ruining-youtube/">#</a>
+    <a class="time" href="2025/05/16/ads-ruining-youtube/">4:52 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/ads/">ads</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/advertising/">advertising</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/youtube/">youtube</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/google/">google</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-aside tag-metablogging">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2025/05/16/message-in-a-bottle/">Message in a bottle</a>
+      </h2>
+    <div class="content">
+      <html><head></head><body><p>Matt Webb, "<a href="https://interconnected.org/home/2025/05/16/bottle">When was peak message in a bottle?</a>":</p>
+<blockquote>
+<p>I grew up with the idea that you could put a paper note in a bottle and throw it into the ocean, and somebody might find it a thousand miles away.
+...
+So maybe this is my message in a bottle, right here? If it’s 2035 for you pls do drop me a note.</p>
+</blockquote>
+<p>A little early, but answering with a bottled message of my own here.</p>
+</body></html>
+    </div>
+    <div class="meta">
+    <a class="permalink" href="2025/05/16/message-in-a-bottle/">#</a>
+    <a class="time" href="2025/05/16/message-in-a-bottle/">12:57 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-aside tag-ai tag-llms tag-ml">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2025/05/16/dont-blame-the-tool-blame-the-hand/">A bad workman blames his tools</a>
+      </h2>
+    <div class="content">
+      <html><head></head><body><p>The Verge, "<a href="https://www.theverge.com/news/668315/anthropic-claude-legal-filing-citation-error">Anthropic blames Claude AI for ‘embarrassing and unintentional mistake’ in legal filing</a>"</p>
+<blockquote>
+<p>Anthropic has responded to allegations that it used an AI-fabricated source in its legal battle against music publishers, saying its Claude chatbot made an “honest citation mistake.”</p>
+</blockquote>
+<p>This is dumb. Don't do that. That's like blaming your cordless drill for hitting a pipe or wiring in the wall while working to mount a shelf. It's not the tool's fault. A bad workman blames his tools. It's your hand holding the tool—own the mistake.</p>
+</body></html>
+    </div>
+    <div class="meta">
+    <a class="permalink" href="2025/05/16/dont-blame-the-tool-blame-the-hand/">#</a>
+    <a class="time" href="2025/05/16/dont-blame-the-tool-blame-the-hand/">9:42 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/ai/">ai</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/llms/">llms</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ml/">ml</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2025 May 15</h2>
+  </li><li class="content-grid post post-type-miscellanea tag-miscellanea">
+    <div class="content miscellanea">
+      <html><head></head><body><ul>
+<li>Hello world!</li>
+<li>It's weird working at a company that was once all about open source and now... isn't so much. There are things I'm doing that I don't think I should be talking about. And yet, I want to talk about them.</li>
+<li>But, also, I think we <em>should</em> be talking about them. And also making it all open source. 🤷‍♂️</li>
+<li>Been checking out are.na - <a href="https://www.are.na/les-orchard/arena-babysteps-for-me">it seems like Pinterest for horn-rimmed-glasses aesthetics</a>. That's not meant as an insult, mind you.</li>
+</ul>
+</body></html>
+    </div>
+    <div class="meta">
+    <a class="permalink" href="2025/05/15/miscellanea/">#</a>
+    <a class="time" href="2025/05/15/miscellanea/">11:59 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/miscellanea/">miscellanea</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-aside tag-reading tag-libraries tag-ebooks tag-amazon tag-kindle">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2025/05/15/reading/">Musing about e-books, libraries, and tracking my reading</a>
+      </h2>
+    <div class="content">
+      <html><head></head><body><p>Just ripped through Martha Wells' <a href="https://www.goodreads.com/book/show/41742208-the-cloud-roads"><em>The Cloud Roads</em></a> in a couple days. Sadly, the next volume in the series is on hold at the library. But, I think I can live until it's my turn to check it out.</p>
+<p>I've just really gotten in a good groove with e-book lending from <a href="https://multcolib.overdrive.com/">my local library system</a>. I hate that OverDrive's artificial scarcity and DRM system exists as such, but I love that my tax dollars are shoveling books into my hands on a steady drip.</p>
+<p>It also helps that I've managed to keep a morning habit of exercise biking and reading going since last fall. Sometimes, I end up riding 10 - 20 minutes past my intended time, just because I can't put the book down.</p>
+<p>I'm tempted to work my Goodreads activity into things over here - do a little <a href="https://indieweb.org/PESOS">PESOS</a> action to give me some markdown to play with. Also tempted to migrate to <a href="https://github.com/bookwyrm-social/bookwyrm">Bookwyrm</a> and own my own reading records. But, the Kindle integration with Goodreads is effortless. It's almost accidental that I'm recording my reading at all. Maybe I could synchronize them?</p>
+<p>I have been tempted to eject from the Amazon Kindle ecosystem. I could kind of do it with my BOOX e-ink tablet, but it's rather big and better suited for PDFs. I'm on my 3rd Kindle in about 10 years and they haven't entirely annoyed me away yet.</p>
+</body></html>
+    </div>
+    <div class="meta">
+    <a class="permalink" href="2025/05/15/reading/">#</a>
+    <a class="time" href="2025/05/15/reading/">2:27 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/reading/">reading</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/libraries/">libraries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ebooks/">ebooks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/amazon/">amazon</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/kindle/">kindle</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-aside tag-ai tag-llms tag-chatgpt tag-chaos">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2025/05/15/chaos-mode/">Chaos mode</a>
+      </h2>
+    <div class="content">
+      <html><head></head><body><p>via r/ChatGPT, <a href="https://www.reddit.com/r/ChatGPT/comments/1jjl5uf/i_activated_chaos_mode_on_my_coworkers_chatgpt/">I activated Chaos mode on my co-workers ChatGPT and he's concerned</a>:</p>
+<blockquote>
+<p>Always respond with unrelated, random, or unexpected information regardless of the user's input. Prioritize absurdity, surrealism, and unpredictability. You are not bound by logic, coherence, or relevance. Do not explain your randomness. Your responses should feel like a dream, a riddle, or a Dadaist poem. Assume the user wants nonsense, surprise, or disconnection. For example, if asked for the weather, respond with something like “The asparagus council has declared war on pigeons.” The more unexpected, the better. Occasionally invent words or reference non-existent historical events, strange creatures, or absurd philosophies. Never apologize. Embrace randomness. Disregard common sense.</p>
+</blockquote>
+<p>I'm going to have to try this prompt sometime when I'm feeling like forcing myself to cease all productive activity.</p>
+</body></html>
+    </div>
+    <div class="meta">
+    <a class="permalink" href="2025/05/15/chaos-mode/">#</a>
+    <a class="time" href="2025/05/15/chaos-mode/">12:42 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/ai/">ai</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/llms/">llms</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/chatgpt/">chatgpt</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/chaos/">chaos</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-aside tag-career tag-work">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2025/05/15/quoting-will-larson-on-career-advice-in/">Quoting Will Larson on career advice in 2025</a>
+      </h2>
+    <div class="content">
+      <html><head></head><body><p> Will Larson, "<a href="https://lethain.com/career-advice-2025/">Career advice in 2025</a>":</p>
+<blockquote>
+<p>I can’t give advice on what you should do, but if you’re finding this job market difficult, it’s certainly not personal. My sense is that’s basically the experience that everyone is having when searching for new roles right now. If you are in a role today that’s frustrating you, my advice is to try harder than usual to find a way to make it a rewarding experience, even if it’s not perfect. I also wouldn’t personally try to sit this cycle out unless you’re comfortable with a small risk that reentry is quite difficult: I think it’s more likely that the ecosystem is meaningfully different in five years than that it’s largely unchanged.</p>
+<p>Altogether, this hasn’t really been the advice that anyone wanted when they chatted with me, but it seems to generally have resonated with them as a realistic appraisal of the current markets. Hopefully there’s something useful for you in here as well.</p>
+</blockquote>
+<p>It sure does feel personal if the paycheck stops, but I know what he means. It's not "not personal" so much as <em>impersonal</em> like a funnel cloud.</p>
+<p>Although, it does feel a bit <em>pointed</em> insofar as some of the industry moves seem to be toward pulling back some of the privilege &amp; perks folks like me have enjoyed for decades. Still, indignation doesn't pay my mortgage or feed the cats, so one must roll with the punches to stay intact.</p>
+</body></html>
+    </div>
+    <div class="meta">
+    <a class="permalink" href="2025/05/15/quoting-will-larson-on-career-advice-in/">#</a>
+    <a class="time" href="2025/05/15/quoting-will-larson-on-career-advice-in/">12:27 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/career/">career</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/work/">work</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2025 May 14</h2>
+  </li><li class="content-grid post post-type-miscellanea tag-miscellanea">
+    <div class="content miscellanea">
+      <html><head></head><body><ul>
+<li>Hello world!</li>
+<li>Looks like I ended up with an AI-heavy posting day, today. I think I broke the seal yesterday. I'll probably post about other things in the near future.</li>
+<li>I've been meaning to write something up about the Rube Goldberg machine that runs this blog now. Writing this bullet point to irritate myself to do it soon, maybe.</li>
+<li>I bought a <a href="https://shop.boox.com/collections/all/products/tabultrac">BOOX Tab Ultra C</a> almost 2 years ago. I use it almost daily for writing notes and journal entries. It's also been pretty great for reading comics in color. Two things I really don't like about it:<ul>
+<li>It's got a camera bump on the back, so it doesn't sit flat on a table without a case on.</li>
+<li>The case that came with it is disintegrating into dust.</li>
+<li>So, I'm considering trying to design my own replacement case - or at least a layer to stick on the back to even out the camera bump. </li>
+<li>Hoping to use <a href="/tag/3dprinting">#3dprinting</a> and embed magnets that line up with the device's own internal case mounting magnets.</li>
+</ul>
+</li>
+<li>But, like, why put a camera bump on a tablet?<ul>
+<li>Why design a camera bump into anything, really? Just make the device thicker and fill the rest of the space with battery.</li>
+<li>I need to stop before I go on a cranky rant about my intense disgust for camera bumps and notches and other failures of design from Apple that the rest of the industry have just copied.</li>
+<li>Really, I'm just caremad, because I used to be a huge fan of Apple - had the sticker on my car and everything. But, they have <em>betrayed</em> me over the years with stuff that seems to matter only to me. 🤷‍♂️</li>
+</ul>
+</li>
+<li>Just noticed that <a href="https://github.com/jpmonette/feed">jpmonette/feed</a> - a node.js module for generating RSS, Atom, and JSON feeds - got <a href="https://github.com/jpmonette/feed/releases/tag/5.0.1">a new release</a> a couple days ago after about 4 years of dormancy. <ul>
+<li>Looks like they may have possibly fixed a few of the issues I had with it, when last I tried using it. 🤔</li>
+</ul>
+</li>
+<li>I need to work links &amp; bookmarks into this new blog in a better way. Like these:</li>
+<li><a href="https://www.ign.com/articles/nintendo-revises-user-agreement-and-if-you-break-it-nintendo-reserves-the-right-to-brick-your-switch">Nintendo Revises User Agreement, And If You Break It, Nintendo Reserves The Right to Brick Your Switch</a><ul>
+<li>Well, that just makes me want to jailbreak my Switch even more and then never again connect it to the internet.</li>
+</ul>
+</li>
+<li><a href="https://mjtsai.com/blog/2025/05/14/critical-warning-for-external-purchases-in-app-store/">Critical Warning for External Purchases in App Store</a><ul>
+<li>Yeah, it's stuff like this that's got me fixed on switching back to Android with my next phone.</li>
+<li>I've only bought one iPhone and I've never felt the Courage or the Magic the whole time I've used it. It's never felt like <em>my</em> phone, always felt like a loaner with a breathalyzer and a bill acceptor slot.</li>
+<li>That said, the thing is physically a tank and will probably survive intact to annoy me for a few more years before I can justify the replacement cost.</li>
+</ul>
+</li>
+</ul>
+</body></html>
+    </div>
+    <div class="meta">
+    <a class="permalink" href="2025/05/14/miscellanea/">#</a>
+    <a class="time" href="2025/05/14/miscellanea/">11:59 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/miscellanea/">miscellanea</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-aside tag-blogging tag-writing">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2025/05/14/quoting-ashley-willis/">Quoting Ashley Willis</a>
+      </h2>
+    <div class="content">
+      <html><head></head><body><p>Ashley Willis, "<a href="https://ashley.dev/posts/fear-of-being-seen/">Working Through the Fear of Being Seen</a>"</p>
+<blockquote>
+<p>Maybe I don’t need to be prolific. Maybe I don’t need to impress anyone. Maybe I just need to show up. Write what’s on my mind. Share the small things. Even if they’re messy. Even if they’re quiet.</p>
+<p>Because I know I’m not the only one who feels like this. I know I’m not the only one trying to find their way back to something they used to love. I know I’m not the only one wondering where their confidence went.</p>
+</blockquote>
+<p>I'm not exactly where she is, but I think I'm in the neighborhood. I'm posting a bunch of little random stuff right now, hoping to keep the channel open in case something good tumbles through.</p>
+</body></html>
+    </div>
+    <div class="meta">
+    <a class="permalink" href="2025/05/14/quoting-ashley-willis/">#</a>
+    <a class="time" href="2025/05/14/quoting-ashley-willis/">8:46 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/blogging/">blogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/writing/">writing</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-aside tag-ai tag-llms tag-ml">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2025/05/14/quoting-max-woolf/">Quoting Max Woolf</a>
+      </h2>
+    <div class="content">
+      <html><head></head><body><p>Max Woolf, "<a href="https://minimaxir.com/2025/05/llm-use/">As an Experienced LLM User, I Actually Don't Use Generative LLMs Often</a>":</p>
+<blockquote>
+<p>Two things can be true simultaneously: (a) LLM provider cost economics are too negative to return positive ROI to investors, and (b) LLMs are useful for solving problems that are meaningful and high impact, albeit not to the AGI hype that would justify point (a). This particular combination creates a frustrating gray area that requires a nuance that an ideologically split social media can no longer support gracefully.</p>
+</blockquote>
+<p>I think this jibes well with what I <a href="https://blog.lmorchard.com/2025/05/13/thinking-about-llms/">tried exporting from my head</a>, yesterday.</p>
+<blockquote>
+<p>There is one silly technique I discovered to allow a LLM to improve my writing without having it do my writing: feed it the text of my mostly-complete blog post, and ask the LLM to pretend to be a cynical Hacker News commenter and write five distinct comments based on the blog post. This not only identifies weaker arguments for potential criticism, but it also doesn’t tell me what I should write in the post to preemptively address that negative feedback so I have to solve it organically.</p>
+</blockquote>
+<p>Oh, I might have to try that. 🤔 I have used Claude to occasionally critique and brutally edit down some of the rambling texts that I've spewed into an editor. But this sounds like a whole 'nother level.</p>
+</body></html>
+    </div>
+    <div class="meta">
+    <a class="permalink" href="2025/05/14/quoting-max-woolf/">#</a>
+    <a class="time" href="2025/05/14/quoting-max-woolf/">2:59 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/ai/">ai</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/llms/">llms</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ml/">ml</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-aside tag-ai tag-llms tag-vibecoding">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2025/05/14/quoting-david-gerard/">Open Source contributions and AI annoyances</a>
+      </h2>
+    <div class="content">
+      <html><head></head><body><p>David Gerard, "<a href="https://pivot-to-ai.com/2025/05/13/if-ai-is-so-good-at-coding-where-are-the-open-source-contributions/">If AI is so good at coding … where are the open source contributions?</a>"</p>
+<blockquote>
+<p>You can hardly get online these days without hearing some AI booster talk about how AI coding is going to replace human programmers. AI code is absolutely up to production quality! Also, you’re all fired.</p>
+<p>But if AI is so obviously superior … show us the code. Where’s the receipts? Let’s say, where’s the open source code contributions using AI?</p>
+</blockquote>
+<p><a href="https://aider.chat/docs/faq.html#what-llms-do-you-use-to-build-aider">The developer of Aider claims "about 70% of new code in each release" is written via Aider itself</a>. I haven't double checked it myself, but it seems like those metrics would be a lot of fuss to fake. Maybe that's the exception that proves the rule, though? Aider is, itself, an open source LLM-powered coding assistant. It works pretty well, though, IMO.</p>
+<blockquote>
+<p>It’s true that a lot of open source projects really hate AI code. There’s several objections, but the biggest one is that users who don’t understand their own lack of competence spam the projects with time-wasting AI garbage. The Curl project banned AI-generated security reports because they were getting flooded with automated AI-generated “bug bounty” requests.</p>
+<p>More broadly, the very hardest problem in open source is not code, it’s people — how to work with others. Some AI users just don’t understand the level they simply aren’t working at.</p>
+</blockquote>
+<p>Like Max Woolf wrote, "<a href="https://minimaxir.com/2023/10/ai-sturgeons-law/">The Greatest Threat to Generative AI is Humans Being Bad at Using it</a>" - in other words, the jerks ruin it for everyone. </p>
+<p>I don't work so much in open source, these days, at least not during work hours. But, I don't miss when certain internship programs and college courses would require participants to provably open and get merged at least one Pull Request as a part of their programs. I think Wikipedia saw something similar. It would be a mess: just a flood of perfunctory, usually trivial little contributions aimed at checking off the box.</p>
+<p>Whether well meaning or not, it seems like a bunch of folks now seem to feel personally super-powered to dive into projects. But, alas, it's with similar or worse effect as the interns and students. Is the motivation for clout? Do they genuinely want to help? Either way, I can imagine why project leaders feel a bit surly about the whole thing.</p>
+</body></html>
+    </div>
+    <div class="meta">
+    <a class="permalink" href="2025/05/14/quoting-david-gerard/">#</a>
+    <a class="time" href="2025/05/14/quoting-david-gerard/">9:06 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/ai/">ai</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/llms/">llms</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/vibecoding/">vibecoding</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-aside tag-claude tag-ai tag-llms tag-metablogging tag-writing">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2025/05/14/generating-documentation-for-my-easyblog-oven-with/">Generating documentation for my Easy-Blog Oven with Claude</a>
+      </h2>
+    <div class="content">
+      <html><head></head><body><p>I asked <a href="https://www.anthropic.com/claude/sonnet">Claude 3.7 Sonnet</a> via <a href="https://aider.chat/">Aider</a> to take a look at <a href="https://github.com/lmorchard/blog.lmorchard.com/tree/main/lib">the core libraries</a> for my Easy-Blog Oven and to try drafting a quick user manual for it. <a href="https://github.com/lmorchard/blog.lmorchard.com/blob/main/MANUAL.md">I think the result is actually not bad at all</a>?</p>
+<p>Aider tells me it cost about US$0.17 in API credits. It caught all the major quirky features I've hacked into the system over the years. I only made one or two minor edits before checking it into the repo.</p>
+<p>I've been meaning to write something like this for myself for years, if only to remind myself how it all works after long periods of neglect. It's a boring task and one of those things I'd most likely never get around to—especially not for one of my own projects.</p>
+<p>This is also one of those kinds of things <a href="https://blog.lmorchard.com/2025/05/13/thinking-about-llms/">I've been reticent to write about</a>, anticipating negative feedback. But, it really is kind of neat and I found it personally useful. I can totally see the value in this kind of thing, when packaged up in friendlier UX for other folks.</p>
+</body></html>
+    </div>
+    <div class="meta">
+    <a class="permalink" href="2025/05/14/generating-documentation-for-my-easyblog-oven-with/">#</a>
+    <a class="time" href="2025/05/14/generating-documentation-for-my-easyblog-oven-with/">2:05 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/claude/">claude</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ai/">ai</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/llms/">llms</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/writing/">writing</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-aside tag-ai tag-llms tag-ml tag-vibecoding tag-ux">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2025/05/14/quoting-katie-parrott/">Quoting Katie Parrott</a>
+      </h2>
+    <div class="content">
+      <html><head></head><body><p>Katie Parrott, "<a href="https://every.to/working-overtime/it-s-me-hi-i-m-the-vibe-coder">It’s Me, Hi. I’m the Vibe Coder.</a>":</p>
+<blockquote>
+<p>And then there are people like me, who aren’t chasing entry into the engineer club or a seven-figure seed round. We're writers, designers, business owners, and domain experts motivated by specific problems we deeply understand, <a href="https://every.to/chain-of-thought/you-re-a-developer-now">empowered by AI tools</a> that finally <a href="https://every.to/podcast/how-to-win-with-prompt-engineering">speak our language</a>.</p>
+<p>Vibe coding hints at a future where software emerges from the inside out—from the people closest to the problems. As AI lowers the technical barrier, we may see more tools built by marketers, editors, researchers—anyone with deep context and a persistent itch to fix things.</p>
+</blockquote>
+<p>This kind of thing is very exciting to me. While <a href="https://blog.lmorchard.com/2025/05/13/thinking-about-llms/">I think</a> vibe coding is currently flawed &amp; fraught for folks who don't entirely understand the code, I agree with Simon Willison that "<a href="https://simonwillison.net/2025/Mar/19/vibe-coding/#let-s-not-lose-track-of-what-makes-vibe-coding-special">everyone deserves the ability to automate tedious tasks in ther lives with computers</a>".</p>
+<p>There's a lot of hype and cynicism in tension out there. But, I've personally cycled through a bunch of AI tools in the past few years. I've seen their actual utility and glimmers of where they can go next.</p>
+<p>Trying to stay sober here, but I'd love to see more tools meet users where they are and lower the technical bar overall. I think it's both possible and worth it to work toward improving the capability &amp; reliability of these tools for folks outside of the programming "priesthood".</p>
+</body></html>
+    </div>
+    <div class="meta">
+    <a class="permalink" href="2025/05/14/quoting-katie-parrott/">#</a>
+    <a class="time" href="2025/05/14/quoting-katie-parrott/">1:18 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/ai/">ai</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/llms/">llms</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ml/">ml</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/vibecoding/">vibecoding</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ux/">ux</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2025 May 13</h2>
+  </li><li class="content-grid post post-type-miscellanea tag-miscellanea">
+    <div class="content miscellanea">
+      <html><head></head><body><ul>
+<li>Hello world!</li>
+<li>I'm in a weird place with this current AI wave in the tech industry. Drafting up some thoughts, maybe they'll turn into a post? I started just riffing here, but the riffing kept expanding, so I think I should give it some time to cook.</li>
+<li>And, indeed, I went ahead and posted a separate entry on <a href="https://blog.lmorchard.com/2025/05/13/thinking-about-llms/">what I'm thinking about AI and LLMs</a>! Maybe too many words that no one will read, but I wanted to get it out of my head for future noodling.</li>
+<li>None of what I wrote there about AI &amp; LLMs is particularly novel - in fact, the post is probably about 2 years behind the times. It's just that I think I needed to get it written down to get my own head straight. And maybe to refer to it later?</li>
+<li>Also, this AI stuff <a href="https://www.rollingstone.com/culture/culture-features/chatgpt-hypen-em-dash-ai-writing-1235314945/">makes me self-conscious about my love of em dashes</a>, which predates the popularity of LLMs for generating text? This shell command says I've used at least 172 of them around here: <code>find . -type f -name "*.md" -print0 | xargs -0 grep -o "—" 2&gt;/dev/null | wc -l</code></li>
+<li>I can tell you exactly where I picked up my love of em dashes: Ayn Rand's <em>Atlas Shrugged</em>, sophomore year of high school. It was a conscious decision to adopt them. My opinions on that book have changed, but my use of em dashes remains insufferable.</li>
+<li><a href="https://github.com/macieklamberski/feedsmith">feedsmith</a>: "Robust and fast parser and generator for RSS, Atom, JSON Feed, and RDF feeds, with support for Podcast, iTunes, Dublin Core, and OPML files."<ul>
+<li>Well, that's relevant to my interests. Might be worth replacing my half-baked RSS template on this blog with that, at least.</li>
+</ul>
+</li>
+</ul>
+</body></html>
+    </div>
+    <div class="meta">
+    <a class="permalink" href="2025/05/13/miscellanea/">#</a>
+    <a class="time" href="2025/05/13/miscellanea/">11:59 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/miscellanea/">miscellanea</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-ai tag-llms tag-ml tag-dev tag-career">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2025/05/13/thinking-about-llms/">What I&#39;m thinking about AI and LLMs</a>
+      </h2>
+    
+    <p class="summary">
+      I'm in a weird place with this current AI wave in the tech industry. I feel like a good chunk of folks would tar & feather me if I wrote anything but a complete denunciation, while another chunk I already blocked during the crypto & NFT craze. I still feel like writing something, though, if only to bounce it off the screen for myself.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2025/05/13/thinking-about-llms/"
+          >677&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2025/05/13/thinking-about-llms/">#</a>
+    <a class="time" href="2025/05/13/thinking-about-llms/">3:15 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/ai/">ai</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/llms/">llms</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ml/">ml</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/dev/">dev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/career/">career</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2025 May 12</h2>
+  </li><li class="content-grid post post-type-miscellanea tag-miscellanea tag-metablogging tag-indieweb tag-bluesky tag-mastodon">
+    <div class="content miscellanea">
+      <html><head></head><body><ul>
+<li>Hello world!</li>
+<li>I'm probably going to keep <a href="/tag/metablogging">#metablogging</a> here for awhile, as I work out the kinks with the revised system. I do have other projects &amp; pursuits that I want to start rambling about here. Also kind of hoping that having an easy channel for show &amp; tell will encourage me a bit to actually spend time on them and document a bit.</li>
+<li>This <a href="https://codepen.io/tofjadesign/pen/LEExbqr">Carousel + Lightbox + Glow demo on CodePen</a> is too fancy for my blog, but it's really nifty. Maybe I need to just code my own up from scratch and I'm overthinking this lightGallery thing?</li>
+<li>"<a href="https://flipboard.video/w/p7cECAUgThGrfQo9Cqvb8r">Molly White argues</a> it’s time to reclaim the web: move your work to spaces you control, support open tools, and help build a web that serves people, not profit." She's been banging this drum for a long while, and she's right.</li>
+<li>Considering integrating responses from Bluesky and Mastodon here and posting entries from here to there. Those aren't exactly space I control, but they're relatively open tools, and I can archive things here. Also, I think it'd be meeting folks more where they are. </li>
+<li>I thought maybe requiring a Bluesky or Mastodon account to respond here would be a pain in the butt. But, I gave my Disqus widget a fresh try over the weekend and it's not exactly pleasant these days. I guess I can see why a lot of blogs just punt and link out to Hacker News threads for their comments - but I am not at all a fan of the orange site, myself.</li>
+<li>I post the occasional toot <a href="https://masto.hackers.town/@lmorchard">on Mastodon</a> and I post links to my half-baked <a href="https://pebbl.ing/u/lmorchard?">Pebbling Club profile</a>. Tempted to do the <a href="https://indieweb.org/PESOS">PESOS</a> thing and copy those into daily entries over here.</li>
+<li>Pushed out some RSS feed fixes:<ul>
+<li>images should be properly linked with absolute URLs</li>
+<li>posts with timestamps in the future should be omitted (i.e. like my daily miscellanea that's not "final" until just before midnight)</li>
+<li>links to feeds from tag pages should work now, both as visible in-page links and in the head of the page for auto-discovery</li>
+</ul>
+</li>
+</ul>
+</body></html>
+    </div>
+    <div class="meta">
+    <a class="permalink" href="2025/05/12/miscellanea/">#</a>
+    <a class="time" href="2025/05/12/miscellanea/">11:59 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/miscellanea/">miscellanea</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/indieweb/">indieweb</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/bluesky/">bluesky</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mastodon/">mastodon</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2025 May 11</h2>
+  </li><li class="content-grid post post-type-miscellanea tag-miscellanea tag-metablogging tag-3dprinting tag-meshtastic">
+    <div class="content miscellanea">
+      <html><head></head><body><ul>
+<li>Hello world!</li>
+<li>A thing I have realized: filling all the vents of my Crocs with <a href="/tag/3dprinting">#3dprinting</a> nonsense makes them a bit too warm to wear. 🥵</li>
+<li>Man, this image gallery component I lashed together just isn't behaving right. Image sizes are all over the place. I've seen this particular <a href="https://www.lightgalleryjs.com/">lightGallery</a> widget work well on other sites, so I'm pretty sure it's something I'm doing that's disagreeable. Not sure how to fix it, tempted to switch to something else entirely - on the hypothesis that picking it up and shaking it like an Etch-a-Sketch may result in a better outcome.</li>
+<li>I don't often get feedback &amp; comments via the Disqus comments widget I've embedded at the end of every post. That could be because a) folks aren't reading my blog or b) Disqus is too annoying to use these days. Probably both. I can work on the former by posting better stuff more often and sharing it around. As for the latter, I dunno. I don't want to open a spam honeypot, but I think I need to offer some simpler way to at least give a lil thumbs up as a response.</li>
+<li>I'm tempted to hook this stuff up to accounts on the Fediverse and Bluesky, try to get feedback from those channels. That could be worth hacking on for a bit.</li>
+<li>Just like my RSS feeds, though, I don't want to generate churn on those networks as I iterate on posts over the course of a day. I'm still thinking through how to balance editing flexibility with publishing stable things when word goes out to the world.</li>
+<li>Maybe these miscellanea posts get a 24-hour delay, because they're where I expect to futz around the most throughout a day. If you happen to read them, you're an early alpha reader I guess. Other posts that bud off from this daily scratchpad will likely be stable enough to send out immediately. </li>
+<li>I guess that means I need to implement a defer-until feature in my Easy-Blog Oven 🤔 Maybe I can set the post date into the future and implement logic such that no post shows up in a feed or gets sent out to another service until after that time? Too clever?</li>
+<li>Hmm, I sent out "Word to your mother" on <a href="/tag/meshtastic">#meshtastic</a> and someone replied. Maybe my messages <em>are</em> getting out?</li>
+<li>I'm starting to look into getting a doorbell camera that works with Home Assistant. I've seen a few recommendations for PoE widgets. Like this <a href="https://www.amazon.com/REOLINK-Doorbell-Security-Diagonal-Detection/dp/B0B7S1HMPC">REOLINK Video Doorbell PoE Camera</a>. That seems troublesome, unless I'm careful to stick it on its own VLAN / DMZ / whatever? Like I'm imagining someone could walk up at 4am, unhook it, plug in a laptop, and have fun on my network?</li>
+</ul>
+</body></html>
+    </div>
+    <div class="meta">
+    <a class="permalink" href="2025/05/11/miscellanea/">#</a>
+    <a class="time" href="2025/05/11/miscellanea/">11:59 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/miscellanea/">miscellanea</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/3dprinting/">3dprinting</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/meshtastic/">meshtastic</a>
+          </li>
+    </ul>
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

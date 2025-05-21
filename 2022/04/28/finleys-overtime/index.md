@@ -12,7 +12,7 @@ tags:
 
 <!--more-->
 
-<img src="./cover.png" class="fullwidth" />
+<figure class="wide"><img src="./cover.png" /></figure>
 
 Finley had already been up for 27 hours. They'd taken a pause for a late dinner, but it wasn't a break so much as an opportunity to shovel in food and stare at the imaginary shifting diagrams their brain projected onto the office walls. 
 

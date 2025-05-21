@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>AmphetaDesk and Outlines: Together again - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="AmphetaDesk and Outlines: Together again" />
+    <html>
+      <head>
+        <title>AmphetaDesk and Outlines: Together again - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="AmphetaDesk and Outlines: Together again" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2002/08/05/ooobbf/"
@@ -43,153 +50,285 @@
             property="og:image"
             content="http://www.decafbad.com/mt-images/amphy-outline-skin-sm.jpg"
           />
-        <meta property="og:description" content="Okay, after several comments, emails, IMs, and other encouragement, I stopped adding features and cleaned up a few things in my new AmphetaDesk template and have uploaded a tarball of it:AmphetaOutlines-20020806-2.tar.gzAgain, some highlights:Leaner template code on the server side, leaner HTML on the browser side.Ampheta remembers things about items now, such as # of clicks, age, and # of times seen.Ampheta can act on this memory, sorting and hiding items.Old, stale things tend to go away.Often used &amp; visited things tend to come first.To install this thing:Rename/backup the directory default in the templates directory of your AmphetaDesk installation.Replace that directory with the contents of the above-linked tarball.Create a directory named channels_meta in the data directory of your AmphetaDesk installation.Start AmphetaDesk, and let simmer for a few days to see things start workingThe thing&#39;s still a bit rough around the corners.  To change thresholds and other settings, you&#39;ll need to edit default/index.html directly for now.  I plan to add some fields to the settings page to manage these settings, eventually.  Also, you really want to have the Digest::MD5 perl module installed, but I have included Digest::Perl::MD5 in the template.  This means that things will work, but could be much faster.  As for the outlines, give thanks to Marc Barrot for his activeRenderer package from which I borrowed nearly all of my outline code.  (The only ?JavaScript that&#39;s mine is the expand/collapse all logic.)
+        <meta property="og:description" content="Okay, after several comments, emails, IMs, and other encouragement, I stopped adding features and cleaned up a few things in my new AmphetaDesk template and have uploaded a tarball of it:AmphetaOutlines-20020806-2.tar.gz
+
+Again, some highlights:Leaner template code on the server side, leaner HTML on the browser side.Ampheta remembers things about items now, such as # of clicks, age, and # of times seen.Ampheta can act on this memory, sorting and hiding items.Old, stale things tend to go away.Often used &amp; visited things tend to come first.
+To install this thing:Rename/backup the directory default in the templates directory of your AmphetaDesk installation.Replace that directory with the contents of the above-linked tarball.Create a directory named channels_meta in the data directory of your AmphetaDesk installation.Start AmphetaDesk, and let simmer for a few days to see things start workingThe thing&#39;s still a bit rough around the corners.  To change thresholds and other settings, you&#39;ll need to edit default/index.html directly for now.  I plan to add some fields to the settings page to manage these settings, eventually.  Also, you really want to have the Digest::MD5 perl module installed, but I have included Digest::Perl::MD5 in the template.  This means that things will work, but could be much faster.  As for the outlines, give thanks to Marc Barrot for his activeRenderer package from which I borrowed nearly all of my outline code.  (The only ?JavaScript that&#39;s mine is the expand/collapse all logic.)
 Okay, I&#39;m off to lunch.  Let me know how you like it!
 Update: It appears that some people are having problems with their AmphetaDesk failing to find the custom modules I include with the template.  If you have trouble running the template, try copying the contents of templates/default/lib into the lib/ directory of your AmphetaDesk install.
 Update 2: I think I&#39;ve fixed the showstoppers, as I will write here in the future.  So, I&#39;ve taken the liberty of going back in time and replacing the tarball here with the fixed one in case anyone has linked to this story.  Enjoy!" />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post "
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post "
       >
-        <time
-          title="2002-08-05T21:31:52+00:00"
-          pubdate="2002-08-05T21:31:52+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2002/"
-            >2002</a
+        <header>
+          <time
+            title="2002-08-05T17:31:52-04:00"
+            pubdate="2002-08-05T17:31:52-04:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2002/08/"
-            >August</a
-          >
-          &raquo;
-          <span>05</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="Windows + AmphetaDesk + Outlines + Metadata"
+                href="/blog.lmorchard.com/2002/08/06/ooobbg/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2002/"
+                >2002</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2002/08/"
+                >August</a
+              >
+              &#8226;
+              <span>05</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Well intentioned links drive the herd to stampede"
+                href="/blog.lmorchard.com/2002/08/02/ooobbe/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">AmphetaDesk and Outlines: Together again</h1>
+          
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2002/08/06/ooobbg/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2002/08/02/ooobbe/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
+        <p><a href="http://www.decafbad.com/mt-images/amphy-outline-skin.jpg"><img src="http://www.decafbad.com/mt-images/amphy-outline-skin-sm.jpg" align="right" width="" height=""></a>Okay, after several comments, emails, IMs, and other encouragement, I stopped adding features and cleaned up a few things in <a href="http://www.decafbad.com/news_archives/000223.phtml#000223">my new </a><a href="http://www.decafbad.com/twiki/bin/view/Main/AmphetaDesk">AmphetaDesk</a> template and have uploaded a tarball of it:</p><ul><li><a href="http://www.decafbad.com/gems/AmphetaOutlines-20020806-2.tar.gz">AmphetaOutlines-20020806-2.tar.gz</a></li></ul>
 
-        <h1 class="title">AmphetaDesk and Outlines: Together again</h1>
-        
-        <section class="post-content">
-          <p><a href="http://www.decafbad.com/mt-images/amphy-outline-skin.jpg"><img src="http://www.decafbad.com/mt-images/amphy-outline-skin-sm.jpg" align="right"></a>Okay, after several comments, emails, IMs, and other encouragement, I stopped adding features and cleaned up a few things in <a href="http://www.decafbad.com/news_archives/000223.phtml#000223">my new <a href="http://www.decafbad.com/twiki/bin/view/Main/AmphetaDesk">AmphetaDesk</a> template</a> and have uploaded a tarball of it:<ul><li><a href="http://www.decafbad.com/gems/AmphetaOutlines-20020806-2.tar.gz">AmphetaOutlines-20020806-2.tar.gz</a></li></ul>Again, some highlights:<ul><li>Leaner template code on the server side, leaner HTML on the browser side.</li><li>Ampheta remembers things about items now, such as # of clicks, age, and # of times seen.</li><li>Ampheta can act on this memory, sorting and hiding items.</li><li>Old, stale things tend to go away.</li><li>Often used &amp; visited things tend to come first.</li></ul>To install this thing:<ol><li>Rename/backup the directory <code>default</code> in the <code>templates</code> directory of your <a href="http://www.decafbad.com/twiki/bin/view/Main/AmphetaDesk">AmphetaDesk</a> installation.</li><li>Replace that directory with the contents of the above-linked tarball.</li><li>Create a directory named <code>channels_meta</code> in the <code>data</code> directory of your <a href="http://www.decafbad.com/twiki/bin/view/Main/AmphetaDesk">AmphetaDesk</a> installation.</li><li>Start <a href="http://www.decafbad.com/twiki/bin/view/Main/AmphetaDesk">AmphetaDesk</a>, and let simmer for a few days to see things start working</li></ol>The thing's still a bit rough around the corners.  To change thresholds and other settings, you'll need to edit <code>default/index.html</code> directly for now.  I plan to add some fields to the settings page to manage these settings, eventually.  Also, you really want to have the <code>Digest::MD5</code> perl module installed, but I have included <code>Digest::Perl::MD5</code> in the template.  This means that things will work, but could be much faster.  As for the outlines, give thanks to Marc Barrot for his <a href="http://radio.weblogs.com/0104487/outlines/activeRenderer.html">activeRenderer</a> package from which I borrowed nearly all of my outline code.  (The only <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/JavaScript?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">JavaScript</font></span> that's mine is the expand/collapse all logic.)</p>
+<p>Again, some highlights:</p><ul><li>Leaner template code on the server side, leaner HTML on the browser side.</li><li>Ampheta remembers things about items now, such as # of clicks, age, and # of times seen.</li><li>Ampheta can act on this memory, sorting and hiding items.</li><li>Old, stale things tend to go away.</li><li>Often used &amp; visited things tend to come first.</li></ul><p></p>
+<p>To install this thing:</p><ol><li>Rename/backup the directory <code>default</code> in the <code>templates</code> directory of your <a href="http://www.decafbad.com/twiki/bin/view/Main/AmphetaDesk">AmphetaDesk</a> installation.</li><li>Replace that directory with the contents of the above-linked tarball.</li><li>Create a directory named <code>channels_meta</code> in the <code>data</code> directory of your <a href="http://www.decafbad.com/twiki/bin/view/Main/AmphetaDesk">AmphetaDesk</a> installation.</li><li>Start <a href="http://www.decafbad.com/twiki/bin/view/Main/AmphetaDesk">AmphetaDesk</a>, and let simmer for a few days to see things start working</li></ol>The thing's still a bit rough around the corners.  To change thresholds and other settings, you'll need to edit <code>default/index.html</code> directly for now.  I plan to add some fields to the settings page to manage these settings, eventually.  Also, you really want to have the <code>Digest::MD5</code> perl module installed, but I have included <code>Digest::Perl::MD5</code> in the template.  This means that things will work, but could be much faster.  As for the outlines, give thanks to Marc Barrot for his <a href="http://radio.weblogs.com/0104487/outlines/activeRenderer.html">activeRenderer</a> package from which I borrowed nearly all of my outline code.  (The only <span style="background : [#FFFFCE](/tag/FFFFCE);"><a href="http://www.decafbad.com/twiki/bin/edit/Main/JavaScript?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">JavaScript</font></span> that's mine is the expand/collapse all logic.)<p></p><p></p>
 <p>Okay, I'm off to lunch.  Let me know how you like it!</p>
 <p><b>Update:</b> It appears that some people are having problems with their <a href="http://www.decafbad.com/twiki/bin/view/Main/AmphetaDesk">AmphetaDesk</a> failing to find the custom modules I include with the template.  If you have trouble running the template, try copying the contents of <code>templates/default/lib</code> into the <code>lib/</code> directory of your <a href="http://www.decafbad.com/twiki/bin/view/Main/AmphetaDesk">AmphetaDesk</a> install.</p>
 <p><b>Update 2:</b> I think I've fixed the showstoppers, as I will write <a href="http://www.decafbad.com/news_archives/000228.phtml#000228">here in the future</a>.  So, I've taken the liberty of going back in time and replacing the tarball here with the fixed one in case anyone has linked to this story.  Enjoy!</p>
-<!--more-->
-shortname=ooobbf
 
+
+<!--more-->
+
+
+<p>shortname=ooobbf</p>
 <div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
 <ul class="comments">
 <li class="comment" id="comment-221083576">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.furrygoat.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=53617e52a0ccf29f19c750e312df0f31&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.furrygoat.com">Steve</a>
+<a class="avatar image" rel="nofollow" href="http://www.furrygoat.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=53617e52a0ccf29f19c750e312df0f31&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.furrygoat.com">Steve</a>
 </div>
-<a href="#comment-221083576" class="permalink"><time datetime="2002-08-06T02:42:27">2002-08-06T02:42:27</time></a>
+
+
+<p><a href="#comment-221083576" class="permalink"><time datetime="2002-08-06T02:42:27">2002-08-06T02:42:27</time></a></p>
 </div>
+
+
 <div class="content">Still no go. Been trying to install, get an error: (deleted some text)Can't locate lib.pm in @INC 
 Is lib.pm included someplace? I couldnt seem to find it in the distro.</div>
+
+
 </li>
 <li class="comment" id="comment-221083577">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.disobey.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=7c86a3bdffadc965eb444f588c24a3f3&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.disobey.com">Morbus Iff</a>
+<a class="avatar image" rel="nofollow" href="http://www.disobey.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=7c86a3bdffadc965eb444f588c24a3f3&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.disobey.com">Morbus Iff</a>
 </div>
-<a href="#comment-221083577" class="permalink"><time datetime="2002-08-06T11:41:54">2002-08-06T11:41:54</time></a>
+
+
+<p><a href="#comment-221083577" class="permalink"><time datetime="2002-08-06T11:41:54">2002-08-06T11:41:54</time></a></p>
 </div>
+
+
 <div class="content">Steve,
 Open up your templates/default/index.html file - you should see something in there about "use lib". Simply add a "#" character in front of that line, save the file, and then refresh the page in AmphetaDesk, and that should get you a little further.</div>
+
+
 </li>
 <li class="comment" id="comment-221083579">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.furrygoat.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=53617e52a0ccf29f19c750e312df0f31&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.furrygoat.com">Steve</a>
+<a class="avatar image" rel="nofollow" href="http://www.furrygoat.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=53617e52a0ccf29f19c750e312df0f31&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.furrygoat.com">Steve</a>
 </div>
-<a href="#comment-221083579" class="permalink"><time datetime="2002-08-06T12:54:10">2002-08-06T12:54:10</time></a>
+
+
+<p><a href="#comment-221083579" class="permalink"><time datetime="2002-08-06T12:54:10">2002-08-06T12:54:10</time></a></p>
 </div>
+
+
 <div class="content">Ok, that did it. Comments:
 So far, looks pretty good. What's the official definition of: (S:1 C:0 A:0.00)?</div>
+
+
 </li>
 <li class="comment" id="comment-221083580">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.furrygoat.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=53617e52a0ccf29f19c750e312df0f31&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.furrygoat.com">Steve</a>
+<a class="avatar image" rel="nofollow" href="http://www.furrygoat.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=53617e52a0ccf29f19c750e312df0f31&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.furrygoat.com">Steve</a>
 </div>
-<a href="#comment-221083580" class="permalink"><time datetime="2002-08-06T12:54:19">2002-08-06T12:54:19</time></a>
+
+
+<p><a href="#comment-221083580" class="permalink"><time datetime="2002-08-06T12:54:19">2002-08-06T12:54:19</time></a></p>
 </div>
+
+
 <div class="content">Ok, that did it. 
 So far, looks pretty good. What's the official definition of: (S:1 C:0 A:0.00)?</div>
+
+
 </li>
 <li class="comment" id="comment-221083581">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.decafbad.com">l.m.orchard</a>
+<a class="avatar image" rel="nofollow" href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.decafbad.com">l.m.orchard</a>
 </div>
-<a href="#comment-221083581" class="permalink"><time datetime="2002-08-06T13:52:11">2002-08-06T13:52:11</time></a>
+
+
+<p><a href="#comment-221083581" class="permalink"><time datetime="2002-08-06T13:52:11">2002-08-06T13:52:11</time></a></p>
 </div>
+
+
 <div class="content">I thought I should put a legend somewhere for that, but of course I forgot.  :)  Here's the missing legend:
 S: # of times seen
 C: # of times clicked
 A: Hours since first seen</div>
+
+
 </li>
 </ul>
+
+
 </div>
 
-        </section>
-      </article>
-        </section>
-
-        <footer>
-          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
-        </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
-      </section>
-    </body>
-  </html>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2002/08/06/ooobbg/"
+                >Windows + AmphetaDesk + Outlines + Metadata</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2002/08/02/ooobbe/"
+                >Well intentioned links drive the herd to stampede</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

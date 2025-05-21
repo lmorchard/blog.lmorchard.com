@@ -1,252 +1,392 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>Markdown, Oh the Humanity - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="Markdown, Oh the Humanity" />
+    <html>
+      <head>
+        <title>Markdown, Oh the Humanity - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="Markdown, Oh the Humanity" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2008/05/18/markdown-oh-the-humanity/"
         />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post tag-metabloggingtag-entriestag-markdown"
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post tag-metabloggingtag-entriestag-markdown"
       >
-        <time
-          title="2008-05-18T04:18:09+00:00"
-          pubdate="2008-05-18T04:18:09+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2008/"
-            >2008</a
+        <header>
+          <time
+            title="2008-05-18T00:18:09-04:00"
+            pubdate="2008-05-18T00:18:09-04:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2008/05/"
-            >May</a
-          >
-          &raquo;
-          <span>18</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="Week 3 at Mozilla"
+                href="/blog.lmorchard.com/2008/05/22/week-3-at-mozilla/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2008/"
+                >2008</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2008/05/"
+                >May</a
+              >
+              &#8226;
+              <span>18</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Go Midwest, Young Man!"
+                href="/blog.lmorchard.com/2008/05/14/go-midwest-young-man/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">Markdown, Oh the Humanity</h1>
+          <ul class="tags">
+              <li><a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a></li><li><a href="/blog.lmorchard.com/tag/entries/">entries</a></li><li><a href="/blog.lmorchard.com/tag/markdown/">markdown</a></li>
+            </ul>
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2008/05/23/week-3-at-mozilla/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2008/05/14/go-midwest-young-man/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">Markdown, Oh the Humanity</h1>
-        <ul class="tags">
-            <li>
-                  <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/entries/">entries</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/markdown/">markdown</a>
-                </li>
-          </ul>
-        <section class="post-content">
-          <p>I use <a href="http://daringfireball.net/projects/markdown">Markdown</a> to write for this blog, and I don&#39;t think I could write much online without it.  (Of course, that&#39;s not saying much lately—but nevermind that for now.)</p>
-<p>Although I do appreciate all the effort put toward enhancing <code>&lt;textareas&gt;</code> on the web, I&#39;m not a fan of WYSIWYG writing interfaces.  They hide too much in an effort to make things &quot;easy&quot;—yet, for all that ease, they make me miss <a href="http://en.wikipedia.org/wiki/Wordperfect#Reveal_codes">Reveal Codes</a> in WordPerfect 5.1 for DOS.  Hell, I wish I could write books using <a href="http://daringfireball.net/projects/markdown">Markdown</a> instead of Microsoft Word.  (And, yeah, I know that some O&#39;Reilly authors have written books in <a href="http://perldoc.perl.org/perlpod.html">perlpod</a>—but that&#39;s a bit too far even for me.)</p>
-<p>Anyway, I think the issue is that it really bothers me to compose HTML in the same mental context as writing prose—HTML is too much like code.  Coding and <a href="http://www.merriam-webster.com/dictionary/prosing">prosing</a> are two different modes for me, and I don&#39;t like the constant context-switching thrash.  (And, yes, I&#39;ve just learned today that <a href="http://www.merriam-webster.com/dictionary/prosing">prosing</a> is a word.)</p>
-<p>So, apropos of this, there&#39;s been a <a href="http://www.jerf.org/iri/post/2520">thread</a> in the <a href="http://www.codinghorror.com/blog/archives/001116.html">blogophere</a> lately <a href="http://blog.wired.com/monkeybites/2008/05/a-million-littl.html">naysaying</a> non-HTML, wiki-text, and <a href="http://webseitz.fluxent.com/wiki/SmartAscii">smart-ASCII</a> formats.  They seem to be mostly attacking the idea from a technical perspective, where it&#39;s more like a usability problem to me.</p>
-<p>I don&#39;t see where Jeff Atwood&#39;s &quot;<a href="http://www.codinghorror.com/blog/archives/001116.html">Is HTML a Humane Markup Language?</a>&quot; makes the case for HTML as humane.  As far as I can tell, the inhumanity is that markup schemes are harder to keep track of than HTML.  Yet, there&#39;s a kind of coder macho thing going on there that&#39;s decidedly not humane—i.e. real programmers should be fine with getting their eyes poked by angle brackets on a regular basis.</p>
-<p>Anyway, I do agree that some of these formats are horrendous.  <a href="http://en.wikipedia.org/wiki/Wikipedia:How_to_edit_a_page">Wikipedia markup</a> and <a href="http://www.phpbb.com/community/faq.php?mode=bbcode">BBCode</a> are nasty in particular.  Though, <a href="http://en.wikipedia.org/wiki/Wikipedia:How_to_edit_a_page">Wikipedia markup</a> at least has some semantic purpose beyond HTML.  But, I can&#39;t follow from that to seeing how the whole idea is wrong.  </p>
-<p>I used <a href="http://textile.thresholdstate.com/">Textile</a> for awhile, and then switched to <a href="http://daringfireball.net/projects/markdown">Markdown</a> when it came around.  At this point, I&#39;ve been using <a href="http://daringfireball.net/projects/markdown">Markdown</a> since it came out in 2004.  I now plug <a href="http://daringfireball.net/projects/markdown">Markdown</a> into everything I can where I&#39;ll be doing any writing.  There&#39;s a version of <a href="http://daringfireball.net/projects/markdown">Markdown</a> in just about every language known to the web these days—you can even find <a href="http://attacklab.net/showdown/">Markdown in Javascript</a>.  I write notes to myself in <a href="http://daringfireball.net/projects/markdown">Markdown</a>, even when there&#39;s no URL to view it.  I&#39;ve even used <a href="http://daringfireball.net/projects/markdown">Markdown</a> semi-consciously when writing by hand in a paper journal.</p>
-<p>Perhaps I&#39;ve said too much.  </p>
-<p>Anyway, I&#39;ll expend as many brain cells as it takes to not need to compose raw HTML by hand in the course of writing.  As it happens, I can usually just use <a href="http://daringfireball.net/projects/markdown">Markdown</a>, so those brain cells were spent years ago.  And thus, I feel I&#39;ve saved more brain cells in avoiding coding/<a href="http://www.merriam-webster.com/dictionary/prosing">prosing</a> thrash. So, it could just be personal preference, but I agree with the reasons why <a href="http://c2.com/cgi/wiki?WhyDoesntWikiDoHtml">the original wiki doesn&#39;t use HTML</a>.</p>
+        <p>I use <a href="http://daringfireball.net/projects/markdown">Markdown</a> to write for this blog, and I don't think I could write much online without it.  (Of course, that's not saying much lately—but nevermind that for now.)</p>
+<p>Although I do appreciate all the effort put toward enhancing <code>&lt;textareas&gt;</code> on the web, I'm not a fan of WYSIWYG writing interfaces.  They hide too much in an effort to make things "easy"—yet, for all that ease, they make me miss <a href="http://en.wikipedia.org/wiki/Wordperfect#Reveal_codes">Reveal Codes</a> in WordPerfect 5.1 for DOS.  Hell, I wish I could write books using <a href="http://daringfireball.net/projects/markdown">Markdown</a> instead of Microsoft Word.  (And, yeah, I know that some O'Reilly authors have written books in <a href="http://perldoc.perl.org/perlpod.html">perlpod</a>—but that's a bit too far even for me.)</p>
+<p>Anyway, I think the issue is that it really bothers me to compose HTML in the same mental context as writing prose—HTML is too much like code.  Coding and <a href="http://www.merriam-webster.com/dictionary/prosing">prosing</a> are two different modes for me, and I don't like the constant context-switching thrash.  (And, yes, I've just learned today that <a href="http://www.merriam-webster.com/dictionary/prosing">prosing</a> is a word.)</p>
+<p>So, apropos of this, there's been a <a href="http://www.jerf.org/iri/post/2520">thread</a> in the <a href="http://www.codinghorror.com/blog/archives/001116.html">blogophere</a> lately <a href="http://blog.wired.com/monkeybites/2008/05/a-million-littl.html">naysaying</a> non-HTML, wiki-text, and <a href="http://webseitz.fluxent.com/wiki/SmartAscii">smart-ASCII</a> formats.  They seem to be mostly attacking the idea from a technical perspective, where it's more like a usability problem to me.</p>
+<p>I don't see where Jeff Atwood's "<a href="http://www.codinghorror.com/blog/archives/001116.html">Is HTML a Humane Markup Language?</a>" makes the case for HTML as humane.  As far as I can tell, the inhumanity is that markup schemes are harder to keep track of than HTML.  Yet, there's a kind of coder macho thing going on there that's decidedly not humane—i.e. real programmers should be fine with getting their eyes poked by angle brackets on a regular basis.</p>
+<p>Anyway, I do agree that some of these formats are horrendous.  <a href="http://en.wikipedia.org/wiki/Wikipedia:How_to_edit_a_page">Wikipedia markup</a> and <a href="http://www.phpbb.com/community/faq.php?mode=bbcode">BBCode</a> are nasty in particular.  Though, <a href="http://en.wikipedia.org/wiki/Wikipedia:How_to_edit_a_page">Wikipedia markup</a> at least has some semantic purpose beyond HTML.  But, I can't follow from that to seeing how the whole idea is wrong.  </p>
+<p>I used <a href="http://textile.thresholdstate.com/">Textile</a> for awhile, and then switched to <a href="http://daringfireball.net/projects/markdown">Markdown</a> when it came around.  At this point, I've been using <a href="http://daringfireball.net/projects/markdown">Markdown</a> since it came out in 2004.  I now plug <a href="http://daringfireball.net/projects/markdown">Markdown</a> into everything I can where I'll be doing any writing.  There's a version of <a href="http://daringfireball.net/projects/markdown">Markdown</a> in just about every language known to the web these days—you can even find <a href="http://attacklab.net/showdown/">Markdown in Javascript</a>.  I write notes to myself in <a href="http://daringfireball.net/projects/markdown">Markdown</a>, even when there's no URL to view it.  I've even used <a href="http://daringfireball.net/projects/markdown">Markdown</a> semi-consciously when writing by hand in a paper journal.</p>
+<p>Perhaps I've said too much.  </p>
+<p>Anyway, I'll expend as many brain cells as it takes to not need to compose raw HTML by hand in the course of writing.  As it happens, I can usually just use <a href="http://daringfireball.net/projects/markdown">Markdown</a>, so those brain cells were spent years ago.  And thus, I feel I've saved more brain cells in avoiding coding/<a href="http://www.merriam-webster.com/dictionary/prosing">prosing</a> thrash. So, it could just be personal preference, but I agree with the reasons why <a href="http://c2.com/cgi/wiki?WhyDoesntWikiDoHtml">the original wiki doesn't use HTML</a>.</p>
 <div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
 <ul class="comments">
 <li class="comment" id="comment-221085294">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://megalar.890m.com/blog/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=750dbcc9cc192bfad37a3daa4edf139e&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://megalar.890m.com/blog/">megalar</a>
+<a class="avatar image" rel="nofollow" href="http://megalar.890m.com/blog/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=750dbcc9cc192bfad37a3daa4edf139e&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://megalar.890m.com/blog/">megalar</a>
 </div>
-<a href="#comment-221085294" class="permalink"><time datetime="2008-05-18T22:19:07">2008-05-18T22:19:07</time></a>
+
+
+<p><a href="#comment-221085294" class="permalink"><time datetime="2008-05-18T22:19:07">2008-05-18T22:19:07</time></a></p>
 </div>
+
+
 <div class="content"><p>I couldn't agree more on this dude. As for people like Jeff Atwood... well, pffft. I grow tired of the "real programmers" do this or that mentality and while I'm a regular reader of Coding Horror, I hear alot of that garbage there. Fortunately I have excellent noise filters for my idea factory so it doesn't make much of an impression. 
 peace.</p></div>
+
+
 </li>
 <li class="comment" id="comment-221085296">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://spindrop.us"><img src="http://www.gravatar.com/avatar.php?gravatar_id=dce6951264f7d72429a9964e1756dad3&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://spindrop.us">Dave Dash</a>
+<a class="avatar image" rel="nofollow" href="http://spindrop.us"><img src="http://www.gravatar.com/avatar.php?gravatar_id=dce6951264f7d72429a9964e1756dad3&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://spindrop.us">Dave Dash</a>
 </div>
-<a href="#comment-221085296" class="permalink"><time datetime="2008-05-19T21:54:42">2008-05-19T21:54:42</time></a>
+
+
+<p><a href="#comment-221085296" class="permalink"><time datetime="2008-05-19T21:54:42">2008-05-19T21:54:42</time></a></p>
 </div>
+
+
 <div class="content"><p>I use Markdown everywhere as well.  I am not sure about the technical arguments against it, but personally, it does a lot less damage than wysiwyg.</p>
 <p>In fact, it's nice in that it gives you control without sacrificing readability.</p></div>
+
+
 </li>
 <li class="comment" id="comment-221085297">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://the-inbetween.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=ef9c6d643edd502e1122fd930580119d&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://the-inbetween.com">n0wak</a>
+<a class="avatar image" rel="nofollow" href="http://the-inbetween.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=ef9c6d643edd502e1122fd930580119d&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://the-inbetween.com">n0wak</a>
 </div>
-<a href="#comment-221085297" class="permalink"><time datetime="2008-05-22T19:15:36">2008-05-22T19:15:36</time></a>
+
+
+<p><a href="#comment-221085297" class="permalink"><time datetime="2008-05-22T19:15:36">2008-05-22T19:15:36</time></a></p>
 </div>
+
+
 <div class="content"><p>I dunno, I'm not a fan. By using underscores and brackets, instead of full tags, it has a tendency to break down a lot. Which has, thusly, prompted http://fuckingmarkdown.com/ in frustration.</p>
 <p>It's too clunky and requires as much user involvement to get it working 100% of the time as simple HTML or BBCode. Nothing more frustrating than posting a URL with an underscore in it and having markdown convert those underscores into italics, breaking the whole damned thing.</p></div>
+
+
 </li>
 <li class="comment" id="comment-221085299">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://plasmasturm.org/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=e17949267bbfe21a0fadf1bbf00592b4&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://plasmasturm.org/">Aristotle Pagaltzis</a>
+<a class="avatar image" rel="nofollow" href="http://plasmasturm.org/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=e17949267bbfe21a0fadf1bbf00592b4&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://plasmasturm.org/">Aristotle Pagaltzis</a>
 </div>
-<a href="#comment-221085299" class="permalink"><time datetime="2008-05-23T09:14:33">2008-05-23T09:14:33</time></a>
+
+
+<p><a href="#comment-221085299" class="permalink"><time datetime="2008-05-23T09:14:33">2008-05-23T09:14:33</time></a></p>
 </div>
+
+
 <div class="content"><p>Of course, if you put the URL in angle brackets, Markdown will refrain from touching it at all. Likewise for file- and variable names in backticks. That said, John Gruber has repeatedly said that he considers the underscore issue a bug, and the next release will fix this so internal underscores inside words will not trigger emphasis markup.</p>
 <p>So that particular issue, pain in the bottom as it can on rare occasions be, is easy to work around now and will completely vanish in the future.</p></div>
+
+
 </li>
 <li class="comment" id="comment-221085301">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=1d6eeb33a8d967f618301516bba16521&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="">gavin</a>
+<a class="avatar image" rel="nofollow" href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=1d6eeb33a8d967f618301516bba16521&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="">gavin</a>
 </div>
-<a href="#comment-221085301" class="permalink"><time datetime="2008-06-28T00:53:01">2008-06-28T00:53:01</time></a>
+
+
+<p><a href="#comment-221085301" class="permalink"><time datetime="2008-06-28T00:53:01">2008-06-28T00:53:01</time></a></p>
 </div>
+
+
 <div class="content"><p>Doesn't markdown lack necessary things for being a template engine? (similar to Smarty)</p>
 <p>I mean, <code>${some_variable}</code> to echo a variable, and <code>if/else</code>, and <code>foreach</code> an array?</p>
 <p>Or, do you just use something like PHP's  and use PHP's if/else/foreach?  Or Ruby or Python, etc, I mean.</p></div>
+
+
 </li>
 <li class="comment" id="comment-221085304">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2377f34a68801b861c3e54e1301f0dce&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.decafbad.com">l.m.orchard</a>
+<a class="avatar image" rel="nofollow" href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2377f34a68801b861c3e54e1301f0dce&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.decafbad.com">l.m.orchard</a>
 </div>
-<a href="#comment-221085304" class="permalink"><time datetime="2008-06-29T00:11:21">2008-06-29T00:11:21</time></a>
+
+
+<p><a href="#comment-221085304" class="permalink"><time datetime="2008-06-29T00:11:21">2008-06-29T00:11:21</time></a></p>
 </div>
+
+
 <div class="content"><p>@gavin:  Markdown's not a template engine, it's like wiki text or "smart ASCII"  It's a set of rules allowing users to write in plain text that later gets converted to HTML.  No logic or variables or control structures involved.</p></div>
+
+
 </li>
 <li class="comment" id="comment-221085306">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://blog.unitedheroes.net"><img src="http://www.gravatar.com/avatar.php?gravatar_id=43cf82e91f47d50b616aae028f212dac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://blog.unitedheroes.net">jr</a>
+<a class="avatar image" rel="nofollow" href="http://blog.unitedheroes.net"><img src="http://www.gravatar.com/avatar.php?gravatar_id=43cf82e91f47d50b616aae028f212dac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://blog.unitedheroes.net">jr</a>
 </div>
-<a href="#comment-221085306" class="permalink"><time datetime="2008-06-29T02:18:36">2008-06-29T02:18:36</time></a>
+
+
+<p><a href="#comment-221085306" class="permalink"><time datetime="2008-06-29T02:18:36">2008-06-29T02:18:36</time></a></p>
 </div>
+
+
 <div class="content"><p>Meh. I use HTML because that's my preferred syntax of choice. I have a vested interest in using it because I don't want to learn a "simpler" form that requires me learning something different, solely because it's different and therefore involves learning.</p>
 <p>That's not to say that Markdown, WikiScript, LaTEX, or using in-lined emacs command syntax is any more or less valid than HTML or whatever other syntax someone else has a vested interest in using.</p>
 <p>The only thing that matters is whether or not the output of said syntax methodology is readable with zero effort on my part. </p>
 <p>(Heck, you could code this using straight MIME encoded UNICODE variables for all I care at that point.)</p></div>
+
+
 </li>
 <li class="comment" id="comment-221085309">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://semafour.net/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=b4bc237bed991e960f43a16ca91ce098&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://semafour.net/">Joseph Kern</a>
+<a class="avatar image" rel="nofollow" href="http://semafour.net/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=b4bc237bed991e960f43a16ca91ce098&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://semafour.net/">Joseph Kern</a>
 </div>
-<a href="#comment-221085309" class="permalink"><time datetime="2009-06-18T11:41:08">2009-06-18T11:41:08</time></a>
+
+
+<p><a href="#comment-221085309" class="permalink"><time datetime="2009-06-18T11:41:08">2009-06-18T11:41:08</time></a></p>
 </div>
+
+
 <div class="content"><p>If you wish you could write books in markdown, checkout pandoc. It's a Markdown to html,latex,pdf,etc,etc. converter written in haskell.</p></div>
+
+
 </li>
 <li class="comment" id="comment-221085311">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=7e9254455b1d37dcec07eefa362e5c1a&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="">Simon</a>
+<a class="avatar image" rel="nofollow" href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=7e9254455b1d37dcec07eefa362e5c1a&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="">Simon</a>
 </div>
-<a href="#comment-221085311" class="permalink"><time datetime="2010-01-17T17:32:40">2010-01-17T17:32:40</time></a>
+
+
+<p><a href="#comment-221085311" class="permalink"><time datetime="2010-01-17T17:32:40">2010-01-17T17:32:40</time></a></p>
 </div>
+
+
 <div class="content"><p>I'm new to the markdown languages, and must say there are a plethora of them. Can I ask if you guys are still using markdown or whether you've switched to something else? Also, what think ye of multimarkdown and Pandoc?</p>
 <p>My constant hassle with markdown is it's inability to align images, or am I missing something?</p>
 <p>I totally agree that tags inhibit creative writing. I can hand code HTML/CSS, but I can't write anything decent whilst doing it. The other major pain with tags is that the flow of your original document is crap. Markdown leaves you with a readable document.</p>
 <p>My only difficulty is that I want to take things one step further and use it for all my writing needs. Markdown hasn't seen any development in a while and the missing image manipulation is an issue for me, especially as most blogs contain images.</p>
 <p>I have some 3000 pages of MS Word documents that I need to find another format for so if anyone things any of these markup languages are up to it it would be great to hear.</p>
 <p>sorry for writing so much!</p></div>
+
+
 </li>
 </ul>
+
+
 </div>
 
-        </section>
-      </article>
-        </section>
-
-        <footer>
-          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
-        </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
-      </section>
-    </body>
-  </html>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2008/05/22/week-3-at-mozilla/"
+                >Week 3 at Mozilla</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2008/05/14/go-midwest-young-man/"
+                >Go Midwest, Young Man!</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

@@ -1,842 +1,1363 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>2006/02 - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>2006/02 - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Month: 2006/02</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post "
-          >
-            <time class="date" datetime="2006-02-27T04:25:10+00:00">
-              2006
-              February
-              27
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/27/the-opml-editor-means-getting-things-blogged/">
-              <span class="infoContainer">
-                <span class="title">The OPML Editor means Getting Things Blogged</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-25T05:20:18+00:00">
-              2006
-              February
-              25
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/25/more-on-the-blogosphere-as-a-tuple-space/">
-              <span class="infoContainer">
-                <span class="title">More on the blogosphere as a tuple space</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post has-thumb tag-asides"
-          >
-            <time class="date" datetime="2006-02-25T05:17:08+00:00">
-              2006
-              February
-              25
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/25/tweaked-the-squelch-on-my-outboard-brains/">
-              <span class="infoContainer">
-                <span class="title">Tweaked the squelch on my outboard brains</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://static.userland.com/shortcuts/images/qbullets/sidesmiley.gif" />
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-25T05:16:37+00:00">
-              2006
-              February
-              25
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/25/galactic-busboy/">
-              <span class="infoContainer">
-                <span class="title">Galactic busboy</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-24T12:20:54+00:00">
-              2006
-              February
-              24
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/24/just-say-no-to-validation-porn-says-ben/">
-              <span class="infoContainer">
-                <span class="title">Just say no to validation porn, says Ben</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-23T16:55:31+00:00">
-              2006
-              February
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/23/instant-outline-as-plan/">
-              <span class="infoContainer">
-                <span class="title">Instant Outline as .plan</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2006-02-23T16:40:53+00:00">
-              2006
-              February
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/23/plan/">
-              <span class="infoContainer">
-                <span class="title">.plan</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-23T13:15:15+00:00">
-              2006
-              February
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/23/opml-to-xoxo-to-technorati-favorites-2/">
-              <span class="infoContainer">
-                <span class="title">OPML to XOXO to Technorati Favorites</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-21T19:04:16+00:00">
-              2006
-              February
-              21
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/21/hello-to-dr-steve-2/">
-              <span class="infoContainer">
-                <span class="title">Hello to Dr. Steve!</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-20T18:58:39+00:00">
-              2006
-              February
-              20
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/20/bookmarking-styles-of-the-rich-and-famous/">
-              <span class="infoContainer">
-                <span class="title">Bookmarking-styles of the rich and famous</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-20T18:58:16+00:00">
-              2006
-              February
-              20
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/20/shaun-of-the-dead/">
-              <span class="infoContainer">
-                <span class="title">Praxis is not just a Klingon moon</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-20T18:58:15+00:00">
-              2006
-              February
-              20
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/20/opml-community-server-in-php/">
-              <span class="infoContainer">
-                <span class="title">OPML Community Server in PHP</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-17T20:46:03+00:00">
-              2006
-              February
-              17
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/17/handedness-guis-and-outliners/">
-              <span class="infoContainer">
-                <span class="title">Handedness, GUIs, and Outliners</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-17T20:45:59+00:00">
-              2006
-              February
-              17
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/17/return-of-the-bluetooth-ghost/">
-              <span class="infoContainer">
-                <span class="title">Return of the Bluetooth Ghost</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-17T20:45:53+00:00">
-              2006
-              February
-              17
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/17/a-pair-of-podcast-nods/">
-              <span class="infoContainer">
-                <span class="title">A pair of podcast nods</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-17T13:06:35+00:00">
-              2006
-              February
-              17
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/17/three-guys-are-having-lunch/">
-              <span class="infoContainer">
-                <span class="title">Three guys are having lunch</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-17T04:27:19+00:00">
-              2006
-              February
-              17
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/17/just-put-on-your-xoxo-colored-glasses/">
-              <span class="infoContainer">
-                <span class="title">Just put on your XOXO-colored glasses</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-16T15:37:18+00:00">
-              2006
-              February
-              16
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/16/jabbering-about-2002-all-over-again/">
-              <span class="infoContainer">
-                <span class="title">Jabbering about 2002 all over again</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-16T15:29:32+00:00">
-              2006
-              February
-              16
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/16/the-opml-editor-is-open-source/">
-              <span class="infoContainer">
-                <span class="title">The OPML Editor is Open Source</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-16T04:34:57+00:00">
-              2006
-              February
-              16
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/16/asides-from-an-alternate-universe/">
-              <span class="infoContainer">
-                <span class="title">Asides from an alternate universe</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-15T04:29:41+00:00">
-              2006
-              February
-              15
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/15/pre-sleep-bullet-points/">
-              <span class="infoContainer">
-                <span class="title">Pre-sleep bullet points</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-14T18:34:15+00:00">
-              2006
-              February
-              14
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/14/got-myself-a-new-cellphone-2/">
-              <span class="infoContainer">
-                <span class="title">Got myself a new cellphone</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-14T05:49:39+00:00">
-              2006
-              February
-              14
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/14/evening-whiskey-notes/">
-              <span class="infoContainer">
-                <span class="title">Evening Whiskey Notes</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-13T21:39:49+00:00">
-              2006
-              February
-              13
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/13/morning-oatmeal-notes/">
-              <span class="infoContainer">
-                <span class="title">Morning Oatmeal Notes</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-13T19:48:55+00:00">
-              2006
-              February
-              13
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/13/wordpress-tool-working-in-opml-editor/">
-              <span class="infoContainer">
-                <span class="title">WordPress tool working in OPML Editor</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-13T18:55:30+00:00">
-              2006
-              February
-              13
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/13/the-blogosphere-is-even-more-like-a-tuple-space/">
-              <span class="infoContainer">
-                <span class="title">The blogosphere is even more like a tuple space</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-metablogging tag-webdev tag-rss tag-syndication tag-xoxo tag-microformats tag-opml tag-podcasting tag-rdf tag-semweb"
-          >
-            <time class="date" datetime="2006-02-13T17:09:08+00:00">
-              2006
-              February
-              13
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/13/reading-lists-opml-xoxo-semantic-web-and-tools/">
-              <span class="infoContainer">
-                <span class="title">Reading Lists, OPML, XOXO, Semantic Web, and Tools</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-13T04:53:54+00:00">
-              2006
-              February
-              13
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/13/audio-comments-via-odeo-delicious/">
-              <span class="infoContainer">
-                <span class="title">Audio comments via Odeo + del.icio.us</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-13T04:53:23+00:00">
-              2006
-              February
-              13
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/13/radioio-rocks-on-the-xbox/">
-              <span class="infoContainer">
-                <span class="title">radioio rocks on the xbox</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-13T04:52:58+00:00">
-              2006
-              February
-              13
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/13/scuttle-is-nifty/">
-              <span class="infoContainer">
-                <span class="title">Scuttle is nifty</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-13T04:52:44+00:00">
-              2006
-              February
-              13
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/13/ipod-routing-via-delicious-in-firefox/">
-              <span class="infoContainer">
-                <span class="title">iPod routing via del.icio.us in Firefox</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-13T04:52:22+00:00">
-              2006
-              February
-              13
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/13/i-have-a-lastfm-account/">
-              <span class="infoContainer">
-                <span class="title">I have a last.fm account</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-13T04:51:59+00:00">
-              2006
-              February
-              13
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/13/quantum-opml-flux/">
-              <span class="infoContainer">
-                <span class="title">Quantum OPML flux</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-13T04:51:39+00:00">
-              2006
-              February
-              13
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/13/i-like-the-sun/">
-              <span class="infoContainer">
-                <span class="title">I like the sun.</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-12T05:45:39+00:00">
-              2006
-              February
-              12
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/12/further-work-on-decafbadnewsriver/">
-              <span class="infoContainer">
-                <span class="title">Further work on decafbadNewsRiver</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-12T05:44:38+00:00">
-              2006
-              February
-              12
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/12/all-quiet-on-the-irc-front/">
-              <span class="infoContainer">
-                <span class="title">All quiet on the IRC front</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-12T05:44:10+00:00">
-              2006
-              February
-              12
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/12/cocomment-for-cocommenters-only/">
-              <span class="infoContainer">
-                <span class="title">coComment for coCommenters only?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-12T05:42:31+00:00">
-              2006
-              February
-              12
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/12/getting-reoriented-with-the-opml-editor/">
-              <span class="infoContainer">
-                <span class="title">Getting reoriented with the OPML Editor</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-writing tag-podcasting tag-copyfight tag-drm tag-longtail tag-creative tag-creativity tag-future"
-          >
-            <time class="date" datetime="2006-02-09T20:17:09+00:00">
-              2006
-              February
-              09
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/09/a-long-tailed-creative-yawp/">
-              <span class="infoContainer">
-                <span class="title">A Long-Tailed Creative Yawp</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-links tag-asides tag-metablogging tag-delicious tag-ajax tag-feedmagick tag-geegaws"
-          >
-            <time class="date" datetime="2006-02-09T15:49:42+00:00">
-              2006
-              February
-              09
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/09/pulling-the-linkmobile-back-into-the-garage/">
-              <span class="infoContainer">
-                <span class="title">Pulling the Linkmobile back into the garage</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-links"
-          >
-            <time class="date" datetime="2006-02-09T05:22:38+00:00">
-              2006
-              February
-              09
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/09/links-for-2006-02-09/">
-              <span class="infoContainer">
-                <span class="title">links for 2006-02-09</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-links"
-          >
-            <time class="date" datetime="2006-02-08T05:22:59+00:00">
-              2006
-              February
-              08
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/08/links-for-2006-02-08/">
-              <span class="infoContainer">
-                <span class="title">links for 2006-02-08</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides"
-          >
-            <time class="date" datetime="2006-02-07T14:50:38+00:00">
-              2006
-              February
-              07
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/07/hows-my-link-driving/">
-              <span class="infoContainer">
-                <span class="title">How&#39;s my (link) driving?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post has-thumb tag-asides"
-          >
-            <time class="date" datetime="2006-02-07T14:40:42+00:00">
-              2006
-              February
-              07
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/07/reading-lists-for-auto-shows/">
-              <span class="infoContainer">
-                <span class="title">Reading lists for Auto Shows</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://decafbad.com/images/icon_opml.gif" />
-          </li><li
-            class="post tag-links"
-          >
-            <time class="date" datetime="2006-02-07T05:21:22+00:00">
-              2006
-              February
-              07
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/07/links-for-2006-02-07/">
-              <span class="infoContainer">
-                <span class="title">links for 2006-02-07</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-links"
-          >
-            <time class="date" datetime="2006-02-06T05:26:53+00:00">
-              2006
-              February
-              06
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/06/links-for-2006-02-06/">
-              <span class="infoContainer">
-                <span class="title">links for 2006-02-06</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-links"
-          >
-            <time class="date" datetime="2006-02-05T05:29:33+00:00">
-              2006
-              February
-              05
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/05/links-for-2006-02-05/">
-              <span class="infoContainer">
-                <span class="title">links for 2006-02-05</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-links"
-          >
-            <time class="date" datetime="2006-02-04T05:23:41+00:00">
-              2006
-              February
-              04
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/04/links-for-2006-02-04/">
-              <span class="infoContainer">
-                <span class="title">links for 2006-02-04</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-links"
-          >
-            <time class="date" datetime="2006-02-03T05:27:50+00:00">
-              2006
-              February
-              03
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/03/links-for-2006-02-03/">
-              <span class="infoContainer">
-                <span class="title">links for 2006-02-03</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-links"
-          >
-            <time class="date" datetime="2006-02-02T05:32:04+00:00">
-              2006
-              February
-              02
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/02/links-for-2006-02-02/">
-              <span class="infoContainer">
-                <span class="title">links for 2006-02-02</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-links"
-          >
-            <time class="date" datetime="2006-02-01T05:26:16+00:00">
-              2006
-              February
-              01
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/02/01/links-for-2006-02-01/">
-              <span class="infoContainer">
-                <span class="title">links for 2006-02-01</span>
-              </span>
-            </a>
-            
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Month: 2006/02</h2>
+        </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2006 February 26</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/26/the-opml-editor-means-getting-things-blogged/">The OPML Editor means Getting Things Blogged</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/26/the-opml-editor-means-getting-things-blogged/"
+          >272&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/26/the-opml-editor-means-getting-things-blogged/">#</a>
+    <a class="time" href="2006/02/26/the-opml-editor-means-getting-things-blogged/">11:25 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 February 25</h2>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/25/more-on-the-blogosphere-as-a-tuple-space/">More on the blogosphere as a tuple space</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/25/more-on-the-blogosphere-as-a-tuple-space/"
+          >262&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/25/more-on-the-blogosphere-as-a-tuple-space/">#</a>
+    <a class="time" href="2006/02/25/more-on-the-blogosphere-as-a-tuple-space/">12:20 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
           </li>
     </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry has-thumb tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/25/tweaked-the-squelch-on-my-outboard-brains/">Tweaked the squelch on my outboard brains</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://static.userland.com/shortcuts/images/qbullets/sidesmiley.gif" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/25/tweaked-the-squelch-on-my-outboard-brains/"
+          >352&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/25/tweaked-the-squelch-on-my-outboard-brains/">#</a>
+    <a class="time" href="2006/02/25/tweaked-the-squelch-on-my-outboard-brains/">12:17 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/25/galactic-busboy/">Galactic busboy</a>
+      </h2>
     
-  </section>
-      </section>
-        </section>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/25/galactic-busboy/"
+          >132&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/25/galactic-busboy/">#</a>
+    <a class="time" href="2006/02/25/galactic-busboy/">12:16 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 February 24</h2>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/24/just-say-no-to-validation-porn-says-ben/">Just say no to validation porn, says Ben</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/24/just-say-no-to-validation-porn-says-ben/"
+          >838&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/24/just-say-no-to-validation-porn-says-ben/">#</a>
+    <a class="time" href="2006/02/24/just-say-no-to-validation-porn-says-ben/">7:20 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 February 23</h2>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/23/instant-outline-as-plan/">Instant Outline as .plan</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/23/instant-outline-as-plan/"
+          >84&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/23/instant-outline-as-plan/">#</a>
+    <a class="time" href="2006/02/23/instant-outline-as-plan/">11:55 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/23/plan/">.plan</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/23/plan/"
+          >61&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/23/plan/">#</a>
+    <a class="time" href="2006/02/23/plan/">11:40 am</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/23/opml-to-xoxo-to-technorati-favorites-2/">OPML to XOXO to Technorati Favorites</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/23/opml-to-xoxo-to-technorati-favorites-2/"
+          >133&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/23/opml-to-xoxo-to-technorati-favorites-2/">#</a>
+    <a class="time" href="2006/02/23/opml-to-xoxo-to-technorati-favorites-2/">8:15 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 February 21</h2>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/21/hello-to-dr-steve-2/">Hello to Dr. Steve!</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/21/hello-to-dr-steve-2/"
+          >50&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/21/hello-to-dr-steve-2/">#</a>
+    <a class="time" href="2006/02/21/hello-to-dr-steve-2/">2:04 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 February 20</h2>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/20/bookmarking-styles-of-the-rich-and-famous/">Bookmarking-styles of the rich and famous</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/20/bookmarking-styles-of-the-rich-and-famous/"
+          >467&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/20/bookmarking-styles-of-the-rich-and-famous/">#</a>
+    <a class="time" href="2006/02/20/bookmarking-styles-of-the-rich-and-famous/">1:58 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/20/shaun-of-the-dead/">Praxis is not just a Klingon moon</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/20/shaun-of-the-dead/"
+          >112&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/20/shaun-of-the-dead/">#</a>
+    <a class="time" href="2006/02/20/shaun-of-the-dead/">1:58 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/20/opml-community-server-in-php/">OPML Community Server in PHP</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/20/opml-community-server-in-php/"
+          >121&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/20/opml-community-server-in-php/">#</a>
+    <a class="time" href="2006/02/20/opml-community-server-in-php/">1:58 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 February 17</h2>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/17/handedness-guis-and-outliners/">Handedness, GUIs, and Outliners</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/17/handedness-guis-and-outliners/"
+          >365&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/17/handedness-guis-and-outliners/">#</a>
+    <a class="time" href="2006/02/17/handedness-guis-and-outliners/">3:46 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/17/return-of-the-bluetooth-ghost/">Return of the Bluetooth Ghost</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/17/return-of-the-bluetooth-ghost/"
+          >165&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/17/return-of-the-bluetooth-ghost/">#</a>
+    <a class="time" href="2006/02/17/return-of-the-bluetooth-ghost/">3:45 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/17/a-pair-of-podcast-nods/">A pair of podcast nods</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/17/a-pair-of-podcast-nods/"
+          >86&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/17/a-pair-of-podcast-nods/">#</a>
+    <a class="time" href="2006/02/17/a-pair-of-podcast-nods/">3:45 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/17/three-guys-are-having-lunch/">Three guys are having lunch</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/17/three-guys-are-having-lunch/"
+          >339&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/17/three-guys-are-having-lunch/">#</a>
+    <a class="time" href="2006/02/17/three-guys-are-having-lunch/">8:06 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 February 16</h2>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/16/just-put-on-your-xoxo-colored-glasses/">Just put on your XOXO-colored glasses</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/16/just-put-on-your-xoxo-colored-glasses/"
+          >420&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/16/just-put-on-your-xoxo-colored-glasses/">#</a>
+    <a class="time" href="2006/02/16/just-put-on-your-xoxo-colored-glasses/">11:27 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/16/jabbering-about-2002-all-over-again/">Jabbering about 2002 all over again</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/16/jabbering-about-2002-all-over-again/"
+          >116&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/16/jabbering-about-2002-all-over-again/">#</a>
+    <a class="time" href="2006/02/16/jabbering-about-2002-all-over-again/">10:37 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/16/the-opml-editor-is-open-source/">The OPML Editor is Open Source</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/16/the-opml-editor-is-open-source/"
+          >190&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/16/the-opml-editor-is-open-source/">#</a>
+    <a class="time" href="2006/02/16/the-opml-editor-is-open-source/">10:29 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 February 15</h2>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/15/asides-from-an-alternate-universe/">Asides from an alternate universe</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/15/asides-from-an-alternate-universe/"
+          >391&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/15/asides-from-an-alternate-universe/">#</a>
+    <a class="time" href="2006/02/15/asides-from-an-alternate-universe/">11:34 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 February 14</h2>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/14/pre-sleep-bullet-points/">Pre-sleep bullet points</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/14/pre-sleep-bullet-points/"
+          >217&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/14/pre-sleep-bullet-points/">#</a>
+    <a class="time" href="2006/02/14/pre-sleep-bullet-points/">11:29 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/14/got-myself-a-new-cellphone-2/">Got myself a new cellphone</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/14/got-myself-a-new-cellphone-2/"
+          >238&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/14/got-myself-a-new-cellphone-2/">#</a>
+    <a class="time" href="2006/02/14/got-myself-a-new-cellphone-2/">1:34 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/14/evening-whiskey-notes/">Evening Whiskey Notes</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/14/evening-whiskey-notes/"
+          >173&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/14/evening-whiskey-notes/">#</a>
+    <a class="time" href="2006/02/14/evening-whiskey-notes/">12:49 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 February 13</h2>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/13/morning-oatmeal-notes/">Morning Oatmeal Notes</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/13/morning-oatmeal-notes/"
+          >500&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/13/morning-oatmeal-notes/">#</a>
+    <a class="time" href="2006/02/13/morning-oatmeal-notes/">4:39 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/13/wordpress-tool-working-in-opml-editor/">WordPress tool working in OPML Editor</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/13/wordpress-tool-working-in-opml-editor/"
+          >147&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/13/wordpress-tool-working-in-opml-editor/">#</a>
+    <a class="time" href="2006/02/13/wordpress-tool-working-in-opml-editor/">2:48 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/13/the-blogosphere-is-even-more-like-a-tuple-space/">The blogosphere is even more like a tuple space</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/13/the-blogosphere-is-even-more-like-a-tuple-space/"
+          >390&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/13/the-blogosphere-is-even-more-like-a-tuple-space/">#</a>
+    <a class="time" href="2006/02/13/the-blogosphere-is-even-more-like-a-tuple-space/">1:55 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-metablogging tag-webdev tag-rss tag-syndication tag-xoxo tag-microformats tag-opml tag-podcasting tag-rdf tag-semweb">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/13/reading-lists-opml-xoxo-semantic-web-and-tools/">Reading Lists, OPML, XOXO, Semantic Web, and Tools</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/13/reading-lists-opml-xoxo-semantic-web-and-tools/"
+          >935&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/13/reading-lists-opml-xoxo-semantic-web-and-tools/">#</a>
+    <a class="time" href="2006/02/13/reading-lists-opml-xoxo-semantic-web-and-tools/">12:09 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/rss/">rss</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xoxo/">xoxo</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/microformats/">microformats</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/opml/">opml</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/podcasting/">podcasting</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/rdf/">rdf</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/semweb/">semweb</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 February 12</h2>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/12/audio-comments-via-odeo-delicious/">Audio comments via Odeo + del.icio.us</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/12/audio-comments-via-odeo-delicious/"
+          >23&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/12/audio-comments-via-odeo-delicious/">#</a>
+    <a class="time" href="2006/02/12/audio-comments-via-odeo-delicious/">11:53 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/12/radioio-rocks-on-the-xbox/">radioio rocks on the xbox</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/12/radioio-rocks-on-the-xbox/"
+          >334&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/12/radioio-rocks-on-the-xbox/">#</a>
+    <a class="time" href="2006/02/12/radioio-rocks-on-the-xbox/">11:53 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/12/scuttle-is-nifty/">Scuttle is nifty</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/12/scuttle-is-nifty/"
+          >221&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/12/scuttle-is-nifty/">#</a>
+    <a class="time" href="2006/02/12/scuttle-is-nifty/">11:52 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/12/ipod-routing-via-delicious-in-firefox/">iPod routing via del.icio.us in Firefox</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/12/ipod-routing-via-delicious-in-firefox/"
+          >79&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/12/ipod-routing-via-delicious-in-firefox/">#</a>
+    <a class="time" href="2006/02/12/ipod-routing-via-delicious-in-firefox/">11:52 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/12/i-have-a-lastfm-account/">I have a last.fm account</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/12/i-have-a-lastfm-account/"
+          >57&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/12/i-have-a-lastfm-account/">#</a>
+    <a class="time" href="2006/02/12/i-have-a-lastfm-account/">11:52 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/12/quantum-opml-flux/">Quantum OPML flux</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/12/quantum-opml-flux/"
+          >35&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/12/quantum-opml-flux/">#</a>
+    <a class="time" href="2006/02/12/quantum-opml-flux/">11:51 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/12/i-like-the-sun/">I like the sun.</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/12/i-like-the-sun/"
+          >152&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/12/i-like-the-sun/">#</a>
+    <a class="time" href="2006/02/12/i-like-the-sun/">11:51 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/12/further-work-on-decafbadnewsriver/">Further work on decafbadNewsRiver</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/12/further-work-on-decafbadnewsriver/"
+          >357&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/12/further-work-on-decafbadnewsriver/">#</a>
+    <a class="time" href="2006/02/12/further-work-on-decafbadnewsriver/">12:45 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/12/all-quiet-on-the-irc-front/">All quiet on the IRC front</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/12/all-quiet-on-the-irc-front/"
+          >121&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/12/all-quiet-on-the-irc-front/">#</a>
+    <a class="time" href="2006/02/12/all-quiet-on-the-irc-front/">12:44 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/12/cocomment-for-cocommenters-only/">coComment for coCommenters only?</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/12/cocomment-for-cocommenters-only/"
+          >296&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/12/cocomment-for-cocommenters-only/">#</a>
+    <a class="time" href="2006/02/12/cocomment-for-cocommenters-only/">12:44 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/12/getting-reoriented-with-the-opml-editor/">Getting reoriented with the OPML Editor</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/12/getting-reoriented-with-the-opml-editor/"
+          >331&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/12/getting-reoriented-with-the-opml-editor/">#</a>
+    <a class="time" href="2006/02/12/getting-reoriented-with-the-opml-editor/">12:42 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 February 09</h2>
+  </li><li class="content-grid post post-type-entry tag-writing tag-podcasting tag-copyfight tag-drm tag-longtail tag-creative tag-creativity tag-future">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/09/a-long-tailed-creative-yawp/">A Long-Tailed Creative Yawp</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/09/a-long-tailed-creative-yawp/"
+          >1340&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/09/a-long-tailed-creative-yawp/">#</a>
+    <a class="time" href="2006/02/09/a-long-tailed-creative-yawp/">3:17 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/writing/">writing</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/podcasting/">podcasting</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/copyfight/">copyfight</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/drm/">drm</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/longtail/">longtail</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/creative/">creative</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/creativity/">creativity</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/future/">future</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-links tag-asides tag-metablogging tag-delicious tag-ajax tag-feedmagick tag-geegaws">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/09/pulling-the-linkmobile-back-into-the-garage/">Pulling the Linkmobile back into the garage</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/09/pulling-the-linkmobile-back-into-the-garage/"
+          >191&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/09/pulling-the-linkmobile-back-into-the-garage/">#</a>
+    <a class="time" href="2006/02/09/pulling-the-linkmobile-back-into-the-garage/">10:49 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/links/">links</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/delicious/">delicious</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ajax/">ajax</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/feedmagick/">feedmagick</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/geegaws/">geegaws</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-links">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/09/links-for-2006-02-09/">links for 2006-02-09</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/09/links-for-2006-02-09/"
+          >870&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/09/links-for-2006-02-09/">#</a>
+    <a class="time" href="2006/02/09/links-for-2006-02-09/">12:22 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/links/">links</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 February 08</h2>
+  </li><li class="content-grid post post-type-entry tag-links">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/08/links-for-2006-02-08/">links for 2006-02-08</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/08/links-for-2006-02-08/"
+          >529&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/08/links-for-2006-02-08/">#</a>
+    <a class="time" href="2006/02/08/links-for-2006-02-08/">12:22 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/links/">links</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 February 07</h2>
+  </li><li class="content-grid post post-type-entry tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/07/hows-my-link-driving/">How&#39;s my (link) driving?</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/07/hows-my-link-driving/"
+          >633&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/07/hows-my-link-driving/">#</a>
+    <a class="time" href="2006/02/07/hows-my-link-driving/">9:50 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry has-thumb tag-asides">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/07/reading-lists-for-auto-shows/">Reading lists for Auto Shows</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://decafbad.com/images/icon_opml.gif" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/07/reading-lists-for-auto-shows/"
+          >137&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/07/reading-lists-for-auto-shows/">#</a>
+    <a class="time" href="2006/02/07/reading-lists-for-auto-shows/">9:40 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-links">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/07/links-for-2006-02-07/">links for 2006-02-07</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/07/links-for-2006-02-07/"
+          >518&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/07/links-for-2006-02-07/">#</a>
+    <a class="time" href="2006/02/07/links-for-2006-02-07/">12:21 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/links/">links</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 February 06</h2>
+  </li><li class="content-grid post post-type-entry tag-links">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/06/links-for-2006-02-06/">links for 2006-02-06</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/06/links-for-2006-02-06/"
+          >651&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/06/links-for-2006-02-06/">#</a>
+    <a class="time" href="2006/02/06/links-for-2006-02-06/">12:26 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/links/">links</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 February 05</h2>
+  </li><li class="content-grid post post-type-entry tag-links">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/05/links-for-2006-02-05/">links for 2006-02-05</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/05/links-for-2006-02-05/"
+          >415&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/05/links-for-2006-02-05/">#</a>
+    <a class="time" href="2006/02/05/links-for-2006-02-05/">12:29 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/links/">links</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 February 04</h2>
+  </li><li class="content-grid post post-type-entry tag-links">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/04/links-for-2006-02-04/">links for 2006-02-04</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/04/links-for-2006-02-04/"
+          >397&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/04/links-for-2006-02-04/">#</a>
+    <a class="time" href="2006/02/04/links-for-2006-02-04/">12:23 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/links/">links</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 February 03</h2>
+  </li><li class="content-grid post post-type-entry tag-links">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/03/links-for-2006-02-03/">links for 2006-02-03</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/03/links-for-2006-02-03/"
+          >620&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/03/links-for-2006-02-03/">#</a>
+    <a class="time" href="2006/02/03/links-for-2006-02-03/">12:27 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/links/">links</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 February 02</h2>
+  </li><li class="content-grid post post-type-entry tag-links">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/02/links-for-2006-02-02/">links for 2006-02-02</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/02/links-for-2006-02-02/"
+          >292&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/02/links-for-2006-02-02/">#</a>
+    <a class="time" href="2006/02/02/links-for-2006-02-02/">12:32 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/links/">links</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 February 01</h2>
+  </li><li class="content-grid post post-type-entry tag-links">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/02/01/links-for-2006-02-01/">links for 2006-02-01</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/02/01/links-for-2006-02-01/"
+          >848&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/02/01/links-for-2006-02-01/">#</a>
+    <a class="time" href="2006/02/01/links-for-2006-02-01/">12:26 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/links/">links</a>
+          </li>
+    </ul>
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
 
-        <footer>
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

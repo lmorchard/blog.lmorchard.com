@@ -1,452 +1,796 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>2002/11 - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>2002/11 - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Month: 2002/11</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post "
-          >
-            <time class="date" datetime="2002-11-28T08:54:32+00:00">
-              2002
-              November
-              28
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/11/28/ooocch/">
-              <span class="infoContainer">
-                <span class="title">Baking, funky caching, and tarballs for weblog cryo storage</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-11-28T06:52:59+00:00">
-              2002
-              November
-              28
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/11/28/oooccg/">
-              <span class="infoContainer">
-                <span class="title">.NET on OS X?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-11-28T06:24:57+00:00">
-              2002
-              November
-              28
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/11/28/oooccf/">
-              <span class="infoContainer">
-                <span class="title">RSS vs HTML - NO FIGHT!</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-11-27T21:05:02+00:00">
-              2002
-              November
-              27
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/11/27/oooccd/">
-              <span class="infoContainer">
-                <span class="title">XML-RPC case study redux, Part II: REST and I</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-11-27T19:55:11+00:00">
-              2002
-              November
-              27
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/11/27/oooccc/">
-              <span class="infoContainer">
-                <span class="title">XML-RPC case study redux, Part I: Setting</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-11-26T18:46:07+00:00">
-              2002
-              November
-              26
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/11/26/oooccb/">
-              <span class="infoContainer">
-                <span class="title">XML-RPC, a mini case study</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-11-26T18:04:31+00:00">
-              2002
-              November
-              26
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/11/26/ooocca/">
-              <span class="infoContainer">
-                <span class="title">RSS vs XHTML - FIGHT!</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-11-25T19:07:52+00:00">
-              2002
-              November
-              25
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/11/25/ooocco/">
-              <span class="infoContainer">
-                <span class="title">Hammer that round peg into that round hole</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-11-23T02:02:16+00:00">
-              2002
-              November
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/11/23/ooocbi/">
-              <span class="infoContainer">
-                <span class="title">Bellyflop Into RDF</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-11-22T20:08:16+00:00">
-              2002
-              November
-              22
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/11/22/ooocbh/">
-              <span class="infoContainer">
-                <span class="title">Moblogging or BlogWalking, all the same to me</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-11-22T07:18:54+00:00">
-              2002
-              November
-              22
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/11/22/ooocbg/">
-              <span class="infoContainer">
-                <span class="title">Cool URIs don&#39;t change</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-11-21T07:58:03+00:00">
-              2002
-              November
-              21
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/11/21/ooocbf/">
-              <span class="infoContainer">
-                <span class="title">Let&#39;s play Marco Polo with RFID!</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-11-20T18:00:58+00:00">
-              2002
-              November
-              20
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/11/20/ooocbe/">
-              <span class="infoContainer">
-                <span class="title">Email as command line</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-11-19T09:00:03+00:00">
-              2002
-              November
-              19
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/11/19/ooocbd/">
-              <span class="infoContainer">
-                <span class="title">Really, this time, I wanna come back</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-11-19T08:49:27+00:00">
-              2002
-              November
-              19
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/11/19/ooocbc/">
-              <span class="infoContainer">
-                <span class="title">Broken project download links fixed</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-11-12T14:05:27+00:00">
-              2002
-              November
-              12
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/11/12/ooocbb/">
-              <span class="infoContainer">
-                <span class="title">Bitterness from the halls of Decafbad?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-11-11T19:12:55+00:00">
-              2002
-              November
-              11
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/11/11/ooocba/">
-              <span class="infoContainer">
-                <span class="title">Bitterness from the halls of Xanadu</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-11-08T20:43:21+00:00">
-              2002
-              November
-              08
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/11/08/ooocbo/">
-              <span class="infoContainer">
-                <span class="title">On tilling a plot to plant a Semantic Garden</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-11-05T20:12:43+00:00">
-              2002
-              November
-              05
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/11/05/ooocai/">
-              <span class="infoContainer">
-                <span class="title">Why the frell hasn&#39;t the Semantic Web bloomed yet?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post has-thumb "
-          >
-            <time class="date" datetime="2002-11-05T06:55:19+00:00">
-              2002
-              November
-              05
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/11/05/ooocah/">
-              <span class="infoContainer">
-                <span class="title">When I grow up...</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://www.decafbad.com/imagery/lil-kid-me/aax.sized.jpg" />
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-11-05T06:47:19+00:00">
-              2002
-              November
-              05
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/11/05/ooocag/">
-              <span class="infoContainer">
-                <span class="title">Note to self &amp; things to do</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-11-05T06:06:17+00:00">
-              2002
-              November
-              05
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/11/05/ooocaf/">
-              <span class="infoContainer">
-                <span class="title">If at first you don&#39;t succeed, Zoe, Zoe again?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-11-02T08:55:29+00:00">
-              2002
-              November
-              02
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/11/02/ooocae/">
-              <span class="infoContainer">
-                <span class="title">What the frell is the Semantic Web</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-11-02T05:18:33+00:00">
-              2002
-              November
-              02
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/11/02/ooocad/">
-              <span class="infoContainer">
-                <span class="title">I&#39;ve resisted Googlisming until now</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2002-11-02T02:41:58+00:00">
-              2002
-              November
-              02
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2002/11/02/ooocac/">
-              <span class="infoContainer">
-                <span class="title">I&#39;ve been on the Death March road</span>
-              </span>
-            </a>
-            
-          </li>
-    </ul>
-    
-  </section>
-      </section>
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Month: 2002/11</h2>
         </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2002 November 28</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/11/28/ooocch/">Baking, funky caching, and tarballs for weblog cryo storage</a>
+      </h2>
+    
+    <p class="summary">
+      So, while I was catching up on T Bryce Yehl's blog since missing his transition to MovableType, I caught an interesting blurb he wrote with regards to Phil Ringnalda's ponderings on FriedPages and BakedPages in weblogs:"Funky caching" could be useful for a static publishing system as well. Weblog archives can consume a great deal of space, yet those pages are infrequently requested. Why not GZip entries from previous months and use a 404 handler to extract pages as-needed?
+The funky caching to which he refers involves implementing a 404 (page not found) handler that, instead of just supplying condolences for a missing page, actually digs the page up out of cold storage if it can.  I think I need to look into this for my site - throw all the old blog entries away into gzipped files, or maybe a tarball per month, and have a funky 404 handler dig them out when needed.
+There are issues with this - such as what happens if I want to edit old content, or I change templates, or what not - but I think there could be decent solutions for those.  Hell, maybe this is an easier way to blog locally and publish globally - don't rsync directories of files, just publish locally and upload a new tarball.  Then, on the remote site, delete the index, RSS files, and other affected files and watch happy updates ensue.  If a massive site change is made, rebuild locally, re-tarball every thing, upload the new tarballs, and delete all remote content to trigger revivification.  Scary but possibly nifty.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/11/28/ooocch/"
+          >1031&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/11/28/ooocch/">#</a>
+    <a class="time" href="2002/11/28/ooocch/">3:54 am</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/11/28/oooccg/">.NET on OS X?</a>
+      </h2>
+    
+    <p class="summary">
+      So... I want to learn and tinker with C# and .NET, but I don't have and don't want to build any Windows machines.  I have some headless Linux machines, but my main daily environment is Mac OS X.  So now I see that The Shared Source CLI 1.0 Release compiles for OS 10.2, and I see that the DotGNU project has some news of a 100% free software release of Portable.Net.  What about Mono?  Any OS X news?
+Or are things still basically in the "You can compile & run Hello World, barely, but don't expect access to any of the standard framework classes or GUI building" stage?  Or are they in an even less developed stage that would make my non-compiler-building branes melt out my ears?
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/11/28/oooccg/"
+          >172&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/11/28/oooccg/">#</a>
+    <a class="time" href="2002/11/28/oooccg/">1:52 am</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/11/28/oooccf/">RSS vs HTML - NO FIGHT!</a>
+      </h2>
+    
+    <p class="summary">
+      With Syndication is not Publication, Mark Pilgrim elucidates in eloquence what I'd vaguely poked at in silliness.  No, I agree with mark - syndication cannot replace publication, and publication cannot replace syndication.  
+Though, I think it's interesting to watch the thought experiments and the "what ifs" as Anil commented - and while I sense some eloquence in both approaches, neither answers all the demands placed on each.  Hopefully, what dabbling in overloading one could provide is a little insight into enhancinging the other. In the end, as Dave commented and Mark demonstrated, there will be no fight - tinkerers will route around the solution they don't like.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/11/28/oooccf/"
+          >108&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/11/28/oooccf/">#</a>
+    <a class="time" href="2002/11/28/oooccf/">1:24 am</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 November 27</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/11/27/oooccd/">XML-RPC case study redux, Part II: REST and I</a>
+      </h2>
+    
+    <p class="summary">
+      So, from my last installment, I left off with this:  My daily situation with regards to integrating the web-based services of various parties boils down to what I can explain in 30 minutes to a developer of unknown competence to whom I'm barely a priority.  So far, I've been able to apply XmlRpc as a solution to this problem with a great degree of success.
+About this, endulging me although I'm sure issues like mine have been hashed out a million times already on various mailing lists, Paul Prescod writes:There's nothing wrong with the way you've used XML-RPC and I've used it that way myself. I only write to ensure that you (and anyone reading) understands the costs and benefits of this approach. You've given up on many of the feature of the underlying XML and HTTP technologies. If you don't need the features, then amen, let her rip. But people building more substantial apps do need them.
+Yes.  So, I know that my chosen solution has its blemishes and land mines awaiting my step.  But, none of them have bitten me yet, nor do I expect them to for some time.  On the contrary, for every practical application of XmlRpc we've deployed, we've had happy clients.  While working in this industry, the 80/20 rule has been beaten into me - so if a solution that's 20% complete solves 80% of our problems, it's time to move onto the next problem.
+This, however, is a dangerous thing to become complacent about - there're still 20% worth of problems out there for which this solution falls down.  And each one will become a work-till-3-am nightmare when they hit.  And besides, I'm a perfectionist and a purist at heart, so the dirtiness of this solution will never fail to irk me.  It may be simple, but simple is not necessarily elegant.  So what about the rest of Paul's points?
+The first axis of flexibility you've given up is in character set. XML-RPC disallows Unicode character strings.
 
-        <footer>
+On one hand, my impulse is to respond to this by invoking YAGNI - since our use of XmlRpc involves messages between machines, I don't care about localizing those.  I'll just keep to language neutral data in there.  But, I'm naive.  With a bit of pondering, I can identify at least one area where user-supplied input needs to be traded - shared registration and login for global promotions.  And if I can identify one, there's bound to be more.  I don't have as much experience with Unicode and handling languages other than English as I'd like, so I can't trust my assumptions here.
+XML-RPC is brutally non-extensible. ... Dave Winer has been actively hostile to every effort to evolve XML-RPC.
+
+In this case, I'd say this is a good thing, for XmlRpc in particular.  It does what it does, no more and no less, and this will never change.  I will never need to bring up versions of the spec in my 1/2 hour conversation with the junior engineer.  And though I don't want to second guess Dave Winer, I assume this is the goal in his insistence on XmlRpc being ever frozen.  The alternative at which he points, if memory serves, is SOAP.
+The third aspect: XML itself. What will happen when and if your industry, whatever it is, canonizes a schema for what you do, like the hundreds of existing ones. ... Maybe your industry isn't organized enough to define a schema for whatever it is you do.
+
+Bingo.  Our industry is neither mature nor organized enough to conceive of any sort of schema.  Our products and the concepts involved in our work are in constant change, not to mention the conditions of the market and what will continue to work.
+Another way of attacking your interoperability problem would be to start from that point of view, defining the XML and then working back to the REST system. That's a much more natural way to define a REST-based web service and is arguably a better way to define web services in general. I would be curious whether you tried this.
+
+Nope, haven't tried this.  This is where I start calling things "ivory tower".  To me, it makes elegant sense.  
+You say you tried "REST-ish URL schemes" but that isn't the same as trying REST. In particular, you don't say much about what your XML strategy was.
+
+Calling our early interop schemes "REST-ish" may have been too strong an association with REST.  No XML strategy.  More like: "Make a GET to this URL with these query parameters, documented here.  You'll get a simple text response back, documented here."  This was always balked at, though I thought it was the simplest thing in the world.  I might have some thoughts on the failure of this, if I think about it some more.
+I don't know your suppliers, but in the vast majority of situations I have been exposed to, they "get it" if you tell them: "here are some XML example documents. POST things like that to me when you want me to do something and GET them from me when you want to get information from me."
+
+Whenever XML is brought up, fear rises and eyes glaze.  We're the "supplier" in most situations, and it's rare that our clients are tech-centered companies.  They have a web site, and maybe a team maintaining it if we're lucky.  
+You depicted the situation as SOAP on one side (grungy), REST on the other (ivory tower) and XML-RPC in the middle. REST is basically the same old CGI-ish stuff we've been doing for a decade so I don't see how it is very ivory towerish.
+
+Well, I'm mixing audiences here.  SOAP, to me and my lack of time with it, seems grungy and in flux.  To my clients, REST seems out there, especially if I ever try to explain to them what the letters stand for.  :)
+"What's a siggy?"  
+"You mean a C-G-I?"
+In explaining XmlRpc, I usually say something long the lines of "your people's boxes talk to my people's boxes," then point them at the website that says largely the same thing.  Of course, this begs the question of my effort and competence in explaining REST to others, which I feel is lacking thus far.  Because, well, REST is also their boxes talking to my boxes.  And, I haven't found a website at which to point both techie and non-techie audiences to "get it".
+...perhaps REST doesn't apply to you. Yet. ... You say that REST doesn't "feel finished" to you. Nor to me. Our industry is in the middle of a huge migration to extensible formats like RSS which builds on RDF which builds on XML.
+
+I don't think REST quite applies to us yet.  I'd like it to.  Maybe once we, as a company, have formed much stronger partnerships I can get past the 30 minute barrier and get to some real discussions and establish things like XML schema.
+When people are comfortable with extensible, hyperlinked formats, REST will seem like a no-brainer.
+
+The more I read and think about REST, the more I agree with this.  It's just that I find it very hard to sell the idea yet.  Again, this may be the nature of the beast for whom I work, and it may be my lack of ability to describe this simply.  
+But for now, it seems that the ability to throw a random unknown web developer an API and a URL with less than 30 minutes' accompanying discussion, and get results, seems to work for us.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/11/27/oooccd/"
+          >1478&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/11/27/oooccd/">#</a>
+    <a class="time" href="2002/11/27/oooccd/">4:05 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/11/27/oooccc/">XML-RPC case study redux, Part I: Setting</a>
+      </h2>
+    
+    <p class="summary">
+      So, my little off the cuff case study with XmlRpc from yesterday got a ton of flow from Dave.  Got some comments and some email, and a very good response / rebuttal from Paul Prescod.  Thanks to everyone for reading & responding!
+I think a few things from that case study, the response to it, and Paul's comments need some more consideration.  And, I think some more clarification of my situation would work as well.  So I'll start with that:
+The first thing is that I think the quote Dave pulled from my case study nails my situation: "I get it, my boss gets it, his boss gets it, the sales guys get it, and the marketing guy who's always our first contact at a client gets it."
+I work at a promotions company.  Because we act as a sort of application service provider and host everything ourselves, we can do and have done some pretty nifty things within our walls.
+On our clients' side, though, they're hiring us to do nifty things that don't require them to do much at all.  In fact, the vast majority of the time, our direct client contact is a marketing/PR person who has little, if any, access to technical resources.  It's a major undertaking for this person to get an image tag or a javascript pop-up window slipped into an HTML page somewhere on the company website - anything further than that leads down a trail of tears and a week's worth of conference calls with grumpy people.  We've spent more than 4 years streamlining everything down to the acceptance of this fact.
+So then, in walks the client who wants a lot more, like the aforementioned client for whom XmlRpc worked swimmingly for integration between their site, their commerce vendor, and us.  Our direct contact is still a marketing person, but she has a bit more technical support behind her.  She might be able to get up to 4 hours' time from a junior engineer over there to whip up a CGI or JSP, assuming that the team in charge of the website approves permission to do so.  
+As part of that junior engineer's time, I have one half-hour conference call to explain our points of integration, how everything's going to work, and where to go for resources on how to do it.  I barrage the person with email, offer availability on at least 3 different instant messaging networks, but when it comes down to it this 1/2 hour phone call is all anyone remembers.  We've been working on improving this situation, but the only traction comes from where we've been able to gain the confidence of a client as a long term strategy partner.  Otherwise, we're just some random vendor who gets tossed away if we make too much noise.
+What this all boils down to is that I've needed to develop a scheme of integration between web apps that can be explained mainly in 30 minutes to a developer of unknown competence to whom I'm barely a priority.  This is my situation at present.  The situation has room for improvement - but the power to make those improvements are largely beyond my influence - so I've applied XmlRpc successfully so far as a solution.
+So, I'll post this, and in the next installment (if you're still with me), I'll voice my concerns with the solution I've chosen, and consider what Paul's written.  As always, I encourage you to tell me where I'm full of it, and why.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/11/27/oooccc/"
+          >588&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/11/27/oooccc/">#</a>
+    <a class="time" href="2002/11/27/oooccc/">2:55 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 November 26</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/11/26/oooccb/">XML-RPC, a mini case study</a>
+      </h2>
+    
+    <p class="summary">
+      About SOAP vs REST vs XML-RPC, Dave writes:By and large REST interfaces don't tell you how to serialize and deserialize complex structures, so you kind of start from scratch every time. If they use a SOAP encoding, you get some of that. But there just is nothing simpler than saying "Here's the XML-RPC interface, and some sample code in a few of the popular scripting languages." If you want developers to get going quickly, avoid the religious wars, just support XML-RPC. Now even this isn't bluster-free. Think of it as evangelism. Have a nice day.
+Though I don't like his remarks on REST, I gotta give Dave an amen here and thank him for having XmlRpc out there for me to stumble upon.  REST seems shiny and neat to me but incomplete - I'm pulling for it because it seems warm and fuzzy to my ivory tower branes.  SOAP seems to try to be nice & clean, but feels grungy and toxic to me and I've always felt a vague sense of unease when walking past its house on the block.  In the middle, XmlRpc seems to be the right balance of dirt and acidity to grow things in.
+About XmlRpc, I can speak with some experience now.  I first started tinkering with it a few months shy of a year ago, when I first launched this blog.  I went to http://www.xmlrpc.com and learned it in less than an afternoon.  Cobbled together a few Projects with it, and saw an opportunity to introduce XmlRpc as a new tech at work.  
+(In case you don't know about my job, I'm the guy who does most of the research & development, tool building, and overall platform architecture at a promotions company called ePrize.  I grumble about the place from time to time, but on the whole they let me do an amazing amount of wandering around in finding new things.)
+Anyway, we'd been poking around with a few different means of integrating our promotions into clients' websites.  You see, we host the web part of all promotions on our servers, and work toward making inclusion of those promotions not much harder than slipping in a banner.  But sometimes, there's just no avoiding more complex integration.  And sometimes, it's exactly what you want with things like shared sign-up & login, awarding tokens & coupons, and coordinating between vendors' services.  So, we had a few different REST-esque URL-based schemes, some FTP-and-PGP-based things, and even managed to convince one client to use a one-off protocol between two perl net daemons.  Every time, it was something new, and we could seem to get no two clients happy with the same integration scheme.
+Then one day I bring XmlRpc into the office, and weave it into our app platform at the ground floor.  Overnight, just about every aspect of every promotion we do can be accessed via XmlRpc, given the proper switches thrown and the right access controls set.  Producing an XmlRpc API spec for potential clients took mostly a bit of cut & paste massaging of our internal API docs.  
+(Your mileage may vary greatly, but our homegrown platform seemed pre-designed to fit with XmlRpc.  This point right here may be what makes this anecdote fall on its face for you and your experiences.  But, based on the success we have with it on the client end of things, I suspect that we're not that much an outlier.)
+The next day, we had a meeting with a giant customer whose name I'm not sure I can mention, but suffice it to say you've heard of them and It's very, very likely that you've used their gadgets.  We helped them put together a customer referral and rewards program, using XmlRpc as the glue between an online store vendor, the client's site, and us.  It was a great success, and since then we've done another dozen or so cool promotions involving XmlRpc.
+What makes this tech so successful here is that it's so simple and decently understood.  I get it, my boss gets it, his boss gets it, the sales guys get it, and the marketing guy who's always our first contact at a client gets it.  And when we finally drill down to a tech guy on the client's side, we just tell him, "Here's the API for your promotion, and visit http://www.xmlrpc.com for details on how to call it."  And that's it - 75% of the time they get it and implement it.  The rest of the time, we have to spend some time proving the tech and answering doubts, but it's always a pleasant experience from our end having all the answers.
+I'll adore REST if/when it gets to this point in helping me get mine and my client counterparts' jobs done.
+Anyway, this is sounding like a bad infomercial and I need to get back to work.  But I had to toss out this bit of anecdotal dross in favor of XmlRpc.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/11/26/oooccb/"
+          >1403&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/11/26/oooccb/">#</a>
+    <a class="time" href="2002/11/26/oooccb/">1:46 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/11/26/ooocca/">RSS vs XHTML - FIGHT!</a>
+      </h2>
+    
+    <p class="summary">
+      In Formats for Blog Browsers, Dave writes:I wanted to add a facility that would automatically back up all your weblog posts... "I bet RSS 2.0 could do this," I said out loud. And now that the code works, the answer is clear. It can. ...  Then another lightning bolt hit me. ... What if someone made a browser that worked with this format?  Let's call them Blog Browsers, apps specially designed for reading weblogs.
+About syndication formats, Anil Dash writes:I have a radical proposal for a ubiqitous content syndication format, applicable for almost any purpose, but extremely well suited for weblogs. ... My new syndication format is called XHTML.
+In one corner, we have the syndication format taking over the document format.  In the other corner, we have the document format taking over the syndication format!  FIGHT!
+Yeah, yeah, it's not quite that simple - but the opposed directions are interesting.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/11/26/ooocca/"
+          >413&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/11/26/ooocca/">#</a>
+    <a class="time" href="2002/11/26/ooocca/">1:04 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 November 25</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/11/25/ooocco/">Hammer that round peg into that round hole</a>
+      </h2>
+    
+    <p class="summary">
+      About the "RDF tax" in RSS, Jon Hanna says:Ah, but you're missing the key point that a framework for making statements about web resources is of no use to a format that makes statements about web resources. It was obviously forced. :)
+Heh, heh.  Full point, RDF team.  Now I go back to studying.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/11/25/ooocco/"
+          >54&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/11/25/ooocco/">#</a>
+    <a class="time" href="2002/11/25/ooocco/">2:07 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 November 22</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/11/22/ooocbi/">Bellyflop Into RDF</a>
+      </h2>
+    
+    <p class="summary">
+      Want to watch me taking baby steps in coming to terms with RDF?  Come take a look at, or point and stare at, my RdfNotes!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/11/22/ooocbi/"
+          >26&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/11/22/ooocbi/">#</a>
+    <a class="time" href="2002/11/22/ooocbi/">9:02 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/11/22/ooocbh/">Moblogging or BlogWalking, all the same to me</a>
+      </h2>
+    
+    <p class="summary">
+      Justin Hall of TheFeature, in From Weblog to Moblog, writes:Weblogs reflect our lives at our desks, on our computers, referencing mostly other flat pages, links between blocks of text. But mobile blogs should be far richer, fueled by multimedia, more intimate data and far-flung friends. As we chatter and text away, our phones could record and share the parts we choose: a walking, talking, texting, seeing record of our time around town, corrected and augmented by other mobloggers.
+Touches on SmartMobs and collaborative journalism.  He calls it ?MoBlogging (mobile-blogging), but I'll still call it BlogWalking.
+Haven't had a whole lot of success doing any blogging on the go with my Treo yet, but then I haven't tried very hard at all yet due to a lack of copious free time.  Have some ideas that should help.  Liking the Treo, but after settling into it, I'm kind of wishing I could have gotten a HipTop.  I expected the Palm to be mature, but it's just kinda clunky and creaky and elderly.  I expect the HipTop to get slicker, and I'd like the bigger keys better - not to mention the lil camera.  But, my Sprint contract is up in a little under a year, so around this time next year I'll retire the Treo and survey the landscape again.  Hopefully there'll be a dream device out by then.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/11/22/ooocbh/"
+          >227&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/11/22/ooocbh/">#</a>
+    <a class="time" href="2002/11/22/ooocbh/">3:08 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/11/22/ooocbg/">Cool URIs don&#39;t change</a>
+      </h2>
+    
+    <p class="summary">
+      Okay, so I'm probably the only one who didn't know this, but I've been wondering why it seems that every website owned by someone within a few degrees of separation from TimBL tend to use URLs of the form:
+http://www.example.org/2002/11/nifty-thing
+Just one of those things I figured kinda made sense, but was never sure why for.  Then, today after a bit of wandering while researching things RDF and SemanticWeb, I found a link from Sean B. Palmer pointing to Hypertext Style: Cool URIs don't change by TimBL himself.  Seems the example of this pattern is layed out there by the man himself.
+Seems like it would work like a limited sort of concurrent versioning scheme, but it just looked wonky the first time I saw it.  I mean - date-based website layout?  I'd been raised on the high falutin' directory trees made by very well (overly?) paid Information Architect types.  /2000/10/stuff?  What about /about-us/corporate/ceo.html?
+Of course, this is ignoring the fact that some webservers need not directly tie physical disk layout to URL layout.  Or that site architecture is best presented via links in the documents themselves.  It's just that plain vanilla Apache uses a 1:1 match between file path and URL path, and that's what most everyone uses.
+Hmm..  Might play with it a bit around here.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/11/22/ooocbg/"
+          >483&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/11/22/ooocbg/">#</a>
+    <a class="time" href="2002/11/22/ooocbg/">2:18 am</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 November 21</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/11/21/ooocbf/">Let&#39;s play Marco Polo with RFID!</a>
+      </h2>
+    
+    <p class="summary">
+      Remember that Slashdot story from the weekend - Gillette Buys Half a Billion RFID Tags?  Boring, yawn, inventory management, who cares?  Well, imagine if those things, along with their readers, got so ludicrously cheap and small that mothers would stick 'em to kids' underwear as they went off to camp, and readers came standard in watches and cell phones.  Imagine that, somehow, the range was improved to at least 20 feet - your reader sends out a radio ping (MARCO!) and back comes a list of the contents of the room as every object responds (POLO!).  Assume as well that your reader can work out the location of each of these objects.
+Ignore the big brother fears for now - everyone will have this stuff, not just the MiBs.  Also, ignore my ignorance - many of these enhanced tricks are likely impossible or at least very hard for these little gadgets.  For now.  Until someone does something clever.  
+But, imagine!  Never lose your keys again!  Find the cat!  Owners manuals to everything you own - should you ever actually have the impulse to read one - are available with a tag ping and a lookup.  Imagine the games SmartMobs will find for this stuff!  Handle the tag code on objects in the world with a URI scheme - the Semantic Web reaches out to help create the Semantic World!  It's CueCat on super steroids!  Facial recognition in your PDA to remember my name?  Bah - I've got a RFID business card in my pocket.  Consider the combination of this with a WearableComputer, and the world becomes just a bit more active as previously inanimate objects can tell you their stories and stories told about them.  High tech animism!
+Okay, I'm winding down on this.  I know I'm going wonky with this idea, but this is along a theme I've been playing with in my head: My favorite sci-fi stories and meditations on the future involve little clever bits of tech that get tweaked and leveraged in powerful ways few could have guessed at.  Maybe this tagging tech I'm hyping won't be it, but it's one of the ideas that tweaked me in VernorVinge's Fast Times at Fairmont High.
+Trying to stretch my brane more along these lines - squinting at the knee of the curve of TheSingularity.  What else is on the verge of emergence, how much of it is crap and how much of it is the real thing?  Will things like this and the WearableComputer and ubiquitous internet actually cause major change, or will it just turn into more chuckles for my grandkids when they ask me what it was like in the 90's and double-naughts, when I was living it up at conventions on the company tab, sipping a stout while getting my whites washed at a whacky laundry/bar in San Francisco?
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/11/21/ooocbf/"
+          >560&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/11/21/ooocbf/">#</a>
+    <a class="time" href="2002/11/21/ooocbf/">2:58 am</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 November 20</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/11/20/ooocbe/">Email as command line</a>
+      </h2>
+    
+    <p class="summary">
+      Just read E-mail as a System Console. Part I over at Linux Journal.  It's something I've been meaning to implement for awhile, using CPAN:Mail::Audit and other tools.  Got a bit of a start on things, with a sort of plugin system for adding commands available via email.  Maybe I should hit this again.
+Personally, it's been a long, long while since I had a dialup-based system - so I don't have to solve their exact problem.  But, it would be nice to fire off an email to myself or some other mailbox I own, formulated just so and cryptographically signed by me that would cause some machine behind a firewall to open up an SSH tunnel to a predetermined location somewhere.  Among other things.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/11/20/ooocbe/"
+          >125&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/11/20/ooocbe/">#</a>
+    <a class="time" href="2002/11/20/ooocbe/">1:00 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 November 19</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/11/19/ooocbd/">Really, this time, I wanna come back</a>
+      </h2>
+    
+    <p class="summary">
+      Whew, it's been a long stretch of urgency and emergency lately without much time for reflection or writing, let alone any general hackery.  Don't want to go through a fully detailed recap - but my girlfriend moved in with me; mostly have survived a near ?DeathMarch project; took care of said girlfriend after surgery; was taken care of by said girlfriend after surgery myself.  Managed to squeeze a birthday and dating anniversary celebratory break in there, but - not much time for blog, Doctor Jones.
+I really want that to change now.  A lot has been going on since I've had to take a step back from large parts of my life, but I think I can step back into things again now.  Need to restart the social life, and start poking my head out of the lurker pool on the net.  Time to finally regroup, exit the state of urgency and emergency, and get back to moving foward instead of moving in reaction.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/11/19/ooocbd/"
+          >165&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/11/19/ooocbd/">#</a>
+    <a class="time" href="2002/11/19/ooocbd/">4:00 am</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/11/19/ooocbc/">Broken project download links fixed</a>
+      </h2>
+    
+    <p class="summary">
+      Just fixed the download links on these projects:  RssDisplay, ShowReferers, GoogleToRSS.  Just took me awhile to circle back around to it, ugh.  So if you were ever interested in those projects, please try grabbing them again for ridicule.  :)
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/11/19/ooocbc/"
+          >40&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/11/19/ooocbc/">#</a>
+    <a class="time" href="2002/11/19/ooocbc/">3:49 am</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 November 12</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/11/12/ooocbb/">Bitterness from the halls of Decafbad?</a>
+      </h2>
+    
+    <p class="summary">
+      I've gotten some interesting comments and emails with regard to yesterday's semi-rant, Bitterness in the halls of Xanadu, that further expose some itches I felt after writing it.  Two main things:Ideas are not completely worthless, and I have a certain adoration for sprawling cathedrals of vapor.Sometimes the best implementations from the best ideas go unremarked or unnoticed due to obscurity or a lack of understanding.
+My recent and vehement attachment to the meme of ideas are fucking worthless is a reaction to my own time spent working on projects that seem to me, in small ways, to resemble what I've read about Xanadu - in terms of long development arcs and seeing similar (but flawed) systems released before my work is done.  This presumes a lot - I've not published anything (besides this weblog), probably influenced less than a handful, and these projects of mine are more than likely nothing in comparison to Nelson's work.  They certainly haven't consumed as much of my lifetime as his, by an order of magnitude.  But still, it felt like some of the scenery along my road matched his.  And I don't want to end up down that road, frustrated or bitter that my visions or work had been misread and appropriated by others.  (Again, this presumes I have visions or work worth stealing! :) I can't say that I've demonstrated such, as of yet.)
+And then there is the addictive quick fix a hacker like me can get in the blogosphere, with just a brief and clever twist of code one can improve the neighborhood and take in some brief praise.  Spend a bit more time working, maybe a few weeks or months, and introduce a slightly more useful or complex contribution - you might receive kudos for some time running.  But, work for too long, plan too far, build too high, and the blogosphere likely passes you by - unless you really have a deep grasp on what's going on, and your projects meet the blogophere where it later arrives.  So I see the techie bazaar of the blogosphere as a kind of fun cauldron of hackers, throwing in ingredients and taking others out, kind of a hivemind without design evolving toward higher connectivity.
+So where's there a place for longer-term design?
+Okay... more to think about and write, but for now, I'm leaving for surgery.  Plenty of time for babble while recovering. Wish me luck!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/11/12/ooocbb/"
+          >405&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/11/12/ooocbb/">#</a>
+    <a class="time" href="2002/11/12/ooocbb/">9:05 am</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 November 11</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/11/11/ooocba/">Bitterness from the halls of Xanadu</a>
+      </h2>
+    
+    <p class="summary">
+      I'm a little late on this, but I just read an BBC interview with Ted Nelson this weekend.  I don't know the man, and am familiar with his work in only the most cursory way - I've read a bit about Xanadu, skimmed some articles on its history, but I've yet to download the code finally released a few years ago and see what's what.  Having said that, this interview reads like the bitter mutterings of a guy who wants to slug TimBL and the rest of us web hackers for making him all but obsolete.
+From what I've read, the body of work surrounding Xanadu seems to have a lot to say for itself, though some of that - the assorted collection of almost psychedelic jargon invented to describe its convolutions - seems almost self parodying.  The history of Xanadu and Nelson's work with hypertext systems looks to me to be yet another proof that ideas are fucking worthless, and another vote in favor of bazaar- over cathedral-style development.
+Maybe it's the fault of the interviewer, but Nelson comes across as a bit self-aggrandizing in trying to puff up how creative and multi-talented and immersed in media - I mean, he made his own rock opera for cripes sake!  So I guess this should set the stage for his authority when he dismisses HTML as "a degenerate form of [hypertext] that has been standardised by people who, I think, do not understand the real problems" and the web as "... trivially simple ... massively successful like karaoke - anybody can do it."
+But y'know, for all his criticism of systems here and now, and claiming that the people involved with the web don't know what they're doing - he has a surprising lack of working software out in the world.  That's what I consider success - working and well used implementation.  Who doesn't understand the real problems?  One can only build architectures of vapor for so long up in the ivory tower before one must pit it against the world.  I don't suppose he's ever tossed around the idea that maybe, just maybe, Xanadu hasn't stormed the world because it's too big and cumbersome and amazingly convoluted for anyone who hasn't worked with it for 30 years to put into use?  There is much to be said for the benefits of Karaoke-simple technology.
+So yeah, maybe on some Platonic plane of ideal forms, compared to The One True Hypertext, HTML is crap.  Okay, maybe right here on my hard drive, HTML is crap.  But it's on my hard drive, and I use it.  It's been learned from, and attempts are being made to improve upon it.  As far as I know, Nelson's ideas of perfection have never seen a pounding from the world of imperfection.  That's the crucible in which things are really formed.  You get your software in reasonable shape, toss it to the wolves, and see how it fares.  Realize that some of your prized pet theories and designs were bullshit, and rework the thing for the next time around.
+Okay, that's my rant.  Now I'm back to work, and possibly maybe off to check out more things Xanadu and Nelson on my lunch break.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/11/11/ooocba/"
+          >1370&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/11/11/ooocba/">#</a>
+    <a class="time" href="2002/11/11/ooocba/">2:12 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 November 08</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/11/08/ooocbo/">On tilling a plot to plant a Semantic Garden</a>
+      </h2>
+    
+    <p class="summary">
+      So, with regards to things SemanticWeb, I think I'm about to eat dogfood in considering a BlueSky project at work.  We've been tossing around ideas for a kind of uber-space or organization-wide brain in which to gather all kinds of details about clients, projects, project details and components, lifecycle, etc.  
+We want this thing to be as flexible as possible, without filling up a wall with printouts of database tables and relations - in fact, we want the thing to provide ad-hoc relations we hadn't thought of at first.  We want people (ie. project managers, sales) and robots (ie. metrics engine) to contribute data, and then people (ie. sales and clients) and robots (ie. automated project build) to be able to query and use this data.  We want roles and access control.  We want scalable centralization of data items.  (ie. Why should the start date of a project be maintained in 12 different places?)
+I'm certainly not naive or ignorant enough to think that this is virgin territory.  There are entire industries devoted to these issues of business data integration - but here, budgets are very slim yet we love to play with new tech.  It continues to astound, but with a little ingenuity (okay - a lot of ingenuity - we have smart people working here), this has led us time and time again to a combination of Open Source software and homegrown code that treats us better than any outside vendor solution.  So, I'm hoping to pull another hat trick here and have some fun expanding my brane at the same time.
+One of the first notions was to ease more information into our LDAP servers, since it has a very nice hierarchical layout and can accept arbitrary name-value attributes for items.  But then the topic of RDF came up, and the discussion really caught on fire as everyone came to understand what RDF is - at least insofar as I understand it, since I seem to have become the local domain expert.
+So, first thing is:  I hope I really do grok this stuff, at least at a gut mojo level.  No one's called me clueless about it yet.  But the second thing is:  Any practical tool suggestions, case studies, prior art, etc that I should be looking at?  I've started with a Google search for RDF and I've been wandering W3C documents - but I need a Busy Developer's Guide.  My ultimate hope through all of this, is that even if things are still baking, that there's enough out there with which to make something practical.  
+The goals are gigantic, but my intuition is that using SemanticWeb tech will let us start out small and simple and then add vocabularies and items as needed without massive tool rebuilding.  This is the key thing - the ability to do some initial, fairly easy things that show early results without a heavy, multi-month process to get the thing providing value.  My gut tells me it's possible.  Am I mad?
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/11/08/ooocbo/"
+          >615&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/11/08/ooocbo/">#</a>
+    <a class="time" href="2002/11/08/ooocbo/">3:43 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 November 05</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/11/05/ooocai/">Why the frell hasn&#39;t the Semantic Web bloomed yet?</a>
+      </h2>
+    
+    <p class="summary">
+      My referrer log harvester and stats were down last week, so I missed out on just how much traffic and flow my Semantic Web ramble had gotten.  But, I followed the paths back to a riff on the Semantic Web by mrG of ?TeledyN, perhaps more appropriately predicting The Semantic Mycelia.  And I think it's on the mark with what I've been thinking lately.  
+I've yet to really have time to dunk my head into the Semantic Web barrel for the apples yet, play with the tools, get some results, but I think I get the mojo.  And it excites me.  But, I've yet to really see any flowers bloom or any heads pop off.  I hate to criticize or critique, not having walked the walk yet, but I worry that the present state of things Semantic Web and RDF are walking similar cathedral paths that Xanadu wandered decades ago.  I say this in the sense that there seems to be a lot of heavy design up in the clouds, and not enough improvisation down on the ground.  And it's the improvisation that kicked the web off to its heights.
+On the other hand, it's not like one company has the Semantic Web in a stranglehold.  There are groups which, had I the spare time and inclination, I could probably join and pitch in a hand.  It seems an open and friendly group, normal birthing struggles and conflicts notwithstanding.  So I'd say this thing seems more a bazaar than a cathedral.
+But from my occasional stops by the farm, looking over the fence, I see equipment and activity, but no loam or topsoil tilled with things blooming.  I don't see the mushrooms popping up in the moist dirt.  I see lots of work on the tractors, but I don't see the ground getting into condition for all the little fungi to spontaneously appear.  And that's what I see with the web now, and with the blogosphere.  The dirt's nice and warm and space aplenty, so things are burbling up all the time.  And it feels like I'm getting some neat things done without the need to commit a slab of time to a group or a process other than my own jazz on my own time at the keyboard.
+I guess what I'm getting at is that the Semantic Web just doesn't yet seem to me to be sufficiently dirty enough for the grassroots to grow.  But I'm still unsure about this assertion.  Need to play more.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/11/05/ooocai/"
+          >459&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/11/05/ooocai/">#</a>
+    <a class="time" href="2002/11/05/ooocai/">3:12 pm</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry has-thumb">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/11/05/ooocah/">When I grow up...</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://www.decafbad.com/imagery/lil-kid-me/aax.sized.jpg" />
+    </div>
+    <p class="summary">
+      Even though I've been in a whiny, self-pitying mood, there is a reason I got into all of this to begin with:
+
+
+
+
+
+
+I have to keep this always in mind.  And yes, that is authentic - from first grade, I believe.  And there's another like that for second, and third, and...
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/11/05/ooocah/"
+          >196&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/11/05/ooocah/">#</a>
+    <a class="time" href="2002/11/05/ooocah/">1:55 am</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/11/05/ooocag/">Note to self &amp; things to do</a>
+      </h2>
+    
+    <p class="summary">
+      Mental/public note, things to catch up on soon as the Death March and surgery is cleared:
+
+ Fix all the broken links in wiki to download scripts & projects.
+
+ Revamp site design to use CSS, accessibility, and less ugliness.
+
+ Get back on IRC and in touch with Morbus and the AmphetaDesk clan.  (I missed a release!)
+
+ Write a CPAN:Net::Blogger based blog post page for AmphetaDesk
+
+ Also write a fairly simple yet generalized CGI wrapper for CPAN:Net::Blogger to use with my Treo.
+
+ Toy with XmlRpc and PalmDevelopment on my new Treo - some lightweight native Palm clients might be nifty.  Poke at ?MetaWeblogApi & others.
+
+ Play with the Java MIDP for Palm.
+
+ Look into more ?MachineLearning things, maybe apply Bayesian mojo to finding interesting RSS items to highlight.
+
+ Relax, recover, catch up on the world, enjoy quiet time with the girl.
+
+
+
+
+
+
+
+Update: Copied things over to LesOrchardToDo
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/11/05/ooocag/"
+          >154&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/11/05/ooocag/">#</a>
+    <a class="time" href="2002/11/05/ooocag/">1:47 am</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/11/05/ooocaf/">If at first you don&#39;t succeed, Zoe, Zoe again?</a>
+      </h2>
+    
+    <p class="summary">
+      Hmm, stevenf gives Zoe some love.  I want to like Zoe, and I think I might try it again.  But ever since I first found and later tried Zoe, I've not had much luck with any release.  I think at one point I had a single email appear, but I'm just not getting the mojo.  I think I sorta figured out what I'm supposed to do, but mostly it just sits there munching CPU quietly.  Hrm.  Not that my setup is exotic - I use Mail.app to access an IMAP server on my iBook.  I see others manage to work it.  Trying again...
+Update: It appears that my setup is exotic enough - I'm foolishly using UW IMAP as a quick & dirty install.  As-is, it points to the root of my home directory for email, and I set the IMAP folder prefix to mail/ in Mail.app.  Well apparently, Zoe doesn't support this and instead tries spidering my entire home directory via IMAP.  It appears that there may be hope in a future release, but not for now.  I suppose I might switch IMAP servers, since UW has always given me the willies.  And, I'm assuming that while I'm using IMAP, Mail.app doesn't have any mbox files for Zoe to auto-import.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/11/05/ooocaf/"
+          >251&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/11/05/ooocaf/">#</a>
+    <a class="time" href="2002/11/05/ooocaf/">1:06 am</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 November 02</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/11/02/ooocae/">What the frell is the Semantic Web</a>
+      </h2>
+    
+    <p class="summary">
+      Looks like the Semantic Web hurts Russell Beattie's branes.  Hurts mine too.  But, I tried explaining what I think I understand in a comment on his blog and I figure it's worth reposting here for ridicule and correction:
+Did you happen to catch Tim Berners-Lee on NPR Science Friday today? Not sure if you get the broadcast there, or listen to the stream. He was expounding on the Semantic Web a bit.
+Maybe I'll take a shot at explaining, since I think I understand the idea. Likely I'll fail miserably, but here goes.
+First simple thing: Look at your weblog page. What would it take to extract the list of people from your blogroll, just given your URL? What about the titles of all the weblog posts on that page?
+You, personally, can extract that information very easily since you, as a learned human, grasp the semantics of the page quite quickly. (The semantics are, basically, what's what and what's where and what does it all describe.)
+Imagine a document containing exactly all of the same info your weblog page presents - only the data is completely, easily accessible to a robot in a universal, easily handled format.
+Furthermore, imagine that the schema describing the data to be found on your page is in that same format. And then, imagine that the document describing the construction of schema is in that same format. And then imagine that the decomposition continues, all of the way down to base data types and relationships. Eventually, the whole thing rests on the back of a turtle - er I mean a sort of universal client.
+Now, what if every single page on the web were available in this manner? No scraping, no regex, no tricks. I could use the entire web as database and execute queries that draw from data available on a myriad of disparate URLs. My client can figure out what to do with whatever it finds at a URL by chasing descriptions and meta-descriptions until it reaches the level of understanding implemented in the client.
+Going out on a limb here, but imagine a practical example: "Hello computer, find me 2 roundtrip tickets for 7 days anytime in the next 10 weeks, for under US$300 each, to a vacation spot where the weather this time of year is usually warm and sunny, the exchange rate is better than 3 to 1 US dollar, and is rated as better than average by Ann Arbor, MI bloggers."
+Assume my semantic web client knows some URLs to airlines, to international weather services, to exchange rates, and to vacation spot reviews in weblogs in Ann Arbor, MI. Assume that there are schema available for the things these URLs describe. Assume that my semantic web client can parse my natural language query.
+So, it takes my request, goes out and snags the URLs appropriate to the various topics involved. Once it has all it need to process the data in each URL, it can find me the answer to my query, based on data pulled from all over the place.
+Now, get nuttier and bring in some intelligence with robots that can do some inference and reasoning. Say I throw out some facts: Mammals breathe oxygen. Men are mammals. Joe is a man. With the right client, the query "Give me all oxygen breathers," will include Joe in its results.
+Whew. There. That's what I think I understand about the Semantic Web.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/11/02/ooocae/"
+          >716&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/11/02/ooocae/">#</a>
+    <a class="time" href="2002/11/02/ooocae/">3:55 am</a>
+    
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/11/02/ooocad/">I&#39;ve resisted Googlisming until now</a>
+      </h2>
+    
+    <p class="summary">
+      Should I be concerned?  About me, Les Orchard, Googlism says: "les orchard is going weird again"  About the other name variations I've used online (ie. l.m.orchard and Leslie Michael Orchard), it has nothing to say.  Though, it does tell me that "decafbad is getting left out of the pipeline".
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/11/02/ooocad/"
+          >50&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/11/02/ooocad/">#</a>
+    <a class="time" href="2002/11/02/ooocad/">12:18 am</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2002 November 01</h2>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2002/11/01/ooocac/">I&#39;ve been on the Death March road</a>
+      </h2>
+    
+    <p class="summary">
+      A bit more meditation along the geek-turned-shepherd theme:  I've always joked with friends and co-workers that someday, I'm going to go off the deep-end, quit my job, and do one of three things:
+
+ abstain from touching another computing device for the rest of my life and live out my days gently raising sheep for wool. 
+
+ renounce all personal wealth and possessions and enter grad school on a ?PhD path, intending one day to become a professor
+
+ go completely apeshit bonkers, develop a slew of dramatic twitches and tics, and speak exclusively in pronounced punctuation symbols until they gag me.
+
+
+
+
+So I've got that feeling again, but any expressions of frustration and angst I've tried writing so far all strike me as spoiled whining.  Professionally, I still have a job in the field I love and I doubt that this is in jeopardy, despite shipwrecks and employment carnage everywhere I see.  And I'm not facing financial hardships, just minor budgeting dilemmas.  Personally, I've only just turned 27 last week.  I have a wonderful love and a mostly whole family.  And other than some minor surgery approaching, I have my health.
+So, in general, life's peachy.  But, it only takes one solo death march project and a bit too much personal investment in one's work to lose perspective and make things taste sour.  You can see the beginnings of it and my enthusiasm (and perhaps some of my trepidations) back in mid-July.  The current project in question is not the web app platform rewrite I'd mentioned then, though, but rather a new major tool that seemed a good candidate as a "rev up for Java before the rewrite" and a break with Perl as the established in-house development language.  So, despite a concerned trackback at the time from Brian Donovan of MONOKROMATIK, I've managed to avoid descent into that level of hell thus far.  (This may still be naivete - but I'm not yet convinced that starting this over in Java is a bad thing.)
+So, my project at present started off as a new venture, with new technologies and techniques, and a planned end product of immense value and demand for the company.  But now, it's ending in a vague cloud of missed deadlines and frustrated expectations.  A slew of "missing" features have been added far beyond the woefully incomplete original scope, yet features expected from the start have dropped, leaving a sum impression of a diminished result.  Initial deadlines have been blown by months, leading to an abandonment of testing and documentation just to sprint to the next already unrealistic due date.
+With whom does the blame lie?  With everyone - with no one - but no matter: I'm a perfectionist, so I choose myself.  I tell myself that I should have known better than to have agreed to that timeline - I should have better forseen the unexpected.  I should have never let go of my pristine test-driven development for perceived speed - mystery bugs and instabilities are biting me now.  And I didn't stick to my guns on feature creep - the "wouldn't it be nice if" genie is out of the bottle now.
+All I wanted was to be accomodating - to deliver an affordable, massively flexible product in a perceivably reasonable timeline that satisfies all parties concerned.  And as I write that somewhat convoluted sentence, I realize both that that really has been my motivating goal, and that the goal is unlikely to impossible.  Infinitely more so for just one guy, left mostly to his own devices, to pull everything into order.  Funny, at the time, I didn't feel like a one of the "hotshot programmers who are convinced that they can run barefoot all the way to the top [of Mount Everest]." (See: Yourdon.)
+So what mystifies me now is this: I'm a smart guy, I've been through a few trying times and I read a lot and I try to pay attention.  The development pattern I've just described is neither new nor unknown to me - I've been here before and I've read the accounts of others who've been here before.  And I know the benefits in sticking to a clean test-driven dev cycle, and keeping a stern check on scope creep.  I know these things, and I try to practice these things - I'm normally known as the guy who pees in the happy idea cheerios - so what hit me this time?
+I'm carefully trying to steer clear from writing a rant or a whine - I know that my angst comes from a loss of perspective in being nose-to-nose with this project.  I know it will get better once this is done, and I know from recent developments that this project can and will be rescued unlike many doomed projects.  It will be good and well used and the disappointments will fade.  But for the life of this project, the late nights and my absence from life online and off have been real, as have been the doubts and fears.
+That said, what the hell happened?  And how can I prevent it in the future?  Is it just a matter of guts, principles, and discipline?  I don't think I'm personally in the wrong line of work - but this sort of thing puts me in an unfortunate mood to question everything.  Hmm, I know I've intimated that I'm well read - but I've yet to actually read Yourdon's Death March.  I think it's time to dig into a pile of his works.
+Anyway, it'll work out in the end.  In the future, I need to learn how to steer clear of these rocks - though it seems Yourdon asserts that the rocks are unavoidable.  So, even with the knowledge that this is not the end of the world, contemplating doors 1, 2, and 3 seems peculiarly attractive.  I'm leaning toward #2 as the more healthy alternative, but it might be fun to pursue some combination of all three.  
+I'll let everyone know which I choose, when the time comes - but the message may come entirely encoded in non-alphanumeric ASCII.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2002/11/01/ooocac/"
+          >1020&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2002/11/01/ooocac/">#</a>
+    <a class="time" href="2002/11/01/ooocac/">9:41 pm</a>
+    
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

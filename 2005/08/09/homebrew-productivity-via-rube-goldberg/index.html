@@ -1,148 +1,266 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>Homebrew Productivity via Rube Goldberg - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="Homebrew Productivity via Rube Goldberg" />
+    <html>
+      <head>
+        <title>Homebrew Productivity via Rube Goldberg - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="Homebrew Productivity via Rube Goldberg" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2005/08/09/homebrew-productivity-via-rube-goldberg/"
         />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post "
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post "
       >
-        <time
-          title="2005-08-09T13:59:00+00:00"
-          pubdate="2005-08-09T13:59:00+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2005/"
-            >2005</a
+        <header>
+          <time
+            title="2005-08-09T09:59:00-04:00"
+            pubdate="2005-08-09T09:59:00-04:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2005/08/"
-            >August</a
-          >
-          &raquo;
-          <span>09</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="Quick Thoughts for a Thursday"
+                href="/blog.lmorchard.com/2005/08/11/quick-thoughts-for-a-thursday/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2005/"
+                >2005</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2005/08/"
+                >August</a
+              >
+              &#8226;
+              <span>09</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Quick Brain Burps"
+                href="/blog.lmorchard.com/2005/08/08/quick-brain-burps/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">Homebrew Productivity via Rube Goldberg</h1>
+          
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2005/08/11/quick-thoughts-for-a-thursday/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2005/08/08/quick-brain-burps/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">Homebrew Productivity via Rube Goldberg</h1>
-        
-        <section class="post-content">
-          <p>Here&#39;s a quick weekend assemblage of a hack that might be of use to someone:</p>
+        <p>Here's a quick weekend assemblage of a hack that might be of use to someone:</p>
 <p>I recently switched to a <a href="http://www.palm.com/us/products/zire/">Palm Zire</a> from a Handspring Visor--which itself was <a href="http://www.decafbad.com/blog/2005/06/14/gadget_flashback">a downgrade from a Treo 600</a>.  The Zire was a bit of a lateral move from the Visor, since the Zire is rechargeable and more pocketable, but has less storage and a screen with tinier eye-strainy pixels.  (Actually, the product page I linked here shows the Zire 21, whereas what I have is the discontinued classic Zire.)</p>
-<p>Anyway, I&#39;ve been idly poking at making this thing more useful as my take-along brain bucket.  The out-of-box tools--Palm Desktop, etal--have never quite worked for me, so I wanted to see what might <em>actually</em> help me get some use out of the thing.  So far, it turns out that it ends up being most convenient when I use it as a glorified electronic notepad, a <a href="http://www.hipsterpda.com/">Hipster PDA</a> with a USB socket.</p>
-<p>I&#39;ve thrown together a combination of <a href="http://homepage.mac.com/wis/Personal/programs/NoteTaker/NoteTaker.html">MacNoteTaker</a>, <a href="http://daringfireball.net/projects/markdown/">Markdown</a>,  <a href="http://www.roaringpenguin.com/penguin/open_source_remind.php">Remind</a>, <a href="http://www.splasm.com/products/productdasher.html">Dasher</a>, and <a href="http://www.apple.com/downloads/dashboard/developer/shellwatcher.html">ShellWatcher</a> to implement my own idea-dump and to-do conduits into my PowerBook.  </p>
-<p>The nice thing about <a href="http://homepage.mac.com/wis/Personal/programs/NoteTaker/NoteTaker.html">MacNoteTaker</a> is that it simply syncs text files.  From there, it&#39;s easy to route things through <a href="http://daringfireball.net/projects/markdown/">Markdown</a> and <a href="http://www.roaringpenguin.com/penguin/open_source_remind.php">Remind</a>.  </p>
-<p>I was using <a href="http://www.43folders.com/2005/06/dashboard_widge.html">Nick Vargish&#39;s Remind Widget</a> before <a href="http://www.decafbad.com/blog/2005/07/05/exocortex_stroke">my hard drive crash</a>, but since then the download seems to have gone AWOL.  So, <a href="http://www.apple.com/downloads/dashboard/developer/shellwatcher.html">ShellWatcher</a> it is, running <code>~/local/bin/remind</code> to update my Dashboard reminders on a regular basis.  To keep these reminders in my face throughout the day, I&#39;ve got <a href="http://www.splasm.com/products/productdasher.html">Dasher</a> set to bring the Dashboard up whenever I walk away for more than 5 minutes.</p>
-<p>As for plain old ideas, I&#39;ve got a <code>00-random.txt</code> file I maintain between the PowerBook and <a href="http://homepage.mac.com/wis/Personal/programs/NoteTaker/NoteTaker.html">MacNoteTaker</a>.  This is in <a href="http://daringfireball.net/projects/markdown/">Markdown</a> format, and I occasionally view it via a filter CGI in my browser.  I&#39;m considering plastering it up on my Dashboard via a browser-refresh widget also.  Eventually, these ideas migrate into <a href="http://www.eastgate.com/Tinderbox/">Tinderbox</a> or a personal wiki.</p>
-<p>For my next productivity micro-project, I&#39;m thinking of setting up an email gateway to let my fianc&#233;e email me honey-do lists that&#39;ll get merged in with my reminders...</p>
+<p>Anyway, I've been idly poking at making this thing more useful as my take-along brain bucket.  The out-of-box tools--Palm Desktop, etal--have never quite worked for me, so I wanted to see what might <em>actually</em> help me get some use out of the thing.  So far, it turns out that it ends up being most convenient when I use it as a glorified electronic notepad, a <a href="http://www.hipsterpda.com/">Hipster PDA</a> with a USB socket.</p>
+<p>I've thrown together a combination of <a href="http://homepage.mac.com/wis/Personal/programs/NoteTaker/NoteTaker.html">MacNoteTaker</a>, <a href="http://daringfireball.net/projects/markdown/">Markdown</a>,  <a href="http://www.roaringpenguin.com/penguin/open_source_remind.php">Remind</a>, <a href="http://www.splasm.com/products/productdasher.html">Dasher</a>, and <a href="http://www.apple.com/downloads/dashboard/developer/shellwatcher.html">ShellWatcher</a> to implement my own idea-dump and to-do conduits into my PowerBook.  </p>
+<p>The nice thing about <a href="http://homepage.mac.com/wis/Personal/programs/NoteTaker/NoteTaker.html">MacNoteTaker</a> is that it simply syncs text files.  From there, it's easy to route things through <a href="http://daringfireball.net/projects/markdown/">Markdown</a> and <a href="http://www.roaringpenguin.com/penguin/open_source_remind.php">Remind</a>.  </p>
+<p>I was using <a href="http://www.43folders.com/2005/06/dashboard_widge.html">Nick Vargish's Remind Widget</a> before <a href="http://www.decafbad.com/blog/2005/07/05/exocortex_stroke">my hard drive crash</a>, but since then the download seems to have gone AWOL.  So, <a href="http://www.apple.com/downloads/dashboard/developer/shellwatcher.html">ShellWatcher</a> it is, running <code>~/local/bin/remind</code> to update my Dashboard reminders on a regular basis.  To keep these reminders in my face throughout the day, I've got <a href="http://www.splasm.com/products/productdasher.html">Dasher</a> set to bring the Dashboard up whenever I walk away for more than 5 minutes.</p>
+<p>As for plain old ideas, I've got a <code>00-random.txt</code> file I maintain between the PowerBook and <a href="http://homepage.mac.com/wis/Personal/programs/NoteTaker/NoteTaker.html">MacNoteTaker</a>.  This is in <a href="http://daringfireball.net/projects/markdown/">Markdown</a> format, and I occasionally view it via a filter CGI in my browser.  I'm considering plastering it up on my Dashboard via a browser-refresh widget also.  Eventually, these ideas migrate into <a href="http://www.eastgate.com/Tinderbox/">Tinderbox</a> or a personal wiki.</p>
+<p>For my next productivity micro-project, I'm thinking of setting up an email gateway to let my fiancée email me honey-do lists that'll get merged in with my reminders...</p>
 <div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
 <ul class="comments">
 <li class="comment" id="comment-221082876">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://webseitz.fluxent.com/wiki"><img src="http://www.gravatar.com/avatar.php?gravatar_id=8157a5907b244071cda98ba5aa7a9635&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://webseitz.fluxent.com/wiki">Bill Seitz</a>
+<a class="avatar image" rel="nofollow" href="http://webseitz.fluxent.com/wiki"><img src="http://www.gravatar.com/avatar.php?gravatar_id=8157a5907b244071cda98ba5aa7a9635&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://webseitz.fluxent.com/wiki">Bill Seitz</a>
 </div>
-<a href="#comment-221082876" class="permalink"><time datetime="2005-08-09T13:50:46">2005-08-09T13:50:46</time></a>
+
+
+<p><a href="#comment-221082876" class="permalink"><time datetime="2005-08-09T13:50:46">2005-08-09T13:50:46</time></a></p>
 </div>
+
+
 <div class="content">So the focus in this posting is on the unstructured-note area, not on Address Books, Calendar, etc., right?
 I'm pretty sure there's a little wiki that runs on Palm, just layering name-clickability on top of notes.
 I just got PikiPiki running on my Zaurus. I need to start playing with models of having a big PrivateWiki on my ibook, and moving subsets back and forth to the Zaurus...
 http://webseitz.fluxent.com/wiki/WikiOnZaurus</div>
+
+
 </li>
 <li class="comment" id="comment-221082878">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://go-blog-go.blogspot.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=a9c49b00e73397cbd99fcf159104dd90&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://go-blog-go.blogspot.com">Saltation</a>
+<a class="avatar image" rel="nofollow" href="http://go-blog-go.blogspot.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=a9c49b00e73397cbd99fcf159104dd90&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://go-blog-go.blogspot.com">Saltation</a>
 </div>
-<a href="#comment-221082878" class="permalink"><time datetime="2005-09-21T09:48:10">2005-09-21T09:48:10</time></a>
+
+
+<p><a href="#comment-221082878" class="permalink"><time datetime="2005-09-21T09:48:10">2005-09-21T09:48:10</time></a></p>
 </div>
+
+
 <div class="content">a good tool for taking a task outline and automatically calculating which task is more important where and when is http://llamagraphics.com .  most people register it within a week and i, an inveterate computer-to-do-app hater, am still using it daily 6 years later.</div>
+
+
 </li>
 </ul>
+
+
 </div>
 
-        </section>
-      </article>
-        </section>
-
-        <footer>
-          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
-        </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
-      </section>
-    </body>
-  </html>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2005/08/11/quick-thoughts-for-a-thursday/"
+                >Quick Thoughts for a Thursday</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2005/08/08/quick-brain-burps/"
+                >Quick Brain Burps</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

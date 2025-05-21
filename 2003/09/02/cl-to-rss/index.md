@@ -7,12 +7,14 @@ as an <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> feed.  I
 by <a href="http://people.redhat.com/jrb/" target="_top">Jonathan Blandford</a>.  So,
 when I had a few free minutes, I took some parts I had laying around, along
 with this parser, and made this:
+
 <ul>
 <li> <a href="http://www.decafbad.com/2003/08/cl2rss?cl=http%3A%2F%2Fwww.ecyrd.com%2F%7Ejalkanen%2FJSPWiki%2Fnightly%2FChangeLog"><img src="http://www.decafbad.com/images/xml.gif" border="0" /></a> - <a href="http://www.ecyrd.com/~jalkanen/JSPWiki/nightly/ChangeLog">Changelog for JSPWiki</a>
 </li>
 <li> <a href="http://www.decafbad.com/2003/08/cl2rss.txt" target="_top">Source code for cl2rss</a>
 </li>
 </ul>
+
 This is at the "it works" stage.  It needs much work in what it presents
 in an <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> feed, so feel free to suggest changes!
 <!--more-->

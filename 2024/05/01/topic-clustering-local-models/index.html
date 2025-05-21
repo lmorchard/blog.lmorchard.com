@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+    <html>
+      <head>
+        <title>Clustering ideas with local ML/AI models - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="Clustering ideas with local ML/AI models" />
+        <meta
+          property="og:url"
+          content="https://lmorchard.github.io/blog.lmorchard.com/2024/05/01/topic-clustering-local-models/"
+        />
+        <meta
+            property="og:image"
+            content="https://lmorchard.github.io/blog.lmorchard.com/blog.lmorchard.com/2024/05/01/topic-clustering-local-models/cover.png"
+          />
+        <meta property="og:description" content="TL;DR: In my previous post, I used APIs from OpenAI to roughly cluster ideas by named topic. In this post, I&#39;ll try that again, but this time with local models on my own hardware." />
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
+            <ul>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post tag-aitag-mltag-llmtag-genaitag-ClusteringIdeasWithAI"
+      >
+        <header>
+          <time
+            title="2024-05-01T12:00:00-07:00"
+            pubdate="2024-05-01T12:00:00-07:00"
+          >
+            <span class="prevpost">
+              <a
+                title="Clustering ideas with Llamafile"
+                href="/blog.lmorchard.com/2024/05/10/topic-clustering-llamafile/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2024/"
+                >2024</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2024/05/"
+                >May</a
+              >
+              &#8226;
+              <span>01</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Clustering ideas by topic with machine learning and generative AI"
+                href="/blog.lmorchard.com/2024/04/27/topic-clustering-gen-ai/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">Clustering ideas with local ML/AI models</h1>
+          <ul class="tags">
+              <li><a href="/blog.lmorchard.com/tag/ai/">ai</a></li><li><a href="/blog.lmorchard.com/tag/ml/">ml</a></li><li><a href="/blog.lmorchard.com/tag/llm/">llm</a></li><li><a href="/blog.lmorchard.com/tag/genai/">genai</a></li><li><a href="/blog.lmorchard.com/tag/ClusteringIdeasWithAI/">ClusteringIdeasWithAI</a></li>
+            </ul>
+        </header>
+
+        <p><strong>TL;DR</strong>: In <a href="https://blog.lmorchard.com/2024/04/27/topic-clustering-gen-ai/">my previous post</a>, I used APIs from OpenAI to roughly cluster ideas by named topic. In this post, I'll try that again, but this time with local models on my own hardware.</p>
+<!--more-->
+
+
+
+<figure class="wide">
+  <img src="./cover.png" width="" height="">
+  <figcaption>I asked DALL-E to generate "an image in a whimsical style depicting astronauts at home clustering ideas brought in from deep space". Then, I ran a few imagemagick transformations on it for fun.</figcaption>
+</figure>
+
+<nav role="navigation" class="table-of-contents"></nav>
+
+<p>In <a href="https://blog.lmorchard.com/2024/04/27/topic-clustering-gen-ai/">my previous post</a>, I glued together a few OpenAI API calls and a k-means clustering algorithm to organize some ideas into named groups.</p>
+<p>It worked pretty well, but I'm not always comfortable with the idea of sending all my ideas to someone else's computer (i.e. the Cloud). So, I thought I'd see if I could do the same thing entirely with my own hardware.</p>
+<h2 id="organizing-sticky-notes-automatically">Organizing sticky notes automatically</h2>
+<p>As a refresher, the thing that got me started on this was a feature in Figma's <a href="https://www.figma.com/figjam/">FigJam</a> tool. Given a collection of sticky notes, there's an "organize" feature <a href="(https://www.theverge.com/2023/11/7/23950667/figma-figjam-generative-ai-design-tools-beta-announcement)">that uses AI</a> to group them into named clusters automatically:</p>
+<figure class="wide">
+  <video controls="">
+    <source src="./figjam-sorting-demo.mp4" type="video/mp4">
+    <a href="./figjam-sorting-demo.mp4">figjam-sorting-demo.mp4</a>
+  </video>
+  <figcaption>A quick demo of FigJam's sticky organization feature - it's more legible in fullscreen view</figcaption>
+</figure>
+
+<h2 id="how-does-it-do-what-it-does">How does it do what it does?</h2>
+<p>Again, I don't know exactly how <a href="https://www.figma.com/figjam/">FigJam</a> does this. But, here's my own stab at a process:</p>
+<ol>
+<li>we map the notes as points in a virtual semantic space using <a href="https://cloud.google.com/blog/topics/developers-practitioners/meet-ais-multitool-vector-embeddings">vector embeddings</a></li>
+<li><a href="https://en.wikipedia.org/wiki/K-means_clustering">k-means clustering</a> can find groups of points that are close together in space</li>
+<li>we map the points back to notes and a <a href="https://en.wikipedia.org/wiki/Large_language_model">large language model</a> can help generate labels for each group</li>
+</ol>
+<p>The end result is a set of rougly similar clusters of ideas, each with a not-entirely horrible label.</p>
+<h2 id="play-along-at-home-with-a-notebook">Play along at home with a notebook</h2>
+<p>If you want to follow along like <a href="https://blog.lmorchard.com/2024/04/27/topic-clustering-gen-ai/">last time</a>, I've got a small notebook that you can run in your own environment:</p>
+<ul>
+<li><a href="./topic_clustering_with_local_models.ipynb">topic_clustering_with_local_models.ipynb</a></li>
+</ul>
+<p>While you can run this on <a href="https://colab.research.google.com/">Google Colab</a>, you might want to install <a href="https://jupyter.org/">Jupyter Notebook</a> locally on your own computer. That can give you a better feel for how it runs locally.</p>
+<p>Personally, I've got a 14-inch, 2021 Apple MacBook Pro with an M1 Pro CPU and 32GB of RAM. It's neither the best nor worst machine in the world. But, that makes it kind of a good test case for how this kind of thing runs on a modern laptop. (Spoiler alert: AI/ML stuff is pretty resource intensive.)</p>
+<h2 id="opening-ceremonies-redux">Opening ceremonies (redux)</h2>
+<p>To kick this off, here's the same list of ideas from my previous post:</p>
+<pre><code class="language-python">items_text = """
+- pasta
+- thomas dolby
+- alpha
+- apples
+- cats
+- pears
+- meters
+- brick
+- dogs
+- beta
+- howard jones
+- concrete
+- asphalt
+- milk
+- rebar
+- gillian gilbert
+- hamsters
+- bread
+- butter
+- wendy carlos
+- gamma
+- birds
+- bananas
+- rick wakeman
+- inches
+- glass
+- feet
+- gary numan
+- miles
+- lumber
+- kilometers
+- geoff downes
+"""
+
+# Split the text into non-empty lines...
+items = [x for x in items_text.split("\n") if x]
+</code></pre>
+<p>I should probably try a different set of things. But, I'm lazy and this is what I've got for now. Replace these with your own brain dump, if you're playing at home. Next, some code to install modules:</p>
+<pre><code class="language-python">%pip install scikit-learn torch sentence_transformers accelerate
+</code></pre>
+<p>Something to notice, versus <a href="https://blog.lmorchard.com/2024/04/27/topic-clustering-gen-ai/">my previous post</a>, is that I'm not using OpenAI's API client this time. Instead, I'm using the <code>torch</code> and <code>sentence_transformers</code> modules. We'll see how those come into play shortly.</p>
+<h2 id="vector-embeddings-strike-back">Vector embeddings (strike back)</h2>
+<p>Again, <a href="https://cloud.google.com/blog/topics/developers-practitioners/meet-ais-multitool-vector-embeddings">vector embeddings</a> are like content hashes with the superpower of being the coordinates of a point in a high-dimensional semantic space where distance indicates similarity. If that makes your head spin like it did mine, <a href="https://blog.lmorchard.com/2024/04/27/topic-clustering-gen-ai/">my previous post</a> rambles on a bit more about this.</p>
+<p>Assuming you've nodded along with that last paragraph, here's some code to generate embeddings on your own computer:</p>
+<pre><code class="language-python">from sentence_transformers import SentenceTransformer
+
+# 384 dimensions - https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2
+# embedding_model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
+
+# 384 dimensions - https://huggingface.co/sentence-transformers/all-MiniLM-L12-v2
+# embedding_model = SentenceTransformer('sentence-transformers/all-MiniLM-L12-v2')
+
+# 768 dimensions - https://huggingface.co/sentence-transformers/all-mpnet-base-v2
+# embedding_model = SentenceTransformer('sentence-transformers/all-mpnet-base-v2')
+
+# 768 dimensions - https://huggingface.co/thenlper/gte-base
+# embedding_model = SentenceTransformer('thenlper/gte-base')
+
+# 1024 dimensions - https://huggingface.co/thenlper/gte-large
+embedding_model = SentenceTransformer('thenlper/gte-large')
+
+embeddings = embedding_model.encode(items)
+embeddings
+</code></pre>
+<p>Okay, so a lot of that code is commented out. That's because this was a good place to play around. As it turns out, there are many embedding models and I'm still learning how to tell them apart. Until I understand more about the specifics of each model, I'm just going to try a bunch of them and see what happens.</p>
+<p>In fact, if you're following along in your own notebook, you should do that. Try uncommenting different models and see what happens:</p>
+<ul>
+<li>how big are the models?</li>
+<li>how long do they take to download?</li>
+<li>how long does this take to run?</li>
+<li>what does Activity Monitor say about your CPU and memory usage?</li>
+<li>how do the clusters look?</li>
+</ul>
+<p>And, just like how I got embeddings from an OpenAI API call, running one of these models locally gives me essentially the data shape - i.e. a list-of-lists of numbers:</p>
+<pre><code class="language-python">array([[-0.02736097,  0.00340217, -0.01076854, ..., -0.02489066,
+         0.01647391, -0.02072625],
+       [-0.03888908,  0.02349574,  0.0143796 , ..., -0.01913134,
+        -0.03127009, -0.0304915 ],
+       [ 0.01443943,  0.02336113,  0.00634783, ...,  0.00120864,
+        -0.01801292, -0.02678853],
+       ...,
+       [ 0.00835066,  0.00595316, -0.01179765, ..., -0.01259451,
+        -0.0165759 , -0.0056388 ],
+       [ 0.0005869 ,  0.01886297, -0.0079366 , ..., -0.04092352,
+        -0.01162215, -0.01117233],
+       [-0.00889315, -0.00544541, -0.02917784, ..., -0.01641204,
+        -0.01544971, -0.01567657]], dtype=float32)
+</code></pre>
+<h2 id="k-means-clustering-the-return-of">K-means clustering (the return of)</h2>
+<p>This part doesn't change at all from <a href="https://blog.lmorchard.com/2024/04/27/topic-clustering-gen-ai/">the previous post</a>. We're still using the same <code>KMeans</code> implementation from <code>sklearn</code> to group the embeddings into clusters.</p>
+<p>This algorithm it doesn't care where the embeddings came from. They're lists of coordinates - whether from OpenAI or your own machine - so the clustering will work just the same:</p>
+<pre><code class="language-python">from sklearn.cluster import KMeans
+from itertools import groupby
+
+# Let's say we want to organize the list into this many clusters
+n_clusters = 9
+
+# Use the k-means algorithm to come up with a cluster ID for each embedding
+cluster_ids = KMeans(n_clusters=n_clusters, n_init='auto').fit_predict(embeddings)
+
+# Associate each cluster ID with the corresponding item
+cluster_ids_with_items = zip(cluster_ids, items)
+
+# Group the pairs of (cluster_id, item) into lists based on cluster ID
+grouped_cluster_ids_with_items = groupby(
+    sorted(cluster_ids_with_items, key=lambda x: x[0]),
+    key=lambda x: x[0]
+)
+
+# Simplify that whole mess so we just have a list of clustered items
+clustered_items = [
+    [item for cluster_id, item in item_group]
+    for cluster_id, item_group
+    in grouped_cluster_ids_with_items
+]
+
+clustered_items
+</code></pre>
+<p>And when I ran this code, I got this:</p>
+<pre><code class="language-python">[['- meters', '- inches', '- feet', '- miles', '- kilometers'],
+ ['- alpha', '- beta', '- gamma'],
+ ['- brick', '- concrete', '- asphalt', '- rebar', '- glass', '- lumber'],
+ ['- howard jones', '- gillian gilbert', '- wendy carlos'],
+ ['- apples', '- pears', '- bananas'],
+ ['- cats', '- dogs', '- hamsters', '- birds'],
+ ['- pasta', '- bread'],
+ ['- thomas dolby', '- rick wakeman', '- gary numan', '- geoff downes'],
+ ['- milk', '- butter']]
+</code></pre>
+<p>This is a good spot to pause and play around to get a sense of things:</p>
+<ul>
+<li>Try loading different embedding models in the previous cell</li>
+<li>Plonk in your own list of ideas</li>
+<li>Tweak the number of clusters</li>
+</ul>
+<p>I'm pretty sure there's a more formal way to evaluate this stuff - and indeed that sort of thing is on my list of things to learn - but just eyeballing it is good enough for me right now.</p>
+<h2 id="generating-labels-your-own-personal-llm">Generating labels (your own, personal, LLM)</h2>
+<p>In <a href="https://blog.lmorchard.com/2024/04/27/topic-clustering-gen-ai/">my previous post</a>, calling OpenAI's chat completions API with a prompt was a pretty simple function under 10 lines long. That kind of convenience is how they "getcha" - but, again, this time around I want to do it the hard way on my own computer.</p>
+<p>Loading up a large language model is just slightly more complicated than an embedding model:</p>
+<pre><code class="language-python">"""
+https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0/tree/main
+
+This model is about 2.2GB.
+My 2021 MacPook Pro with an Apple M1 Pro and 32GB of RAM seems to have no problem with this model.
+"""
+import torch
+from transformers import pipeline
+
+pipe = pipeline(
+    "text-generation",
+    model="TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+    torch_dtype=torch.bfloat16,
+    device_map="auto"
+)
+</code></pre>
+<p>You may notice here that I've only loaded one model, with no other suggestions in comments. Well, that's because I landed on <a href="https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0">TinyLlama</a> as the only one that didn't seem to entirely squash my laptop before it could even start generating text. I wanted to take that as a win for now.</p>
+<p>Your mileage may vary. If you're following along at home, look up some more LLMs on <a href="https://huggingface.co/">huggingface</a> and try them here. I'm just starting to get a grasp on the metrics and parameters around these things, which sounds like a whole other post.</p>
+<p>Next, let's get into the wishful thinking part - er, I mean prompt engineering:</p>
+<pre><code class="language-python">system_prompt = """You are a helpful but terse assistant."""
+
+user_prompt = """
+Given the following list of items, I need a succinct label that effectively encapsulates the overall theme or purpose.
+
+This is the list of items:
+
+%s
+
+Can you generate a concise, descriptive label for this list? Thanks in advance!
+"""
+</code></pre>
+<p>You may notice that these prompts are way different than the ones I used with OpenAI's API and the <code>gpt-3.5-turbo</code> model. That's because of the following:</p>
+<ul>
+<li>I still don't really know what I'm doing</li>
+<li>But, I do seem to have observed that every LLM is a little different</li>
+<li>So, every LLM needs slighly different prompts for decent results</li>
+</ul>
+<p>This also seems like another spot to dig in and play around. Try different models with different prompts and see what happens. I'm going to do more of that, myself.</p>
+<p>And, with that, we can get into writing a function to generate a cluster label:</p>
+<pre><code class="language-python">def generate_topic(items):
+    text = "\n".join(items)
+    messages = [
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": user_prompt % text},
+    ]
+    prompt = pipe.tokenizer.apply_chat_template(
+        messages,
+        tokenize=False,
+        add_generation_prompt=True
+    )
+    results = pipe(
+        prompt,
+        max_new_tokens=32,
+        do_sample=True,
+        # this tells the LLM how much of a rando to be while selecting tokens during generation
+        temperature=0.1,
+        # this tells the LLM how many different tokens to decide between at each step of generation
+        top_k=3,
+        # this tells the LLM how picky to be about the most likely tokens to select while generating
+        top_p=0.8,
+    )
+    # HACK: trim the prompt off the start of the generated text
+    generated_text = results[0]['generated_text'][len(prompt):].strip()    
+    return generated_text
+</code></pre>
+<p>This code doesn't look <em>entirely</em> different from the call to OpenAI's API in <a href="https://blog.lmorchard.com/2024/04/27/topic-clustering-gen-ai/">my previous post</a>. There's a similar list of messages for <code>system</code> and <code>user</code> prompts.</p>
+<p>But, I did start tinkering with parameters. This is my current understanding of what they do:</p>
+<ul>
+<li><code>temperature</code> - how much of a rando to be while selecting tokens during generation</li>
+<li><code>top_k</code> - how many different tokens to decide between at each step</li>
+<li><code>top_p</code> - how picky to be about the most likely tokens to select at each step</li>
+</ul>
+<p>When I used OpenAI's <code>gpt-3.5-turbo</code>, I was pretty happy with the default parameters. But, playing with <code>TinyLlama-1.1B-Chat-v1.0</code>, I found that I needed to start tweaking both the prompt and these knobs to get better results.</p>
+<p>My fuzzy intention was to try to constrain these parameters, in an effort to make the LLM as boring and consistent as possible. This is a spot where I'm still flailing and trying things out.</p>
+<p>Apropos of that, here's a loop to generate topics for each cluster:</p>
+<pre><code class="language-python">for cluster in clustered_items:
+    topic = generate_topic(cluster)
+
+    print(f"# {topic}")
+    print()
+    for item in cluster:
+        print(f"{item}")
+    print()
+</code></pre>
+<p>When I ran this code, here's what I got:</p>
+<pre><code class="language-markdown"># "Essential Measurement Tools for Everyday Life"
+
+- meters
+- inches
+- feet
+- miles
+- kilometers
+
+# "Key Components for Successful Project Management"
+
+- alpha
+- beta
+- gamma
+
+# "Materials for Construction and Repair"
+
+- brick
+- concrete
+- asphalt
+- rebar
+- glass
+- lumber
+
+# "Essential Artists: Howard Jones, Gillian Gillespie, and Wendy Carlos"
+
+- howard jones
+- gillian gilbert
+- wendy carlos
+
+# "Fresh Fruits"
+
+- apples
+- pears
+- bananas
+
+# "Animals"
+
+- cats
+- dogs
+- hamsters
+- birds
+
+# "Essential Ingredients for a Comforting Meal"
+
+- pasta
+- bread
+
+# "Top 5 Legendary Musicians of the 1980s"
+
+- thomas dolby
+- rick wakeman
+- gary numan
+- geoff downes
+
+# "Food Essentials"
+
+- milk
+- butter
+</code></pre>
+<p>I don't think this is an <em>entirely</em> awful result? I'd like it if the labels were even more matter-of-fact and concise. But, I think this is a good start for further play.</p>
+<h2 id="wrapping-up-for-now">Wrapping up (for now)</h2>
+<p>Overall, I think this was a success, insofar as I was able to replicate the basic idea of clustering ideas by topic with local models on my own hardware.</p>
+<p>The embedding &amp; clustering seemed equivalent to the result I got from OpenAI. Though, I think <code>gpt-3.5-turbo</code> did a subjectively better job than <code>TinyLlama-1.1B-Chat-v1.0</code>.</p>
+<p>That difference in performance is worth digging into, though, because:</p>
+<ul>
+<li>the two models differ dramatically in capability &amp; size</li>
+<li>there are other local models to explore</li>
+<li>my prompt engineering skills are a work in progress</li>
+<li>the cloud vs local difference is pretty compelling</li>
+</ul>
+<p>I've seen hints that there are more formal means to evaluate the performance of an LLM in a task like this. And, relatedly, a local model can be fine-tuned to a specific task. Both of these things are, of course, on my list of things to learn.</p>
+<p>So, we'll see where this goes next. As a teaser, I may have another post soon: I want to see about doing all of this again using Mozilla's <a href="https://github.com/Mozilla-Ocho/llamafile">llamafile</a> to run a local model.</p>
+
+        <section class="comments" id="comments">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+              var disqus_needs_loading = true;
+              var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com/2024/05/01/topic-clustering-local-models/";
+            </script>
+            <noscript
+              >Please enable JavaScript to view the
+              <a href="http://disqus.com/?ref_noscript"
+                >comments powered by Disqus.</a
+              ></noscript
+            >
+            <a href="http://disqus.com" class="dsq-brlink"
+              >blog comments powered by
+              <span class="logo-disqus">Disqus</span></a
+            >
+          </section>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2024/05/10/topic-clustering-llamafile/"
+                >Clustering ideas with Llamafile</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2024/04/27/topic-clustering-gen-ai/"
+                >Clustering ideas by topic with machine learning and generative AI</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

@@ -1,101 +1,179 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>Firefox and flash of styled XML - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="Firefox and flash of styled XML" />
+    <html>
+      <head>
+        <title>Firefox and flash of styled XML - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="Firefox and flash of styled XML" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2006/05/10/firefox-and-flash-of-styled-xml/"
         />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post tag-asides"
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post tag-asides"
       >
-        <time
-          title="2006-05-10T19:23:31+00:00"
-          pubdate="2006-05-10T19:23:31+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2006/"
-            >2006</a
+        <header>
+          <time
+            title="2006-05-10T15:23:31-04:00"
+            pubdate="2006-05-10T15:23:31-04:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2006/05/"
-            >May</a
-          >
-          &raquo;
-          <span>10</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="Back to NewsRiver, and hacking lists of Reading Lists"
+                href="/blog.lmorchard.com/2006/05/12/back-to-newsriver-and-hacking-lists-of-reading-lists/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2006/"
+                >2006</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2006/05/"
+                >May</a
+              >
+              &#8226;
+              <span>10</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="iptables, port forwarding, and access from LAN-side"
+                href="/blog.lmorchard.com/2006/05/09/iptables-port-forwarding-and-access-from-lan-side/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">Firefox and flash of styled XML</h1>
+          <ul class="tags">
+              <li><a href="/blog.lmorchard.com/tag/asides/">asides</a></li>
+            </ul>
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2006/05/12/back-to-newsriver-and-hacking-lists-of-reading-lists/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2006/05/10/iptables-port-forwarding-and-access-from-lan-side/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">Firefox and flash of styled XML</h1>
-        <ul class="tags">
-            <li>
-                  <a href="/blog.lmorchard.com/tag/asides/">asides</a>
-                </li>
-          </ul>
-        <section class="post-content">
-           <p>Here's another random call for support from my blog-friends out there:</p>
+        <p>Here's another random call for support from my blog-friends out there:</p>
  <p>In Firefox, when viewing raw XML, a basic style is applied which does some pretty printing on the XML.  It says something like, "This XML file does not appear to have any style information..."</p>
  <p>Well lately, on my install of Firefox on the PowerBook, that default document tree style appears briefly then reverts to munged text a few seconds later.</p>
  <p>I seem to remember having read about this somewhere, why it happens, and what to do about it.  But, again, like my iptables knowledge, this has dripped out of one of my ears.</p>
@@ -106,55 +184,97 @@
 <li class="comment" id="comment-221090412">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=82cb52bfd7062a3225c75090f9a9a4e0&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="">Joseph Dakroub</a>
+<a class="avatar image" rel="nofollow" href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=82cb52bfd7062a3225c75090f9a9a4e0&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="">Joseph Dakroub</a>
 </div>
-<a href="#comment-221090412" class="permalink"><time datetime="2006-05-10T21:58:05">2006-05-10T21:58:05</time></a>
+
+
+<p><a href="#comment-221090412" class="permalink"><time datetime="2006-05-10T21:58:05">2006-05-10T21:58:05</time></a></p>
 </div>
+
+
 <div class="content"><p>Have you looked at "about:config" to see if "layout.xml.prettyprint" exists, and if so, is it set to true or false?</p></div>
+
+
 </li>
 <li class="comment" id="comment-221090413">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://weblog.philringnalda.com/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2b6c1ba0915a97a81d59ca1e101e6d74&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://weblog.philringnalda.com/">Phil Ringnalda</a>
+<a class="avatar image" rel="nofollow" href="http://weblog.philringnalda.com/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2b6c1ba0915a97a81d59ca1e101e6d74&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://weblog.philringnalda.com/">Phil Ringnalda</a>
 </div>
-<a href="#comment-221090413" class="permalink"><time datetime="2006-05-10T23:21:58">2006-05-10T23:21:58</time></a>
+
+
+<p><a href="#comment-221090413" class="permalink"><time datetime="2006-05-10T23:21:58">2006-05-10T23:21:58</time></a></p>
 </div>
+
+
 <div class="content"><p>I'm betting you're using Firebug 0.3.2, and now you're waiting eagerly for 0.4, where <a href="http://www.joehewitt.com/software/firebug/forums/viewtopic.php?t=66" rel="nofollow">it's fixed</a>.</p></div>
+
+
 </li>
 <li class="comment" id="comment-221090414">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://dan.makovec.net"><img src="http://www.gravatar.com/avatar.php?gravatar_id=17e58b6cce9b5648e19aaeb936293899&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://dan.makovec.net">Dan Makovec</a>
+<a class="avatar image" rel="nofollow" href="http://dan.makovec.net"><img src="http://www.gravatar.com/avatar.php?gravatar_id=17e58b6cce9b5648e19aaeb936293899&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://dan.makovec.net">Dan Makovec</a>
 </div>
-<a href="#comment-221090414" class="permalink"><time datetime="2006-06-27T22:26:57">2006-06-27T22:26:57</time></a>
+
+
+<p><a href="#comment-221090414" class="permalink"><time datetime="2006-06-27T22:26:57">2006-06-27T22:26:57</time></a></p>
 </div>
+
+
 <div class="content"><p>Did you ever solve this?  Whenever I've found Firefox munging text on my Powerbook, my first port of call is Font Book.app.  </p>
 <p>Click on "All fonts" and look for any fonts with a little black dot next to them.  It means there are duplicates for that particular font, which confuses some apps (notably firefox).  Click on the font then Edit &gt; Resolve Duplicates.  The dot should go away but if it doesn't, try disabling the font.  Then close Font Book and restart Firefox.  That may help you!</p></div>
+
+
 </li>
 </ul>
+
+
 </div>
 
-        </section>
-      </article>
-        </section>
-
-        <footer>
-          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
-        </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
-      </section>
-    </body>
-  </html>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2006/05/12/back-to-newsriver-and-hacking-lists-of-reading-lists/"
+                >Back to NewsRiver, and hacking lists of Reading Lists</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2006/05/09/iptables-port-forwarding-and-access-from-lan-side/"
+                >iptables, port forwarding, and access from LAN-side</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

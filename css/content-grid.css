@@ -1,0 +1,111 @@
+.content-grid {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.content-grid>* {
+  grid-column: main;
+}
+
+.content-grid>header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-column-start: full-start;
+  grid-column-end: full-end;
+}
+
+.content-grid>.wide, .content-grid>.fullwidth {
+  grid-column-start: medium-start;
+  grid-column-end: medium-end;
+}
+
+.content-grid>.fullwidth {
+  grid-column-start: wide-start;
+  grid-column-end: wide-end;
+}
+
+.content-grid>.wide-right {
+  grid-column-start: main-start;
+  grid-column-end: wide-end;
+  grid-row: span 3;
+}
+
+.content-grid>.right {
+  grid-column-start: main-end;
+  grid-column-end: wide-end;
+  align-self: start;
+  grid-row: span 7;
+}
+
+.content-grid>aside {
+  grid-column-start: main-end;
+  grid-column-end: wide-end;
+  font-size: 0.85em;
+  line-height: calc(var(--theme-line-height) * 0.85);
+  align-self: start;
+  grid-row: span 7;
+}
+
+.content-grid>.preside, .content-grid>.left {
+  grid-column-start: wide-start;
+  grid-column-end: main-start;
+  align-self: start;
+  grid-row: span 7;
+}
+
+.content-grid > pre {
+  grid-column: medium;
+  font-size: 0.95em;
+}
+
+.content-grid > .main-head {
+  position: sticky;
+  grid-column: main;
+  top: 10px;
+}
+
+@media (min-width: 600px) {
+  .content-grid {
+    max-width: calc(100vw - (1.25em * 2));
+  }
+}
+
+@media (min-width: 1200px) {
+  .content-grid {
+    display: grid;
+    column-gap: var(--column-gap);
+    grid-template-columns:
+      [full-start wide-start] 2fr
+      [medium-start] 1fr
+      [main-start main-left-start] 3fr
+      [main-left-end main-right-start] 3fr
+      [main-right-end main-end] 1fr
+      [medium-end] 2fr
+      [wide-end full-end];
+  }
+}
+
+@media (min-width: 1400px) {
+  .content-grid {
+    width: 1300px;
+  }
+
+}
+
+@media (min-width: 1600px) {
+  .content-grid {
+    width: 1500px;
+    grid-template-columns:
+      [full-start] 1fr
+      [wide-start] 1fr
+      [medium-start] 1fr
+      [main-start main-left-start] 3fr
+      [main-left-end main-right-start] 3fr
+      [main-right-end main-end] 1fr
+      [medium-end] 1fr
+      [wide-end] 1fr
+      [full-end];
+  }
+}

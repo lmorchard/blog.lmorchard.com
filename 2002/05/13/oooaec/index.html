@@ -1,212 +1,353 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>IFRAME vs JavaScript-include - FIGHT! - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="IFRAME vs JavaScript-include - FIGHT!" />
+    <html>
+      <head>
+        <title>IFRAME vs JavaScript-include - FIGHT! - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="IFRAME vs JavaScript-include - FIGHT!" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2002/05/13/oooaec/"
         />
         
         <meta property="og:description" content="Starting to think about this, too:  What&#39;s better to use?  an IFRAME, or a ?JavaScript-powered include?  I can see elegance and hackishness in both." />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post "
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post "
       >
-        <time
-          title="2002-05-13T17:38:47+00:00"
-          pubdate="2002-05-13T17:38:47+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2002/"
-            >2002</a
+        <header>
+          <time
+            title="2002-05-13T13:38:47-04:00"
+            pubdate="2002-05-13T13:38:47-04:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2002/05/"
-            >May</a
-          >
-          &raquo;
-          <span>13</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="DECAFBAD&#39;s gone all wobbly"
+                href="/blog.lmorchard.com/2002/05/17/oooaed/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2002/"
+                >2002</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2002/05/"
+                >May</a
+              >
+              &#8226;
+              <span>13</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Javascript-enabled linkbacks, part deux"
+                href="/blog.lmorchard.com/2002/05/13/oooaeb/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">IFRAME vs JavaScript-include - FIGHT!</h1>
+          
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2002/05/17/oooaed/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2002/05/13/oooaeb/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
+        <p>Starting to think about this, too:  What's better to use?  an IFRAME, or a <span style="background : [#FFFFCE](/tag/FFFFCE);"><a href="http://www.decafbad.com/twiki/bin/edit/Main/JavaScript?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">JavaScript</font></span>-powered include?  I can see elegance and hackishness in both.</p>
 
-        <h1 class="title">IFRAME vs JavaScript-include - FIGHT!</h1>
-        
-        <section class="post-content">
-          <p>Starting to think about this, too:  What's better to use?  an IFRAME, or a <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/JavaScript?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">JavaScript</font></span>-powered include?  I can see elegance and hackishness in both.</p>
+
 <!--more-->
-shortname=oooaec
 
+
+<p>shortname=oooaec</p>
 <div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
 <ul class="comments">
 <li class="comment" id="comment-221086191">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://johnausten.tripod.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=489902e4dda27edd54b350d46b9d19c1&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://johnausten.tripod.com">john</a>
+<a class="avatar image" rel="nofollow" href="http://johnausten.tripod.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=489902e4dda27edd54b350d46b9d19c1&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://johnausten.tripod.com">john</a>
 </div>
-<a href="#comment-221086191" class="permalink"><time datetime="2002-05-16T22:51:36">2002-05-16T22:51:36</time></a>
+
+
+<p><a href="#comment-221086191" class="permalink"><time datetime="2002-05-16T22:51:36">2002-05-16T22:51:36</time></a></p>
 </div>
+
+
 <div class="content">If there is anyway you can avoid using any sort of frame, do it. Frames are evil (although I use them on my own site, but this will soon change). I am using a PHP include on some of my sites, and that works fine.</div>
+
+
 </li>
 <li class="comment" id="comment-221086192">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://IAwiki.net/EricScheid"><img src="http://www.gravatar.com/avatar.php?gravatar_id=92ffcf37d534a7e60938bc270f750979&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://IAwiki.net/EricScheid">Eric Scheid</a>
+<a class="avatar image" rel="nofollow" href="http://IAwiki.net/EricScheid"><img src="http://www.gravatar.com/avatar.php?gravatar_id=92ffcf37d534a7e60938bc270f750979&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://IAwiki.net/EricScheid">Eric Scheid</a>
 </div>
-<a href="#comment-221086192" class="permalink"><time datetime="2002-05-17T13:45:56">2002-05-17T13:45:56</time></a>
+
+
+<p><a href="#comment-221086192" class="permalink"><time datetime="2002-05-17T13:45:56">2002-05-17T13:45:56</time></a></p>
 </div>
+
+
 <div class="content">target="_top" is the cure for frame evilness in this case. Using PHP (or any other server-side) include is not the answer. See the earlier blog/comment as to why.
 I've done some more playing about with IFRAMEs and am disatisfied -- they insist on taking up a certain rectangular space, adding scroll bars if necessary. They don't resize to suit.
 Javascript it is then.</div>
+
+
 </li>
 <li class="comment" id="comment-221086193">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.decafbad.com">l.m.orchard</a>
+<a class="avatar image" rel="nofollow" href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.decafbad.com">l.m.orchard</a>
 </div>
-<a href="#comment-221086193" class="permalink"><time datetime="2002-05-17T17:03:46">2002-05-17T17:03:46</time></a>
+
+
+<p><a href="#comment-221086193" class="permalink"><time datetime="2002-05-17T17:03:46">2002-05-17T17:03:46</time></a></p>
 </div>
+
+
 <div class="content">Sorry I missed you in the blogchat, Eric :)  Was off eating some nummy sushi.  
-Anyway, I've pretty much come to the conclusion that IFRAMEs are decent for making custom HTML-based UI things.  I can load things up in IFRAMEs that can use javascript to influence the containing page, and the size & scrollbars are desirable.  
+Anyway, I've pretty much come to the conclusion that IFRAMEs are decent for making custom HTML-based UI things.  I can load things up in IFRAMEs that can use javascript to influence the containing page, and the size &amp; scrollbars are desirable.  
 But yeah, the Javascript client-side-include seems to win as a replacement for SSI.  The only thing I don't like terribly is the cramming of everything into a document.writeln(), but I can't come up with a good reason why it gives me the willies.</div>
+
+
 </li>
 <li class="comment" id="comment-221086195">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=c775a4d231ca5311e135a20d5543916b&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="">Paul</a>
+<a class="avatar image" rel="nofollow" href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=c775a4d231ca5311e135a20d5543916b&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="">Paul</a>
 </div>
-<a href="#comment-221086195" class="permalink"><time datetime="2002-09-01T05:22:47">2002-09-01T05:22:47</time></a>
+
+
+<p><a href="#comment-221086195" class="permalink"><time datetime="2002-09-01T05:22:47">2002-09-01T05:22:47</time></a></p>
 </div>
+
+
 <div class="content">IFRAME height can be easliy managed via Javascript.
 Have Javascript call the IFRAME. In the script, test for browser resolution, make the HEIGHT value for the IFRAME correspond to the resolution.  For ex:  at 800x600, HEIGHT might equal 320, at 1024x768, HEIGHT might equal 400 and so on.  In your script, you can test for res via: resHeight=(screen.height).  The same can be done for width, resWidth=(screen.width).
-IFRAME and JAVASCRIPT are a great combo for delivering consistent content to both IE and NS users.  I am in the process of redoing my entire site this way.  All content will be delivered via IFRAMEs to IE & NS6 users; via JS for NS4x users.
+IFRAME and JAVASCRIPT are a great combo for delivering consistent content to both IE and NS users.  I am in the process of redoing my entire site this way.  All content will be delivered via IFRAMEs to IE &amp; NS6 users; via JS for NS4x users.
 If you do it right, your IFRAME pages use the same content scripts.  The real saving grace is that you keep one CSS in your IFRAME pages directory for IE users and another for NS user in you primary directory.
 In fact, CSS was the main reason I did this because, as you probably know, NS and IE just don't play that well together using the same CSS.</div>
+
+
 </li>
 <li class="comment" id="comment-221086196">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.dablade.nl"><img src="http://www.gravatar.com/avatar.php?gravatar_id=9e3ba5c8dfe4b6225f1c21fe845094e0&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.dablade.nl">Maarten</a>
+<a class="avatar image" rel="nofollow" href="http://www.dablade.nl"><img src="http://www.gravatar.com/avatar.php?gravatar_id=9e3ba5c8dfe4b6225f1c21fe845094e0&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.dablade.nl">Maarten</a>
 </div>
-<a href="#comment-221086196" class="permalink"><time datetime="2002-11-10T04:06:47">2002-11-10T04:06:47</time></a>
+
+
+<p><a href="#comment-221086196" class="permalink"><time datetime="2002-11-10T04:06:47">2002-11-10T04:06:47</time></a></p>
 </div>
+
+
 <div class="content">Actually i have had a lot of trouble properly placing an IFRAME. While it works fine on Win machines, it wont be placed right on Mac's... :(
 Only if i place it inline it will get placed right, but i need to move it around and all... not a good idea on a mac. (If ya need anything moving on a mac: get a hammer :))</div>
+
+
 </li>
 <li class="comment" id="comment-221086198">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=2a51d6a02c99c90224656256c38805ea&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="">Chris Hald</a>
+<a class="avatar image" rel="nofollow" href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=2a51d6a02c99c90224656256c38805ea&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="">Chris Hald</a>
 </div>
-<a href="#comment-221086198" class="permalink"><time datetime="2003-12-22T07:56:35">2003-12-22T07:56:35</time></a>
+
+
+<p><a href="#comment-221086198" class="permalink"><time datetime="2003-12-22T07:56:35">2003-12-22T07:56:35</time></a></p>
 </div>
+
+
 <div class="content">Mac = toy</div>
+
+
 </li>
 <li class="comment" id="comment-221086205">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=2a51d6a02c99c90224656256c38805ea&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="">Chris Hald</a>
+<a class="avatar image" rel="nofollow" href=""><img src="http://www.gravatar.com/avatar.php?gravatar_id=2a51d6a02c99c90224656256c38805ea&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="">Chris Hald</a>
 </div>
-<a href="#comment-221086205" class="permalink"><time datetime="2003-12-22T07:56:59">2003-12-22T07:56:59</time></a>
+
+
+<p><a href="#comment-221086205" class="permalink"><time datetime="2003-12-22T07:56:59">2003-12-22T07:56:59</time></a></p>
 </div>
+
+
 <div class="content">Mac = toy</div>
+
+
 </li>
 </ul>
+
+
 </div>
 
-        </section>
-      </article>
-        </section>
-
-        <footer>
-          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
-        </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
-      </section>
-    </body>
-  </html>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2002/05/17/oooaed/"
+                >DECAFBAD's gone all wobbly</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2002/05/13/oooaeb/"
+                >Javascript-enabled linkbacks, part deux</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

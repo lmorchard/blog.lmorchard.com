@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>Super-fast DummyPants Addressbarlet for del.icio.us - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="Super-fast DummyPants Addressbarlet for del.icio.us" />
+    <html>
+      <head>
+        <title>Super-fast DummyPants Addressbarlet for del.icio.us - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="Super-fast DummyPants Addressbarlet for del.icio.us" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2005/08/19/dummypants/"
@@ -51,114 +58,226 @@ In case, for some reason, that doesn&#39;t come through in this entry, here&#39;
     javascript:u=%22CHANGEME%22;us=[[&#39;\u201C&#39;,&#39;%22&#39;],[&#39;\u201D&#39;,&#39;%22&#39;],[&#39;\u2019&#39;,%22&#39;%22],[&#39;\u2018&#39;,%22&#39;%22],[&#39;\u2026&#39;,%22...%22],[&#39;\u00BB&#39;,&#39;-&#39;]];function es(p){for(var i=0;i&lt;us .length;i++){p=p.replace(us[i][0],us[i][1])};p=p.replace(/[\u0080-\uFFFF]/g,&#39;&#39;);return encodeURIComponent(p);};q=location.href;e=%22%22+(window.getSelection?window.getSelection():document.getSelection?document.getSelection():document.selection.createRange().text);p=document.title;window.location.href=%22http://del.icio.us/%22+u+%22?jump=doclose&amp;tags=%22+es(%22%s%22)+%22&amp;url=%22+es(q)+%22&amp;description=%22+es(p)+%22&amp;extended=%22+es(&#39;%22&#39;+e+&#39;%22&#39;).replace(/ /g,%22+%22);
 I&#39;m sure I have a few nasty bugs lurking in there, but basically I&#39;m trying to reverse SmartyPants--DummyPants, if you will--and crudely hack out everything that&#39;s not the usual ASCII.
 If you happen to be having this problem, let me know if this code works for you." />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post "
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post "
       >
-        <time
-          title="2005-08-19T21:32:12+00:00"
-          pubdate="2005-08-19T21:32:12+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2005/"
-            >2005</a
+        <header>
+          <time
+            title="2005-08-19T17:32:12-04:00"
+            pubdate="2005-08-19T17:32:12-04:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2005/08/"
-            >August</a
-          >
-          &raquo;
-          <span>19</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="My brain&#39;s full of fog"
+                href="/blog.lmorchard.com/2005/08/25/my-brains-full-of-fog/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2005/"
+                >2005</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2005/08/"
+                >August</a
+              >
+              &#8226;
+              <span>19</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Quick and Random Thoughts"
+                href="/blog.lmorchard.com/2005/08/12/quick-and-random-thoughts/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">Super-fast DummyPants Addressbarlet for del.icio.us</h1>
+          
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2005/08/25/my-brains-full-of-fog/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2005/08/13/quick-and-random-thoughts/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">Super-fast DummyPants Addressbarlet for del.icio.us</h1>
-        
-        <section class="post-content">
-          <p>Okay, so lately I&#39;ve switched to using &quot;<a href="http://naeblis.cx/rtomayko/2004/08/09/DeliciousAddresslets">addressbarlets</a>&quot; for my <a href="http://del.icio.us">del.icio.us</a> posting needs.  In particular, I&#39;ve been using the <a href="http://ejohn.org/blog/super-fast-delicious-bookmarklet/">Super-Fast variety</a>.  I cannot stress how much better these are than clicking links in the bookmark toolbar.  My <a href="http://del.icio.us">del.icio.us</a> posting has converged that much closer to command-line / QuickSilver perfection.  </p>
-<p>But, I just noticed that in my <a href="http://del.icio.us">del.icio.us</a> RSS feed, the title &quot;<strong>del.icio.us warning: non-utf8 string! (sorry)</strong>&quot; has been popping up--especially on <a href="http://dev.upian.com/hotlinks/">Hot Links</a>, which includes my links on a regular basis.  </p>
-<p>Well, although I&#39;m not really all that hip to unicode and non-ASCII characters, it appears that things like <a href="http://daringfireball.net/projects/smartypants/">SmartyPants</a> and the <a href="http://www.365tomorrows.com/08/19/deo%e2%80%99s-hole/">use of chevrons in page titles</a> are throwing the monkey wrench for me when the addressbarlet picks up the <code>document.title</code>.  So, I decided to do a little sloppy butchery in my bookmarklet code to wrestle these titles into something acceptable.</p>
-<p>After you&#39;ve had a chance to try out / comprehend <a href="http://ejohn.org/blog/super-fast-delicious-bookmarklet/">the original versions</a>, take a look at this revised addressbarlet:</p>
+        <p>Okay, so lately I've switched to using "<a href="http://naeblis.cx/rtomayko/2004/08/09/DeliciousAddresslets">addressbarlets</a>" for my <a href="http://del.icio.us">del.icio.us</a> posting needs.  In particular, I've been using the <a href="http://ejohn.org/blog/super-fast-delicious-bookmarklet/">Super-Fast variety</a>.  I cannot stress how much better these are than clicking links in the bookmark toolbar.  My <a href="http://del.icio.us">del.icio.us</a> posting has converged that much closer to command-line / QuickSilver perfection.  </p>
+<p>But, I just noticed that in my <a href="http://del.icio.us">del.icio.us</a> RSS feed, the title "<strong>del.icio.us warning: non-utf8 string! (sorry)</strong>" has been popping up--especially on <a href="http://dev.upian.com/hotlinks/">Hot Links</a>, which includes my links on a regular basis.  </p>
+<p>Well, although I'm not really all that hip to unicode and non-ASCII characters, it appears that things like <a href="http://daringfireball.net/projects/smartypants/">SmartyPants</a> and the <a href="http://www.365tomorrows.com/08/19/deo%e2%80%99s-hole/">use of chevrons in page titles</a> are throwing the monkey wrench for me when the addressbarlet picks up the <code>document.title</code>.  So, I decided to do a little sloppy butchery in my bookmarklet code to wrestle these titles into something acceptable.</p>
+<p>After you've had a chance to try out / comprehend <a href="http://ejohn.org/blog/super-fast-delicious-bookmarklet/">the original versions</a>, take a look at this revised addressbarlet:</p>
 <ul>
-<li><a href="javascript:u=%22CHANGEME%22;us=[['\u201C','%22'],['\u201D','%22'],['\u2019',%22'%22],['\u2018',%22'%22],['\u2026',%22...%22],['\u00BB','-']];function es(p){for(var i=0;i<us.length;i++){p=p.replace(us[i][0],us[i][1])};p=p.replace(/[\u0080-\uFFFF]/g,'');return encodeURIComponent(p);};q=location.href;e=%22%22+(window.getSelection?window.getSelection():document.getSelection?document.getSelection():document.selection.createRange().text);p=document.title;window.location.href=%22http://del.icio.us/%22+u+%22?jump=doclose&#38;tags=%22+es(%22%s%22)+%22&#38;url=%22+es(q)+%22&#38;description=%22+es(p)+%22&#38;extended=%22+es('%22'+e+'%22').replace(/ /g,%22+%22);">Post to del.icio.us and close</a></li>
+<li><a href="javascript:u=%22CHANGEME%22;us=[['\u201C','%22'],['\u201D','%22'],['\u2019',%22'%22],['\u2018',%22'%22],['\u2026',%22...%22],['\u00BB','-']];function es(p){for(var i=0;i<us.length;i++){p=p.replace(us[i][0],us[i][1])};p=p.replace(/[\u0080-\uFFFF]/g,'');return encodeURIComponent(p);};q=location.href;e=%22%22+(window.getSelection?window.getSelection():document.getSelection?document.getSelection():document.selection.createRange().text);p=document.title;window.location.href=%22http://del.icio.us/%22+u+%22?jump=doclose&amp;tags=%22+es(%22%s%22)+%22&amp;url=%22+es(q)+%22&amp;description=%22+es(p)+%22&amp;extended=%22+es('%22'+e+'%22').replace(/ /g,%22+%22);">Post to del.icio.us and close</a></li>
 </ul>
-<p>In case, for some reason, that doesn&#39;t come through in this entry, here&#39;s the code which should appear in the HREF:</p>
-<textarea rows="10" cols="65" name="code" class="javascript">
-    javascript:u=%22CHANGEME%22;us=[['\u201C','%22'],['\u201D','%22'],['\u2019',%22'%22],['\u2018',%22'%22],['\u2026',%22...%22],['\u00BB','-']];function es(p){for(var i=0;i<us .length;i++){p=p.replace(us[i][0],us[i][1])};p=p.replace(/[\u0080-\uFFFF]/g,'');return encodeURIComponent(p);};q=location.href;e=%22%22+(window.getSelection?window.getSelection():document.getSelection?document.getSelection():document.selection.createRange().text);p=document.title;window.location.href=%22http://del.icio.us/%22+u+%22?jump=doclose&#38;tags=%22+es(%22%s%22)+%22&#38;url=%22+es(q)+%22&#38;description=%22+es(p)+%22&#38;extended=%22+es('%22'+e+'%22').replace(/ /g,%22+%22);</textarea>
-<p>I&#39;m sure I have a few nasty bugs lurking in there, but basically I&#39;m trying to reverse <a href="http://daringfireball.net/projects/smartypants/">SmartyPants</a>--DummyPants, if you will--and crudely hack out everything that&#39;s not the usual ASCII.</p>
+<p>In case, for some reason, that doesn't come through in this entry, here's the code which should appear in the HREF:</p>
+<textarea rows="10" cols="65" name="code" class="javascript">    javascript:u=%22CHANGEME%22;us=[['\u201C','%22'],['\u201D','%22'],['\u2019',%22'%22],['\u2018',%22'%22],['\u2026',%22...%22],['\u00BB','-']];function es(p){for(var i=0;i&lt;us .length;i++){p=p.replace(us[i][0],us[i][1])};p=p.replace(/[\u0080-\uFFFF]/g,'');return encodeURIComponent(p);};q=location.href;e=%22%22+(window.getSelection?window.getSelection():document.getSelection?document.getSelection():document.selection.createRange().text);p=document.title;window.location.href=%22http://del.icio.us/%22+u+%22?jump=doclose&amp;tags=%22+es(%22%s%22)+%22&amp;url=%22+es(q)+%22&amp;description=%22+es(p)+%22&amp;extended=%22+es('%22'+e+'%22').replace(/ /g,%22+%22);</textarea>
+<p>I'm sure I have a few nasty bugs lurking in there, but basically I'm trying to reverse <a href="http://daringfireball.net/projects/smartypants/">SmartyPants</a>--DummyPants, if you will--and crudely hack out everything that's not the usual ASCII.</p>
 <p>If you happen to be having this problem, let me know if this code works for you.</p>
 <!--more-->
-<p>shortname=dummypants</us></textarea></p>
+
+
+<p>shortname=dummypants</p>
 <div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
 <ul class="comments">
 <li class="comment" id="comment-221088797">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://plasmasturm.org/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=e17949267bbfe21a0fadf1bbf00592b4&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://plasmasturm.org/">Aristotle Pagaltzis</a>
+<a class="avatar image" rel="nofollow" href="http://plasmasturm.org/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=e17949267bbfe21a0fadf1bbf00592b4&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://plasmasturm.org/">Aristotle Pagaltzis</a>
 </div>
-<a href="#comment-221088797" class="permalink"><time datetime="2005-08-20T00:47:22">2005-08-20T00:47:22</time></a>
+
+
+<p><a href="#comment-221088797" class="permalink"><time datetime="2005-08-20T00:47:22">2005-08-20T00:47:22</time></a></p>
 </div>
+
+
 <div class="content">del.icio.us understands UTF-8 (which is exactly what the message says, after all), and the characters you remove are expressed in Unicode codepoints.
 The disconnect seems to happen when the page you're on is in an encoding other than UTF-8, in which case Firefox apparently escapes characters using their byte values from that encoding in `encodeURIComponent`. I have no idea why, or exactly where this problem happens; the JS docs say the function should always use the UTF-8 representation for the byte values.</div>
+
+
 </li>
 <li class="comment" id="comment-221088798">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://ejohn.org/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=b3e04a46e85ad3e165d66f5d927eb609&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://ejohn.org/">John Resig</a>
+<a class="avatar image" rel="nofollow" href="http://ejohn.org/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=b3e04a46e85ad3e165d66f5d927eb609&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://ejohn.org/">John Resig</a>
 </div>
-<a href="#comment-221088798" class="permalink"><time datetime="2005-08-20T19:30:38">2005-08-20T19:30:38</time></a>
+
+
+<p><a href="#comment-221088798" class="permalink"><time datetime="2005-08-20T19:30:38">2005-08-20T19:30:38</time></a></p>
 </div>
+
+
 <div class="content">A very smart improvement of the original - I like it! I'll see if I can't include a link to it, before I forget.</div>
+
+
 </li>
 </ul>
+
+
 </div>
 
-        </section>
-      </article>
-        </section>
-
-        <footer>
-          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
-        </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
-      </section>
-    </body>
-  </html>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2005/08/25/my-brains-full-of-fog/"
+                >My brain's full of fog</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2005/08/12/quick-and-random-thoughts/"
+                >Quick and Random Thoughts</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

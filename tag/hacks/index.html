@@ -1,377 +1,1576 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>hacks - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>hacks - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/tag/hacks/index.rss"
+          rel="alternate"
+          title="Tag: hacks - blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/tag/hacks.rss"
+                rel="alternate"
+                title="Tag: hacks - blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/tag/hacks/index.rss" title="Tag: hacks - blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Tag: hacks</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post has-thumb tag-hacks tag-mermaid tag-gifs tag-webdev"
-          >
-            <time class="date" datetime="2023-01-03T12:00:00+00:00">
-              2023
-              January
-              03
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2023/01/03/mermaid-animations/">
-              <span class="infoContainer">
-                <span class="title">Animating Mermaid diagrams with terrible hacks</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2023/01/03/mermaid-animations/207466935-8b216a84-0692-4ff2-940f-02d5108d6594.gif" />
-          </li><li
-            class="post has-thumb tag-diy tag-hacks tag-lcd tag-pc tag-tech tag-gaming"
-          >
-            <time class="date" datetime="2017-01-09T12:00:00+00:00">
-              2017
-              January
-              09
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2017/01/09/diy-monitor-v12/">
-              <span class="infoContainer">
-                <span class="title">Upgrading my Couch PC monitor, v1.2</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/uploads/2017/diy-monitor-v12/monitor-thumb.jpg" />
-          </li><li
-            class="post has-thumb tag-diy tag-hacks tag-lcd tag-pc tag-tech"
-          >
-            <time class="date" datetime="2013-02-10T12:00:00+00:00">
-              2013
-              February
-              10
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2013/02/10/building-my-couch-computing-station/">
-              <span class="infoContainer">
-                <span class="title">Building my couch computing station</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://blog.lmorchard.com/wp-content/uploads/2013/01/couch-gaming-2a-pc.png" />
-          </li><li
-            class="post has-thumb tag-diy tag-gaming tag-hacks tag-home tag-lcd tag-pc"
-          >
-            <time class="date" datetime="2013-01-21T12:00:00+00:00">
-              2013
-              January
-              21
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2013/01/21/gaming-from-the-orchard-house-couch/">
-              <span class="infoContainer">
-                <span class="title">Gaming from the Orchard House couch</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://blog.lmorchard.com/wp-content/uploads/2013/01/couch-gaming-1-laptop-300x238.png" />
-          </li><li
-            class="post has-thumb tag-web20 tag-social tag-feeds tag-metablogging tag-ifttt tag-hacks"
-          >
-            <time class="date" datetime="2011-11-04T21:12:34+00:00">
-              2011
-              November
-              04
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2011/11/04/social-media-cyborg/">
-              <span class="infoContainer">
-                <span class="title">Social Media Cyborg</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://decafbad.com/blog/images/2011/11/social-media-cyborg.png" />
-          </li><li
-            class="post tag-hacks tag-rss tag-atom tag-xsl tag-ficlets tag-scrapers tag-scraping"
-          >
-            <time class="date" datetime="2007-04-05T05:37:00+00:00">
-              2007
-              April
-              05
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2007/04/05/ficlets-enhanced-author-feed-an-xsl-scraper-hack/">
-              <span class="infoContainer">
-                <span class="title">Ficlets enhanced author feed, an XSL scraper hack</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-hacks tag-gaming tag-nintendo tag-ds tag-homebrew tag-software"
-          >
-            <time class="date" datetime="2006-09-19T16:16:12+00:00">
-              2006
-              September
-              19
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/09/19/im-in-the-nintendo-ds-homebrew-club-now/">
-              <span class="infoContainer">
-                <span class="title">i&#39;m in the nintendo ds homebrew club now</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-delicious tag-book tag-hacks tag-ajax tag-json tag-webdev"
-          >
-            <time class="date" datetime="2006-08-16T13:12:07+00:00">
-              2006
-              August
-              16
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/08/16/ajaxitagging/">
-              <span class="infoContainer">
-                <span class="title">Ajaxitagging</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-hacks tag-fun tag-nifty tag-fax"
-          >
-            <time class="date" datetime="2005-12-15T21:55:58+00:00">
-              2005
-              December
-              15
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/12/15/stupid-fun-with-fax-machines/">
-              <span class="infoContainer">
-                <span class="title">Stupid fun with fax machines</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-hacks tag-yahoo tag-ipod tag-programming tag-maps"
-          >
-            <time class="date" datetime="2005-11-03T18:29:12+00:00">
-              2005
-              November
-              03
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/11/03/yahoo-for-stalking-ipods-in-the-hands-of-couriers/">
-              <span class="infoContainer">
-                <span class="title">Yahoo for stalking iPods in the hands of couriers</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-hacks tag-rss tag-syndication tag-atom tag-apple tag-ipod tag-podcasting tag-xbox tag-video tag-vidcasting"
-          >
-            <time class="date" datetime="2005-10-21T18:05:54+00:00">
-              2005
-              October
-              21
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/10/21/could-an-ipod-and-av-cable-fit-in-a-dvd-case/">
-              <span class="infoContainer">
-                <span class="title">Could an iPod and AV cable fit in a DVD case?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-hacks tag-webdev tag-nifty tag-http tag-proxy tag-ruby"
-          >
-            <time class="date" datetime="2005-10-05T11:14:25+00:00">
-              2005
-              October
-              05
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/10/05/redhanded-%c2%bb-announcing-the-mousehole-proxy/">
-              <span class="infoContainer">
-                <span class="title">RedHanded Â» Announcing the MouseHole Proxy</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post has-thumb tag-hacks tag-xml"
-          >
-            <time class="date" datetime="2004-12-23T05:58:41+00:00">
-              2004
-              December
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/12/23/abook1/">
-              <span class="infoContainer">
-                <span class="title">Building an Address Book as a Modern Web App</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://www.decafbad.com/2004/12/abook-architecture.jpg" />
-          </li><li
-            class="post tag-hacks tag-xml"
-          >
-            <time class="date" datetime="2004-09-01T10:47:41+00:00">
-              2004
-              September
-              01
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/09/01/xpath-based-python-dictionaries-on-loan/">
-              <span class="infoContainer">
-                <span class="title">XPath based Python dictionaries, on loan</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-hacks tag-syndication tag-xml"
-          >
-            <time class="date" datetime="2004-08-31T01:37:42+00:00">
-              2004
-              August
-              31
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/08/31/dbagg3-makingprogress/">
-              <span class="infoContainer">
-                <span class="title">Making progress on dbagg3</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-hacks tag-xml"
-          >
-            <time class="date" datetime="2004-08-23T05:09:51+00:00">
-              2004
-              August
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/08/23/mysql-and-xml-output/">
-              <span class="infoContainer">
-                <span class="title">mysql and XML output</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post has-thumb tag-hacks tag-xml"
-          >
-            <time class="date" datetime="2004-07-06T21:05:45+00:00">
-              2004
-              July
-              06
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/07/06/wishofthemonthclub3/">
-              <span class="infoContainer">
-                <span class="title">Wish-of-the-Month Club, Part 3 of 3</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://www.decafbad.com/cvs/*checkout*/hacks/wishes/wishes.jpg" />
-          </li><li
-            class="post tag-hacks"
-          >
-            <time class="date" datetime="2004-06-28T23:17:36+00:00">
-              2004
-              June
-              28
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/06/28/radioiorock-scraper/">
-              <span class="infoContainer">
-                <span class="title">A mini-scraper for the playlist at radioio Rock</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-hacks tag-xml"
-          >
-            <time class="date" datetime="2004-06-28T01:44:51+00:00">
-              2004
-              June
-              28
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/06/28/wishofthemonthclub2/">
-              <span class="infoContainer">
-                <span class="title">Wish-of-the-Month Club, Part 2 of 3</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-hacks tag-xml"
-          >
-            <time class="date" datetime="2004-06-16T11:42:48+00:00">
-              2004
-              June
-              16
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/06/16/wishofthemonthclub1/">
-              <span class="infoContainer">
-                <span class="title">Wish-of-the-Month Club, Part 1 of 3</span>
-              </span>
-            </a>
-            
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Tag: hacks</h2>
+        </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2023 January 03</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-hacks tag-mermaid tag-gifs tag-webdev">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2023/01/03/mermaid-animations/">Animating Mermaid diagrams with terrible hacks</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2023/01/03/mermaid-animations/207466935-8b216a84-0692-4ff2-940f-02d5108d6594.gif" />
+    </div>
+    <p class="summary">
+      So, I wanted to produce a GIF animation of a graph diagram changing over time. What I came up with wasn't the slickest result, but it's close enough to what I'd initially imagined.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2023/01/03/mermaid-animations/"
+          >857&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2023/01/03/mermaid-animations/">#</a>
+    <a class="time" href="2023/01/03/mermaid-animations/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mermaid/">mermaid</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/gifs/">gifs</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
           </li>
     </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2017 January 09</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-diy tag-hacks tag-lcd tag-pc tag-tech tag-gaming">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2017/01/09/diy-monitor-v12/">Upgrading my Couch PC monitor, v1.2</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/uploads/2017/diy-monitor-v12/monitor-thumb.jpg" />
+    </div>
+    <p class="summary">
+      My DIY couch PC monitor has been upgraded for a third time.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2017/01/09/diy-monitor-v12/"
+          >969&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2017/01/09/diy-monitor-v12/">#</a>
+    <a class="time" href="2017/01/09/diy-monitor-v12/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/diy/">diy</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/lcd/">lcd</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/pc/">pc</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tech/">tech</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/gaming/">gaming</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2013 February 10</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-diy tag-hacks tag-lcd tag-pc tag-tech">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2013/02/10/building-my-couch-computing-station/">Building my couch computing station</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://blog.lmorchard.com/wp-content/uploads/2013/01/couch-gaming-2a-pc.png" />
+    </div>
+    <p class="summary">
+      Remember when I posted about gaming from the Orchard House couch? The key part was figuring out how to get a laptop-quality LCD monitor working in the living room, preferably attached to my trusty IKEA DAVE. Well, despite my best attempts at ruining my materials and tools, I managed to get it built!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2013/02/10/building-my-couch-computing-station/"
+          >1608&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2013/02/10/building-my-couch-computing-station/">#</a>
+    <a class="time" href="2013/02/10/building-my-couch-computing-station/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/diy/">diy</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/lcd/">lcd</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/pc/">pc</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tech/">tech</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2013 January 21</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-diy tag-gaming tag-hacks tag-home tag-lcd tag-pc">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2013/01/21/gaming-from-the-orchard-house-couch/">Gaming from the Orchard House couch</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://blog.lmorchard.com/wp-content/uploads/2013/01/couch-gaming-1-laptop-300x238.png" />
+    </div>
+    <p class="summary">
+      I like playing video games; it’s one of my favorite things in life. I also like hanging out with my wife; she’s my favorite person in the world. This is a post about ensuring these two things can happen together. This is also a post where I played with SketchUp for the first time.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2013/01/21/gaming-from-the-orchard-house-couch/"
+          >1426&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2013/01/21/gaming-from-the-orchard-house-couch/">#</a>
+    <a class="time" href="2013/01/21/gaming-from-the-orchard-house-couch/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/diy/">diy</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/gaming/">gaming</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/home/">home</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/lcd/">lcd</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/pc/">pc</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2011 November 04</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-web20 tag-social tag-feeds tag-metablogging tag-ifttt tag-hacks">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2011/11/04/social-media-cyborg/">Social Media Cyborg</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://decafbad.com/blog/images/2011/11/social-media-cyborg.png" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2011/11/04/social-media-cyborg/"
+          >769&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2011/11/04/social-media-cyborg/">#</a>
+    <a class="time" href="2011/11/04/social-media-cyborg/">9:12 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/web20/">web20</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/social/">social</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/feeds/">feeds</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ifttt/">ifttt</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2007 April 05</h2>
+  </li><li class="content-grid post post-type-entry tag-hacks tag-rss tag-atom tag-xsl tag-ficlets tag-scrapers tag-scraping">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2007/04/05/ficlets-enhanced-author-feed-an-xsl-scraper-hack/">Ficlets enhanced author feed, an XSL scraper hack</a>
+      </h2>
     
-  </section>
-      </section>
-        </section>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2007/04/05/ficlets-enhanced-author-feed-an-xsl-scraper-hack/"
+          >839&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2007/04/05/ficlets-enhanced-author-feed-an-xsl-scraper-hack/">#</a>
+    <a class="time" href="2007/04/05/ficlets-enhanced-author-feed-an-xsl-scraper-hack/">1:37 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/rss/">rss</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/atom/">atom</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xsl/">xsl</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ficlets/">ficlets</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/scrapers/">scrapers</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/scraping/">scraping</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 September 19</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-hacks tag-gaming tag-nintendo tag-ds tag-homebrew tag-software">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/09/19/im-in-the-nintendo-ds-homebrew-club-now/">i&#39;m in the nintendo ds homebrew club now</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/09/19/im-in-the-nintendo-ds-homebrew-club-now/"
+          >289&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/09/19/im-in-the-nintendo-ds-homebrew-club-now/">#</a>
+    <a class="time" href="2006/09/19/im-in-the-nintendo-ds-homebrew-club-now/">12:16 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/gaming/">gaming</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/nintendo/">nintendo</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ds/">ds</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/homebrew/">homebrew</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/software/">software</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 August 16</h2>
+  </li><li class="content-grid post post-type-entry tag-delicious tag-book tag-hacks tag-ajax tag-json tag-webdev">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/08/16/ajaxitagging/">Ajaxitagging</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/08/16/ajaxitagging/"
+          >151&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/08/16/ajaxitagging/">#</a>
+    <a class="time" href="2006/08/16/ajaxitagging/">9:12 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/delicious/">delicious</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/book/">book</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ajax/">ajax</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/json/">json</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 December 15</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-hacks tag-fun tag-nifty tag-fax">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/12/15/stupid-fun-with-fax-machines/">Stupid fun with fax machines</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/12/15/stupid-fun-with-fax-machines/"
+          >49&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/12/15/stupid-fun-with-fax-machines/">#</a>
+    <a class="time" href="2005/12/15/stupid-fun-with-fax-machines/">4:55 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/fun/">fun</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/nifty/">nifty</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/fax/">fax</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 November 03</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-hacks tag-yahoo tag-ipod tag-programming tag-maps">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/11/03/yahoo-for-stalking-ipods-in-the-hands-of-couriers/">Yahoo for stalking iPods in the hands of couriers</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/11/03/yahoo-for-stalking-ipods-in-the-hands-of-couriers/"
+          >80&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/11/03/yahoo-for-stalking-ipods-in-the-hands-of-couriers/">#</a>
+    <a class="time" href="2005/11/03/yahoo-for-stalking-ipods-in-the-hands-of-couriers/">1:29 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/yahoo/">yahoo</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ipod/">ipod</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/programming/">programming</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/maps/">maps</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 October 21</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-hacks tag-rss tag-syndication tag-atom tag-apple tag-ipod tag-podcasting tag-xbox tag-video tag-vidcasting">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/10/21/could-an-ipod-and-av-cable-fit-in-a-dvd-case/">Could an iPod and AV cable fit in a DVD case?</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/10/21/could-an-ipod-and-av-cable-fit-in-a-dvd-case/"
+          >432&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/10/21/could-an-ipod-and-av-cable-fit-in-a-dvd-case/">#</a>
+    <a class="time" href="2005/10/21/could-an-ipod-and-av-cable-fit-in-a-dvd-case/">2:05 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/rss/">rss</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/atom/">atom</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/apple/">apple</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ipod/">ipod</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/podcasting/">podcasting</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xbox/">xbox</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/video/">video</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/vidcasting/">vidcasting</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 October 05</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-hacks tag-webdev tag-nifty tag-http tag-proxy tag-ruby">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/10/05/redhanded-%c2%bb-announcing-the-mousehole-proxy/">RedHanded Â» Announcing the MouseHole Proxy</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/10/05/redhanded-%c2%bb-announcing-the-mousehole-proxy/"
+          >123&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/10/05/redhanded-%c2%bb-announcing-the-mousehole-proxy/">#</a>
+    <a class="time" href="2005/10/05/redhanded-%c2%bb-announcing-the-mousehole-proxy/">7:14 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/nifty/">nifty</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/http/">http</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/proxy/">proxy</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ruby/">ruby</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2004 December 23</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-hacks tag-xml">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/12/23/abook1/">Building an Address Book as a Modern Web App</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://www.decafbad.com/2004/12/abook-architecture.jpg" />
+    </div>
+    <p class="summary">
+      So, in the spirit of pico-projects, I've started building that address book application I mentioned awhile ago and I want to start writing about it as I go.
+First off, hopefully you'll notice the quick diagram I threw together in OmniGraffle.  This is a sort of rough sketch of the loosely-joined architecture I want to explore with this thing.  
 
-        <footer>
-          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
-        </footer>
-      </section>
+Data: This is where address book entries live.
+Model: A set of objects encapsulating the data, this is how address book entries will be accessed.
+REST API: Model objects exposed as resources identified by URI, serialized and deserialized as XML, and manipulated by GET / PUT / POST / DELETE methods.
+XSLT Filter: XML data produced by REST API calls can be first passed through XSL at a given URL before being served up as a response.  
+HTML, CSS, JavaScript: Thanks to the XSLT filter layer, the XML vocabulary used to describe address book entries can be transformed into user interface presentation.
+HTTP: Everything happens via HTTP...
+Web Browser Client: ...and everything is viewed in a web browser.
 
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
+Now, I call this a loosely-joined architecture because I want to stress that you should be able to swap out just about any part of this whenever you want.  
+Want the Data to be in MySQL?  Fine.  Want it to be in flat files?  Fine.  Just make sure the Model can cope while maintaining a consistent interface for the REST API.  Want to change the user interface in the browser?  Great-- ideally, all you have to do is change some XSLT files.  I'm writing everything from the XSLT Filter down to the Model in Python.  Don't like that?  Fine.  Rewrite it all in Perl, and hopefully everything from the XSLT up to the browser will still be useful to you.
+At some point, you might even want to ditch the browser for a native desktop client.  Fabulous! Just ignore everything past the REST API and HTTP, don't use any XSLT in the Filter, and use the API and XML directly.
+I don't think any of this is particularly revolutionary-- although I thought it was when I first saw Amazon Web Services doing some of this, and I hope to throw a little GMail in as well.  I hope that this will all be useful as I muddle through explaining what I'm doing.  In the meantime, you can see me getting the stage set as I start checking things into my Subversion repository over here:
+
+http://www.decafbad.com/svn/trunk/hacks/abook/
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/12/23/abook1/"
+          >712&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/12/23/abook1/">#</a>
+    <a class="time" href="2004/12/23/abook1/">12:58 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xml/">xml</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2004 September 01</h2>
+  </li><li class="content-grid post post-type-entry tag-hacks tag-xml">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/09/01/xpath-based-python-dictionaries-on-loan/">XPath based Python dictionaries, on loan</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/09/01/xpath-based-python-dictionaries-on-loan/"
+          >537&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/09/01/xpath-based-python-dictionaries-on-loan/">#</a>
+    <a class="time" href="2004/09/01/xpath-based-python-dictionaries-on-loan/">6:47 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xml/">xml</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2004 August 30</h2>
+  </li><li class="content-grid post post-type-entry tag-hacks tag-syndication tag-xml">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/08/30/dbagg3-makingprogress/">Making progress on dbagg3</a>
+      </h2>
+    
+    <p class="summary">
+      Work has been insanely busy lately, but I have made some more progress with dbagg3.  The code is all in CVS, so feel free to take a gander-- I don't have a ton of time for a proper write up, but I do want to spew a little bit. 
+As per my previous musings on XML in a SQL database, I revamped the database.  Now things are sliced up by feed and entry tables, rows in each containing a few metadata columns and then one big column for an XML dump.  This lets me index on  date and parent feed and such, meanwhile punting on the issue of dicing things like authors or content up further.  And, as extension elements start to show up, this handling is dumb enough to simply store things it doesn't know about without mangling them.  This is a very good thing and one of my big goals for this beast.
+The other thing that I'm getting excited about is the REST API built atop the Atom store.  Rather than spend time on proper documentation, here's a quick dump from the appropriate module:
+URL: GET /feeds/
+URL: GET /feeds/{id}.xml
+URL: GET /feeds/{id}/{yyyy}/{mm}/{dd}/{hstart}-{hend}.xml
+URL: GET /feeds/{id}/{yyyy}/{mm}/{dd}/{hh}.xml
+URL: GET /feeds/{id}/{yyyy}/{mm}/{dd}.xml
+URL: GET /feeds/{id}/{yyyy}/{mm}.xml
+URL: GET /feeds/{id}/now-{nowoff}.xml
+URL: GET /feeds/{fid}/entries/{eid}.xml
+URL: GET /users/
+URL: GET /users/{uname}.xml
+URL: POST /users/
+URL: DELETE /users/{uname}.xml
+URL: PUT /users/{uname}.xml
+URL: GET /users/{uname}/prefs.xml
+URL: GET /users/{uname}/prefs/
+URL: POST /users/{uname}/prefs/{pname}.{type}
+URL: PUT /users/{uname}/prefs/{pname}.{type}
+URL: GET /users/{uname}/prefs/{pname}.{type}
+URL: DELETE /users/{uname}/prefs/{pname}.{type}
+URL: GET /users/{uname}/subscriptions.{type}
+URL: GET /users/{uname}/subscriptions/
+URL: POST /users/{uname}/subscriptions/
+URL: DELETE /users/{uname}/subscriptions/{id}.xml
+URL: GET /users/{uname}/subscriptions/{sid}/{yyyy}/{mm}/{dd}/{hstart}-{hend}.xml
+URL: GET /users/{uname}/subscriptions/{sid}/{yyyy}/{mm}/{dd}/{hh}.xml
+URL: GET /users/{uname}/subscriptions/{sid}/{yyyy}/{mm}/{dd}.xml
+URL: GET /users/{uname}/subscriptions/{sid}/{yyyy}/{mm}.xml
+URL: GET /users/{uname}/subscriptions/{sid}/now-{hours}.xml
+URL: GET /users/{uname}/subscriptions/{sid}/now.xml
+URL: GET /users/{uname}/subscriptions/{yyyy}/{mm}/{dd}/{hstart}-{hend}.xml
+URL: GET /users/{uname}/subscriptions/{yyyy}/{mm}/{dd}/{hh}.xml
+URL: GET /users/{uname}/subscriptions/{yyyy}/{mm}/{dd}.xml
+URL: GET /users/{uname}/subscriptions/{yyyy}/{mm}.xml
+URL: GET /users/{uname}/subscriptions/now-{hours}.xml
+URL: GET /users/{uname}/subscriptions/now.xml
+URL: GET /users/{uname}/subscriptions/{sid}/entries/{eid}.xml
+
+Hopefully, the structure of these URL patterns make a little bit of sense.  The too-clever thing about these is that they're both documentation in the module's docstrings, and parsed out to register methods with automagically-generated regexes applied to incoming URL requests.  (I may eventually realize just how stupid an idea this is, but not yet.)  
+This list is nowhere near complete or final or even all that well thought out yet.  But, it seems to be working out pretty well so far, and it's so easy to tinker with the API to sketch out ideas in working code.  Eating my own dogfood, my first browser window of the day tends to open on this URL:
+http://localhost/~deusx/dbagg3.5/api/users/default/subscriptions/
+now-12.xml?xsl=xsl/full.xsl&#38;content-type=text/html
+
+This grabs the last 12 hours' worth of items from default's subscriptions, passing them through the XSL at xsl/full.xsl on the way to my browser with a content type of text/html.  This tends to produce about 1000-1500 entries in about 15 seconds on my PowerBook, which is better than I'd expected.  
+Pretty soon, I'll be implementing the ability to post metadata onto feed entries under subscriptions.  Then, I can mark items as seen, attach categories, tags, and notes.  From there, I can exclude seen items from queries, produce new aggregate feeds based on my tagging or notes, among a few other ideas I've got stewing.
+A little more work, and I think I'll be able to throw together the beginnings of a Bloglines-style three-pane browser interface, as well as improving the functionality of my own outliner-style display with XmlHTTPRequest-based calls to the API to enable refresh-free interaction.  From there, I have some ideas for desktop apps and maybe even some tinkering in Flash.  (Wow... has it really been over a year since I was writing about Flash & REST?)
+And then, I want to implement the Atom API and allow users to create feeds to which they can post their own items and share read-only with others (or share writing with a group).  From there, this thing can turn into a read/write Atom storage tank, serving both as an aggregator and a blog publishing engine, given the appropriate XSL work.
+Lots of ideas stewing.  Now I just have to get the time and possibly a new web server, since I'd like to eventually open up an installation of this to fellow tinkerers, but this poor little box can barely take what it's tasked with at present...
+Oh yeah, and one other thing:  I've been thinking about names better than dbagg3.  The one that's sticking around in my head so far is feedReactor.  What do you think?
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/08/30/dbagg3-makingprogress/"
+          >790&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/08/30/dbagg3-makingprogress/">#</a>
+    <a class="time" href="2004/08/30/dbagg3-makingprogress/">9:37 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xml/">xml</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2004 August 23</h2>
+  </li><li class="content-grid post post-type-entry tag-hacks tag-xml">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/08/23/mysql-and-xml-output/">mysql and XML output</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/08/23/mysql-and-xml-output/"
+          >170&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/08/23/mysql-and-xml-output/">#</a>
+    <a class="time" href="2004/08/23/mysql-and-xml-output/">1:09 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xml/">xml</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2004 July 06</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-hacks tag-xml">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/07/06/wishofthemonthclub3/">Wish-of-the-Month Club, Part 3 of 3</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://www.decafbad.com/cvs/*checkout*/hacks/wishes/wishes.jpg" />
+    </div>
+    <p class="summary">
+      This is the exciting conclusion of the Wish-of-the-Month Club.  Before continuing on, you may want to catch up with parts one and two.
+Presenting the Results
+Some ready-made files are available for this section:
+
+wishes-ex5.xsl: The fifth iteration of the stylesheet in development.
+wishes.html: Sample output in HTML
+
+We've finally gotten together all the bits of information we need--wishlists have been queried; random items have been selected; and a shopping cart has been prepared.  Now we just have to present the selections and a link to check out with the shopping cart.
+First, locate the following line toward the end of the stylesheet as we left it in the last section:
+    <xsl:copy-of select="$shopping_cart" />
+
+Delete this, and let's replace it by building some HTML:
+    <xsl:variable name="shopping_cart_purchase_url" 
+                  select="exsl:node-set($shopping_cart)//PurchaseUrl" />
+    
+    <html xmlns="http://www.w3.org/1999/xhtml">
+      <head><title>Wishlist Shopping Cart</title>\</head>
+      <body>
+        <p class="title">
+          Here are your wishlist items
+          <a href="{$shopping_cart_purchase_url}">
+            <img src="http://g-images.amazon.com/images/G/01/detail/shoppingcart-header-02.gif" />
+          </a> 
+          items:
+        </p>
+
+We're using the exsl:note-set function again to access the contents of $shopping_cart with an XPath expression.  We pluck out the value of the PurchaseUrl in the shopping cart and place it in the variable shopping_cart_purchase_url.  Then, after a bit of HTML preamble, we borrow a shopping cart icon from Amazon itself to construct a link to which we can browse later to purchase the selected items.  This HTML is very simple so far; it's likely too simple, so eventually you may like to toss some CSS in here to improve the looks of things.  But, I'll leave that as an exercise for the reader.  
+Next, let's build a display of the items selected by iterating first through the wishlists:
+        <xsl:for-each select="exsl:node-set($random_products)/wishes:wishitem">
+          <div class="Detail">
+
+            <p class="wishlistLabel">
+              <xsl:value-of select="wishes:wishlist/@label" />
+            </p>
+
+This begins a block for each wishlist, starting off with a paragraph containing the label we gave each wishlist.  Next, let's include a few details about the product chosen.  Again, all of the bits of data included for each product are described in the AWS documentation in the Overview under Amazon Web Services Data Model.  Checking that out, we can see that the data includes a URL to images of several sizes representing the product.  Let's include the medium-sized image as a link to the product's detail page:
+            <p class="Product">
+              <a href="{Details/@url}">
+                <img src="{Details/ImageUrlMedium}" />
+              </a>
+              
+
+We can also include the product's name as a link:
+              <span class="ProductName">
+                <a href="{Details/@url}">
+                  <xsl:value-of select="Details/ProductName" />
+                </a>
+              </span>
+              
+
+And, it would be nice to provide a listing of people involved in creating the product (ie. the artists and/or authors):
+          <xsl:for-each select="./Details/Artists/Artist | 
+                                ./Details/Authors/Author">
+            <span class="Author">by <xsl:value-of select="." /></span>
+
+
+          </xsl:for-each>
+
+Note that here, the XPath selecting the data is just a bit more involved, since this information can be found in both Artist and Author elements.  In another case, we might care to make a distinction, but it really isn't all that important for this project.  The data model also provides an indication of from which catalog this product came, as well as its date of release.  Let's include that for good measure:
+          (
+          <xsl:value-of select="Details/Catalog" /> -
+          <span class="ReleaseDate">
+            <xsl:value-of select="Details/ReleaseDate" />
+          </span>
+          )
+          
+
+
+        </p>
+
+Another thing that would be nice to know is how much this thing costs--we've got this information provided in the XML data as well, so let's include it:
+        <p>
+          <span class="PriceLabel">List Price:</span> 
+          <span class="ListPrice">
+            <xsl:value-of select="Details/ListPrice" />
+          </span>
+          
+
+
+          
+          <span class="PriceLabel">Our Price:</span>
+          <span class="OurPrice">
+            <xsl:value-of select="Details/OurPrice" />
+          </span>
+          
+
+
+
+          <span class="PriceLabel">Used Price:</span> 
+          <span class="UsedPrice">
+            <xsl:value-of select="Details/UsedPrice" />
+          </span>
+          
+
+
+        </p>
+
+Something to note about these prices, too, is that although the used price is listed, the shopping cart will contain new items from Amazon's shelves.  You might want to compare these prices though, and make a change to the shopping cart when you get there, if a used item is acceptable.  (Another good reason for manual intervention in our Wish-of-the-Month club.)
+Oh yeah, and we should include one other bit of information:
+        <p>(<xsl:value-of select="Details/Availability" />)</p>
+
+This tells us whether or not this item can actually be bought, at present.  Although we used this data earlier to try to filter out unavailable items, we should still display this information just in case we missed something.
+Finally, let's clean up and finish the HTML:
+      </div>
+
+
+    </xsl:for-each>
+    
+  </body>
+</html>
+
+Running this stylesheet (wishes-ex5.xsl) should give you a page that looks something like this in a browser:
+
+Scheduling Monthly Emails
+Some ready-made files are available for this section:
+
+wishes-ex6.xsl: The sixth (and final) iteration of the stylesheet in development.
+
+That HTML we're producing is fine, but what we really want to do is get it delivered to us.  We could set up a scheduled run that would periodically generate a page for us to visit, but the whole point of this is laziness.  How about firing off an email with this content?  There are two things to help us with this: RFC 1521 shows us how to construct email messages with a variety of content types; and sendmail will let us send these messages out.  And then, with the help of cron, we can fire up this process every month.
+Along with producing XML, XSLT can also construct plain text output--which is just what we need to create MIME email messages.  RFC 1521 doesn't make for the most thrilling reading, but there are a few articles to be found that summarize things (such as this article and this article).   To make a long story short, a basic shell for an email message using MIME to include an HTML part and a plain text part looks something like this:
+To: someone@example.org
+Subject: Some useful email subject
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="theBoundaryString"
+
+--theBoundaryString
+Content-Type: text/plain
+
+Some plain text representation goes here...
+
+--theBoundaryString
+Content-Type: text/html
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+Content-Base: "http://www.decafbad.com/"
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <p>Some HTML representation goes here...</p>
+</html>
+
+--theBoundaryString--
+
+I've snuck in the idea of providing both an HTML version (which we've already done) and a new plain text version.  Depending on your email program and your preferences, one type might be more useful than the other.  In any case, it's not all that hard to offer both here.  To start sending these email messages, though, we'll need an email address.  So, add that as an element in wishes.xml:
+<wishes xmlns="http://www.decafbad.com/2004/05/wishes">
+  <email>deus_x@pobox.com</email>
+  <maxprice>15.00</maxprice>
+  <associate>0xdecafbad-20</associate>
+  <devtoken>D8HVH869XA0NP</devtoken>
+  <wishlists>
+    <wishlist label="Me">1QWYI6P2JF3Q5</wishlist>
+    <wishlist label="The Girl">35OIOYWQ9XQAE</wishlist>
+  </wishlists>
+</wishes>
+
+Let's extract this data into a global variable near the start of the stylesheet:
+  <xsl:variable name="email_to"  select="/wishes:wishes/wishes:email" />
+
+Start editing the final template of the stylesheet, inserting before the start of HTML content:
+    <!-- Eat all the line breaks generated so far -->
+    <xsl:text>To: </xsl:text><xsl:value-of select="$email_to" />   
+Subject: 0xDECAFBAD's Amazon Wish-of-the-Month Club
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="theBoundaryString"
+
+This is the header for the email.  Up until now, we've been generating XML with the stylesheet and haven't cared very much about any extra whitespace or line breaks which might sneak into the output.  However, in an email header, whitespace is important since a blank line is what's used to separate the headers from the body of the email message.  So, any stray blank lines will cause what we might have meant to be headers to be interpreted as part of the message instead.  Producing the first header in the email with xsl:text tags causes the XSL processor to throw away any leading whitespace which would have appeared before the first header.
+Other than this little twist, the email header looks pretty much like the shell.  We fill in the To address from the global variable $email_to and define a Subject line.  The MIME-Version and Content-Type headers are what enable us to include both text and HTML versions in one email.
+Now we can start into one of the parts:
+--theBoundaryString
+Content-Type: text/plain
+
+This begins the plain text section of the email, using the boundary string as defined in the headers to delinieate the section's beginning.  The section can also have its own set of headers, of which we use only one: Content-Type.  Moving along, let's work on the text content itself.
+Here are your wishlist items:
+
+<xsl:value-of select="$shopping_cart_purchase_url" /><xsl:text>
+</xsl:text>
+
+No shopping cart image here, but this includes the human-viewable URL which leads to a shopping cart on Amazon.com.  The usage of xsl:text here forces a line break where there otherwise wouldn't have been one with the usage of xsl:value-of.  Now, let's iterate through each of the wishlists and list out the product details:
+<xsl:for-each select="exsl:node-set($random_products)/wishes:wishitem">
+---------------------------------------------------------------------------
+<xsl:value-of select="wishes:wishlist/@label" 
+       disable-output-escaping="yes" />
+---------------------------------------------------------------------------
+
+<xsl:value-of select="Details/ProductName" 
+       disable-output-escaping="yes" />
+
+<xsl:for-each select="./Details/Artists/Artist | 
+                      ./Details/Authors/Author">
+by <xsl:value-of select="."  
+   disable-output-escaping="yes"/>
+</xsl:for-each>
+
+Catalog:      <xsl:value-of select="Details/Catalog" 
+   disable-output-escaping="yes" />
+Released:     <xsl:value-of select="Details/ReleaseDate" 
+   disable-output-escaping="yes" />
+
+List Price:   <xsl:value-of select="Details/ListPrice"  
+     disable-output-escaping="yes"/> 
+Our  Price:   <xsl:value-of select="Details/UsedPrice"  
+     disable-output-escaping="yes"/> 
+Used Price:   <xsl:value-of select="Details/OurPrice"  
+     disable-output-escaping="yes"/> 
         
-      </section>
-    </body>
-  </html>
+Availability: <xsl:value-of select="Details/Availability"  
+       disable-output-escaping="yes"/>
+<xsl:text>
+
+</xsl:text>
+<xsl:value-of select="Details/@url"  
+       disable-output-escaping="yes"/>
+<xsl:text>
+</xsl:text>
+
+</xsl:for-each>
+
+Most everything in this stretch should look very similar to the HTML version we just finished.  The biggest difference is that every bit of information pulled in using xsl:value-of is done using the disable-output-escaping option.  When this is yes, things like ampersands are no longer escaped for valid XML output.  Since this bit of the email is plain text, we don't want to see &amp; in album titles, so this will cause ampersands to appear unmolested.
+That's the plain text version finished.  Now let's create the HTML version:
+--theBoundaryString
+Content-Type: text/html
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+Content-Base: "http://www.decafbad.com/2004/05/wishes"
+
+The boundary string appears again, signifying the end of the plain text section and the start of the HTML section.  Headers appear here which specify that what follows is HTML; that it's encoded in 7-bit characters; that it should be included in the message display itself (rather than presented as an attachment to be saved); and that all relative URLs which might appear in the HTML should be treated as having a base URL as specified.  This last part allows HTML in email to refer to images and other pages on another site without making all the URLs absolute.
+We don't need to make any modifications to the HTML as we built it in the last iteration of the stylesheet, so we can just include it unchanged:
+<html xmlns="http://www.w3.org/1999/xhtml">
+...
+</html>
+
+--theBoundaryString--
+
+This final appearance of the boundary string is bracketed on both sides by dashes, which indicates the end of the final section of the document.  We should be ready to try this in combination with sendmail in a shell:
+$ xsltproc wishes-ex6.xsl wishes.xml | sendmail -it
+
+If everything has worked correctly, there should be an email arriving in your mailbox sometime soon.  (Or in my inbox, if you followed the directions literally and didn't supply your own email address.)  The options supplied to sendmail are fairly basic: 
+
+-i causes lines consisting solely of . not to be treated as an end-of-input signal.
+-t causes sendmail to look in the message headers (ie. To:) for a list of recipients.
+
+If you don't happen to have have sendmail available, you might want to look into what local mail programs you have available which can accept the output from the stylesheet.
+Once you have this working, the final task is to schedule its monthly execution with your local cron installation.  If you haven't played with cron before, there are many resources and tutorials available (here's one and here's another).  You should add something like the following to your user account's crontab:
+0 0 * 1 *  (cd /your/working/path; xsltproc wishes.xsl wishes.xml | sendmail -it)
+
+The "0 0 * 1 *" indicates to cron that this set of commands should be run at midnight on the first of every months.  Note also that /your/working/path should be replaced by the path to where you've been working during this project.  And finally, I've renamed the final iteration of the stylesheet file to simply wishes.xsl.
+Conclusion
+So that's it--we have an XSL stylesheet which queries Amazon Web Services for products contained in multiple wishlists; selects a random item from each; prepares a shopping cart containing those items; and finally generates an email message containing both plain text and HTML presentations of the shopping cart and selected items.
+Though this implementation serves the purpose I wrote about at the start of this article, there are definitely many areas where this can be improved upon or expanded:
+
+Many people think Amazon is an evil company for their use of patents.  I can't say that I'm entirely happy with them for this myself, but their AWS offering is just too nice to resist tinkering with.  It might be interesting to investigate other retailers' wishlist offerings, where they exist, and to see how this idea might be made to work with other (or even multiple) retailers.  Even better, come up with your own wishlist system, and a cross-retailer shopping cart.
+
+I chose XSLT as the implementation technology because I thought it would be more natural to deal with Amazon's XML this way.  There are, admittedly, a few awkward parts in the resulting stylesheet however.  Sometimes it's good to see a project like this through, just to get a sense for where things do go awkward with a technology or my understanding of it.  It could be interesting to transliterate this into a scripting language like Python or Perl, perhaps using the libxml bindings to do so.
+
+The error and failure handling in this implementation are all but non-existent.  Should anything unexpected happen while dealing with Amazon Web Services, the results aren't likely to be very pretty.  You may want to consider improving in this area.  One instance I identified was to report when the sanity limit was hit in looping through wishlist pages, versus an actual end of pages.
+
+If you play around with making more wishlist queries using the techniques here, you might want to consider caching the full set of data pulled in by the multiple-page calls to AWS, in order to prevent hammering Amazon's servers with repeated requests for the same data, likely unchanged.
+
+I still don't know why exsl:random doesn't work for me.  Although I thought using a web service for random numbers was intereting, it would be very nice if I didn't have to use it.
+
+The HTML presentation could certainly use some good CSS to make it more attractive.
+
+
+Feel free to send me any suggestions, criticisms, or complaints related to this article!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/07/06/wishofthemonthclub3/"
+          >2396&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/07/06/wishofthemonthclub3/">#</a>
+    <a class="time" href="2004/07/06/wishofthemonthclub3/">5:05 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xml/">xml</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2004 June 28</h2>
+  </li><li class="content-grid post post-type-entry tag-hacks">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/06/28/radioiorock-scraper/">A mini-scraper for the playlist at radioio Rock</a>
+      </h2>
+    
+    <p class="summary">
+      Lately, my iTunes has been playing radioio Rock almost exclusively lately, but one thing that peeves me is that I don't seem to see the current song while the stream's playing.  Instead, the radioio site offers a pop-up window that displays the last few songs in the playlist.  However, I'm usually somewhere off in another window or a shell and don't really feel like popping over to a browser and navigating to the playlist just to see what this song is.
+So, I wrote myself a little mini-scraper script:
+#!/bin/sh
+
+curl -s 'http://player.radioio.com/player.php?b=614&#38;stream=radioioRock' | \
+    tidy -asxml --wrap 300 -q -f /dev/null | \
+    xml sel -t -m "//*[@class='leadrock']" -v '.' -n \
+        -o '    [http://www.radioio.com' -v '../@href' -o ']' -n 
+
+The output looks something like this:
+[06/29 11:01:08] deusx@Caffeina2:~ % radioio
+
+Vast - I Need To Say Goodbye
+    [http://www.radioio.com...]
+Cure - The End Of The World
+    [http://www.radioio.com...]
+Seachange - Avs Co 10
+    [http://www.radioio.com...]
+Pixies - Bam Thwok
+    [http://www.radioio.com...]
+Death Cab For Cutie - The New Year
+    [http://www.radioio.com...]
+Lovethugs - Drawing The Curtains
+    [http://www.radioio.com...]
+
+Oh yeah, and to run this script, you will need these tools:
+
+curl
+HTML Tidy 
+XMLStarlet
+
+Personally, I like the included URLs (which I edited here for length) since they launch a search for CDs by the artist.  However, you can cut the output down to just the artist/title by removing the final line of the script and the backslash at the end of the line before.
+If you like a different radioio station, say radioio Eclectic, you can change stream=radioioRock to stream=radioioEclectic in the URL above and change class='leadrock' to class='leadeclectic'.  I could have parameterized these, but I'm lazy, and that was the whole point!
+ShareAndEnjoy!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/06/28/radioiorock-scraper/"
+          >513&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/06/28/radioiorock-scraper/">#</a>
+    <a class="time" href="2004/06/28/radioiorock-scraper/">7:17 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2004 June 27</h2>
+  </li><li class="content-grid post post-type-entry tag-hacks tag-xml">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/06/27/wishofthemonthclub2/">Wish-of-the-Month Club, Part 2 of 3</a>
+      </h2>
+    
+    <p class="summary">
+      Here's the next installment of the Wish-of-the-Month Club.  You can revisit the first part, too, if you've missed it.  I'd meant to post it within a week of the first part, so apologies all around to anyone who has been tapping a foot waiting for it.  Enjoy!
+Paging Through Wishes
+Some ready-made files are available for this section:
+
+wishes-ex2.xsl: The second iteration of the stylesheet in development.
+
+Now we've got a way to make queries against Amazon Web Services, not entirely unlike what you might be used to if you tinker with MySQL databases on a regular basis.  At this point, though, we still have a bit of refining to make to this query.  If you take a look at the data produced by the query in its current state, and compare that to what you see on wishlists in your browser, you should notice some things missing.
+If you look at my wishlist, you'll notice that items span several pages when visited by browser.  As it turns out, AWS queries work in a similar fashion--each query returns only a limited number of items (about 10), and an additional parameter supplied to further queries is required to step through further pages of results.  So, using what we've built so far will only get us to the first page of wishlist items; to get all of the items, we'll need a way to step through all of the pages.
+In playing with this, I experienced a bit of hairpulling frustration:  The AWS documentation, under "Generating Additional Product Results", claims that XML returned by the service will supply a count of the total pages available for a given query.  And although I see this element present in other types of searches, the TotalPages element is absent when querying on wishlists.  This may be a bug, or it may be an undocumented change in the service--either way, it was a surprise and leaves me with no official way to know how many pages I need to ask for in order to have a complete set of data.  
+With some further tinkering, though, I figured out a workaround: If a query is made for a page number beyond the final page, the XML returned will be a duplicate of the final page.  Once I see a duplicate item appear, I know it's time to stop paging through results.  This is completely undocumented behavior, and could break at any time (ie. if Amazon decided to start issuing an error for a page index out of bounds), but it'll work for now.
+This calls for reworking the processWishlist template.  For a given wishlist, it will need to iterate through a sequence of page numbers, requesting XML from AWS for each, stopping when the first duplicate page is found.  Since XSLT is heavily steeped in functional programming concepts, this sort of iteration in XSLT is best done with recursion:
+  <xsl:template name="processWishlist">
+
+    <xsl:param name="wishlist" />              <!-- Wishlist ID -->
+    <xsl:param name="max"   select="50" />     <!-- Arbitrary upper loop limit -->
+    <xsl:param name="curr_page" select="1" />  <!-- Curr page # -->
+    <xsl:param name="prev_first_asin" />       <!-- Keeping track of repeats -->
+
+The first modification to this template is the addition of three parameters:
+
+max provides an arbitrary upper limit to the number of pages through which this template will iterate.
+curr_page contains the number of the page to be requested in this iteration.
+prev_first_asin will contain the ASIN number of the first item from the previous iteration's page of results.
+
+Next, we modify the URL used to query for wishlist data:
+    <!-- Fetch the wishlist products -->
+    <xsl:variable name="details" select="document(concat(
+                  'http://xml.amazon.com/onca/xml3?',
+                  't=',$associate,'&amp;',
+                  'dev-t=',$devtoken,'&amp;',
+                  'WishlistSearch=',$wishlist,'&amp;',
+                  'type=lite&amp;f=xml&amp;',
+                  'page=',$curr_page))//Details" />
+
+The only addition here beyond the previous version is the page parameter in the URL.  Not much mystery here--this parameter specifies which page of results we want.  Now, let's build the loop:
+    <!-- Snag the first item Asin -->
+    <xsl:variable name="curr_first_asin" select="$details/Asin/text()" />
+
+    <!-- If we haven't exceeded the loop limit, and this first Asin isn't -->
+    <!-- a repeat of the previous loop (indicating we've run out of new   -->
+    <!-- pages), then go ahead...                                         -->
+    <xsl:if test="(($curr_page+1) &lt; $max) and
+                  (string-length($curr_first_asin) &gt; 0) and
+                  not($curr_first_asin = $prev_first_asin)">
+  
+
+We capture the ASIN of the first item in this page of results and check to see if we should continue.  This if conditional first ensures that we're not past the sanity guard for loop iterations, makes sure that we actually got a non-empty current first ASIN, then checks our current first product's ASIN against what was passed in as the previous iteration's first product's ASIN.  If this was the first time through the loop, this value should be empty and therefore wouldn't match the current ASIN.  But, if we've gone past the end of results, the previous and current ASIN values should match, and the conditional will fail.
+Moving along into the body of the conditional, we copy in wishlist products filtered on a price maximum, just as before:
+      <!-- Copy products, filtering on a maximum price -->
+      <xsl:copy-of select="$details/OurPrice[number(substring(
+                   text(),2)) &lt; $maxprice]/.." />
+
+Having done that, we move onto the recursive end of this template:
+      <!-- Loop by recursion to get the next page -->
+      <xsl:call-template name="processWishlist">
+        <xsl:with-param name="wishlist"        select="$wishlist" />
+        <xsl:with-param name="max"             select="$max" />
+        <xsl:with-param name="curr_page"       select="$curr_page + 1" />
+        <xsl:with-param name="prev_first_asin" select="$curr_first_asin" />
+      </xsl:call-template>
+
+    </xsl:if>    
+  </xsl:template>
+
+Here, the template makes a recursive call back to itself, passing through the wishlist ID and the maximum iteration count.  Since variables in XSLT are immutable, meaning that their values can't be changed once they've been set, we can't increment $curr_page in-place like a loop counter in other languages--so, the current page count value is incremented and passed to the recursive call as a parameter.  Finally, the current first item's ASIN is passed along, to become the previous ASIN for the next iteration.
+Note that when the conditional fails--that is, if the loop limit is passed or a duplicate page is detected--the loop ends.  In other words, nothing further happens and execution pops back up out of all the levels of recursion and the top-level template ends.  
+I wrote "when the conditional fails".  This is a key point: for the loop to eventually end, this conditional must fail (or be made to fail) at some point, else this loop will happily progress through page requests forever.  This is the reason for the $max parameter limiting the number of iterations, in case something goes haywire--like, oh say, a failure of our duplicate-page detection hack as a loop ending condition.  A useful exercise for the reader might be to add some additional diagnostic code to report that the limit was hit versus a natural end to results.
+Random Numbers
+Some ready-made files are available for this section:
+
+wishes-ex3.xsl: The third iteration of the stylesheet in development.
+random-xml: A Perl CGI script used as a web service to generate random numbers.
+
+Armed with a template that will query against the full set of items in a wishlist, we're ready to look into making a random selection from a list of products.  
+But first, we need to pick a random number.  Unfortunately, there doesn't appear to be any random() function in the XPath or XSLT standards.  There is a math:random() from EXSLT implemented in libxslt, but I seem to be having a bit of a problem getting it to produce anything other than the same sequence of numbers.  I suspect there's a problem in seeding the random number generator, but I've yet to work out how to fix it.  (Suggestions welcome.)
+So, I cheated and made another workaround with a CGI script on my web server that generates random numbers in a simple XML document.  Currently, it's hosted here:
+http://www.decafbad.com/2004/05/random-xml
+
+And this is what the script looks like:
+#!/usr/bin/perl
+
+use strict;
+use CGI;
+
+my $q = new CGI();
+
+my $min = $q->param('min') or 0;
+my $max = $q->param('max') or 1;
+my $int = $q->param('int');
+
+my $num = $min + ( rand() * ($max - $min));
+if ($int) { $num = int($num); }
+
+print $q->header('text/xml');
+print "<rand>$num</rand>\n";
+
+This is a very simple CGI.  It accepts the parameters max, min, and int.  The values of these parameters determine the maximum and minimum value for the random number returned, and whether or not it should be an integer.  For example, the following URL should return an integer between 10 and 20:
+http://www.decafbad.com/2004/05/random-xml?
+int=1&#38;min=10&#38;max=20
+
+Using this as a web service in the stylesheet with the document() function, we can get a random number.  If you've got web space where you can host CGI scripts, I suggest you host a copy of this script yourself, since I can't guarantee how long mine will stick around.  But, for as long at works, feel free to use the service from my server.
+Moving along, let's add a new named template to the stylesheet, called randomWishlistProduct:
+  <xsl:template name="randomWishlistProduct">
+
+    <xsl:param name="wishlist" /> <!-- Wishlist ID -->
+    
+    <!-- Gather all the products for the current wishlist -->
+    <xsl:variable name="products">
+      <xsl:call-template name="processWishlist">
+        <xsl:with-param name="wishlist" select="$wishlist" />
+      </xsl:call-template>
+    </xsl:variable>
+
+Just like the processWishlist template, we start by defining the parameter wishlist to accept a wishlist ID.  Using this ID, we call the processWishlist template itself and store the complete list of products queried from the wishlist into the variable $products.
+    <!-- Count the products in the wishlist -->
+    <xsl:variable name="max_products"
+                  select="count(exsl:node-set($products)/Details)" />
+
+This next step counts the number of products found in the wishlist.  The one tricky bit here is the use of the EXSLT function exsl:node-set(): The $products variable contains what's called a result tree fragment, which is a kind of cross between XML data nodes and a plain old string.  This type of data does not normally allow the full set of XPath operators to be used on it, so first we need to use exsl:node-set() to turn it into a full-fledged node set.  Then we can look up the Details element nodes and count them.  
+    <!-- Conjure up a random index within the list of products -->
+    <xsl:variable name="rand_product_num"
+                  select="document(concat(
+                  'http://www.decafbad.com/2004/05/random-xml?',
+                  'int=1&amp;',
+                  'min=1&amp;',
+                  'max=',$max_products))/rand" />
+
+Here is where the random number service comes in handy.  The concat() function is used to build the URL to the service, with parameters specifying that the number should be an integer, and should fall between 1 and the number of products in the wishlist.  The document() function grabs the XML document from the service, and the value is extracted from the single element the document contains.
+There is an alternative to this last bit, should you happen to have a properly working math:random() function in your XSLT processor:
+    <xsl:variable name="rand_product_num" select="round( math:random() *
+                  $max_products ) + 1" />
+
+If you can use this instead, you'll have no need for the random number web service.  This version is obviously more concise, and doesn't require another trip out to a web service.  You might want to try it--but if you find that you keep getting the same wishlist items selected, then you've run into the problem I found with the random number generator.
+Now, let's wrap this template up by selecting an item:
+    <!-- Copy the product as indexed by the random number -->
+    <xsl:copy-of select="exsl:node-set($products)/Details[
+                 position()=$rand_product_num]" />
+       
+  </xsl:template>
+
+Again, we need to use the exsl:node-set() function to turn the result tree fragment in the $products variable into a node set, from which we select and copy the Details element whose position in the data is indexed by the random number we just selected.  Just one last tweak needed to wrap up this iteration of our stylesheet.  We need to swap out the call to the processWishlist function at the end and replace it with a call to randomWishlistProduct:
+  <xsl:template match="/wishes:wishes">
+
+    <xsl:for-each select="//wishes:wishlist">
+      <wishes:wishitem>
+        <xsl:copy-of select="." />
+        <xsl:call-template name="randomWishlistProduct">
+          <xsl:with-param name="wishlist" select="." />
+        </xsl:call-template>
+      </wishes:wishitem>
+    </xsl:for-each>
+
+  </xsl:template>
+
+After these changes, you should be able to run the stylesheet ([wishes-ex3.xsl][wishes_ex3]) and get something like the following:
+<wishes:wishitem xmlns:wishes="http://www.decafbad.com/2004/05/wishes">
+    <wishes:wishlist label="The Girl">35OIOYWQ9XQAE</wishes:wishlist>
+    <Details ...>...</Details>
+</wishes:wishitem>
+<wishes:wishitem xmlns:wishes="http://www.decafbad.com/2004/05/wishes">
+    <wishes:wishlist label="Me">1QWYI6P2JF3Q5</wishes:wishlist>
+    <Details ...>...</Details>
+</wishes:wishitem>
+
+This is similar to the output of the previous iteration of the stylesheet, but this time there's only one product selected at random for each wishlist.  
+Shopping Carts
+Some ready-made files are available for this section:
+
+wishes-ex4.xsl: The fourth iteration of the stylesheet in development.
+
+By this point, we've been able to query and filter products in Amazon wishlists, and we've selected an item at random from each wishlist we've queried.  Now, let's enable some purchases.
+The AWS provides for Remote Shopping Cart functionality, whereby items can be added to an Amazon.com shopping cart programmatically.  This is about as close as we can get to automating the purchase of items selected from the wishlists--there is no API functionality for actually completing the ordering of items.  If you really think about it, this really is a good thing and should demand human intervention; we certainly wouldn't want this script going crazy and accidentally buying up everything on a wishlist.
+Documentation for the AWS Remote Shopping Cart explains that a shopping cart can be created and items added with a URL like the following:
+http://xml.amazon.com/onca/xml3?
+ShoppingCart=add&#38;
+f=xml&#38;
+dev-t=[Developer Token goes here]&#38;
+t=[Associates ID goes here]&#38;
+Asin.[ASIN goes here]=[quantity goes here]&#38;
+sims=true
+
+Part of this should look familiar, so we already know what to do with the developer token and the associates ID.  The last part, specifying product ASIN and quantity, can be filled out with information contained in the product records selected at random from the wishlists.  
+So, let's start by revising the template at the end of the stylesheet:
+<xsl:template match="/wishes:wishes">
+
+    <xsl:variable name="random_products">      
+      <xsl:for-each select="//wishes:wishlist">
+        <wishes:wishitem>
+          <xsl:copy-of select="." />
+          <xsl:call-template name="randomWishlistProduct">
+            <xsl:with-param name="wishlist" select="." />
+          </xsl:call-template>
+        </wishes:wishitem>
+      </xsl:for-each>
+    </xsl:variable>
+
+Here, we've taken what was the output of the previous iteration of the stylesheet and stuffed it into the variable $random_products.  Next, let's fill in the blanks and build a Remote Shopping Cart URL:
+    <xsl:variable name="shopping_cart_create_url">
+      <!-- Standard AWS URL -->
+      <xsl:text>http://xml.amazon.com/onca/xml3?</xsl:text>
+
+      <!-- Add in the selected items -->
+      <xsl:for-each select="exsl:node-set($random_products)
+                            /wishes:wishitem/Details">
+        <xsl:text>Asin.</xsl:text><xsl:value-of select="Asin" />
+        <xsl:text>=1&amp;</xsl:text>
+      </xsl:for-each>
+
+      <!-- Wrap up with the shopping cart function and required tokens -->
+      <xsl:text>ShoppingCart=add&amp;</xsl:text>
+      <xsl:text>f=xml&amp;</xsl:text>
+      <xsl:text>dev-t=</xsl:text><xsl:value-of select="$devtoken" />
+      <xsl:text>&amp;</xsl:text>
+      <xsl:text>t=</xsl:text><xsl:value-of select="$associate" />
+    </xsl:variable>
+
+Since simple XPath doesn't allow for the looping needed for multiple items, we can't just concatenate this URL together in a select expression like we did with the wishlist item query.  So, we use xslt:foreach to build this with blocks of text using the xsl:text element.  We iterate though the random products chosen from wishlists and add an ASIN for each to the URL with a quantity of 1. Then, we use the $devtoken and $associate variables to fill in their respective spots.
+Note that this could have been written without using the xsl:text elements like so:
+    <xsl:variable name="shopping_cart_create_url">http://xml.amazon.
+    com/onca/xml3?ShoppingCart=add&amp;f=xml&amp;dev-t=<xsl:value-of 
+    select="$devtoken" />&amp;t=<xsl:value-of select="$associate" />
+    &amp;<xsl:for-each select="exsl:node-set($random_products)/
+    wishes:wishitem/Details">Asin.<xsl:value-of select="Asin" />=1
+    &amp;</xsl:for-each></xsl:variable>
+
+This removes the clutter of all the xsl:text elements, but it would need to be piled all on one line in order to keep undesired whitespace from getting into the URL.  I made a small attempt at wrapping this line here, but line breaks and spaces would leave us with a non-functioning shopping cart URL.  It's up to you to decide which to use--personally, I prefer the xsl:text clutter for the ability to add in comments and clarify things a bit.
+Finally, having built the shopping cart URL, let's use it to get a shopping cart and wrap things up:
+    <xsl:variable name="shopping_cart"
+                  select="document($shopping_cart_create_url)" />
+
+    <xsl:copy-of select="$shopping_cart" />
+
+</xsl:template>  
+
+As an aside, this part is pushing the concept of a REST web service a bit: In the REST philosophy, requests using the GET method (which is what document() uses) should only return existing resources and not create new resources or cause modifications to happen.  Instead, these sorts of actions should use a POST request.  But, since we've already accepted a few rough edges and workarounds in this project so far, we won't let a point of esoterica like that stop us.  (That and, well, this is the way Amazon designed their web service, so we'll take what we can get.)
+Once you run this iteration of the stylesheet ([wishes-ex4.xsl][wishes_ex4]), you should get something like this XML as output:
+<ShoppingCartResponse ...>
+  ...
+  <ShoppingCart>
+   <CartId>...</CartId>
+   <HMAC>...</HMAC>
+   <PurchaseUrl>...</PurchaseUrl>
+   <Items>
+    <Item>...</item>
+    <Item>...</item>
+   </Items>
+  </ShoppingCart>
+  ...
+</ShoppingCartResponse>
+
+The AWS documentation describes the vital elements here like so:
+
+CartId - The Cart ID is the unique identifier for a given shopping cart.
+HMAC - The HMAC is a security token that must be passed back to Amazon Web Services for using an existing cart.
+PurchaseUrl - Use the purchase URL to transfer the remote shopping cart from your application to Amazon so that your application's users may complete their purchases.  The purchase URL merges the remote shopping cart with the Amazon.com shopping cart.
+
+So, in short, whenever we want to do any sort of manipulation on this Remote Shopping Cart via AWS, we'll need to remember and later supply both the CartId and HMAC found in the XML returned at its creation.  And, once we're all ready to check out, the PurchaseUrl points to where we'll need to browse in person.
+Stay Tuned!
+This concludes Part 2 of the Wish-of-the-Month Club.  Following this will be the final part, where we tie everything together and start firing off monthly emails!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/06/27/wishofthemonthclub2/"
+          >2721&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/06/27/wishofthemonthclub2/">#</a>
+    <a class="time" href="2004/06/27/wishofthemonthclub2/">9:44 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xml/">xml</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2004 June 16</h2>
+  </li><li class="content-grid post post-type-entry tag-hacks tag-xml">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/06/16/wishofthemonthclub1/">Wish-of-the-Month Club, Part 1 of 3</a>
+      </h2>
+    
+    <p class="summary">
+      Remember that I wrote a little while ago about wanting to publish some articles here that I'd want to read?  Well, I've been hard at work since then to turn out the first set and I think I've finally got something for you.  I mentioned earlier this week that I was taking this seriously, so I hope it shows.  So, with many thanks to my girlfriend's kind editorial help, and with some measure of anxiety, here goes...
+Introduction
+For some time now, my girlfriend and I have been accumulating things we want in wishlists on Amazon.com.  Here's mine and here's hers - if you visit them, you can see we've both got quite a few things listed.  Though they have come in handy with relatives at Christmas and on birthdays, neither of us really expects to see a regular flow of gifts from them.  For the most part, they've just become holding tanks for things we intend to buy for each other or ourselves.  
+However, I tend to forget we have these lists except for occasional visit to Amazon when I think, "Oh yeah, wishlists.  I should pick up a thing or two, there's some good stuff piled up in them."  On one particular visit, though, the notion of a Wish-of-the-Month club popped into my head: We could afford to grab at least one item for each of us from our wishlists on a monthly basis, provided that we remembered to place an order.  It'd be better than signing up for a book or music club, driven by someone else's idea of what we wanted.  Unfortunately, there's that problem for busy, absentminded, and people like us: remembering to place an order.
+But wait, isn't this the sort of thing computers are for?  I should be able to cobble something together that would peruse our wishlists and--given some criteria like a price maximum--select an item at random for each of us and send them on their way.  With this, I could schedule a monthly run and start whittling down those lists.
+Gathering Tools
+Before I start working through the project itself, let's establish some assumptions and then gather some tools and materials:
+I'm going to assume that you're using a UN*X operating system (ie. Linux, Mac OS X, etc.) and that you're reasonably familiar with getting around in a shell and editing files.  Things presented here could be adapted for Windows fairly easily, but I'll leave that as an exercise to the reader.  Also, you may need to build and install a package or two, so know-how in that regard will serve as well.  And finally: some familiarity with XML and XSLT would be useful, but you won't need to be a guru with either.
+Oh, and all the files I'll be introducing in this project can be downloaded from my website as a tarball:  wishes.tar.gz.  If you feel like browsing, you can see these files in my CVS repository.  And if you feel like checking out a copy via anonymous CVS, the username is anoncvs and the password is blank--email me for help, if you need it.
+So, how do we get a look at these wishlists?  Lately, I've been tinkering a bit with scraping information from and automating access to websites.  It's a bit like a puzzle game, with all the accompanying frustrations and happy breakthroughs.  However, where most puzzle games are designed with a solution in mind, this game isn't even necessarily meant to be played depending on the intentions of website owners.
+Fortunately, the folks at Amazon.com have made things very friendly to tinkerers by providing an API, called Amazon Web Services (or AWS).  You'll want to download the AWS developer's kit, which contains a wealth of documentation and examples.  After downloading these materials, you should apply for a developer's token for use with the service.  AWS provides both SOAP and REST interfaces to functionality and data at their site; personally, I prefer the HTTP-and-XML approach taken by the REST interface, so that's what we'll be using here. 
+To handle the XML produced by AWS, we'll be using the xsltproc command from the XML C parser and toolkit of Gnome.  There are other XSLT processors--such as Xalan, Sablotron, and Saxon--but I've found libxslt easiest to feed and care for on the various platforms with which I tinker.  It also seems to support a very large swath of EXSLT extensions, all of which come in very handy, yet seem to receive uneven support in other XSLT processors.  We'll be pulling a trick or two out of that bag, so its support is key.
+You may or may not already have libsxlt installed.  Depending on your variant of Linux, it might be as simple as a single package-management command or it might be a bit more complex if you need to compile from source.  For Mac OS X, I recommend using Fink for your packaging needs.  Although, DarwinPorts is nice as well, if you're used to The BSD Way.
+A bonus for OS X users: Marc Liyanage has provided a great Open Source tool named TestXSLT that embeds libxslt, among other XSLT processors, in a slick GUI for easier use.  This might come in handy for you as things develop.
+Wishlists in XML
+Okay, we've got a working environment, a head start on accessing Amazon wishlists as XML, and a way to manipulate that XML using xsltproc.  Let's start playing.  First things first, we need to gain access to Amazon wishlists in XML form.  Reading through the AWS documentation reveals that wish list searches are available via a URL constructed like so:
+http://xml.amazon.com/onca/xml3?
+t=[Associates ID goes here]&#38;
+dev-t=[Developer Token goes here]&#38;
+WishlistSearch=[wishlist ID goes here]&#38;
+type=[lite or heavy]&#38;
+f=xml
+
+I received an ID of 0xdecafbad-20 when I signed up to be an associate a few years ago.  This will ensure that I get credited for sales made via the API--which isn't as important for the present project, since I'll be buying items myself, but it'll come in handy in later projects.  Also, when I signed up for a developer's token, this is what I was given: D8HVH869XA0NP  I'm disclosing my own here for the sake of example, but you should sign up and get your own.
+So, that fills in the first two parts of the URL.  For the purposes of this project, let's just go with the lite option for type.  As for the wishlist ID, let's take a look the wishlist URLs to which I linked earlier:
+http://www.amazon.com/exec/obidos/registry/35OIOYWQ9XQAE
+http://www.amazon.com/exec/obidos/registry/1QWYI6P2JF3Q5
+
+You can discover these wishlist URLs using Amazon's Wish List Search feature, in which case a wishlist URL might appear like so:
+http://www.amazon.com/gp/registry/registry.html/
+002-7899886-3676027?%5Fencoding=UTF8&#38;
+id=35OIOYWQ9XQAE
+
+In either case, there is a 13-character ID in each variety of wish list URL: this string is the wish list ID.  So, the ID for my girlfriend's wishlist is  35OIOYWQ9XQAE and mine is 1QWYI6P2JF3Q5.  Given this piece of the puzzle, we can fill in the blanks to come up with the following URL for my girlfriend's wish list:
+http://xml.amazon.com/onca/xml3?
+t=0xdecafbad-20&#38;
+dev-t=D8HVH869XA0NP&#38;
+type=lite&#38;
+WishlistSearch=35OIOYWQ9XQAE&#38;
+f=xml
+
+Check out the XML resulting from this URL--you may want to use a tool such as curl or wget instead of viewing this directly in your browser.  You'll see some XML that looks something like this:
+<ProductInfo>
+...
+<Details url="(some long URL)">
+  <Asin>0262133601</Asin>
+  <ProductName>Foundations of Statistical Natural Language Processing</ProductName>
+  <Catalog>Book</Catalog>
+  <Authors>
+     <Author>Christopher D. Manning</Author>
+     <Author>Hinrich Sch&#252;tze</Author>
+  </Authors>
+  <ReleaseDate>18 June, 1999</ReleaseDate>
+  <Manufacturer>MIT Press</Manufacturer>
+  <ImageUrlSmall>(another long url)</ImageUrlSmall>
+  <ImageUrlMedium>(yet another long url)</ImageUrlMedium>
+  <ImageUrlLarge>(one last long url)</ImageUrlLarge>
+  <Availability>Usually ships within 24 hours</Availability>
+  <ListPrice>$75.00</ListPrice>
+  <OurPrice>$63.75</OurPrice>
+  <UsedPrice>$49.99</UsedPrice>
+</Details>
+...
+</ProductInfo>
+
+Note that the long URL in the Detail element's url attribute links to the human-viewable product detail page at Amazon.  I've also left a few other things out, such as the URLs to product images; I just thought I'd edit it a bit to be friendlier to your browser at home.  There's a schema for this XML data, and the ins-and-outs are explained in the AWS documentation under "Amazon Web Services Data Model".
+Querying The Wishes
+Some ready-made files are available for this section:
+
+wishes-ex1.xsl: The first iteration of the stylesheet in development.
+wishes.xml: An XML document used as input with the stylesheet.
+
+Now that we've got some XML from Amazon to play with, let's start tinkering with an XSLT stylesheet to process it.  In the interests of flexibility and reusability, we can parameterize a few things in XML before starting in on the stylesheet:
+<wishes xmlns="http://www.decafbad.com/2004/05/wishes">
+  <maxprice>15.00</maxprice>
+  <associate>0xdecafbad-20</associate>
+  <devtoken>D8HVH869XA0NP</devtoken>
+  <email>deus_x@pobox.com</email>
+  <wishlists>
+    <wishlist label="The Girl">35OIOYWQ9XQAE</wishlist>
+    <wishlist label="Me">1QWYI6P2JF3Q5</wishlist>
+  </wishlists>
+</wishes>
+
+Hopefully, the data here is fairly self-explanatory:  I've established a maximum price for item selection; provided my associate ID and developer token; there's an email address to which I eventually want to send the results of all this work; and I've made a list of wishlist IDs, each with a readable label. Given this, let's start out simple and  use this to get some data from Amazon:
+<?xml version="1.0"?>
+<xsl:stylesheet version="1.0"
+            xmlns:wishes="http://www.decafbad.com/2004/05/wishes"
+            xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:output indent="yes" />
+
+  <!-- Grab our global settings -->
+  <xsl:variable name="maxprice"  select="/wishes:wishes/wishes:maxprice" />  
+  <xsl:variable name="associate" select="/wishes:wishes/wishes:associate" />
+  <xsl:variable name="devtoken"  select="/wishes:wishes/wishes:devtoken" />
+
+So far so good--things start off by pulling in some of the parameters into variables.  Next, let's dig into actually querying wishlist data with a reusable template:
+  <xsl:template name="processWishlist">
+    <xsl:param name="wishlist" />
+
+    <xsl:variable name="details" select="document(concat(
+        'http://xml.amazon.com/onca/xml3?',
+        't=',$associate,'&amp;',
+        'dev-t=',$devtoken,'&amp;',
+        'WishlistSearch=',$wishlist,'&amp;',
+        'type=lite&amp;f=xml'))//Details" />
+
+First thing into this template, we accept a parameter named wishlist which is expected to contain a wishlist ID string.  Next, we build an AWS URL by concatenating together the pieces we have in variables (associate ID, developer's token, and wishlist ID) using the XPath function concat().  Once we have this URL, we use the function document() to make a request and fetch the XML data for that URL.  From this, we select all the Details elements.  
+Then with that data, we can do some filtering on the price and availability.  We want to make sure that not only will we select items that are within our budget, but that they are available to buy in the first place:
+    <xsl:copy-of select="$details[
+      number(substring(OurPrice/text(),2)) &lt; $maxprice
+      and
+      contains(Availability, 'Usually ships within')
+      ]" />
+
+  </xsl:template>
+
+This code is just a little bit funky, since the price data given by Amazon contains a dollar sign, and we want to make a numerical comparison.  So, we chop the dollar sign off and convert to a number before making the comparison.  Also, there's an assumption here about what will show up in the Availability element: "Usually ships within"  Other things that might show up will declare that the item is out of stock, discontinued, or otherwise not shipping.  This might need some tweaking someday, but it seems to work for now.
+Taken all together, this template has the effect of a SQL SELECT statement somewhat like this:
+SELECT * 
+FROM Amazon.WishlistItems 
+WHERE WishlistID = $wishlist AND 
+      OurPrice < $maxprice AND
+      Availability like '%Usually ships within%';
+
+document() is a very useful XPath function.  It allows us to pull in XML from external files and, in our case, from external URLs via HTTP requests.  This gives us the ability to make queries against REST web services like AWS--which, among many other reasons, is why I prefer REST web services over SOAP.  (I don't even want to think about trying to access a SOAP service from XSLT.)
+Now, let's wrap up this first iteration of the stylesheet by trying out the query template on each of the wishlist IDs:
+  <xsl:template match="/wishes:wishes">
+    <xsl:for-each select="//wishes:wishlist">
+      <wishes:wishitem>
+        <xsl:copy-of select="." />
+        <xsl:call-template name="processWishlist">
+              <xsl:with-param name="wishlist" 
+                              select="." />
+        </xsl:call-template>
+      </wishes:wishitem>
+    </xsl:for-each>
+  </xsl:template>
+
+</xsl:stylesheet>
+
+You can get a completed version of this stylesheet, along with the input XML, in case you haven't been cutting and pasting together a copy of your own along the way.  Try it out in a shell with:
+$ xsltproc wishes_ex1.xsl wishes.xml
+
+Alternately, you could check it out using TestXSLT under OS X.  You should get something like the following:
+<wishes:wishitem xmlns:wishes="http://www.decafbad.com/2004/05/wishes">
+    <wishes:wishlist label="The Girl">35OIOYWQ9XQAE</wishes:wishlist>
+    <Details ...>...</Details>
+    <Details ...>...</Details>
+    ...
+</wishes:wishitem>
+<wishes:wishitem xmlns:wishes="http://www.decafbad.com/2004/05/wishes">
+    <wishes:wishlist label="Me">1QWYI6P2JF3Q5</wishes:wishlist>
+    <Details ...>...</Details>
+    <Details ...>...</Details>
+    ...
+</wishes:wishitem>
+
+Obviously, this example XML is much abridged, but hopefully you can get the gist:  For each wishlist ID, there is a containing wishitem element.  It contains a copy of the wishlist element from the input XML, followed by all the Details elements filtered and copied from the Amazon XML with the help of the processWishlist template.
+That's All for Now!
+And that's the end of Part 1.  Next up, we'll be delving into a few more wrinkles in the wishlist querying process, selecting random items in XSLT, and the Remote Shopping Cart interface in Amazon Web Services.  Stay tuned!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/06/16/wishofthemonthclub1/"
+          >2207&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/06/16/wishofthemonthclub1/">#</a>
+    <a class="time" href="2004/06/16/wishofthemonthclub1/">7:42 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xml/">xml</a>
+          </li>
+    </ul>
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/tag/hacks/index.rss" title="Tag: hacks - blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

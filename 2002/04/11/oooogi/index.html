@@ -1,124 +1,238 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>SSI, Sibling Blogs, RssDisplay, and Grousing - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="SSI, Sibling Blogs, RssDisplay, and Grousing" />
+    <html>
+      <head>
+        <title>SSI, Sibling Blogs, RssDisplay, and Grousing - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="SSI, Sibling Blogs, RssDisplay, and Grousing" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2002/04/11/oooogi/"
         />
         
         <meta property="og:description" content="I feel like I&#39;m discovering SSI again, as if for the first time.  I&#39;m using it around here to piece together a few pages with dynamic elements, among other things.  Seems like all I need most times for this, as opposed to a more general web app framework or CMS.  I&#39;m sure eventually I&#39;ll get tired of it after having run into all the problems everyone else in the world has, and roll my own CMS again.  Maybe this time I&#39;ll stop before I get to that point and adopt someone else&#39;s before I get down to wheel re-invention work.  :)  But it&#39;s so fun.
+
+
 Anyway, my latest tinkering with SSI can be seen on the right side of 0xDECAFBAD&#39;s front page:  Sibling blogs. 
- 
 So far, I&#39;ve got my LiveJournal blog over there, along with my RadioUserLand weblog.  Maybe in listing a few headlines over there, I can entice a few readers to my other spaces.  LiveJournal is where I do most of my general blogging, link posting, and general grousing.  (I think that&#39;s my new favorite word)  The RadioUserLand weblog is just an experiment at this point, but it may eventually consume the whole site.
 Basically, RadioUserLand is competing with server-side CGIs and SSIs at this point.  Eventually, they will cooperate.  After that, RadioUserLand may take over.
 Anyway, enjoy RssDisplay if you like-- you can either download it, or PipelineTheWeb and use it straight from my site." />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post "
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post "
       >
-        <time
-          title="2002-04-11T06:39:33+00:00"
-          pubdate="2002-04-11T06:39:33+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2002/"
-            >2002</a
+        <header>
+          <time
+            title="2002-04-11T02:39:33-04:00"
+            pubdate="2002-04-11T02:39:33-04:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2002/04/"
-            >April</a
-          >
-          &raquo;
-          <span>11</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="Sometimes I think Radio UserLand has too much bootstrap"
+                href="/blog.lmorchard.com/2002/04/11/ooooho/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2002/"
+                >2002</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2002/04/"
+                >April</a
+              >
+              &#8226;
+              <span>11</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Via Eric Freeman&#39;s Radio Weblog:"
+                href="/blog.lmorchard.com/2002/04/10/oooogh/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">SSI, Sibling Blogs, RssDisplay, and Grousing</h1>
+          
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2002/04/11/ooooho/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2002/04/10/oooogh/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
+        <p>I feel like I'm discovering <a href="http://www.decafbad.com/twiki/bin/view/Main/SSI">SSI</a> again, as if for the first time.  I'm using it around here to piece together a few pages with dynamic elements, among other things.  Seems like all I need most times for this, as opposed to a more general web app framework or <a href="http://www.decafbad.com/twiki/bin/view/Main/CMS">CMS</a>.  I'm sure eventually I'll get tired of it after having run into all the problems everyone else in the world has, and roll my own <a href="http://www.decafbad.com/twiki/bin/view/Main/CMS">CMS</a> again.  Maybe this time I'll stop before I get to that point and adopt someone else's before I get down to wheel re-invention work.  :)  But it's <em>so</em> fun.
 
-        <h1 class="title">SSI, Sibling Blogs, RssDisplay, and Grousing</h1>
-        
-        <section class="post-content">
-          <p>I feel like I'm discovering <a href="http://www.decafbad.com/twiki/bin/view/Main/SSI">SSI</a> again, as if for the first time.  I'm using it around here to piece together a few pages with dynamic elements, among other things.  Seems like all I need most times for this, as opposed to a more general web app framework or <a href="http://www.decafbad.com/twiki/bin/view/Main/CMS">CMS</a>.  I'm sure eventually I'll get tired of it after having run into all the problems everyone else in the world has, and roll my own <a href="http://www.decafbad.com/twiki/bin/view/Main/CMS">CMS</a> again.  Maybe this time I'll stop before I get to that point and adopt someone else's before I get down to wheel re-invention work.  :)  But it's <em>so</em> fun.<br />
-Anyway, my latest tinkering with <a href="http://www.decafbad.com/twiki/bin/view/Main/SSI">SSI</a> can be seen on the right side of 0xDECAFBAD's front page:  Sibling blogs. <br />
- <br />
-So far, I've got my <a href="http://www.decafbad.com/twiki/bin/view/Main/LiveJournal">LiveJournal</a> blog over there, along with my <a href="http://www.decafbad.com/twiki/bin/view/Main/RadioUserLand">RadioUserLand</a> weblog.  Maybe in listing a few headlines over there, I can entice a few readers to my other spaces.  <a href="http://www.decafbad.com/twiki/bin/view/Main/LiveJournal">LiveJournal</a> is where I do most of my general blogging, link posting, and general grousing.  (I think that's my new favorite word)  The <a href="http://www.decafbad.com/twiki/bin/view/Main/RadioUserLand">RadioUserLand</a> weblog is just an experiment at this point, but it may eventually consume the whole site.</p>
+
+</p><p>Anyway, my latest tinkering with <a href="http://www.decafbad.com/twiki/bin/view/Main/SSI">SSI</a> can be seen on the right side of 0xDECAFBAD's front page:  Sibling blogs. </p>
+<p>So far, I've got my <a href="http://www.decafbad.com/twiki/bin/view/Main/LiveJournal">LiveJournal</a> blog over there, along with my <a href="http://www.decafbad.com/twiki/bin/view/Main/RadioUserLand">RadioUserLand</a> weblog.  Maybe in listing a few headlines over there, I can entice a few readers to my other spaces.  <a href="http://www.decafbad.com/twiki/bin/view/Main/LiveJournal">LiveJournal</a> is where I do most of my general blogging, link posting, and general grousing.  (I think that's my new favorite word)  The <a href="http://www.decafbad.com/twiki/bin/view/Main/RadioUserLand">RadioUserLand</a> weblog is just an experiment at this point, but it may eventually consume the whole site.</p><p></p>
 <p>Basically, <a href="http://www.decafbad.com/twiki/bin/view/Main/RadioUserLand">RadioUserLand</a> is competing with server-side CGIs and <a href="http://www.decafbad.com/twiki/bin/view/Main/SSI">SSI</a>s at this point.  Eventually, they will cooperate.  After that, <a href="http://www.decafbad.com/twiki/bin/view/Main/RadioUserLand">RadioUserLand</a> may take over.</p>
 <p>Anyway, enjoy <a href="http://www.decafbad.com/twiki/bin/view/Main/RssDisplay">RssDisplay</a> if you like-- you can either download it, or <a href="http://www.decafbad.com/twiki/bin/view/Main/PipelineTheWeb">PipelineTheWeb</a> and use it straight from my site.</p>
+
+
 <!--more-->
-shortname=oooogi
 
-        </section>
-      </article>
-        </section>
 
-        <footer>
-          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
-        </footer>
-      </section>
+<p>shortname=oooogi</p>
 
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
-      </section>
-    </body>
-  </html>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2002/04/11/ooooho/"
+                >Sometimes I think Radio UserLand has too much bootstrap</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2002/04/10/oooogh/"
+                >Via Eric Freeman's Radio Weblog:</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

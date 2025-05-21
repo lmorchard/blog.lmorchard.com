@@ -1,0 +1,127 @@
+.post-list {
+}
+
+.post-list .index-header {
+  text-align: center;
+}
+
+.post-list ul.posts {
+  display: contents;
+  list-style: none;
+}
+
+.post-list ul.posts .date-header {
+  margin: 1em 0 1.5em 0;
+  z-index: 100;
+  border-top: 2px solid var(--theme-border-color);
+  border-bottom: 2px solid var(--theme-border-color);
+}
+
+.post-list ul.posts .date-header h2 {
+  margin: 0;
+}
+
+.post-list ul.posts .date-header .date {
+  grid-column: main;
+  text-align: center;
+  padding: 0.5em 0 0.5em 0;
+  z-index: 100;
+}
+
+
+.post-list ul.posts .post .thumb img {
+  width: 128px;
+}
+
+.post-list ul.posts .post .title,
+.post-list ul.posts .post .summary,
+.post-list ul.posts .post .content,
+.post-list ul.posts .post .meta {
+  grid-column: main;
+}
+
+.post-list ul.posts .post .title {
+  margin: 0 0 0.5em 0;
+  text-align: center;
+}
+
+.post-list ul.posts .post .meta {
+  margin-bottom: 2.5em;
+  padding-bottom: 2.5em;
+  border-bottom: 1px solid color-mix(in srgb, var(--theme-border-color) 50%, transparent);
+  text-align: center;
+  font-size: 0.85em;
+}
+
+.post-list ul.posts .post:has(+ .date-header) .meta {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.post-list ul.posts .post .meta ul.tags {
+  display: inline;
+  padding: 0;
+  margin: 0;
+}
+
+.post-list ul.posts .post .meta ul.tags:before {
+  margin: 0 0.25em;
+  content: "  "
+}
+
+.post-list ul.posts .post .meta ul.tags li.tag {
+  display: inline;
+  margin: 0 0.5em 0 0;
+  white-space: no-wrap;
+}
+
+.post-list ul.posts .post .meta ul.tags li.tag:before {
+  content: "";
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  font-size-adjust: none;
+  font-stretch: normal;
+  font-size: inherit;
+  text-rendering: auto;
+  margin-left: 0.125em;
+}
+
+.post-list ul.posts .post .meta ul.tags li.tag:last-child:after {
+  content: "";
+}
+
+.post-list ul.posts .post .thumb {
+  overflow: hidden;
+  margin-top: 0;
+  height: 128px;
+  text-align: center;
+}
+
+@media (min-width: 1200px) {
+  .post-list ul.posts .post .meta {
+    text-align: left;
+  }
+  .post-list ul.posts .post .title {
+    text-align: left;
+  }
+  .post-list ul.posts .post .thumb {
+    grid-column-start: wide-start;
+    grid-column-end: main-start;
+    grid-row: span 2;
+    text-align: right;
+  }
+}
+
+.post-list ul.posts .post {
+  max-width: calc(100vw - (1.25em * 2));
+}
+
+@media (min-width: 600px) {
+  .post-list ul.posts .post {
+    max-width: inherit;
+  }
+}

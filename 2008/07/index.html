@@ -1,167 +1,359 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>2008/07 - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>2008/07 - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Month: 2008/07</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post tag-asides tag-twitter tag-laconica tag-twitterrific tag-identica"
-          >
-            <time class="date" datetime="2008-07-18T21:56:18+00:00">
-              2008
-              July
-              18
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2008/07/18/using-twitterrific-with-identica/">
-              <span class="infoContainer">
-                <span class="title">using Twitterrific with identi.ca</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-delicious tag-webdev tag-pagination"
-          >
-            <time class="date" datetime="2008-07-17T18:16:01+00:00">
-              2008
-              July
-              17
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2008/07/17/date-based-pagination/">
-              <span class="infoContainer">
-                <span class="title">date-based pagination</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-delicious tag-webdev tag-twitter tag-entries tag-laconica tag-scaling tag-queues"
-          >
-            <time class="date" datetime="2008-07-04T19:17:18+00:00">
-              2008
-              July
-              04
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2008/07/04/queue-everything-and-delight-everyone/">
-              <span class="infoContainer">
-                <span class="title">Queue everything and delight everyone</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-hacking tag-polls"
-          >
-            <time class="date" datetime="2008-07-04T00:15:53+00:00">
-              2008
-              July
-              04
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2008/07/04/onwhat-should-i-hack-next/">
-              <span class="infoContainer">
-                <span class="title">on what should I hack next?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-twitter tag-laconica tag-openmicroblogging tag-microblogging"
-          >
-            <time class="date" datetime="2008-07-03T20:32:40+00:00">
-              2008
-              July
-              03
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2008/07/03/why-im-playing-with-laconica/">
-              <span class="infoContainer">
-                <span class="title">Why I&#39;m playing with Laconica</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-php tag-twitter tag-entries tag-laconica tag-openmicroblogging"
-          >
-            <time class="date" datetime="2008-07-03T19:21:35+00:00">
-              2008
-              July
-              03
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2008/07/03/getting-laconica-up-and-running/">
-              <span class="infoContainer">
-                <span class="title">Getting Laconica up and running</span>
-              </span>
-            </a>
-            
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Month: 2008/07</h2>
+        </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2008 July 18</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-twitter tag-laconica tag-twitterrific tag-identica">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2008/07/18/using-twitterrific-with-identica/">using Twitterrific with identi.ca</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2008/07/18/using-twitterrific-with-identica/"
+          >403&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2008/07/18/using-twitterrific-with-identica/">#</a>
+    <a class="time" href="2008/07/18/using-twitterrific-with-identica/">5:56 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/twitter/">twitter</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/laconica/">laconica</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/twitterrific/">twitterrific</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/identica/">identica</a>
           </li>
     </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2008 July 17</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-delicious tag-webdev tag-pagination">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2008/07/17/date-based-pagination/">date-based pagination</a>
+      </h2>
     
-  </section>
-      </section>
-        </section>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2008/07/17/date-based-pagination/"
+          >235&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2008/07/17/date-based-pagination/">#</a>
+    <a class="time" href="2008/07/17/date-based-pagination/">2:16 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/delicious/">delicious</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/pagination/">pagination</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2008 July 04</h2>
+  </li><li class="content-grid post post-type-entry tag-delicious tag-webdev tag-twitter tag-entries tag-laconica tag-scaling tag-queues">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2008/07/04/queue-everything-and-delight-everyone/">Queue everything and delight everyone</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2008/07/04/queue-everything-and-delight-everyone/"
+          >1623&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2008/07/04/queue-everything-and-delight-everyone/">#</a>
+    <a class="time" href="2008/07/04/queue-everything-and-delight-everyone/">3:17 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/delicious/">delicious</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/twitter/">twitter</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/laconica/">laconica</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/scaling/">scaling</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/queues/">queues</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2008 July 03</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-hacking tag-polls">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2008/07/03/onwhat-should-i-hack-next/">on what should I hack next?</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2008/07/03/onwhat-should-i-hack-next/"
+          >119&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2008/07/03/onwhat-should-i-hack-next/">#</a>
+    <a class="time" href="2008/07/03/onwhat-should-i-hack-next/">8:15 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacking/">hacking</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/polls/">polls</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides tag-twitter tag-laconica tag-openmicroblogging tag-microblogging">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2008/07/03/why-im-playing-with-laconica/">Why I&#39;m playing with Laconica</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2008/07/03/why-im-playing-with-laconica/"
+          >321&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2008/07/03/why-im-playing-with-laconica/">#</a>
+    <a class="time" href="2008/07/03/why-im-playing-with-laconica/">4:32 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/twitter/">twitter</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/laconica/">laconica</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/openmicroblogging/">openmicroblogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/microblogging/">microblogging</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-php tag-twitter tag-entries tag-laconica tag-openmicroblogging">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2008/07/03/getting-laconica-up-and-running/">Getting Laconica up and running</a>
+      </h2>
+    
+    <p class="summary">
+      Update, 30 Sep 2008: 
+You don't want to follow the directions on this page—instead, leave this page and read this:  
+http://laconi.ca/darcs/README
+At one point, very early on in Laconica-time, this blog post offered useful information on getting Laconica up and running.  But since then, my time has taken me away from playing with Laconica and thus this guide has fallen far behind.  Hopefully soon I'll get back around to Laconica hacking, but not today.
+I'm leaving the original text of this post here for posterity, but this is no longer current and following this guide will do more harm than good in confusing you about Laconica installation!
+Again, to learn about getting Laconica up and running, leave this page and read this:
+http://laconi.ca/darcs/README
+The latest mini-sensations to arrive through my firehoses are identi.ca, a Twitter-clone / microblogging site, and the Open Source software Laconica, which powers the aforementioned site.
+Having started and neglected two Twitter cloning attempts of my own, Cuckoo and OpenInterocitor, seeing someone else carry the torch with any modicum of momentum is attractive to me.  So, I spent a little bit last night getting the code running on my own servers, and managed to do it twice:
 
-        <footer>
+decafbad.com/laconica
+lmorchard.com/laconica
+
+See, the interesting thing promised by Laconica—and something I wanted in my own clones—is the ability to federate instances of the software.  That is, users on one Laconica-based site should be able to subscribe to the updates from users on another site, by way of the OpenMicroblogging specification.  Although federation isn't a silver bullet to a web-scale Twitter clone, I do think it's one of the most important bootstrap steps—but that's another blog post entirely.
+Thus, since I'd like to see you run a Laconica site (or something like it) for mine to talk to, I figured I'd document how I got the thing running.  My server is running Ubuntu Gutsy, so your mileage may vary.  This is a long one, so check out the how-to after the jump...
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2008/07/03/getting-laconica-up-and-running/"
+          >3686&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2008/07/03/getting-laconica-up-and-running/">#</a>
+    <a class="time" href="2008/07/03/getting-laconica-up-and-running/">3:21 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/php/">php</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/twitter/">twitter</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/laconica/">laconica</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/openmicroblogging/">openmicroblogging</a>
+          </li>
+    </ul>
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

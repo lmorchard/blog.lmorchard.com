@@ -1,242 +1,533 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>2010 - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>2010 - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Year: 2010</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post tag-delicious tag-bookmarks tag-feeds tag-entries tag-pubsubhubbub tag-rsscloud"
-          >
-            <time class="date" datetime="2010-12-19T21:26:38+00:00">
-              2010
-              December
-              19
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2010/12/19/let-a-million-bookmarks-bloom/">
-              <span class="infoContainer">
-                <span class="title">Let a million bookmarks bloom</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post has-thumb tag-entries"
-          >
-            <time class="date" datetime="2010-12-18T22:02:11+00:00">
-              2010
-              December
-              18
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2010/12/18/less-del-icio-us-than-ever-before/">
-              <span class="infoContainer">
-                <span class="title">Less del.icio.us than ever before</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://decafbad.com/2010/12/del-deusx-by-month.png" />
-          </li><li
-            class="post tag-entries"
-          >
-            <time class="date" datetime="2010-09-27T19:31:17+00:00">
-              2010
-              September
-              27
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2010/09/27/so-simultaneously-extraordinary-and-mundane/">
-              <span class="infoContainer">
-                <span class="title">so simultaneously extraordinary and mundane</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post has-thumb tag-webdev tag-firefox tag-google tag-python tag-entries tag-mozilla tag-sync tag-appengine"
-          >
-            <time class="date" datetime="2010-07-05T23:00:56+00:00">
-              2010
-              July
-              05
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2010/07/05/firefox-sync-server-on-google-app-engine/">
-              <span class="infoContainer">
-                <span class="title">Firefox Sync server on Google App Engine</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://mozcom-cdn.mozilla.net/img/firefox/sync/sync-background.png" />
-          </li><li
-            class="post has-thumb tag-webdev tag-js tag-entries tag-mozilla tag-byob"
-          >
-            <time class="date" datetime="2010-06-22T22:16:24+00:00">
-              2010
-              June
-              22
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2010/06/22/case-study-building-a-bookmark-management-ui-for-mozillas-byob/">
-              <span class="infoContainer">
-                <span class="title">Case Study: Building a Bookmark Management UI for Mozilla&#39;s BYOB</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://decafbad.com/2010/06/byob-bookmarks-ui/img/bookmarks.png" />
-          </li><li
-            class="post has-thumb tag-metablogging tag-webdev tag-writing tag-tinderbox tag-entries tag-html"
-          >
-            <time class="date" datetime="2010-06-07T04:41:03+00:00">
-              2010
-              June
-              07
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2010/06/07/tinderbox-article-tutorial/">
-              <span class="infoContainer">
-                <span class="title">Using Tinderbox to write articles for the web</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://farm4.static.flickr.com/3105/2476581071_7a55c565dd.jpg" />
-          </li><li
-            class="post tag-fantasy tag-ficly tag-fiction tag-flashfiction tag-gnomes tag-kindness tag-urban"
-          >
-            <time class="date" datetime="2010-05-19T12:00:00+00:00">
-              2010
-              May
-              19
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2010/05/19/dont-thank-the-gnomes/">
-              <span class="infoContainer">
-                <span class="title">Don&#39;t Thank the Gnomes</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-ai tag-ficly tag-fiction tag-flashfiction tag-scifi tag-transhuman"
-          >
-            <time class="date" datetime="2010-05-19T12:00:00+00:00">
-              2010
-              May
-              19
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2010/05/19/famous-last-words/">
-              <span class="infoContainer">
-                <span class="title">Famous Last Words</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post has-thumb tag-retro tag-oldschool tag-entries tag-c64 tag-uiec tag-sneakernet tag-magic tag-nostalgia tag-commodore"
-          >
-            <time class="date" datetime="2010-04-08T00:08:44+00:00">
-              2010
-              April
-              08
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2010/04/08/reviving-my-c64-with-a-uiecsd/">
-              <span class="infoContainer">
-                <span class="title">Reviving my C64 history with a uIEC/SD</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://farm5.static.flickr.com/4026/4486021528_ce7ff4fc35.jpg" />
-          </li><li
-            class="post tag-gaming tag-reviews tag-entries tag-masseffect tag-bioware"
-          >
-            <time class="date" datetime="2010-04-02T20:06:30+00:00">
-              2010
-              April
-              02
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2010/04/02/mass-effect-2-a-review/">
-              <span class="infoContainer">
-                <span class="title">Mass Effect 2: A Review</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-metablogging tag-writing tag-entries tag-motivation"
-          >
-            <time class="date" datetime="2010-03-10T17:55:13+00:00">
-              2010
-              March
-              10
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2010/03/10/pondering-the-cobwebs/">
-              <span class="infoContainer">
-                <span class="title">Pondering the cobwebs</span>
-              </span>
-            </a>
-            
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Year: 2010</h2>
+        </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2010 December 19</h2>
+  </li><li class="content-grid post post-type-entry tag-delicious tag-bookmarks tag-feeds tag-entries tag-pubsubhubbub tag-rsscloud">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2010/12/19/let-a-million-bookmarks-bloom/">Let a million bookmarks bloom</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2010/12/19/let-a-million-bookmarks-bloom/"
+          >1913&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2010/12/19/let-a-million-bookmarks-bloom/">#</a>
+    <a class="time" href="2010/12/19/let-a-million-bookmarks-bloom/">4:26 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/delicious/">delicious</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/bookmarks/">bookmarks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/feeds/">feeds</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/pubsubhubbub/">pubsubhubbub</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/rsscloud/">rsscloud</a>
           </li>
     </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2010 December 18</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-entries">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2010/12/18/less-del-icio-us-than-ever-before/">Less del.icio.us than ever before</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://decafbad.com/2010/12/del-deusx-by-month.png" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2010/12/18/less-del-icio-us-than-ever-before/"
+          >622&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2010/12/18/less-del-icio-us-than-ever-before/">#</a>
+    <a class="time" href="2010/12/18/less-del-icio-us-than-ever-before/">5:02 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2010 September 27</h2>
+  </li><li class="content-grid post post-type-entry tag-entries">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2010/09/27/so-simultaneously-extraordinary-and-mundane/">so simultaneously extraordinary and mundane</a>
+      </h2>
     
-  </section>
-      </section>
-        </section>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2010/09/27/so-simultaneously-extraordinary-and-mundane/"
+          >399&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2010/09/27/so-simultaneously-extraordinary-and-mundane/">#</a>
+    <a class="time" href="2010/09/27/so-simultaneously-extraordinary-and-mundane/">3:31 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2010 July 05</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-webdev tag-firefox tag-google tag-python tag-entries tag-mozilla tag-sync tag-appengine">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2010/07/05/firefox-sync-server-on-google-app-engine/">Firefox Sync server on Google App Engine</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://mozcom-cdn.mozilla.net/img/firefox/sync/sync-background.png" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2010/07/05/firefox-sync-server-on-google-app-engine/"
+          >947&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2010/07/05/firefox-sync-server-on-google-app-engine/">#</a>
+    <a class="time" href="2010/07/05/firefox-sync-server-on-google-app-engine/">7:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/firefox/">firefox</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/google/">google</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/python/">python</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/sync/">sync</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/appengine/">appengine</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2010 June 22</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-webdev tag-js tag-entries tag-mozilla tag-byob">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2010/06/22/case-study-building-a-bookmark-management-ui-for-mozillas-byob/">Case Study: Building a Bookmark Management UI for Mozilla&#39;s BYOB</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://decafbad.com/2010/06/byob-bookmarks-ui/img/bookmarks.png" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2010/06/22/case-study-building-a-bookmark-management-ui-for-mozillas-byob/"
+          >235&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2010/06/22/case-study-building-a-bookmark-management-ui-for-mozillas-byob/">#</a>
+    <a class="time" href="2010/06/22/case-study-building-a-bookmark-management-ui-for-mozillas-byob/">6:16 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/js/">js</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/byob/">byob</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2010 June 07</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-metablogging tag-webdev tag-writing tag-tinderbox tag-entries tag-html">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2010/06/07/tinderbox-article-tutorial/">Using Tinderbox to write articles for the web</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://farm4.static.flickr.com/3105/2476581071_7a55c565dd.jpg" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2010/06/07/tinderbox-article-tutorial/"
+          >300&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2010/06/07/tinderbox-article-tutorial/">#</a>
+    <a class="time" href="2010/06/07/tinderbox-article-tutorial/">12:41 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/writing/">writing</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tinderbox/">tinderbox</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/html/">html</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2010 May 19</h2>
+  </li><li class="content-grid post post-type-entry tag-fantasy tag-ficly tag-fiction tag-flashfiction tag-gnomes tag-kindness tag-urban">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2010/05/19/dont-thank-the-gnomes/">Don&#39;t Thank the Gnomes</a>
+      </h2>
+    
+    <p class="summary">
+      I started the morning by sneaking into a strange house through an unsealed milk door. There was a broken shoe heel on the second floor—its wrongness drew me up the stairs as sure as a cord tied round my ribs. It was done before the lady of the house could sigh.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2010/05/19/dont-thank-the-gnomes/"
+          >187&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2010/05/19/dont-thank-the-gnomes/">#</a>
+    <a class="time" href="2010/05/19/dont-thank-the-gnomes/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fantasy/">fantasy</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ficly/">ficly</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/gnomes/">gnomes</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/kindness/">kindness</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/urban/">urban</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-ai tag-ficly tag-fiction tag-flashfiction tag-scifi tag-transhuman">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2010/05/19/famous-last-words/">Famous Last Words</a>
+      </h2>
+    
+    <p class="summary">
+      They told me never to talk to it; it was isolated for a reason. But, like I told them, I couldn’t imagine anything a transhuman AI could say to make me let it out of the box. So, after a post-midnight tumbler of Irish whiskey, I opened up a secure terminal and said hello. What harm could a little chat do?
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2010/05/19/famous-last-words/"
+          >193&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2010/05/19/famous-last-words/">#</a>
+    <a class="time" href="2010/05/19/famous-last-words/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/ai/">ai</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ficly/">ficly</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/scifi/">scifi</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/transhuman/">transhuman</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2010 April 07</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-retro tag-oldschool tag-entries tag-c64 tag-uiec tag-sneakernet tag-magic tag-nostalgia tag-commodore">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2010/04/07/reviving-my-c64-with-a-uiecsd/">Reviving my C64 history with a uIEC/SD</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://farm5.static.flickr.com/4026/4486021528_ce7ff4fc35.jpg" />
+    </div>
+    <p class="summary">
+      I've lived a very focused life. From very early on, I've been learning to make computers do things.
+And being as introspective as I am, I like spending time considering how I got here.  I suppose this is nostalgia, but I like to think of it as recentering and recapitulation. Contemplating the story so far, as a means to consider the story yet to come.
+One huge benefit of this habit is that I've become ever more appreciative of today.  It's easy to forget, but we're living in the future these days—at least, with respect to who I was in 1983.
+No flying cars yet, but for US$55 I was able to buy a tiny gadget called a uIED/SD that gives a Commodore 64 access to modern SD cards for storage.  And, of course, I have Jason Scott's review of the more general-use FC5025 5.25? Floppy to USB Adapter to blame in getting me started on this current mini-obsession.
+You want to talk about a magical device? Screw the iPad—this is magic.  
+This is what it looks like:
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2010/04/07/reviving-my-c64-with-a-uiecsd/"
+          >1086&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2010/04/07/reviving-my-c64-with-a-uiecsd/">#</a>
+    <a class="time" href="2010/04/07/reviving-my-c64-with-a-uiecsd/">8:08 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/retro/">retro</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/oldschool/">oldschool</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/c64/">c64</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/uiec/">uiec</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/sneakernet/">sneakernet</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/magic/">magic</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/nostalgia/">nostalgia</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/commodore/">commodore</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2010 April 02</h2>
+  </li><li class="content-grid post post-type-entry tag-gaming tag-reviews tag-entries tag-masseffect tag-bioware">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2010/04/02/mass-effect-2-a-review/">Mass Effect 2: A Review</a>
+      </h2>
+    
+    <p class="summary">
+      I just finished Bioware's Mass Effect 2 for Xbox 360, and I've got some thoughts about it.  Haven't really written reviews here for games before, but I said I wanted to start posting things here that I'd want to read.  So, here goes...
+In a nutshell: I loved it, will play it again—but it could have been so much better.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2010/04/02/mass-effect-2-a-review/"
+          >1994&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2010/04/02/mass-effect-2-a-review/">#</a>
+    <a class="time" href="2010/04/02/mass-effect-2-a-review/">4:06 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/gaming/">gaming</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/reviews/">reviews</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/masseffect/">masseffect</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/bioware/">bioware</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2010 March 10</h2>
+  </li><li class="content-grid post post-type-entry tag-metablogging tag-writing tag-entries tag-motivation">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2010/03/10/pondering-the-cobwebs/">Pondering the cobwebs</a>
+      </h2>
+    
+    <p class="summary">
+      It's plain to see that I've not been a blogger for a long time.
+This place is a long-neglected ghost town that sees a begrudged entry every few months, when I happen to remember it still exists and I feel guilty for not feeding it with content. What I've yet to figure out is if the cause is a matter of motivation, publishing tools, audience, or writing topics.
+Behold as I ramble on for many tens of words pondering the cobwebs here at 0xDECAFBAD.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2010/03/10/pondering-the-cobwebs/"
+          >3010&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2010/03/10/pondering-the-cobwebs/">#</a>
+    <a class="time" href="2010/03/10/pondering-the-cobwebs/">12:55 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/writing/">writing</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/motivation/">motivation</a>
+          </li>
+    </ul>
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
 
-        <footer>
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

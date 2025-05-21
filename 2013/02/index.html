@@ -1,137 +1,285 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>2013/02 - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>2013/02 - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Month: 2013/02</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post has-thumb tag-reading tag-tech tag-writing"
-          >
-            <time class="date" datetime="2013-02-25T12:00:00+00:00">
-              2013
-              February
-              25
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2013/02/25/too-long-read-anyway/">
-              <span class="infoContainer">
-                <span class="title">Too long? Read anyway.</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://blog.lmorchard.com/wp-content/uploads/2013/02/well_done_sir.gif" />
-          </li><li
-            class="post has-thumb tag-badger tag-badges tag-django tag-mozilla tag-webdev"
-          >
-            <time class="date" datetime="2013-02-23T12:00:00+00:00">
-              2013
-              February
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2013/02/23/looking-for-a-django-app-to-manage-roles-within-groups/">
-              <span class="infoContainer">
-                <span class="title">Looking for a Django app to manage Roles within Groups</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://images2.wikia.nocookie.net/__cb20091106224144/wowwiki/images/thumb/3/3e/Guild_list_%28interface%29.png/450px-Guild_list_%28interface%29.png" />
-          </li><li
-            class="post tag-mdn tag-mozilla tag-wiki"
-          >
-            <time class="date" datetime="2013-02-21T12:00:00+00:00">
-              2013
-              February
-              21
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2013/02/21/kumascript/">
-              <span class="infoContainer">
-                <span class="title">KumaScript: Bringing scripting to the wiki bears</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post has-thumb tag-diy tag-hacks tag-lcd tag-pc tag-tech"
-          >
-            <time class="date" datetime="2013-02-10T12:00:00+00:00">
-              2013
-              February
-              10
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2013/02/10/building-my-couch-computing-station/">
-              <span class="infoContainer">
-                <span class="title">Building my couch computing station</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://blog.lmorchard.com/wp-content/uploads/2013/01/couch-gaming-2a-pc.png" />
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Month: 2013/02</h2>
+        </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2013 February 25</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-reading tag-tech tag-writing">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2013/02/25/too-long-read-anyway/">Too long? Read anyway.</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://blog.lmorchard.com/wp-content/uploads/2013/02/well_done_sir.gif" />
+    </div>
+    <p class="summary">
+      Wherein I rant at medium length about functional literacy and language competency in knowledge work and information technology.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2013/02/25/too-long-read-anyway/"
+          >1080&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2013/02/25/too-long-read-anyway/">#</a>
+    <a class="time" href="2013/02/25/too-long-read-anyway/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/reading/">reading</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tech/">tech</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/writing/">writing</a>
           </li>
     </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2013 February 23</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-badger tag-badges tag-django tag-mozilla tag-webdev">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2013/02/23/looking-for-a-django-app-to-manage-roles-within-groups/">Looking for a Django app to manage Roles within Groups</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://images2.wikia.nocookie.net/__cb20091106224144/wowwiki/images/thumb/3/3e/Guild_list_%28interface%29.png/450px-Guild_list_%28interface%29.png" />
+    </div>
+    <p class="summary">
+      I want to add some team-based features to django-badger. I was hoping that someone had already built a reusable app to do most of the work for me. This happens quite a lot when I’m working with Django. Unfortunately, I haven’t quite found what I’m looking for yet. Consider this blog post either the product of my thinking out loud toward a rough spec, or a long-winded lazyweb search query.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2013/02/23/looking-for-a-django-app-to-manage-roles-within-groups/"
+          >418&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2013/02/23/looking-for-a-django-app-to-manage-roles-within-groups/">#</a>
+    <a class="time" href="2013/02/23/looking-for-a-django-app-to-manage-roles-within-groups/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/badger/">badger</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/badges/">badges</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/django/">django</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2013 February 21</h2>
+  </li><li class="content-grid post post-type-entry tag-mdn tag-mozilla tag-wiki">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2013/02/21/kumascript/">KumaScript: Bringing scripting to the wiki bears</a>
+      </h2>
     
-  </section>
-      </section>
-        </section>
+    <p class="summary">
+      KumaScript turned one year old back at the end of January, and I’m sad to say no one celebrated its birthday – not even me. I’m pretty sure very few people outside of the core team at the Mozilla Developer Network even know what KumaScript is. So, I guess it’s about time I do something about that.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2013/02/21/kumascript/"
+          >2394&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2013/02/21/kumascript/">#</a>
+    <a class="time" href="2013/02/21/kumascript/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/mdn/">mdn</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/wiki/">wiki</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2013 February 10</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-diy tag-hacks tag-lcd tag-pc tag-tech">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2013/02/10/building-my-couch-computing-station/">Building my couch computing station</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://blog.lmorchard.com/wp-content/uploads/2013/01/couch-gaming-2a-pc.png" />
+    </div>
+    <p class="summary">
+      Remember when I posted about gaming from the Orchard House couch? The key part was figuring out how to get a laptop-quality LCD monitor working in the living room, preferably attached to my trusty IKEA DAVE. Well, despite my best attempts at ruining my materials and tools, I managed to get it built!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2013/02/10/building-my-couch-computing-station/"
+          >1608&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2013/02/10/building-my-couch-computing-station/">#</a>
+    <a class="time" href="2013/02/10/building-my-couch-computing-station/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/diy/">diy</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/lcd/">lcd</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/pc/">pc</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tech/">tech</a>
+          </li>
+    </ul>
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
 
-        <footer>
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

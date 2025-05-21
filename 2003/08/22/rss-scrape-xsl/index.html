@@ -1,143 +1,276 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>Scraping HTML with curl, tidy, and XSL - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="Scraping HTML with curl, tidy, and XSL" />
+    <html>
+      <head>
+        <title>Scraping HTML with curl, tidy, and XSL - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="Scraping HTML with curl, tidy, and XSL" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2003/08/22/rss-scrape-xsl/"
         />
         
-        <meta property="og:description" content="Continuing with making it easier for &quot;Big Pubs&quot; to create RSS feeds. I&#39;m assuming that they have a publishing system, but it wasn&#39;t built with RSS in mind, but they want on the bandwagon.Source: More Like This WebLog: Thursday, 21 August 2003	Using curl, tidy, and XSL to scrape content from HTML pages into an RSS feed.  This is basically what I do now with a half-baked Java app using JTidy, XPath, and BeanShell.  I keep meaning to release it, but it’s too embarassing to share so far.  Yet, it’s been working well enough to scrape what sites I’m interested in such that I haven’t been too motivated to tidy it up and tarball it.  One thing I like better about Bill Humphries’ approach, though, is that it doesn’t use Java :)" />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <meta property="og:description" content="Continuing with making it easier for &quot;Big Pubs&quot; to create RSS feeds. I&#39;m assuming that they have a publishing system, but it wasn&#39;t built with RSS in mind, but they want on the bandwagon.
 
+Source: More Like This WebLog: Thursday, 21 August 2003
+
+
+
+Using curl, tidy, and XSL to scrape content from HTML pages into an RSS feed.  This is basically what I do now with a half-baked Java app using JTidy, XPath, and BeanShell.  I keep meaning to release it, but it’s too embarassing to share so far.  Yet, it’s been working well enough to scrape what sites I’m interested in such that I haven’t been too motivated to tidy it up and tarball it.  One thing I like better about Bill Humphries’ approach, though, is that it doesn’t use Java :)" />
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post "
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post "
       >
-        <time
-          title="2003-08-22T17:32:31+00:00"
-          pubdate="2003-08-22T17:32:31+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2003/"
-            >2003</a
+        <header>
+          <time
+            title="2003-08-22T13:32:31-04:00"
+            pubdate="2003-08-22T13:32:31-04:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2003/08/"
-            >August</a
-          >
-          &raquo;
-          <span>22</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="Scraping HTML with web services"
+                href="/blog.lmorchard.com/2003/08/23/rss-scrape-urls/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2003/"
+                >2003</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2003/08/"
+                >August</a
+              >
+              &#8226;
+              <span>22</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Syndication feeds to replace email?"
+                href="/blog.lmorchard.com/2003/08/22/email-feeds/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">Scraping HTML with curl, tidy, and XSL</h1>
+          
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2003/08/23/rss-scrape-urls/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2003/08/22/email-feeds/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
+        <blockquote cite="http://www.whump.com/moreLikeThis/date/21/08/2003"><i>Continuing with making it easier for "Big Pubs" to create RSS feeds. I'm assuming that they have a publishing system, but it wasn't built with RSS in mind, but they want on the bandwagon.</i></blockquote>
 
-        <h1 class="title">Scraping HTML with curl, tidy, and XSL</h1>
-        
-        <section class="post-content">
-          <blockquote cite="http://www.whump.com/moreLikeThis/date/21/08/2003"><i>Continuing with making it easier for "Big Pubs" to create RSS feeds. I'm assuming that they have a publishing system, but it wasn't built with RSS in mind, but they want on the bandwagon.</i></blockquote><div class="credit" align="right"><small>Source: <cite><a href="http://www.whump.com/moreLikeThis/date/21/08/2003">More Like This WebLog: Thursday, 21 August 2003</a></cite></small></div>	<p>Using curl, tidy, and <span class="caps">XSL</span> to scrape content from <span class="caps">HTML</span> pages into an <span class="caps">RSS</span> feed.  This is basically what I do now with a half-baked Java app using JTidy, XPath, and BeanShell.  I keep meaning to release it, but it&#8217;s too embarassing to share so far.  Yet, it&#8217;s been working well enough to scrape what sites I&#8217;m interested in such that I haven&#8217;t been too motivated to tidy it up and tarball it.  One thing I like better about Bill Humphries&#8217; approach, though, is that it doesn&#8217;t use Java :)</p>
+<div class="credit" align="right"><small>Source: <cite><a href="http://www.whump.com/moreLikeThis/date/21/08/2003">More Like This WebLog: Thursday, 21 August 2003</a></cite></small>
+
+</div>
+
+<p>Using curl, tidy, and <span class="caps">XSL</span> to scrape content from <span class="caps">HTML</span> pages into an <span class="caps">RSS</span> feed.  This is basically what I do now with a half-baked Java app using JTidy, XPath, and BeanShell.  I keep meaning to release it, but it’s too embarassing to share so far.  Yet, it’s been working well enough to scrape what sites I’m interested in such that I haven’t been too motivated to tidy it up and tarball it.  One thing I like better about Bill Humphries’ approach, though, is that it doesn’t use Java :)</p>
+
+
 <!--more-->
-shortname=rss_scrape_xsl
 
+
+<p>shortname=rss_scrape_xsl</p>
 <div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
 <ul class="comments">
 <li class="comment" id="comment-221090870">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.whump.com/moreLikeThis/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=622548e3f303e03297375ab20ddcb696&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.whump.com/moreLikeThis/">Bill Humphries</a>
+<a class="avatar image" rel="nofollow" href="http://www.whump.com/moreLikeThis/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=622548e3f303e03297375ab20ddcb696&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.whump.com/moreLikeThis/">Bill Humphries</a>
 </div>
-<a href="#comment-221090870" class="permalink"><time datetime="2003-08-22T20:23:59">2003-08-22T20:23:59</time></a>
+
+
+<p><a href="#comment-221090870" class="permalink"><time datetime="2003-08-22T20:23:59">2003-08-22T20:23:59</time></a></p>
 </div>
+
+
 <div class="content">Well, it could use Java, if you really, really, want to since Xalan and Saxon have command line variants. I'm using LibXSLT in the demo.</div>
+
+
 </li>
 <li class="comment" id="comment-221090871">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.decafbad.com/blog"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.decafbad.com/blog">l.m.orchard</a>
+<a class="avatar image" rel="nofollow" href="http://www.decafbad.com/blog"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.decafbad.com/blog">l.m.orchard</a>
 </div>
-<a href="#comment-221090871" class="permalink"><time datetime="2003-08-23T13:21:08">2003-08-23T13:21:08</time></a>
+
+
+<p><a href="#comment-221090871" class="permalink"><time datetime="2003-08-23T13:21:08">2003-08-23T13:21:08</time></a></p>
 </div>
+
+
 <div class="content">Well, I actually like the idea of chaining a few shell programs together much better than the all-in-one Java scraper I was tinkering with.  Seems so much easier all around.</div>
+
+
 </li>
 </ul>
+
+
 </div>
 
-        </section>
-      </article>
-        </section>
-
-        <footer>
-          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
-        </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
-      </section>
-    </body>
-  </html>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2003/08/23/rss-scrape-urls/"
+                >Scraping HTML with web services</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2003/08/22/email-feeds/"
+                >Syndication feeds to replace email?</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

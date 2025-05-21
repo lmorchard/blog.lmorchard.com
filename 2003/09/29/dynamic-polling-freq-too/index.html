@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>Dynamic polling times for news aggregators, II - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="Dynamic polling times for news aggregators, II" />
+    <html>
+      <head>
+        <title>Dynamic polling times for news aggregators, II - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="Dynamic polling times for news aggregators, II" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2003/09/29/dynamic-polling-freq-too/"
@@ -143,59 +150,132 @@ LEFT JOIN (
 Also, in case anyone&#39;s interested, I&#39;ve checked all the above
 into CVS.  This beastie&#39;s far from ready for prime time, but it
 might be interesting to someone." />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post "
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post "
       >
-        <time
-          title="2003-09-29T17:48:28+00:00"
-          pubdate="2003-09-29T17:48:28+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2003/"
-            >2003</a
+        <header>
+          <time
+            title="2003-09-29T13:48:28-04:00"
+            pubdate="2003-09-29T13:48:28-04:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2003/09/"
-            >September</a
-          >
-          &raquo;
-          <span>29</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="Mailbucket syndication feeds"
+                href="/blog.lmorchard.com/2003/10/01/mailbucket-feeds/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2003/"
+                >2003</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2003/09/"
+                >September</a
+              >
+              &#8226;
+              <span>29</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Dynamic feed polling times for news aggregators"
+                href="/blog.lmorchard.com/2003/09/25/dynamic-feed-scan-times/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">Dynamic polling times for news aggregators, II</h1>
+          
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2003/10/01/mailbucket-feeds/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2003/09/26/dynamic-feed-scan-times/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">Dynamic polling times for news aggregators, II</h1>
-        
-        <section class="post-content">
-          <p>
+        <p>
 Okay, so that <a href="http://www.decafbad.com/blog/tech/dynamic_feed_scan_times.html">thing with the SQL</a> I did Friday?
 I'm not exactly sure what I was thinking with it.  I was doing something
 that seems really odd now, trying to collect counts of new items together
@@ -212,7 +292,7 @@ trying this now:
 FROM
   items
 WHERE
-  created >= epoch_to_iso8601(now() - (7*24*60*60)) 
+  created &gt;= epoch_to_iso8601(now() - (7*24*60*60)) 
 GROUP BY
   source</pre>
 
@@ -291,30 +371,35 @@ LEFT JOIN (
             ) / (60*60) / count(id)
         AS update_period
     FROM items
-    WHERE created >= epoch_to_iso8601(now() - (7*24*60*60)) 
+    WHERE created &gt;= epoch_to_iso8601(now() - (7*24*60*60)) 
     GROUP BY source
 ) ON sources.id=source_id</pre>
 
 <p>
-Also, in case anyone's interested, I've checked <a href="http://www.decafbad.com/cvs/dbagg/lib/dbagg/scan.py?rev=HEAD&content-type=text/vnd.viewcvs-markup">all the above</a>
+Also, in case anyone's interested, I've checked <a href="http://www.decafbad.com/cvs/dbagg/lib/dbagg/scan.py?rev=HEAD&amp;content-type=text/vnd.viewcvs-markup">all the above</a>
 into CVS.  This beastie's far from ready for prime time, but it
 might be interesting to someone.
 </p>
-<!--more-->
-shortname=dynamic_polling_freq_too
 
+
+<!--more-->
+
+
+<p>shortname=dynamic_polling_freq_too</p>
 <div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
 <ul class="comments">
 <li class="comment" id="comment-221083781">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://webseitz.fluxent.com/wiki"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2e83224d92ed7f1148f4dd3cdb0e4548&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://webseitz.fluxent.com/wiki">Bill Seitz</a>
+<a class="avatar image" rel="nofollow" href="http://webseitz.fluxent.com/wiki"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2e83224d92ed7f1148f4dd3cdb0e4548&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://webseitz.fluxent.com/wiki">Bill Seitz</a>
 </div>
-<a href="#comment-221083781" class="permalink"><time datetime="2003-09-29T10:11:11">2003-09-29T10:11:11</time></a>
+
+
+<p><a href="#comment-221083781" class="permalink"><time datetime="2003-09-29T10:11:11">2003-09-29T10:11:11</time></a></p>
 </div>
+
+
 <div class="content">It might be good to step back and prioritize your goals. How important is quickly catching mid-day updates?
 I think looking at averages throws things off, considering how "clumpy" I'd guess most update frequencies are. Some thoughts:
 * probably makes sense to check each feed at least once per day
@@ -324,80 +409,128 @@ I think looking at averages throws things off, considering how "clumpy" I'd gues
 * regardless of the state of that latter calculation, check the next morning at that time-of-first-post prediction
 Parallel idea:
 * calc average time between posts like you're doing, but just over the window each day when posts are being made (e.g. 8am-11pm = 15 hrs, not 24 hrs).</div>
+
+
 </li>
 <li class="comment" id="comment-221083784">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.decafbad.com/blog"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.decafbad.com/blog">l.m.orchard</a>
+<a class="avatar image" rel="nofollow" href="http://www.decafbad.com/blog"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.decafbad.com/blog">l.m.orchard</a>
 </div>
-<a href="#comment-221083784" class="permalink"><time datetime="2003-09-29T10:39:45">2003-09-29T10:39:45</time></a>
+
+
+<p><a href="#comment-221083784" class="permalink"><time datetime="2003-09-29T10:39:45">2003-09-29T10:39:45</time></a></p>
 </div>
+
+
 <div class="content">Ooh, good ideas!  I think a lot of this addresses some of the not-quite-yet thought out concerns I have with the simple averaging.  I'll have to poke around some more with this.</div>
+
+
 </li>
 <li class="comment" id="comment-221083786">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://24.102.209.201/weblogs/ben/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=588bdfdda82be46c638d6956c55ebc38&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://24.102.209.201/weblogs/ben/">Gnomon</a>
+<a class="avatar image" rel="nofollow" href="http://24.102.209.201/weblogs/ben/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=588bdfdda82be46c638d6956c55ebc38&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://24.102.209.201/weblogs/ben/">Gnomon</a>
 </div>
-<a href="#comment-221083786" class="permalink"><time datetime="2003-09-29T11:18:28">2003-09-29T11:18:28</time></a>
+
+
+<p><a href="#comment-221083786" class="permalink"><time datetime="2003-09-29T11:18:28">2003-09-29T11:18:28</time></a></p>
 </div>
+
+
 <div class="content">I'm afraid that you've credited me with more politeness than I deserve! When I suggested AIMD, I meant that the time between polls should be subject to this scheduling system - that is, the poll interval should increase additively but decrease multiplicatively.
 This is not as polite as your interpretation, which definitely backs off very quickly. My reasoning went like this: weblog posts tend to clump, so the best indicator of an upcoming post is a new post...:
 - If there aren't any new posts, lengthen the check interval by a little bit and check again later; keep lengthening the check interval up to a certain limit.
 - If there is a new post, then it's likely that another new post will follow soon, so substantially decrease the poll time (down to a certain limit) and check again soon.
 This approach is less biased towards decreasing server load and more biased towards detecting quick clumps of updates, which seem to be the norm. I don't know any human webloggers who have such a predictable posting pattern that they are subject to statistical analysis  ;)</div>
+
+
 </li>
 <li class="comment" id="comment-221083787">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.decafbad.com/blog"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.decafbad.com/blog">l.m.orchard</a>
+<a class="avatar image" rel="nofollow" href="http://www.decafbad.com/blog"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.decafbad.com/blog">l.m.orchard</a>
 </div>
-<a href="#comment-221083787" class="permalink"><time datetime="2003-09-29T11:53:46">2003-09-29T11:53:46</time></a>
+
+
+<p><a href="#comment-221083787" class="permalink"><time datetime="2003-09-29T11:53:46">2003-09-29T11:53:46</time></a></p>
 </div>
+
+
 <div class="content">Oh, duh.  Heh, I've got it in reverse then.  Seems like jumping up / creeping back, now that you've explained it to me again, would better suit the posting styles of bloggers for sure!
 Thanks for correcting me!</div>
+
+
 </li>
 <li class="comment" id="comment-221083789">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://bwinton.latte.ca/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=441f5529f1db69e1a18cefb090e2690a&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://bwinton.latte.ca/">Blake Winton</a>
+<a class="avatar image" rel="nofollow" href="http://bwinton.latte.ca/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=441f5529f1db69e1a18cefb090e2690a&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://bwinton.latte.ca/">Blake Winton</a>
 </div>
-<a href="#comment-221083789" class="permalink"><time datetime="2003-09-29T14:00:39">2003-09-29T14:00:39</time></a>
+
+
+<p><a href="#comment-221083789" class="permalink"><time datetime="2003-09-29T14:00:39">2003-09-29T14:00:39</time></a></p>
 </div>
+
+
 <div class="content">I was thinking along the same lines as Bill, in that you know that most webloggers have to sleep and eat sometime, so if you  could take advantage of this knowledge, you'ld be ahead of the game.
 My thoughts on how to do it would be to break the day into blocks of time (start with hours, say), and build a histogram of how many posts fit into each block.  Then, you could collapse the series of hours where nothing was posted into a big block, and split any hours where something was posted into two sections, to average out the number of posts per hour.  Then, if my theory is correct, you can poll once per block of time, and would have a reasonable chance of getting a new post.
 Some notable flaws with the algorithm:
 1. It fails to account for whole days where there's nothing posted.  This might be overcome by having your initial blocks of time be the days of the week.
 2. It fails to account for the relationship (or the average time) between posts.  So if someone posts a lot at 9:00 or 10:00, but never both at 9:00 and 10:00, my theory will still check the 10:00 time even if something was found at 9:00.  I can't think of a way to get around this, off the top of my head.
 Another way of thinking of this idea is pre-calculating a guess at the fall-off, based on previous posts.</div>
+
+
 </li>
 </ul>
+
+
 </div>
 
-        </section>
-      </article>
-        </section>
-
-        <footer>
-          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
-        </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
-      </section>
-    </body>
-  </html>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2003/10/01/mailbucket-feeds/"
+                >Mailbucket syndication feeds</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2003/09/25/dynamic-feed-scan-times/"
+                >Dynamic feed polling times for news aggregators</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

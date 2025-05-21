@@ -1,169 +1,265 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>MTCleanHTMLPlugin - borrowing a page from LJ, literally. - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="MTCleanHTMLPlugin - borrowing a page from LJ, literally." />
+    <html>
+      <head>
+        <title>MTCleanHTMLPlugin - borrowing a page from LJ, literally. - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="MTCleanHTMLPlugin - borrowing a page from LJ, literally." />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2002/09/26/ooobif/"
         />
         
         <meta property="og:description" content="Tonight, I borrowed LiveJournal&#39;s comment filtering code and made it into a MovableType plugin: MTCleanHTMLPlugin
-
 After all that ramble about having open system and not having been the victim of an exploit, SamRuby inadvertently revealed one gapingly wide hole for me.  Not that he did anything to exploit it - I just realized that a bug he tripped over could be used for more nefarious purposes.  So, I closed the hole, and after a bit of quick research went a bit further and made a new MovableType plugin.  Borrowing LiveJournal&#39;s code yields a filter which strips out most nasty ?JavaScript exploits, and attempts to close tags left lazily open.
-
 Hope someone finds a use for it." />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post "
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post "
       >
-        <time
-          title="2002-09-26T07:52:05+00:00"
-          pubdate="2002-09-26T07:52:05+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2002/"
-            >2002</a
+        <header>
+          <time
+            title="2002-09-26T03:52:05-04:00"
+            pubdate="2002-09-26T03:52:05-04:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2002/09/"
-            >September</a
-          >
-          &raquo;
-          <span>26</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="Packaging tweak to MTCleanHTMLPlugin"
+                href="/blog.lmorchard.com/2002/09/27/ooobig/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2002/"
+                >2002</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2002/09/"
+                >September</a
+              >
+              &#8226;
+              <span>26</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Automated Pingback vs Human Talkback - Which is more humane?"
+                href="/blog.lmorchard.com/2002/09/25/ooobie/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">MTCleanHTMLPlugin - borrowing a page from LJ, literally.</h1>
+          
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2002/09/27/ooobig/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2002/09/25/ooobie/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">MTCleanHTMLPlugin - borrowing a page from LJ, literally.</h1>
-        
-        <section class="post-content">
-          <p>Tonight, I borrowed <a href="http://www.decafbad.com/twiki/bin/view/Main/LiveJournal">LiveJournal</a>&#39;s comment filtering code and made it into a <a href="http://www.decafbad.com/twiki/bin/view/Main/MovableType">MovableType</a> plugin: <a href="http://www.decafbad.com/twiki/bin/view/Main/MTCleanHTMLPlugin">MTCleanHTMLPlugin</a>
-<br /><br />
-After all that ramble about having open system and not having been the victim of an exploit, <a href="http://www.decafbad.com/twiki/bin/view/Main/SamRuby">SamRuby</a> inadvertently revealed one gapingly wide hole for me.  Not that he did anything to exploit it - I just realized that a bug he tripped over could be used for more nefarious purposes.  So, I closed the hole, and after a bit of quick research went a bit further and made a new <a href="http://www.decafbad.com/twiki/bin/view/Main/MovableType">MovableType</a> plugin.  Borrowing <a href="http://www.decafbad.com/twiki/bin/view/Main/LiveJournal">LiveJournal</a>&#39;s code yields a filter which strips out most nasty <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/JavaScript?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">JavaScript</font></span> exploits, and attempts to close tags left lazily open.
-<br /><br />
-Hope someone finds a use for it.</p>
+        <p>Tonight, I borrowed <a href="http://www.decafbad.com/twiki/bin/view/Main/LiveJournal">LiveJournal</a>'s comment filtering code and made it into a <a href="http://www.decafbad.com/twiki/bin/view/Main/MovableType">MovableType</a> plugin: <a href="http://www.decafbad.com/twiki/bin/view/Main/MTCleanHTMLPlugin">MTCleanHTMLPlugin</a></p>
+<p>After all that ramble about having open system and not having been the victim of an exploit, <a href="http://www.decafbad.com/twiki/bin/view/Main/SamRuby">SamRuby</a> inadvertently revealed one gapingly wide hole for me.  Not that he did anything to exploit it - I just realized that a bug he tripped over could be used for more nefarious purposes.  So, I closed the hole, and after a bit of quick research went a bit further and made a new <a href="http://www.decafbad.com/twiki/bin/view/Main/MovableType">MovableType</a> plugin.  Borrowing <a href="http://www.decafbad.com/twiki/bin/view/Main/LiveJournal">LiveJournal</a>'s code yields a filter which strips out most nasty <span style="background : [#FFFFCE](/tag/FFFFCE);"><a href="http://www.decafbad.com/twiki/bin/edit/Main/JavaScript?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">JavaScript</font></span> exploits, and attempts to close tags left lazily open.</p>
+<p>Hope someone finds a use for it.</p>
 <!--more-->
+
+
 <p>shortname=ooobif</p>
 <div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
 <ul class="comments">
 <li class="comment" id="comment-221088943">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.szymona.net/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=f194d709fe039e6c95d2aa3eb3f9b0f2&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.szymona.net/">Jeff Szymona</a>
+<a class="avatar image" rel="nofollow" href="http://www.szymona.net/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=f194d709fe039e6c95d2aa3eb3f9b0f2&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.szymona.net/">Jeff Szymona</a>
 </div>
-<a href="#comment-221088943" class="permalink"><time datetime="2002-09-26T04:24:27">2002-09-26T04:24:27</time></a>
+
+
+<p><a href="#comment-221088943" class="permalink"><time datetime="2002-09-26T04:24:27">2002-09-26T04:24:27</time></a></p>
 </div>
+
+
 <div class="content">Should this tag be wrapped around the TrackBack pings also?</div>
+
+
 </li>
 <li class="comment" id="comment-221088945">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.decafbad.com">l.m.orchard</a>
+<a class="avatar image" rel="nofollow" href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.decafbad.com">l.m.orchard</a>
 </div>
-<a href="#comment-221088945" class="permalink"><time datetime="2002-09-26T13:06:12">2002-09-26T13:06:12</time></a>
+
+
+<p><a href="#comment-221088945" class="permalink"><time datetime="2002-09-26T13:06:12">2002-09-26T13:06:12</time></a></p>
 </div>
+
+
 <div class="content">Hmm, that might not be such a bad idea.  Really, wherever you allow content submitted by someone other than you, you should use this tag (or something like it).</div>
+
+
 </li>
 <li class="comment" id="comment-221088946">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.szymona.net/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=f194d709fe039e6c95d2aa3eb3f9b0f2&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.szymona.net/">Jeff Szymona</a>
+<a class="avatar image" rel="nofollow" href="http://www.szymona.net/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=f194d709fe039e6c95d2aa3eb3f9b0f2&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.szymona.net/">Jeff Szymona</a>
 </div>
-<a href="#comment-221088946" class="permalink"><time datetime="2002-09-26T13:56:57">2002-09-26T13:56:57</time></a>
+
+
+<p><a href="#comment-221088946" class="permalink"><time datetime="2002-09-26T13:56:57">2002-09-26T13:56:57</time></a></p>
 </div>
+
+
 <div class="content">Well, I didn't think at first, but at least what I do is include a call to the cgi with php, so it wouldn't work anyway.  Maybe the logic could be (or already is) included there.  I haven't looked at the source yet, but then I'm just learning Perl now, so I don't know if I would identify the right spot yet :)</div>
+
+
 </li>
 <li class="comment" id="comment-221088947">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.10500bc.org"><img src="http://www.gravatar.com/avatar.php?gravatar_id=6492f173a7059ece309f7d670ff44e95&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.10500bc.org">nf0</a>
+<a class="avatar image" rel="nofollow" href="http://www.10500bc.org"><img src="http://www.gravatar.com/avatar.php?gravatar_id=6492f173a7059ece309f7d670ff44e95&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.10500bc.org">nf0</a>
 </div>
-<a href="#comment-221088947" class="permalink"><time datetime="2002-09-26T14:40:24">2002-09-26T14:40:24</time></a>
+
+
+<p><a href="#comment-221088947" class="permalink"><time datetime="2002-09-26T14:40:24">2002-09-26T14:40:24</time></a></p>
 </div>
+
+
 <div class="content">Thanks for another good one!</div>
+
+
 </li>
 <li class="comment" id="comment-221088948">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.inluminent.com/weblog/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=489902e4dda27edd54b350d46b9d19c1&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.inluminent.com/weblog/">john</a>
+<a class="avatar image" rel="nofollow" href="http://www.inluminent.com/weblog/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=489902e4dda27edd54b350d46b9d19c1&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.inluminent.com/weblog/">john</a>
 </div>
-<a href="#comment-221088948" class="permalink"><time datetime="2002-09-27T11:40:40">2002-09-27T11:40:40</time></a>
+
+
+<p><a href="#comment-221088948" class="permalink"><time datetime="2002-09-27T11:40:40">2002-09-27T11:40:40</time></a></p>
 </div>
+
+
 <div class="content">l.m. so, I'm looking at the instructions and where I see this:
 .
 |-- README
@@ -178,47 +274,87 @@ so, where does all of this stuff go, off your root MT installation?
 Thanks,
 John
 (I really just want to be an end user, but find myself being a hacker, in that I'm being forced to install hacks on a piece of software in a language I know very little about.)</div>
+
+
 </li>
 <li class="comment" id="comment-221088949">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.10500bc.org"><img src="http://www.gravatar.com/avatar.php?gravatar_id=6492f173a7059ece309f7d670ff44e95&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.10500bc.org">nf0</a>
+<a class="avatar image" rel="nofollow" href="http://www.10500bc.org"><img src="http://www.gravatar.com/avatar.php?gravatar_id=6492f173a7059ece309f7d670ff44e95&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.10500bc.org">nf0</a>
 </div>
-<a href="#comment-221088949" class="permalink"><time datetime="2002-09-27T12:08:02">2002-09-27T12:08:02</time></a>
+
+
+<p><a href="#comment-221088949" class="permalink"><time datetime="2002-09-27T12:08:02">2002-09-27T12:08:02</time></a></p>
 </div>
+
+
 <div class="content">John,
 you can put it under extlib. If you don't have an MT subdir in there then you can just create one, then another subdir called decafbad. Also if you don't have the plugins directory in your root MT folder you'll have to create that one as well. Hope that helps</div>
+
+
 </li>
 <li class="comment" id="comment-221088950">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://www.decafbad.com">l.m.orchard</a>
+<a class="avatar image" rel="nofollow" href="http://www.decafbad.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=2ac2cffd36ada8c734b90e02a1e5c1ac&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.decafbad.com">l.m.orchard</a>
 </div>
-<a href="#comment-221088950" class="permalink"><time datetime="2002-09-27T13:16:18">2002-09-27T13:16:18</time></a>
+
+
+<p><a href="#comment-221088950" class="permalink"><time datetime="2002-09-27T13:16:18">2002-09-27T13:16:18</time></a></p>
 </div>
+
+
 <div class="content">D'oht, good catch John - it's supposed to be "extlib", not "extdir".  I'll see about updating that today!  Sorry about that!</div>
+
+
 </li>
 </ul>
+
+
 </div>
 
-        </section>
-      </article>
-        </section>
-
-        <footer>
-          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
-        </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
-      </section>
-    </body>
-  </html>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2002/09/27/ooobig/"
+                >Packaging tweak to MTCleanHTMLPlugin</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2002/09/25/ooobie/"
+                >Automated Pingback vs Human Talkback - Which is more humane?</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

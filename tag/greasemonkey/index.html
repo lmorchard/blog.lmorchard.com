@@ -1,122 +1,264 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>greasemonkey - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>greasemonkey - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/tag/greasemonkey/index.rss"
+          rel="alternate"
+          title="Tag: greasemonkey - blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/tag/greasemonkey.rss"
+                rel="alternate"
+                title="Tag: greasemonkey - blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/tag/greasemonkey/index.rss" title="Tag: greasemonkey - blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Tag: greasemonkey</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post has-thumb tag-delicious tag-webdev tag-javascript tag-greasemonkey tag-entries tag-mozilla tag-ubiquity"
-          >
-            <time class="date" datetime="2008-09-01T04:37:03+00:00">
-              2008
-              September
-              01
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2008/09/01/writing-a-delicious-command-for-ubiquity/">
-              <span class="infoContainer">
-                <span class="title">Writing a Delicious command for Ubiquity</span>
-              </span>
-            </a>
-            <img class="thumb" src="/blog.lmorchard.com/2008/ubiq-share-on-delicious-list.jpg" />
-          </li><li
-            class="post tag-asides tag-delicious tag-bookmarklets tag-greasemonkey tag-delicious2"
-          >
-            <time class="date" datetime="2008-08-02T22:34:28+00:00">
-              2008
-              August
-              02
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2008/08/02/delicious-20-legacy-bookmarklet-fix/">
-              <span class="infoContainer">
-                <span class="title">delicious 2.0 legacy bookmarklet fix</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-oreilly tag-intellitxt tag-advertising tag-smarttags tag-greasemonkey"
-          >
-            <time class="date" datetime="2006-01-14T02:00:47+00:00">
-              2006
-              January
-              14
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/01/14/i-cant-get-too-ticked-at-oreilly-and-intellitxt/">
-              <span class="infoContainer">
-                <span class="title">I can&#39;t get too ticked at O&#39;Reilly and IntelliTXT</span>
-              </span>
-            </a>
-            
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Tag: greasemonkey</h2>
+        </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2008 September 01</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-delicious tag-webdev tag-javascript tag-greasemonkey tag-entries tag-mozilla tag-ubiquity">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2008/09/01/writing-a-delicious-command-for-ubiquity/">Writing a Delicious command for Ubiquity</a>
+      </h2>
+    <div class="thumb">
+      <img src="/blog.lmorchard.com/2008/ubiq-share-on-delicious-list.jpg" />
+    </div>
+    <p class="summary">
+      In my last post, I got all fluffy about how cool Ubiquity is but didn't share any code to prove the point.  As it happens, I have come up with at least one useful command that I'm starting to use habitually in posting bookmarks to Delicious.  You can subscribe to my command or check out the full source—this post will serve as a dissection of the thing.  Since this will be fairly lengthy, follow along after the jump.
+Oh, and it's been awhile since I posted something this in-depth around here, so feel free to let me know how this first draft works.  And, bug reports and patches are of course welcome.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2008/09/01/writing-a-delicious-command-for-ubiquity/"
+          >3181&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2008/09/01/writing-a-delicious-command-for-ubiquity/">#</a>
+    <a class="time" href="2008/09/01/writing-a-delicious-command-for-ubiquity/">12:37 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/delicious/">delicious</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/javascript/">javascript</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/greasemonkey/">greasemonkey</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ubiquity/">ubiquity</a>
           </li>
     </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2008 August 02</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-delicious tag-bookmarklets tag-greasemonkey tag-delicious2">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2008/08/02/delicious-20-legacy-bookmarklet-fix/">delicious 2.0 legacy bookmarklet fix</a>
+      </h2>
     
-  </section>
-      </section>
-        </section>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2008/08/02/delicious-20-legacy-bookmarklet-fix/"
+          >300&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2008/08/02/delicious-20-legacy-bookmarklet-fix/">#</a>
+    <a class="time" href="2008/08/02/delicious-20-legacy-bookmarklet-fix/">6:34 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/delicious/">delicious</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/bookmarklets/">bookmarklets</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/greasemonkey/">greasemonkey</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/delicious2/">delicious2</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 January 13</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-oreilly tag-intellitxt tag-advertising tag-smarttags tag-greasemonkey">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/01/13/i-cant-get-too-ticked-at-oreilly-and-intellitxt/">I can&#39;t get too ticked at O&#39;Reilly and IntelliTXT</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/01/13/i-cant-get-too-ticked-at-oreilly-and-intellitxt/"
+          >422&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/01/13/i-cant-get-too-ticked-at-oreilly-and-intellitxt/">#</a>
+    <a class="time" href="2006/01/13/i-cant-get-too-ticked-at-oreilly-and-intellitxt/">9:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/oreilly/">oreilly</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/intellitxt/">intellitxt</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/advertising/">advertising</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/smarttags/">smarttags</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/greasemonkey/">greasemonkey</a>
+          </li>
+    </ul>
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
 
-        <footer>
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/tag/greasemonkey/index.rss" title="Tag: greasemonkey - blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

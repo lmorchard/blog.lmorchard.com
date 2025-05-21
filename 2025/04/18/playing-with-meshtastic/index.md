@@ -1,0 +1,32 @@
+
+I've been hearing a bunch more lately about the [Meshtastic](https://meshtastic.org) mesh networking project across TikTok, YouTube, and the Fediverse.
+
+<!--more-->
+
+<image-gallery>
+
+![[attachments/2025-W16-heltec-v3-desk.jpeg]]
+![[attachments/IMG_8274.jpeg]]
+![[attachments/IMG_8275.jpeg]]
+![[attachments/IMG_8292.jpeg]]
+![[attachments/IMG_8303.jpeg]]
+![[attachments/IMG_8304.jpeg]]
+![[attachments/IMG_8305.jpeg]]
+![[attachments/2025-W16-meshtastic-case-parts.png]]
+![[attachments/IMG_8327.jpeg]]
+![[attachments/IMG_8326.jpeg]]
+![[attachments/IMG_8328.jpeg]]
+
+</image-gallery>
+
+Did a quick bit of looking around and discovered it was super cheap to dive in, so I made an impulse purchase of a couple [Heltec V3 boards](https://www.amazon.com/dp/B0D7HSHTNX?ref=ppx). Flashed the firmware and plonked a node onto my desk in my upstairs office. After a few minutes, the thing had found over 180 other nodes in the mesh around town.
+
+I repurposed the factory box into a case with a few snips of the plastic. That was good enough to stash the rig into one of the saddle bags on my bike and go take a ride around town. Wasn't really sure what I'd see happen with the thing, but it did pick up another dozen or so new nodes.
+
+The USB power bank is rather bulky. But, it turns out the board has a connector for battery. So, I ordered some [LiPo batteries](https://www.amazon.com/dp/B0D7LLB53Z?ref=ppx)! Now, it no longer fits in the makeshift case.
+
+So, I started looking through [3D printable case models that fit my Heltec V3](https://www.printables.com/search/models?q=heltec+v3) board and hopefully this 3000mAh battery. Most of them were designed for a smaller battery, but I found [a model that was big enough](https://www.printables.com/model/561389-heltec-v3-case-for-meshtastic).
+
+Seeing that this case model fits my hardware, I decided to bust out some fancier filament and print some snazzier versions.
+
+I still don't really know what to do with this thing. Maybe screw around with the APIs and build a bot? Maybe a thing that responds to pings with cat facts? I dunno. Maybe I can make a few friends?

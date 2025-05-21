@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>Using SQLite as a document database for Mastodon exports - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="Using SQLite as a document database for Mastodon exports" />
+    <html>
+      <head>
+        <title>Using SQLite as a document database for Mastodon exports - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="Using SQLite as a document database for Mastodon exports" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2023/05/12/toots-in-sqlite/"
@@ -44,104 +51,173 @@
             content="https://lmorchard.github.io/blog.lmorchard.com/blog.lmorchard.com/2023/05/12/toots-in-sqlite/cover.png"
           />
         <meta property="og:description" content="TL;DR: SQLite has JSON functions, generated columns, and full-text search - which all seems like a perfect mix for ingesting exports from Mastodon for search!" />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post tag-fediversetag-mastodontag-sqlitetag-activitypub"
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post tag-fediversetag-mastodontag-sqlitetag-activitypub"
       >
-        <time
-          title="2023-05-12T12:00:00+00:00"
-          pubdate="2023-05-12T12:00:00+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2023/"
-            >2023</a
+        <header>
+          <time
+            title="2023-05-12T12:00:00-07:00"
+            pubdate="2023-05-12T12:00:00-07:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2023/05/"
-            >May</a
-          >
-          &raquo;
-          <span>12</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="Dance like the bots aren&#39;t watching?"
+                href="/blog.lmorchard.com/2024/03/11/dance-for-the-bots/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2023/"
+                >2023</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2023/05/"
+                >May</a
+              >
+              &#8226;
+              <span>12</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="The Machine is Grieving"
+                href="/blog.lmorchard.com/2023/02/06/the-machine-is-grieving/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">Using SQLite as a document database for Mastodon exports</h1>
+          <ul class="tags">
+              <li><a href="/blog.lmorchard.com/tag/fediverse/">fediverse</a></li><li><a href="/blog.lmorchard.com/tag/mastodon/">mastodon</a></li><li><a href="/blog.lmorchard.com/tag/sqlite/">sqlite</a></li><li><a href="/blog.lmorchard.com/tag/activitypub/">activitypub</a></li>
+            </ul>
+        </header>
 
-        <nav class="post-links">
-          
-          
-          <a href="/blog.lmorchard.com/2023/02/06/the-machine-is-grieving/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">Using SQLite as a document database for Mastodon exports</h1>
-        <ul class="tags">
-            <li>
-                  <a href="/blog.lmorchard.com/tag/fediverse/">fediverse</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/mastodon/">mastodon</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/sqlite/">sqlite</a>
-                </li><li>
-                  <a href="/blog.lmorchard.com/tag/activitypub/">activitypub</a>
-                </li>
-          </ul>
-        <section class="post-content">
-          <p><strong>TL;DR</strong>: SQLite has JSON functions, generated columns, and full-text search - which all seems like a perfect mix for ingesting exports from Mastodon for search!</p>
+        <p><strong>TL;DR</strong>: SQLite has JSON functions, generated columns, and full-text search - which all seems like a perfect mix for ingesting exports from Mastodon for search!</p>
 <!--more-->
 
+
+
 <figure>
-<img title="A mastodon living in a tiny database" src="./cover.png" class="fullwidth" />
+<img title="A mastodon living in a tiny database" src="./cover.png" class="wide" width="" height="">
 <figcaption>A mastodon living in a tiny database, based on output generated by <a href="https://www.craiyon.com/">Craiyon</a></figcaption>
 </figure>
 
 <h2 id="sqlite-is-more-capable-than-i-remembered">SQlite is more capable than I remembered</h2>
-<p>I&#39;ve been watching <a href="https://simonwillison.net/">Simon Willison&#39;s</a> adventures in <a href="https://simonwillison.net/tags/sqlite/">SQLite</a> and <a href="https://simonwillison.net/search/?tag=datasette">Datasette</a> for a few years now. I keep meaning to tinker with this stuff myself, but never quite get around to it. Recently, though, a couple of interesting pieces sort of shuffled into place for me:</p>
+<p>I've been watching <a href="https://simonwillison.net/">Simon Willison's</a> adventures in <a href="https://simonwillison.net/tags/sqlite/">SQLite</a> and <a href="https://simonwillison.net/search/?tag=datasette">Datasette</a> for a few years now. I keep meaning to tinker with this stuff myself, but never quite get around to it. Recently, though, a couple of interesting pieces sort of shuffled into place for me:</p>
 <ul>
 <li><p>I read this blog post by <a href="https://infosec.exchange/@dgl">@dgl@infosec.exchange</a> on <a href="https://dgl.cx/2020/06/sqlite-json-support">SQLite as a document database</a> - by combining <a href="https://www.sqlite.org/json1.html#jex">json_extract()</a> and <a href="https://www.sqlite.org/gencol.html">generated columns</a> in SQLite, you can build a JSON document database with indexes and all the fun of SQL queries. Just insert blobs of JSON and SQLite takes care of the rest.</p>
 </li>
 <li><p>I learned a bit about <a href="https://www.sqlite.org/fts5.html">full-text search in SQLite</a>. With a few triggers, I can build an index table that supports full-text queries against content extracted from JSON in those generated columns.</p>
 </li>
 </ul>
-<p>Previously, I&#39;d thought PostgreSQL was where I had to go for things like <a href="https://www.postgresql.org/docs/current/functions-json.html">JSON functions</a> and <a href="https://www.postgresql.org/docs/current/textsearch.html">full-text search</a>  - I didn&#39;t really expect to find that SQLite was this capable.</p>
-<p>While it&#39;s true you can do just about anything with a pile of docker containers, a small project fares much better with an embedded database like SQLite - especially if it&#39;s deployed to an environment like <a href="https://glitch.com/">Glitch</a>. A SQLite easily database becomes de facto file format for personal tools.</p>
+<p>Previously, I'd thought PostgreSQL was where I had to go for things like <a href="https://www.postgresql.org/docs/current/functions-json.html">JSON functions</a> and <a href="https://www.postgresql.org/docs/current/textsearch.html">full-text search</a>  - I didn't really expect to find that SQLite was this capable.</p>
+<p>While it's true you can do just about anything with a pile of docker containers, a small project fares much better with an embedded database like SQLite - especially if it's deployed to an environment like <a href="https://glitch.com/">Glitch</a>. A SQLite easily database becomes de facto file format for personal tools.</p>
 <h2 id="mastodon-exports-are-full-of-json">Mastodon exports are full of JSON</h2>
-<p>Okay, so that&#39;s some cool database stuff. What do I want to put in it?</p>
-<p>Well, I&#39;ve accumulated a few thousand posts between Mastodon instances over the years. Support for search is rather uneven, depending on the Mastodon instance. So, I grabbed some JSON exports from my accounts and thought it might be interesting to make them searchable. </p>
-<p>I&#39;ve tooted the most on three Mastodon instances: <a href="https://mastodon.social/@lmorchard">mastodon.social</a>, <a href="https://toot.cafe/@lmorchard/">toot.cafe</a>, and <a href="https://hackers.town/@lmorchard">hackers.town</a>. I was active for a few months on my own self-hosted instance at <a href="https://toot.lmorchard.com/@lmorchard">toot.lmorchard.com</a>, but I accidentally nuked the database at some point and lost all my content. (I guess I should have grabbed an export earlier!)</p>
-<p>An account export from Mastodon takes the form of a compressed tarball with media uploads and several collections of data in JSON. Of particular interest is a file named <code>outbox.json</code>: This contains all the account&#39;s posts and boosts, expressed in <a href="https://docs.joinmastodon.org/spec/activitypub/">ActivityStreams 2.0 JSON format with Mastodon extensions</a>. (Notably, <em>not</em> in &quot;ActivityPub format&quot; <a href="https://tantek.com/2023/112/t2/account-migration-post-blog-archive-format">as tantek recently pointed out</a>.)</p>
+<p>Okay, so that's some cool database stuff. What do I want to put in it?</p>
+<p>Well, I've accumulated a few thousand posts between Mastodon instances over the years. Support for search is rather uneven, depending on the Mastodon instance. So, I grabbed some JSON exports from my accounts and thought it might be interesting to make them searchable. </p>
+<p>I've tooted the most on three Mastodon instances: <a href="https://mastodon.social/@lmorchard">mastodon.social</a>, <a href="https://toot.cafe/@lmorchard/">toot.cafe</a>, and <a href="https://hackers.town/@lmorchard">hackers.town</a>. I was active for a few months on my own self-hosted instance at <a href="https://toot.lmorchard.com/@lmorchard">toot.lmorchard.com</a>, but I accidentally nuked the database at some point and lost all my content. (I guess I should have grabbed an export earlier!)</p>
+<p>An account export from Mastodon takes the form of a compressed tarball with media uploads and several collections of data in JSON. Of particular interest is a file named <code>outbox.json</code>: This contains all the account's posts and boosts, expressed in <a href="https://docs.joinmastodon.org/spec/activitypub/">ActivityStreams 2.0 JSON format with Mastodon extensions</a>. (Notably, <em>not</em> in "ActivityPub format" <a href="https://tantek.com/2023/112/t2/account-migration-post-blog-archive-format">as tantek recently pointed out</a>.)</p>
 <h2 id="tinkering-with-tables">Tinkering with tables</h2>
 <p>Once I had the data, I tinkered with table schemas and came up with this mess:</p>
 <pre><code class="language-sql">CREATE TABLE statuses (
   json TEXT,
   created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  id TEXT GENERATED ALWAYS AS (json_extract(json, &quot;$.id&quot;)) VIRTUAL UNIQUE,
-  type TEXT GENERATED ALWAYS AS (json_extract(json, &quot;$.type&quot;)) VIRTUAL,
-  url TEXT GENERATED ALWAYS AS (json_extract(json, &quot;$.object.url&quot;)) VIRTUAL,
-  summary TEXT GENERATED ALWAYS AS (json_extract(json, &quot;$.object.summary&quot;)) VIRTUAL,
-  content TEXT GENERATED ALWAYS AS (json_extract(json, &quot;$.object.content&quot;)) VIRTUAL,
-  displayName TEXT GENERATED ALWAYS AS (json_extract(json, &quot;$.actor.name&quot;)) VIRTUAL,
-  publishedAt DATETIME GENERATED ALWAYS AS (json_extract(json, &quot;$.object.published&quot;)) VIRTUAL,
-  accountUrl TEXT GENERATED ALWAYS AS (json_extract(json, &quot;$.actor.url&quot;)) VIRTUAL,
-  accountAvatarUrl TEXT GENERATED ALWAYS AS (json_extract(json, &quot;$.actor.icon.url&quot;)) VIRTUAL,
-  accountName TEXT GENERATED ALWAYS AS (json_extract(json, &quot;$.actor.name&quot;)) VIRTUAL
+  id TEXT GENERATED ALWAYS AS (json_extract(json, "$.id")) VIRTUAL UNIQUE,
+  type TEXT GENERATED ALWAYS AS (json_extract(json, "$.type")) VIRTUAL,
+  url TEXT GENERATED ALWAYS AS (json_extract(json, "$.object.url")) VIRTUAL,
+  summary TEXT GENERATED ALWAYS AS (json_extract(json, "$.object.summary")) VIRTUAL,
+  content TEXT GENERATED ALWAYS AS (json_extract(json, "$.object.content")) VIRTUAL,
+  displayName TEXT GENERATED ALWAYS AS (json_extract(json, "$.actor.name")) VIRTUAL,
+  publishedAt DATETIME GENERATED ALWAYS AS (json_extract(json, "$.object.published")) VIRTUAL,
+  accountUrl TEXT GENERATED ALWAYS AS (json_extract(json, "$.actor.url")) VIRTUAL,
+  accountAvatarUrl TEXT GENERATED ALWAYS AS (json_extract(json, "$.actor.icon.url")) VIRTUAL,
+  accountName TEXT GENERATED ALWAYS AS (json_extract(json, "$.actor.name")) VIRTUAL
 );
 CREATE INDEX `statuses_id_publishedAt` on `statuses` (`id`, `publishedAt`);
 CREATE INDEX `statuses_summary` on `statuses` (`summary`);
@@ -173,14 +249,14 @@ CREATE TRIGGER statuses_update AFTER UPDATE ON statuses BEGIN
   WHERE id = new.id;
 END;
 </code></pre>
-<p>This sets up a <a href="https://www.sqlite.org/fts5.html">Full Text Search</a> table, along with some triggers to keep it in sync with the source of content. Nothing too complicated going on here - although it did take me awhile to work out that this seems like the least-bad way to combine virtual generated columns and full-text search. I&#39;m still learning about this stuff, though, so I may yet discover a better approach.</p>
+<p>This sets up a <a href="https://www.sqlite.org/fts5.html">Full Text Search</a> table, along with some triggers to keep it in sync with the source of content. Nothing too complicated going on here - although it did take me awhile to work out that this seems like the least-bad way to combine virtual generated columns and full-text search. I'm still learning about this stuff, though, so I may yet discover a better approach.</p>
 <h2 id="ingesting-the-json">Ingesting the JSON</h2>
 <p>With all that in place, I was able to parse <code>outbox.json</code> from an export and iterate through the <code>orderedItems</code> array to just plonk the JSON into the table:</p>
 <pre><code class="language-javascript">await connection.transaction(async (trx) =&gt; {
     for (const item of outbox.orderedItems) {
-        await trx(&quot;statuses&quot;)
+        await trx("statuses")
           .insert({ json: JSON.stringify(item) })
-          .onConflict(&quot;id&quot;).merge();
+          .onConflict("id").merge();
     }
 });
 </code></pre>
@@ -190,7 +266,7 @@ END;
 <h2 id="searching-the-toots">Searching the toots</h2>
 <p>Finally, once all this data is shoehorned into the database, I can do full-text searches:</p>
 <pre><code class="language-sqlite">sqlite&gt; .mode line
-sqlite&gt; select id from statusesSearch where content match &quot;hello world&quot; limit 10;
+sqlite&gt; select id from statusesSearch where content match "hello world" limit 10;
      id = https://mastodon.social/users/lmorchard/statuses/55864/activity
 
      id = https://hackers.town/users/lmorchard/statuses/107073175679835816/activity
@@ -199,14 +275,14 @@ sqlite&gt; select id from statusesSearch where content match &quot;hello world&q
 
      id = https://hackers.town/users/lmorchard/statuses/109763470744160265/activity
 </code></pre>
-<p>It doesn&#39;t look like much, but then I can use this in a join or a subquery to relate back to the main table of imported toots:</p>
+<p>It doesn't look like much, but then I can use this in a join or a subquery to relate back to the main table of imported toots:</p>
 <pre><code class="language-sqlite">sqlite&gt; select
   id, publishedAt, url, displayName, accountAvatarUrl,
-  json_extract(json, &quot;$.actor.summary&quot;) as bio,
+  json_extract(json, "$.actor.summary") as bio,
   content 
 from `statuses`
 where `statuses`.`id` in (
-    select `id` from `statusesSearch` where `statusesSearch` match &quot;hello world&quot;
+    select `id` from `statusesSearch` where `statusesSearch` match "hello world"
 )
 order by `statuses`.`publishedAt` desc
 limit 1;
@@ -216,43 +292,70 @@ limit 1;
              url = https://hackers.town/@lmorchard/109802318069508799
      displayName = Les Orchard
 accountAvatarUrl = https://hackers.town/system/accounts/avatars/000/136/533/original/1a8c651efe14fcd6.png
-             bio = &lt;p&gt;he / him; semi-hermit in PDX, USA; tinkerer; old adhd cat dad; serial enthusiast; editor-at-large for &lt;a href=&quot;http://lmorchard.com&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;&lt;span class=&quot;invisible&quot;&gt;http://&lt;/span&gt;&lt;span class=&quot;&quot;&gt;lmorchard.com&lt;/span&gt;&lt;span class=&quot;invisible&quot;&gt;&lt;/span&gt;&lt;/a&gt;; astra mortemque superare gradatim; tootfinder&lt;/p&gt;
-         content = &lt;p&gt;&lt;span class=&quot;h-card&quot;&gt;&lt;a href=&quot;https://infosec.exchange/@Em0nM4stodon&quot; class=&quot;u-url mention&quot; rel=&quot;nofollow noopener noreferrer&quot; target=&quot;_blank&quot;&gt;@&lt;span&gt;Em0nM4stodon&lt;/span&gt;&lt;/a&gt;&lt;/span&gt; Personally, Amazon S3 or GitHub Pages.&lt;/p&gt;&lt;p&gt;The former, because I&#39;ve been using it for 17 years since Amazon released it and it only costs me like $10 per year.&lt;/p&gt;&lt;p&gt;And the latter, because it&#39;s also easy (for me) to use git to push out content.&lt;/p&gt;&lt;p&gt;There are more varied options these days, but I&#39;ve been too lazy / busy to explore much past a hello-world stage.&lt;/p&gt;
+             bio = &lt;p&gt;he / him; semi-hermit in PDX, USA; tinkerer; old adhd cat dad; serial enthusiast; editor-at-large for &lt;a href="http://lmorchard.com" target="_blank" rel="nofollow noopener noreferrer"&gt;&lt;span class="invisible"&gt;http://&lt;/span&gt;&lt;span class=""&gt;lmorchard.com&lt;/span&gt;&lt;span class="invisible"&gt;&lt;/span&gt;&lt;/a&gt;; astra mortemque superare gradatim; tootfinder&lt;/p&gt;
+         content = &lt;p&gt;&lt;span class="h-card"&gt;&lt;a href="https://infosec.exchange/@Em0nM4stodon" class="u-url mention" rel="nofollow noopener noreferrer" target="_blank"&gt;@&lt;span&gt;Em0nM4stodon&lt;/span&gt;&lt;/a&gt;&lt;/span&gt; Personally, Amazon S3 or GitHub Pages.&lt;/p&gt;&lt;p&gt;The former, because I've been using it for 17 years since Amazon released it and it only costs me like $10 per year.&lt;/p&gt;&lt;p&gt;And the latter, because it's also easy (for me) to use git to push out content.&lt;/p&gt;&lt;p&gt;There are more varied options these days, but I've been too lazy / busy to explore much past a hello-world stage.&lt;/p&gt;
 </code></pre>
-<p>Since I&#39;m able to use <code>json_extract()</code> in a select statement, that gives me access to everything in the imported JSON records - whether or not I thought ahead to define a column or index for any particular column. That feels pretty noSQL-ish to me!</p>
+<p>Since I'm able to use <code>json_extract()</code> in a select statement, that gives me access to everything in the imported JSON records - whether or not I thought ahead to define a column or index for any particular column. That feels pretty noSQL-ish to me!</p>
 <h2 id="next-steps">Next steps</h2>
-<p>From here, I started tinkering with <a href="https://github.com/lmorchard/masto-recall">a more complex node.js web app</a> to build a user interface for search queries and a bunch more. (Maybe too much more!) But, I&#39;ll save talking about that for future blog posts that I&#39;ll hopefully write.</p>
-<p>For this post, I just wanted to try jotting down the core ideas of shoehorning a pile of JSON data into a SQLite database. I&#39;ve got a bunch more to learn about what I can do with this and where I might run into limits. But, in the meantime, this feels like a nicely lightweight way to play with a bunch of my data from the fediverse.</p>
+<p>From here, I started tinkering with <a href="https://github.com/lmorchard/masto-recall">a more complex node.js web app</a> to build a user interface for search queries and a bunch more. (Maybe too much more!) But, I'll save talking about that for future blog posts that I'll hopefully write.</p>
+<p>For this post, I just wanted to try jotting down the core ideas of shoehorning a pile of JSON data into a SQLite database. I've got a bunch more to learn about what I can do with this and where I might run into limits. But, in the meantime, this feels like a nicely lightweight way to play with a bunch of my data from the fediverse.</p>
 
-        </section>
+        <section class="comments" id="comments">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+              var disqus_needs_loading = true;
+              var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com/2023/05/12/toots-in-sqlite/";
+            </script>
+            <noscript
+              >Please enable JavaScript to view the
+              <a href="http://disqus.com/?ref_noscript"
+                >comments powered by Disqus.</a
+              ></noscript
+            >
+            <a href="http://disqus.com" class="dsq-brlink"
+              >blog comments powered by
+              <span class="logo-disqus">Disqus</span></a
+            >
+          </section>
       </article>
 
-      <section class="comments" id="comments">
-          <div id="disqus_thread"></div>
-          <script type="text/javascript">
-            var disqus_needs_loading = true;
-            var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com/2023/05/12/toots-in-sqlite/";
-          </script>
-          <noscript
-            >Please enable JavaScript to view the
-            <a href="http://disqus.com/?ref_noscript"
-              >comments powered by Disqus.</a
-            ></noscript
-          >
-          <a href="http://disqus.com" class="dsq-brlink"
-            >blog comments powered by <span class="logo-disqus">Disqus</span></a
-          >
-        </section>
-        </section>
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2024/03/11/dance-for-the-bots/"
+                >Dance like the bots aren't watching?</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2023/02/06/the-machine-is-grieving/"
+                >The Machine is Grieving</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
 
-        <footer>
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

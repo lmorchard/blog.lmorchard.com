@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+    <html>
+      <head>
+        <title>Clustering ideas with Llamafile and Web Components - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="Clustering ideas with Llamafile and Web Components" />
+        <meta
+          property="og:url"
+          content="https://lmorchard.github.io/blog.lmorchard.com/2024/06/19/topic-clustering-llamafile-web-components/"
+        />
+        <meta
+            property="og:image"
+            content="https://lmorchard.github.io/blog.lmorchard.com/blog.lmorchard.com/2024/06/19/topic-clustering-llamafile-web-components/cover.png"
+          />
+        <meta property="og:description" content="TL;DR: In my previous posts, I tinkered with a few variations on clustering ideas by named topics using embeddings and text generation. In this post, I&#39;m going to show off a web UI that I built to make this stuff easier to play with interactively." />
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
+            <ul>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post tag-aitag-mltag-llmtag-genaitag-webdevtag-webcomponentstag-ClusteringIdeasWithAI"
+      >
+        <header>
+          <time
+            title="2024-06-19T12:00:00-07:00"
+            pubdate="2024-06-19T12:00:00-07:00"
+          >
+            <span class="prevpost">
+              <a
+                title="You Wake Up"
+                href="/blog.lmorchard.com/2024/09/12/you-wake-up/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2024/"
+                >2024</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2024/06/"
+                >June</a
+              >
+              &#8226;
+              <span>19</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Clustering ideas with Llamafile"
+                href="/blog.lmorchard.com/2024/05/10/topic-clustering-llamafile/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">Clustering ideas with Llamafile and Web Components</h1>
+          <ul class="tags">
+              <li><a href="/blog.lmorchard.com/tag/ai/">ai</a></li><li><a href="/blog.lmorchard.com/tag/ml/">ml</a></li><li><a href="/blog.lmorchard.com/tag/llm/">llm</a></li><li><a href="/blog.lmorchard.com/tag/genai/">genai</a></li><li><a href="/blog.lmorchard.com/tag/webdev/">webdev</a></li><li><a href="/blog.lmorchard.com/tag/webcomponents/">webcomponents</a></li><li><a href="/blog.lmorchard.com/tag/ClusteringIdeasWithAI/">ClusteringIdeasWithAI</a></li>
+            </ul>
+        </header>
+
+        <p><strong>TL;DR</strong>: In <a href="https://blog.lmorchard.com/tag/ClusteringIdeasWithAI/">my previous posts</a>, I tinkered with a few variations on clustering ideas by named topics using embeddings and text generation. In this post, I'm going to show off a web UI that I built to make this stuff easier to play with interactively.</p>
+<!--more-->
+
+
+
+<figure class="wide">
+  <img src="./cover.png" width="" height="">
+  <figcaption>I asked DALL-E to generate "a human astronaut and a llama driving a giant construction robot, building a cluster of ideas". Then, I ran a few imagemagick transformations on it for fun.</figcaption>
+</figure>
+
+<nav role="navigation" class="table-of-contents"></nav>
+
+<h2 id="organizing-notes-with-ai">Organizing notes with AI</h2>
+<p>Figma offers <a href="https://www.figma.com/figjam/">FigJam</a>, a handy tool for collaborative brainstorming and notes. It has an <a href="https://www.theverge.com/2023/11/7/23950667/figma-figjam-generative-ai-design-tools-beta-announcement">AI-powered  "organize" feature</a> to group stickies into named clusters. Here's what that looks like:</p>
+<figure>
+  <video controls="">
+    <source src="./figjam-sorting-demo.mp4" type="video/mp4">
+    <a href="./figjam-sorting-demo.mp4">figjam-sorting-demo.mp4</a>
+  </video>
+  <figcaption>A quick demo of FigJam's sticky organization feature - it's more legible in fullscreen view</figcaption>
+</figure>
+
+<p>I don't know how <a href="https://www.figma.com/figjam/">FigJam</a> implements this feature. But, I took a shot at my own implementation of this, using things I've picked up around machine learning and generative AI so far:</p>
+<ol>
+<li>map the notes as points in a semantic space using <a href="https://cloud.google.com/blog/topics/developers-practitioners/meet-ais-multitool-vector-embeddings">vector embeddings</a></li>
+<li>apply <a href="https://en.wikipedia.org/wiki/K-means_clustering">k-means clustering</a> to group nearby points in space</li>
+<li>map points back to groups of notes, then use a <a href="https://en.wikipedia.org/wiki/Large_language_model">large language model</a> to generate labels</li>
+</ol>
+<p>To this point, I've worked through three variations of the above. I <a href="https://blog.lmorchard.com/2024/04/27/topic-clustering-gen-ai/">played with OpenAI's APIs</a>, <a href="https://blog.lmorchard.com/2024/05/01/topic-clustering-local-models/">local models via PyTorch and Sentence Transformers</a>, and finally <a href="https://blog.lmorchard.com/2024/05/10/topic-clustering-llamafile/">with a local model via Llamafile</a>.</p>
+<h2 id="interfacing-with-a-user">Interfacing with a user</h2>
+<p>For each of those earlier posts, the input was a list of notes embedded in Python source code. And, the resulting output of clustered notes was dumped out as text. I guess that can be considered a "user interface" of sorts, since I built everything in Jupyter Notebooks.</p>
+<p>But, there's at least one reason why <a href="https://www.figma.com/figjam/">FigJam</a> is popular &amp; handy: It's got an "<a href="https://en.wikipedia.org/wiki/Infinite_canvas">infinite canvas</a>" style user interface where folks can lay out ideas like sticky notes or index cards on a giant virtual table. You can just literally throw ideas out into a virtual space and drag them around. It lends itself well to becoming a multiplayer game where lots of folks can play. Adding an AI-powered "organize" feature to that space is just a cherry on top.</p>
+<p>This also leads me to a notion I've been trying on for size: <strong>The best features &amp; products that benefit from machine learning and generative AI consist of a small kernel of this "exotic" technology wrapped in many more layers of more "mundane" stuff.</strong></p>
+<p>That is, ML / AI doesn't need to be the main course, it can be seasoning like adding mushrooms or fish sauce to a dish for some unexpected umami. Best is when the AI fades into the background.</p>
+<p>So, maybe counter-intuitively, this fourth post in my topic clustering series offers very little in terms of new machine learning and generative AI stuff. The main thing here is me tinkering with a little core of AI, wrapped in a larger shell of "infinite canvas" user interface.</p>
+<h2 id="playing-along-at-home">Playing along at home</h2>
+<p>If you want to play at home, this post moves away from the Jupyter Notebooks that I used in previous posts. This time, I'm using a little <a href="https://nodejs.org/en">node.js</a> web server atop <a href="https://github.com/Mozilla-Ocho/llamafile">Llamafile</a> to host a static site and to proxy access to the server API.</p>
+<p>You can find the source code here on Github:</p>
+<ul>
+<li><a href="https://github.com/lmorchard/llamafile-idea-clustering">https://github.com/lmorchard/llamafile-idea-clustering</a></li>
+</ul>
+<p>Like I did with the notebooks, I'll leave it as an exercise to the reader to work out how to get <a href="https://nodejs.org/en">node.js</a> installed. And, this isn't a particularly complex server, so hopefully you can get it up and running with just the following commands:</p>
+<pre><code class="language-bash">npm run setup
+npm start
+</code></pre>
+<p>You'll probably want to read through <a href="https://github.com/lmorchard/llamafile-idea-clustering/blob/main/package.json#L6-L18"><code>package.json</code> and the <code>scripts</code> defined</a> in there. Nothing too complex going on, but it can help to understand what they do.</p>
+<p>The <code>setup</code> script aims to download the same TinyLlama model <a href="https://blog.lmorchard.com/2024/05/10/topic-clustering-llamafile/#acquiring-a-llamafile">I used in my previous post</a>. Running it should offer output like the following:</p>
+<pre><code class="language-bash">
+&gt; llamafile-idea-clustering@1.0.0 setup
+&gt; npm-run-all setup:unix:llamafile setup:unix:llamafileexe
+
+
+&gt; llamafile-idea-clustering@1.0.0 setup:unix:llamafile
+&gt; curl --no-clobber -L -o TinyLlama-1.1B-Chat-v1.0.Q4_0.llamafile https://huggingface.co/Mozilla/TinyLlama-1.1B-Chat-v1.0-llamafile/resolve/main/TinyLlama-1.1B-Chat-v1.0.Q4_0.llamafile?download=true
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1181  100  1181    0     0   7094      0 --:--:-- --:--:-- --:--:--  7114
+100  641M  100  641M    0     0  10.8M      0  0:00:59  0:00:59 --:--:-- 11.0M
+
+&gt; llamafile-idea-clustering@1.0.0 setup:unix:llamafileexe
+&gt; chmod +x ./TinyLlama-1.1B-Chat-v1.0.Q4_0.llamafile
+</code></pre>
+<p>After this, you should hopefully have the appropriate Llamafile downloaded and set as executable for Linux or macOS.</p>
+<p>The <code>start</code> script is intended to run both the Llamafile server and the node.js server in parallel, so that you can access the local web application in your browser and so that the application can make requests to the Llamafile server API.</p>
+<p>If <code>npm start</code> runs successfully, you should see something like this in your terminal:</p>
+<pre><code class="language-bash">Server is running on http://localhost:8886
+Serving static files from public
+Proxying API requests to http://127.0.0.1:8887
+</code></pre>
+<p>From here, you should be able to open <a href="http://localhost:8886">http://localhost:8886</a> in your browser and start playing.</p>
+<p>(Note that there are some Windows-flavored script variations like <code>setup:windows</code> and <code>start:windows</code> available to run from PowerShell - but they may need some work. 😅)</p>
+<h2 id="clustering-topics-with-the-web-app">Clustering topics with the web app</h2>
+<p>Since this is a blog post about a graphical interface, a few videos of this thing in action would probably be handy. Here's a look at loading up and organizing a canned demo set of notes:</p>
+<figure>
+  <video controls="">
+    <source src="./topic-clustering-demo-1.mp4" type="video/mp4">
+    <a href="./topic-clustering-demo-1.mp4">topic-clustering-demo-1.mp4</a>
+  </video>
+  <figcaption>Organizing a canned demo set of notes</figcaption>
+</figure>
+
+<p>So, that's the core of the app - taking a cloud of unorganized notes floating in space and applying some ✨magic✨ to pull these notes into topical clusters.</p>
+<p>You can drag clusters around and see the associated notes move along with them. The canvas itself can be dragged to pan around, and you can use the mouse wheel or trackpad scroll gestures to zoom in and out of the canvas.</p>
+<figure>
+  <video controls="">
+    <source src="./topic-clustering-demo-2.mp4" type="video/mp4">
+    <a href="./topic-clustering-demo-2.mp4">topic-clustering-demo-2.mp4</a>
+  </video>
+  <figcaption>Canvas navigation</figcaption>
+</figure>
+
+<p>But, this set of demo notes isn't very useful. You'd probably like to bring in your own notes and thoughts. And, ideally, get them back out of the app when you're done. For that, I've added a quick &amp; dirty little import / export dialog:</p>
+<figure>
+  <video controls="">
+    <source src="./topic-clustering-demo-3.mp4" type="video/mp4">
+    <a href="./topic-clustering-demo-3.mp4">topic-clustering-demo-3.mp4</a>
+  </video>
+  <figcaption>Editing notes</figcaption>
+</figure>
+
+<p>Once you've had a few rounds of organizing notes, you can twiddle some sliders to try tuning your results. For example, you can influence the clustering mainly through the number of clusters requested:</p>
+<figure>
+  <video controls="">
+    <source src="./topic-clustering-demo-4.mp4" type="video/mp4">
+    <a href="./topic-clustering-demo-4.mp4">topic-clustering-demo-4.mp4</a>
+  </video>
+  <figcaption>Changing the number of topic clusters</figcaption>
+</figure>
+
+<p>Then, you can play around with the parameters supplied to the Large Language Model when generating titles for each cluster.</p>
+<figure>
+  <video controls="">
+    <source src="./topic-clustering-demo-5.mp4" type="video/mp4">
+    <a href="./topic-clustering-demo-5.mp4">topic-clustering-demo-5.mp4</a>
+  </video>
+  <figcaption>Tweaking LLM parameters</figcaption>
+</figure>
+
+<p>And, you can edit the prompts supplied to the LLM for title generation:</p>
+<figure>
+  <video controls="">
+    <source src="./topic-clustering-demo-6.mp4" type="video/mp4">
+    <a href="./topic-clustering-demo-6.mp4">topic-clustering-demo-6.mp4</a>
+  </video>
+  <figcaption>Changing the LLM prompt</figcaption>
+</figure>
+
+<p>All-in-all, this an interactive demo and not a clone or alternative to <a href="https://www.figma.com/figjam/">FigJam</a>. There's plenty of room for improvement to make this a more serious idea management tool, but I think it's an interesting start for playing with the underlying technologies.</p>
+<h2 id="examining-the-exotic-core-matter">Examining the "exotic" core matter</h2>
+<p>As I mentioned earlier, I think what's interesting is to build a small kernel of "exotic matter" from ML/AL technology and then wrap it in a shell of more "mundane" technology to implement a user interface and integrations with other systems. </p>
+<p>Apropos of that, the core of this application should look very similar to <a href="https://blog.lmorchard.com/2024/05/10/topic-clustering-llamafile/">what I wrote about in my last post using Llamafile</a>:</p>
+<pre><code class="language-javascript">  async organizeNotes() {
+    const notes = this.canvas.querySelectorAll("sticky-note");
+    const itemsWithIds = [];
+    for (const note of notes) {
+      itemsWithIds.push({
+        id: note.id,
+        item: note.innerText,
+      });
+    }
+
+    const embeddingsResponse = await llamafile("embedding", { content: items });
+    const embeddings = embeddingsResponse.results.map((r) =&gt; r.embedding);
+
+    const { centroids, idxs } = skmeans(embeddings, this.uiOptions.numClusters);
+    const clusters = centroids.map((_centroid, currIdx) =&gt;
+      idxs
+        .map((idx, itemIdx) =&gt; idx === currIdx &amp;&amp; itemsWithIds[itemIdx])
+        .filter((x) =&gt; !!x)
+    );
+
+    for (let clusterIdx = 0; clusterIdx &lt; clusters.length; clusterIdx++) {
+      const cluster = clusters[clusterIdx];
+      const prompt = this.prompt(cluster.map((item) =&gt; item.item));
+      const result = await llamafile("completion", {
+        prompt,
+        ...this.llmParameters,
+      });
+
+      this.addClusterTopic(
+        `cluster-${clusterIdx}`,
+        clusterIdx,
+        clusters.length,
+        cluster,
+        result.content.trim()
+      );
+    }
+  }
+</code></pre>
+<p>This is JavaScript rather than Python, but the algorithm is essentially the same:</p>
+<ul>
+<li>gather notes from DOM elements in the canvas</li>
+<li>make an HTTP request to the local Llamafile server API to generate embeddings for notes</li>
+<li>use k-means clustering to organize the notes via embeddings - courtesy of <a href="https://github.com/solzimer/skmeans">this MIT-licensed <code>skmeans</code> module by David Gómez Matarrodona</a></li>
+<li>make calls to the local Llamafile server to generate titles for each cluster of notes </li>
+<li>insert cluster topic components to wrangle the elements in the canvas into groups</li>
+</ul>
+<p>Beyond this hunk of about 3 dozen lines of code, the rest is just plain old web technology.</p>
+<h2 id="serving-up-the-app-shell">Serving up the app shell</h2>
+<p>At the base of this app is a small node.js server. There's not much to it:</p>
+<pre><code class="language-javascript">#!/usr/bin/env node
+const express = require('express');
+const { createProxyMiddleware } = require('http-proxy-middleware');
+const livereload = require("livereload");
+const connectLiveReload = require("connect-livereload");
+
+const PORT = 8886;
+const staticFilesDirectory = 'public';
+const llamafileBaseUrl = 'http://127.0.0.1:8887';
+
+const liveReloadServer = livereload.createServer();
+liveReloadServer.watch(staticFilesDirectory);
+
+const app = express();
+app.use(connectLiveReload());
+app.use(express.static(staticFilesDirectory));
+app.use('/', createProxyMiddleware({ target: llamafileBaseUrl }));
+app.listen(PORT, () =&gt; {
+    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Serving static files from ${staticFilesDirectory}`);
+    console.log(`Proxying API requests to ${llamafileBaseUrl}`);
+});
+</code></pre>
+<p>Most of this is glue code copied from examples. The main purpose is to serve up a web app from static files, along with some proxy middleware to give the app access to a local Llamafile server without running afoul of <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">CORS rules</a>. Oh, and there's a live reload service thrown in there just so my pages refresh automatically as I edit the source code.</p>
+<p>This is a place where Llamafile could someday make apps easier to build: If it could serve up a static site from a given directory, there'd really be no need for this little node.js server. That, or I could look into bundling this all together in an <a href="https://www.electronjs.org/">Electron</a> or <a href="https://tauri.app/">Tauri</a> app?</p>
+<h2 id="building-the-mundane-app-shell">Building the "mundane" app shell</h2>
+<p>These days, you can do a lot with a browser. To keep this blog post from becoming my next book, I'm not going to show off every line of code. But, I think there are some interesting highlights in the construction of this thing if you feel like perusing <a href="https://github.com/lmorchard/llamafile-idea-clustering/">the code</a>:</p>
+<ul>
+<li><p>Vanilla JavaScript and ES6 modules without any build tooling feels pretty good to me.</p>
+</li>
+<li><p>Minimal dependencies are nice - namely <a href="https://lit.dev/">Lit</a>, <a href="https://github.com/cocopon/tweakpane">tweakpane</a>, <a href="https://github.com/solzimer/skmeans">skmeans</a>, and <a href="getspringy.com">springy</a>.</p>
+</li>
+<li><p>Web Components using the <a href="https://lit.dev/">Lit</a> library are pretty easy to build without straying too far from vanilla JavaScript.</p>
+</li>
+<li><p>Reusable aspects of Web Components can be extracted using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/extends#mix-ins">"mixins" with dynamic JS classes</a> - also <a href="https://lit.dev/docs/composition/mixins/">as recommended in the Lit documentation</a></p>
+</li>
+<li><p>Rigging up some pleasing animations &amp; interactions with a light physics simulation was pretty easy thanks to the <a href="getspringy.com">springy</a> library and some glue code to bind it to DOM elements.</p>
+</li>
+<li><p>Panning and zooming using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform">the <code>transform</code> CSS property</a> and <a href="https://github.com/lmorchard/llamafile-idea-clustering/blob/main/public/lib/mixins/PanZoomableMixin.js#L35-L54">an annoying bit of math</a> was particularly satisfying to figure out.</p>
+</li>
+<li><p><a href="https://github.com/cocopon/tweakpane">tweakpane</a> is a super handy library for composing quick little control panels and readouts.</p>
+</li>
+<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement">HTMLDialogElement</a> is a thing and quite handy for popping up little modal dialogs without resorting to external dependencies</p>
+</li>
+<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver">MutationObserver</a> is also a thing and also quite handy for reacting to DOM changes - kind of a different mental model than state management in React, but it's built into the browser</p>
+</li>
+</ul>
+<h2 id="wrapping-up">Wrapping up</h2>
+<p>The main thing I wanted to explore here was wrapping a little bit of AI-powered functionality in an interactive user interface. Granted, it's not the best UI in the world, but I think it's worth trying to make it easier to play with and experience this stuff.</p>
+<p>There's also a good layer of grunge and hacky bits lurking in my code. But, I felt like I got in a pretty cozy groove with building components and layering in behavior &amp; functionality. I wouldn't mind revisiting this project in the future or repurposing some of its parts for further experiments.</p>
+<p>Also, though I managed to stick with a single Llamafile process using the TinyLlama model, it could be advantageous to run multiple models. As it turns out, <a href="https://future.mozilla.org/news/llamafiles-for-embeddings-in-local-rag-applications/">some models are better at generating embeddings</a> while others are better at generating text - and that's not even getting into tasks like summarizing text or mucking around with images. So, a future direction for a project like this could be an exploration of orchestrating multiple local models along with serving up the static web app.</p>
+<p>And, if we're talking about orchestrating things, it might be handy to add a few more services and resources. Like, a little SQLite database and maybe some filesystem access along with AI models could add up to a nice little local application stack? I'd be interested in trying something like that to poke around at my personal notes collection in Obsidian.</p>
+<p>So, we'll see if I can come back with further posts in this series. Hopefully back to some smaller bits of tinkering before I fall down another big rabbit hole. 😅</p>
+
+        <section class="comments" id="comments">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+              var disqus_needs_loading = true;
+              var disqus_url = "https://lmorchard.github.io/blog.lmorchard.com/2024/06/19/topic-clustering-llamafile-web-components/";
+            </script>
+            <noscript
+              >Please enable JavaScript to view the
+              <a href="http://disqus.com/?ref_noscript"
+                >comments powered by Disqus.</a
+              ></noscript
+            >
+            <a href="http://disqus.com" class="dsq-brlink"
+              >blog comments powered by
+              <span class="logo-disqus">Disqus</span></a
+            >
+          </section>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2024/09/12/you-wake-up/"
+                >You Wake Up</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2024/05/10/topic-clustering-llamafile/"
+                >Clustering ideas with Llamafile</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

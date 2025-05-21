@@ -1,118 +1,242 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>Looking for variable row height in your NSOutlineViews and NSTableViews? - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="Looking for variable row height in your NSOutlineViews and NSTableViews?" />
+    <html>
+      <head>
+        <title>Looking for variable row height in your NSOutlineViews and NSTableViews? - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="Looking for variable row height in your NSOutlineViews and NSTableViews?" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2003/01/23/ooocie/"
         />
         
-        <meta property="og:description" content="Apple&#39;s Cocoa library contains two very good table controls, ?NSTableView and it&#39;s close relative, ?NSOutlineView . However, both of these controls have one large limitation: All the rows must be the same height. This is an issue when displaying table cells with content that varies in height, such as large amounts of text or images. Luckily, Apple&#39;s Cocoa controls were also very well designed, making it possible to add this functionality simply by subclassing the table views. ?RowResizableTableView is an ?NSTableView subclass which allows each row to have variable heights, and ?RowResizableOutlineView is an ?NSOutlineView subclass with the same functionality. Source:RowResizableTableView: Variable Row Height Tables and Outlines .
+        <meta property="og:description" content="Apple&#39;s Cocoa library contains two very good table controls, ?NSTableView and it&#39;s close relative, ?NSOutlineView . However, both of these controls have one large limitation: All the rows must be the same height. This is an issue when displaying table cells with content that varies in height, such as large amounts of text or images. Luckily, Apple&#39;s Cocoa controls were also very well designed, making it possible to add this functionality simply by subclassing the table views. ?RowResizableTableView is an ?NSTableView subclass which allows each row to have variable heights, and ?RowResizableOutlineView is an ?NSOutlineView subclass with the same functionality. 
+
+Source:RowResizableTableView: Variable Row Height Tables and Outlines .
+
+
+
+
 Wow.  Although I think my Arboretum project is very likely asleep for good, it was the want for this particular component that most discouraged me from continuing with my outliner.  Nowadays what keeps me away is the absolute brilliant quality OmniGroup&#39;s OmniOutliner and the fact that it supports AppleScript, and furthermore, the fact that AppleScript has its tendrils in abso-freaking-lutely every app that seems to matter to me.  So, I can pretty much have everything I wanted to have out of Arboretum right now.
 But I&#39;d still like to come up with a decent project in Cocoa for myself.  It&#39;s just so damn comfy to develop with." />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post "
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post "
       >
-        <time
-          title="2003-01-23T23:44:07+00:00"
-          pubdate="2003-01-23T23:44:07+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2003/"
-            >2003</a
+        <header>
+          <time
+            title="2003-01-23T18:44:07-05:00"
+            pubdate="2003-01-23T18:44:07-05:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2003/01/"
-            >January</a
-          >
-          &raquo;
-          <span>23</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="Vellum and coffee rings"
+                href="/blog.lmorchard.com/2003/01/23/ooocif/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2003/"
+                >2003</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2003/01/"
+                >January</a
+              >
+              &#8226;
+              <span>23</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Python is for superheroes"
+                href="/blog.lmorchard.com/2003/01/22/ooocid/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">Looking for variable row height in your NSOutlineViews and NSTableViews?</h1>
+          
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2003/01/23/ooocif/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2003/01/22/ooocid/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
+        <blockquote cite="http://www.eng.uwaterloo.ca/~ejones/software/osx-tableview.html">Apple's Cocoa library contains two very good table controls, <span style="background : [#FFFFCE](/tag/FFFFCE);"><a href="http://www.decafbad.com/twiki/bin/edit/Main/NSTableView?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">NSTableView</font></span> and it's close relative, <span style="background : [#FFFFCE](/tag/FFFFCE);"><a href="http://www.decafbad.com/twiki/bin/edit/Main/NSOutlineView?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">NSOutlineView</font></span> . However, both of these controls have one large limitation: All the rows must be the same height. This is an issue when displaying table cells with content that varies in height, such as large amounts of text or images. Luckily, Apple's Cocoa controls were also very well designed, making it possible to add this functionality simply by subclassing the table views. <span style="background : [#FFFFCE](/tag/FFFFCE);"><a href="http://www.decafbad.com/twiki/bin/edit/Main/RowResizableTableView?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">RowResizableTableView</font></span> is an <span style="background : [#FFFFCE](/tag/FFFFCE);"><a href="http://www.decafbad.com/twiki/bin/edit/Main/NSTableView?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">NSTableView</font></span> subclass which allows each row to have variable heights, and <span style="background : [#FFFFCE](/tag/FFFFCE);"><a href="http://www.decafbad.com/twiki/bin/edit/Main/RowResizableOutlineView?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">RowResizableOutlineView</font></span> is an <span style="background : [#FFFFCE](/tag/FFFFCE);"><a href="http://www.decafbad.com/twiki/bin/edit/Main/NSOutlineView?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">NSOutlineView</font></span> subclass with the same functionality. </blockquote>
 
-        <h1 class="title">Looking for variable row height in your NSOutlineViews and NSTableViews?</h1>
-        
-        <section class="post-content">
-          <blockquote cite="http://www.eng.uwaterloo.ca/~ejones/software/osx-tableview.html">Apple's Cocoa library contains two very good table controls, <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/NSTableView?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">NSTableView</font></span> and it's close relative, <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/NSOutlineView?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">NSOutlineView</font></span> . However, both of these controls have one large limitation: All the rows must be the same height. This is an issue when displaying table cells with content that varies in height, such as large amounts of text or images. Luckily, Apple's Cocoa controls were also very well designed, making it possible to add this functionality simply by subclassing the table views. <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/RowResizableTableView?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">RowResizableTableView</font></span> is an <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/NSTableView?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">NSTableView</font></span> subclass which allows each row to have variable heights, and <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/RowResizableOutlineView?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">RowResizableOutlineView</font></span> is an <span style='background : #FFFFCE;'><a href="http://www.decafbad.com/twiki/bin/edit/Main/NSOutlineView?topicparent=Main.FilterData"><b>?</b></a><font color="#0000FF">NSOutlineView</font></span> subclass with the same functionality. </blockquote><div class="credit" align="right"><small>Source:<cite><a href="http://www.eng.uwaterloo.ca/~ejones/software/osx-tableview.html">RowResizableTableView: Variable Row Height Tables and Outlines </a></cite>.</small></div>
+<div class="credit" align="right"><small>Source:<cite><a href="http://www.eng.uwaterloo.ca/~ejones/software/osx-tableview.html">RowResizableTableView: Variable Row Height Tables and Outlines </a></cite>.</small>
+
+</div>
+
+
 <p>Wow.  Although I think my <a href="http://www.decafbad.com/twiki/bin/view/Main/Arboretum">Arboretum</a> project is very likely asleep for good, it was the want for this particular component that most discouraged me from continuing with my outliner.  Nowadays what keeps me away is the absolute brilliant quality OmniGroup's OmniOutliner and the fact that it supports <a href="http://www.decafbad.com/twiki/bin/view/Main/AppleScript">AppleScript</a>, and furthermore, the fact that <a href="http://www.decafbad.com/twiki/bin/view/Main/AppleScript">AppleScript</a> has its tendrils in abso-freaking-lutely every app that seems to matter to me.  So, I can pretty much have everything I wanted to have out of <a href="http://www.decafbad.com/twiki/bin/view/Main/Arboretum">Arboretum</a> right now.</p>
 <p>But I'd still like to come up with a decent project in Cocoa for myself.  It's just so damn comfy to develop with.</p>
+
+
 <!--more-->
-shortname=ooocie
 
-        </section>
-      </article>
-        </section>
 
-        <footer>
-          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
-        </footer>
-      </section>
+<p>shortname=ooocie</p>
 
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
-      </section>
-    </body>
-  </html>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2003/01/23/ooocif/"
+                >Vellum and coffee rings</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2003/01/22/ooocid/"
+                >Python is for superheroes</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

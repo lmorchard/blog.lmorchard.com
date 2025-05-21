@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+    <html>
+      <head>
+        <title>rsync: It&#39;s a damn brilliant thing. - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="rsync: It&#39;s a damn brilliant thing." />
+        <meta
+          property="og:url"
+          content="https://lmorchard.github.io/blog.lmorchard.com/2003/04/22/wonders-of-rsync/"
+        />
+        
+        <meta property="og:description" content="I take rsync for granted.  It&#39;s just the best way to keep stuff out there
+up to date with stuff over here, and vice versa.  And lately, I&#39;ve been
+using it to supplant my usage of scp.  And it works.  Brilliantly.  And until
+recently, I hadn&#39;t stopped to realize:  Hey, you know, this thing somehow works
+out differences between files out there and over here long before
+what&#39;s here gets there.  I know, duh, but I just hadn&#39;t considered it.
+Well,
+Paul Holbrook reminded me
+of this tonight, with links to Andrew Tridgell&#39;s
+paper on the algorithm, among other things.  Damn, things like this remind me
+that I&#39;m supposed to be getting my butt back into school..." />
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
+            <ul>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post "
+      >
+        <header>
+          <time
+            title="2003-04-22T23:00:25-04:00"
+            pubdate="2003-04-22T23:00:25-04:00"
+          >
+            <span class="prevpost">
+              <a
+                title="Indie Music Service (ala Apple)?"
+                href="/blog.lmorchard.com/2003/04/29/rdf-tunes/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2003/"
+                >2003</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2003/04/"
+                >April</a
+              >
+              &#8226;
+              <span>22</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Learning How to Do Magic with Flash and XML"
+                href="/blog.lmorchard.com/2003/04/22/flash-xml-magic/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">rsync: It's a damn brilliant thing.</h1>
+          
+        </header>
+
+        <p>I take rsync for granted.  It's just the best way to keep stuff <i>out there</i>
+up to date with stuff <i>over here</i>, and vice versa.  And lately, I've been
+using it to supplant my usage of <code>scp</code>.  And it works.  Brilliantly.  And until
+recently, I hadn't stopped to realize:  Hey, you know, this thing somehow works
+out differences between files <i>out there</i> and <i>over here</i> long <i>before</i>
+what's <i>here</i> gets <i>there</i>.  I know, duh, but I just hadn't considered it.</p>
+<p>Well,
+<a href="http://weblog.bluepenguin.us/archives/2003/04/22/rsync_one_of_the_wonders_of_the_cs_world.html" target="_top">Paul Holbrook reminded me</a>
+of this tonight, with links to <a href="http://samba.anu.edu.au/~tridge/" target="_top">Andrew Tridgell</a>'s
+paper on the algorithm, among other things.  Damn, things like this remind me
+that I'm supposed to be getting my butt back into school...</p>
+<!--more-->
+
+
+<p>shortname=wonders_of_rsync</p>
+<div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
+<ul class="comments">
+<li class="comment" id="comment-221085318">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" href="http://kennethhunt.com/index.html"><img src="http://www.gravatar.com/avatar.php?gravatar_id=9b8ea315cc1b2de28e883e091e943dd2&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://kennethhunt.com/index.html">Kenneth</a>
+</div>
+
+
+<p><a href="#comment-221085318" class="permalink"><time datetime="2003-04-27T18:52:55">2003-04-27T18:52:55</time></a></p>
+</div>
+
+
+<div class="content">Also see the excellent The rsync Algorithm there is a mp3 of his presentation
+http://archive.linuxsymposium.org/ols2000/2000-07-21_15-02-49_C_64.mp3
+Very nice. Wish they would get the newer symposiums up.</div>
+
+
+</li>
+<li class="comment" id="comment-221085320">
+<div class="meta">
+<div class="author">
+<a class="avatar image" rel="nofollow" href="http://www.ecyrd.com/ButtUgly/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=8f688c7919a6645352e1bb59b2f45ae4&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://www.ecyrd.com/ButtUgly/">Janne Jalkanen</a>
+</div>
+
+
+<p><a href="#comment-221085320" class="permalink"><time datetime="2003-04-28T05:09:20">2003-04-28T05:09:20</time></a></p>
+</div>
+
+
+<div class="content">If I were you, I would take a serious look at Unison, which is like rsync, but it is two-way.  I use it for all my backup/sync needs.
+http://www.cis.upenn.edu/~bcpierce/unison/</div>
+
+
+</li>
+</ul>
+
+
+</div>
+
+        
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2003/04/29/rdf-tunes/"
+                >Indie Music Service (ala Apple)?</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2003/04/22/flash-xml-magic/"
+                >Learning How to Do Magic with Flash and XML</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

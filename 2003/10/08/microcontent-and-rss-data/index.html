@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>Microcontent and RSS-Data - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="Microcontent and RSS-Data" />
+    <html>
+      <head>
+        <title>Microcontent and RSS-Data - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="Microcontent and RSS-Data" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2003/10/08/microcontent-and-rss-data/"
@@ -78,6 +85,8 @@ and RSS 1.0 module used for presenting calendar event information.
 
 
 
+
+
 Yes, with the exception of ENT, these are RDF schema or namespaces.
 But, any one of them could likely be adapted to straight XML and used as an RSS 2.0
 namespace, thereby leveraging the work these people have already done
@@ -100,59 +109,132 @@ the things they seek to represent.
 
 
 What&#39;s the RSS-Data magic that improves on all the above?" />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post "
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post "
       >
-        <time
-          title="2003-10-08T12:30:52+00:00"
-          pubdate="2003-10-08T12:30:52+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2003/"
-            >2003</a
+        <header>
+          <time
+            title="2003-10-08T08:30:52-04:00"
+            pubdate="2003-10-08T08:30:52-04:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2003/10/"
-            >October</a
-          >
-          &raquo;
-          <span>08</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="When RSS Developers Attack"
+                href="/blog.lmorchard.com/2003/10/14/when-rss-attacks/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2003/"
+                >2003</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2003/10/"
+                >October</a
+              >
+              &#8226;
+              <span>08</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Schemas, Freedom, and Control"
+                href="/blog.lmorchard.com/2003/10/07/schemas-freedom-and-control/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">Microcontent and RSS-Data</h1>
+          
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2003/10/14/when-rss-attacks/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2003/10/07/schemas-freedom-and-control/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">Microcontent and RSS-Data</h1>
-        
-        <section class="post-content">
-          <p>
+        <p>
 In response to the opposition to RSS-Data,
 <a href="http://blogs.it/0100198/2003/10/07.html#a1818">Marc asks</a>,
 "Where are the Reviews, Resumes, Recipes, Topics and other cool new
@@ -190,6 +272,8 @@ And, finally, for events there is
 and RSS 1.0 module used for presenting calendar event information.
 </li>
 </ul>
+
+
 <p>
 Yes, with the exception of ENT, these are RDF schema or namespaces.
 But, any one of them could likely be adapted to straight XML and used as an RSS 2.0
@@ -214,21 +298,26 @@ the things they seek to represent.
 <p>
 What's the RSS-Data magic that improves on all the above?
 </p>
-<!--more-->
-shortname=microcontent_and_rss_data
 
+
+<!--more-->
+
+
+<p>shortname=microcontent_and_rss_data</p>
 <div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
 <ul class="comments">
 <li class="comment" id="comment-221085572">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://dannyayers.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=ac0d01ebb5e438c029c0764064f70827&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://dannyayers.com">Danny</a>
+<a class="avatar image" rel="nofollow" href="http://dannyayers.com"><img src="http://www.gravatar.com/avatar.php?gravatar_id=ac0d01ebb5e438c029c0764064f70827&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://dannyayers.com">Danny</a>
 </div>
-<a href="#comment-221085572" class="permalink"><time datetime="2003-10-08T13:47:50">2003-10-08T13:47:50</time></a>
+
+
+<p><a href="#comment-221085572" class="permalink"><time datetime="2003-10-08T13:47:50">2003-10-08T13:47:50</time></a></p>
 </div>
+
+
 <div class="content">I did one too! A review vocab that is (I only did it as a demo, but Leigh used it in FOAF-a-matic for music and *blogs*, so I've started treating it proper).
 http://ideagraph.net/xmlns/rev/
 blog note:
@@ -236,17 +325,21 @@ http://dannyayers.com/ideagraph-blog/archives/cat_vocabularies.html
 Re. RSS 2.0 extensions, I recently did a bit of Googling myself:
 http://dannyayers.com/archives/001713.html
 (in short, they're not getting used much)</div>
+
+
 </li>
 <li class="comment" id="comment-221085574">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://admin.support.journurl.com/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=4df556273eae91df768e9af6e4efdfcc&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://admin.support.journurl.com/">Roger Benningfield</a>
+<a class="avatar image" rel="nofollow" href="http://admin.support.journurl.com/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=4df556273eae91df768e9af6e4efdfcc&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://admin.support.journurl.com/">Roger Benningfield</a>
 </div>
-<a href="#comment-221085574" class="permalink"><time datetime="2003-10-09T02:03:01">2003-10-09T02:03:01</time></a>
+
+
+<p><a href="#comment-221085574" class="permalink"><time datetime="2003-10-09T02:03:01">2003-10-09T02:03:01</time></a></p>
 </div>
+
+
 <div class="content">Les: There's a recurring theme in a few of your recent entries that I think it pretty important to consider... extended metadata in RSS is, so far, sort of a flop. The central elements of title, description, and date are so easy to adapt to so many applications that *any* kind of extension (namespaces, RDF, or RSS-Data) may be more trouble than 90% of the folks out there are willing to endure. In the grand scheme, streamlining something like RSS subscriptions or subscription management is probably *way* more important than finding ways to wedge new information into existing feeds. So ultimately, we may be debating an edge case's edge case.
 But assuming for the moment that there's actually a point to all of this :) , and in answer to your entry...
 Les: "You'll still need to do the same sort of modeling and structure work that the authors of all the above have done. It's always nicer to have someone else do homework for you."
@@ -254,22 +347,54 @@ Why would I design my application's internal database, for example, around what 
 I fundamentally disagree with that sort of thinking... it's one of the big reasons that I tend to lose interest in some XML/blogging/whatever projects. (Atom being a recent, prominent example.) There often seems to come a point where data-modeling fans stop talking about ways to translate what I'm saying into something we both understand and start telling me to change my native language to suit their notions of order and purity.
 Now, as I sit here typing this, it occurs to me that RSS-Data could be the exact same thing in reverse. It's possible that some of it's appeal to me may boil down to a desire to project *my* priorities on to other folks. It's a bit hypocritical of me to be irritated by people who want to tell me how to design my app and then turn around and tell someone else, "Hey, if you want at my data, you'll just have to accomodate my internal structure in your app."
 I hope you're proud of yourself, Les. You're about to make me change my mind by inadvertantly poking my guilty conscience with a stick. :D</div>
+
+
 </li>
 </ul>
+
+
 </div>
 
-        </section>
-      </article>
-        </section>
-
-        <footer>
-          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
-        </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
-      </section>
-    </body>
-  </html>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2003/10/14/when-rss-attacks/"
+                >When RSS Developers Attack</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2003/10/07/schemas-freedom-and-control/"
+                >Schemas, Freedom, and Control</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

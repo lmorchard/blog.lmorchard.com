@@ -1,182 +1,405 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>aggregators - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>aggregators - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/tag/aggregators/index.rss"
+          rel="alternate"
+          title="Tag: aggregators - blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/tag/aggregators.rss"
+                rel="alternate"
+                title="Tag: aggregators - blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/tag/aggregators/index.rss" title="Tag: aggregators - blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Tag: aggregators</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post tag-metablogging tag-aggregators tag-feeds tag-spew tag-venus tag-planet tag-pobox.com tag-accumulator"
-          >
-            <time class="date" datetime="2007-12-25T05:25:16+00:00">
-              2007
-              December
-              25
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2007/12/25/an-accumulator-for-all-my-stuff/">
-              <span class="infoContainer">
-                <span class="title">An Accumulator for all my stuff</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-metablogging tag-webdev tag-aggregators tag-rss tag-software tag-osx"
-          >
-            <time class="date" datetime="2007-01-02T21:37:48+00:00">
-              2007
-              January
-              02
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2007/01/02/vienna-is-now-my-weapon-of-choice-for-feeds/">
-              <span class="infoContainer">
-                <span class="title">Vienna is now my weapon of choice for feeds</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-aggregators tag-rss tag-firefox tag-atom tag-xsl tag-xml"
-          >
-            <time class="date" datetime="2006-11-24T06:28:11+00:00">
-              2006
-              November
-              24
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/11/24/content-sniffing-sucks/">
-              <span class="infoContainer">
-                <span class="title">content sniffing sucks</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-webdev tag-aggregators tag-rss tag-syndication tag-php tag-readinglists"
-          >
-            <time class="date" datetime="2006-08-18T04:43:20+00:00">
-              2006
-              August
-              18
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/08/18/good-gregarius/">
-              <span class="infoContainer">
-                <span class="title">good gregarius</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-aggregators tag-rss tag-syndication tag-atom tag-attention"
-          >
-            <time class="date" datetime="2006-01-03T14:45:01+00:00">
-              2006
-              January
-              03
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/01/03/sharing-attention-while-reading-feeds/">
-              <span class="infoContainer">
-                <span class="title">Sharing attention while reading feeds</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-aggregators tag-rss tag-syndication tag-atom tag-feeds"
-          >
-            <time class="date" datetime="2005-10-26T16:13:21+00:00">
-              2005
-              October
-              26
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/10/26/google-reader-vs-microsoft-startcom/">
-              <span class="infoContainer">
-                <span class="title">Google Reader vs Microsoft start.com</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-ajax tag-aggregators tag-rss tag-syndication tag-atom tag-google"
-          >
-            <time class="date" datetime="2005-10-08T17:47:15+00:00">
-              2005
-              October
-              08
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2005/10/08/google-reader-is-good/">
-              <span class="infoContainer">
-                <span class="title">Google Reader is good</span>
-              </span>
-            </a>
-            
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Tag: aggregators</h2>
+        </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2007 December 25</h2>
+  </li><li class="content-grid post post-type-entry tag-metablogging tag-aggregators tag-feeds tag-spew tag-venus tag-planet tag-pobox.com tag-accumulator">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2007/12/25/an-accumulator-for-all-my-stuff/">An Accumulator for all my stuff</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2007/12/25/an-accumulator-for-all-my-stuff/"
+          >249&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2007/12/25/an-accumulator-for-all-my-stuff/">#</a>
+    <a class="time" href="2007/12/25/an-accumulator-for-all-my-stuff/">12:25 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/aggregators/">aggregators</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/feeds/">feeds</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/spew/">spew</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/venus/">venus</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/planet/">planet</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/pobox.com/">pobox.com</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/accumulator/">accumulator</a>
           </li>
     </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2007 January 02</h2>
+  </li><li class="content-grid post post-type-entry tag-metablogging tag-webdev tag-aggregators tag-rss tag-software tag-osx">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2007/01/02/vienna-is-now-my-weapon-of-choice-for-feeds/">Vienna is now my weapon of choice for feeds</a>
+      </h2>
     
-  </section>
-      </section>
-        </section>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2007/01/02/vienna-is-now-my-weapon-of-choice-for-feeds/"
+          >961&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2007/01/02/vienna-is-now-my-weapon-of-choice-for-feeds/">#</a>
+    <a class="time" href="2007/01/02/vienna-is-now-my-weapon-of-choice-for-feeds/">4:37 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/aggregators/">aggregators</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/rss/">rss</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/software/">software</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/osx/">osx</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 November 24</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-aggregators tag-rss tag-firefox tag-atom tag-xsl tag-xml">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/11/24/content-sniffing-sucks/">content sniffing sucks</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/11/24/content-sniffing-sucks/"
+          >60&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/11/24/content-sniffing-sucks/">#</a>
+    <a class="time" href="2006/11/24/content-sniffing-sucks/">1:28 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/aggregators/">aggregators</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/rss/">rss</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/firefox/">firefox</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/atom/">atom</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xsl/">xsl</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xml/">xml</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 August 18</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-webdev tag-aggregators tag-rss tag-syndication tag-php tag-readinglists">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/08/18/good-gregarius/">good gregarius</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/08/18/good-gregarius/"
+          >143&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/08/18/good-gregarius/">#</a>
+    <a class="time" href="2006/08/18/good-gregarius/">12:43 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/aggregators/">aggregators</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/rss/">rss</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/php/">php</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/readinglists/">readinglists</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 January 03</h2>
+  </li><li class="content-grid post post-type-entry tag-aggregators tag-rss tag-syndication tag-atom tag-attention">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/01/03/sharing-attention-while-reading-feeds/">Sharing attention while reading feeds</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/01/03/sharing-attention-while-reading-feeds/"
+          >1105&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/01/03/sharing-attention-while-reading-feeds/">#</a>
+    <a class="time" href="2006/01/03/sharing-attention-while-reading-feeds/">9:45 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/aggregators/">aggregators</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/rss/">rss</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/atom/">atom</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/attention/">attention</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 October 26</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-aggregators tag-rss tag-syndication tag-atom tag-feeds">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/10/26/google-reader-vs-microsoft-startcom/">Google Reader vs Microsoft start.com</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/10/26/google-reader-vs-microsoft-startcom/"
+          >365&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/10/26/google-reader-vs-microsoft-startcom/">#</a>
+    <a class="time" href="2005/10/26/google-reader-vs-microsoft-startcom/">12:13 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/aggregators/">aggregators</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/rss/">rss</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/atom/">atom</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/feeds/">feeds</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2005 October 08</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-ajax tag-aggregators tag-rss tag-syndication tag-atom tag-google">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2005/10/08/google-reader-is-good/">Google Reader is good</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2005/10/08/google-reader-is-good/"
+          >420&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2005/10/08/google-reader-is-good/">#</a>
+    <a class="time" href="2005/10/08/google-reader-is-good/">1:47 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ajax/">ajax</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/aggregators/">aggregators</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/rss/">rss</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/atom/">atom</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/google/">google</a>
+          </li>
+    </ul>
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
 
-        <footer>
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/tag/aggregators/index.rss" title="Tag: aggregators - blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

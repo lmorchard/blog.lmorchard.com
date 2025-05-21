@@ -1,257 +1,539 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>2006/10 - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>2006/10 - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Month: 2006/10</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post tag-webdev tag-js tag-outliners tag-outlining tag-javascript tag-dhtml tag-yui"
-          >
-            <time class="date" datetime="2006-10-31T21:46:40+00:00">
-              2006
-              October
-              31
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/10/31/event-delegation-based-dhtml-drag-and-drop/">
-              <span class="infoContainer">
-                <span class="title">Event Delegation based DHTML Drag and Drop?</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-webdev tag-firefox tag-microsummaries tag-bookmarks"
-          >
-            <time class="date" datetime="2006-10-29T20:34:49+00:00">
-              2006
-              October
-              29
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/10/29/microsummaries-and-content-type-mysteries/">
-              <span class="infoContainer">
-                <span class="title">Microsummaries and Content-Type Mysteries</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-gaming tag-nintendo tag-ds tag-fun tag-multiplayer"
-          >
-            <time class="date" datetime="2006-10-28T19:24:38+00:00">
-              2006
-              October
-              28
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/10/28/clubhouse-games-ftw-on-nintendo-ds/">
-              <span class="infoContainer">
-                <span class="title">clubhouse games FTW on nintendo ds</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-wordpress tag-metablogging"
-          >
-            <time class="date" datetime="2006-10-27T22:10:58+00:00">
-              2006
-              October
-              27
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/10/27/too-much-information-running-through-my-brain/">
-              <span class="infoContainer">
-                <span class="title">too much information running through my brain</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-wordpress tag-metablogging tag-sandbox tag-hemingway tag-css"
-          >
-            <time class="date" datetime="2006-10-27T16:39:45+00:00">
-              2006
-              October
-              27
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/10/27/sandbox-with-a-hemingway-like-rich-footer/">
-              <span class="infoContainer">
-                <span class="title">sandbox with a hemingway-like rich footer</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-wordpress tag-metablogging tag-hemmingway"
-          >
-            <time class="date" datetime="2006-10-26T20:06:13+00:00">
-              2006
-              October
-              26
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/10/26/hemingway-theme-blocks-and-widgets/">
-              <span class="infoContainer">
-                <span class="title">hemingway theme blocks and widgets</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-metablogging tag-rss tag-mydreamapp tag-hijack tag-atom tag-forums tag-usenet"
-          >
-            <time class="date" datetime="2006-10-26T16:56:30+00:00">
-              2006
-              October
-              26
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/10/26/mydreamapp-disappointments-and-hijack/">
-              <span class="infoContainer">
-                <span class="title">MyDreamApp disappointments and Hijack</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-metablogging tag-lazy tag-relaxing tag-nullblogging"
-          >
-            <time class="date" datetime="2006-10-26T16:34:49+00:00">
-              2006
-              October
-              26
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/10/26/much-ablog-about-nothing/">
-              <span class="infoContainer">
-                <span class="title">much ablog about nothing</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-wow tag-hacking tag-injury tag-writing tag-mashups"
-          >
-            <time class="date" datetime="2006-10-13T19:19:26+00:00">
-              2006
-              October
-              13
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/10/13/throttling-the-basement-hacker/">
-              <span class="infoContainer">
-                <span class="title">throttling the basement hacker</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-music tag-nelljames tag-marketing"
-          >
-            <time class="date" datetime="2006-10-09T15:50:08+00:00">
-              2006
-              October
-              09
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/10/09/nell-james-and-lastfm-marketing/">
-              <span class="infoContainer">
-                <span class="title">nell james and last.fm marketing</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-asides tag-firefox tag-software tag-browsers tag-ftw"
-          >
-            <time class="date" datetime="2006-10-08T21:26:04+00:00">
-              2006
-              October
-              08
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/10/08/firefox-20-ftw/">
-              <span class="infoContainer">
-                <span class="title">firefox 2.0 ftw</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post has-thumb tag-delicious tag-gimp tag-crutches"
-          >
-            <time class="date" datetime="2006-10-02T21:55:42+00:00">
-              2006
-              October
-              02
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2006/10/02/back-in-the-saddle-again/">
-              <span class="infoContainer">
-                <span class="title">Back in the Saddle Again</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://decafbad.com/blog/wp-content/uploads/2006/10/plaze-20days.jpg" />
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Month: 2006/10</h2>
+        </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2006 October 31</h2>
+  </li><li class="content-grid post post-type-entry tag-webdev tag-js tag-outliners tag-outlining tag-javascript tag-dhtml tag-yui">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/10/31/event-delegation-based-dhtml-drag-and-drop/">Event Delegation based DHTML Drag and Drop?</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/10/31/event-delegation-based-dhtml-drag-and-drop/"
+          >1149&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/10/31/event-delegation-based-dhtml-drag-and-drop/">#</a>
+    <a class="time" href="2006/10/31/event-delegation-based-dhtml-drag-and-drop/">4:46 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/js/">js</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/outliners/">outliners</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/outlining/">outlining</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/javascript/">javascript</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/dhtml/">dhtml</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/yui/">yui</a>
           </li>
     </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 October 29</h2>
+  </li><li class="content-grid post post-type-entry tag-webdev tag-firefox tag-microsummaries tag-bookmarks">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/10/29/microsummaries-and-content-type-mysteries/">Microsummaries and Content-Type Mysteries</a>
+      </h2>
     
-  </section>
-      </section>
-        </section>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/10/29/microsummaries-and-content-type-mysteries/"
+          >538&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/10/29/microsummaries-and-content-type-mysteries/">#</a>
+    <a class="time" href="2006/10/29/microsummaries-and-content-type-mysteries/">3:34 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/firefox/">firefox</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/microsummaries/">microsummaries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/bookmarks/">bookmarks</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 October 28</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-gaming tag-nintendo tag-ds tag-fun tag-multiplayer">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/10/28/clubhouse-games-ftw-on-nintendo-ds/">clubhouse games FTW on nintendo ds</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/10/28/clubhouse-games-ftw-on-nintendo-ds/"
+          >295&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/10/28/clubhouse-games-ftw-on-nintendo-ds/">#</a>
+    <a class="time" href="2006/10/28/clubhouse-games-ftw-on-nintendo-ds/">3:24 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/gaming/">gaming</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/nintendo/">nintendo</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ds/">ds</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/fun/">fun</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/multiplayer/">multiplayer</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 October 27</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-wordpress tag-metablogging">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/10/27/too-much-information-running-through-my-brain/">too much information running through my brain</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/10/27/too-much-information-running-through-my-brain/"
+          >224&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/10/27/too-much-information-running-through-my-brain/">#</a>
+    <a class="time" href="2006/10/27/too-much-information-running-through-my-brain/">6:10 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/wordpress/">wordpress</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides tag-wordpress tag-metablogging tag-sandbox tag-hemingway tag-css">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/10/27/sandbox-with-a-hemingway-like-rich-footer/">sandbox with a hemingway-like rich footer</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/10/27/sandbox-with-a-hemingway-like-rich-footer/"
+          >149&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/10/27/sandbox-with-a-hemingway-like-rich-footer/">#</a>
+    <a class="time" href="2006/10/27/sandbox-with-a-hemingway-like-rich-footer/">12:39 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/wordpress/">wordpress</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/sandbox/">sandbox</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/hemingway/">hemingway</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/css/">css</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 October 26</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-wordpress tag-metablogging tag-hemmingway">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/10/26/hemingway-theme-blocks-and-widgets/">hemingway theme blocks and widgets</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/10/26/hemingway-theme-blocks-and-widgets/"
+          >255&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/10/26/hemingway-theme-blocks-and-widgets/">#</a>
+    <a class="time" href="2006/10/26/hemingway-theme-blocks-and-widgets/">4:06 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/wordpress/">wordpress</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/hemmingway/">hemmingway</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-metablogging tag-rss tag-mydreamapp tag-hijack tag-atom tag-forums tag-usenet">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/10/26/mydreamapp-disappointments-and-hijack/">MyDreamApp disappointments and Hijack</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/10/26/mydreamapp-disappointments-and-hijack/"
+          >340&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/10/26/mydreamapp-disappointments-and-hijack/">#</a>
+    <a class="time" href="2006/10/26/mydreamapp-disappointments-and-hijack/">12:56 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/rss/">rss</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mydreamapp/">mydreamapp</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/hijack/">hijack</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/atom/">atom</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/forums/">forums</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/usenet/">usenet</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-asides tag-metablogging tag-lazy tag-relaxing tag-nullblogging">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/10/26/much-ablog-about-nothing/">much ablog about nothing</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/10/26/much-ablog-about-nothing/"
+          >276&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/10/26/much-ablog-about-nothing/">#</a>
+    <a class="time" href="2006/10/26/much-ablog-about-nothing/">12:34 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/lazy/">lazy</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/relaxing/">relaxing</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/nullblogging/">nullblogging</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 October 13</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-wow tag-hacking tag-injury tag-writing tag-mashups">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/10/13/throttling-the-basement-hacker/">throttling the basement hacker</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/10/13/throttling-the-basement-hacker/"
+          >427&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/10/13/throttling-the-basement-hacker/">#</a>
+    <a class="time" href="2006/10/13/throttling-the-basement-hacker/">3:19 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/wow/">wow</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacking/">hacking</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/injury/">injury</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/writing/">writing</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mashups/">mashups</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 October 09</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-music tag-nelljames tag-marketing">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/10/09/nell-james-and-lastfm-marketing/">nell james and last.fm marketing</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/10/09/nell-james-and-lastfm-marketing/"
+          >152&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/10/09/nell-james-and-lastfm-marketing/">#</a>
+    <a class="time" href="2006/10/09/nell-james-and-lastfm-marketing/">11:50 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/music/">music</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/nelljames/">nelljames</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/marketing/">marketing</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 October 08</h2>
+  </li><li class="content-grid post post-type-entry tag-asides tag-firefox tag-software tag-browsers tag-ftw">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/10/08/firefox-20-ftw/">firefox 2.0 ftw</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/10/08/firefox-20-ftw/"
+          >174&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/10/08/firefox-20-ftw/">#</a>
+    <a class="time" href="2006/10/08/firefox-20-ftw/">5:26 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/asides/">asides</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/firefox/">firefox</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/software/">software</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/browsers/">browsers</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/ftw/">ftw</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2006 October 02</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-delicious tag-gimp tag-crutches">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2006/10/02/back-in-the-saddle-again/">Back in the Saddle Again</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://decafbad.com/blog/wp-content/uploads/2006/10/plaze-20days.jpg" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2006/10/02/back-in-the-saddle-again/"
+          >174&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2006/10/02/back-in-the-saddle-again/">#</a>
+    <a class="time" href="2006/10/02/back-in-the-saddle-again/">5:55 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/delicious/">delicious</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/gimp/">gimp</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/crutches/">crutches</a>
+          </li>
+    </ul>
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
 
-        <footer>
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

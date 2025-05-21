@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>Using web services and XSLT to scrape RSS from HTML - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      <meta property="og:title" content="Using web services and XSLT to scrape RSS from HTML" />
+    <html>
+      <head>
+        <title>Using web services and XSLT to scrape RSS from HTML - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
+
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        <meta property="og:title" content="Using web services and XSLT to scrape RSS from HTML" />
         <meta
           property="og:url"
           content="https://lmorchard.github.io/blog.lmorchard.com/2003/09/02/xsl-scraper/"
@@ -64,60 +71,132 @@ For quick gratification, check out these feeds:
   - J-List -- You&#39;ve got a friend in Japan!
 
   - New JOBS at the University of Michigan (By Job Family)" />
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <article
-        class="post "
+        <section class="main"><article
+        data-pagefind-body
+        class="content content-grid post "
       >
-        <time
-          title="2003-09-02T04:22:53+00:00"
-          pubdate="2003-09-02T04:22:53+00:00"
-        >
-          <a href="/blog.lmorchard.com/"><i class="fa fa-home"></i></a>
-          &raquo;
-          <a href="/blog.lmorchard.com/2003/"
-            >2003</a
+        <header>
+          <time
+            title="2003-09-02T00:22:53-04:00"
+            pubdate="2003-09-02T00:22:53-04:00"
           >
-          &raquo;
-          <a href="/blog.lmorchard.com/2003/09/"
-            >September</a
-          >
-          &raquo;
-          <span>02</span>
-          &raquo;
-        </time>
+            <span class="prevpost">
+              <a
+                title="ChangeLog to RSS web service"
+                href="/blog.lmorchard.com/2003/09/02/cl-to-rss/"
+                >&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a
+              >
+            </span>
+            <span class="postdate">
+              <a href="/blog.lmorchard.com/2003/"
+                >2003</a
+              >
+              &#8226;
+              <a href="/blog.lmorchard.com/2003/09/"
+                >September</a
+              >
+              &#8226;
+              <span>02</span>
+            </span>
+            <span class="nextpost">
+              <a
+                title="Switching to a JVDS server"
+                href="/blog.lmorchard.com/2003/08/31/switched-to-jvds/"
+                >&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a
+              >
+            </span>
+          </time>
+          <h1 class="title">Using web services and XSLT to scrape RSS from HTML</h1>
+          
+        </header>
 
-        <nav class="post-links">
-          <a href="/blog.lmorchard.com/2003/09/02/cl-to-rss/"
-              >&laquo; prev<a> </a
-            ></a>
-          &nbsp;|&nbsp;
-          <a href="/blog.lmorchard.com/2003/09/01/switched-to-jvds/"
-              >next &raquo;<a> </a
-            ></a>
-        </nav>
-
-        <h1 class="title">Using web services and XSLT to scrape RSS from HTML</h1>
-        
-        <section class="post-content">
-          <p><br /><br /></p>
-<p>
+        <p>
 After tinkering a bit with
 <a href="http://www.decafbad.com/blog/geek/rss_scrape_urls2.html" target="_top">web services and XSLT-based scraping</a>
 last week for generating <a href="http://www.decafbad.com/twiki/bin/view/Main/RSS">RSS</a> from HTML, I ripped out some work I was
@@ -131,49 +210,88 @@ avaiable in the Wiki.  Check it out.  I've got shell scripts to run the stuff
 from as a cron job, and CGI scripts to run it all from web services.
 </p><p>
 For quick gratification, check out these feeds:
-<ul>
-<li> <a href="http://www.decafbad.com/2003/08/tidyxslt?xsl=http%3A%2F%2Fwww.whump.com%2Fdropbox%2Fnationrss%2Fnation.xsl&amp;doc=http%3A%2F%2Fwww.thenation.com"><img src="http://www.decafbad.com/images/xml.gif" border="0" /></a> - <a href="http://www.thenation.com">The Nation</a> (using <a href="http://www.whump.com/moreLikeThis/date/21/08/2003" target="_top">Bill Humphries' XSL</a>) 
+</p><ul>
+<li> <a href="http://www.decafbad.com/2003/08/tidyxslt?xsl=http%3A%2F%2Fwww.whump.com%2Fdropbox%2Fnationrss%2Fnation.xsl&amp;doc=http%3A%2F%2Fwww.thenation.com"><img src="http://www.decafbad.com/images/xml.gif" border="0" width="" height=""></a> - <a href="http://www.thenation.com">The Nation</a> (using <a href="http://www.whump.com/moreLikeThis/date/21/08/2003" target="_top">Bill Humphries' XSL</a>) 
 </li>
-<li> <a href="http://www.decafbad.com/2003/08/tidyxslt?xsl=http%3A%2F%2Fwww.decafbad.com%2F2003%2F08%2Fxsl_scraper%2Fscrapers%2Fkurzweilai.xsl&amp;doc=http%3A%2F%2Fwww.kurzweilai.net%2Findex.html%3Fflash%3D1"><img src="http://www.decafbad.com/images/xml.gif" border="0" /></a> - <a href="http://www.kurzweilai.net/index.html?flash=1">KurzweilAI.net</a>
+<li> <a href="http://www.decafbad.com/2003/08/tidyxslt?xsl=http%3A%2F%2Fwww.decafbad.com%2F2003%2F08%2Fxsl_scraper%2Fscrapers%2Fkurzweilai.xsl&amp;doc=http%3A%2F%2Fwww.kurzweilai.net%2Findex.html%3Fflash%3D1"><img src="http://www.decafbad.com/images/xml.gif" border="0" width="" height=""></a> - <a href="http://www.kurzweilai.net/index.html?flash=1">KurzweilAI.net</a>
 </li>
-<li> <a href="http://www.decafbad.com/2003/08/tidyxslt?xsl=http%3A%2F%2Fwww.decafbad.com%2F2003%2F08%2Fxsl_scraper%2Fscrapers%2Fjlist.xsl&amp;doc=http%3A%2F%2Fwww.jlist.com%2FUPDATES%2FPG%2F7%2F"><img src="http://www.decafbad.com/images/xml.gif" border="0" /></a> - <a href="http://www.jlist.com/">J-List -- You've got a friend in Japan!</a>
+<li> <a href="http://www.decafbad.com/2003/08/tidyxslt?xsl=http%3A%2F%2Fwww.decafbad.com%2F2003%2F08%2Fxsl_scraper%2Fscrapers%2Fjlist.xsl&amp;doc=http%3A%2F%2Fwww.jlist.com%2FUPDATES%2FPG%2F7%2F"><img src="http://www.decafbad.com/images/xml.gif" border="0" width="" height=""></a> - <a href="http://www.jlist.com/">J-List -- You've got a friend in Japan!</a>
 </li>
-<li> <a href="http://www.decafbad.com/2003/08/tidyxslt?xsl=http%3A%2F%2Fwww.decafbad.com%2F2003%2F08%2Fxsl_scraper%2Fscrapers%2Fumich-jobs.xsl&amp;doc=http%3A%2F%2Fwebsvcs.itd.umich.edu%2Fjobnet%2Fnew_postings_byjobfamily.php"><img src="http://www.decafbad.com/images/xml.gif" border="0" /></a> - <a href="http://websvcs.itd.umich.edu/jobnet/">New JOBS at the University of Michigan (By Job Family)</a>
+<li> <a href="http://www.decafbad.com/2003/08/tidyxslt?xsl=http%3A%2F%2Fwww.decafbad.com%2F2003%2F08%2Fxsl_scraper%2Fscrapers%2Fumich-jobs.xsl&amp;doc=http%3A%2F%2Fwebsvcs.itd.umich.edu%2Fjobnet%2Fnew_postings_byjobfamily.php"><img src="http://www.decafbad.com/images/xml.gif" border="0" width="" height=""></a> - <a href="http://websvcs.itd.umich.edu/jobnet/">New JOBS at the University of Michigan (By Job Family)</a>
 </li>
 </ul>
-</p>
-<!--more-->
-shortname=xsl_scraper
 
+
+<p></p>
+
+
+<!--more-->
+
+
+<p>shortname=xsl_scraper</p>
 <div id="comments" class="comments archived-comments"><h3>Archived Comments</h3>
 <ul class="comments">
 <li class="comment" id="comment-221082688">
 <div class="meta">
 <div class="author">
-<a class="avatar image" rel="nofollow" 
-href="http://patrick.lioi.net"><img src="http://www.gravatar.com/avatar.php?gravatar_id=0af1f52a082bc92d355d3fc9b29b4c2e&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png"/></a>
-<a class="avatar name" rel="nofollow" 
-href="http://patrick.lioi.net">Patrick Lioi</a>
+<a class="avatar image" rel="nofollow" href="http://patrick.lioi.net"><img src="http://www.gravatar.com/avatar.php?gravatar_id=0af1f52a082bc92d355d3fc9b29b4c2e&amp;size=32&amp;default=http://mediacdn.disqus.com/1320279820/images/noavatar32.png" width="" height=""></a>
+<a class="avatar name" rel="nofollow" href="http://patrick.lioi.net">Patrick Lioi</a>
 </div>
-<a href="#comment-221082688" class="permalink"><time datetime="2003-09-03T19:03:03">2003-09-03T19:03:03</time></a>
+
+
+<p><a href="#comment-221082688" class="permalink"><time datetime="2003-09-03T19:03:03">2003-09-03T19:03:03</time></a></p>
 </div>
+
+
 <div class="content">The KurzweilAI.net feed is empty.</div>
+
+
 </li>
 </ul>
+
+
 </div>
 
-        </section>
-      </article>
-        </section>
-
-        <footer>
-          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
-        </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
         
-      </section>
-    </body>
-  </html>
+      </article>
+
+      <section class="posts-nav content-grid">
+        <span class="prev-post">
+            <span
+              ><a href="/blog.lmorchard.com/2003/09/02/cl-to-rss/"
+                >ChangeLog to RSS web service</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        <span class="next-post">
+            <span
+              ><a href="/blog.lmorchard.com/2003/08/31/switched-to-jvds/"
+                >Switching to a JVDS server</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+      </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
+          <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </body>
+    </html>

@@ -10,7 +10,7 @@ tags:
 
 <!--more-->
 
-<img src="./cover.png" class="fullwidth" />
+<figure class="wide"><img src="./cover.png" /></figure>
 
 Miriam watched how Goibniu moved into the room. Ey trundled in, turned around, carefully watched the room's door as ey closed it behind em. Ey painstakingly navigated the tables and chairs placed throughout the nearly-deserted break room.
 

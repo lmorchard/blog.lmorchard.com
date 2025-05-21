@@ -1,6 +1,6 @@
 **TL;DR**: *I have a history of building news aggregators. Now, I've built one as an addon for Firefox 4.*
 
-<a href="https://addons.mozilla.org/en-US/firefox/addon/fireriver/"><img src="http://decafbad.com/blog/wp-content/uploads/2011/01/fireriver-index.png" alt="Fireriver" border="0" width="600" height="375" /></a>
+<a href="https://addons.mozilla.org/en-US/firefox/addon/fireriver/"><img src="http://decafbad.com/blog/wp-content/uploads/2011/01/fireriver-index.png" alt="Fireriver" border="0" /></a>
 
 This is Fireriver, [an **experimental** add-on for Firefox 4](https://addons.mozilla.org/en-US/firefox/addon/fireriver/). You can [find the source code on GitHub](https://github.com/lmorchard/fireriver).
 

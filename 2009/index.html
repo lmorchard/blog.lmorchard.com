@@ -1,227 +1,546 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>2009 - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>2009 - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Year: 2009</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post has-thumb tag-entries"
-          >
-            <time class="date" datetime="2009-08-20T19:22:58+00:00">
-              2009
-              August
-              20
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2009/08/20/professional-javascript-frameworks-is-a-real-book/">
-              <span class="infoContainer">
-                <span class="title">Professional JavaScript Frameworks is a real book!</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://farm4.static.flickr.com/3583/3840812372_2d43e66612.jpg" />
-          </li><li
-            class="post tag-webdev tag-firefox tag-js tag-outliners tag-outlining tag-javascript tag-dhtml tag-eventdelegation tag-entries tag-mozilla tag-draganddrop"
-          >
-            <time class="date" datetime="2009-07-15T15:26:40+00:00">
-              2009
-              July
-              15
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2009/07/15/html5-drag-and-drop/">
-              <span class="infoContainer">
-                <span class="title">HTML5 drag and drop in Firefox 3.5</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-ficly tag-flashfiction tag-fiction"
-          >
-            <time class="date" datetime="2009-05-30T12:00:00+00:00">
-              2009
-              May
-              30
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2009/05/30/controlled-monetization/">
-              <span class="infoContainer">
-                <span class="title">Controlled Monetization</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-ficly tag-flashfiction tag-fiction tag-scifi tag-spacement"
-          >
-            <time class="date" datetime="2009-05-30T12:00:00+00:00">
-              2009
-              May
-              30
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2009/05/30/from-spaceman-to-plantsman/">
-              <span class="infoContainer">
-                <span class="title">From Spaceman to Plantsman</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-webdev tag-twitter tag-entries tag-revcanonical tag-urls tag-urlshortening"
-          >
-            <time class="date" datetime="2009-04-13T05:05:50+00:00">
-              2009
-              April
-              13
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2009/04/13/i-like-revcanonical/">
-              <span class="infoContainer">
-                <span class="title">I (used to) like rev=&quot;canonical&quot;</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-entries tag-mozilla tag-7things tag-memes"
-          >
-            <time class="date" datetime="2009-01-23T16:59:54+00:00">
-              2009
-              January
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2009/01/23/7-facts-about-me/">
-              <span class="infoContainer">
-                <span class="title">7 facts about me</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-delicious tag-flickr tag-tags tag-tagging tag-entries tag-folksonomy"
-          >
-            <time class="date" datetime="2009-01-18T06:29:34+00:00">
-              2009
-              January
-              18
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2009/01/18/tags-do-work-for-me-at-least/">
-              <span class="infoContainer">
-                <span class="title">Tags do work (for me, at least)</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post has-thumb tag-json tag-webdev tag-rss tag-atom tag-entries tag-mozilla tag-lizardfeeder tag-activitystreams"
-          >
-            <time class="date" datetime="2009-01-06T00:01:54+00:00">
-              2009
-              January
-              06
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2009/01/06/enter-the-lizardfeeder/">
-              <span class="infoContainer">
-                <span class="title">Enter the LizardFeeder</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://decafbad.com/blog/wp-content/uploads/2009/01/moz-tree.jpg" />
-          </li><li
-            class="post tag-entries"
-          >
-            <time class="date" datetime="2009-01-05T19:10:22+00:00">
-              2009
-              January
-              05
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2009/01/05/resolutions/">
-              <span class="infoContainer">
-                <span class="title">Resolutions</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-entries"
-          >
-            <time class="date" datetime="2009-01-05T19:09:22+00:00">
-              2009
-              January
-              05
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2009/01/05/three-years-in-review/">
-              <span class="infoContainer">
-                <span class="title">Three Years in Review</span>
-              </span>
-            </a>
-            
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Year: 2009</h2>
+        </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2009 August 20</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-entries">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2009/08/20/professional-javascript-frameworks-is-a-real-book/">Professional JavaScript Frameworks is a real book!</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://farm4.static.flickr.com/3583/3840812372_2d43e66612.jpg" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2009/08/20/professional-javascript-frameworks-is-a-real-book/"
+          >355&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2009/08/20/professional-javascript-frameworks-is-a-real-book/">#</a>
+    <a class="time" href="2009/08/20/professional-javascript-frameworks-is-a-real-book/">3:22 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
           </li>
     </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2009 July 15</h2>
+  </li><li class="content-grid post post-type-entry tag-webdev tag-firefox tag-js tag-outliners tag-outlining tag-javascript tag-dhtml tag-eventdelegation tag-entries tag-mozilla tag-draganddrop">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2009/07/15/html5-drag-and-drop/">HTML5 drag and drop in Firefox 3.5</a>
+      </h2>
     
-  </section>
-      </section>
-        </section>
+    <p class="summary">
+      Oh hey, look! It's another blog post—and this one
+is cross-posted on hacks.mozilla.com.
+I won't say this is the start of a renewed blogging habit, but let's see what happens.
 
-        <footer>
+
+
+
+
+Drag and drop is one of the most fundamental interactions
+afforded by graphical user interfaces.  In one gesture, it
+allows users to pair the selection of an object with the
+execution of an action, often including a second object in the
+operation.  It's a simple yet powerful UI concept used to
+support copying, list reordering, deletion (ala the Trash / Recycle Bin),
+and even the creation of link relationships.
+
+Since it's so fundamental, offering drag and drop in web
+applications has been a no-brainer ever since browsers first
+offered mouse events in DHTML.  But, although
+mousedown, mousemove, and
+mouseup made it possible, the implementation has been
+limited to the bounds of the browser window.  Additionally,
+since these events refer only to the object being dragged,
+there's a challenge to find the subject of the drop when
+the interaction is completed.
+
+Of course, that doesn't prevent most modern JavaScript
+frameworks from abstracting away most of the problems and
+throwing in some flourishes while they're at it.  But, wouldn't
+it be nice if browsers offered first-class support for drag and
+drop, and maybe even extended it beyond the window sandbox?
+
+As it turns out, this very wish is answered by the HTML 5 specification 
+section on new drag-and-drop events, and 
+Firefox 3.5 includes an implementation of those events.
+
+If you want to jump straight to the code, I've put together 
+some simple demos 
+of the new events.  
+
+I've even scratched an itch of my own and
+built the beginnings of an outline editor,
+where every draggable element is also a drop target—of which
+there could be dozens to hundreds in a complex document, something
+that gave me some minor hair-tearing moments in the past
+while trying to make do with plain old mouse events.
+
+And, all the above can be downloaded or cloned from 
+a GitHub repository
+I've created especially for this article—which continues after the jump.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2009/07/15/html5-drag-and-drop/"
+          >3204&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2009/07/15/html5-drag-and-drop/">#</a>
+    <a class="time" href="2009/07/15/html5-drag-and-drop/">11:26 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/firefox/">firefox</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/js/">js</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/outliners/">outliners</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/outlining/">outlining</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/javascript/">javascript</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/dhtml/">dhtml</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/eventdelegation/">eventdelegation</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/draganddrop/">draganddrop</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2009 May 30</h2>
+  </li><li class="content-grid post post-type-entry tag-ficly tag-flashfiction tag-fiction">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2009/05/30/controlled-monetization/">Controlled Monetization</a>
+      </h2>
+    
+    <p class="summary">
+      I took the pills. Like everyone else, I took the pills and I sent in the hair and the piss to prove I took the pills. I’d figured something out, though: I could stop taking the pills for the first half of the month, then double up at the end. I still passed the tests; no one knocked on the door.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2009/05/30/controlled-monetization/"
+          >184&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2009/05/30/controlled-monetization/">#</a>
+    <a class="time" href="2009/05/30/controlled-monetization/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/ficly/">ficly</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-ficly tag-flashfiction tag-fiction tag-scifi tag-spacement">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2009/05/30/from-spaceman-to-plantsman/">From Spaceman to Plantsman</a>
+      </h2>
+    
+    <p class="summary">
+      The first time the spaceman saw my garden, I thought he was going to strangle me.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2009/05/30/from-spaceman-to-plantsman/"
+          >172&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2009/05/30/from-spaceman-to-plantsman/">#</a>
+    <a class="time" href="2009/05/30/from-spaceman-to-plantsman/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/ficly/">ficly</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/scifi/">scifi</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/spacement/">spacement</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2009 April 13</h2>
+  </li><li class="content-grid post post-type-entry tag-webdev tag-twitter tag-entries tag-revcanonical tag-urls tag-urlshortening">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2009/04/13/i-like-revcanonical/">I (used to) like rev=&quot;canonical&quot;</a>
+      </h2>
+    
+    <p class="summary">
+      Update 4/14: So, I liked rev="canonical", but I like the notion of pages offering sets of alternative URLs better.  There are enough cracks in the case for rev="canonical" to stop caring about it and instead focus on the notion behind it.  However it's expressed—is it rel="shortlink" now?—the final remaining things I'd like to see are:
+
+An more generalized scope for alternate URL choices asserted by publishers, not just URL shortening.  Other criteria beyond character length include ease of entry on mobile devices (eg. short, but also simple, maybe mostly numeric), ease of verbal mention (eg. billboards, postcards, etc).
+
+HTTP headers are great where available—hooray for HEAD—but it still needs to be in the page for publishers who can't set custom headers.
+
+Microformats are great, but I'd rather not parse a whole page to the footer to lift out the desired URLs.
+
+Don't panic. Have fun.
+
+
+And with that, I'm going to try coming up with other things to write about so this blog doesn't stay dormant.  The rest of this entry remains unedited below...
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2009/04/13/i-like-revcanonical/"
+          >2353&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2009/04/13/i-like-revcanonical/">#</a>
+    <a class="time" href="2009/04/13/i-like-revcanonical/">1:05 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/twitter/">twitter</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/revcanonical/">revcanonical</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/urls/">urls</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/urlshortening/">urlshortening</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2009 January 23</h2>
+  </li><li class="content-grid post post-type-entry tag-entries tag-mozilla tag-7things tag-memes">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2009/01/23/7-facts-about-me/">7 facts about me</a>
+      </h2>
+    
+    <p class="summary">
+      So, it finally happened—I've been tagged by Stephen Donner.  I've not been one to follow memes in this blog, but this one's been going around the Mozillasphere for awhile now and has been kind of interesting.  I'm half-tempted to bookmark and tag all the entries I've caught so far.  Anyway, the rules:
+
+Link to your original tagger(s) and list these rules in your post.
+Share seven facts about yourself in the post.
+Tag seven people at the end of your post by leaving their names and the links to their blogs.
+Let them know they’ve been tagged.
+
+Now, for your random facts, after the jump:
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2009/01/23/7-facts-about-me/"
+          >780&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2009/01/23/7-facts-about-me/">#</a>
+    <a class="time" href="2009/01/23/7-facts-about-me/">11:59 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/7things/">7things</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/memes/">memes</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2009 January 18</h2>
+  </li><li class="content-grid post post-type-entry tag-delicious tag-flickr tag-tags tag-tagging tag-entries tag-folksonomy">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2009/01/18/tags-do-work-for-me-at-least/">Tags do work (for me, at least)</a>
+      </h2>
+    
+    <p class="summary">
+      For the "too long; didn't read" crowd:
+
+I've been using a lot of tags on Delicious over a relatively long time, so they seem very useful to me.
+Delicious encourages the use of tags through UI convention and tool usage patterns, whereas Flickr presents no particular bias toward collecting tags from users.
+Since title and description attract more contribution effort from users on Flickr than on Delicious, it's natural that search over those fields will be more productive than for tags.
+Search on Delicious doesn't have access to the complete text of the bookmarked resource, and often tags will contain information missing from the supplied title or description.
+All told, tags on Delicious are more essential than tags on Flickr.
+In conclusion, I think Do Tags Work? misses the value of tags, as I know them, by focusing on Flickr.
+
+Of course, I don't really care what this means for folksonomy and the rest of Web 2.0—tags work for me on Delicious.  So, I suspect this means I'm not entirely opposed to the sentiment in Do Tags Work?, because I don't think tags work everywhere their use is attempted.
+The rest of this entry elaborates on the above.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2009/01/18/tags-do-work-for-me-at-least/"
+          >3328&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2009/01/18/tags-do-work-for-me-at-least/">#</a>
+    <a class="time" href="2009/01/18/tags-do-work-for-me-at-least/">1:29 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/delicious/">delicious</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flickr/">flickr</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tags/">tags</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tagging/">tagging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/folksonomy/">folksonomy</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2009 January 05</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-json tag-webdev tag-rss tag-atom tag-entries tag-mozilla tag-lizardfeeder tag-activitystreams">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2009/01/05/enter-the-lizardfeeder/">Enter the LizardFeeder</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://decafbad.com/blog/wp-content/uploads/2009/01/moz-tree.jpg" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2009/01/05/enter-the-lizardfeeder/"
+          >746&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2009/01/05/enter-the-lizardfeeder/">#</a>
+    <a class="time" href="2009/01/05/enter-the-lizardfeeder/">7:01 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/json/">json</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/rss/">rss</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/atom/">atom</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/lizardfeeder/">lizardfeeder</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/activitystreams/">activitystreams</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-entries">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2009/01/05/resolutions/">Resolutions</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2009/01/05/resolutions/"
+          >129&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2009/01/05/resolutions/">#</a>
+    <a class="time" href="2009/01/05/resolutions/">2:10 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-entries">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2009/01/05/three-years-in-review/">Three Years in Review</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2009/01/05/three-years-in-review/"
+          >835&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2009/01/05/three-years-in-review/">#</a>
+    <a class="time" href="2009/01/05/three-years-in-review/">2:09 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/entries/">entries</a>
+          </li>
+    </ul>
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

@@ -1,287 +1,604 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>2013 - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>2013 - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Year: 2013</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post has-thumb tag-html5 tag-parsecpatrol tag-webdev"
-          >
-            <time class="date" datetime="2013-11-27T12:00:00+00:00">
-              2013
-              November
-              27
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2013/11/27/entity-component-system/">
-              <span class="infoContainer">
-                <span class="title">Parsec Patrol Diaries: Entity Component Systems</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://blog.lmorchard.com/wp-content/uploads/2013/11/pp-entities-1024x577.jpg" />
-          </li><li
-            class="post has-thumb tag-html5 tag-parsecpatrol tag-webdev"
-          >
-            <time class="date" datetime="2013-11-19T12:00:00+00:00">
-              2013
-              November
-              19
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2013/11/19/parsec-patrol-diaries-hello-world/">
-              <span class="infoContainer">
-                <span class="title">Parsec Patrol Diaries: Hello World</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://global3.memecdn.com/_o_102096.jpg" />
-          </li><li
-            class="post has-thumb tag-html5 tag-parsecpatrol tag-webdev"
-          >
-            <time class="date" datetime="2013-11-19T12:00:00+00:00">
-              2013
-              November
-              19
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2013/11/19/parsec-patrol-diaries-why-a-game/">
-              <span class="infoContainer">
-                <span class="title">Parsec Patrol Diaries: Why a Game?</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://farm9.staticflickr.com/8504/8445963080_f7a3ff2dd1_d.jpg" />
-          </li><li
-            class="post tag-behemoth tag-fiction tag-scifi tag-spaceopera"
-          >
-            <time class="date" datetime="2013-06-11T12:00:00+00:00">
-              2013
-              June
-              11
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2013/06/11/behemoth-part-1/">
-              <span class="infoContainer">
-                <span class="title">Behemoth, Part 1</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-disqus tag-dropbox tag-evernote tag-pets tag-services tag-web"
-          >
-            <time class="date" datetime="2013-04-12T12:00:00+00:00">
-              2013
-              April
-              12
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2013/04/12/services-and-pets/">
-              <span class="infoContainer">
-                <span class="title">I like it when services treat me like I treat my pets</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-google tag-metablogging tag-reader tag-rss"
-          >
-            <time class="date" datetime="2013-03-14T12:00:00+00:00">
-              2013
-              March
-              14
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2013/03/14/social-novelty-filterin/">
-              <span class="infoContainer">
-                <span class="title">Social novelty filtering (or Google Reader, R.I.P.)</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post has-thumb tag-reading tag-tech tag-writing"
-          >
-            <time class="date" datetime="2013-02-25T12:00:00+00:00">
-              2013
-              February
-              25
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2013/02/25/too-long-read-anyway/">
-              <span class="infoContainer">
-                <span class="title">Too long? Read anyway.</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://blog.lmorchard.com/wp-content/uploads/2013/02/well_done_sir.gif" />
-          </li><li
-            class="post has-thumb tag-badger tag-badges tag-django tag-mozilla tag-webdev"
-          >
-            <time class="date" datetime="2013-02-23T12:00:00+00:00">
-              2013
-              February
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2013/02/23/looking-for-a-django-app-to-manage-roles-within-groups/">
-              <span class="infoContainer">
-                <span class="title">Looking for a Django app to manage Roles within Groups</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://images2.wikia.nocookie.net/__cb20091106224144/wowwiki/images/thumb/3/3e/Guild_list_%28interface%29.png/450px-Guild_list_%28interface%29.png" />
-          </li><li
-            class="post tag-mdn tag-mozilla tag-wiki"
-          >
-            <time class="date" datetime="2013-02-21T12:00:00+00:00">
-              2013
-              February
-              21
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2013/02/21/kumascript/">
-              <span class="infoContainer">
-                <span class="title">KumaScript: Bringing scripting to the wiki bears</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post has-thumb tag-diy tag-hacks tag-lcd tag-pc tag-tech"
-          >
-            <time class="date" datetime="2013-02-10T12:00:00+00:00">
-              2013
-              February
-              10
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2013/02/10/building-my-couch-computing-station/">
-              <span class="infoContainer">
-                <span class="title">Building my couch computing station</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://blog.lmorchard.com/wp-content/uploads/2013/01/couch-gaming-2a-pc.png" />
-          </li><li
-            class="post tag-CamelCase tag-dev tag-javascript tag-python tag-snake_case tag-webdev"
-          >
-            <time class="date" datetime="2013-01-23T12:00:00+00:00">
-              2013
-              January
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2013/01/23/naming-conventions/">
-              <span class="infoContainer">
-                <span class="title">Naming Things: CamelCase vs snake_case</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post has-thumb tag-diy tag-gaming tag-hacks tag-home tag-lcd tag-pc"
-          >
-            <time class="date" datetime="2013-01-21T12:00:00+00:00">
-              2013
-              January
-              21
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2013/01/21/gaming-from-the-orchard-house-couch/">
-              <span class="infoContainer">
-                <span class="title">Gaming from the Orchard House couch</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://blog.lmorchard.com/wp-content/uploads/2013/01/couch-gaming-1-laptop-300x238.png" />
-          </li><li
-            class="post has-thumb tag-fiction tag-flashfiction tag-magic tag-trifecta"
-          >
-            <time class="date" datetime="2013-01-09T12:00:00+00:00">
-              2013
-              January
-              09
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2013/01/09/trifecta-59-intention/">
-              <span class="infoContainer">
-                <span class="title">Trifecta #59: Intention</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://i1132.photobucket.com/albums/m573/SeekingBlog/Picture11-1.png" />
-          </li><li
-            class="post tag-ai tag-fiction tag-memoirs tag-scifi tag-stories"
-          >
-            <time class="date" datetime="2013-01-04T12:00:00+00:00">
-              2013
-              January
-              04
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2013/01/04/memoirs/">
-              <span class="infoContainer">
-                <span class="title">Memoirs</span>
-              </span>
-            </a>
-            
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Year: 2013</h2>
+        </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2013 November 27</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-html5 tag-parsecpatrol tag-webdev">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2013/11/27/entity-component-system/">Parsec Patrol Diaries: Entity Component Systems</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://blog.lmorchard.com/wp-content/uploads/2013/11/pp-entities-1024x577.jpg" />
+    </div>
+    <p class="summary">
+      The Entity, Component, & System design pattern is old hat for many game developers. But, keep in mind that I’m a web developer, and mostly on the server side of things for the past decade or so. One of my last big revelations was discovering the Model, View, & Controller way of doing things. Apropos of that, this ECS thing seems to be a Big Deal of similar proportions.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2013/11/27/entity-component-system/"
+          >1445&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2013/11/27/entity-component-system/">#</a>
+    <a class="time" href="2013/11/27/entity-component-system/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/html5/">html5</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/parsecpatrol/">parsecpatrol</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
           </li>
     </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2013 November 19</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-html5 tag-parsecpatrol tag-webdev">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2013/11/19/parsec-patrol-diaries-hello-world/">Parsec Patrol Diaries: Hello World</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://global3.memecdn.com/_o_102096.jpg" />
+    </div>
+    <p class="summary">
+      So, I’ve been working on a retro space game for the web. I planned it as a fun project to “sharpen the saw” and get myself more current on some newer technologies. I also planned to use it as blog fodder, writing little diary entries about what I’ve been doing & discovering along the way. But, 147 commits and almost 4 months later, I’ve had fun doing the coding and have totally neglected the writing.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2013/11/19/parsec-patrol-diaries-hello-world/"
+          >208&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2013/11/19/parsec-patrol-diaries-hello-world/">#</a>
+    <a class="time" href="2013/11/19/parsec-patrol-diaries-hello-world/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/html5/">html5</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/parsecpatrol/">parsecpatrol</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry has-thumb tag-html5 tag-parsecpatrol tag-webdev">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2013/11/19/parsec-patrol-diaries-why-a-game/">Parsec Patrol Diaries: Why a Game?</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://farm9.staticflickr.com/8504/8445963080_f7a3ff2dd1_d.jpg" />
+    </div>
+    <p class="summary">
+      I decided to start writing a retro space game for the web, because I thought it might be a good way to exercise a lot of interesting technologies and have fun to boot. You know, like how sending rockets into space yields astronaut ice cream & anti-shock trousers back down on Earth. But, I’ve also wanted to make games all the way back to my Atari 2600, Commodore 64, and Apple ][ days – because Warren Robinett is my hero.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2013/11/19/parsec-patrol-diaries-why-a-game/"
+          >473&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2013/11/19/parsec-patrol-diaries-why-a-game/">#</a>
+    <a class="time" href="2013/11/19/parsec-patrol-diaries-why-a-game/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/html5/">html5</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/parsecpatrol/">parsecpatrol</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2013 June 11</h2>
+  </li><li class="content-grid post post-type-entry tag-behemoth tag-fiction tag-scifi tag-spaceopera">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2013/06/11/behemoth-part-1/">Behemoth, Part 1</a>
+      </h2>
     
-  </section>
-      </section>
-        </section>
+    <p class="summary">
+      I’ve been meaning to get myself writing again, so here’s the first rough part of a story that’s been bouncing in my head. It’s a quick and dirty opening scene for a space opera, but I’m hoping to take it in an interesting direction almost immediately after this.
+A distant sun cast silvery rays through a field of tumbling asteroids and swirling dust. Among the rocks, a balletic swarm of glinting motes danced, alighting here and there to vaporize and harvest masses with actinic flares. The source and sink of the swarm’s flow was a dark, ovoid craft tracing a lazy, eccentric orbit around the cluster of debris. Nestled within the craft was its pilot, Alan Rickard.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2013/06/11/behemoth-part-1/"
+          >1333&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2013/06/11/behemoth-part-1/">#</a>
+    <a class="time" href="2013/06/11/behemoth-part-1/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/behemoth/">behemoth</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/scifi/">scifi</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/spaceopera/">spaceopera</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2013 April 12</h2>
+  </li><li class="content-grid post post-type-entry tag-disqus tag-dropbox tag-evernote tag-pets tag-services tag-web">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2013/04/12/services-and-pets/">I like it when services treat me like I treat my pets</a>
+      </h2>
+    
+    <p class="summary">
+      I like animals, and I’ve been told that I’m good with them. I’d like to think that’s due to a mix of empathy and respect that I’ve developed over the years.
+It occurred to me the other day that my favorite online services treat me like I imagine my pets like to be treated.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2013/04/12/services-and-pets/"
+          >612&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2013/04/12/services-and-pets/">#</a>
+    <a class="time" href="2013/04/12/services-and-pets/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/disqus/">disqus</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/dropbox/">dropbox</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/evernote/">evernote</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/pets/">pets</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/services/">services</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/web/">web</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2013 March 14</h2>
+  </li><li class="content-grid post post-type-entry tag-google tag-metablogging tag-reader tag-rss">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2013/03/14/social-novelty-filterin/">Social novelty filtering (or Google Reader, R.I.P.)</a>
+      </h2>
+    
+    <p class="summary">
+      Wherein I muse about Google Reader past, and what it might have been. And, wherein I describe what I hope springs up in the aftermath of its closing.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2013/03/14/social-novelty-filterin/"
+          >906&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2013/03/14/social-novelty-filterin/">#</a>
+    <a class="time" href="2013/03/14/social-novelty-filterin/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/google/">google</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/metablogging/">metablogging</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/reader/">reader</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/rss/">rss</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2013 February 25</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-reading tag-tech tag-writing">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2013/02/25/too-long-read-anyway/">Too long? Read anyway.</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://blog.lmorchard.com/wp-content/uploads/2013/02/well_done_sir.gif" />
+    </div>
+    <p class="summary">
+      Wherein I rant at medium length about functional literacy and language competency in knowledge work and information technology.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2013/02/25/too-long-read-anyway/"
+          >1080&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2013/02/25/too-long-read-anyway/">#</a>
+    <a class="time" href="2013/02/25/too-long-read-anyway/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/reading/">reading</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tech/">tech</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/writing/">writing</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2013 February 23</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-badger tag-badges tag-django tag-mozilla tag-webdev">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2013/02/23/looking-for-a-django-app-to-manage-roles-within-groups/">Looking for a Django app to manage Roles within Groups</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://images2.wikia.nocookie.net/__cb20091106224144/wowwiki/images/thumb/3/3e/Guild_list_%28interface%29.png/450px-Guild_list_%28interface%29.png" />
+    </div>
+    <p class="summary">
+      I want to add some team-based features to django-badger. I was hoping that someone had already built a reusable app to do most of the work for me. This happens quite a lot when I’m working with Django. Unfortunately, I haven’t quite found what I’m looking for yet. Consider this blog post either the product of my thinking out loud toward a rough spec, or a long-winded lazyweb search query.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2013/02/23/looking-for-a-django-app-to-manage-roles-within-groups/"
+          >418&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2013/02/23/looking-for-a-django-app-to-manage-roles-within-groups/">#</a>
+    <a class="time" href="2013/02/23/looking-for-a-django-app-to-manage-roles-within-groups/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/badger/">badger</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/badges/">badges</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/django/">django</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2013 February 21</h2>
+  </li><li class="content-grid post post-type-entry tag-mdn tag-mozilla tag-wiki">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2013/02/21/kumascript/">KumaScript: Bringing scripting to the wiki bears</a>
+      </h2>
+    
+    <p class="summary">
+      KumaScript turned one year old back at the end of January, and I’m sad to say no one celebrated its birthday – not even me. I’m pretty sure very few people outside of the core team at the Mozilla Developer Network even know what KumaScript is. So, I guess it’s about time I do something about that.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2013/02/21/kumascript/"
+          >2394&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2013/02/21/kumascript/">#</a>
+    <a class="time" href="2013/02/21/kumascript/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/mdn/">mdn</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/mozilla/">mozilla</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/wiki/">wiki</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2013 February 10</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-diy tag-hacks tag-lcd tag-pc tag-tech">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2013/02/10/building-my-couch-computing-station/">Building my couch computing station</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://blog.lmorchard.com/wp-content/uploads/2013/01/couch-gaming-2a-pc.png" />
+    </div>
+    <p class="summary">
+      Remember when I posted about gaming from the Orchard House couch? The key part was figuring out how to get a laptop-quality LCD monitor working in the living room, preferably attached to my trusty IKEA DAVE. Well, despite my best attempts at ruining my materials and tools, I managed to get it built!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2013/02/10/building-my-couch-computing-station/"
+          >1608&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2013/02/10/building-my-couch-computing-station/">#</a>
+    <a class="time" href="2013/02/10/building-my-couch-computing-station/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/diy/">diy</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/lcd/">lcd</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/pc/">pc</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/tech/">tech</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2013 January 23</h2>
+  </li><li class="content-grid post post-type-entry tag-CamelCase tag-dev tag-javascript tag-python tag-snake_case tag-webdev">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2013/01/23/naming-conventions/">Naming Things: CamelCase vs snake_case</a>
+      </h2>
+    
+    <p class="summary">
+      I’ve contributed code to a number of projects, often as a drive-by bug fix in a GitHub pull request. And, usually, I’ll try to do as the Romans do and follow the local naming and coding conventions. But, sometimes, I’ll fall back to my personal conventions and get dinged in the code review.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2013/01/23/naming-conventions/"
+          >561&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2013/01/23/naming-conventions/">#</a>
+    <a class="time" href="2013/01/23/naming-conventions/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/CamelCase/">CamelCase</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/dev/">dev</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/javascript/">javascript</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/python/">python</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/snake_case/">snake_case</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/webdev/">webdev</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2013 January 21</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-diy tag-gaming tag-hacks tag-home tag-lcd tag-pc">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2013/01/21/gaming-from-the-orchard-house-couch/">Gaming from the Orchard House couch</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://blog.lmorchard.com/wp-content/uploads/2013/01/couch-gaming-1-laptop-300x238.png" />
+    </div>
+    <p class="summary">
+      I like playing video games; it’s one of my favorite things in life. I also like hanging out with my wife; she’s my favorite person in the world. This is a post about ensuring these two things can happen together. This is also a post where I played with SketchUp for the first time.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2013/01/21/gaming-from-the-orchard-house-couch/"
+          >1426&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2013/01/21/gaming-from-the-orchard-house-couch/">#</a>
+    <a class="time" href="2013/01/21/gaming-from-the-orchard-house-couch/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/diy/">diy</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/gaming/">gaming</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/home/">home</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/lcd/">lcd</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/pc/">pc</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2013 January 09</h2>
+  </li><li class="content-grid post post-type-entry has-thumb tag-fiction tag-flashfiction tag-magic tag-trifecta">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2013/01/09/trifecta-59-intention/">Trifecta #59: Intention</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://i1132.photobucket.com/albums/m573/SeekingBlog/Picture11-1.png" />
+    </div>
+    <p class="summary">
+      Thought I might try my hand at this Trifecta thing I just found, by way of Fred. The challenge is to write fiction, between 33 and 333 words, using the word of the week and its associated definition. I think I ended up with more of an introduction to something than a complete story, but here goes my attempt…
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2013/01/09/trifecta-59-intention/"
+          >399&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2013/01/09/trifecta-59-intention/">#</a>
+    <a class="time" href="2013/01/09/trifecta-59-intention/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/flashfiction/">flashfiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/magic/">magic</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/trifecta/">trifecta</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2013 January 04</h2>
+  </li><li class="content-grid post post-type-entry tag-ai tag-fiction tag-memoirs tag-scifi tag-stories">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2013/01/04/memoirs/">Memoirs</a>
+      </h2>
+    
+    <p class="summary">
+      This is a story about what might happen if one takes life hacks, GTD, and IFTTT a bit too far.
+Okay, so maybe that’s not a great intro. But, it’s the first thing my brain spewed out. I’ve had this story rattling around in my head for a few years, and just tonight managed to finish banging out a first draft. I’m hoping to work on it a bit more, and I’m not entirely happy with it yet, so comments welcome!
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2013/01/04/memoirs/"
+          >3185&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2013/01/04/memoirs/">#</a>
+    <a class="time" href="2013/01/04/memoirs/">12:00 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/ai/">ai</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/fiction/">fiction</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/memoirs/">memoirs</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/scifi/">scifi</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/stories/">stories</a>
+          </li>
+    </ul>
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
 
-        <footer>
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>

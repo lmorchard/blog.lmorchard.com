@@ -1,197 +1,442 @@
 <!DOCTYPE html>
-  <html lang="en-us">
-    <head>
-      <title>2004/08 - blog.lmorchard.com</title>
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="blog.lmorchard.com" />
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="author" content="Les Orchard" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
-      <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />      
-      <script defer data-domain="blog.lmorchard.com" src="https://analytics.lmorchard.com/js/plausible.js"></script>
-      <link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/screen.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/font-awesome.css"
-            type="text/css"
-            media="screen, projection"
-          /><link
-            rel="stylesheet"
-            href="/blog.lmorchard.com/css/vendor/prism.css"
-            type="text/css"
-            media="screen, projection"
-          />
-      <link
-              href="/blog.lmorchard.com/index.rss"
-              rel="alternate"
-              title="blog.lmorchard.com"
-              type="application/rss+xml"
-            />
-      
-    </head>
-    <body>
-      <section class="main">
-        <header>
-          <h1><a href="/blog.lmorchard.com/">blog.lmorchard.com</a></h1>
-          <h2>It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.</h2>
-          <nav>
-            <label for="nav-trigger"></label>
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <html>
+      <head>
+        <title>2004/08 - blog.lmorchard.com</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="blog.lmorchard.com" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Les Orchard" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
+        />
 
+        <script
+          defer
+          data-domain="blog.lmorchard.com"
+          src="https://analytics.lmorchard.com/js/plausible.js"
+        ></script>
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/blog.lmorchard.com/index.css"
+        />
+        <script type="module" src="/blog.lmorchard.com/index.js"></script>
+
+        <link
+          href="https://lmorchard.github.io/blog.lmorchard.com/index.rss"
+          rel="alternate"
+          title="blog.lmorchard.com"
+          type="application/rss+xml"
+        />
+
+        <link
+                href="/blog.lmorchard.com/index.rss"
+                rel="alternate"
+                title="blog.lmorchard.com"
+                type="application/rss+xml"
+              />
+        
+      </head>
+      <body>
+        <header class="content-grid">
+          <div class="masthead">
+            <img src="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1.jpg?s=128" />
+            <div class="title">
+              <h1>
+                <a href="/blog.lmorchard.com/" title="blog.lmorchard.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 250 20"
+                  >
+                    <text
+                      lengthAdjust="spacing"
+                      fill="currentColor"
+                      y="16"
+                      textLength="240"
+                      x="5"
+                    >
+                      blog.lmorchard.com
+                    </text>
+                  </svg>
+                </a>
+              </h1>
+              <h2>
+                <rotating-tagline
+                  random
+                  initial="1"
+                  period="7000"
+                  src="/blog.lmorchard.com/taglines.json"
+                >
+                  <a href="/blog.lmorchard.com/" title="It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 250 20"
+                    >
+                      <text
+                        class="tagline"
+                        lengthAdjust="spacing"
+                        fill="currentColor"
+                        y="16"
+                        textLength="240"
+                        x="5"
+                      >
+                        It&#39;s all spinning wheels &amp; self-doubt until the first pot of coffee.
+                      </text>
+                    </svg>
+                  </a>
+                </rotating-tagline>
+              </h2>
+            </div>
+          </div>
+          <nav class="main-nav">
+            <div id="search"></div>
             <ul>
-              <li><a href="http://lmorchard.com/">about me</a></li>
-              <li><a href="/blog.lmorchard.com/archives.html">archives</a></li>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="/blog.lmorchard.com/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+              <li class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <section class="content">
-          <section class="archive">
-        <h2>Month: 2004/08</h2>
-        <section class="post-list">
-    <ul class="posts">
-      <li
-            class="post tag-hacks tag-syndication tag-xml"
-          >
-            <time class="date" datetime="2004-08-31T01:37:42+00:00">
-              2004
-              August
-              31
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/08/31/dbagg3-makingprogress/">
-              <span class="infoContainer">
-                <span class="title">Making progress on dbagg3</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-gaming"
-          >
-            <time class="date" datetime="2004-08-30T02:52:48+00:00">
-              2004
-              August
-              30
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/08/30/crappyvideogames/">
-              <span class="infoContainer">
-                <span class="title">Crappy video games to get more expensive to produce</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post "
-          >
-            <time class="date" datetime="2004-08-29T23:14:04+00:00">
-              2004
-              August
-              29
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/08/29/blogging-without-thought/">
-              <span class="infoContainer">
-                <span class="title">&quot;One should never think before one posts.&quot;</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-syndication tag-xml"
-          >
-            <time class="date" datetime="2004-08-24T03:14:40+00:00">
-              2004
-              August
-              24
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/08/24/more-cooks-in-the-feed-stew-kitchen/">
-              <span class="infoContainer">
-                <span class="title">More Cooks in the Feed Stew Kitchen</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-syndication tag-xml"
-          >
-            <time class="date" datetime="2004-08-23T22:52:06+00:00">
-              2004
-              August
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/08/23/slicing-and-dicing-to-make-atom-soup-in-dbagg3/">
-              <span class="infoContainer">
-                <span class="title">Slicing and Dicing to Make Atom Soup in dbagg3</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-hacks tag-xml"
-          >
-            <time class="date" datetime="2004-08-23T05:09:51+00:00">
-              2004
-              August
-              23
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/08/23/mysql-and-xml-output/">
-              <span class="infoContainer">
-                <span class="title">mysql and XML output</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post tag-syndication tag-python"
-          >
-            <time class="date" datetime="2004-08-05T23:53:34+00:00">
-              2004
-              August
-              05
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/08/05/dbagg3cvs/">
-              <span class="infoContainer">
-                <span class="title">dbagg3 code in CVS</span>
-              </span>
-            </a>
-            
-          </li><li
-            class="post has-thumb tag-syndication tag-python"
-          >
-            <time class="date" datetime="2004-08-05T13:04:56+00:00">
-              2004
-              August
-              05
-            </time>
-            <i class="icon fa fa-file-text"></i>
-            <a class="link" href="/blog.lmorchard.com/2004/08/05/introducing-dbagg3-an-atom-powered-clientserver-aggregator/">
-              <span class="infoContainer">
-                <span class="title">Introducing dbagg3, an Atom-powered client/server aggregator</span>
-              </span>
-            </a>
-            <img class="thumb" src="http://www.decafbad.com/2004/08/dbagg3-demo/dbagg3-phase1.jpg" />
+        <section class="main"><section class="post-list">
+      <section class="index-header">
+          <h2>Month: 2004/08</h2>
+        </section>
+      <ul class="posts">
+        <li class="content-grid date-header">
+    <h2 class="date">2004 August 30</h2>
+  </li><li class="content-grid post post-type-entry tag-hacks tag-syndication tag-xml">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/08/30/dbagg3-makingprogress/">Making progress on dbagg3</a>
+      </h2>
+    
+    <p class="summary">
+      Work has been insanely busy lately, but I have made some more progress with dbagg3.  The code is all in CVS, so feel free to take a gander-- I don't have a ton of time for a proper write up, but I do want to spew a little bit. 
+As per my previous musings on XML in a SQL database, I revamped the database.  Now things are sliced up by feed and entry tables, rows in each containing a few metadata columns and then one big column for an XML dump.  This lets me index on  date and parent feed and such, meanwhile punting on the issue of dicing things like authors or content up further.  And, as extension elements start to show up, this handling is dumb enough to simply store things it doesn't know about without mangling them.  This is a very good thing and one of my big goals for this beast.
+The other thing that I'm getting excited about is the REST API built atop the Atom store.  Rather than spend time on proper documentation, here's a quick dump from the appropriate module:
+URL: GET /feeds/
+URL: GET /feeds/{id}.xml
+URL: GET /feeds/{id}/{yyyy}/{mm}/{dd}/{hstart}-{hend}.xml
+URL: GET /feeds/{id}/{yyyy}/{mm}/{dd}/{hh}.xml
+URL: GET /feeds/{id}/{yyyy}/{mm}/{dd}.xml
+URL: GET /feeds/{id}/{yyyy}/{mm}.xml
+URL: GET /feeds/{id}/now-{nowoff}.xml
+URL: GET /feeds/{fid}/entries/{eid}.xml
+URL: GET /users/
+URL: GET /users/{uname}.xml
+URL: POST /users/
+URL: DELETE /users/{uname}.xml
+URL: PUT /users/{uname}.xml
+URL: GET /users/{uname}/prefs.xml
+URL: GET /users/{uname}/prefs/
+URL: POST /users/{uname}/prefs/{pname}.{type}
+URL: PUT /users/{uname}/prefs/{pname}.{type}
+URL: GET /users/{uname}/prefs/{pname}.{type}
+URL: DELETE /users/{uname}/prefs/{pname}.{type}
+URL: GET /users/{uname}/subscriptions.{type}
+URL: GET /users/{uname}/subscriptions/
+URL: POST /users/{uname}/subscriptions/
+URL: DELETE /users/{uname}/subscriptions/{id}.xml
+URL: GET /users/{uname}/subscriptions/{sid}/{yyyy}/{mm}/{dd}/{hstart}-{hend}.xml
+URL: GET /users/{uname}/subscriptions/{sid}/{yyyy}/{mm}/{dd}/{hh}.xml
+URL: GET /users/{uname}/subscriptions/{sid}/{yyyy}/{mm}/{dd}.xml
+URL: GET /users/{uname}/subscriptions/{sid}/{yyyy}/{mm}.xml
+URL: GET /users/{uname}/subscriptions/{sid}/now-{hours}.xml
+URL: GET /users/{uname}/subscriptions/{sid}/now.xml
+URL: GET /users/{uname}/subscriptions/{yyyy}/{mm}/{dd}/{hstart}-{hend}.xml
+URL: GET /users/{uname}/subscriptions/{yyyy}/{mm}/{dd}/{hh}.xml
+URL: GET /users/{uname}/subscriptions/{yyyy}/{mm}/{dd}.xml
+URL: GET /users/{uname}/subscriptions/{yyyy}/{mm}.xml
+URL: GET /users/{uname}/subscriptions/now-{hours}.xml
+URL: GET /users/{uname}/subscriptions/now.xml
+URL: GET /users/{uname}/subscriptions/{sid}/entries/{eid}.xml
+
+Hopefully, the structure of these URL patterns make a little bit of sense.  The too-clever thing about these is that they're both documentation in the module's docstrings, and parsed out to register methods with automagically-generated regexes applied to incoming URL requests.  (I may eventually realize just how stupid an idea this is, but not yet.)  
+This list is nowhere near complete or final or even all that well thought out yet.  But, it seems to be working out pretty well so far, and it's so easy to tinker with the API to sketch out ideas in working code.  Eating my own dogfood, my first browser window of the day tends to open on this URL:
+http://localhost/~deusx/dbagg3.5/api/users/default/subscriptions/
+now-12.xml?xsl=xsl/full.xsl&#38;content-type=text/html
+
+This grabs the last 12 hours' worth of items from default's subscriptions, passing them through the XSL at xsl/full.xsl on the way to my browser with a content type of text/html.  This tends to produce about 1000-1500 entries in about 15 seconds on my PowerBook, which is better than I'd expected.  
+Pretty soon, I'll be implementing the ability to post metadata onto feed entries under subscriptions.  Then, I can mark items as seen, attach categories, tags, and notes.  From there, I can exclude seen items from queries, produce new aggregate feeds based on my tagging or notes, among a few other ideas I've got stewing.
+A little more work, and I think I'll be able to throw together the beginnings of a Bloglines-style three-pane browser interface, as well as improving the functionality of my own outliner-style display with XmlHTTPRequest-based calls to the API to enable refresh-free interaction.  From there, I have some ideas for desktop apps and maybe even some tinkering in Flash.  (Wow... has it really been over a year since I was writing about Flash & REST?)
+And then, I want to implement the Atom API and allow users to create feeds to which they can post their own items and share read-only with others (or share writing with a group).  From there, this thing can turn into a read/write Atom storage tank, serving both as an aggregator and a blog publishing engine, given the appropriate XSL work.
+Lots of ideas stewing.  Now I just have to get the time and possibly a new web server, since I'd like to eventually open up an installation of this to fellow tinkerers, but this poor little box can barely take what it's tasked with at present...
+Oh yeah, and one other thing:  I've been thinking about names better than dbagg3.  The one that's sticking around in my head so far is feedReactor.  What do you think?
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/08/30/dbagg3-makingprogress/"
+          >790&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/08/30/dbagg3-makingprogress/">#</a>
+    <a class="time" href="2004/08/30/dbagg3-makingprogress/">9:37 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xml/">xml</a>
           </li>
     </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2004 August 29</h2>
+  </li><li class="content-grid post post-type-entry tag-gaming">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/08/29/crappyvideogames/">Crappy video games to get more expensive to produce</a>
+      </h2>
     
-  </section>
-      </section>
-        </section>
+    <p class="summary">
+      According to calculations, it may cost up to 200% more to develop games for the PS3 or Xbox 2 than it does for current systems.
 
-        <footer>
+
+
+Source: EA expresses ‘concern’ about next-gen technology
+
+
+
+
+
+Here's some blogging for you.  This article brings two thoughts to mind for me...
+First is this:  Of course, if you're striving for some semblance of realism in games, the costs will likely approach and exceed the cost to produce movies.  It'll approach the cost because, eventually, you'll need either movie-grade animators or real actors.  And then it'll exceed the cost, because who wants a game that's as linear as a 2-hour movie?  If you want any replay value out of the thing, you're going to have to produce the equivalent of a 4-hour movie at least, if not a 20- to 40-hour movie.  And then, you're going to have to be satisfied that many players will miss most of it.  Once things reach this point, I think in some sense video games will have arrived as a "successor" to movies, as movies were a "successor" to radio plays.
+This brings me to my second thought:  Right now, I'm listening to a streaming radio station that's playing old sci-fi and drama radio plays, like X Minus One and The Shadow.  These shows are great, and I'm thinking of buying a few box sets of them.  These old radio shows get quite a bit of mileage out of their less technologically advanced medium.  In contrast to this, my consumption of contemporary and popular television, movies, and music has been dropping off from year to year as I get more tired of supremely well-produced yet worthless content.
+Music gets sold on anything but a good tune, movies sold on special effects over plot, and video games head toward technological supremacy over a fun hook or even an engaging story line.  But, I don't want anything to do with any of these.
+A few days ago, a friend of mine remarked that many "retro" video games were just as horrible as modern video games, but I have to disagree a bit.  There were a lot of horrible games.  But, for games to be successful back when the dazzle factor of the hardware was low, you needed the fun trick or clever twist that addicted players.  The constraints called for ingenuity.  Sometimes this meant pushing the hardware, and sometimes this meant coming up with a brilliant yet simple-to-implement idea.  (Tetris, I'm looking at you.)
+As the hardware platforms progress, we'll see more and more absolutely dazzling demos of the hardware sold as games that completely fail at being fun.  But they'll have insane budgets and probably sell very well just because people want to see the pretty sparklies and foobar shaders.  The increased capabilities will offer more expressive ability to interactive storytellers, but I bet it will just give even more excuse for game makers to be distracted from that and keep pumping out stories that suck carried by game play that reeks.
+It all makes me almost wish for a kink in Moore's Law that stalls the progress of dazzling hardware and forces developers back to being clever with their resources and game ideas.  Maybe we'll see more and more of an indie games community rise, producing genuinely fun and amusingly ingenious games.  (Gish, I'm looking at you.)
+Meanwhile, my girlfriend and I will be playing massive amounts of Magical Drop III.
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/08/29/crappyvideogames/"
+          >796&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/08/29/crappyvideogames/">#</a>
+    <a class="time" href="2004/08/29/crappyvideogames/">10:52 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/gaming/">gaming</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/08/29/blogging-without-thought/">&quot;One should never think before one posts.&quot;</a>
+      </h2>
+    
+    <p class="summary">
+      One should never think before one posts. That's been my big blunder. And one should never ever ever rewrite, fine-tune, or God forbid edit the post, either. As a blogger, you should form a picture in your mind of a man drinking a cup of coffee. Then imagine that he suddenly feels a dead fly on his tongue and here you'll see your role model. Let your words spew forth with speed and velocity, out of reflex and not reflection. Let them fly without any possibility of ever taking them back. And when challenged, insist that the challenger is lucky that you don't sue somebody, and if he or she thinks you're going to help clean that up, they're crazy.
+
+
+
+Source: yellowtext: Oh...Hi! I didn't see you standing there!
+
+ 
+
+
+
+Amen, blog brother (with thanks to Quirk Blog for the pointer).  I wonder if I need to go on a Month of Blogging, complete with t-shirts, spewing here daily like a sort of NaBlogWriMo?  
+One should never put blogging on a pedestal, really.  I mean, while I do aspire to doing some real writing (when I'm not so busy with work, as I have been of late), my blog-a-day writing shouldn't be all that painful.  It looks like my server's on its last legs and the act of posting itself takes forever, so belaboring the actual content so much just puts the last straw on the shaven yak's back.
+So, here goes... posty posty post, as they say on LiveJournal.  (Well, I seem to remember someone saying that anyway.)
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/08/29/blogging-without-thought/"
+          >279&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/08/29/blogging-without-thought/">#</a>
+    <a class="time" href="2004/08/29/blogging-without-thought/">7:14 pm</a>
+    
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2004 August 23</h2>
+  </li><li class="content-grid post post-type-entry tag-syndication tag-xml">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/08/23/more-cooks-in-the-feed-stew-kitchen/">More Cooks in the Feed Stew Kitchen</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/08/23/more-cooks-in-the-feed-stew-kitchen/"
+          >508&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/08/23/more-cooks-in-the-feed-stew-kitchen/">#</a>
+    <a class="time" href="2004/08/23/more-cooks-in-the-feed-stew-kitchen/">11:14 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xml/">xml</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-syndication tag-xml">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/08/23/slicing-and-dicing-to-make-atom-soup-in-dbagg3/">Slicing and Dicing to Make Atom Soup in dbagg3</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/08/23/slicing-and-dicing-to-make-atom-soup-in-dbagg3/"
+          >1321&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/08/23/slicing-and-dicing-to-make-atom-soup-in-dbagg3/">#</a>
+    <a class="time" href="2004/08/23/slicing-and-dicing-to-make-atom-soup-in-dbagg3/">6:52 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xml/">xml</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry tag-hacks tag-xml">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/08/23/mysql-and-xml-output/">mysql and XML output</a>
+      </h2>
+    
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/08/23/mysql-and-xml-output/"
+          >170&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/08/23/mysql-and-xml-output/">#</a>
+    <a class="time" href="2004/08/23/mysql-and-xml-output/">1:09 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/hacks/">hacks</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/xml/">xml</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid date-header">
+    <h2 class="date">2004 August 05</h2>
+  </li><li class="content-grid post post-type-entry tag-syndication tag-python">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/08/05/dbagg3cvs/">dbagg3 code in CVS</a>
+      </h2>
+    
+    <p class="summary">
+      I've just dumped what code I have into my CVS repository.  So, go ahead and poke fun at it:
+
+http://www.decafbad.com/cvs/dbagg3/
+
+Or, fetch it from CVS:
+$ cvs -d:pserver:anoncvs@www.decafbad.com:/cvsroot login
+(Logging in to anoncvs@www.decafbad.com)
+CVS password: anoncvs
+$ cvs -d:pserver:anoncvs@www.decafbad.com:/cvsroot co dbagg3
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/08/05/dbagg3cvs/"
+          >42&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/08/05/dbagg3cvs/">#</a>
+    <a class="time" href="2004/08/05/dbagg3cvs/">7:53 pm</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/python/">python</a>
+          </li>
+    </ul>
+  </div>
+  </li><li class="content-grid post post-type-entry has-thumb tag-syndication tag-python">
+    <h2 class="title">
+        <a href="/blog.lmorchard.com/2004/08/05/introducing-dbagg3-an-atom-powered-clientserver-aggregator/">Introducing dbagg3, an Atom-powered client/server aggregator</a>
+      </h2>
+    <div class="thumb">
+      <img src="http://www.decafbad.com/2004/08/dbagg3-demo/dbagg3-phase1.jpg" />
+    </div>
+    <p class="summary">
+      
+      <span class="word-count"
+        >[&nbsp;...&nbsp;<a class="link" href="/blog.lmorchard.com/2004/08/05/introducing-dbagg3-an-atom-powered-clientserver-aggregator/"
+          >893&nbsp;words</a
+        >&nbsp;...&nbsp;]</span
+      >
+    </p>
+    <div class="meta">
+    <a class="permalink" href="2004/08/05/introducing-dbagg3-an-atom-powered-clientserver-aggregator/">#</a>
+    <a class="time" href="2004/08/05/introducing-dbagg3-an-atom-powered-clientserver-aggregator/">9:04 am</a>
+    <ul class="tags">
+      <li class="tag">
+            <a href="/blog.lmorchard.com/tag/syndication/">syndication</a>
+          </li><li class="tag">
+            <a href="/blog.lmorchard.com/tag/python/">python</a>
+          </li>
+    </ul>
+  </div>
+  </li>
+      </ul>
+      
+    </section></section>
+
+        <footer class="content-grid">
+          <div class="left">
+            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+              >me@lmorchard.com</a
+            >&gt;
+          </div>
           <img id="growup" src="/blog.lmorchard.com/uploads/growup.jpg" />
+          <nav class="right">
+            <ul>
+              <li>
+                <a href="https://lmorchard.github.io/blog.lmorchard.com/index.rss" title="blog.lmorchard.com"
+                  ><span class="fa fa-rss"></span> feed</a
+                >
+              </li>
+            </ul>
+          </nav>
         </footer>
-      </section>
-
-      <section id="javascript">
-        <script src="/blog.lmorchard.com/js/vendor/lazyload.js"></script><script src="/blog.lmorchard.com/js/vendor/prism.js"></script><script src="/blog.lmorchard.com/js/toc.js"></script><script src="/blog.lmorchard.com/js/main.js"></script>
-        
-      </section>
-    </body>
-  </html>
+      </body>
+    </html>
