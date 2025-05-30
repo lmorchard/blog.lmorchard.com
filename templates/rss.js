@@ -33,7 +33,7 @@ export default ({
               <description
                 >${updateRelativeImageUrls(
                   post.summary,
-                  `${site.baseurl}/${post.path}`
+                  `${site.absolute_baseurl}/${post.path}`
                 )}</description
               >
             `
@@ -45,7 +45,7 @@ export default ({
               <description
                 >${updateRelativeImageUrls(
                   post.html,
-                  `${site.baseurl}/${post.path}`
+                  `${site.absolute_baseurl}/${post.path}`
                 )}</description
               >
             `
