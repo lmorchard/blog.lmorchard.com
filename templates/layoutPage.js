@@ -26,12 +26,6 @@ export default ({ site = {}, page = {}, head = "", js = "" }, content) => {
           href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
         />
 
-        <script
-          defer
-          data-domain="blog.lmorchard.com"
-          src="https://analytics.lmorchard.com/js/plausible.js"
-        ></script>
-
         <link
           rel="stylesheet"
           type="text/css"
