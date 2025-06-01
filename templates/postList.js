@@ -109,8 +109,8 @@ const miscellanea = (post, site) => html`
 
 const metaFooter = (post, site) => html`
   <div class="meta">
-    <a class="permalink" href="${post.path}/">#</a>
-    <a class="time" href="${post.path}/">${post.date.format("h:mm a")}</a>
+    <a class="permalink" href="${site.baseurl}/${post.path}/">#</a>
+    <a class="time" href="${site.baseurl}/${post.path}/">${post.date.format("h:mm a")}</a>
     ${post.tags &&
     html`<ul class="tags">
       ${post.tags.map(
