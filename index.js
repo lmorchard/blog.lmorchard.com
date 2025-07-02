@@ -38,7 +38,7 @@ program
 async function buildAll(options) {
   if (options.clean) await cleanBuild();
   await copyAssets();
-  const posts = await loadAllPosts();
+  const posts = await loadAllPosts({ showDrafts: options.showDrafts });
   await buildAllPosts(posts);
   await buildAllIndexes(posts, { showDrafts: options.showDrafts });
 }
@@ -50,7 +50,7 @@ program
   .action(buildPosts);
 
 async function buildPosts(postsGlob, options) {
-  const posts = await loadAllPosts();
+  const posts = await loadAllPosts({ postGlobs: postsGlob, showDrafts: options.showDrafts });
   await buildAllPosts(posts);
   await buildAllIndexes(posts, { showDrafts: options.showDrafts });
 }
@@ -63,8 +63,8 @@ program
   .option("--show-drafts", "show drafts in indexes")
   .action(buildIndexes);
 
-async function buildIndexes(postsGlob, options) {
-  await buildAllIndexes(await loadAllPosts(postsGlob), {
+async function buildIndexes(postGlobs, options) {
+  await buildAllIndexes(await loadAllPosts({ postGlobs }), {
     showDrafts: options.showDrafts,
   });
 }
