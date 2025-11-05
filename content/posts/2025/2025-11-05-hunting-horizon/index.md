@@ -61,4 +61,6 @@ That got me some nice upward-soaring golden bird particles, so I kept going:
 - Let's add another behavior: Occasionally when a bird is hunting below the water interface, it "dies" and stops in the water zone. Fish should be attracted to it (i.e. opposite of panic) to "eat" it 
 - Adding some kind of moon would be interesting. Can we have the moon slowly, subtlely track across the sky in an arc?
 
-I kind of wish I'd kept snapshots of each stage, but I was just riffing and noodling with the code. If you'd like the source, [I've got it up on GitHub](https://github.com/lmorchard/sketches-v03/tree/main/src/sketches/HuntingHorizon). It's messy and it's not groundbreaking art, but the process was gratifying. While Claude generated the bulk of the code, I didn't just sit back: I gave it ideas, did some debugging and coding, and steered things to make it my own.
+I kind of wish I'd kept snapshots of each stage, but I was just riffing and noodling with the code. 
+
+If you'd like the source, [I've got it up on GitHub](https://github.com/lmorchard/sketches-v03/tree/main/src/sketches/HuntingHorizon). It's messy and it's not groundbreaking art, but the process was gratifying. While Claude generated the bulk of the code, I didn't just sit back: I gave it ideas, did some debugging and coding, and steered things to make it my own.
