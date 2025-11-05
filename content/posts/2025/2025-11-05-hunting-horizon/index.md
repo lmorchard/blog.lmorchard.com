@@ -10,7 +10,7 @@ tags:
   - sketches
 ---
 
-Anthropic recently introduced the notion of [Agent Skills](https://docs.claude.com/en/docs/claude-code/skills) for Claude, which Simon Willison wrote may be "[a bigger deal than MCP](https://simonwillison.net/2025/Oct/16/claude-skills/)". From there, I noticed one of the example skills was for [producing algorithmic art](https://github.com/anthropics/skills/blob/main/algorithmic-art/SKILL.md). That dovetails nicely with my own noodlings in [web-based art sketches](https://blog.lmorchard.com/2025/04/25/sketches-as-web-components/). So, I gave it a shot.
+Anthropic recently introduced the notion of [Agent Skills](https://docs.claude.com/en/docs/claude-code/skills) for Claude, which Simon Willison wrote may be "[a bigger deal than MCP](https://simonwillison.net/2025/Oct/16/claude-skills/)". Figured I should check things out and noticed one of the example skills was for [producing algorithmic art](https://github.com/anthropics/skills/blob/main/algorithmic-art/SKILL.md). That dovetails nicely with my own noodlings in [web-based art sketches](https://blog.lmorchard.com/2025/04/25/sketches-as-web-components/). So, I gave it a shot.
 
 <!--more-->
 
