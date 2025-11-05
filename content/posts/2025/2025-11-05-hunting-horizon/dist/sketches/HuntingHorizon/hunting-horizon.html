@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hunting Horizon</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Anthropic Brand Colors */
+        :root {
+            --anthropic-dark: #141413;
+            --anthropic-light: #faf9f5;
+            --anthropic-mid-gray: #b0aea5;
+            --anthropic-light-gray: #e8e6dc;
+            --anthropic-orange: #d97757;
+            --anthropic-blue: #6a9bcc;
+            --anthropic-green: #788c5d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0a0e14 0%, #1a1f2e 100%);
+            min-height: 100vh;
+            color: #e8e6dc;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 320px;
+            flex-shrink: 0;
+            background: rgba(20, 25, 35, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            overflow-y: auto;
+            overflow-x: hidden;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .sidebar.hidden {
+            transform: translateX(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .sidebar h1 {
+            font-family: 'Lora', serif;
+            font-size: 24px;
+            font-weight: 500;
+            color: #e8e6dc;
+            margin-bottom: 8px;
+        }
+
+        .sidebar .subtitle {
+            color: #8a9099;
+            font-size: 14px;
+            margin-bottom: 32px;
+            line-height: 1.4;
+        }
+
+        /* Control Sections */
+        .control-section {
+            margin-bottom: 32px;
+        }
+
+        .control-section h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #e8e6dc;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .control-section h3::before {
+            content: '•';
+            color: #6a9bcc;
+            font-weight: bold;
+        }
+
+        /* Seed Controls */
+        .seed-input {
+            width: 100%;
+            background: #1a1f2e;
+            padding: 12px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            margin-bottom: 12px;
+            border: 1px solid #2a3040;
+            text-align: center;
+            color: #e8e6dc;
+        }
+
+        .seed-input:focus {
+            outline: none;
+            border-color: #6a9bcc;
+            box-shadow: 0 0 0 2px rgba(106, 155, 204, 0.2);
+            background: #242935;
+        }
+
+        .seed-controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .regen-button {
+            margin-bottom: 0;
+        }
+
+        /* Parameter Controls */
+        .control-group {
+            margin-bottom: 20px;
+        }
+
+        .control-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: #d0cec5;
+            margin-bottom: 8px;
+        }
+
+        .slider-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .slider-container input[type="range"] {
+            flex: 1;
+            height: 4px;
+            background: #2a3040;
+            border-radius: 2px;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .slider-container input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            background: #6a9bcc;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .slider-container input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+            background: #8ab4db;
+        }
+
+        .slider-container input[type="range"]::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            background: #6a9bcc;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .value-display {
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: #8a9099;
+            min-width: 60px;
+            text-align: right;
+        }
+
+        /* Buttons */
+        .button {
+            background: #d97757;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            width: 100%;
+        }
+
+        .button:hover {
+            background: #e98b6f;
+            transform: translateY(-1px);
+        }
+
+        .button:active {
+            transform: translateY(0);
+        }
+
+        .button.secondary {
+            background: #6a9bcc;
+        }
+
+        .button.secondary:hover {
+            background: #8ab4db;
+        }
+
+        .button.tertiary {
+            background: #788c5d;
+        }
+
+        .button.tertiary:hover {
+            background: #8a9e73;
+        }
+
+        .button-row {
+            display: flex;
+            gap: 8px;
+        }
+
+        .button-row .button {
+            flex: 1;
+        }
+
+        /* Canvas Area */
+        .canvas-area {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 0;
+            position: relative;
+        }
+
+        #canvas-container {
+            width: 100%;
+            max-width: 1000px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(20, 20, 19, 0.3);
+            background: #0f141e;
+        }
+
+        #canvas-container canvas {
+            display: block;
+            width: 100% !important;
+            height: auto !important;
+        }
+
+        /* Toggle Button */
+        .toggle-sidebar-btn {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            background: rgba(106, 155, 204, 0.9);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .toggle-sidebar-btn:hover {
+            background: rgba(138, 180, 219, 1);
+            transform: scale(1.1);
+        }
+
+        .toggle-sidebar-btn.sidebar-hidden {
+            left: 30px;
+        }
+
+        .toggle-sidebar-btn.sidebar-visible {
+            left: 370px;
+        }
+
+        /* Loading State */
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #8a9099;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+            }
+
+            .canvas-area {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Toggle Sidebar Button -->
+    <button class="toggle-sidebar-btn sidebar-visible" id="toggle-sidebar" onclick="toggleSidebar()">
+        ☰
+    </button>
+
+    <div class="container">
+        <!-- Control Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <h1>The Hunting Horizon</h1>
+            <div class="subtitle">Algorithmic predation at the air-water interface</div>
+
+            <!-- Seed Section -->
+            <div class="control-section">
+                <h3>Seed</h3>
+                <input type="number" id="seed-input" class="seed-input" value="12345" onchange="updateSeed()">
+                <div class="seed-controls">
+                    <button class="button secondary" onclick="previousSeed()">← Prev</button>
+                    <button class="button secondary" onclick="nextSeed()">Next →</button>
+                </div>
+                <button class="button tertiary regen-button" onclick="randomSeedAndUpdate()">↻ Random</button>
+            </div>
+
+            <!-- Parameters Section -->
+            <div class="control-section">
+                <h3>Parameters</h3>
+
+                <div class="control-group">
+                    <label>Birds (Predators)</label>
+                    <div class="slider-container">
+                        <input type="range" id="birdCount" min="5" max="50" step="5" value="20" oninput="updateParam('birdCount', this.value)">
+                        <span class="value-display" id="birdCount-value">20</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Fish (Prey)</label>
+                    <div class="slider-container">
+                        <input type="range" id="fishCount" min="20" max="200" step="10" value="80" oninput="updateParam('fishCount', this.value)">
+                        <span class="value-display" id="fishCount-value">80</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Hunt Speed</label>
+                    <div class="slider-container">
+                        <input type="range" id="huntSpeed" min="1" max="8" step="0.5" value="4" oninput="updateParam('huntSpeed', this.value)">
+                        <span class="value-display" id="huntSpeed-value">4</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Fish Speed</label>
+                    <div class="slider-container">
+                        <input type="range" id="fishSpeed" min="0.5" max="3" step="0.25" value="1.5" oninput="updateParam('fishSpeed', this.value)">
+                        <span class="value-display" id="fishSpeed-value">1.5</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Turbulence</label>
+                    <div class="slider-container">
+                        <input type="range" id="turbulence" min="0" max="2" step="0.1" value="0.6" oninput="updateParam('turbulence', this.value)">
+                        <span class="value-display" id="turbulence-value">0.6</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Trail Fade</label>
+                    <div class="slider-container">
+                        <input type="range" id="trailFade" min="0.01" max="0.2" step="0.01" value="0.08" oninput="updateParam('trailFade', this.value)">
+                        <span class="value-display" id="trailFade-value">0.08</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Splash Intensity</label>
+                    <div class="slider-container">
+                        <input type="range" id="splashIntensity" min="5" max="30" step="5" value="15" oninput="updateParam('splashIntensity', this.value)">
+                        <span class="value-display" id="splashIntensity-value">15</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Sink Speed</label>
+                    <div class="slider-container">
+                        <input type="range" id="sinkSpeed" min="0.01" max="0.3" step="0.01" value="0.05" oninput="updateParam('sinkSpeed', this.value)">
+                        <span class="value-display" id="sinkSpeed-value">0.05</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Feeding Speed</label>
+                    <div class="slider-container">
+                        <input type="range" id="feedingSpeed" min="0.1" max="3" step="0.1" value="0.3" oninput="updateParam('feedingSpeed', this.value)">
+                        <span class="value-display" id="feedingSpeed-value">0.3</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Drown Chance (%)</label>
+                    <div class="slider-container">
+                        <input type="range" id="drownChance" min="0" max="0.5" step="0.01" value="0.08" oninput="updateParam('drownChance', this.value)">
+                        <span class="value-display" id="drownChance-value">0.08</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Actions Section -->
+            <div class="control-section">
+                <h3>Actions</h3>
+                <div class="button-row">
+                    <button class="button" onclick="resetParameters()">Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Canvas Area -->
+        <div class="canvas-area">
+            <div id="canvas-container">
+                <div class="loading">Initializing hunting simulation...</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ═══════════════════════════════════════════════════════════════════════
+        // GENERATIVE ART PARAMETERS
+        // ═══════════════════════════════════════════════════════════════════════
+
+        let params = {
+            seed: 12345,
+            birdCount: 20,
+            fishCount: 80,
+            huntSpeed: 4,
+            fishSpeed: 1.5,
+            turbulence: 0.6,
+            trailFade: 0.08,
+            splashIntensity: 15,
+            sinkSpeed: 0.05,
+            feedingSpeed: 0.3,
+            drownChance: 0.08
+        };
+
+        let defaultParams = {...params};
+
+        // ═══════════════════════════════════════════════════════════════════════
+        // ALGORITHMIC SYSTEM
+        // ═══════════════════════════════════════════════════════════════════════
+
+        let birds = [];
+        let fish = [];
+        let splashes = [];
+        let escapingBirds = [];
+        let stars = [];
+        let deadBirds = [];
+        let jumpingFish = [];
+        let moon;
+        const INTERFACE_Y = 600; // Water surface at middle of 1200px canvas
+
+        function setup() {
+            let canvas = createCanvas(1200, 1200);
+            canvas.parent('canvas-container');
+
+            initializeSystem();
+
+            document.querySelector('.loading').style.display = 'none';
+        }
+
+        function initializeSystem() {
+            randomSeed(params.seed);
+            noiseSeed(params.seed);
+
+            birds = [];
+            fish = [];
+            splashes = [];
+            escapingBirds = [];
+            stars = [];
+            deadBirds = [];
+            jumpingFish = [];
+
+            // Initialize moon
+            moon = {
+                startX: width * 0.2,
+                endX: width * 0.85,
+                arcHeight: 180,
+                size: 80,
+                speed: 0.00008 // Very slow movement
+            };
+
+            // Initialize stars (only in upper portion)
+            for (let i = 0; i < 150; i++) {
+                stars.push(new Star());
+            }
+
+            // Initialize birds (start above water)
+            for (let i = 0; i < params.birdCount; i++) {
+                birds.push(new Bird());
+            }
+
+            // Initialize fish (start below interface)
+            for (let i = 0; i < params.fishCount; i++) {
+                fish.push(new Fish());
+            }
+
+            // Start with clean canvas
+            background(15, 20, 30);
+        }
+
+        function draw() {
+            // Subtle fade for trail effect
+            fill(15, 20, 30, params.trailFade * 255);
+            noStroke();
+            rect(0, 0, width, height);
+
+            // Draw moon
+            drawMoon();
+
+            // Draw twinkling stars in sky
+            for (let s of stars) {
+                s.update();
+                s.draw();
+            }
+
+            // Draw depth gradient in water
+            drawDepthGradient();
+
+            // Draw watery ripple effect in lower half
+            drawWaterRipples();
+
+            // Update and draw fish
+            for (let f of fish) {
+                f.flock(fish);
+
+                // Make fish flee from recent splashes
+                for (let s of splashes) {
+                    if (s.lifespan > 200) { // Only flee from fresh splashes
+                        f.fleeFrom(s.pos.x, s.pos.y);
+                    }
+                }
+
+                // Make fish attracted to dead birds (feeding)
+                for (let d of deadBirds) {
+                    f.attractTo(d.pos.x, d.pos.y);
+                }
+
+                // Occasionally jump at the interface
+                if (f.pos.y < INTERFACE_Y + 150 && f.pos.y > INTERFACE_Y - 20 && random() < 0.003) {
+                    jumpingFish.push(new JumpingFish(f.pos.x, f.pos.y, f.vel.copy()));
+                }
+
+                f.update();
+                f.draw();
+            }
+
+            // Update and draw jumping fish
+            for (let i = jumpingFish.length - 1; i >= 0; i--) {
+                jumpingFish[i].update();
+                jumpingFish[i].draw();
+
+                if (jumpingFish[i].isDone()) {
+                    jumpingFish.splice(i, 1);
+                }
+            }
+
+            // Update and draw birds
+            for (let i = birds.length - 1; i >= 0; i--) {
+                let b = birds[i];
+                b.hunt(fish);
+                b.update();
+                b.draw();
+
+                // Occasionally drown when hunting underwater (small chance)
+                if (b.pos.y > INTERFACE_Y + 100 && random() < (params.drownChance / 100)) {
+                    // Bird drowns - create drowning effect
+                    splashes.push(new DrowningSplash(b.pos.x, b.pos.y));
+                    deadBirds.push(new DeadBird(b.pos.x, b.pos.y));
+                    birds.splice(i, 1);
+                    birds.push(new Bird()); // Spawn new hunting bird
+                    continue;
+                }
+
+                // Check for successful hunts
+                if (b.pos.y > INTERFACE_Y) {
+                    for (let j = fish.length - 1; j >= 0; j--) {
+                        let f = fish[j];
+                        let d = p5.Vector.dist(b.pos, f.pos);
+                        if (d < 20) {
+                            // Successful catch!
+                            splashes.push(new Splash(f.pos.x, f.pos.y));
+                            fish.splice(j, 1);
+                            fish.push(new Fish()); // Replace caught fish
+
+                            // Create escaping bird with catch
+                            escapingBirds.push(new EscapingBird(b.pos.x, b.pos.y, b.vel.copy()));
+
+                            birds.splice(i, 1);
+                            birds.push(new Bird()); // Spawn new hunting bird
+                            break;
+                        }
+                    }
+                }
+
+                // Respawn birds that dive too deep
+                if (b.pos.y > height + 50) {
+                    birds.splice(i, 1);
+                    birds.push(new Bird());
+                }
+            }
+
+            // Update and draw dead birds
+            for (let i = deadBirds.length - 1; i >= 0; i--) {
+                deadBirds[i].update();
+                deadBirds[i].draw();
+
+                // Remove when fully consumed
+                if (deadBirds[i].isConsumed()) {
+                    deadBirds.splice(i, 1);
+                }
+            }
+
+            // Update and draw escaping birds
+            for (let i = escapingBirds.length - 1; i >= 0; i--) {
+                escapingBirds[i].update();
+                escapingBirds[i].draw();
+
+                // Remove when off screen
+                if (escapingBirds[i].isOffScreen()) {
+                    escapingBirds.splice(i, 1);
+                }
+            }
+
+            // Update and draw splashes
+            for (let i = splashes.length - 1; i >= 0; i--) {
+                splashes[i].update();
+                splashes[i].draw();
+                if (splashes[i].isDead()) {
+                    splashes.splice(i, 1);
+                }
+            }
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════
+        // BIRD CLASS - Predatory swooping behavior
+        // ═══════════════════════════════════════════════════════════════════════
+
+        class Bird {
+            constructor() {
+                this.pos = createVector(random(width), random(-100, -20));
+                this.vel = createVector(0, 0);
+                this.acc = createVector(0, 0);
+                this.targetFish = null;
+                this.maxSpeed = params.huntSpeed;
+                this.maxForce = 0.3;
+                this.history = [];
+            }
+
+            hunt(fishArray) {
+                if (fishArray.length === 0) return;
+
+                // Select target fish if none assigned
+                if (!this.targetFish || !fishArray.includes(this.targetFish)) {
+                    this.targetFish = random(fishArray);
+                }
+
+                // Calculate interception vector
+                let target = this.targetFish.pos.copy();
+                let desired = p5.Vector.sub(target, this.pos);
+
+                // Add noise-based turbulence
+                let noiseVal = noise(this.pos.x * 0.01, this.pos.y * 0.01, frameCount * 0.01);
+                let turbAngle = map(noiseVal, 0, 1, -PI, PI) * params.turbulence;
+                desired.rotate(turbAngle);
+
+                desired.setMag(this.maxSpeed);
+                let steer = p5.Vector.sub(desired, this.vel);
+                steer.limit(this.maxForce);
+                this.applyForce(steer);
+
+                // Gravity-like acceleration when diving
+                if (this.pos.y > 100) {
+                    this.applyForce(createVector(0, 0.15));
+                }
+            }
+
+            applyForce(force) {
+                this.acc.add(force);
+            }
+
+            update() {
+                this.vel.add(this.acc);
+                this.vel.limit(this.maxSpeed);
+                this.pos.add(this.vel);
+                this.acc.mult(0);
+
+                // Trail history
+                this.history.push(this.pos.copy());
+                if (this.history.length > 15) {
+                    this.history.shift();
+                }
+            }
+
+            draw() {
+                // Draw trail with velocity-based color
+                for (let i = 0; i < this.history.length - 1; i++) {
+                    let alpha = map(i, 0, this.history.length, 0, 180);
+                    let intensity = map(this.vel.mag(), 0, this.maxSpeed, 100, 255);
+
+                    // Sky colors (bright blues/whites)
+                    if (this.history[i].y < INTERFACE_Y) {
+                        stroke(200, 220, 255, alpha);
+                    } else {
+                        // Water colors when penetrating
+                        stroke(150, 200, 255, alpha);
+                    }
+
+                    strokeWeight(map(i, 0, this.history.length, 1, 3));
+                    line(this.history[i].x, this.history[i].y,
+                         this.history[i + 1].x, this.history[i + 1].y);
+                }
+            }
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════
+        // MOON DRAWING
+        // ═══════════════════════════════════════════════════════════════════════
+
+        function drawMoon() {
+            // Calculate moon position along arc
+            let progress = (frameCount * moon.speed) % 1.0; // Loop from 0 to 1
+            let moonX = lerp(moon.startX, moon.endX, progress);
+
+            // Create arc path (parabola reaching peak at middle)
+            let arcProgress = sin(progress * PI); // 0 to 1 to 0
+            let moonY = moon.arcHeight - (arcProgress * 80); // Higher in middle
+
+            // Draw soft glowing moon
+            noStroke();
+
+            // Outer glow
+            for (let i = 0; i < 3; i++) {
+                let size = moon.size + (i * 15);
+                let alpha = map(i, 0, 3, 30, 0);
+                fill(180, 190, 210, alpha);
+                ellipse(moonX, moonY, size, size);
+            }
+
+            // Main moon body
+            fill(200, 210, 230, 180);
+            ellipse(moonX, moonY, moon.size, moon.size);
+
+            // Moon surface detail (subtle craters)
+            fill(180, 190, 210, 60);
+            ellipse(moonX - 15, moonY - 10, 20, 20);
+            ellipse(moonX + 10, moonY + 5, 15, 15);
+            ellipse(moonX - 5, moonY + 15, 12, 12);
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════
+        // DEPTH GRADIENT
+        // ═══════════════════════════════════════════════════════════════════════
+
+        function drawDepthGradient() {
+            // Draw gradient that gets darker with depth
+            noStroke();
+            for (let y = INTERFACE_Y; y < height; y += 2) {
+                let depth = y - INTERFACE_Y;
+                let maxDepth = height - INTERFACE_Y;
+                let alpha = map(depth, 0, maxDepth, 0, 40);
+                fill(5, 10, 20, alpha);
+                rect(0, y, width, 2);
+            }
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════
+        // WATER RIPPLE EFFECT
+        // ═══════════════════════════════════════════════════════════════════════
+
+        function drawWaterRipples() {
+            // Draw subtle rippling effect in water portion
+            let spacing = 8; // Distance between ripple lines
+
+            for (let y = INTERFACE_Y + 20; y < height; y += spacing) {
+                stroke(60, 120, 160, 15); // Very subtle cyan
+                strokeWeight(1);
+
+                noFill();
+                beginShape();
+                for (let x = 0; x <= width; x += 4) {
+                    // Multiple sine waves for complex rippling
+                    let wave1 = sin((x * 0.01) + (frameCount * 0.02)) * 2;
+                    let wave2 = sin((x * 0.015) + (y * 0.02) + (frameCount * 0.015)) * 1.5;
+                    let wave3 = sin((x * 0.008) - (frameCount * 0.01)) * 1;
+
+                    let offset = wave1 + wave2 + wave3;
+                    vertex(x, y + offset);
+                }
+                endShape();
+            }
+
+            // Add occasional stronger ripple lines for variation
+            for (let y = INTERFACE_Y + 40; y < height; y += spacing * 4) {
+                stroke(80, 140, 180, 25);
+                strokeWeight(0.5);
+
+                noFill();
+                beginShape();
+                for (let x = 0; x <= width; x += 4) {
+                    let wave = sin((x * 0.012) + (y * 0.015) + (frameCount * 0.025)) * 3;
+                    vertex(x, y + wave);
+                }
+                endShape();
+            }
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════
+        // STAR CLASS - Twinkling stars in night sky
+        // ═══════════════════════════════════════════════════════════════════════
+
+        class Star {
+            constructor() {
+                this.x = random(width);
+                this.y = random(0, INTERFACE_Y - 50); // Only in sky portion
+                this.baseSize = random(0.8, 2.2);
+                this.brightness = random(100, 255);
+                this.noiseOffset = random(1000);
+                this.twinkleSpeed = random(0.005, 0.015);
+            }
+
+            update() {
+                // Use Perlin noise for smooth, organic twinkling
+                let noiseVal = noise(this.noiseOffset + frameCount * this.twinkleSpeed);
+                this.brightness = map(noiseVal, 0, 1, 80, 255);
+            }
+
+            draw() {
+                // Draw subtle star with twinkling brightness
+                noStroke();
+                fill(220, 230, 255, this.brightness * 0.6); // Soft blue-white with alpha
+
+                // Vary size slightly based on brightness for more realism
+                let size = this.baseSize * map(this.brightness, 80, 255, 0.7, 1.2);
+                ellipse(this.x, this.y, size, size);
+            }
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════
+        // ESCAPING BIRD CLASS - Successful hunter soaring away
+        // ═══════════════════════════════════════════════════════════════════════
+
+        class EscapingBird {
+            constructor(x, y, initialVel) {
+                this.pos = createVector(x, y);
+                this.vel = initialVel;
+                this.acc = createVector(0, 0);
+                this.maxSpeed = params.huntSpeed * 1.3; // Slightly faster
+                this.maxForce = 0.4;
+                this.history = [];
+                this.noiseOffset = random(1000); // Unique noise offset
+            }
+
+            update() {
+                // Strong upward force (rising with catch)
+                let upward = createVector(0, -0.5);
+                this.applyForce(upward);
+
+                // Noise-based horizontal perturbation
+                let noiseVal = noise(this.pos.x * 0.008, this.pos.y * 0.008, frameCount * 0.02 + this.noiseOffset);
+                let noiseForce = createVector(
+                    map(noiseVal, 0, 1, -0.3, 0.3) * params.turbulence,
+                    0
+                );
+                this.applyForce(noiseForce);
+
+                // Apply velocity changes
+                this.vel.add(this.acc);
+                this.vel.limit(this.maxSpeed);
+                this.pos.add(this.vel);
+                this.acc.mult(0);
+
+                // Trail history
+                this.history.push(this.pos.copy());
+                if (this.history.length > 20) {
+                    this.history.shift();
+                }
+            }
+
+            applyForce(force) {
+                this.acc.add(force);
+            }
+
+            draw() {
+                // Draw trail with warm success colors (gold/orange)
+                for (let i = 0; i < this.history.length - 1; i++) {
+                    let alpha = map(i, 0, this.history.length, 0, 200);
+
+                    // Warm victorious colors - gold and orange tones
+                    let r = map(i, 0, this.history.length, 200, 255);
+                    let g = map(i, 0, this.history.length, 140, 200);
+                    let b = map(i, 0, this.history.length, 80, 120);
+
+                    stroke(r, g, b, alpha);
+                    strokeWeight(map(i, 0, this.history.length, 1, 3.5));
+                    line(this.history[i].x, this.history[i].y,
+                         this.history[i + 1].x, this.history[i + 1].y);
+                }
+            }
+
+            isOffScreen() {
+                return this.pos.y < -100 || this.pos.x < -100 || this.pos.x > width + 100;
+            }
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════
+        // DEAD BIRD CLASS - Drowned birds sinking in water
+        // ═══════════════════════════════════════════════════════════════════════
+
+        class DeadBird {
+            constructor(x, y) {
+                this.pos = createVector(x, y);
+                this.vel = createVector(0, params.sinkSpeed); // Slow sinking
+                this.mass = 100; // Amount of "food" remaining
+                this.maxMass = 100;
+            }
+
+            update() {
+                // Slowly sink
+                this.pos.add(this.vel);
+                this.vel.y += params.sinkSpeed * 0.2; // Gentle gravity acceleration
+
+                // Stop at bottom
+                if (this.pos.y > height - 50) {
+                    this.vel.y = 0;
+                    this.pos.y = height - 50;
+                }
+
+                // Get consumed by nearby fish
+                this.mass -= params.feedingSpeed; // Feeding rate controlled by parameter
+            }
+
+            draw() {
+                // Draw dead bird as a dull blue-gray mass (like hunting birds but desaturated)
+                let alpha = map(this.mass, 0, this.maxMass, 0, 150);
+                noStroke();
+
+                // Dull blue-gray - similar to bird trails but muted
+                fill(100, 120, 140, alpha);
+
+                // Size decreases as it's consumed
+                let size = map(this.mass, 0, this.maxMass, 3, 12);
+                ellipse(this.pos.x, this.pos.y, size, size);
+
+                // Faint sinking trail in similar dull blue
+                fill(80, 100, 120, alpha * 0.3);
+                ellipse(this.pos.x, this.pos.y - 5, size * 0.7, size * 0.7);
+                ellipse(this.pos.x, this.pos.y - 10, size * 0.4, size * 0.4);
+            }
+
+            isConsumed() {
+                return this.mass <= 0;
+            }
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════
+        // JUMPING FISH CLASS - Fish leaping through the interface
+        // ═══════════════════════════════════════════════════════════════════════
+
+        class JumpingFish {
+            constructor(x, y, initialVel) {
+                this.pos = createVector(x, y);
+                // Add upward velocity to jump
+                this.vel = createVector(initialVel.x * 0.8, -6); // Increased from -3 to -6
+                this.acc = createVector(0, 0.15); // Gravity
+                this.history = [];
+                this.lifespan = 90; // Increased to allow for longer arc
+            }
+
+            update() {
+                this.vel.add(this.acc);
+                this.pos.add(this.vel);
+                this.lifespan--;
+
+                // Trail history
+                this.history.push(this.pos.copy());
+                if (this.history.length > 8) {
+                    this.history.shift();
+                }
+            }
+
+            draw() {
+                // Draw jumping arc with bright cyan (fish breaking surface)
+                for (let i = 0; i < this.history.length - 1; i++) {
+                    let alpha = map(i, 0, this.history.length, 0, 150);
+
+                    // Bright cyan when in air, dimmer in water
+                    if (this.history[i].y < INTERFACE_Y) {
+                        stroke(120, 220, 255, alpha);
+                    } else {
+                        stroke(80, 180, 210, alpha);
+                    }
+
+                    strokeWeight(map(i, 0, this.history.length, 1, 2.5));
+                    line(this.history[i].x, this.history[i].y,
+                         this.history[i + 1].x, this.history[i + 1].y);
+                }
+
+                // Small splash when re-entering water
+                if (this.pos.y > INTERFACE_Y && this.vel.y > 0 && this.lifespan > 50) {
+                    stroke(100, 200, 220, 100);
+                    strokeWeight(1);
+                    noFill();
+                    ellipse(this.pos.x, INTERFACE_Y, 15, 8);
+                }
+            }
+
+            isDone() {
+                return this.lifespan <= 0 || this.pos.y > INTERFACE_Y + 100;
+            }
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════
+        // FISH CLASS - Flocking prey behavior
+        // ═══════════════════════════════════════════════════════════════════════
+
+        class Fish {
+            constructor() {
+                this.pos = createVector(random(width), random(INTERFACE_Y + 50, height - 50));
+                this.vel = createVector(random(-1, 1), random(-1, 1));
+                this.acc = createVector(0, 0);
+                this.maxSpeed = params.fishSpeed;
+                this.maxForce = 0.2;
+                this.history = [];
+                this.panicLevel = 0; // 0 = calm, 1 = panicked
+            }
+
+            flock(fishArray) {
+                // When panicked, reduce flocking and increase separation
+                let panicMult = 1 - (this.panicLevel * 0.7);
+
+                let separation = this.separate(fishArray);
+                let alignment = this.align(fishArray);
+                let cohesion = this.cohesion(fishArray);
+
+                // Weight the forces (stronger separation when panicked)
+                separation.mult(1.5 + (this.panicLevel * 2));
+                alignment.mult(1.0 * panicMult);
+                cohesion.mult(1.0 * panicMult);
+
+                this.applyForce(separation);
+                this.applyForce(alignment);
+                this.applyForce(cohesion);
+
+                // Avoid surface
+                if (this.pos.y < INTERFACE_Y + 30) {
+                    let avoid = createVector(0, 1);
+                    avoid.mult(0.5);
+                    this.applyForce(avoid);
+                }
+            }
+
+            fleeFrom(x, y) {
+                // Make fish panic and flee from a specific point
+                let distance = dist(this.pos.x, this.pos.y, x, y);
+                if (distance < 150) { // Panic radius
+                    this.panicLevel = map(distance, 0, 150, 1.0, 0.3);
+
+                    // Strong repulsion force
+                    let flee = createVector(this.pos.x - x, this.pos.y - y);
+                    flee.normalize();
+                    flee.mult(2.5 * this.panicLevel);
+                    this.applyForce(flee);
+                }
+            }
+
+            attractTo(x, y) {
+                // Make fish attracted to food (opposite of flee)
+                let distance = dist(this.pos.x, this.pos.y, x, y);
+                if (distance < 200 && distance > 60) { // Attraction radius
+                    let attractionStrength = map(distance, 60, 200, 0.3, 0.2);
+
+                    // Gentle attraction force
+                    let attract = createVector(x - this.pos.x, y - this.pos.y);
+                    attract.normalize();
+                    attract.mult(attractionStrength);
+                    this.applyForce(attract);
+                } else if (distance <= 60 && distance > 10) {
+                    // Orbit zone - strong circular swooping force
+                    let tangent = createVector(-(y - this.pos.y), x - this.pos.x);
+                    tangent.normalize();
+
+                    // Stronger orbital force when closer for tight swoops
+                    let orbitalStrength = map(distance, 10, 60, 1.2, 0.6);
+                    tangent.mult(orbitalStrength);
+                    this.applyForce(tangent);
+
+                    // Also add slight inward force to maintain orbit
+                    let inward = createVector(x - this.pos.x, y - this.pos.y);
+                    inward.normalize();
+                    inward.mult(0.15);
+                    this.applyForce(inward);
+                }
+            }
+
+            separate(fishArray) {
+                let desiredSeparation = 30; // Increased from 25 for better spacing
+                let steer = createVector(0, 0);
+                let count = 0;
+
+                for (let other of fishArray) {
+                    let d = p5.Vector.dist(this.pos, other.pos);
+                    if ((d > 0) && (d < desiredSeparation)) {
+                        let diff = p5.Vector.sub(this.pos, other.pos);
+                        diff.normalize();
+                        diff.div(d);
+                        steer.add(diff);
+                        count++;
+                    }
+                }
+
+                if (count > 0) {
+                    steer.div(count);
+                    steer.setMag(this.maxSpeed);
+                    steer.sub(this.vel);
+                    steer.limit(this.maxForce);
+                }
+                return steer;
+            }
+
+            align(fishArray) {
+                let neighborDist = 50;
+                let sum = createVector(0, 0);
+                let count = 0;
+
+                for (let other of fishArray) {
+                    let d = p5.Vector.dist(this.pos, other.pos);
+                    if ((d > 0) && (d < neighborDist)) {
+                        sum.add(other.vel);
+                        count++;
+                    }
+                }
+
+                if (count > 0) {
+                    sum.div(count);
+                    sum.setMag(this.maxSpeed);
+                    let steer = p5.Vector.sub(sum, this.vel);
+                    steer.limit(this.maxForce);
+                    return steer;
+                }
+                return createVector(0, 0);
+            }
+
+            cohesion(fishArray) {
+                let neighborDist = 50;
+                let sum = createVector(0, 0);
+                let count = 0;
+
+                for (let other of fishArray) {
+                    let d = p5.Vector.dist(this.pos, other.pos);
+                    if ((d > 0) && (d < neighborDist)) {
+                        sum.add(other.pos);
+                        count++;
+                    }
+                }
+
+                if (count > 0) {
+                    sum.div(count);
+                    return this.seek(sum);
+                }
+                return createVector(0, 0);
+            }
+
+            seek(target) {
+                let desired = p5.Vector.sub(target, this.pos);
+                desired.setMag(this.maxSpeed);
+                let steer = p5.Vector.sub(desired, this.vel);
+                steer.limit(this.maxForce);
+                return steer;
+            }
+
+            applyForce(force) {
+                this.acc.add(force);
+            }
+
+            update() {
+                // Gradually calm down from panic
+                this.panicLevel *= 0.97;
+
+                // Increase speed when panicked
+                let currentMaxSpeed = this.maxSpeed * (1 + this.panicLevel * 1.5);
+
+                this.vel.add(this.acc);
+                this.vel.limit(currentMaxSpeed);
+                this.pos.add(this.vel);
+                this.acc.mult(0);
+
+                // Boundaries - stay in water
+                let teleported = false;
+                if (this.pos.x < 0) {
+                    this.pos.x = width;
+                    teleported = true;
+                }
+                if (this.pos.x > width) {
+                    this.pos.x = 0;
+                    teleported = true;
+                }
+                if (this.pos.y < INTERFACE_Y + 20) {
+                    this.pos.y = INTERFACE_Y + 20;
+                    teleported = true;
+                }
+                if (this.pos.y > height) {
+                    this.pos.y = INTERFACE_Y + 50 + random(-20, 20);
+                    teleported = true;
+                }
+
+                // Clear history when teleporting to prevent artifact lines
+                if (teleported) {
+                    this.history = [];
+                }
+
+                // Trail history
+                this.history.push(this.pos.copy());
+                if (this.history.length > 10) {
+                    this.history.shift();
+                }
+            }
+
+            draw() {
+                // Draw subtle trail (brighter when panicked)
+                for (let i = 0; i < this.history.length - 1; i++) {
+                    let baseAlpha = map(i, 0, this.history.length, 0, 100);
+                    let alpha = baseAlpha * (1 + this.panicLevel * 0.8);
+
+                    // Brighter, more yellow-green when panicked
+                    let r = 100 + (this.panicLevel * 50);
+                    let g = 200 + (this.panicLevel * 40);
+                    let b = 220 - (this.panicLevel * 40);
+
+                    stroke(r, g, b, alpha);
+                    strokeWeight(1 + (this.panicLevel * 0.5));
+                    line(this.history[i].x, this.history[i].y,
+                         this.history[i + 1].x, this.history[i + 1].y);
+                }
+            }
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════
+        // SPLASH CLASS - Impact visualization
+        // ═══════════════════════════════════════════════════════════════════════
+
+        class Splash {
+            constructor(x, y) {
+                this.pos = createVector(x, y);
+                this.particles = [];
+                this.lifespan = 255;
+
+                // Create burst particles
+                for (let i = 0; i < params.splashIntensity; i++) {
+                    let angle = random(TWO_PI);
+                    let speed = random(1, 4);
+                    let vel = createVector(cos(angle) * speed, sin(angle) * speed);
+                    this.particles.push({
+                        pos: this.pos.copy(),
+                        vel: vel
+                    });
+                }
+            }
+
+            update() {
+                this.lifespan -= 8;
+                for (let p of this.particles) {
+                    p.pos.add(p.vel);
+                    p.vel.mult(0.95); // Friction
+                }
+            }
+
+            draw() {
+                for (let p of this.particles) {
+                    let alpha = map(this.lifespan, 0, 255, 0, 200);
+                    stroke(255, 255, 255, alpha);
+                    strokeWeight(2);
+                    point(p.pos.x, p.pos.y);
+                }
+            }
+
+            isDead() {
+                return this.lifespan <= 0;
+            }
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════
+        // DROWNING SPLASH CLASS - Darker, slower burst when bird drowns
+        // ═══════════════════════════════════════════════════════════════════════
+
+        class DrowningSplash {
+            constructor(x, y) {
+                this.pos = createVector(x, y);
+                this.particles = [];
+                this.lifespan = 255;
+                this.rings = [];
+
+                // Create slower, darker burst particles
+                for (let i = 0; i < params.splashIntensity * 2; i++) {
+                    let angle = random(TWO_PI);
+                    let speed = random(0.5, 3); // Slightly faster spread
+                    let vel = createVector(cos(angle) * speed, sin(angle) * speed);
+                    this.particles.push({
+                        pos: this.pos.copy(),
+                        vel: vel
+                    });
+                }
+
+                // Create expanding rings
+                for (let i = 0; i < 3; i++) {
+                    this.rings.push({
+                        radius: 0,
+                        maxRadius: 60 + (i * 20), // Increased from 40 + (i * 15)
+                        speed: 1.0 - (i * 0.2) // Slightly faster expansion
+                    });
+                }
+            }
+
+            update() {
+                this.lifespan -= 6; // Slower fade than catch splash
+                for (let p of this.particles) {
+                    p.pos.add(p.vel);
+                    p.vel.mult(0.92); // More friction/slower
+                }
+
+                // Expand rings
+                for (let r of this.rings) {
+                    r.radius += r.speed;
+                }
+            }
+
+            draw() {
+                // Draw expanding rings (disturbance in water)
+                for (let r of this.rings) {
+                    let alpha = map(this.lifespan, 0, 255, 0, 80) * map(r.radius, 0, r.maxRadius, 1, 0);
+                    stroke(100, 140, 160, alpha);
+                    strokeWeight(2);
+                    noFill();
+                    ellipse(this.pos.x, this.pos.y, r.radius * 2, r.radius * 2);
+                }
+
+                // Draw particles (dull blue-gray, not bright white)
+                for (let p of this.particles) {
+                    let alpha = map(this.lifespan, 0, 255, 0, 150);
+                    stroke(110, 130, 150, alpha); // Dull blue-gray
+                    strokeWeight(1.5);
+                    point(p.pos.x, p.pos.y);
+                }
+            }
+
+            isDead() {
+                return this.lifespan <= 0;
+            }
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════
+        // UI CONTROL HANDLERS
+        // ═══════════════════════════════════════════════════════════════════════
+
+        function updateParam(paramName, value) {
+            params[paramName] = parseFloat(value);
+
+            // Format display value based on parameter type
+            let displayValue = value;
+            if (paramName === 'trailFade' || paramName === 'fishSpeed' || paramName === 'turbulence' || paramName === 'sinkSpeed' || paramName === 'drownChance') {
+                displayValue = parseFloat(value).toFixed(2);
+            } else if (paramName === 'huntSpeed' || paramName === 'feedingSpeed') {
+                displayValue = parseFloat(value).toFixed(1);
+            }
+
+            document.getElementById(paramName + '-value').textContent = displayValue;
+
+            // Reinitialize when population counts change
+            if (paramName === 'birdCount' || paramName === 'fishCount') {
+                initializeSystem();
+            }
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════
+        // SEED CONTROL FUNCTIONS
+        // ═══════════════════════════════════════════════════════════════════════
+
+        function updateSeedDisplay() {
+            document.getElementById('seed-input').value = params.seed;
+        }
+
+        function updateSeed() {
+            let input = document.getElementById('seed-input');
+            let newSeed = parseInt(input.value);
+            if (newSeed && newSeed > 0) {
+                params.seed = newSeed;
+                initializeSystem();
+            } else {
+                updateSeedDisplay();
+            }
+        }
+
+        function previousSeed() {
+            params.seed = Math.max(1, params.seed - 1);
+            updateSeedDisplay();
+            initializeSystem();
+        }
+
+        function nextSeed() {
+            params.seed = params.seed + 1;
+            updateSeedDisplay();
+            initializeSystem();
+        }
+
+        function randomSeedAndUpdate() {
+            params.seed = Math.floor(Math.random() * 999999) + 1;
+            updateSeedDisplay();
+            initializeSystem();
+        }
+
+        function resetParameters() {
+            params = {...defaultParams};
+
+            // Update UI elements
+            document.getElementById('birdCount').value = params.birdCount;
+            document.getElementById('birdCount-value').textContent = params.birdCount;
+            document.getElementById('fishCount').value = params.fishCount;
+            document.getElementById('fishCount-value').textContent = params.fishCount;
+            document.getElementById('huntSpeed').value = params.huntSpeed;
+            document.getElementById('huntSpeed-value').textContent = params.huntSpeed;
+            document.getElementById('fishSpeed').value = params.fishSpeed;
+            document.getElementById('fishSpeed-value').textContent = params.fishSpeed;
+            document.getElementById('turbulence').value = params.turbulence;
+            document.getElementById('turbulence-value').textContent = params.turbulence.toFixed(1);
+            document.getElementById('trailFade').value = params.trailFade;
+            document.getElementById('trailFade-value').textContent = params.trailFade.toFixed(2);
+            document.getElementById('splashIntensity').value = params.splashIntensity;
+            document.getElementById('splashIntensity-value').textContent = params.splashIntensity;
+            document.getElementById('sinkSpeed').value = params.sinkSpeed;
+            document.getElementById('sinkSpeed-value').textContent = params.sinkSpeed.toFixed(2);
+            document.getElementById('feedingSpeed').value = params.feedingSpeed;
+            document.getElementById('feedingSpeed-value').textContent = params.feedingSpeed.toFixed(1);
+            document.getElementById('drownChance').value = params.drownChance;
+            document.getElementById('drownChance-value').textContent = params.drownChance.toFixed(2);
+
+            updateSeedDisplay();
+            initializeSystem();
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════
+        // SIDEBAR TOGGLE FUNCTIONS
+        // ═══════════════════════════════════════════════════════════════════════
+
+        let sidebarVisible = true;
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const toggleBtn = document.getElementById('toggle-sidebar');
+
+            sidebarVisible = !sidebarVisible;
+
+            if (sidebarVisible) {
+                sidebar.classList.remove('hidden');
+                toggleBtn.classList.remove('sidebar-hidden');
+                toggleBtn.classList.add('sidebar-visible');
+                toggleBtn.innerHTML = '☰';
+            } else {
+                sidebar.classList.add('hidden');
+                toggleBtn.classList.remove('sidebar-visible');
+                toggleBtn.classList.add('sidebar-hidden');
+                toggleBtn.innerHTML = '→';
+            }
+        }
+
+        function parseSidebarVisibility() {
+            const urlParams = new URLSearchParams(window.location.search);
+
+            // Check for 'controls' parameter (controls=false hides sidebar)
+            const controlsParam = urlParams.get('controls');
+            if (controlsParam === 'false' || controlsParam === '0') {
+                const sidebar = document.getElementById('sidebar');
+                const toggleBtn = document.getElementById('toggle-sidebar');
+
+                sidebar.classList.add('hidden');
+                toggleBtn.classList.add('sidebar-hidden');
+                toggleBtn.innerHTML = '→';
+                sidebarVisible = false;
+            }
+
+            // Check for 'embed' parameter (embed=true hides everything)
+            const embedParam = urlParams.get('embed');
+            if (embedParam === 'true' || embedParam === '1') {
+                const sidebar = document.getElementById('sidebar');
+                const toggleBtn = document.getElementById('toggle-sidebar');
+
+                sidebar.style.display = 'none';
+                toggleBtn.style.display = 'none';
+                sidebarVisible = false;
+            }
+        }
+
+        // Initialize UI on load
+        window.addEventListener('load', function() {
+            updateSeedDisplay();
+            parseSidebarVisibility();
+        });
+    </script>
+</body>
+</html>
