@@ -50,7 +50,10 @@ program
   .action(buildPosts);
 
 async function buildPosts(postsGlob, options) {
-  const posts = await loadAllPosts({ postGlobs: postsGlob, showDrafts: options.showDrafts });
+  // Commander passes an empty array for [globs...] when no args provided
+  // Treat empty array as undefined to load all posts
+  const postGlobs = postsGlob && postsGlob.length > 0 ? postsGlob : undefined;
+  const posts = await loadAllPosts({ postGlobs, showDrafts: options.showDrafts });
   await buildAllPosts(posts);
   await buildAllIndexes(posts, { showDrafts: options.showDrafts });
 }
@@ -64,7 +67,10 @@ program
   .action(buildIndexes);
 
 async function buildIndexes(postGlobs, options) {
-  await buildAllIndexes(await loadAllPosts({ postGlobs }), {
+  // Commander passes an empty array for [globs...] when no args provided
+  // Treat empty array as undefined to load all posts
+  const globs = postGlobs && postGlobs.length > 0 ? postGlobs : undefined;
+  await buildAllIndexes(await loadAllPosts({ postGlobs: globs }), {
     showDrafts: options.showDrafts,
   });
 }

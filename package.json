@@ -8,8 +8,8 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "npm-run-all --parallel serve watch",
-    "serve-reload": "reload -v -w build -f index.html -d build -p 9980",
+    "start": "npm-run-all --parallel serve-reload watch",
+    "serve-reload": "browser-sync start --server build --files 'build/**/*' --port 9980 --no-open",
     "serve": "http-server -d true -i true -p 9980 build",
     "watch": "npm-run-all --parallel watch:*",
     "watch:posts": "onchange -v -i -d 1000 content/posts package.json index.js lib templates -- npm run build-posts-with-drafts",
@@ -49,5 +49,8 @@
     "reload": "^3.2.0",
     "rimraf": "^3.0.2",
     "watch": "^0.13.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.4"
   }
 }
