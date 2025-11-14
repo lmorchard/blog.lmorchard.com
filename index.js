@@ -9,6 +9,7 @@ import { copyAssets } from "./lib/assets.js";
 import { loadAllPosts, buildAllPosts } from "./lib/posts.js";
 import { buildAllIndexes } from "./lib/indexes.js";
 import { localizeImages } from "./lib/localizeImages.js";
+import { optimizePostImages } from "./lib/optimizeImages.js";
 
 const rimraf = util.promisify(rimrafOrig);
 
@@ -85,13 +86,29 @@ program
   .command("localize-images [globs...]")
   .description("download external images and rewrite references to use local copies")
   .option("--dry-run", "show what would be done without making changes")
+  .option("--no-optimize", "skip image optimization")
   .action(localizeImagesCommand);
 
 async function localizeImagesCommand(postGlobs, options) {
   // Commander passes an empty array for [globs...] when no args provided
   // Treat empty array as undefined to process all posts
   const globs = postGlobs && postGlobs.length > 0 ? postGlobs : undefined;
-  await localizeImages(globs, { dryRun: options.dryRun });
+  await localizeImages(globs, {
+    dryRun: options.dryRun,
+    optimize: options.optimize !== false // Commander sets this to false if --no-optimize is used
+  });
+}
+
+program
+  .command("optimize-images [globs...]")
+  .description("optimize existing images in blog posts")
+  .action(optimizeImagesCommand);
+
+async function optimizeImagesCommand(postGlobs, options) {
+  // Commander passes an empty array for [globs...] when no args provided
+  // Treat empty array as undefined to process all posts
+  const globs = postGlobs && postGlobs.length > 0 ? postGlobs : undefined;
+  await optimizePostImages(globs, options);
 }
 
 main().catch((err) => console.error(err));
