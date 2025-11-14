@@ -31,7 +31,7 @@ export class ImageGallery extends HTMLElement {
     this.setupGallery();
   }
 
-  setupGallery() {
+  async setupGallery() {
     this.classList.add("connected");
 
     // Scoop up all the images to supply to the gallery
@@ -46,6 +46,33 @@ export class ImageGallery extends HTMLElement {
     const galleryContainer = document.createElement("div");
     galleryContainer.classList.add("gallery-container");
     this.prepend(galleryContainer);
+
+    // Wait for layout to be complete and container to have dimensions
+    await new Promise(resolve => {
+      // Use double RAF to ensure layout is fully complete
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          // Also ensure container has non-zero dimensions
+          const checkDimensions = () => {
+            const rect = galleryContainer.getBoundingClientRect();
+            console.log("ImageGallery checkDimensions:", {
+              width: rect.width,
+              height: rect.height,
+              ready: rect.width > 0 && rect.height > 0
+            });
+            if (rect.width > 0 && rect.height > 0) {
+              resolve();
+            } else {
+              requestAnimationFrame(checkDimensions);
+            }
+          };
+          checkDimensions();
+        });
+      });
+    });
+
+    console.log("ImageGallery about to initialize lightGallery, container dimensions:",
+      galleryContainer.getBoundingClientRect());
 
     // Instantiate the lightGallery
     this.gallery = lightGallery(galleryContainer, {
@@ -76,6 +103,15 @@ export class ImageGallery extends HTMLElement {
     this.gallery.openGallery();
 
     console.log("ImageGallery lightGallery initialized", this);
+
+    // Force a refresh after a short delay to handle any layout shifts
+    // This is especially important for Firefox which may calculate sizes differently
+    setTimeout(() => {
+      if (this.gallery) {
+        console.log("ImageGallery forcing refresh");
+        this.gallery.refresh();
+      }
+    }, 100);
   }
 
   disconnectedCallback() {
