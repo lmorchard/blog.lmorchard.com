@@ -8,6 +8,7 @@ import config from "./config.js";
 import { copyAssets } from "./lib/assets.js";
 import { loadAllPosts, buildAllPosts } from "./lib/posts.js";
 import { buildAllIndexes } from "./lib/indexes.js";
+import { localizeImages } from "./lib/localizeImages.js";
 
 const rimraf = util.promisify(rimrafOrig);
 
@@ -79,5 +80,18 @@ program
   .command("build-assets [param]")
   .description("build shared assets like JS & CSS")
   .action(copyAssets);
+
+program
+  .command("localize-images [globs...]")
+  .description("download external images and rewrite references to use local copies")
+  .option("--dry-run", "show what would be done without making changes")
+  .action(localizeImagesCommand);
+
+async function localizeImagesCommand(postGlobs, options) {
+  // Commander passes an empty array for [globs...] when no args provided
+  // Treat empty array as undefined to process all posts
+  const globs = postGlobs && postGlobs.length > 0 ? postGlobs : undefined;
+  await localizeImages(globs, { dryRun: options.dryRun });
+}
 
 main().catch((err) => console.error(err));
