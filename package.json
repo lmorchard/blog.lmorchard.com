@@ -9,7 +9,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm-run-all --parallel serve-reload watch",
-    "serve-reload": "browser-sync start --server build --files 'build/**/*' --port 9980 --no-open",
+    "serve-reload": "browser-sync start --reload-delay 500 --reload-debounce --server build --files 'build/**/*' --port 9980 --no-open",
     "serve": "http-server -d true -i true -p 9980 build",
     "watch": "npm-run-all --parallel watch:*",
     "watch:posts": "onchange -v -i -d 1000 content/posts package.json index.js lib templates -- npm run build-posts-with-drafts",

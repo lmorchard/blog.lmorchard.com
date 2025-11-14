@@ -86,17 +86,13 @@ program
   .command("localize-images [globs...]")
   .description("download external images and rewrite references to use local copies")
   .option("--dry-run", "show what would be done without making changes")
-  .option("--no-optimize", "skip image optimization")
   .action(localizeImagesCommand);
 
 async function localizeImagesCommand(postGlobs, options) {
   // Commander passes an empty array for [globs...] when no args provided
   // Treat empty array as undefined to process all posts
   const globs = postGlobs && postGlobs.length > 0 ? postGlobs : undefined;
-  await localizeImages(globs, {
-    dryRun: options.dryRun,
-    optimize: options.optimize !== false // Commander sets this to false if --no-optimize is used
-  });
+  await localizeImages(globs, { dryRun: options.dryRun });
 }
 
 program
