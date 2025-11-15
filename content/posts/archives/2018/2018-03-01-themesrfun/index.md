@@ -21,7 +21,7 @@ For example, [Quantum Lights](https://addons.mozilla.org/en-US/firefox/addon/qua
 
 [VivaldiFox](https://addons.mozilla.org/en-US/firefox/addon/vivaldifox/) reflects the sites you’re visiting.
 
-[![VivaldiFox dynamic theme](image_0.png)](https://addons.mozilla.org/en-US/firefox/addon/vivaldifox/)
+[![VivaldiFox dynamic theme](image_0.png)](0c7923ce797d.jpg)
 
 You could even build themes that use data from external HTTP services - e.g. to change based on the weather.
 
