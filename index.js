@@ -10,6 +10,7 @@ import { loadAllPosts, buildAllPosts } from "./lib/posts.js";
 import { buildAllIndexes } from "./lib/indexes.js";
 import { localizeImages } from "./lib/localizeImages.js";
 import { optimizePostImages } from "./lib/optimizeImages.js";
+import { watchAndBuildPosts } from "./lib/incrementalBuild.js";
 
 const rimraf = util.promisify(rimrafOrig);
 
@@ -109,6 +110,20 @@ async function optimizeImagesCommand(postGlobs, options) {
   // Treat empty array as undefined to process all posts
   const globs = postGlobs && postGlobs.length > 0 ? postGlobs : undefined;
   await optimizePostImages(globs, options);
+}
+
+program
+  .command("build-posts-watch")
+  .description("watch for post changes and rebuild incrementally (fast!)")
+  .option("--show-drafts", "show drafts in indexes")
+  .option("--optimize", "enable image optimization (slower, default: disabled)")
+  .action(buildPostsWatch);
+
+async function buildPostsWatch(options) {
+  await watchAndBuildPosts({
+    optimize: options.optimize === true,
+    showDrafts: options.showDrafts !== false, // Default to true for watch mode
+  });
 }
 
 main().catch((err) => console.error(err));
