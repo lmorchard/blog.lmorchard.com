@@ -1,0 +1,99 @@
+---
+title: 2025 Week 44
+tags:
+  - weeknotes
+  - birthday
+  - bbs
+  - retrocomputing
+  - amiga
+  - c64
+  - ai
+  - webdev
+  - data
+  - roguelikecelebration
+thumbnail: "https://cdn.masto.host/mastohackerstown/media_attachments/files/115/431/479/012/198/610/original/3f00aa4908287fe4.jpeg"
+---
+
+**TL;DR**: It was my birthday this week, which my BBS remembered! Celebrated by dialing into BBSes from an actual Amiga 1200 and C64. Also: evangelized Bazzite Linux for gaming, fell down a Roguelike Celebration rabbit hole of procedural generation and non-euclidean games, shipped a new release of my feed-to-mastodon tool, and bookmarked way too many things about AI hype and data centers using jet engines for power.
+
+<!--more-->
+
+<nav role="navigation" class="table-of-contents"></nav>
+
+## Cat updates
+
+Everyone was tired, [last #caturday](https://masto.hackers.town/@lmorchard/115436175018370071):
+
+![Cosmo curled up on couch](dbc5e0acd77b.jpeg)
+![Miss Biscuits and Catsby lying back to back](9644fde0110e.jpeg)
+
+## Birthday BBS Adventures
+
+[Today is the day](https://masto.hackers.town/@lmorchard/115430063851898952) when every internet forum ever sends me a celebratory email:
+
+![IT IS YOUR BIRTHDAY.](7866a707edce.png)
+
+Oh hey, [even my BBS remembers](https://masto.hackers.town/@lmorchard/115430894281339458) what day it is!
+
+![Screenshot of 0xDECAFBAD BBS login displaying colorful Happy Birthday messages in rainbow text on a black terminal screen](2b515fd084f6.png)
+
+Spent part of my birthday [tooting from my Amiga](https://masto.hackers.town/@lmorchard/115431406565966228):
+
+![Amiga 1200 beneath a CRT monitor displaying Synchronet BBS with colorful ASCII art](945e24032b16.jpeg)
+
+I [used this A1200](https://masto.hackers.town/@lmorchard/115432371386698821) longer into the late 90s than reasonable before I finally splurged on a PC. Before that, I had a C64, which I still have and here I am using a wifi modem to "dial" into [Particles BBS](https://www.particles.org/particlesbbs/) via telnet:
+
+![Dual retro computing setup: Amiga 1200 on left showing ASCII skull, C64 on right displaying Particles! BBS with ANSI art, vintage hardware between them](a0d5cebf7af4.jpeg)
+
+A funny thing that [just occurred to me](https://masto.hackers.town/@lmorchard/115431488777804694): I'm dialing into BBSes over the internet, so I'm not tying up the phone line. 
+
+## Bazzite Evangelism
+
+I feel like [I'm an evangelist](https://masto.hackers.town/@lmorchard/115420756284912574) these days... I put a second hard drive in my gaming computer almost 20 months ago, installed [Bazzite](https://bazzite.gg/). It has been happy-making and basically demanded no sysadmin work beyond initial install. I would say that a [second physical drive](https://masto.hackers.town/@lmorchard/115420759316606587) is key to less-fuss dual booting these days, though. Never again will I try to juggle partitions around and all that noise.
+
+It's run everything from Steam, Epic, and GOG that I've thrown at it—with the exception of stuff with anti-cheat. Also I have an AMD GPU, so mileage may vary. I am fixing to format the original drive with Windows.
+
+
+## Roguelike Celebration
+
+Fell down a rabbit hole of [Roguelike Celebration](https://roguelike.club/) content this week and discovered some amazing things:
+
+- [bleeptrack](https://bleeptrack.de/about/) is a freelancing creative technologist who loves generative stuff of all sorts! Their talk on [From Code to Craft: Procedural Generation for the Physical World](http://roguelike.bleeptrack.de/) [is making me want](https://masto.hackers.town/@lmorchard/115436402746669844) to get into pen plotters again.
+
+- [HyperRogue](https://zenorogue.itch.io/hyperrogue): A roguelike that takes place on the hyperbolic plane. "Witness a grid composed of hexagons and heptagons, straight lines which seem to be parallel, but then they diverge and never cross, triangles whose angles add up to less than 180 degrees." All this matters for the gameplay.
+
+- Also discovered [Ada Null](https://worldenddisk.com/), who tells stories of broken pasts, uncertain futures, and the ghosts who never left.
+
+## Feed to Mastodon
+
+[Pushed a 0.0.2 release](https://masto.hackers.town/@lmorchard/115436371308633944) to my feed-to-mastodon tool, which let me auto-post my blog entries to the fediverse.
+
+It's a big fat hack! My blog entries are in markdown. They get rendered to HTML. The HTML gets extracted and escaped and shoved into RSS. The description from the RSS item gets converted back to markdown. The markdown gets posted to GoToSocial. GoToSocial renders the markdown as HTML.
+
+I should really blog about this. [Sometimes I like building](https://masto.hackers.town/@lmorchard/115436374532120507) loosely-coupled Rube Goldberg machines with computers where every step along the way sort of makes sense, but then the whole thing looks stupid when you take a step back. Yet, at the same time, it still sort of makes sense overall.
+
+## Miscellanea
+
+<div class="weeknote-miscellanea">
+
+- The mascot for Mico, the new Microsoft Copilot assistant, [looks like a drop of pee](https://masto.hackers.town/@lmorchard/115424853608009107)? ![Copilot Mico - an amber-colored cartoon smiley blob](a71989f104ac.png)
+- I [just keep thinking](https://masto.hackers.town/@lmorchard/115435873493536821) - who's asking for this stuff? Some of this current era of gen AI is really very useful. But so much of it reads like "we bought all this peanut butter so everything is peanut butter flavored now" press releases aimed at investors, fully ignoring how many folks are allergic to peanuts. ([Only the metrics care](https://blog.lmorchard.com/2025/05/27/only-metrics-care/) gets more true over time.)
+- I [think I really like](https://masto.hackers.town/@lmorchard/115426139352259741) The False Dawns: "Come monsoon season, expect a flood / So when you visit you'd do well to bring your ark / More street cred than your Subaru and much less grief to park" ([Our Tanks Your Lawn](https://thefalsedawns.bandcamp.com/album/our-tanks-your-lawn))
+- [CHANNELVUE](https://www.channelvue.biz/): Grab some popcorn! Eat the family! It's Channelvue, baby!
+- [ERRORS EXIST. PLEASE STAND BY.](https://masto.hackers.town/@lmorchard/115426255010405635) ![TV test pattern with error message](89e3e3fcc513.png)
+- I [miss ye olde Electronic Arts](https://masto.hackers.town/@lmorchard/115426314055031734) when they had "software artists"
+- Reading Frankenstein [for spoopy month](https://masto.hackers.town/@lmorchard/115431717835235733). It's weird [reading the original thing](https://masto.hackers.town/@lmorchard/115432376069951530) after taking in years of stuff inspired by it!
+- Thought this lil book ["Of Monsters and Mainframes"](https://binderybooks.com/books/of-monsters-and-mainframes/) had a [neat riff on Frankenstein's monster](https://masto.hackers.town/@lmorchard/115435997821080629).
+- Tom's Hardware: [Data centers turn to commercial aircraft jet engines](https://www.tomshardware.com/tech-industry/data-centers-turn-to-ex-airliner-engines-as-ai-power-crunch-bites#xenforo-comments-3887983) bolted onto trailers as AI power crunch bites. "Faced with multi-year delays to secure grid power, US data center operators are deploying aeroderivative gas turbines — effectively retired commercial aircraft engines."
+- 404 Media: [Breathing Through Our Butts Declared Safe After First Human Trial](https://www.404media.co/breathing-through-our-butts-declared-safe-after-first-human-trial/). Enteral ventilation—administering oxygen with a liquid delivered through the rectum—has been tested in humans for the first time.
+- Frank Chimero's [Beyond the Machine](https://frankchimero.com/blog/2025/beyond-the-machine/?ref=sidebar): "Eno often says while making music he feels like a gardener: planting loops and textures, then watching them sprout into something unexpected... The machine may produce material, but the job of shaping it into something meaningful still rests with him. It is creativity as cultivation."
+- Hackaday: [Making WiFi Sound Like Dial-Up Internet](https://hackaday.com/2025/10/24/making-wifi-sound-like-dial-up-internet/). Modern digital connections made audible in a pleasing tribute to the modems of yore.
+- [An Opinionated Guide to Using AI Right Now](https://www.oneusefulthing.org/p/an-opinionated-guide-to-using-ai): "The future of AI isn't just about better models. It's about people figuring out what to do with them."
+- [What Happened to Apple's Legendary Attention to Detail?](https://blog.johnozbay.com/what-happened-to-apples-attention-to-detail.html) "Over the course of the last 8-10 years, their choices have become anything but detail oriented."
+- [html-to-markdown](https://github.com/JohannesKaufmann/html-to-markdown): Go tool to convert HTML to Markdown, even works with entire websites.
+- [Joe Decuir Engineering Notebook 1978](https://archive.org/details/JoeDecuirEngineeringNotebook1978/): from when he worked at Atari, including lots on the Atari 400/800 and ANTIC chip.
+- Anil Dash: [ChatGPT's Atlas: The Browser That's Anti-Web](https://www.anildash.com/2025/10/22/atlas-anti-web-browser/). "The first browser that actively fights against the web."
+- Anil Dash: [The Majority AI View](https://www.anildash.com//2025/10/17/the-majority-ai-view/). "Virtually 100% of tech experts I talk to feel this way... stop being so goddamn creepy and weird about the technology!"
+- PBOT's [Ride Through the Seasons](https://www.portland.gov/transportation/walking-biking-transit-safety/rideseasons) campaign: encouraging Portlanders to keep riding their bike past summer and into fall.
+
+</div>

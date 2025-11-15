@@ -9,14 +9,14 @@
   "main": "index.js",
   "scripts": {
     "start": "npm-run-all --parallel serve-reload watch",
-    "serve-reload": "browser-sync start --server build --files 'build/**/*' --port 9980 --no-open",
+    "serve-reload": "browser-sync start --reload-delay 1000 --reload-debounce --server build --files 'build/**/*' --port 9980 --no-open",
     "serve": "http-server -d true -i true -p 9980 build",
     "watch": "npm-run-all --parallel watch:*",
     "watch:posts": "onchange -v -i -d 1000 content/posts package.json index.js lib templates -- npm run build-posts-with-drafts",
     "watch:assets": "onchange -v -i -d 1000 content/public -- npm run build-assets",
     "build": "node index.js build && npm run build-search",
     "build-posts": "node index.js build-posts",
-    "build-posts-with-drafts": "node index.js build-posts --show-drafts",
+    "build-posts-with-drafts": "node index.js build-posts --show-drafts --no-optimize",
     "build-search": "pagefind --site build",
     "build-assets": "node index.js build-assets",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -48,6 +48,7 @@
     "recursive-copy": "^2.0.11",
     "reload": "^3.2.0",
     "rimraf": "^3.0.2",
+    "sharp": "^0.34.5",
     "watch": "^0.13.0"
   },
   "devDependencies": {
