@@ -9,7 +9,6 @@ tags:
   - music
   - webdev
   - ai
-  - mozilla
 layout: post
 ---
 
