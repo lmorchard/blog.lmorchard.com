@@ -81,7 +81,7 @@ For the longest time, [I thought](https://masto.hackers.town/@lmorchard/11561150
 
 But, [it turns out that was actually Geddy Lee](https://www.youtube.com/watch?v=lnod-gtREQQ&t=455s) with vocal effects. They were all sneaky about it during the tour 1991-1992 tour: I remembered they'd [turn the lights down for that section](https://www.youtube.com/watch?v=pTiVuJRZS9A&t=231s) and you couldn't really see who (if any of them) was doing the spoken word / rap part.
 
-![Rush on stage during "Roll the Bones" when the lights go down](./rush-roll-the-bones.png)
+<youtube-embed video-id="lnod-gtREQQ" time="455" title="Rush - Roll The Bones Radio Special Interview (1991) "></youtube-embed>
 
 ## Miscellanea
 

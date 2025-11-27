@@ -4,12 +4,14 @@ youtube-embed {
 }
 
 youtube-embed .youtube-wrapper {
+  display: block;
   position: relative;
   padding-bottom: 56.25%; /* 16:9 aspect ratio */
   height: 0;
   overflow: hidden;
   max-width: 100%;
   background: #000;
+  text-decoration: none;
 }
 
 youtube-embed .youtube-wrapper iframe,
@@ -41,7 +43,7 @@ youtube-embed .youtube-play-button {
   transition: opacity 0.2s ease;
 }
 
-youtube-embed .youtube-play-button:hover {
+youtube-embed .youtube-wrapper:hover .youtube-play-button {
   opacity: 1;
 }
 
