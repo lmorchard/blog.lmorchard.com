@@ -4,6 +4,7 @@ const LAZY_LOAD_COMPONENT_SELECTORS = [
   ".lazy-load-component",
   "image-gallery",
   "lazy-load-observer",
+  "youtube-embed",
 ];
 
 export async function init() {
