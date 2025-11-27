@@ -25,21 +25,21 @@ So, as a [programming note](https://masto.hackers.town/@lmorchard/11560150097433
 
 <image-gallery>
 
-![Two cats nestled together on a patterned rug. One cat is ginger with a collar, while the other appears to be dark gray with tongue visible, bathing the ginger cat](https://cdn.masto.host/mastohackerstown/media_attachments/files/115/592/114/323/444/165/original/fcc2e9a9ec2d1b97.jpeg)
+![Two cats nestled together on a patterned rug. One cat is ginger with a collar, while the other appears to be dark gray with tongue visible, bathing the ginger cat](7864092a9c53.jpeg)
 
-![Two cats snuggling together on a patterned blanket. One cat is ginger-colored with white fur, and the other is gray and bathing the first cat](https://cdn.masto.host/mastohackerstown/media_attachments/files/115/592/114/333/472/646/original/86faea1c64604862.jpeg)
+![Two cats snuggling together on a patterned blanket. One cat is ginger-colored with white fur, and the other is gray and bathing the first cat](a5bfcd952d2e.jpeg)
 
-![A sleeping orange and white cat curled up on a soft blanket, resting comfortably on a couch](https://cdn.masto.host/mastohackerstown/media_attachments/files/115/596/854/875/367/460/original/977f754e38ad8165.jpeg)
+![A sleeping orange and white cat curled up on a soft blanket, resting comfortably on a couch](36028c43f3c1.jpeg)
 
-![A sleeping orange and white cat curled up on a white quilt in a cozy room with soft light filtering through window blinds](https://cdn.masto.host/mastohackerstown/media_attachments/files/115/601/464/218/084/069/original/c9655fce85888009.jpeg)
+![A sleeping orange and white cat curled up on a white quilt in a cozy room with soft light filtering through window blinds](3f76d7fa0eca.jpeg)
 
-![A relaxed cat with orange and white fur lying on a bed covered with a quilt, yawning, with wooden blinds partially open allowing soft light](https://cdn.masto.host/mastohackerstown/media_attachments/files/115/601/464/222/811/757/original/68632c70abb5ab7e.jpeg)
+![A relaxed cat with orange and white fur lying on a bed covered with a quilt, yawning, with wooden blinds partially open allowing soft light](5a6903379079.jpeg)
 
-![A fluffy orange and white cat curled up on a cozy bedspread with natural light filtering through a window](https://cdn.masto.host/mastohackerstown/media_attachments/files/115/601/464/227/445/942/original/9d98b2aa8124d978.jpeg)
+![A fluffy orange and white cat curled up on a cozy bedspread with natural light filtering through a window](6dde19cab87f.jpeg)
 
-![A sleeping cat with orange and white fur curls up on a quilted bedspread with soft morning light filtering through wooden blinds](https://cdn.masto.host/mastohackerstown/media_attachments/files/115/601/464/250/122/060/original/352a7de3dabbca15.jpeg)
+![A sleeping cat with orange and white fur curls up on a quilted bedspread with soft morning light filtering through wooden blinds](3a90f9e1a56c.jpeg)
 
-![Two cats on a patterned rug. One gray cat sitting, while an orange cat leans over a food bowl atop a heating vent. A small toy near the gray cat](https://cdn.masto.host/mastohackerstown/media_attachments/files/115/612/589/661/445/694/original/220b63607b62d927.jpeg)
+![Two cats on a patterned rug. One gray cat sitting, while an orange cat leans over a food bowl atop a heating vent. A small toy near the gray cat](c1fe1ad32378.jpeg)
 
 </image-gallery>
 
@@ -55,7 +55,7 @@ And, of course, if Catsby [wants to eat](https://masto.hackers.town/@lmorchard/1
 
 No, *you* [spent a stupid amount](https://masto.hackers.town/@lmorchard/115601250074066008) of time puttering in Home Assistant to gin up some dashboard shenanigans to better see how much power the dehumidifiers are using.
 
-![Screenshot from a Home Assistant dashboard showing energy usage and history from dehumidifiers in attic and basement](https://cdn.masto.host/mastohackerstown/media_attachments/files/115/601/249/897/779/057/original/d4790715ac61ef06.png)
+![Screenshot from a Home Assistant dashboard showing energy usage and history from dehumidifiers in attic and basement](8f2a93ed861e.png)
 
 I was [really surprised](https://masto.hackers.town/@lmorchard/115601391107407136) to see how much power those things gobble up!
 
@@ -85,6 +85,8 @@ But, [it turns out that was actually Geddy Lee](https://www.youtube.com/watch?v=
 
 ## Miscellanea
 
+<div class="weeknote-miscellanea">
+
 * [Cory Doctorow in 1995](https://www.youtube.com/watch?v=Y0EXga2hEIs) on CBC predicting video on demand—it's a delight.
   <youtube-embed video-id="Y0EXga2hEIs" title="How to use the internet, 1995 - Cory Doctorow on CBC"></youtube-embed>
 * Ladytron has a new album coming out (*Paradises*) and the video for "[Kingdom Undersea](https://www.youtube.com/watch?v=U1r3d7wR9is)" is gorgeous—["shot inside an analogue contraption originally built for The KLF, all cathode-ray glow and distorted color"](https://post-punk.com/ladytron-submerge-into-an-icy-cathode-ray-glow-in-video-for-kingdom-undersea-new-album-paradises-announced/).
@@ -100,3 +102,4 @@ But, [it turns out that was actually Geddy Lee](https://www.youtube.com/watch?v=
 * [USBSID-Pico](https://github.com/LouDnl/USBSID-Pico) - A Raspberry Pi Pico-based board for interfacing MOS SID chips over USB. Peak retrocomputing.
 * [Rule #18: Life is just an experience](https://rulestolive.substack.com/p/rule-18-life-is-just-an-experience) - Scott Berkun on living to make stories rather than achieve greatness.
 
+</div>
