@@ -51,7 +51,7 @@ By Sunday evening, things felt [much better](https://masto.hackers.town/@lmorcha
 
 And, of course, if Catsby [wants to eat](https://masto.hackers.town/@lmorchard/115612592439573165) in weird places—say, atop a furnace vent—he gets to eat atop a furnace vent. Miss Biscuits remains confused by this arrangement.
 
-## Home Assistant Dashboard Shenanigans
+## Home Assistant Shenanigans
 
 No, *you* [spent a stupid amount](https://masto.hackers.town/@lmorchard/115601250074066008) of time puttering in Home Assistant to gin up some dashboard shenanigans to better see how much power the dehumidifiers are using.
 
