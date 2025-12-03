@@ -11,6 +11,7 @@ import { buildAllIndexes } from "./lib/indexes.js";
 import { localizeImages } from "./lib/localizeImages.js";
 import { optimizePostImages } from "./lib/optimizeImages.js";
 import { watchAndBuildPosts } from "./lib/incrementalBuild.js";
+import { ditherImage } from "./lib/imageUtils.js";
 
 const rimraf = util.promisify(rimrafOrig);
 
@@ -124,6 +125,46 @@ async function buildPostsWatch(options) {
     optimize: options.optimize === true,
     showDrafts: options.showDrafts !== false, // Default to true for watch mode
   });
+}
+
+program
+  .command("dither-images <files...>")
+  .description("apply dithered/posterized effect to image files")
+  .option("-o, --output <path>", "output path (only valid for single input file)")
+  .option("-m, --max-width <pixels>", "maximum width before processing", "1024")
+  .option("-d, --downscale <factor>", "downscale factor", "0.33")
+  .option("-u, --upscale <factor>", "upscale factor", "3.0")
+  .option("-c, --colors <bits>", "color bits for posterization", "5")
+  .option("-l, --lofi", "extra lo-fi mode (more aggressive settings)")
+  .action(ditherImagesCommand);
+
+async function ditherImagesCommand(files, options) {
+  if (files.length > 1 && options.output) {
+    console.error("Error: --output option can only be used with a single input file");
+    process.exit(1);
+  }
+
+  const mode = options.lofi ? " (EXTRA LO-FI)" : "";
+  console.log(`Processing ${files.length} image(s) with dithered effect${mode}...`);
+
+  const ditherOptions = {
+    maxWidth: parseInt(options.maxWidth),
+    downscale: parseFloat(options.downscale),
+    upscale: parseFloat(options.upscale),
+    colors: parseInt(options.colors),
+    lofi: options.lofi || false,
+    verbose: true
+  };
+
+  for (const file of files) {
+    try {
+      await ditherImage(file, options.output, ditherOptions);
+    } catch (err) {
+      console.error(`Failed to process ${file}: ${err.message}`);
+    }
+  }
+
+  console.log("\n✓ Done!");
 }
 
 main().catch((err) => console.error(err));
