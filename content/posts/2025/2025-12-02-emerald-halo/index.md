@@ -72,7 +72,7 @@ Cameron crinkled his eyes and nodded. *I want to climb you like a rock wall*, he
 
 The App lit up Cameron's vision with details:
 
-<pre class="main">
+<pre class="wrapped">
 > Jasper, they/them, 28, software engineer
 > Match rating: 94%
 > Risk profile: Cautious, vaxxed/boosted x7
