@@ -99,7 +99,7 @@ From [a cool TikTok on *Creating Unique '80s-Style Graphics with Fairlight CVI*]
 
 <youtube-embed video-id="iIeAt5invw0" title="Jean-Michel Jarre's - Zoolookologie"></youtube-embed>
 
-The band Brighter Than A Thousand Suns is pretty dang keen:
+The band [Brighter Than A Thousand Suns](https://linktr.ee/btatsband) is pretty dang keen:
 
 <youtube-embed video-id="Gy52WN9NrGs" title="Brighter Than A Thousand Suns - Break Through the Noise"></youtube-embed>
 
