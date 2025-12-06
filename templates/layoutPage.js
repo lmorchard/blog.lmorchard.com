@@ -148,7 +148,7 @@ export default ({ site = {}, page = {}, head = "", js = "" }, content) => {
 
         <footer class="content-grid">
           <div class="left">
-            © 2024 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+            © 2002 - 2026 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
               >me@lmorchard.com</a
             >&gt;
           </div>
