@@ -10,24 +10,23 @@ tags:
   - retrocomputing
   - fortnite
   - travel
+  - music
 layout: post
 ---
 
-TL;DR: Catsby's on 7 different medications that I'm now managing with 3D-printed pill organizers, I cried my way through two incredibly emotional books about not belonging and noodle-making robots, accidentally won two Fortnite Victory Royales by being a chaotic coward, finally got the MiSTiGRis ADVENT calendar running on my BBS (only 11 days late), suffered through work travel while battling senioritis and hotel fragrance overload, and discovered that Kim Deal and Tanya Donelly sang on my favorite This Mortal Coil track.
+TL;DR: Missed home during work travel, managed Catsby's 7 medications with 3D-printed organizers, got deeply affected by two books about outsiders and robots, accidentally won at Fortnite twice, set up the BBS ADVENT calendar, and collected musical earworms.
 
 <!--more-->
 
 <nav role="navigation" class="table-of-contents"></nav>
 
-## Meta
+## Metablogging
 
-Not sure if anyone's really reading these, but I'm still puttering with the format. There's a lot in these posts - I'm trying to remix & repurpose my bookmarks and posts from throughout the week. I seem to post and bookmark a lot. Maybe going back to a few smaller posts every day or two would work better, even if I just ended up spewing them out at day's end?
-
-Also, this was kind of a weird week. I was away for a work trip, but really just wanted to be home with my cat.
+I'm still puttering with the format in these posts. There's a lot here - I'm trying to remix & repurpose bookmarks and posts from throughout the week. And I was thinking about adding more about reading and music. That ends up being more stuff than I expected. Maybe going back to a few smaller posts every day or two would work better, even if I just ended up spewing them out at day's end? Hard to get a daily habit going though.
 
 ## Cat Updates
 
-On weekends, I've been sleeping in a lot lately. It is, alas, illegal to get up when Catsby is snuggled up and comfortable. During the week, though, I was away for a work trip. So, [no naps with my cat](https://masto.hackers.town/@lmorchard/115697669863524874). But, I got updates from home.
+On weekends lately, I've been sleeping in a lot. It is, alas, illegal to get up when Catsby is snuggled up and comfortable. During the week, though, I was away for a work trip. So, [no naps with my cat](https://masto.hackers.town/@lmorchard/115697669863524874). But, I got updates from home.
 
 <image-gallery>
 
@@ -53,7 +52,7 @@ And here's an especial flashback to 2017 with [Cosmo kitten](https://masto.hacke
 
 We're trying to keep Catsby as healthy and comfortable as possible in whatever time we have left with him. Right now, that means a regimen of 7 different medications, split between AM and PM doses. Each one needs to be whole or 1/2 or 1/4 of a pill. All of them cause him to foam at the mouth if any touch his tongue.
 
-So far, what's been working to keep it consistent and easy are these two [3D-printed pill organizers](https://www.printables.com/model/11355-weekly-pill-case-organizer-with-personalized-monog) and lots of empty gelatin capsules. I do all the pill cutting, then repackage everything into neutral capsules that seem to bypass his sensitivity. The combo's been giving him rather good days. Catsby is a critter [with most of his sensitivity dials turned up to 11](https://masto.hackers.town/@lmorchard/115682217688798537). I can relate.
+So far, what's been working to keep it consistent and easy are these two [3D-printed pill organizers](https://www.printables.com/model/11355-weekly-pill-case-organizer-with-personalized-monog) and lots of empty gelatin capsules. I do all the pill cutting, then repackage everything into neutral capsules that seem to bypass his sensitivity. The combo's been giving him rather good days, so it's been worth it.
 
 <image-gallery>
 
