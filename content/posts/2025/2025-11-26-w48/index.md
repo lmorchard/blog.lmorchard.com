@@ -67,11 +67,11 @@ Really though, [this stuff](https://masto.hackers.town/@lmorchard/11560128627458
 
 [Started playing](https://masto.hackers.town/@lmorchard/115592062716976128) Demonschool. Faye sure does want to punch some fightable faces! The game has this great tactical RPG vibe mixed with demon-hunting high school drama.
 
-<youtube-embed video-id="P_aaE_vmSx0" title="Demonschool - Launch Trailer"></youtube-embed>
+<youtube-embed video-id="P_aaE_vmSx0" title="Demonschool - Launch Trailer" thumbnail="238aff293759.jpg"></youtube-embed>
 
 Then on Monday I [started playing](https://masto.hackers.town/@lmorchard/115603130870354661) Wanderstop and, dang, does the idea of tea sound ever more appealing. It's from the same creative team behind *A Psalm for the Wild-Built* (as someone [pointed out](https://a2mi.social/@ryanvis/115604997901717437), they really should have used that in the marketing).
 
-<youtube-embed video-id="SGohBkrnUJM" title="Wanderstop - Launch Trailer"></youtube-embed>
+<youtube-embed video-id="SGohBkrnUJM" title="Wanderstop - Launch Trailer" thumbnail="2121b3e88a35.jpg"></youtube-embed>
 
 Both games hit different cozy vibes—one's all about punching demons, the other's about making tea and processing emotions. Perfect weekend balance.
 
@@ -81,16 +81,16 @@ For the longest time, [I thought](https://masto.hackers.town/@lmorchard/11561150
 
 But, [it turns out that was actually Geddy Lee](https://www.youtube.com/watch?v=lnod-gtREQQ&t=455s) with vocal effects. They were all sneaky about it during the tour 1991-1992 tour: I remembered they'd [turn the lights down for that section](https://www.youtube.com/watch?v=pTiVuJRZS9A&t=231s) and you couldn't really see who (if any of them) was doing the spoken word / rap part.
 
-<youtube-embed video-id="lnod-gtREQQ" time="455" title="Rush - Roll The Bones Radio Special Interview (1991) "></youtube-embed>
+<youtube-embed video-id="lnod-gtREQQ" time="455" title="Rush - Roll The Bones Radio Special Interview (1991) " thumbnail="a291479dfbaa.jpg"></youtube-embed>
 
 ## Miscellanea
 
 <div class="weeknote-miscellanea">
 
 * [Cory Doctorow in 1995](https://www.youtube.com/watch?v=Y0EXga2hEIs) on CBC predicting video on demand—it's a delight.
-  <youtube-embed video-id="Y0EXga2hEIs" title="How to use the internet, 1995 - Cory Doctorow on CBC"></youtube-embed>
+  <youtube-embed video-id="Y0EXga2hEIs" title="How to use the internet, 1995 - Cory Doctorow on CBC" thumbnail="cac78f9a3a2f.jpg"></youtube-embed>
 * Ladytron has a new album coming out (*Paradises*) and the video for "[Kingdom Undersea](https://www.youtube.com/watch?v=U1r3d7wR9is)" is gorgeous—["shot inside an analogue contraption originally built for The KLF, all cathode-ray glow and distorted color"](https://post-punk.com/ladytron-submerge-into-an-icy-cathode-ray-glow-in-video-for-kingdom-undersea-new-album-paradises-announced/).
-  <youtube-embed video-id="U1r3d7wR9is" title="Ladytron - Kingdom Undersea"></youtube-embed>
+  <youtube-embed video-id="U1r3d7wR9is" title="Ladytron - Kingdom Undersea" thumbnail="a58c354ae53b.jpg"></youtube-embed>
 * Stumbled across [QUANTENT](https://quantent.io/), which promises "Content That Literally writes itself" with "no oversight required from your team." I [don't think](https://masto.hackers.town/@lmorchard/115607452141390868) it's exactly what it seems (calling their support line was... fun).
 * [*Social media isn't chalk milk*](https://maya.land/monologues/2023/08/12/social-media-chalk-milk-guess.html#fnref:cavalier) - A thoughtful piece on why stigmatizing low-barrier social connection isn't the answer.
 * [LLM APIs are a Synchronization Problem](https://lucumr.pocoo.org/2025/11/22/llm-apis/) - Armin Ronacher argues the local-first movement already solved the hard parts of distributed state synchronization that LLM APIs are struggling with.

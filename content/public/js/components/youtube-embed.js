@@ -18,6 +18,7 @@ class YouTubeEmbed extends HTMLElement {
     const videoId = this.getAttribute("video-id");
     const title = this.getAttribute("title") || "YouTube video";
     const time = this.getAttribute("time");
+    const thumbnail = this.getAttribute("thumbnail");
 
     if (!videoId) {
       console.error("YouTubeEmbed: video-id attribute is required");
@@ -31,11 +32,12 @@ class YouTubeEmbed extends HTMLElement {
     // Create placeholder with thumbnail
     const timeParam = this.startTime ? `&t=${this.startTime}` : "";
     const videoUrl = `https://www.youtube.com/watch?v=${videoId}${timeParam}`;
+    const thumbnailUrl = thumbnail || `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 
     this.innerHTML = `
       <a href="${videoUrl}" class="youtube-wrapper" aria-label="Play video">
         <img
-          src="https://img.youtube.com/vi/${videoId}/maxresdefault.jpg"
+          src="${thumbnailUrl}"
           alt="${title}"
           class="youtube-thumbnail"
         >
