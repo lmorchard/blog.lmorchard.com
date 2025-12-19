@@ -25,7 +25,7 @@ David Celis says "[Writing Code Is Fun](https://davidcel.is/articles/writing-cod
 
 > I became a software engineer because writing code is fun. Thinking through hard problems, designing elegant solutions, seeing the things you've built working for the first time… these moments are all deeply satisfying, so why in the world would I ever surrender them to AI?
 
-It's not really a secret that I've been spending a lot of time [using LLMs to generate code](https://blog.lmorchard.com/tag/codegen/) this year. My job and the industry at large has pushed for it—and [I don't feel like I can afford to just opt out](https://blog.lmorchard.com/2025/06/18/ai-anger-way-forward/).
+It's not really a secret that I've been spending a lot of time [using LLMs to generate code](https://blog.lmorchard.com/tag/codegen/) this year. My job and the industry at large has pushed for it—and [I don't feel like I can afford to just opt out](https://blog.lmorchard.com/2025/05/20/minimum-viable-human-career/).
 
 The thing is, though, this has been a fun and gratifying experience for me. I haven't tried to be _too_ loud about it. These are tools, I pay for a subscription, and I'm trying [to be normal](https://www.anildash.com/2025/10/17/the-majority-ai-view/) about it. I don't get a kickback selling anyone on using these things.
 
