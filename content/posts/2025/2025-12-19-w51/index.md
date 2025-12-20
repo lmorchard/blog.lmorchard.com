@@ -97,7 +97,7 @@ I've been trying it out this week—[streaming with Sunshine/Moonlight](https://
 
 * [*The Web Platform is a Triumph of Object-Oriented Programming*](https://thathtml.blog/2025/12/the-dom-is-a-triumph-of-object-oriented-programming/) - every web API you have ever used is designed specifically within the OOP paradigm
 
-* [*Prompt caching: 10x cheaper LLM tokens*](https://ngrok.com/blog/prompt-caching/) - It turns out that the math done for the first part of a promtp doesn't change as you add stuff to the end of it. So, you can cache all that math for common context and prompt prefixes.
+* [*Prompt caching: 10x cheaper LLM tokens*](https://ngrok.com/blog/prompt-caching/) - It turns out that the math done for the first part of a prompt doesn't change as you add stuff to the end of it. So, you can cache all that math for common context and prompt prefixes.
 
 * [*Reinventing the dial-up modem*](https://saket.me/dtmf-tones/) - "We needed a way to send data to our server without an internet connection. A team member came up with this fantastic idea of using DTMF tones!"
 
