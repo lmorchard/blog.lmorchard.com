@@ -6,6 +6,7 @@ tags:
   - meshtastic
   - metablogging
   - windows
+  - weeknotes
 ---
 
 **TL;DR**: This week, I messed around with Meshtastic firmware on Bazzite, printed some goofy charms for my new Crocs, and ruminated about backfilling my blog. Also, some thoughts on GitHub Pages, moats in AI IDEs, and frustration with platform lock-in—especially from Apple.
