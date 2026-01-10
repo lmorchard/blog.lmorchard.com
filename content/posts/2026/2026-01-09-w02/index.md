@@ -20,7 +20,7 @@ TL;DR: Built a Meatloaf for my C64, but the SID chip croaked. Synology backup wo
 
 ## Meatloaf for the C64
 
-I [made a Meatloaf](https://masto.hackers.town/@lmorchard/115841156887759743) for my C64 and played a bunch of [Crossroads II](https://www.lemon64.com/game/crossroads-2-pandemonium). Forgot how cool that game was - especially for a magazine type-in.
+I [made a Meatloaf](https://masto.hackers.town/@lmorchard/115841156887759743) for my C64 and played a bunch of [Crossroads II](https://www.lemon64.com/game/crossroads-2-pandemonium). Forgot how cool that game was - especially for a magazine type-in. BTW, Dan Sanderson also [did a cool breakdown of Crossroads II](https://dansanderson.com/mega65/crossroads-part-1/) that got re-printed in the revived COMPUTE!'s Gazette, [back in October](https://shop.computesgazette.com/product/individual-issue-computes-gazette-issue-4-physical-edition-october-2025-1st-printing-spare/).
 
 <image-gallery>
 
@@ -32,7 +32,7 @@ I [made a Meatloaf](https://masto.hackers.town/@lmorchard/115841156887759743) fo
 
 </image-gallery>
 
-The [Meatloaf](https://masto.hackers.town/@lmorchard/115841169770684567) was surprisingly easy to build - just 6 wires from a sacrificial IEC cable and a particular ESP32 dev board. Also played some Lazy Jones, which I think of as the Warioware of the 80s.
+Anyway, the [Meatloaf](https://masto.hackers.town/@lmorchard/115841169770684567) was surprisingly easy to build - just 6 wires from a sacrificial IEC cable and a particular ESP32 dev board. Also played some Lazy Jones, which I think of as the Warioware of the 80s.
 
 Then, of course, the original SID chip in my nice breadbin C64 [apparently croaked](https://masto.hackers.town/@lmorchard/115846151914040623). Dang it. I do have a couple 64Cs too, but I know at least one of those has a bum SID too. Thinking I may start to explore the world of SID replacements.
 
