@@ -20,7 +20,7 @@ TL;DR: Built a Meatloaf for my C64, but the SID chip croaked. Synology backup wo
 
 ## Meatloaf for the C64
 
-I [made a Meatloaf](https://masto.hackers.town/@lmorchard/115841156887759743) for my C64 and played a bunch of Crossroads II. Forgot how cool that game was - especially for a magazine type-in.
+I [made a Meatloaf](https://masto.hackers.town/@lmorchard/115841156887759743) for my C64 and played a bunch of [Crossroads II](https://www.lemon64.com/game/crossroads-2-pandemonium). Forgot how cool that game was - especially for a magazine type-in.
 
 <image-gallery>
 
