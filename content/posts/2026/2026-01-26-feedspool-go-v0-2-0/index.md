@@ -72,7 +72,7 @@ The part where I really fell down a webdev rabbit hole in this release was with 
 
 The key is scrolling, though: that's my main signal to the web UI that I want to read more. So, I wanted to build a UI that responded to that signal.
 
-### The Architecture
+### Static Content, Dynamically Loaded
 
 The Go program generates:
 - An `index.html` with skeleton structure
@@ -180,7 +180,7 @@ The component itself:
 
 ### Two-Level Loading: Pages and Feeds
 
-When pagination is enabled for large feed collections like mine, there's a two-level hierarchy:
+When pagination is enabled, there's a two-level hierarchy:
 
 1. **Page loaders**: Load chunks of ~10 feeds at a time from `page-{n}.html` files
 2. **Feed loaders**: Load individual feed content from `feeds/{id}.html` files
@@ -197,10 +197,10 @@ I found this two-level system works really well for my use case, to help spread 
 
 ## Summing up
 
-This release makes feedspool-go more comfy for my daily RSS reading. The minimum items feature solves a real pain point, and the lazy loading system makes it snappy even with a large feed collection.
+This release makes feedspool-go more comfy for my daily RSS reading. The minimum items feature helps me see quieter feeds and the lazy loading system makes it snappy even with my large feed collection.
 
 Next up: I'm thinking about keyboard shortcuts and maybe further specialized feed pages. Also considering tinkering with some more advanced stuff with the database, like running items through an embedding model so I can do some topical clustering or search.
 
 I might also just wander off and do nothing else with this until summer. Who knows?
 
-Anyway, the full changelog for v0.2.0 is [on GitHub](https://github.com/lmorchard/feedspool-go/compare/v0.1.0...v0.2.0). Maybe someone else will find this handy too!
+Anyway, the full changelog for v0.2.0 is [on GitHub](https://github.com/lmorchard/feedspool-go/compare/v0.1.0...v0.2.0). Check it out if it sounds handy!
