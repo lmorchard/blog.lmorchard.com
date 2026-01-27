@@ -137,7 +137,7 @@ class LoadQueue {
 
 #### Double-Check Visibility Optimization
 
-A subtle but important optimization: when a `link-loader` triggers an IntersectionObserver event, it gets enqueued immediately. But the queue doesn't start fetching right away - it waits its turn based on concurrency limits. The clever bit is that the LoadQueue re-checks visibility when it's actually time to fetch:
+A subtle but important optimization: when a `link-loader` triggers an IntersectionObserver event, it gets enqueued immediately. But the queue doesn't start fetching right away - it waits its turn based on concurrency limits. Then, the LoadQueue re-checks visibility when it's actually time to fetch:
 
 ```javascript
 process() {
