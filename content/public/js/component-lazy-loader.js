@@ -5,6 +5,7 @@ const LAZY_LOAD_COMPONENT_SELECTORS = [
   "image-gallery",
   "lazy-load-observer",
   "youtube-embed",
+  "mermaid-diagram",
 ];
 
 export async function init() {

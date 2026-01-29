@@ -12,6 +12,7 @@ import { localizeImages } from "./lib/localizeImages.js";
 import { optimizePostImages } from "./lib/optimizeImages.js";
 import { watchAndBuildPosts } from "./lib/incrementalBuild.js";
 import { ditherImage } from "./lib/imageUtils.js";
+import { buildVendorBundles } from "./lib/vendorBundles.js";
 
 const rimraf = util.promisify(rimrafOrig);
 
@@ -44,6 +45,7 @@ async function buildAll(options) {
   if (options.clean) await cleanBuild();
   const optimize = options.optimize !== false;
   await copyAssets({ optimize });
+  await buildVendorBundles();
   const posts = await loadAllPosts({ showDrafts: options.showDrafts });
   await buildAllPosts(posts, { optimize });
   await buildAllIndexes(posts, { showDrafts: options.showDrafts });
@@ -84,9 +86,12 @@ async function buildIndexes(postGlobs, options) {
 }
 
 program
-  .command("build-assets [param]")
+  .command("build-assets")
   .description("build shared assets like JS & CSS")
-  .action(copyAssets);
+  .action(async () => {
+    await copyAssets();
+    await buildVendorBundles();
+  });
 
 program
   .command("localize-images [globs...]")
