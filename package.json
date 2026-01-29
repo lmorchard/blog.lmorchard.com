@@ -21,6 +21,7 @@
     "build-posts-with-drafts": "node index.js build-posts --show-drafts --no-optimize",
     "build-search": "pagefind --site build",
     "build-assets": "node index.js build-assets",
+    "build-vendor-bundles": "node script/build-vendor-bundles.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "stage": "npm-run-all --serial stage:build stage:deploy",
     "stage:build": "ABSOLUTE_BASE_URL=https://lmorchard.github.io/blog.lmorchard.com BASE_URL=/blog.lmorchard.com npm run build",
@@ -55,6 +56,8 @@
     "watch": "^0.13.0"
   },
   "devDependencies": {
-    "browser-sync": "^3.0.4"
+    "beautiful-mermaid": "^0.1.2",
+    "browser-sync": "^3.0.4",
+    "esbuild": "^0.27.2"
   }
 }

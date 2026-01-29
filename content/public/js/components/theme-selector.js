@@ -96,6 +96,13 @@ class ThemeSelector extends HTMLElement {
         console.warn("theme selector problem:", e, e.name);
       }
     }
+
+    // Dispatch a custom event to notify other components of the theme change
+    window.dispatchEvent(
+      new CustomEvent("themechange", {
+        detail: { scheme },
+      })
+    );
   }
 }
 
