@@ -34,7 +34,7 @@ Usually, when I see something like this, I think "wouldn't it be nice if..." and
 > Take a look at this project - I'm curious whether we could wrap it in a web component for rendering Mermaid content in blog posts, following the pattern of other components in @public/js/components/ https://github.com/lukilabs/beautiful-mermaid   
 > I'm thinking it should render text content inside the component tag. Also, can we consider using something like esbuild to create a vendor-specifc bundle from beautiful-mermaid and load that as a module in our web component? Some context on that vendor bundle idea: https://blog.lmorchard.com/2025/05/31/no-build-webdev/ https://github.com/lmorchard/sketches-v03/blob/main/build.js https://github.com/lmorchard/sketches-v03/tree/main/src/lib/bundles     
 
-And, you know what it did? It read all those links I gave it. It also found the [MANUAL.md](https://github.com/lmorchard/blog.lmorchard.com/blob/7e5a8e12911245d630b65df2aeae85f16d80b33a/MANUAL.md) for my blog. And then it just... built the component, pretty much like I would have done if I were less lazy tonight. And it incorporated the build script into my bespoke site generator. And it fired up the Playwright MCP server to get a look at the final result rendered in Chrome and fixed another bug or two.
+And, you know what it did? It read all those links I gave it. It also found the [MANUAL.md](https://github.com/lmorchard/blog.lmorchard.com/blob/main/MANUAL.md) for my blog. And then it just... built the component, pretty much like I would have done if I were less lazy tonight. And it incorporated the build script into my bespoke site generator. And it fired up the Playwright MCP server to get a look at the final result rendered in Chrome and fixed another bug or two.
 
 <figure class="fullwidth">
 <mermaid-diagram>
@@ -59,7 +59,7 @@ Oh yeah, and Claude generated a first draft for this blog post based on the chat
 
 ## The Web Component
 
-The `<mermaid-diagram>` component is straightforward. You can see the source, [over here on GitHub](https://github.com/lmorchard/blog.lmorchard.com/blob/7e5a8e12911245d630b65df2aeae85f16d80b33a/content/public/js/components/mermaid-diagram.js). There's a few wrapper smarts in there, mainly to pass in element attributes as rendering options and react to theme changes - click the little switch in the upper right to see that happen. Like other components around here, this one gets lazily loaded. I also threw in a few hacky bits to ensure the SVG size fits into my general image styles.
+The `<mermaid-diagram>` component is straightforward. You can see the source, [over here on GitHub](https://github.com/lmorchard/blog.lmorchard.com/blob/main/content/public/js/components/mermaid-diagram.js). There's a few wrapper smarts in there, mainly to pass in element attributes as rendering options and react to theme changes - click the little switch in the upper right to see that happen. Like other components around here, this one gets lazily loaded. I also threw in a few hacky bits to ensure the SVG size fits into my general image styles.
 
 Here, have an unnecessary and gratuitous `sequenceDiagram`:
 
