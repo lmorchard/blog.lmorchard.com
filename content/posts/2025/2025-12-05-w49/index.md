@@ -4,6 +4,7 @@ date: 2025-12-05
 thumbnail: "https://cdn.masto.host/mastohackerstown/media_attachments/files/115/624/378/103/168/139/original/b736c0085c76a8c2.jpeg"
 tags:
   - weeknotes
+  - miscellanea
   - cats
   - music
   - gaming

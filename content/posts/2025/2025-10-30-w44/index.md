@@ -2,6 +2,7 @@
 title: 2025 Week 44
 tags:
   - weeknotes
+  - miscellanea
   - birthday
   - bbs
   - retrocomputing

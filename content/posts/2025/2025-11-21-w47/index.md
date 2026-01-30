@@ -4,6 +4,7 @@ date: 2025-11-21
 thumbnail: "https://cdn.masto.host/mastohackerstown/media_attachments/files/115/563/427/768/797/216/original/34144e576b1e9a3c.jpeg"
 tags:
   - weeknotes
+  - miscellanea
   - cats
   - bbs
   - music

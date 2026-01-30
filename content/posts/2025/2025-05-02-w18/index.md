@@ -1,6 +1,8 @@
 ---
 title: 2025 Week 18
 tags:
+  - weeknotes
+  - miscellanea
   - crocs
   - 3dprinting
   - meshtastic

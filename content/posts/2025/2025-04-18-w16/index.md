@@ -2,6 +2,7 @@
 title: 2025 Week 16
 tags:
   - weeknotes
+  - miscellanea
   - irrigation
   - obsidian
   - blogging

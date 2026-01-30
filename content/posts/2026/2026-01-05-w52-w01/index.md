@@ -4,6 +4,7 @@ date: 2026-01-05
 thumbnail: "https://cdn.masto.host/mastohackerstown/media_attachments/files/115/804/110/969/576/937/original/a3c60ea0ec621545.png"
 tags:
   - weeknotes
+  - miscellanea
   - cats
   - homelab
   - 3dprinting

@@ -4,6 +4,7 @@ date: 2025-11-26
 thumbnail: "https://cdn.masto.host/mastohackerstown/media_attachments/files/115/596/854/875/367/460/original/977f754e38ad8165.jpeg"
 tags:
   - weeknotes
+  - miscellanea
   - cats
   - homeassistant
   - gaming

@@ -2,6 +2,7 @@
 title: 2025 Week 45
 tags:
   - weeknotes
+  - miscellanea
   - halloween
   - webdev
   - sketches

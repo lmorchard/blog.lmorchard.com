@@ -2,6 +2,7 @@
 title: 2025 Week 17
 tags:
   - weeknotes
+  - miscellanea
   - garden
   - irrigation
   - webcomponents

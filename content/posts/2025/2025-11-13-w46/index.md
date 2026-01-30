@@ -2,6 +2,7 @@
 title: 2025 Week 46
 tags:
   - weeknotes
+  - miscellanea
   - iot
   - solar
   - cats

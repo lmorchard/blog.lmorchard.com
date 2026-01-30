@@ -2,6 +2,7 @@
 title: 2025 Week 43
 tags:
   - weeknotes
+  - miscellanea
   - synology
   - nas
   - bbs

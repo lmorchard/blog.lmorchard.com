@@ -3,6 +3,7 @@ title: "2026 Weeks 3 & 4"
 date: 2026-01-23
 tags:
   - weeknotes
+  - miscellanea
   - cats
   - 3dprinting
   - homelab
