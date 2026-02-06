@@ -1,0 +1,70 @@
+8<--- { "title": "Fastmail Pobox Cleanup", "type": "entry", "tags": [ "email", "fastmail", "pobox", "sysadmin" ] }
+
+Back in 2015, [Fastmail bought Pobox](https://www.fastmail.com/blog/fastmail-acquires-pobox-and-listbox/). I missed it at the time - or just forgot about it since. But, credit to all involved, because I haven't noticed a thing in the intervening decade!
+
+<!--more-->
+
+Then, last year, [Fastmail decided to sunset Pobox](https://www.fastmail.com/blog/sunsetting-pobox/). This, I noticed, barely. I was a customer of both and already had a Fastmail account at the time. As part of the acquisition, they created a second new Fastmail account for me with all my Pobox email forwarding aliases carried over. Awkward, since thereafter my real inbox lived in one account but all my aliases lived in another.
+
+Now, about 6 months later, I finally decided to try merging that second new account into the first. I managed to move over one of my domains and all my aliases except one. Turns out the last domain and alias are my most important - me@lmorchard.com
+
+As an aside, I'm tempted to find a different email forwarding service. The main reason I used Pobox was to keep addresses separate from inbox provider. This, as an intentional egg basket load balancing move.
+
+The path to my inbox used to go through my DNS hosting provider, email forwarding provider, and then to several email inboxes - each of those was backed by a different company. Though I have no practical complaints, I just now realize that Fastmail and Pobox merging has reduced my egg basket count. 🤔
+
+I've heard horror stories of folks entirely dependent on Google for domain (i.e. gmail.com), address (i.e. you@gmail.com), and inbox (i.e. GMail). In this scenario, if Google bans your account - by mistake or for some reason unrelated to email - you lose access to everything everywhere. For example, [the Terraria developer who cancelled his Stadia port over losing access to everything Google](https://arstechnica.com/gadgets/2021/02/terraria-developer-cancels-google-stadia-port-after-youtube-account-ban/). Does a password reset email make a sound if you're not allowed into the woods to hear it?
+
+Anyway, for now, I did figure out how to clean things up without a support ticket:
+
+1) Rename second account from me@lmorchard.com to lmorchard2@fastmail.com - which they allowed in settings
+
+2) Delete alias me@lmorchard.com on second account
+
+3) Delete the domain lmorchard.com from the second account
+
+4) Add the domain lmorchard.com and alias me@ to my primary account
+
+5) Triple check that my MX, CNAME, and TXT records for lmorchard.com were all correct
+
+All the renaming and deleting shenanigans in that specific order turned out necessary to ensure the right things were freed up at the right points in sequence. Can't add domain to first account while another account has it. Can't remove domain while aliases are still using it. Can't remove alias while account is still named after it. All in all, a minor [fox, chicken, corn puzzle](https://www.mathsisfun.com/chicken_crossing.html).
+
+8<--- { "title": "Sketches as Web Components", "type": "entry", "tags": [ "webcomponents", "webdev" ] }
+
+For years, I've tinkered with game development on the web. But, I haven't finished (m)any games. So, I decided to just focus more on finishing little interesting sketches of graphics and sound. This time around, I'm playing with portals—er, I mean Web Components
+
+<!--more-->
+
+What's really neat (to me) is that I took [a web sketch from a few years ago](https://lmorchard.github.io/sketches-v01/sketches/2021/vector-avatars/index.html), then [reshuffled all the code into a web component](https://github.com/lmorchard/sketches-v03/blob/main/src/sketches/VectorAvatar/VectorAvatar.js). Published that [to GitHub Pages](https://lmorchard.github.io/sketches-v03/) and now I can use it in other places. Like, in CodePens and blog posts like this one!
+
+<figure>
+<iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/lmorchard/embed/gbbgLNN?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/lmorchard/pen/gbbgLNN">Testing cross-site inclusion of my web component sketches</a> by Les Orchard (<a href="https://codepen.io/lmorchard">@lmorchard</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+<figcaption>Someday, I should make my own local codepen component 🤔</figcaption>
+</figure>
+
+<script type="module" src="./dist/sketches/VectorAvatar/VectorAvatar.js"></script>
+
+<style>
+vector-avatar {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+}
+</style>
+
+<figure>
+<div>
+<vector-avatar></vector-avatar>
+<vector-avatar></vector-avatar>
+<vector-avatar></vector-avatar>
+<vector-avatar></vector-avatar>
+<vector-avatar></vector-avatar>
+</div>
+<figcaption>If you view source or inspect this page, you can see I used the web component right here!</figcaption>
+</figure>
+
+The other thing I'm trying is splitting the difference on build / no-build: The external dependencies get bundled up into shared reusable modules with code splitting for cache-friendliness. The rest of my code is ES modules loaded straight up by the browser.
+
+If, on some inevitable day, the build tools fail, I should just be able to take a snapshot of the last good bundles and keep trucking on.

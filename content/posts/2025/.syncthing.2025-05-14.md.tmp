@@ -1,0 +1,89 @@
+8<--- { "title": "Miscellanea for 2025-05-14", "time": "23:59:00-07:00", "type": "miscellanea", "slug": "miscellanea", "tags": [ "miscellanea" ] }
+
+- Hello world!
+- Looks like I ended up with an AI-heavy posting day, today. I think I broke the seal yesterday. I'll probably post about other things in the near future.
+- I've been meaning to write something up about the Rube Goldberg machine that runs this blog now. Writing this bullet point to irritate myself to do it soon, maybe.
+- I bought a [BOOX Tab Ultra C](https://shop.boox.com/collections/all/products/tabultrac) almost 2 years ago. I use it almost daily for writing notes and journal entries. It's also been pretty great for reading comics in color. Two things I really don't like about it:
+	- It's got a camera bump on the back, so it doesn't sit flat on a table without a case on.
+	- The case that came with it is disintegrating into dust.
+	- So, I'm considering trying to design my own replacement case - or at least a layer to stick on the back to even out the camera bump. 
+	- Hoping to use #3dprinting and embed magnets that line up with the device's own internal case mounting magnets.
+- But, like, why put a camera bump on a tablet?
+	- Why design a camera bump into anything, really? Just make the device thicker and fill the rest of the space with battery.
+	- I need to stop before I go on a cranky rant about my intense disgust for camera bumps and notches and other failures of design from Apple that the rest of the industry have just copied.
+	- Really, I'm just caremad, because I used to be a huge fan of Apple - had the sticker on my car and everything. But, they have *betrayed* me over the years with stuff that seems to matter only to me. 🤷‍♂️
+- Just noticed that [jpmonette/feed](https://github.com/jpmonette/feed) - a node.js module for generating RSS, Atom, and JSON feeds - got [a new release](https://github.com/jpmonette/feed/releases/tag/5.0.1) a couple days ago after about 4 years of dormancy. 
+	- Looks like they may have possibly fixed a few of the issues I had with it, when last I tried using it. 🤔
+- I need to work links & bookmarks into this new blog in a better way. Like these:
+- [Nintendo Revises User Agreement, And If You Break It, Nintendo Reserves The Right to Brick Your Switch](https://www.ign.com/articles/nintendo-revises-user-agreement-and-if-you-break-it-nintendo-reserves-the-right-to-brick-your-switch)
+	- Well, that just makes me want to jailbreak my Switch even more and then never again connect it to the internet.
+- [Critical Warning for External Purchases in App Store](https://mjtsai.com/blog/2025/05/14/critical-warning-for-external-purchases-in-app-store/)
+	- Yeah, it's stuff like this that's got me fixed on switching back to Android with my next phone.
+	- I've only bought one iPhone and I've never felt the Courage or the Magic the whole time I've used it. It's never felt like *my* phone, always felt like a loaner with a breathalyzer and a bill acceptor slot.
+	- That said, the thing is physically a tank and will probably survive intact to annoy me for a few more years before I can justify the replacement cost.
+
+8<--- { "title": "Generating documentation for my Easy-Blog Oven with Claude", "tags": [ "claude", "ai", "llms", "metablogging", "writing" ], "time": "14:05:00-07:00" }
+
+I asked [Claude 3.7 Sonnet](https://www.anthropic.com/claude/sonnet) via [Aider](https://aider.chat/) to take a look at [the core libraries](https://github.com/lmorchard/blog.lmorchard.com/tree/main/lib) for my Easy-Blog Oven and to try drafting a quick user manual for it. [I think the result is actually not bad at all](https://github.com/lmorchard/blog.lmorchard.com/blob/main/MANUAL.md)?
+
+Aider tells me it cost about US$0.17 in API credits. It caught all the major quirky features I've hacked into the system over the years. I only made one or two minor edits before checking it into the repo.
+
+I've been meaning to write something like this for myself for years, if only to remind myself how it all works after long periods of neglect. It's a boring task and one of those things I'd most likely never get around to—especially not for one of my own projects.
+
+This is also one of those kinds of things [I've been reticent to write about](https://blog.lmorchard.com/2025/05/13/thinking-about-llms/), anticipating negative feedback. But, it really is kind of neat and I found it personally useful. I can totally see the value in this kind of thing, when packaged up in friendlier UX for other folks.
+
+8<--- { "title": "Open Source contributions and AI annoyances", "slug": "quoting-david-gerard", "tags": [ "ai", "llms", "vibecoding" ], "time": "21:06:00-00:07" }
+
+David Gerard, "[If AI is so good at coding … where are the open source contributions?](https://pivot-to-ai.com/2025/05/13/if-ai-is-so-good-at-coding-where-are-the-open-source-contributions/)"
+
+> You can hardly get online these days without hearing some AI booster talk about how AI coding is going to replace human programmers. AI code is absolutely up to production quality! Also, you’re all fired.
+> 
+> But if AI is so obviously superior … show us the code. Where’s the receipts? Let’s say, where’s the open source code contributions using AI?
+
+[The developer of Aider claims "about 70% of new code in each release" is written via Aider itself](https://aider.chat/docs/faq.html#what-llms-do-you-use-to-build-aider). I haven't double checked it myself, but it seems like those metrics would be a lot of fuss to fake. Maybe that's the exception that proves the rule, though? Aider is, itself, an open source LLM-powered coding assistant. It works pretty well, though, IMO.
+
+> It’s true that a lot of open source projects really hate AI code. There’s several objections, but the biggest one is that users who don’t understand their own lack of competence spam the projects with time-wasting AI garbage. The Curl project banned AI-generated security reports because they were getting flooded with automated AI-generated “bug bounty” requests.
+> 
+> More broadly, the very hardest problem in open source is not code, it’s people — how to work with others. Some AI users just don’t understand the level they simply aren’t working at.
+
+Like Max Woolf wrote, "[The Greatest Threat to Generative AI is Humans Being Bad at Using it](https://minimaxir.com/2023/10/ai-sturgeons-law/)" - in other words, the jerks ruin it for everyone. 
+
+I don't work so much in open source, these days, at least not during work hours. But, I don't miss when certain internship programs and college courses would require participants to provably open and get merged at least one Pull Request as a part of their programs. I think Wikipedia saw something similar. It would be a mess: just a flood of perfunctory, usually trivial little contributions aimed at checking off the box.
+
+Whether well meaning or not, it seems like a bunch of folks now seem to feel personally super-powered to dive into projects. But, alas, it's with similar or worse effect as the interns and students. Is the motivation for clout? Do they genuinely want to help? Either way, I can imagine why project leaders feel a bit surly about the whole thing.
+
+8<--- { "title": "Quoting Ashley Willis", "tags": [ "blogging", "writing" ], "time": "20:46-07:00" }
+
+Ashley Willis, "[Working Through the Fear of Being Seen](https://ashley.dev/posts/fear-of-being-seen/)"
+
+> Maybe I don’t need to be prolific. Maybe I don’t need to impress anyone. Maybe I just need to show up. Write what’s on my mind. Share the small things. Even if they’re messy. Even if they’re quiet.
+> 
+> Because I know I’m not the only one who feels like this. I know I’m not the only one trying to find their way back to something they used to love. I know I’m not the only one wondering where their confidence went.
+
+I'm not exactly where she is, but I think I'm in the neighborhood. I'm posting a bunch of little random stuff right now, hoping to keep the channel open in case something good tumbles through.
+
+8<--- { "title": "Quoting Max Woolf", "tags": ["ai", "llms", "ml" ], "time": "14:59:00-07:00"  }
+
+Max Woolf, "[As an Experienced LLM User, I Actually Don't Use Generative LLMs Often](https://minimaxir.com/2025/05/llm-use/)":
+
+> Two things can be true simultaneously: (a) LLM provider cost economics are too negative to return positive ROI to investors, and (b) LLMs are useful for solving problems that are meaningful and high impact, albeit not to the AGI hype that would justify point (a). This particular combination creates a frustrating gray area that requires a nuance that an ideologically split social media can no longer support gracefully.
+
+I think this jibes well with what I [tried exporting from my head](https://blog.lmorchard.com/2025/05/13/thinking-about-llms/), yesterday.
+
+> There is one silly technique I discovered to allow a LLM to improve my writing without having it do my writing: feed it the text of my mostly-complete blog post, and ask the LLM to pretend to be a cynical Hacker News commenter and write five distinct comments based on the blog post. This not only identifies weaker arguments for potential criticism, but it also doesn’t tell me what I should write in the post to preemptively address that negative feedback so I have to solve it organically.
+
+Oh, I might have to try that. 🤔 I have used Claude to occasionally critique and brutally edit down some of the rambling texts that I've spewed into an editor. But this sounds like a whole 'nother level.
+
+8<--- { "title": "Quoting Katie Parrott", "tags": ["ai", "llms", "ml", "vibecoding", "ux" ], "time": "13:18:00-07:00" }
+
+Katie Parrott, "[It’s Me, Hi. I’m the Vibe Coder.](https://every.to/working-overtime/it-s-me-hi-i-m-the-vibe-coder)":
+
+> And then there are people like me, who aren’t chasing entry into the engineer club or a seven-figure seed round. We're writers, designers, business owners, and domain experts motivated by specific problems we deeply understand, [empowered by AI tools](https://every.to/chain-of-thought/you-re-a-developer-now) that finally [speak our language](https://every.to/podcast/how-to-win-with-prompt-engineering).
+> 
+> Vibe coding hints at a future where software emerges from the inside out—from the people closest to the problems. As AI lowers the technical barrier, we may see more tools built by marketers, editors, researchers—anyone with deep context and a persistent itch to fix things.
+
+This kind of thing is very exciting to me. While [I think](https://blog.lmorchard.com/2025/05/13/thinking-about-llms/) vibe coding is currently flawed & fraught for folks who don't entirely understand the code, I agree with Simon Willison that "[everyone deserves the ability to automate tedious tasks in ther lives with computers](https://simonwillison.net/2025/Mar/19/vibe-coding/#let-s-not-lose-track-of-what-makes-vibe-coding-special)".
+
+There's a lot of hype and cynicism in tension out there. But, I've personally cycled through a bunch of AI tools in the past few years. I've seen their actual utility and glimmers of where they can go next.
+
+Trying to stay sober here, but I'd love to see more tools meet users where they are and lower the technical bar overall. I think it's both possible and worth it to work toward improving the capability & reliability of these tools for folks outside of the programming "priesthood".
