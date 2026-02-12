@@ -7,62 +7,6 @@ TL;DR: This is a short story I've had kicking around since 2020. Trying to decid
 
 <!--more-->
 
- <h1>Mermaid Diagram Web Component Test</h1>
-                                                                                                                                                                                                                                                         
-  <!-- Full customization -->                                                                                                                                                                                                            <h2>Example 1: Simple Flowchart</h2>
- <figure>
-
-  <mermaid-diagram>
-graph LR
-  A[Start] --> B{Decision}
-  B -->|Yes| C[Action 1]
-  B -->|No| D[Action 2]
-  C --> E[End]
-  D --> E
-  </mermaid-diagram>
-</figure>
-
-  <h2>Example 2: Sequence Diagram</h2>
-  <mermaid-diagram>
-sequenceDiagram
-  participant Alice
-  participant Bob
-  Alice->>Bob: Hello Bob, how are you?
-  Bob-->>Alice: Great!
-  Alice-)Bob: See you later!
-  </mermaid-diagram>
-
-  <h2>Example 3: State Diagram</h2>
-  <mermaid-diagram>
-stateDiagram-v2
-  [*] --> Still
-  Still --> [*]
-  Still --> Moving
-  Moving --> Still
-  Moving --> Crash
-  Crash --> [*]
-  </mermaid-diagram>
-
-  <h2>Example 4: Class Diagram</h2>
-  <mermaid-diagram>
-classDiagram
-  Animal <|-- Duck
-  Animal <|-- Fish
-  Animal : +int age
-  Animal : +String gender
-  Animal: +isMammal()
-  class Duck{
-    +String beakColor
-    +swim()
-    +quack()
-  }
-  class Fish{
-    -int sizeInFeet
-    -canEat()
-  }
-  </mermaid-diagram>
-
-
 <figure class="wide">
   <img src="./cover.png">
   <figcaption><a href="https://unsplash.com/photos/a-man-walking-into-a-house-with-a-fire-pit-in-front-of-it-qS54xIVe8iw">A man walking into a house with a firepit in the backyard</a> from Unsplash</figcaption>
