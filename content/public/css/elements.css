@@ -22,7 +22,14 @@ a {
 img { width: 100% }
 video { width: 100% }
 
-p { margin: 0.7em 0; }
+p {
+  margin: 0.7em 0;
+  max-width: 70ch;
+}
+
+li {
+  max-width: 70ch;
+}
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--theme-font-family-headings);
@@ -57,11 +64,10 @@ figure figcaption {
 
 blockquote {
   font-style: italic;
-  padding-left: calc(var(--column-gap) * 0.66);
-  margin-left: calc(var(--column-gap) * 0.66);
-  border-left: 1px dotted var(--theme-border-color);
-  margin-right: 0;
-  padding-right: 0;
+  padding: 0.5em 0 0.5em calc(var(--column-gap) * 0.66);
+  margin: 1em calc(var(--column-gap) * 0.66);
+  border-left: 2px solid color-mix(in srgb, var(--theme-border-color) 40%, transparent);
+  line-height: 1.7;
 }
 
 aside {
@@ -80,7 +86,7 @@ aside > figure {
 hr {
   width: 100%;
   height: 1px;
-  background-color: var(--theme-border-color);
+  background-color: color-mix(in srgb, var(--theme-border-color) 30%, transparent);
   border: none;
   margin: calc(var(--row-gap) / 2) 0;
 }

@@ -11,14 +11,17 @@
 }
 
 .post-list ul.posts .date-header {
-  margin: 1em 0 1.5em 0;
+  margin: 2em 0 1.5em 0;
   z-index: 100;
-  border-top: 2px solid var(--theme-border-color);
-  border-bottom: 2px solid var(--theme-border-color);
+  border-top: 1px solid color-mix(in srgb, var(--theme-border-color) 40%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--theme-border-color) 40%, transparent);
 }
 
 .post-list ul.posts .date-header h2 {
   margin: 0;
+  font-size: 1.3em;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--theme-text-color) 70%, transparent);
 }
 
 .post-list ul.posts .date-header .date {
@@ -50,12 +53,18 @@
   text-align: center;
 }
 
+.post-list ul.posts .post .title h2 {
+  font-size: 1.6em;
+  font-weight: 700;
+}
+
 .post-list ul.posts .post .meta {
-  margin-bottom: 2.5em;
-  padding-bottom: 2.5em;
-  border-bottom: 1px solid color-mix(in srgb, var(--theme-border-color) 50%, transparent);
+  margin-bottom: 4em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid color-mix(in srgb, var(--theme-border-color) 25%, transparent);
   text-align: center;
-  font-size: 0.85em;
+  font-size: 0.8em;
+  color: color-mix(in srgb, var(--theme-text-color) 65%, transparent);
 }
 
 .post-list ul.posts .post:has(+ .date-header) .meta {
@@ -76,7 +85,7 @@
 
 .post-list ul.posts .post .meta ul.tags li.tag {
   display: inline;
-  margin: 0 0.5em 0 0;
+  margin: 0 0.75em 0 0;
   white-space: no-wrap;
 }
 
