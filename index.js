@@ -47,7 +47,7 @@ async function buildAll(options) {
   await copyAssets({ optimize });
   await buildVendorBundles();
   const posts = await loadAllPosts({ showDrafts: options.showDrafts });
-  await buildAllPosts(posts, { optimize });
+  await buildAllPosts(posts.filter(p => p.needsBuild), { optimize });
   await buildAllIndexes(posts, { showDrafts: options.showDrafts });
 }
 
@@ -64,7 +64,7 @@ async function buildPosts(postsGlob, options) {
   const postGlobs = postsGlob && postsGlob.length > 0 ? postsGlob : undefined;
   const optimize = options.optimize !== false;
   const posts = await loadAllPosts({ postGlobs, showDrafts: options.showDrafts });
-  await buildAllPosts(posts, { optimize });
+  await buildAllPosts(posts.filter(p => p.needsBuild), { optimize });
   await buildAllIndexes(posts, { showDrafts: options.showDrafts });
 }
 

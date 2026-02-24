@@ -3,7 +3,7 @@ layout: post
 title: "Putting clouds in boxes for webdevs at Mozilla"
 tags: [mozilla, contributors, volunteers, vagrant, puppet, virtualization, webdev]
 published: true
-date: 2011-10-02T22:45:37.146720
+date: 2011-10-04T22:45:37.146720
 ---
 
 **TL;DR**: <em>At Mozilla, we're redoubling efforts to attract contributors. And, in the Webdev team, we're [using virtual machines][playdoh] to make it even easier to get started hacking. It makes no sense to demand that a JavaScript ninja or a CSS artisan also be a Python-wielding sysadmin, so we're trying to build [ready-baked VMs for our projects][devimages].</em>

@@ -15,7 +15,7 @@ tags:
 layout: post
 ---
 
-TL;DR: Enjoyed a 4-day weekend and completely forgot about weeknotes, spent way too much time troubleshooting a Tempest arcade machine that's been broken for 6 years (might actually be making progress?), dealt with the sad news that our favorite Portland bar closed, got Cosmo back from the vet looking very spaced out, started planning a Catsby tattoo, and collected yet another pile of bookmarks about AI coding agents while the cats increasingly tolerate each other.
+*TL;DR:* Enjoyed a 4-day weekend and completely forgot about weeknotes, spent way too much time troubleshooting a Tempest arcade machine that's been broken for 6 years (might actually be making progress?), dealt with the sad news that our favorite Portland bar closed, got Cosmo back from the vet looking very spaced out, started planning a Catsby tattoo, and collected yet another pile of bookmarks about AI coding agents while the cats increasingly tolerate each other.
 
 <!--more-->
 
