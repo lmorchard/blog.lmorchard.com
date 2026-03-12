@@ -89,6 +89,28 @@ article>nav.table-of-contents p {
 
 article>nav.table-of-contents li {
   margin: 0 0 0.25em 0;
+  line-height: 1.4;
+  position: relative;
+  border-left: 3px solid transparent;
+  padding-left: 0.5em;
+  transition: font-weight 200ms ease, border-color 200ms ease;
+}
+
+article>nav.table-of-contents li::before {
+  content: "▸";
+  position: absolute;
+  left: -1.25em;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+article>nav.table-of-contents li.active {
+  font-weight: bold;
+  border-left-color: var(--theme-link-color);
+}
+
+article>nav.table-of-contents li.active::before {
+  opacity: 1;
 }
 
 article figure {
