@@ -45,6 +45,7 @@
         if (!target) return;
         e.preventDefault();
         target.scrollIntoView({ behavior: 'smooth' });
+        history.replaceState(null, '', link.getAttribute('href'));
       });
 
       // Scroll-based highlight: track which section the reader is in
