@@ -13,6 +13,7 @@ import { optimizePostImages } from "./lib/optimizeImages.js";
 import { watchAndBuildPosts } from "./lib/incrementalBuild.js";
 import { ditherImage } from "./lib/imageUtils.js";
 import { buildVendorBundles } from "./lib/vendorBundles.js";
+import { loadAllPages, buildAllPages } from "./lib/pages.js";
 
 const rimraf = util.promisify(rimrafOrig);
 
@@ -49,6 +50,8 @@ async function buildAll(options) {
   const posts = await loadAllPosts({ showDrafts: options.showDrafts });
   await buildAllPosts(posts.filter(p => p.needsBuild), { optimize });
   await buildAllIndexes(posts, { showDrafts: options.showDrafts });
+  const pages = await loadAllPages();
+  await buildAllPages(pages);
 }
 
 program

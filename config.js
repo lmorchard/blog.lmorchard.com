@@ -1,5 +1,6 @@
 export default {
   postsPath: "./content/posts",
+  pagesPath: "./content/pages",
   buildPath: "./build",
   assetPaths: ["./content/public", "./content/uploads"],
   commonmarkParserOptions: {},
