@@ -10,10 +10,10 @@
     // Only scale on wide screens where the grid layout is active
     if (window.innerWidth < 1200) return;
 
-    // Use search box width as the target, fall back to nav width
-    const searchBox = nav.querySelector('#search');
-    const targetWidth = searchBox && searchBox.clientWidth > 0
-      ? searchBox.clientWidth
+    // Use the top row (search + theme switcher) width as target
+    const topRow = nav.querySelector('.main-nav-top');
+    const targetWidth = topRow && topRow.clientWidth > 0
+      ? topRow.clientWidth
       : nav.clientWidth;
     if (targetWidth <= 0) return;
 
@@ -24,20 +24,18 @@
     items.forEach(li => li.style.flexShrink = '');
 
     if (naturalWidth > targetWidth) {
-      navList.style.fontSize = ((targetWidth / naturalWidth) * 0.98) + 'em';
+      navList.style.fontSize = (targetWidth / naturalWidth) + 'em';
     }
   };
 
-  // Pagefind search UI renders asynchronously — watch for it
-  const searchContainer = nav.querySelector('#search');
-  if (searchContainer) {
+  // Pagefind search UI renders asynchronously — refit once it appears
+  const topRowEl = nav.querySelector('.main-nav-top');
+  if (topRowEl) {
     const observer = new MutationObserver(() => {
-      if (searchContainer.clientWidth > 0) {
-        observer.disconnect();
-        fit();
-      }
+      observer.disconnect();
+      fit();
     });
-    observer.observe(searchContainer, { childList: true, subtree: true });
+    observer.observe(topRowEl, { childList: true, subtree: true });
   }
 
   // Also try immediately in case search is already rendered

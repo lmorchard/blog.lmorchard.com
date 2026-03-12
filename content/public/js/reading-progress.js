@@ -4,14 +4,19 @@
   if (!article) return;
 
   const articleHeader = article.querySelector('header');
+  const comments = article.querySelector('.comments');
   const contentStart = articleHeader
     ? articleHeader.offsetTop + articleHeader.offsetHeight
     : article.offsetTop;
-  const contentEnd = article.offsetTop + article.offsetHeight;
-  const contentHeight = contentEnd - contentStart;
+
+  // Measure content end excluding comments section
+  const getContentEnd = () => {
+    if (comments) return comments.offsetTop;
+    return article.offsetTop + article.offsetHeight;
+  };
 
   // Only show on posts longer than one screenful
-  if (contentHeight <= window.innerHeight) return;
+  if (getContentEnd() - contentStart <= window.innerHeight) return;
 
   const bar = document.createElement('div');
   bar.style.cssText = [
@@ -31,6 +36,7 @@
   let ticking = false;
 
   const updateProgress = () => {
+    const contentEnd = getContentEnd();
     const scrollable = contentEnd - contentStart - window.innerHeight;
     if (scrollable <= 0) return;
 
