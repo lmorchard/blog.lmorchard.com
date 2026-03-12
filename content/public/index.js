@@ -4,6 +4,8 @@ import "./js/disqus-lazy-loader.js";
 import "./js/toc.js";
 import "./js/reading-progress.js";
 import "./js/linkable-headings.js";
+import "./js/sticky-title.js";
+import "./js/fit-nav.js";
 
 import { init as componentLazyLoaderInit } from "./js/component-lazy-loader.js";
 import { init as searchInit } from "./js/search.js";
