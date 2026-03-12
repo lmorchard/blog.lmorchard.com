@@ -1,6 +1,6 @@
 (function () {
 
-  const article = document.querySelector('article.post');
+  const article = document.querySelector('article');
   if (!article) return;
 
   const articleHeader = article.querySelector('header');

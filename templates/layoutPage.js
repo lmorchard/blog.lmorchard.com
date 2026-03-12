@@ -133,6 +133,11 @@ export default ({ site = {}, page = {}, head = "", js = "" }, content) => {
                   ><span class="fa fa-rss"></span> feed</a
                 >
               </li>
+              ${site.pages && site.pages.map(p => html`
+              <li>
+                <a href="${site.baseurl}/${p.path}/">${p.title.toLowerCase()}</a>
+              </li>
+              `)}
               <li class="theme-selector">
                 <theme-selector title="Enable dark theme">
                   <label>
@@ -161,6 +166,11 @@ export default ({ site = {}, page = {}, head = "", js = "" }, content) => {
                   ><span class="fa fa-rss"></span> feed</a
                 >
               </li>
+              ${site.pages && site.pages.map(p => html`
+              <li>
+                <a href="${site.baseurl}/${p.path}/">${p.title.toLowerCase()}</a>
+              </li>
+              `)}
             </ul>
           </nav>
         </footer>

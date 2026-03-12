@@ -1,6 +1,6 @@
 (function () {
 
-  const article = document.querySelector('article.post');
+  const article = document.querySelector('article');
   if (!article) return;
 
   const headings = article.querySelectorAll('h2[id], h3[id], h4[id]');
@@ -9,19 +9,19 @@
   // Styles for the heading anchor wrapper and # indicator
   const style = document.createElement('style');
   style.textContent = [
-    'article.post :is(h2, h3, h4) .heading-anchor {',
+    'article :is(h2, h3, h4) .heading-anchor {',
     '  color: inherit;',
     '  text-decoration: none;',
     '}',
-    'article.post :is(h2, h3, h4) .heading-anchor::before {',
+    'article :is(h2, h3, h4) .heading-anchor::before {',
     '  content: "#";',
     '  position: absolute;',
     '  left: -1.25em;',
     '  opacity: 0.25;',
     '  transition: opacity 200ms ease;',
     '}',
-    'article.post :is(h2, h3, h4):hover .heading-anchor::before,',
-    'article.post .heading-anchor:focus::before {',
+    'article :is(h2, h3, h4):hover .heading-anchor::before,',
+    'article .heading-anchor:focus::before {',
     '  opacity: 1;',
     '}',
   ].join('\n');
