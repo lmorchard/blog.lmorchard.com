@@ -116,7 +116,17 @@ export default ({ site = {}, page = {}, head = "", js = "" }, content) => {
             </div>
           </div>
           <nav class="main-nav">
-            <div id="search"></div>
+            <div class="main-nav-top">
+              <div id="search"></div>
+              <div class="theme-selector">
+                <theme-selector title="Enable dark theme">
+                  <label>
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </theme-selector>
+              </div>
+            </div>
             <ul>
               <li>
                 <a href="http://lmorchard.com/"
@@ -135,17 +145,9 @@ export default ({ site = {}, page = {}, head = "", js = "" }, content) => {
               </li>
               ${site.pages && site.pages.map(p => html`
               <li>
-                <a href="${site.baseurl}/${p.path}/">${p.title.toLowerCase()}</a>
+                <a href="${site.baseurl}/${p.path}/"><span class="fa fa-file-text-o"></span> ${p.title.toLowerCase()}</a>
               </li>
               `)}
-              <li class="theme-selector">
-                <theme-selector title="Enable dark theme">
-                  <label>
-                    <input type="checkbox" />
-                    <span class="slider"></span>
-                  </label>
-                </theme-selector>
-              </li>
             </ul>
           </nav>
         </header>
@@ -168,7 +170,7 @@ export default ({ site = {}, page = {}, head = "", js = "" }, content) => {
               </li>
               ${site.pages && site.pages.map(p => html`
               <li>
-                <a href="${site.baseurl}/${p.path}/">${p.title.toLowerCase()}</a>
+                <a href="${site.baseurl}/${p.path}/"><span class="fa fa-file-text-o"></span> ${p.title.toLowerCase()}</a>
               </li>
               `)}
             </ul>

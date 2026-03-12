@@ -13,7 +13,7 @@ import { optimizePostImages } from "./lib/optimizeImages.js";
 import { watchAndBuildPosts } from "./lib/incrementalBuild.js";
 import { ditherImage } from "./lib/imageUtils.js";
 import { buildVendorBundles } from "./lib/vendorBundles.js";
-import { loadAllPages, buildAllPages } from "./lib/pages.js";
+import { loadAllPages, buildAllPages, pagesNavChanged, writePagesNavHash } from "./lib/pages.js";
 
 const rimraf = util.promisify(rimrafOrig);
 
@@ -48,10 +48,14 @@ async function buildAll(options) {
   await copyAssets({ optimize });
   await buildVendorBundles();
   const pages = await loadAllPages();
+  const navChanged = await pagesNavChanged();
   const posts = await loadAllPosts({ showDrafts: options.showDrafts });
-  await buildAllPosts(posts.filter(p => p.needsBuild), { optimize });
+  const postsToBuild = navChanged ? posts : posts.filter(p => p.needsBuild);
+  if (navChanged) console.log("Pages nav changed — rebuilding all posts");
+  await buildAllPosts(postsToBuild, { optimize });
   await buildAllIndexes(posts, { showDrafts: options.showDrafts });
   await buildAllPages(pages);
+  await writePagesNavHash();
 }
 
 program

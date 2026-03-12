@@ -4,11 +4,13 @@ title: "Colophon"
 
 **TL;DR**: How this site is built and what it's made of.
 
+<!--more-->
+
 <nav role="navigation" class="table-of-contents"></nav>
 
 ## The Generator
 
-This blog is powered by a custom static site generator I built in Node.js. No off-the-shelf framework — just a bespoke pile of scripts that converts Markdown files with YAML frontmatter into HTML pages, indexes, tag archives, and RSS feeds. It's been through several iterations over the years and I keep tinkering with it.
+This blog is powered by a custom static site generator I built in Node.js — I call it my [Easy-Blog Oven](/2020/05/24/easy-blog-oven/). No off-the-shelf framework — just a bespoke pile of scripts that converts Markdown files with YAML frontmatter (a format [inspired by Jekyll](https://jekyllrb.com/docs/posts/)) into HTML pages, indexes, tag archives, and RSS feeds. It's been through several iterations over the years and I keep tinkering with it.
 
 Posts are written in Markdown, usually in Obsidian these days, and the build pipeline handles the rest: rendering content, generating indexes, optimizing images with [sharp](https://sharp.pixelplumbing.com/), and bundling client-side assets with [esbuild](https://esbuild.github.io/).
 
@@ -44,4 +46,4 @@ There's also a staging setup that deploys to GitHub Pages for previewing changes
 
 ## The Name
 
-This blog has lived at blog.lmorchard.com since around 2005. Before that, it was [decafbad.com](https://blog.decafbad.com) — a name I borrowed from the old programmer koan about sufficiently advanced incompetence being indistinguishable from malice. I've been blogging in one form or another since about 2002.
+This blog has lived at blog.lmorchard.com since around 2012. Before that, it was [0xDECAFBAD](https://decafbad.com/blog/) — a name chosen because I like hexadecimal but I despise coffee without caffeine. I've been blogging in one form or another since about 2002.

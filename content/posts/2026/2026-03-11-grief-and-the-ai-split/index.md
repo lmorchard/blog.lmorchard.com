@@ -69,7 +69,7 @@ Here's what I notice about my grief: none of it is about missing the act of writ
 
 ## Neither Side Is Wrong
 
-Pete Lawver wrote [a response to Lawson](https://lawver.net/2026/02/nostalgia-is-an-anchor/) that I mostly agree with. He argues for redirecting craft and passion rather than clinging to how things were. But I'd go further than framing it as nostalgia vs. pragmatism. (And you know [I've got plenty of nostalgia](https://blog.lmorchard.com/tag/retrocomputing/)—but that doesn't pay my mortgage.)
+Kevin Lawver wrote [a response to Lawson](https://lawver.net/2026/02/nostalgia-is-an-anchor/) that I mostly agree with. He argues for redirecting craft and passion rather than clinging to how things were. But I'd go further than framing it as nostalgia vs. pragmatism. (And you know [I've got plenty of nostalgia](https://blog.lmorchard.com/tag/retrocomputing/)—but that doesn't pay my mortgage.)
 
 I think recognizing which *kind* of grief you're feeling is the actually useful thing here. If you're mourning the loss of the craft itself—the texture of writing code, the satisfaction of an elegant solution—that's real, and no amount of "just adapt" addresses it. You might need to find that satisfaction somewhere else, or accept that work is going to feel different. Frankly, we've been lucky there's been a livelihood in *craft* up to now.
 
