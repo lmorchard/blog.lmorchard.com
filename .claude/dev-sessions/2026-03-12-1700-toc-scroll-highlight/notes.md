@@ -3,21 +3,28 @@
 ## Progress
 
 ### Step 1 & 2: CSS + JS implementation (complete)
-- Added `.active` styles to `article.css`: bold, left border with `--theme-link-color`, chevron via `::before` with opacity transition
-- Set explicit `line-height: 1.4` and `border-left: 3px solid transparent` on base `li` to prevent layout shift
-- Added `padding-left: 0.5em` to base `li` to accommodate the border without looking cramped
-- Augmented `toc.js` with IntersectionObserver that triggers `updateActiveHeading()`
-- `updateActiveHeading()` scans all h2s on each callback, finds last one with `top <= 100px`, toggles `.active` class
-- Observer uses `rootMargin: '0px 0px -90% 0px'` to detect headings near viewport top
-- Built `headingToItem` Map during the existing loop to avoid a second pass
+- Added `.active` styles to `article.css`: bold, chevron via `::before` with opacity transition
+- Set explicit `line-height: 1.4` on base `li` to prevent vertical layout shift
+- Chevron positioned at `left: -2em` to clear list item numbers
+- Dropped left border — chevron + bold is sufficient
+- Augmented `toc.js` with IntersectionObserver + debounced scroll listener
+- `updateActiveHeading()` finds h2 nearest to effective viewport top (accounting for sticky header)
+- Article header competes with h2s — if header is closest, nothing is highlighted
+- Added smooth scroll on ToC link clicks via `scrollIntoView({ behavior: 'smooth' })`
+- Added `scroll-margin-top` on `h2` at the sticky header breakpoint to fix pre-existing bug where anchor jumps landed behind the header
 
 ### Step 3: Manual testing
-- Pending — need to run dev server and test on a post with multiple h2 sections
+- Chevron position tuned (moved from -1.25em to -2em)
+- Switched from "most recently scrolled past" to "nearest to top" strategy
+- Added scroll listener fallback for anchor jump edge cases
+- Confirmed highlight clears when scrolled back to article header area
+
+## Changes from original spec
+- Tracking strategy changed from "most recently scrolled past" to "nearest heading to effective viewport top (either direction)" — felt more natural during testing
+- Left border dropped — chevron + bold was enough visual signal
+- Smooth scroll on ToC clicks added (was originally deferred as future work)
+- `scroll-margin-top` fix for sticky header added (pre-existing bug, closely related)
 
 ## Future considerations
-- Deeper ToC levels (h3, h4) — currently only h2 is tracked, matching what the ToC lists. If we ever expand the ToC to show sub-sections, the scroll tracking should follow.
-- Smooth scrolling on ToC link click — a natural complement to the highlight transitions, deferred for now.
-- Alternative scroll-tracking strategies to try if "most recently scrolled past" doesn't feel right:
-  1. First heading still visible (nearest to but hasn't scrolled past top)
-  2. Closest heading in either direction (nearest to top regardless of above/below)
-- The chevron/arrowhead indicator is exploratory — may simplify to just bold + left border if it doesn't look right.
+- Deeper ToC levels (h3, h4) — currently only h2 is tracked
+- Alternative scroll-tracking strategies if current one doesn't hold up

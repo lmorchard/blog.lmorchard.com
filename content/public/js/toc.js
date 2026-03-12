@@ -37,15 +37,47 @@
         headingToItem.set(h2, item);
       }
 
+      // Smooth scroll when clicking ToC links
+      list.addEventListener('click', (e) => {
+        const link = e.target.closest('a');
+        if (!link) return;
+        const target = document.querySelector(link.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      });
+
       // Scroll-based highlight: track which section the reader is in
       let activeItem = null;
 
+      // Account for sticky header when measuring "top of readable area"
+      const getHeaderOffset = () => {
+        const siteHeader = document.querySelector('body > header');
+        if (!siteHeader) return 0;
+        const style = getComputedStyle(siteHeader);
+        if (style.position === 'sticky' || style.position === 'fixed') {
+          return siteHeader.getBoundingClientRect().height;
+        }
+        return 0;
+      };
+
+      const articleHeader = tocRoot.parentNode.querySelector('header');
+
       const updateActiveHeading = () => {
-        // Find the last h2 whose top has scrolled past the offset
-        const offset = 100;
+        // Find the h2 nearest to the effective top (below sticky header)
+        const headerOffset = getHeaderOffset();
         let currentHeading = null;
+        let closestDistance = Infinity;
+
+        // If the article header is closer than any h2, highlight nothing
+        if (articleHeader) {
+          closestDistance = Math.abs(articleHeader.getBoundingClientRect().top - headerOffset);
+        }
+
         for (let i = 0; i < h2s.length; i++) {
-          if (h2s[i].getBoundingClientRect().top <= offset) {
+          const distance = Math.abs(h2s[i].getBoundingClientRect().top - headerOffset);
+          if (distance < closestDistance) {
+            closestDistance = distance;
             currentHeading = h2s[i];
           }
         }
@@ -58,6 +90,7 @@
         }
       };
 
+      // Use IntersectionObserver as primary trigger
       const observer = new IntersectionObserver(updateActiveHeading, {
         rootMargin: '0px 0px -90% 0px',
         threshold: 0,
@@ -66,6 +99,13 @@
       for (let i = 0; i < h2s.length; i++) {
         observer.observe(h2s[i]);
       }
+
+      // Also listen on scroll to catch anchor jumps and edge cases
+      let scrollTimeout;
+      window.addEventListener('scroll', () => {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(updateActiveHeading, 50);
+      }, { passive: true });
 
     }
 
