@@ -1,5 +1,5 @@
 import { html } from "../lib/html.js";
-import { updateRelativeImageUrls } from "../lib/posts.js";
+import { updateRelativeUrls } from "../lib/posts.js";
 
 // TODO: Use an RSS generating module? This template is just copied
 // over from my old blog generator for initial consistency
@@ -31,7 +31,7 @@ export default ({
             post.summary &&
             html`
               <description
-                >${updateRelativeImageUrls(
+                >${updateRelativeUrls(
                   post.summary,
                   `${site.absolute_baseurl}/${post.path}`
                 )}</description
@@ -43,7 +43,7 @@ export default ({
             post.html &&
             html`
               <description
-                >${updateRelativeImageUrls(
+                >${updateRelativeUrls(
                   post.html,
                   `${site.absolute_baseurl}/${post.path}`
                 )}</description

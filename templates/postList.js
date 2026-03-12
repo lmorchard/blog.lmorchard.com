@@ -1,7 +1,7 @@
 import { html, unescaped } from "../lib/html.js";
 import classNames from "classnames";
 import moment from "moment";
-import { updateRelativeImageUrls } from "../lib/posts.js";
+import { updateRelativeUrls } from "../lib/posts.js";
 
 export default ({ site, posts }, contentBefore = "", contentAfter = "") => {
   const typeRenderers = {
@@ -125,7 +125,7 @@ const metaFooter = (post, site) => html`
 
 const contentWithUpdatedPaths = (post, site) =>
   unescaped(
-    updateRelativeImageUrls(
+    updateRelativeUrls(
       post.html,
       `${site.baseurl}/${post.path}`
     )
