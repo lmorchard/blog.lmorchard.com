@@ -89,6 +89,25 @@ article>nav.table-of-contents p {
 
 article>nav.table-of-contents li {
   margin: 0 0 0.25em 0;
+  line-height: 1.4;
+  position: relative;
+  transition: font-weight 200ms ease;
+}
+
+article>nav.table-of-contents li::before {
+  content: "▸";
+  position: absolute;
+  left: -2em;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+article>nav.table-of-contents li.active {
+  font-weight: bold;
+}
+
+article>nav.table-of-contents li.active::before {
+  opacity: 1;
 }
 
 article figure {
@@ -135,5 +154,8 @@ article figure {
 @media (min-width: 900px) and (min-height: 850px) {
   article>nav.table-of-contents {
     top: calc(96px + var(--row-gap));
+  }
+  article h2 {
+    scroll-margin-top: calc(96px + var(--row-gap));
   }
 }
