@@ -83,7 +83,7 @@ But, you know, I'd be lying if I said it didn't excite me a bit, amidst the grie
 
 ## Make Computer Do Thing
 
-I started programming in 1982. Every language I've learned since then has been a means to an end—a new way to make computers do things I wanted them to do. AI-assisted coding feels like the latest in that progression. Not a rupture, just another rung on the ladder.
+I started programming in 1982. Every language I've learned since then has been a means to an end—a new way to make computers do things I wanted them to do. AI-assisted coding feels like the latest in that progression. Not a discontinuity per se, just another rung on the ladder.
 
 But I'm trying to hold that lightly. Because the ladder itself is changing, the building it's leaning against is changing, and I'd be lying if I said I knew exactly where it's going.
 
