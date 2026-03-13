@@ -36,6 +36,12 @@
   width: 100%;
 }
 
+@media (min-width: 1200px) {
+  .post-list ul.posts .post .thumb img {
+    width: 128px;
+  }
+}
+
 .post-list ul.posts .post .title,
 .post-list ul.posts .post .summary,
 .post-list ul.posts .post .content,
@@ -126,14 +132,11 @@
     grid-column-end: main-start;
     grid-row: span 2;
     text-align: right;
+    height: 128px;
   }
 }
 
-.post-list ul.posts .post {
-  max-width: calc(100vw - (var(--layout-padding) * 2));
-}
-
-@media (min-width: 600px) {
+@media (max-width: 1199px) {
   .post-list ul.posts .post {
     max-width: min(70ch, calc(100vw - (var(--layout-padding) * 2)));
   }
