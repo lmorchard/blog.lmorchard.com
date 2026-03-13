@@ -61,29 +61,12 @@ export default ({ site = {}, page = {}, head = "", js = "" }, content) => {
         ${head}
       </head>
       <body>
-        <header class="content-grid">
+        <header>
           <div class="masthead">
             <img src="${site.avatar}" />
             <div class="title">
               <h1>
-                <a href="${site.baseurl}/" title="${site.title}">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="100%"
-                    height="100%"
-                    viewBox="0 0 250 20"
-                  >
-                    <text
-                      lengthAdjust="spacing"
-                      fill="currentColor"
-                      y="16"
-                      textLength="240"
-                      x="5"
-                    >
-                      ${site.title}
-                    </text>
-                  </svg>
-                </a>
+                <a href="${site.baseurl}/" title="${site.title}">${site.title}</a>
               </h1>
               <h2>
                 <rotating-tagline
@@ -93,23 +76,7 @@ export default ({ site = {}, page = {}, head = "", js = "" }, content) => {
                   src="${site.baseurl}/taglines.json"
                 >
                   <a href="${site.baseurl}/" title="${site.subtitle}">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="100%"
-                      height="100%"
-                      viewBox="0 0 250 20"
-                    >
-                      <text
-                        class="tagline"
-                        lengthAdjust="spacing"
-                        fill="currentColor"
-                        y="16"
-                        textLength="240"
-                        x="5"
-                      >
-                        ${site.subtitle}
-                      </text>
-                    </svg>
+                    <span class="tagline">${site.subtitle}</span>
                   </a>
                 </rotating-tagline>
               </h2>

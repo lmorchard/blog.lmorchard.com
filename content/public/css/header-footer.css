@@ -1,9 +1,35 @@
 body>header {
-  margin: -1.25em 0 0 0;
-  padding: 1.5em 0;
+  margin: 0;
+  padding: 0.75em 1.25em 1em 1.25em;
   background-color: color-mix(in srgb, var(--theme-background-color) 90%, transparent);
   z-index: 100;
-  border-bottom: 1px solid color-mix(in srgb, var(--theme-border-color) 40%, transparent);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+}
+
+@media (min-width: 900px) {
+  body>header {
+    display: grid;
+    column-gap: var(--column-gap);
+    align-items: center;
+    padding: 1em 1.25em 1.25em 1.25em;
+    grid-template-columns:
+      [full-start wide-start] 2fr
+      [medium-start] 1fr
+      [main-start main-left-start] 3fr
+      [main-left-end main-right-start] 3fr
+      [main-right-end main-end] 1fr
+      [medium-end] 2fr
+      [wide-end full-end];
+  }
+}
+
+@media (min-width: 1200px) {
+  body>header {
+    border-bottom: 1px solid color-mix(in srgb, var(--theme-border-color) 40%, transparent);
+  }
 }
 
 @media (min-width: 1200px) and (min-height: 850px) {
@@ -13,20 +39,52 @@ body>header {
   }
 }
 
+@media (min-width: 1400px) {
+  body>header {
+    max-width: calc(100vw - (1.25em * 2));
+    width: 1300px;
+    margin: 0 auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (min-width: 1600px) {
+  body>header {
+    width: 1500px;
+    grid-template-columns:
+      [full-start] 1fr
+      [wide-start] 1fr
+      [medium-start] 1fr
+      [main-start main-left-start] 3fr
+      [main-left-end main-right-start] 3fr
+      [main-right-end main-end] 1fr
+      [medium-end] 1fr
+      [wide-end] 1fr
+      [full-end];
+  }
+}
+
 body>header>div.masthead {
-  grid-column-start: full-start;
-  grid-column-end: main-start;
-  align-self: center;
-  justify-self: center;
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: auto;
+}
+
+@media (min-width: 900px) {
+  body>header>div.masthead {
+    grid-column-start: full-start;
+    grid-column-end: main-start;
+    justify-self: start;
+    width: 100%;
+  }
 }
 
 body>header>div.masthead>div.title {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 0.15em;
   white-space: no-wrap;
   width: 100%;
 }
@@ -40,7 +98,13 @@ body>header>div.masthead h2 {
 
 body>header>div.masthead h1 {
   font-size: 1.35em;
-  font-weight: 900;
+  font-weight: 700;
+}
+
+body>header>div.masthead h1 a,
+body>header>div.masthead h2 a {
+  text-decoration: none;
+  color: inherit;
 }
 
 body>header>div.masthead h2 {
@@ -55,32 +119,55 @@ body>header>div.masthead img {
   margin: 0 1em 0 0;
 }
 
+
+@media (max-width: 899px) {
+  body>header>div.masthead {
+    justify-content: center;
+  }
+  body>header>div.masthead h2 {
+    font-size: 0.65em;
+    opacity: 0.7;
+  }
+}
+
 body>header>nav.main-nav {
-  grid-column-start: main-end;
-  grid-column-end: full-end;
-  width: 100%;
-  height: 100%;
-  align-self: center;
+  width: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-self: center;
 }
 
 @media (min-width: 900px) {
-  body>header>div.masthead {
-    align-self: end;
-    justify-self: start;
-  }
-
   body>header>nav.main-nav {
+    grid-column-start: main-end;
+    grid-column-end: full-end;
+    justify-self: end;
+    align-items: flex-end;
+    width: 100%;
   }
 }
 
-@media (max-width: 900px) {
-  body>header>div.masthead h2 {
-    margin: 0;
-    font-size: 0.65em;
-    opacity: 0.7;
+@media (min-width: 1200px) {
+  body>header>nav.main-nav {
+    grid-column-end: full-end;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 1199px) {
+  body>header {
+    padding-bottom: 2em;
+  }
+  body>header>nav.main-nav > ul {
+    display: none;
+  }
+}
+
+@media (max-width: 899px) {
+  body>header>nav.main-nav {
+    display: none;
   }
 }
 
@@ -134,7 +221,7 @@ body>footer nav ul {
 body>footer nav ul li {
 }
 
-/* Override mermaid diagram's global text font for header SVG elements */
+/* Override mermaid diagram's global text font for header elements */
 body>header text {
   font-family: Bitter, serif !important;
 }
