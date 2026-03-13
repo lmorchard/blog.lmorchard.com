@@ -115,9 +115,29 @@ article figure {
 }
 
 .posts-nav {
-  margin-top: 1.5em;
-  padding-top: 1.5em;
+  margin: 1.5em auto 0.75em auto;
+  padding: 1.5em 1.25em 0 1.25em;
   border-top: 1px solid color-mix(in srgb, var(--theme-border-color) 50%, transparent);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: calc(100% - 2.5em);
+  max-width: calc(100vw - 2.5em);
+  box-sizing: border-box;
+}
+
+@media (min-width: 1400px) {
+  .posts-nav {
+    width: 1300px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (min-width: 1600px) {
+  .posts-nav {
+    width: 1500px;
+  }
 }
 .posts-nav>span {
   display: flex;

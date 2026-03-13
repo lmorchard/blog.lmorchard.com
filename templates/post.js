@@ -25,6 +25,34 @@ export default ({ site = {}, page = {} }, content) =>
         ${page.summary &&
         html`<meta property="og:description" content="${page.summary}" />`}
       `,
+      contentAfter: html`
+      <section class="posts-nav">
+        ${page.prevPostPath &&
+        html`
+          <span class="prev-post">
+            <span
+              ><a href="${site.baseurl}/${page.prevPostPath}/"
+                >${unescaped(page.prevPostTitle)}</a
+              ></span
+            >
+            <span
+              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
+            >
+          </span>
+        `}
+        ${page.nextPostPath &&
+        html`
+          <span class="next-post">
+            <span
+              ><a href="${site.baseurl}/${page.nextPostPath}/"
+                >${unescaped(page.nextPostTitle)}</a
+              ></span
+            >
+            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+          </span>
+        `}
+      </section>
+      `,
     },
     html`
       <article
@@ -101,33 +129,6 @@ export default ({ site = {}, page = {} }, content) =>
           </section>
         `}
       </article>
-
-      <section class="posts-nav content-grid">
-        ${page.prevPostPath &&
-        html`
-          <span class="prev-post">
-            <span
-              ><a href="${site.baseurl}/${page.prevPostPath}/"
-                >${unescaped(page.prevPostTitle)}</a
-              ></span
-            >
-            <span
-              ><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span
-            >
-          </span>
-        `}
-        ${page.nextPostPath &&
-        html`
-          <span class="next-post">
-            <span
-              ><a href="${site.baseurl}/${page.nextPostPath}/"
-                >${unescaped(page.nextPostTitle)}</a
-              ></span
-            >
-            <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
-          </span>
-        `}
-      </section>
     `
   );
 
