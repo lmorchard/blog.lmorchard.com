@@ -125,13 +125,24 @@ export default ({ site = {}, page = {}, head = "", js = "", contentAfter = "" },
 
         <footer class="page-container">
           <div class="left">
-            © 2002 - 2026 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
+            © 2002 - 2026 Les Orchard<br />
+            &lt;<a href="mailto:me@lmorchard.com"
               >me@lmorchard.com</a
             >&gt;
           </div>
           <img id="growup" src="${site.baseurl}/uploads/growup.jpg" />
           <nav class="right">
             <ul>
+              <li>
+                <a href="http://lmorchard.com/"
+                  ><span class="fa fa-info-circle"></span> about me</a
+                >
+              </li>
+              <li>
+                <a href="${site.baseurl}/archives.html"
+                  ><span class="fa fa-archive"></span> archives</a
+                >
+              </li>
               <li>
                 <a href="${feedUrl}" title="${feedTitle}"
                   ><span class="fa fa-rss"></span> feed</a
