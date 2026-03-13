@@ -194,9 +194,24 @@ body>footer {
   border-top: 1px solid color-mix(in srgb, var(--theme-border-color) 50%, transparent);
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: flex-start;
   gap: 1em;
+}
+
+body>footer .left {
+  flex: 1;
+  text-align: right;
+  font-size: 0.85em;
+}
+
+body>footer #growup {
+  flex: 2;
+  max-width: 50%;
+  object-fit: contain;
+}
+
+body>footer .right {
+  flex: 1;
 }
 
 @media (max-width: 899px) {
@@ -205,14 +220,14 @@ body>footer {
     align-items: center;
     text-align: center;
   }
-}
-
-body>footer #growup {
-  max-width: 40%;
-}
-
-body>footer .left {
-  text-align: right;
+  body>footer .left,
+  body>footer .right {
+    flex: none;
+  }
+  body>footer #growup {
+    flex: none;
+    max-width: 80%;
+  }
 }
 
 body>footer nav ul {

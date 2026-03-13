@@ -26,7 +26,7 @@ export default ({ site = {}, page = {} }, content) =>
         html`<meta property="og:description" content="${page.summary}" />`}
       `,
       contentAfter: html`
-      <section class="posts-nav">
+      <section class="posts-nav page-container">
         ${page.prevPostPath &&
         html`
           <span class="prev-post">
