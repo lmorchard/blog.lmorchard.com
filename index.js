@@ -70,6 +70,7 @@ async function buildPosts(postsGlob, options) {
   // Treat empty array as undefined to load all posts
   const postGlobs = postsGlob && postsGlob.length > 0 ? postsGlob : undefined;
   const optimize = options.optimize !== false;
+  await loadAllPages();
   const posts = await loadAllPosts({ postGlobs, showDrafts: options.showDrafts });
   await buildAllPosts(posts.filter(p => p.needsBuild), { optimize });
   await buildAllIndexes(posts, { showDrafts: options.showDrafts });
@@ -87,6 +88,7 @@ async function buildIndexes(postGlobs, options) {
   // Commander passes an empty array for [globs...] when no args provided
   // Treat empty array as undefined to load all posts
   const globs = postGlobs && postGlobs.length > 0 ? postGlobs : undefined;
+  await loadAllPages();
   await buildAllIndexes(await loadAllPosts({ postGlobs: globs }), {
     showDrafts: options.showDrafts,
   });
