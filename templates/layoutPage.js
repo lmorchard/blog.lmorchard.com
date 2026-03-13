@@ -119,7 +119,7 @@ export default ({ site = {}, page = {}, head = "", js = "", contentAfter = "" },
           </nav>
         </header>
 
-        <section class="main page-container">${content}</section>
+        <section class="main">${content}</section>
 
         ${contentAfter}
 
