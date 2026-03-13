@@ -116,19 +116,19 @@ article figure {
 
 .posts-nav {
   margin: 1.5em auto 0.75em auto;
-  padding: 1.5em 1.25em 0 1.25em;
+  padding: 1.5em var(--layout-padding) 0;
   border-top: 1px solid color-mix(in srgb, var(--theme-border-color) 50%, transparent);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: calc(100% - 2.5em);
-  max-width: calc(100vw - 2.5em);
+  width: calc(100% - var(--layout-padding) * 2);
+  max-width: var(--layout-max-width);
   box-sizing: border-box;
 }
 
 @media (min-width: 1400px) {
   .posts-nav {
-    width: 1300px;
+    width: var(--layout-width-lg);
     padding-left: 0;
     padding-right: 0;
   }
@@ -136,7 +136,7 @@ article figure {
 
 @media (min-width: 1600px) {
   .posts-nav {
-    width: 1500px;
+    width: var(--layout-width-xl);
   }
 }
 .posts-nav>span {

@@ -1,6 +1,6 @@
 body>header {
   margin: 0;
-  padding: 0.75em 1.25em 1em 1.25em;
+  padding: 0.75em var(--layout-padding) 1em;
   background-color: color-mix(in srgb, var(--theme-background-color) 90%, transparent);
   z-index: 100;
   display: flex;
@@ -14,15 +14,8 @@ body>header {
     display: grid;
     column-gap: var(--column-gap);
     align-items: center;
-    padding: 1em 1.25em 1.25em 1.25em;
-    grid-template-columns:
-      [full-start wide-start] 2fr
-      [medium-start] 1fr
-      [main-start main-left-start] 3fr
-      [main-left-end main-right-start] 3fr
-      [main-right-end main-end] 1fr
-      [medium-end] 2fr
-      [wide-end full-end];
+    padding: 1em var(--layout-padding) 1.25em;
+    grid-template-columns: var(--layout-grid-columns);
   }
 }
 
@@ -41,8 +34,8 @@ body>header {
 
 @media (min-width: 1400px) {
   body>header {
-    max-width: calc(100vw - (1.25em * 2));
-    width: 1300px;
+    max-width: var(--layout-max-width);
+    width: var(--layout-width-lg);
     margin: 0 auto;
     padding-left: 0;
     padding-right: 0;
@@ -51,17 +44,8 @@ body>header {
 
 @media (min-width: 1600px) {
   body>header {
-    width: 1500px;
-    grid-template-columns:
-      [full-start] 1fr
-      [wide-start] 1fr
-      [medium-start] 1fr
-      [main-start main-left-start] 3fr
-      [main-left-end main-right-start] 3fr
-      [main-right-end main-end] 1fr
-      [medium-end] 1fr
-      [wide-end] 1fr
-      [full-end];
+    width: var(--layout-width-xl);
+    grid-template-columns: var(--layout-grid-columns-xl);
   }
 }
 
@@ -202,11 +186,29 @@ body>header>nav .main-nav-top .theme-selector {
 }
 
 body>footer {
-  margin: 2em 0 1em 0;
-  padding-top: 3em !important;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  padding-top: 3em;
   padding-bottom: 1.5em;
   background-color: var(--theme-background-color-transparent);
   border-top: 1px solid color-mix(in srgb, var(--theme-border-color) 50%, transparent);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1em;
+}
+
+@media (max-width: 899px) {
+  body>footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+body>footer #growup {
+  max-width: 40%;
 }
 
 body>footer .left {

@@ -119,11 +119,11 @@ export default ({ site = {}, page = {}, head = "", js = "", contentAfter = "" },
           </nav>
         </header>
 
-        <section class="main">${content}</section>
+        <section class="main page-container">${content}</section>
 
         ${contentAfter}
 
-        <footer class="content-grid">
+        <footer class="page-container">
           <div class="left">
             © 2002 - 2026 Les Orchard &lt;<a href="mailto:me@lmorchard.com"
               >me@lmorchard.com</a
