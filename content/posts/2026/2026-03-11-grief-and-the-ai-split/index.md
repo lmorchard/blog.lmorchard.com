@@ -29,7 +29,7 @@ That post was my attempt to explain why AI coding tools felt like a natural fit 
 
 ## The Mourning
 
-James Randall wrote [a piece that hit a nerve](https://www.jamesdrandall.com/posts/the_thing_i_loved_has_changed/). He's been programming since age 7, like me. Started in 1983, a year after I did. But his experience of this moment is subtly different from mine:
+James Randall wrote [a piece that hit a nerve](https://www.jamesdrandall.com/posts/the_thing_i_loved_has_changed/). He's been programming since age 7 in the 1980s, like me. But his experience of this moment is subtly different from mine:
 
 > The wonder is harder to access. The sense of discovery, of figuring something out through sheer persistence and ingenuity — that’s been compressed. Not eliminated, but compressed. And something is lost in the compression, even if something is gained.
 
@@ -61,11 +61,11 @@ So most of my fears got tested against reality and thankfully didn't hold up. Bu
 
 ## The Grief That Sticks
 
-I grieve for the web I've known. Not for writing HTML by hand—I grieve for the open web as an ecosystem, threatened in ways that have nothing to do with whether I personally type code or not. [AI training on the commons](https://blog.lmorchard.com/2024/03/11/dance-for-the-bots/), the further consolidation of who gets to shape how people experience the internet. That's a real loss, and it doesn't go away because I'm personally more productive.
+I grieve for the web I've known. Not for writing HTML by hand, but I grieve for the open web as an ecosystem. It's threatened in ways that have nothing to do with whether I personally type code or not. [AI training on the commons](https://blog.lmorchard.com/2024/03/11/dance-for-the-bots/), the further consolidation of who gets to shape how people experience the internet. That's a real loss, and it doesn't go away because I'm personally more productive.
 
-I grieve for [the career landscape shifting under me](https://blog.lmorchard.com/2025/05/20/minimum-viable-human-career/). Webdev's been my thing for over three decades. But, it's not a hot field anymore, whether folks like it or not: mobile apps took some big bites, but AI engineering is really ruling the roost now. I spent time worrying whether I could make that shift. I think I have been, but the anxiety is genuine, and I don't think it's finished.
+I grieve for [the career landscape shifting under me](https://blog.lmorchard.com/2025/05/20/minimum-viable-human-career/). Webdev's been my thing for over three decades. But, it's not a hot field anymore, whether folks like it or not: mobile apps took some big bites, but AI engineering is really ruling the roost now. I've been worried whether I could make that shift. I think I have been, but the anxiety is genuine, and I don't think it's finished.
 
-Here's what I notice about my grief: none of it is about missing the act of writing code. It's about the world *around* the code changing. The ecosystem, the economy, the culture. That's a different kind of loss than what Randall and Lawson are describing. Theirs is about the craft itself. Mine is about the context and the reasons why we're doing any of this.
+Here's what I notice about my grief: none of it is about missing the act of writing code. It's about the world *around* the code changing. The ecosystem, the economy, the culture. I think that's a different kind of loss than what Randall and Lawson are describing. Theirs is about the craft itself. Mine is about the context and the reasons why we're doing any of this.
 
 ## Neither Side Is Wrong
 
@@ -83,7 +83,7 @@ But, you know, I'd be lying if I said it didn't excite me a bit, amidst the grie
 
 ## Make Computer Do Thing
 
-I started programming in 1982. Every language I've learned since then has been a means to an end. That is, a new way to make computers do things I wanted them to do. AI-assisted coding feels like the latest in that progression. Not a discontinuity per se, just another rung on the ladder.
+I started programming in the 80s. Every language I've learned since then has been a means to an end. That is, a new way to make computers do things I wanted them to do. AI-assisted coding feels like the latest in that progression. Not a discontinuity per se, just another rung on the ladder.
 
 But I'm trying to hold that lightly. Because the ladder itself is changing, the building it's leaning against is changing, and I'd be lying if I said I knew exactly where it's going.
 
