@@ -99,10 +99,12 @@ Then Bezos chimes in saying [everyone having their own PC "makes no sense"](http
 <div class="weeknote-miscellanea">
 
 * Discovered a green vinyl of [Tre Lux's all-covers album "A Strange Gathering"](https://switchbladesymphony.bandcamp.com/album/a-strange-gathering) (Switchblade Symphony side project) — super good.
-  <youtube-embed video-id="pySnCnrLgM4" / thumbnail="6f6ec8fc61b3.jpg">
+
+  <youtube-embed video-id="pySnCnrLgM4" thumbnail="6f6ec8fc61b3.jpg" />
 
 * [*Rush Presto rough cut demo tape*](https://www.rushisaband.com/blog/2026/02/21/6434/Rush-fan-uncovers-rare-early-Presto-rough-cut-demo-cassette-tape) — a Rush fan uncovered rare early demo cassettes found among a former guitar tech's belongings
-  <youtube-embed video-id="2l70mm2fGW0" / thumbnail="ce6cafc41b3c.jpg">
+
+  <youtube-embed video-id="2l70mm2fGW0" thumbnail="ce6cafc41b3c.jpg"></youtube-embed>
 
 * [*Times New Resistance*](https://www.abbyhaddican.com/times-new-resistance) — a Times New Roman impersonator that autocorrects the autocrats
 
