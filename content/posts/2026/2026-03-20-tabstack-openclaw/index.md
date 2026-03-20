@@ -2,7 +2,6 @@
 title: "Tabstack + OpenClaw sitting in a tree"
 date: 2026-03-20
 layout: post
-thumbnail: "https://cdn.masto.host/mastohackerstown/media_attachments/files/116/151/398/954/747/293/original/dc7cedfeeab78e5c.jpeg"
 tags:
   - ai
   - llms
