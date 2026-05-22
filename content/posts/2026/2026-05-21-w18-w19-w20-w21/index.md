@@ -76,18 +76,21 @@ Most of my bookmarks for this period were all circling the same worries:
 
 <div class="weeknote-miscellanea">
 
+* **[NetHack 5.0.0](https://nethack.org/v500/release.html)** shipped with 3,100+ fixes and changes. The world keeps turning.
+* **Finished Harrow the Ninth.** Author pulled off one of the most pivotal moments in the whole book [with a dad joke](https://masto.hackers.town/@lmorchard/116522105068914057). Respect. 💀
+* **Etaoin shrdlu.** My laptop keyboard's [smudgiest keys spell out etaoin shrdlu](https://masto.hackers.town/@lmorchard/116522736064767544). Of course they do.
 * **The Explorers (1985) rewatch.** [I learned](https://masto.hackers.town/@lmorchard/116469808727120232) that [Robert Picardo](https://masto.hackers.town/@lmorchard/116469819774957379) — The Doctor from Voyager — was the alien Wak. *And* Starkiller from the [drive-in movie-within-the-movie](https://masto.hackers.town/@lmorchard/116469854593263324). Forty years late to this fact and delighted.
 
   ![Screenshot of a scene from Explorers (1985) with Wak, a big floppy green alien](b3eb56684d58.png)
 
   ![A screenshot from Starkiller, the movie-within-the-movie in Explorers. Robert Picardo is a blonde b-movie hero](be0cd05d8fd6.png)
-* **Finished Harrow the Ninth.** Author pulled off one of the most pivotal moments in the whole book [with a dad joke](https://masto.hackers.town/@lmorchard/116522105068914057). Respect. 💀
-* **Etaoin shrdlu.** My laptop keyboard's [smudgiest keys spell out etaoin shrdlu](https://masto.hackers.town/@lmorchard/116522736064767544). Of course they do.
 * **[Lady Gaga MAYHEM marathon](https://open.spotify.com/album/3ARwSvDQv2OHYnLeDC3Lxi)** on May 12 — back-to-back MAYHEM plus the deluxe Fame Monster. The rest of the period was the usual gothic / darkwave / post-punk rotation (TR/ST, Marnie, CHVRCHES, Susanne Sundfør, Twin Tribes, Sisters of Mercy, Siouxsie, Bauhaus).
+  <youtube-embed video-id="tDZ6bi-YguU" thumbnail="a627e5f4e433.jpg"></youtube-embed>
 * **Max Headroom in your terminal.** Ben Brown [shipped `headroom`](https://benbrown.com/txt/read/2026-05-01) — an animated Max in your terminal window. I contributed [`npx @benbrown/headroom`](https://masto.hackers.town/@lmorchard/116500434478347284) as the even-faster invocation, for when your friend leaves their laptop unlocked.
 ![MAx Headroom in your terminal!](c2a183914641.png)
 * **[Murderbot S1 recut to 3h28m as one film](https://a.wholelottanothing.org/murderbot-is-a-perfect-film/)** by mathowie — answer to a question no one asked, but the answer is "VERY entertaining." Added to my list.
 * **[CYBERDECKCLUB](https://post.lurk.org/@mediaarchaeologylab/116528687213416054)** at Media Archaeology Lab — Wednesdays at 1pm, bring your deck in progress. Not local to me but I am cheering this on.
+  ![CYBERDECKCLUB](406fc7e517b3.jpeg)
 * **A YouTube essay I want to write about properly someday:** Matthew Foster's [*How America Experienced Classic Doctor Who*](https://www.youtube.com/watch?v=JjROu0GpBjE) — a fourteen-minute argument that PBS-era American Whoovians were watching a fundamentally different show than the British were. Not a kid's show; a cult show, kin to Monty Python and The Prisoner. Air times were 10 PM Sunday or weekend nights; the audience was college students and 20-somethings; serials were broadcast in nearly-random order across PBS affiliates, sometimes with Howard Da Silva narration added for American audiences. The thing being optimized for was *Doctor dialogue*, not plot or canon. "We didn't care what the Doctor and companions did but what they said and how they said it." A different theory of what the show is.
 
   <youtube-embed video-id="JjROu0GpBjE" thumbnail="5c18c551ea9a.jpg"></youtube-embed>
@@ -109,6 +112,5 @@ Most of my bookmarks for this period were all circling the same worries:
 ![Game of life in hardware](9c7cef482b4d.jpeg)
 * **[Atari Computer Camps](https://www.retroist.com/p/atari-computer-camps)** and [its sibling piece on when Atari met Club Med](https://www.retroist.com/p/when-club-med-met-atari) — three-summer experiments with kids and computers (and adults and BASIC) that ended when Atari collapsed.
 ![Atari 8-bits at Club Med?!](41343a23415f.jpeg)
-* **[NetHack 5.0.0](https://nethack.org/v500/release.html)** shipped with 3,100+ fixes and changes. The world keeps turning.
 
 </div>
