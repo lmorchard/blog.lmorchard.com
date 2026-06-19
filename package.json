@@ -22,7 +22,7 @@
     "build-search": "pagefind --site build",
     "build-assets": "node index.js build-assets",
     "build-vendor-bundles": "node script/build-vendor-bundles.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node --test \"test/**/*.test.js\"",
     "stage": "npm-run-all --serial stage:build stage:deploy",
     "stage:build": "ABSOLUTE_BASE_URL=https://lmorchard.github.io/blog.lmorchard.com BASE_URL=/blog.lmorchard.com npm run build",
     "stage:deploy": "gh-pages -t -d build",
