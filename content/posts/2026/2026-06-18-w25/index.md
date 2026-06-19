@@ -1,7 +1,7 @@
 ---
 title: "Catching up: May 29 to June 18"
 date: 2026-06-18
-thumbnail: "https://cdn.masto.host/mastohackerstown/media_attachments/files/116/756/375/226/540/951/original/372915a01ce7f10d.jpg"
+thumbnail: "/2026/06/18/w25/36adf9b01f4a.jpg"
 tags:
   - weeknotes
   - gamedev
