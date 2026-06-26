@@ -1,5 +1,5 @@
 ---
-title: "Catching up: April 25 – May 21, 2026"
+title: "me-to-markdown: a robot to fetch my whole week (Catching up: April 25 – May 21)"
 date: 2026-05-21
 tags:
   - weeknotes

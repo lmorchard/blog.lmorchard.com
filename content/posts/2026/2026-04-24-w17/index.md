@@ -1,5 +1,5 @@
 ---
-title: "2026 Week 17"
+title: "Atomic purple (Week 17)"
 date: 2026-04-24
 thumbnail: "https://cdn.masto.host/mastohackerstown/media_attachments/files/116/439/509/094/929/372/original/8cb17d7ac52ec10a.jpg"
 tags:

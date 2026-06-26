@@ -1,5 +1,5 @@
 ---
-title: "2026 Weeks 14, 15, & 16"
+title: "Glued to the Artemis II livestream (Weeks 14–16)"
 date: 2026-04-17
 thumbnail: "https://cdn.masto.host/mastohackerstown/media_attachments/files/116/310/574/842/204/509/original/8299ead36a6ef93a.jpeg"
 tags:

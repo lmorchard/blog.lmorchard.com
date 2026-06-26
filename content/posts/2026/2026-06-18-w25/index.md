@@ -1,5 +1,5 @@
 ---
-title: "Catching up: May 29 to June 18"
+title: "starnet ate the month (Catching up: May 29 – June 18)"
 date: 2026-06-18
 thumbnail: "/2026/06/18/w25/36adf9b01f4a.jpg"
 tags:

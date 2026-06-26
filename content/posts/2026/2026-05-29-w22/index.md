@@ -1,5 +1,5 @@
 ---
-title: "2026 Week 22"
+title: "A whole fake season of Star Trek (Week 22)"
 date: 2026-05-29
 thumbnail: "https://cdn.masto.host/mastohackerstown/media_attachments/files/116/627/572/854/887/532/original/daee135b3bb1d8bd.png"
 tags:
