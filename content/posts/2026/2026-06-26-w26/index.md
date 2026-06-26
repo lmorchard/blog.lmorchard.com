@@ -1,7 +1,7 @@
 ---
 title: "2026 Week 26"
 date: 2026-06-26
-thumbnail: "f49830a82abd.jpg"
+thumbnail: "/2026/06/26/w26/f49830a82abd.jpg"
 tags:
   - weeknotes
   - linux
