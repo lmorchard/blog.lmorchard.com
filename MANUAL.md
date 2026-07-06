@@ -149,3 +149,18 @@ Use the command-line interface to build the site:
 ```
 
 The built site will be placed in the directory specified by `config.buildPath`.
+
+
+## Running the development server
+
+To start a local development server with live reloading, you can use the `start` script defined in `package.json`:
+
+```bash
+yarn start
+```
+
+Alternatively, with `npm`:
+
+```bash
+npm start
+```
