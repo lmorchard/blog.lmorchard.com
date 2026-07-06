@@ -22,7 +22,7 @@ export default ({ site = {}, page = {}, head = "", js = "", contentAfter = "" },
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
         />
 
-        <link rel="webmention" href="https://webmention.io/lmorchard.com/webmention" />
+        <link rel="webmention" href="https://webmention.io/blog.lmorchard.com/webmention" />
         
         <link href="mailto:${site.author.email}" rel="me authn" />
         
