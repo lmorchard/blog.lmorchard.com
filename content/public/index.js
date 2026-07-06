@@ -1,6 +1,7 @@
 import "./js/components/index.js";
 // import "./js/disqus-lazy-loader.js";
 // import "./js/media-lazy-loader.js";
+import "./js/remark42-loader.js";
 import "./js/toc.js";
 import "./js/reading-progress.js";
 import "./js/linkable-headings.js";

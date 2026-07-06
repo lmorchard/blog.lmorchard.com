@@ -26,7 +26,6 @@ export default ({ site = {}, page = {} }, content) =>
         `}
         ${page.summary &&
         html`<meta property="og:description" content="${page.summary}" />`}
-        ${renderRemark42CommentsHead(site, page)}
       `,
       contentAfter: html`
         <section class="posts-nav page-container">
@@ -127,37 +126,6 @@ function renderPostContent(post, content) {
   }
 
   return html`${unescaped(content)}`;
-}
-
-function renderRemark42CommentsHead(site, page) {
-  if (page.comments_archived || page.draft) {
-    return "";
-  }
-  return html`
-    <script>
-      var remark_config = {
-        host: "https://remark42.lmorchard.com",
-        site_id: "remark",
-        theme: window.matchMedia && window.matchMedia('(prefers-color-scheme:dark)').matches ? "dark" : "light",
-        url: "${site.absolute_baseurl}/${page.path}/",
-        show_email_subscription: false,
-      };
-      window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change', event => {
-        const newColorScheme = event.matches ? "dark" : "light";
-        window.REMARK42.changeTheme(newColorScheme);
-      });
-    </script>
-    <script>
-      ! function(e, n) {
-          for (var o = 0; o < e.length; o++) {
-              var r = n.createElement("script"),
-                  c = ".js",
-                  d = n.head || n.body;
-              "noModule" in r ? (r.type = "module", c = ".mjs") : r.async = !0, r.defer = !0, r.src = remark_config.host + "/web/" + e[o] + c, d.appendChild(r)
-          }
-      }(remark_config.components || ["embed"], document);
-    </script>
-  `;
 }
 
 function renderRemark42CommentsBody(site, page) {

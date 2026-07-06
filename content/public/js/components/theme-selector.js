@@ -56,6 +56,9 @@ class ThemeSelector extends HTMLElement {
   }
 
   applyPreferredColorScheme(scheme) {
+    document.body.classList[scheme === "light" ? "add" : "remove"]("theme-light");
+    document.body.classList[scheme === "dark" ? "add" : "remove"]("theme-dark");
+
     for (let s = 0; s < document.styleSheets.length; s++) {
       try {
         for (let i = 0; i < document.styleSheets[s].cssRules.length; i++) {
