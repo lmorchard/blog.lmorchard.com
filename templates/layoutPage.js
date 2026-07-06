@@ -1,6 +1,8 @@
 import { html } from "../lib/html.js";
+import { websiteNode, personNode, renderJsonLd } from "../lib/jsonLd.js";
 
-export default ({ site = {}, page = {}, head = "", js = "", contentAfter = "" }, content) => {
+export default ({ site = {}, page = {}, head = "", js = "", contentAfter = "", jsonLd = [] }, content) => {
+  const graph = [websiteNode(site), personNode(site), ...jsonLd];
   const feedUrl = page.tag
     ? `${site.absolute_baseurl}/tag/${page.tag}/index.rss`
     : `${site.absolute_baseurl}/index.rss`;
@@ -63,6 +65,7 @@ export default ({ site = {}, page = {}, head = "", js = "", contentAfter = "" },
               />
             `}
         ${head}
+        ${renderJsonLd(graph)}
       </head>
       <body>
         <header>

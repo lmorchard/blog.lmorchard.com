@@ -19,6 +19,17 @@ export default {
       short_name: "lmorchard",
       name: "l.m.orchard",
       email: "me@lmorchard.com",
+      url: "https://lmorchard.com",
+      job_title: "Software developer",
+      description: "he / him; old adhd cat dad; tinkerer; serial enthusiast",
+      sameAs: [
+        "https://lmorchard.com",
+        "https://masto.hackers.town/@lmorchard",
+        "https://bsky.app/profile/lmorchard.com",
+        "https://github.com/lmorchard",
+        "https://twitch.tv/lmorchard",
+        "https://www.youtube.com/@LesOrchard",
+      ],
     },
   },
   postCopyFilters: [
