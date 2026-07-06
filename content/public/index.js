@@ -1,5 +1,5 @@
 import "./js/components/index.js";
-import "./js/disqus-lazy-loader.js";
+// import "./js/disqus-lazy-loader.js";
 // import "./js/media-lazy-loader.js";
 import "./js/toc.js";
 import "./js/reading-progress.js";
