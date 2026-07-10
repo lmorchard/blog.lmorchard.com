@@ -24,10 +24,11 @@ export default ({ site = {}, page = {}, head = "", js = "", contentAfter = "", j
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
         />
 
-        <link rel="webmention" href="https://webmention.io/blog.lmorchard.com/webmention" />
-        
+        <link rel="webmention" href="https://webmention.io/${site.domain}/webmention" />
+        <link rel="pingback" href="https://webmention.io/${site.domain}/xmlrpc" />
+
         <link href="mailto:${site.author.email}" rel="me authn" />
-        
+
         <link
           rel="shortcut icon"
           href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16"
