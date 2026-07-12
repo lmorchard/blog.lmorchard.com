@@ -1,7 +1,7 @@
 ---
 title: "Somewhere to stash my mixtapes (Week 28)"
 date: 2026-07-10
-thumbnail: "https://cdn.masto.host/mastohackerstown/media_attachments/files/116/887/247/202/173/030/original/562609a6f4fbae08.png"
+thumbnail: "/2026/07/10/w28/mixtapes-2.png"
 tags:
   - weeknotes
   - selfhosting
@@ -128,6 +128,7 @@ A [nice writeup on automatic remark42 theme-switching](https://hndrk.blog/commen
 * Conan O'Brien [surprising Jordan Schlansky with Geddy Lee](https://www.youtube.com/watch?v=tzs7901FSzY) so he can interrogate the man about a specific mastering of "Tom Sawyer" is exactly the kind of nonsense I needed.
 
     <youtube-embed video-id="tzs7901FSzY" thumbnail="d106834063a7.jpg"></youtube-embed>
+
 * Podcast-wise it was a good week for retro and sci-fi: the Retro Hour on the [Commodore 64 as a cultural icon](https://pocketcasts.com/podcast/f025c170-ae7d-013b-f3af-0acc26574db2), the STARLOG Podcast talking [science and storytelling with Dr. Erin Macdonald](https://pocketcasts.com/podcast/c32c37c0-5206-013f-1f83-0e98e27f20d9), Aftermath Hours on the slow death of [physical media](https://pocketcasts.com/podcast/16283670-9d16-013c-74fe-027201e7e97f), and Never Post on ["inheritance posting"](https://pocketcasts.com/podcast/bb3ac9f0-728c-013c-dc63-0e76ec147af9) as a new kind of grief.
 * Songs that were stuck in my head, for the record: Parralox's [cover of "Sirius / Eye in the Sky"](https://www.youtube.com/watch?v=GTrndr1gqdc), Battery's cover of Depeche Mode's "Shame" (["it all seems so stupid, it makes me want to give up"](https://www.youtube.com/watch?v=fBXGfHuMtMA)), and, unfortunately right before bed, the hyperactive ["MEOW" by Anamanaguchi](https://www.youtube.com/watch?v=vc3JWo2iiGc).
 
