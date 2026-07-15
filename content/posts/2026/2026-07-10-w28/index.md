@@ -40,7 +40,7 @@ So, I made a thing this week: [mixtapes.lmorchard.com](https://mixtapes.lmorchar
 
 And, if this isn't broken, an embedded playlist should appear here:
 
-<iframe src="https://mixtapes.lmorchard.com/big-sonic-heaven-spy/embed/" width="100%" height="950" frameborder="0" allowtransparency="true" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+<iframe src="https://mixtapes.lmorchard.com/00-conceptual/big-sonic-heaven-spy/embed/" width="100%" height="950" frameborder="0" allowtransparency="true" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
 This one started sideways. I spent some time [reviving my Big Sonic Heaven Spy bot](https://masto.hackers.town/@lmorchard/116875598639707807), a little thing that watches what's playing at bigsonicheaven.com and appends new songs to a Spotify playlist. [BSH is all ethereal, shoegaze, dreampop, and post-punk](https://bigsonicheaven.com) from a DJ I've been listening to since high school. The playlist is past 8000 songs now, and Spotify caps playlists at 10000. So, I'm going to hit a wall before too long.
 
