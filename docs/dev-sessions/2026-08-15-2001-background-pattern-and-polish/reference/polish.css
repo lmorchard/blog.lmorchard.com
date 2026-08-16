@@ -1,0 +1,70 @@
+/* THROWAWAY PREVIEW — the four "polish" items, behind html.polish.
+   `html.dark` is mirrored from body.theme-dark by the preview panel, because
+   theme classes currently live on <body> and these rules need the root. */
+
+html.polish {
+  --theme-font-family-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo,
+    Consolas, "DejaVu Sans Mono", monospace;
+}
+
+/* --- 1. palette ------------------------------------------------------- */
+/* Light already renders warm (rgba(242,240,235)) because the light @media
+   block is dead. Here we make that explicit and warm the greys to match. */
+html.polish {
+  --theme-background-color: rgba(242, 240, 235, 1);
+  --theme-background-color-transparent: rgba(242, 240, 235, 0.7);
+  --theme-text-color: #26221c;
+  --theme-border-color: #6b6355;
+  --theme-link-color: #0c5a72;
+}
+html.polish.dark {
+  --theme-background-color: rgba(26, 24, 22, 1);
+  --theme-background-color-transparent: rgba(26, 24, 22, 0.7);
+  --theme-text-color: #e6e1d8;
+  --theme-border-color: rgba(230, 225, 216, 0.55);
+  --theme-link-color: #7fc3d6;
+}
+
+/* --- 2. mono metadata ------------------------------------------------- */
+html.polish .post-list ul.posts .post .meta,
+html.polish .post-list ul.posts .post .word-count,
+html.polish article > header > time {
+  font-family: var(--theme-font-family-mono);
+  font-size: 0.78em;
+}
+
+html.polish .post-list ul.posts .date-header .date {
+  font-family: var(--theme-font-family-mono);
+  font-size: 0.95em;
+  letter-spacing: 0.08em;
+}
+
+html.polish article > header > ul.tags,
+html.polish .post-list ul.posts .post .meta ul.tags {
+  font-family: var(--theme-font-family-mono);
+}
+
+/* --- 3. thumbnail aligns to the title, not the summary ---------------- */
+@media (min-width: 1200px) {
+  html.polish .post-list ul.posts .post .thumb {
+    grid-row: 1 / span 2;
+  }
+}
+
+/* --- 4. calmer links -------------------------------------------------- */
+html.polish .post-list ul.posts .post .title a {
+  text-decoration: none;
+}
+html.polish .post-list ul.posts .post .title a:hover,
+html.polish .post-list ul.posts .post .title a:focus-visible {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+html.polish .post-list ul.posts .post .meta a {
+  text-decoration: none;
+  border-bottom: 1px dotted color-mix(in srgb, currentColor 45%, transparent);
+}
+html.polish .post-list ul.posts .post .meta a:hover {
+  border-bottom-style: solid;
+}

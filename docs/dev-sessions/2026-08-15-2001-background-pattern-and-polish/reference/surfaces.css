@@ -1,0 +1,115 @@
+/* THROWAWAY PREVIEW — extend the "sheet" language to the other surfaces that now
+   sit on the patterned field: header, footer, article prev/next nav, and index
+   thumbnails. Behind html.surfaces so it can be A/B'd.
+
+   The vocabulary is the sheet's: opaque background + hairline edge + soft
+   shadow, reusing --sheet-edge / --sheet-shadow so one change retunes all of it.
+
+   Implementation note: the surface is drawn by a pseudo-element inset
+   NEGATIVELY, not by borders/padding on the element itself. That matters here —
+   the header's nav is aligned to its own right edge (grid line `full-end`, which
+   lines up with .content-grid below), so a border on the header box lands
+   directly against "colophon". Padding would fix the gap but shift the grid and
+   break that alignment. A negatively-inset pseudo-element draws the surface
+   wider than the element while touching no layout at all.
+
+   The same trick suits footer and .posts-nav, which are .page-container
+   (box-sizing: border-box, zero horizontal padding at >=1400px) — adding padding
+   there would shrink their content box and misalign them instead. */
+
+html.surfaces {
+  --surface-bleed: 1.25em; /* how far the surface extends past its content */
+}
+
+/* z-index: 0 is load-bearing, not decorative. The sheet is body::after at
+   z-index -1; a surface pseudo-element also at -1 with no stacking context of
+   its own competes in the ROOT stacking context, where body::after comes later
+   in tree order and therefore paints ON TOP — the sheet's hairlines get drawn
+   across the surface, slicing it into three segments at the sheet's edges.
+   Giving each surface z-index: 0 makes it a stacking context above the sheet, so
+   its ::after resolves inside it instead of against the sheet.
+   (The header already had z-index: 100, but only takes effect now that it is
+   positioned — z-index is ignored on static elements.) */
+html.surfaces body > header,
+html.surfaces body > footer,
+html.surfaces .posts-nav {
+  position: relative;
+  z-index: 0;
+}
+
+html.surfaces body > header {
+  z-index: 100; /* preserve the existing sticky-header stacking */
+}
+
+/* position: absolute keeps this out of flow — both header and footer are flex
+   containers, so an in-flow pseudo-element would become a flex item. */
+html.surfaces body > header::after,
+html.surfaces body > footer::after,
+html.surfaces .posts-nav::after {
+  content: "";
+  position: absolute;
+  inset: 0 calc(-1 * var(--surface-bleed));
+  z-index: -1;
+  pointer-events: none;
+  background-color: var(--theme-background-color);
+  box-shadow: var(--sheet-shadow);
+}
+
+/* Vertical edges only where the element is actually inset from the viewport;
+   below 1200px these are full-bleed and the borders would sit against the
+   window frame. */
+@media (min-width: 1200px) {
+  html.surfaces body > header::after,
+  html.surfaces body > footer::after {
+    border-left: 1px solid var(--sheet-edge);
+    border-right: 1px solid var(--sheet-edge);
+  }
+}
+
+/* The prev/next nav is a discrete card, so it gets an edge all the way round. */
+html.surfaces .posts-nav::after {
+  border: 1px solid var(--sheet-edge);
+}
+
+html.surfaces .posts-nav {
+  padding-bottom: 1.25em;
+}
+
+/* The header is sticky at >=1200px; letting the maze show through a band that
+   content scrolls under reads as muddy rather than layered, so it goes fully
+   opaque. Its own background is now redundant but harmless. */
+html.surfaces body > header {
+  background-color: var(--theme-background-color);
+}
+
+/* --- index thumbnails ------------------------------------------------- */
+/* A mat of background colour plus hairline and shadow, so the thumbnail reads as
+   a print resting on the desk rather than an image floating in a gutter.
+   Applied to the img, not .thumb: .thumb is a grid item with a fixed 128px
+   height at >=1200px, and padding on it would break that. */
+html.surfaces .post-list ul.posts .post .thumb img {
+  background-color: var(--theme-background-color);
+  border: 1px solid var(--sheet-edge);
+  box-shadow: var(--sheet-shadow);
+  box-sizing: border-box;
+}
+
+/* Shift thumbnails clear of the sheet's left border.
+
+   .thumb spans wide-start -> main-start and is right-aligned, so its right edge
+   lands one column-gap short of `main`. The sheet extends half of
+   --sheet-padding past `main`, and half-padding (42.5px) is LARGER than the
+   column gap (29.75px) — so the thumbnail overlapped into the sheet by the
+   difference, ~13px, and straddled the border.
+
+   The shift needed is therefore (halfPadding - columnGap), plus a little
+   breathing room so it reads as sitting on the pattern rather than touching the
+   edge. Only applies at >=1200px, where .thumb is in the gutter at all; below
+   that it is centred in normal flow. */
+@media (min-width: 1200px) {
+  html.surfaces .post-list ul.posts .post .thumb {
+    margin-right: calc(
+      var(--sheet-padding) / 2 - var(--column-gap) + 0.75em
+    );
+  }
+}
