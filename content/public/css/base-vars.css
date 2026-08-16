@@ -6,13 +6,28 @@
   --column-gap: 1.75em;
   --row-gap: 1.75em;
 
+  /* :root IS the light theme. There is deliberately no
+     @media (prefers-color-scheme: light) block anywhere — theme-selector.js
+     disables such a block exactly when it should apply (it deletes the light
+     medium and appends a bogus "original-prefers-color-scheme"), so light
+     values that live in one are unreachable. Dark overrides go in index.css's
+     dark block, which works because its branch appends mediums rather than
+     deleting them. */
   --theme-background-color: rgba(242, 240, 235, 1);
   --theme-background-color-transparent: rgba(242, 240, 235, 0.7);
-  --theme-highlighted-bg-color: #dfdfdf;
+  --theme-highlighted-bg-color: #e4e0d6;
   --theme-dialog-bg-color: rgba(192, 192, 192, 0.8);
-  --theme-text-color: #111;
-  --theme-border-color: #555;
-  --theme-link-color: rgba(0, 0, 255, 0.8);
+  --theme-text-color: #26221c;
+  --theme-border-color: #6b6355;
+  --theme-link-color: #0c5a72;
+
+  --theme-font-family-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo,
+    Consolas, "DejaVu Sans Mono", monospace;
+
+  /* Pattern ink derives from the text colour so it re-tints for any future
+     theme with no extra work. Dark uses a lower alpha because light ink on a
+     dark field reads stronger at equal alpha. */
+  --pattern-ink: color-mix(in srgb, var(--theme-text-color) 13%, transparent);
 
   --layout-padding: 1.25em;
   --layout-max-width: calc(100vw - (var(--layout-padding) * 2));
