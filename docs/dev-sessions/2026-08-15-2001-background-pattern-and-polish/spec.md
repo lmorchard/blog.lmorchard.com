@@ -182,8 +182,9 @@ draft of the preview left the 1200–1399px band falling back to the
 than `main` there instead of 42px — a discrepancy invisible at a glance but which
 would have needed per-breakpoint thumbnail offsets to paper over.
 
-Below 1200px the sheet fills the viewport and the pattern is hidden, so no
-clearance constraint applies at all.
+Below 1200px `--sheet-width` falls back to the measure-based
+`min(70ch + padding, 100%)`, which is wider relative to the content than the
+derived value, so no clearance constraint applies there.
 
 If a future change makes headings larger, or moves the anchor further out, this
 has to be rechecked — `--sheet-padding` and the anchor's `left` are coupled. The
@@ -204,12 +205,28 @@ width of `.post .summary` (which occupies `grid-column: main`):
 | 1440px | 1300 | `1300/2 - 1.5 x 29.75` = 605.4 | 605 |
 | 1700px | 1500 | `1500/2 - 2.5 x 29.75` = 675.6 | 676 |
 
-**Below 1200px the sheet fills the viewport and the pattern is not visible at
-all.** This is intended, not an oversight: `.content-grid` drops to a flex
-column there (`content-grid.css:90-98`), so there are no gutters, and the only
-place left to put a pattern would be behind body text — which is the option
-rejected in favour of the sheet. Narrow viewports get the current design plus
-the polish items.
+**Below 1200px** `.content-grid` drops to a flex column
+(`content-grid.css:90-98`), so there are no grid gutters and `--sheet-width`
+falls back to `min(70ch + var(--sheet-padding), 100%)` — a fixed 855px until the
+viewport is narrower than that. Measured consequences:
+
+| viewport | sheet | pattern strip each side |
+|---|---|---|
+| 700px | 700 | 0px — sheet fills the viewport |
+| 900px | 855 | 22px |
+| 1000px | 855 | 72px |
+| 1199px | 855 | 172px |
+
+So the pattern *is* visible between roughly 855px and 1200px, in margins that
+widen as the viewport does. That is correct and desirable: at those widths the
+prose is a centred 70ch column with real empty space either side, and patterning
+it is the same argument that motivates the feature at desktop widths. Below
+~855px the sheet fills the viewport and the pattern is genuinely hidden, which is
+also right — there is no spare horizontal space to decorate.
+
+(An earlier draft of this spec asserted the pattern was hidden everywhere below
+1200px. That was wrong, and only surfaced when the breakpoint sweep was actually
+measured.)
 
 The 1400/1600px widths are currently duplicated across
 `page-container.css:11-22`, `header-footer.css:35-49`, and
@@ -569,8 +586,9 @@ Specific checks:
 4. **Breakpoint boundaries** — 1199/1200px (flex → grid) and 1400/1600px, where
    the `--sheet-width` formula changes. The sheet edge must align with `main`;
    measure `.post .summary`'s rendered width and compare, as in section 3.
-   Below 1200px confirm the sheet covers the viewport (pattern hidden) rather
-   than leaving a partial band.
+   Below 1200px the sheet is a fixed 855px, so confirm the pattern appears in
+   margins that widen with the viewport (0px at 700px, ~172px at 1199px) rather
+   than assuming it is hidden.
 5. **Sticky header at scroll** (`>= 1200px` and `>= 850px` tall) — text passing
    under the header over the pattern must stay legible.
 6. **Heading anchor clearance** — on a post with `h2`/`h3` headings, hover a
