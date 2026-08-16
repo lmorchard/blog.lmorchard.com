@@ -132,6 +132,20 @@ html.maze-ready body > header {
   background-color: var(--theme-background-color);
 }
 
+/* Re-assert the sticky header from header-footer.css. The `position: relative`
+   above is more specific than that file's `body>header` AND comes later in the
+   import order, so without this it silently defeats sticky and the header
+   scrolls away. Relative is only needed where the header is NOT already
+   positioned; sticky satisfies the same requirement (a positioned ancestor for
+   ::after, and a stacking context for z-index). Keep this media query in sync
+   with header-footer.css. */
+@media (min-width: 1200px) and (min-height: 850px) {
+  html.maze-ready body > header {
+    position: sticky;
+    top: 0;
+  }
+}
+
 /* The surface is drawn by a pseudo-element inset NEGATIVELY rather than by
    borders and padding on the element itself.
 
