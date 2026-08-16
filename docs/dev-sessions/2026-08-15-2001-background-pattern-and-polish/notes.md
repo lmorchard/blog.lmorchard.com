@@ -126,6 +126,24 @@ media query. **Keep that media query in sync with `header-footer.css`.**
 - **"Open season"** items from the spec's non-goals: masthead redesign, body font,
   reconsidering the wide grid.
 
+## Follow-up after merge
+
+**Seed changed from per-build to per-page-load.** The shipped version injected
+`site.buildSeed` into every page's markup. Two problems:
+
+- less faithful to `10 PRINT`, which gives a different maze on every run
+- the seed attribute was the only deterministic build-to-build difference in the
+  HTML, and it was on ~2300 pages — so every deploy re-uploaded and invalidated
+  the entire site regardless of what had actually changed
+
+Removing it makes page HTML byte-identical across builds (verified for both an
+index and a post) while each visitor still gets a fresh maze. Verified: 4 loads
+produce 4 distinct mazes, and the maze is unchanged across scroll, resize and
+theme toggle within a single page view.
+
+Remember this needed a forced post rebuild — a template change invalidates
+nothing (see item 1 above).
+
 ## Prototype
 
 `reference/` holds the validated prototype the measurements came from, with a

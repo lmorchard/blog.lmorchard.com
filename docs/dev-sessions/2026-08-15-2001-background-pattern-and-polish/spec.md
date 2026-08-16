@@ -322,11 +322,27 @@ Implementation requirements:
   memoised in a `Map`. Position → value is a pure function, so the tile is
   reproducible from the seed alone and nothing can reshuffle.
 
-- **The seed is injected by the build,** e.g.
-  `<maze-background seed="${site.buildSeed}">` in `layoutPage.js`. A per-load
-  `Math.random()` seed reshuffles the background on every navigation, which reads
-  as instability rather than charm. A build-injected seed keeps the maze
-  identical across every page of a build and changes when the site is published.
+- **The seed is random per page load,** so every visit gets a different maze —
+  which is what running the original program twice does.
+
+  A first version injected a per-build seed from `config.js`
+  (`<maze-background seed="${site.buildSeed}">`), on the theory that reshuffling
+  per navigation would read as instability. That was reversed after shipping, for
+  two reasons:
+
+  1. **It is less faithful.** `10 PRINT` produces a different maze on every run;
+     pinning it per build is the odd choice, not the random one.
+  2. **It churned the entire site on every deploy.** The seed appeared in the
+     markup of all ~2300 pages, so every build rewrote every HTML file — verified
+     as the *only* deterministic build-to-build difference. Deployment is an
+     rclone sync plus a CloudFront invalidation, so that meant re-uploading and
+     invalidating the whole site each time regardless of what actually changed.
+     Without it, page HTML is byte-identical across builds.
+
+  The `seed` option stays on the component for callers that want determinism,
+  e.g. reproducible screenshots. What matters is that the maze is stable *within*
+  a page view — verified unchanged across scroll, resize and theme toggle — not
+  that it is stable between them.
 
 - **Sets `html.maze-ready`,** which gates both the pattern layer and the sheet
   (see section 5).
