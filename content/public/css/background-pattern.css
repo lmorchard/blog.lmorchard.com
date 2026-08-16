@@ -1,0 +1,86 @@
+/* The 10 PRINT maze background and the "sheet" the prose sits on.
+
+   The tile arrives as --maze-mask from js/components/maze-background.js; the
+   colour comes from --pattern-ink here, so theming needs no JavaScript at all.
+
+   The pattern fills the page OUTSIDE the `main` grid column. That is the point
+   of the feature rather than decoration: the grid reserves 3fr of gutter on each
+   side for .wide / .fullwidth / <aside> / the sticky TOC, and those gutters are
+   empty on nearly every page. Making them a patterned field makes the default
+   empty state read as deliberate negative space, and makes breakout content
+   read as sitting IN the margin rather than merely in a wider column. */
+
+/* The page background moves to <html> because negative-z-index descendants of
+   body paint BEFORE body's own background (painting order: root background,
+   then negative z-index, then in-flow block backgrounds). An opaque body
+   background would hide the pattern entirely. */
+html {
+  background-color: var(--theme-background-color);
+}
+
+body {
+  background-color: transparent;
+}
+
+/* REQUIRED, not cosmetic. Without it html is static, so html::before has no
+   positioned ancestor and resolves `inset: 0` against the INITIAL CONTAINING
+   BLOCK — whose height is the VIEWPORT. The document is then left unpatterned
+   below the first screenful (measured during design: a 1050px layer on a 5411px
+   document). Making html positioned resolves inset against its padding box,
+   i.e. the full document height.
+
+   Safe here: the only absolutely-positioned descendant that could have relied on
+   the initial containing block is `article > nav.table-of-contents li::before`,
+   which resolves against its `li` (article.css sets position: relative on it). */
+html.maze-ready {
+  position: relative;
+}
+
+html.maze-ready::before {
+  content: "";
+  /* absolute, NOT fixed: the browser then scrolls the layer with the document.
+     Fixed pins it to the viewport, so content slides over a stationary texture,
+     which reads as broken. */
+  position: absolute;
+  inset: 0;
+  z-index: -2; /* below the sheet at -1, above html's background-color */
+  pointer-events: none;
+
+  background: var(--pattern-ink);
+
+  -webkit-mask-image: var(--maze-mask);
+  mask-image: var(--maze-mask);
+  -webkit-mask-repeat: repeat;
+  mask-repeat: repeat;
+  -webkit-mask-size: var(--maze-tile) var(--maze-tile);
+  mask-size: var(--maze-tile) var(--maze-tile);
+  -webkit-mask-position: 0 0;
+  mask-position: 0 0;
+}
+
+/* The sheet: an opaque centred column over the pattern, holding the prose.
+
+   Gating on .maze-ready is a CORRECTNESS requirement rather than an
+   optimisation. Without it, a visitor with JS disabled gets no pattern but still
+   gets the sheet — a solid band the same colour as the page background,
+   invisible except for its hairline edges, which would render as two
+   unexplained vertical lines down the page.
+
+   Stays `fixed` while the pattern is `absolute`. That asymmetry is deliberate:
+   the sheet is a solid band of uniform colour, so fixed and scrolling are
+   visually indistinguishable, and fixed avoids having to size it to the
+   document. */
+html.maze-ready body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  width: var(--sheet-width);
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--theme-background-color);
+  /* Without an edge the sheet boundary reads as a lighting shift rather than an
+     edge, because the sheet and the pattern field share a background colour. */
+  border-left: 1px solid var(--sheet-edge);
+  border-right: 1px solid var(--sheet-edge);
+}
