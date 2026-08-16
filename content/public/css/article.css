@@ -175,4 +175,12 @@ article > header > ul.tags {
 
 article > header > time {
   font-size: 0.85em;
+  /* `width: 15.5em` above is relative to this element's OWN font-size, so the
+     0.85em above shrank the box from 263px to 224px — while switching to mono
+     made the text wider per character. The date then wrapped to three lines.
+     width: auto + min-width keeps the arrows' minimum spread but lets the box
+     grow, and nowrap stops the date breaking mid-value. */
+  width: auto;
+  min-width: 15.5em;
+  white-space: nowrap;
 }

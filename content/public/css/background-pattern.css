@@ -70,42 +70,29 @@ html.maze-ready::before {
    the sheet is a solid band of uniform colour, so fixed and scrolling are
    visually indistinguishable, and fixed avoids having to size it to the
    document. */
-/* The sheet is TWO layers, and the split is deliberate.
+/* The sheet is one absolutely-positioned layer anchored to section.main, not to
+   the viewport, because "the sheet starts under the header" is a DOCUMENT
+   relationship. section.main spans exactly from the header's bottom edge to just
+   above the prev/next nav, which is the region the sheet should cover — so
+   `inset: 0` needs no magic numbers and no knowledge of the header's height,
+   which varies by breakpoint.
 
-   body::before is the fill. It must span the whole viewport height, because the
-   header is only sticky at >=1200px wide AND >=850px tall — outside that it
-   scrolls away, and any gap at the top of the fill would put prose directly on
-   the pattern as content scrolls through it.
+   Anchoring it here rather than to the viewport is what lets the pattern show in
+   the strip above the header and in the gaps between the header, prev/next nav
+   and footer, so those read as discrete surfaces on the field.
 
-   body::after is the edge (border + shadow) and is INSET from the top by body's
-   own margin, and from the bottom by body's margin plus the footer's. The fill
-   alone is invisible in those strips because it is the same colour as the page,
-   but its border and shadow are not — they showed above the header, making the
-   centre column look like it ran past the top of the page. Insetting only the
-   edge fixes that without shortening the fill, and without inflating the header
-   band by extending its surface upward instead. */
-html.maze-ready body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  width: var(--sheet-width);
-  margin-left: auto;
-  margin-right: auto;
-  background-color: var(--theme-background-color);
-}
+   It is safe to stop the fill at main's bounds because EVERYTHING that needs an
+   opaque backing is inside main — including the comments section, which the
+   remark42 loader injects into `section.comments` within the article. Body's only
+   other children are the header, the prev/next nav and the footer, each of which
+   carries its own surface. Verified: no prose lives outside section.main.
 
-/* The edge is anchored to section.main rather than to the viewport, because
-   "the sheet starts under the header" is a DOCUMENT relationship, not a
-   viewport one. section.main spans exactly from the header's bottom edge to
-   just above the prev/next nav and footer, which is the region the sheet should
-   cover — so `inset: 0` on it needs no magic numbers and no knowledge of the
-   header's height, which varies by breakpoint.
-
-   Absolute, so it scrolls with the document. A viewport-fixed edge offset by
-   the header's height would sit at a constant screen position, which only looks
-   right while the header is sticky — below 1200px wide or 850px tall the header
-   scrolls away and the edge would appear to start partway down the screen. */
+   Two alternatives were tried and rejected. A viewport-fixed edge offset by the
+   header's height sits at a constant screen position, which only looks right
+   while the header is sticky — below 1200px wide or 850px tall the header
+   scrolls away and the edge would appear to start partway down the screen.
+   Extending the header's own surface upward to cover the strip worked, but
+   inflated the header band by 21px, reading as unwanted top padding. */
 html.maze-ready section.main {
   position: relative;
 }
@@ -119,6 +106,7 @@ html.maze-ready section.main::before {
   width: var(--sheet-width);
   margin-left: auto;
   margin-right: auto;
+  background-color: var(--theme-background-color);
   /* Without an edge the sheet boundary reads as a lighting shift rather than an
      edge, because the sheet and the pattern field share a background colour.
      The shadow lifts it off the field, matching the header, footer and
@@ -158,10 +146,12 @@ html.maze-ready .post-list ul.posts .post .thumb img {
    surface and slicing it into three segments at the sheet's edges. z-index: 0
    makes each surface a stacking context above the sheet.
 
-   The header already declared z-index: 100 in header-footer.css, but that was
+   The header already declared a z-index in header-footer.css, but that was
    inert: z-index is ignored on static elements, and the header is only
-   positioned when sticky at >=1200px. Preserved below so its sticky stacking is
-   unchanged. */
+   positioned when sticky at >=1200px. Preserved below via --z-sticky-header so
+   its stacking is unchanged — and that value is deliberately above the 100 used
+   by index date headers and the post TOC, which would otherwise tie with the
+   header and win on tree order. */
 html.maze-ready body > header,
 html.maze-ready body > footer,
 html.maze-ready .posts-nav {
@@ -170,7 +160,7 @@ html.maze-ready .posts-nav {
 }
 
 html.maze-ready body > header {
-  z-index: 100;
+  z-index: var(--z-sticky-header);
   /* Fully opaque, replacing color-mix(bg 90%, transparent): the header is
      sticky at >=1200px, and letting the maze show through a band that content
      scrolls under reads as muddy rather than layered. */
