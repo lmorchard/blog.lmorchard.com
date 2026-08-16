@@ -173,3 +173,24 @@
   font-size: 0.95em;
   letter-spacing: 0.08em;
 }
+
+/* Post titles are 1.6em and were permanently underlined in a saturated colour,
+   which read as loud. Underline on interaction only; inline body links keep
+   theirs, since there the underline is what marks them as links at all. */
+.post-list ul.posts .post .title a {
+  text-decoration: none;
+}
+.post-list ul.posts .post .title a:hover,
+.post-list ul.posts .post .title a:focus-visible {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.post-list ul.posts .post .meta a {
+  text-decoration: none;
+  border-bottom: 1px dotted color-mix(in srgb, currentColor 45%, transparent);
+}
+.post-list ul.posts .post .meta a:hover {
+  border-bottom-style: solid;
+}
