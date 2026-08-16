@@ -97,3 +97,77 @@ html.maze-ready .post-list ul.posts .post .thumb img {
   box-shadow: var(--sheet-shadow);
   box-sizing: border-box;
 }
+
+/* --- Other surfaces on the patterned field ---------------------------------- */
+
+/* Once the sheet exists, every element that used to sit on a flat background is
+   floating on a pattern and looks unfinished. Header, footer and the article
+   prev/next nav get the sheet's vocabulary: opaque background, hairline edge,
+   soft shadow, reusing --sheet-edge and --sheet-shadow so retuning the sheet
+   retunes all of them.
+
+   z-index: 0 is load-bearing. The sheet is body::after at z-index -1. A surface
+   pseudo-element also at -1, on an element with no stacking context of its own,
+   competes in the ROOT stacking context — where body::after comes later in tree
+   order and therefore paints ON TOP, drawing the sheet's hairlines across the
+   surface and slicing it into three segments at the sheet's edges. z-index: 0
+   makes each surface a stacking context above the sheet.
+
+   The header already declared z-index: 100 in header-footer.css, but that was
+   inert: z-index is ignored on static elements, and the header is only
+   positioned when sticky at >=1200px. Preserved below so its sticky stacking is
+   unchanged. */
+html.maze-ready body > header,
+html.maze-ready body > footer,
+html.maze-ready .posts-nav {
+  position: relative;
+  z-index: 0;
+}
+
+html.maze-ready body > header {
+  z-index: 100;
+  /* Fully opaque, replacing color-mix(bg 90%, transparent): the header is
+     sticky at >=1200px, and letting the maze show through a band that content
+     scrolls under reads as muddy rather than layered. */
+  background-color: var(--theme-background-color);
+}
+
+/* The surface is drawn by a pseudo-element inset NEGATIVELY rather than by
+   borders and padding on the element itself.
+
+   The header's nav is aligned to grid line `full-end`, which lines up with
+   .content-grid below, so a border on the header box lands directly against
+   "colophon". Padding would open the gap but shift the grid and break that
+   alignment. Footer and .posts-nav are .page-container (box-sizing: border-box,
+   zero horizontal padding at >=1400px), so padding there would shrink their
+   content boxes and misalign them the other way instead.
+
+   position: absolute keeps it out of flow — header, footer and .posts-nav are
+   all flex containers, so an in-flow pseudo-element would become a flex item. */
+html.maze-ready body > header::after,
+html.maze-ready body > footer::after,
+html.maze-ready .posts-nav::after {
+  content: "";
+  position: absolute;
+  inset: 0 calc(-1 * var(--surface-bleed));
+  z-index: -1;
+  pointer-events: none;
+  background-color: var(--theme-background-color);
+  box-shadow: var(--sheet-shadow);
+}
+
+/* Vertical edges only where the element is inset from the viewport; below
+   1200px these are full-bleed and the borders would sit against the window
+   frame. */
+@media (min-width: 1200px) {
+  html.maze-ready body > header::after,
+  html.maze-ready body > footer::after {
+    border-left: 1px solid var(--sheet-edge);
+    border-right: 1px solid var(--sheet-edge);
+  }
+}
+
+/* The prev/next nav is a discrete card, so it gets an edge all the way round. */
+html.maze-ready .posts-nav::after {
+  border: 1px solid var(--sheet-edge);
+}
