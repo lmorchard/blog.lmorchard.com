@@ -70,7 +70,21 @@ html.maze-ready::before {
    the sheet is a solid band of uniform colour, so fixed and scrolling are
    visually indistinguishable, and fixed avoids having to size it to the
    document. */
-html.maze-ready body::after {
+/* The sheet is TWO layers, and the split is deliberate.
+
+   body::before is the fill. It must span the whole viewport height, because the
+   header is only sticky at >=1200px wide AND >=850px tall — outside that it
+   scrolls away, and any gap at the top of the fill would put prose directly on
+   the pattern as content scrolls through it.
+
+   body::after is the edge (border + shadow) and is INSET from the top by body's
+   own margin, and from the bottom by body's margin plus the footer's. The fill
+   alone is invisible in those strips because it is the same colour as the page,
+   but its border and shadow are not — they showed above the header, making the
+   centre column look like it ran past the top of the page. Insetting only the
+   edge fixes that without shortening the fill, and without inflating the header
+   band by extending its surface upward instead. */
+html.maze-ready body::before {
   content: "";
   position: fixed;
   inset: 0;
@@ -79,11 +93,36 @@ html.maze-ready body::after {
   margin-left: auto;
   margin-right: auto;
   background-color: var(--theme-background-color);
+}
+
+/* The edge is anchored to section.main rather than to the viewport, because
+   "the sheet starts under the header" is a DOCUMENT relationship, not a
+   viewport one. section.main spans exactly from the header's bottom edge to
+   just above the prev/next nav and footer, which is the region the sheet should
+   cover — so `inset: 0` on it needs no magic numbers and no knowledge of the
+   header's height, which varies by breakpoint.
+
+   Absolute, so it scrolls with the document. A viewport-fixed edge offset by
+   the header's height would sit at a constant screen position, which only looks
+   right while the header is sticky — below 1200px wide or 850px tall the header
+   scrolls away and the edge would appear to start partway down the screen. */
+html.maze-ready section.main {
+  position: relative;
+}
+
+html.maze-ready section.main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  width: var(--sheet-width);
+  margin-left: auto;
+  margin-right: auto;
   /* Without an edge the sheet boundary reads as a lighting shift rather than an
      edge, because the sheet and the pattern field share a background colour.
-     The shadow lifts the sheet off the field and matches the treatment the
-     header, footer and prev/next surfaces get below — without it the sheet is
-     the only surface sitting flat on the pattern. */
+     The shadow lifts it off the field, matching the header, footer and
+     prev/next surfaces. */
   border-left: 1px solid var(--sheet-edge);
   border-right: 1px solid var(--sheet-edge);
   box-shadow: var(--sheet-shadow);
@@ -176,25 +215,7 @@ html.maze-ready .posts-nav::after {
   box-shadow: var(--sheet-shadow);
 }
 
-/* The sheet is fixed with `inset: 0`, so it spans the FULL viewport height —
-   including body's own 1.25em margin above the header and below the footer.
-   Its hairline edges therefore appeared in those strips, so the centre column
-   looked like it ran past the top of the header.
 
-   The fix extends the header and footer surfaces across those strips rather
-   than insetting the sheet's top. Insetting the sheet would leave prose sitting
-   directly on the pattern whenever the header is NOT sticky (below 1200px wide
-   or 850px tall) and content scrolls up into the band — the sheet has to keep
-   covering the whole viewport. */
-html.maze-ready body > header::after {
-  top: calc(-1 * var(--body-margin));
-}
-
-/* The footer has its OWN margin-bottom on top of body's, so the surface has to
-   reach across both or the sheet's edges show in the difference. */
-html.maze-ready body > footer::after {
-  bottom: calc(-1 * (var(--body-margin) + var(--footer-margin-bottom)));
-}
 
 /* Vertical edges only where the element is inset from the viewport; below
    1200px these are full-bleed and the borders would sit against the window
