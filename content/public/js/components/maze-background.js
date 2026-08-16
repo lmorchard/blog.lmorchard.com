@@ -21,12 +21,20 @@
 // Tiling is safe because every cell is a diagonal between opposite corners, so
 // tile edges always meet corner-to-corner: a maze tile is seamless at ANY size.
 // The only artifact is the repetition period, tileCells * cell.
+//
+// The seed is random per page load, so every visit gets a different maze — which
+// is what running the original program twice does. An earlier version injected a
+// per-build seed from config.js to keep the maze stable across a build; that was
+// dropped because it also made the seed attribute appear in every page's markup,
+// so all ~2300 HTML files changed on every build and the deploy re-uploaded and
+// invalidated the entire site each time. The `seed` option remains for callers
+// that want determinism, e.g. reproducible screenshots.
 
 const DEFAULTS = {
   cell: 24, // px per PETSCII cell
   lineWidth: 1,
   tileCells: 64, // tile is tileCells square; period = 64 * 24 = 1536px
-  seed: null, // build-injected integer; null falls back to per-load random
+  seed: null, // null (the default) = fresh random maze per page load
 };
 
 export class MazeBackground {

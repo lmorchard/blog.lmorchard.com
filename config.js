@@ -14,11 +14,6 @@ export default {
     baseurl: process.env.BASE_URL || "",
     absolute_baseurl: process.env.ABSOLUTE_BASE_URL || "https://blog.lmorchard.com",
     domain: "blog.lmorchard.com",
-    // Seed for the 10 PRINT background pattern. Computed once per build, so the
-    // maze is identical across every page of a build and changes when the site
-    // is published. A per-load Math.random() seed would reshuffle the background
-    // on every navigation, which reads as instability rather than charm.
-    buildSeed: (Math.random() * 0xffffffff) | 0,
     author: {
       full_name: "Les Orchard",
       short_name: "lmorchard",

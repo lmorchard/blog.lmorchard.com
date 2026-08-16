@@ -69,7 +69,7 @@ export default ({ site = {}, page = {}, head = "", js = "", contentAfter = "", j
         ${renderJsonLd(graph)}
       </head>
       <body>
-        <maze-background seed="${site.buildSeed}"></maze-background>
+        <maze-background></maze-background>
         <header>
           <div class="masthead">
             <img src="${site.avatar}" />
