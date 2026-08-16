@@ -134,6 +134,14 @@
        cursor has already passed row 1 (taken by .title) and the thumbnail
        drops to row 2, hanging below the title in an apparent gap. */
     grid-row: 1 / span 2;
+    /* Shift clear of the sheet's left border. .thumb is right-aligned in
+       wide-start -> main-start, so its right edge lands one column-gap
+       (29.75px) short of `main`. The sheet extends half of --sheet-padding
+       (42.5px) past `main` — larger — so the thumbnail overlapped into the
+       sheet by the ~13px difference and straddled the border. Expressed as
+       that relationship rather than a constant, so retuning either variable
+       keeps this correct. */
+    margin-right: calc(var(--sheet-padding) / 2 - var(--column-gap) + 0.75em);
     text-align: right;
     height: 128px;
   }

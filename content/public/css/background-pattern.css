@@ -84,3 +84,16 @@ html.maze-ready body::after {
   border-left: 1px solid var(--sheet-edge);
   border-right: 1px solid var(--sheet-edge);
 }
+
+/* --- Index thumbnails on the patterned field -------------------------------- */
+
+/* A mat of background colour plus hairline and shadow, so the thumbnail reads as
+   a print resting on the desk rather than an image floating in a gutter.
+   Applied to the img, not .thumb: .thumb is a grid item with a fixed 128px
+   height at >=1200px, and padding on it would break that. */
+html.maze-ready .post-list ul.posts .post .thumb img {
+  background-color: var(--theme-background-color);
+  border: 1px solid var(--sheet-edge);
+  box-shadow: var(--sheet-shadow);
+  box-sizing: border-box;
+}
