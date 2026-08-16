@@ -78,21 +78,46 @@
   margin-bottom: 0;
 }
 
+/* inline-flex, not inline. The template renders the <li> elements adjacently
+   with no whitespace between them, and inline boxes only break at whitespace —
+   so as plain inline there is NO break opportunity between tags. The only one
+   was inside each li, between its FontAwesome ::before icon and its label,
+   which is why tags used to split icon-from-label; and once li.tag got
+   white-space: nowrap (correctly, to stop that) the list could not wrap at all
+   and overflowed the column instead.
+
+   inline-flex + flex-wrap gives real break opportunities between items without
+   depending on whitespace. Same approach article>header>ul.tags already uses. */
 .post-list ul.posts .post .meta ul.tags {
-  display: inline;
+  display: inline-flex;
+  flex-wrap: wrap;
+  column-gap: 0.75em;
+  row-gap: 0;
+  /* keep the baseline sitting with the surrounding "#" and time text */
+  vertical-align: bottom;
   padding: 0;
-  margin: 0;
+  /* Separation from the preceding time, previously a ::before spacer holding two
+     spaces. As a flex container that pseudo-element becomes a flex ITEM, so a
+     margin is both simpler and does not occupy a slot in the wrap. */
+  margin: 0 0 0 0.5em;
+  /* REQUIRED. The UA stylesheet's `ul { list-style-type: disc }` applies
+     directly here and so beats the `list-style: none` inherited from
+     `.post-list ul.posts`. That did not matter while li.tag was
+     `display: inline` (inline boxes have no marker), but flex items are
+     blockified to `block list-item`, which does render one — and since markers
+     are drawn `outside`, each bullet lands just after the PREVIOUS tag, reading
+     as a stray glyph rather than a leading bullet. */
+  list-style: none;
 }
 
-.post-list ul.posts .post .meta ul.tags:before {
-  margin: 0 0.25em;
-  content: "  "
-}
+/* The old ::before spacer is gone: see the margin-left above. */
 
 .post-list ul.posts .post .meta ul.tags li.tag {
-  display: inline;
-  margin: 0 0.75em 0 0;
-  white-space: no-wrap;
+  /* margin removed: spacing is column-gap on the flex container now, so a
+     trailing margin does not push the last tag past the container edge. */
+  margin: 0;
+  /* Keeps a tag's ::before icon on the same line as its label. */
+  white-space: nowrap;
 }
 
 .post-list ul.posts .post .meta ul.tags li.tag:before {
@@ -130,7 +155,18 @@
   .post-list ul.posts .post .thumb {
     grid-column-start: wide-start;
     grid-column-end: main-start;
-    grid-row: span 2;
+    /* Explicit start row. With only `span 2`, grid's sparse auto-placement
+       cursor has already passed row 1 (taken by .title) and the thumbnail
+       drops to row 2, hanging below the title in an apparent gap. */
+    grid-row: 1 / span 2;
+    /* Shift clear of the sheet's left border. .thumb is right-aligned in
+       wide-start -> main-start, so its right edge lands one column-gap
+       (29.75px) short of `main`. The sheet extends half of --sheet-padding
+       (42.5px) past `main` — larger — so the thumbnail overlapped into the
+       sheet by the ~13px difference and straddled the border. Expressed as
+       that relationship rather than a constant, so retuning either variable
+       keeps this correct. */
+    margin-right: calc(var(--sheet-padding) / 2 - var(--column-gap) + 0.75em);
     text-align: right;
     height: 128px;
   }
@@ -140,4 +176,46 @@
   .post-list ul.posts .post {
     max-width: min(70ch, calc(100vw - (var(--layout-padding) * 2)));
   }
+}
+
+/* Metadata in a system mono stack: it recedes, gains texture against the serif
+   body, and suits the C64 motif of the background pattern. System stack, so no
+   new webfont and no added page weight. */
+.post-list ul.posts .post .meta,
+.post-list ul.posts .post .word-count {
+  font-family: var(--theme-font-family-mono);
+  font-size: 0.78em;
+}
+
+.post-list ul.posts .post .meta ul.tags {
+  font-family: var(--theme-font-family-mono);
+}
+
+/* Overrides the 1.3em from the .date-header h2 rule above: mono reads larger at
+   the same nominal size, and the letter-spacing gives the date a terminal feel. */
+.post-list ul.posts .date-header .date {
+  font-family: var(--theme-font-family-mono);
+  font-size: 0.95em;
+  letter-spacing: 0.08em;
+}
+
+/* Post titles are 1.6em and were permanently underlined in a saturated colour,
+   which read as loud. Underline on interaction only; inline body links keep
+   theirs, since there the underline is what marks them as links at all. */
+.post-list ul.posts .post .title a {
+  text-decoration: none;
+}
+.post-list ul.posts .post .title a:hover,
+.post-list ul.posts .post .title a:focus-visible {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.post-list ul.posts .post .meta a {
+  text-decoration: none;
+  border-bottom: 1px dotted color-mix(in srgb, currentColor 45%, transparent);
+}
+.post-list ul.posts .post .meta a:hover {
+  border-bottom-style: solid;
 }

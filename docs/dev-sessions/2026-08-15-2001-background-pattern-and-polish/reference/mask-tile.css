@@ -1,0 +1,39 @@
+/* THROWAWAY PREVIEW — the pattern layer.
+   The tile arrives as --maze-mask (an SVG data URI built by maze-background.js);
+   the colour comes from --pattern-ink here in CSS, so theming is free.
+
+   position: absolute (NOT fixed) so the browser scrolls the layer with the
+   document. inset: 0 against <html> spans the full document height. */
+
+/* REQUIRED. Without this, html is static, so html::before has no positioned
+   ancestor and resolves `inset: 0` against the INITIAL CONTAINING BLOCK, whose
+   height is the VIEWPORT — leaving the document unpatterned below the first
+   screenful. Making html positioned resolves inset against its padding box,
+   i.e. the full document height. */
+html.maze-ready {
+  position: relative;
+}
+
+html.maze-ready::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2; /* below the sheet at -1, above html's background-color */
+  pointer-events: none;
+
+  background: var(--pattern-ink);
+
+  -webkit-mask-image: var(--maze-mask);
+  mask-image: var(--maze-mask);
+  -webkit-mask-repeat: repeat;
+  mask-repeat: repeat;
+  -webkit-mask-size: var(--maze-tile) var(--maze-tile);
+  mask-size: var(--maze-tile) var(--maze-tile);
+  -webkit-mask-position: 0 0;
+  mask-position: 0 0;
+}
+
+/* Pinned-to-viewport variant, for comparison. */
+html.maze-ready.attach-fixed::before {
+  position: fixed;
+}

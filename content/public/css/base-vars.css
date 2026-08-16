@@ -6,13 +6,42 @@
   --column-gap: 1.75em;
   --row-gap: 1.75em;
 
+  /* :root IS the light theme. There is deliberately no
+     @media (prefers-color-scheme: light) block anywhere — theme-selector.js
+     disables such a block exactly when it should apply (it deletes the light
+     medium and appends a bogus "original-prefers-color-scheme"), so light
+     values that live in one are unreachable. Dark overrides go in index.css's
+     dark block, which works because its branch appends mediums rather than
+     deleting them. */
   --theme-background-color: rgba(242, 240, 235, 1);
   --theme-background-color-transparent: rgba(242, 240, 235, 0.7);
-  --theme-highlighted-bg-color: #dfdfdf;
+  --theme-highlighted-bg-color: #e4e0d6;
   --theme-dialog-bg-color: rgba(192, 192, 192, 0.8);
-  --theme-text-color: #111;
-  --theme-border-color: #555;
-  --theme-link-color: rgba(0, 0, 255, 0.8);
+  --theme-text-color: #26221c;
+  --theme-border-color: #6b6355;
+  --theme-link-color: #0c5a72;
+
+  --theme-font-family-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo,
+    Consolas, "DejaVu Sans Mono", monospace;
+
+  /* Pattern ink derives from the text colour so it re-tints for any future
+     theme with no extra work. Dark uses a lower alpha because light ink on a
+     dark field reads stronger at equal alpha. */
+  --pattern-ink: color-mix(in srgb, var(--theme-text-color) 13%, transparent);
+
+  /* body's own margin (elements.css). Named because the header and footer
+     surfaces have to reach across it to cover the sheet's edges. */
+  /* Stacking order. Content uses z-index: 100 in several places — the index
+     date headers (post-list.css) and the post TOC (content.css) — and the
+     sticky header used 100 as well. A tie is resolved by tree order, so those
+     later elements painted OVER the header as they scrolled under it. The
+     header therefore needs to outrank content, not match it. */
+  --z-sticky-header: 200;
+
+  --body-margin: 1.25em;
+  /* footer's own bottom margin (header-footer.css) — the footer surface has to
+     reach across this as well as --body-margin. */
+  --footer-margin-bottom: 1em;
 
   --layout-padding: 1.25em;
   --layout-max-width: calc(100vw - (var(--layout-padding) * 2));
@@ -37,4 +66,70 @@
     [medium-end] 1fr
     [wide-end] 1fr
     [full-end];
+}
+
+/* --- Grid width: single source of truth --------------------------------------
+   The width .content-grid occupies at the current breakpoint. page-container,
+   header-footer and content-grid all reference this instead of each repeating
+   the two magic widths.
+
+   These are not prefers-color-scheme queries, so theme-selector.js's media-rule
+   rewriting leaves them alone. */
+:root {
+  --grid-width: var(--layout-max-width);
+}
+@media (min-width: 1400px) {
+  :root { --grid-width: var(--layout-width-lg); }
+}
+@media (min-width: 1600px) {
+  :root { --grid-width: var(--layout-width-xl); }
+}
+
+/* --- Sheet geometry ----------------------------------------------------------
+   The sheet is the opaque column the prose sits on, above the background
+   pattern. It tracks the `main` grid column plus --sheet-padding of breathing
+   room, split evenly either side.
+
+   `main` spans 6 of 12 fr. At the lg grid (6 columns, 5 gaps):
+       main = (W - 5g)/2 + g = W/2 - 1.5g
+   At the xl grid (8 columns, 7 gaps): main = W/2 - 2.5g
+
+   The 1.5 / 2.5 coefficients ENCODE "main spans 6 of 12 fr" and break silently
+   if --layout-grid-columns changes.
+
+   HALF of --sheet-padding must clear anything positioned outside `main`, or that
+   content straddles the sheet's border. The binding constraint is the heading
+   anchor injected by linkable-headings.js at left: -1.25em of a 25.5px heading
+   = 32px. Half of 5em is 42.5px, giving ~10px of clearance. Note --sheet-padding
+   is consumed by body::after, so its em resolves against body's 17px rather than
+   html's 16px: 5em = 85px. */
+:root {
+  --sheet-padding: 5em;
+  --sheet-edge: color-mix(in srgb, var(--theme-border-color) 18%, transparent);
+  --sheet-shadow: 0 0 2.5em rgba(0, 0, 0, 0.07);
+  /* A tighter, more present drop shadow for SMALL surfaces. --sheet-shadow is a
+     2.5em diffuse glow at 7% — right for a full-height sheet or a full-width
+     header, but effectively invisible on a 128px thumbnail or a narrow TOC box,
+     where the blur radius exceeds the element. */
+  --surface-shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.16);
+  --surface-bleed: 1.25em;
+
+  /* Below 1200px .content-grid is a flex column with no gutters, so the sheet
+     fills the viewport and the pattern is intentionally not visible. */
+  --sheet-width: min(calc(70ch + var(--sheet-padding)), 100%);
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --sheet-width: calc(
+      var(--grid-width) / 2 - 1.5 * var(--column-gap) + var(--sheet-padding)
+    );
+  }
+}
+@media (min-width: 1600px) {
+  :root {
+    --sheet-width: calc(
+      var(--grid-width) / 2 - 2.5 * var(--column-gap) + var(--sheet-padding)
+    );
+  }
 }

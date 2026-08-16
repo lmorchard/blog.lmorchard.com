@@ -1,0 +1,95 @@
+/* THROWAWAY PREVIEW STYLES — lives in gitignored build/, vanishes on rebuild. */
+
+:root {
+  --pattern-ink: color-mix(in srgb, var(--theme-text-color) 13%, transparent);
+
+  /* Sheet width tracks the `main` grid column plus --sheet-padding of breathing
+     room, split evenly either side. Hardcoded per breakpoint here; the real
+     implementation derives it from the grid.
+
+     --sheet-padding must be large enough that HALF of it clears anything
+     positioned outside `main`. The heading anchor (linkable-headings.js) sits at
+     left: -1.25em of a 25.5px heading = 32px, so half the padding must exceed
+     that or the "#" straddles the sheet's border. At 3em, half was 25.5px and
+     the "#" started 7px outside the edge. 5em gives half = 42.5px, i.e. ~10px
+     of clearance. */
+  --sheet-padding: 5em;
+  --sheet-width: min(calc(70ch + var(--sheet-padding)), 100%);
+  --sheet-edge: color-mix(in srgb, var(--theme-border-color) 18%, transparent);
+  --sheet-shadow: 0 0 2.5em rgba(0, 0, 0, 0.07);
+}
+
+body.theme-dark {
+  --pattern-ink: color-mix(in srgb, var(--theme-text-color) 9%, transparent);
+  --sheet-shadow: 0 0 2.5em rgba(0, 0, 0, 0.35);
+}
+
+/* 1200px is where .content-grid becomes a grid, so from here up the sheet is
+   derived from the grid rather than from the text measure. The spec's formula:
+   main = gridWidth/2 - 1.5*gap  (6 columns, 5 gaps, main spanning 6 of 12 fr).
+   Adding this band makes half-padding a uniform 42.5px at every grid breakpoint,
+   which is what lets one margin rule position the thumbnails everywhere. */
+@media (min-width: 1200px) {
+  :root {
+    --sheet-width: calc(
+      var(--layout-max-width) / 2 - 1.5 * var(--column-gap) + var(--sheet-padding)
+    );
+  }
+}
+@media (min-width: 1400px) {
+  :root { --sheet-width: calc(605px + var(--sheet-padding)); }
+}
+@media (min-width: 1600px) {
+  :root { --sheet-width: calc(675px + var(--sheet-padding)); }
+}
+
+/* Page background moves to <html> so the canvas can sit above it, below content. */
+html { background-color: var(--theme-background-color); }
+body { background-color: transparent; }
+
+/* The sheet. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  width: var(--sheet-width);
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--theme-background-color);
+}
+
+/* Edge treatments, toggled by a class on <html> from the preview panel. */
+html.edge-hairline body::after {
+  border-left: 1px solid var(--sheet-edge);
+  border-right: 1px solid var(--sheet-edge);
+}
+html.edge-shadow body::after {
+  box-shadow: var(--sheet-shadow);
+}
+html.edge-both body::after {
+  border-left: 1px solid var(--sheet-edge);
+  border-right: 1px solid var(--sheet-edge);
+  box-shadow: var(--sheet-shadow);
+}
+html.no-sheet body::after { display: none; }
+
+/* --- preview control panel --- */
+#preview-panel {
+  position: fixed;
+  right: 1em;
+  bottom: 1em;
+  z-index: 9999;
+  width: 15em;
+  padding: 0.75em 1em 1em;
+  font: 12px/1.5 system-ui, sans-serif;
+  background: var(--theme-background-color);
+  color: var(--theme-text-color);
+  border: 1px solid var(--theme-border-color);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+#preview-panel h3 { margin: 0 0 0.5em; font: 600 12px system-ui; }
+#preview-panel label { display: block; margin: 0.6em 0 0.15em; opacity: 0.75; }
+#preview-panel select, #preview-panel input[type="range"] { width: 100%; }
+#preview-panel output { float: right; opacity: 0.6; }
+#preview-panel .hint { margin-top: 0.8em; opacity: 0.55; font-size: 11px; }

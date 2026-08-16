@@ -24,6 +24,16 @@ Icons are currently Font Awesome 4.3, though I'd like to replace those with inli
 
 The site supports light and dark color schemes, following your system preference by default with a manual toggle in the header. The theme system uses CSS custom properties throughout.
 
+The background pattern is the [10 PRINT](https://10print.org/) maze — a single line of Commodore 64 BASIC that fills the screen with a labyrinth:
+
+```basic
+10 PRINT CHR$(205.5+RND(1)); : GOTO 10
+```
+
+`CHR$(205)` and `CHR$(206)` are the two diagonal PETSCII characters, `\` and `/`. Printing one at random per character cell, forever, produces a maze — and `RND(1)` landing either side of `.5` is the whole of the randomness. There is [an entire book](https://10print.org/) about that one line, which is the sort of thing I find delightful.
+
+Here it is generated in the browser as a single tiled SVG, drawn as a CSS mask so it takes its colour from the same custom property as everything else and follows the light/dark theme for free. Every cell is a diagonal between opposite corners, which means the tile is seamless at any size — the only tell is that it repeats every 1536 pixels. A new maze is generated each time the site is built, so it quietly changes whenever I publish. It only shows in the margins; the column you are reading sits on top of it.
+
 ## Client-Side Features
 
 The site is mostly static HTML with progressive enhancements layered on via vanilla JavaScript and Web Components:
@@ -36,7 +46,7 @@ The site is mostly static HTML with progressive enhancements layered on via vani
 - **Syntax highlighting** via [highlight.js](https://highlightjs.org/)
 - **Image galleries** using [lightGallery](https://www.lightgalleryjs.com/)
 - **Lazy-loaded YouTube embeds** that only load the iframe on interaction
-- **Mermaid diagrams** [rendered client-side](http://localhost:9980/2026/01/28/mermaid-web-component/)
+- **Mermaid diagrams** [rendered client-side](/2026/01/28/mermaid-web-component/)
 
 ## Hosting & Deployment
 

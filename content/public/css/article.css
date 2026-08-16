@@ -118,6 +118,8 @@ article figure {
   margin-top: 1.5em;
   margin-bottom: 0.75em;
   padding-top: 1.5em;
+  /* Breathing room inside the card surface drawn in background-pattern.css. */
+  padding-bottom: 1.25em;
   border-top: 1px solid color-mix(in srgb, var(--theme-border-color) 50%, transparent);
   display: flex;
   flex-direction: row;
@@ -163,4 +165,22 @@ article figure {
   article :is(h2, h3, h4) {
     scroll-margin-top: calc(96px + var(--row-gap));
   }
+}
+
+/* Match the index's metadata treatment on article pages. */
+article > header > time,
+article > header > ul.tags {
+  font-family: var(--theme-font-family-mono);
+}
+
+article > header > time {
+  font-size: 0.85em;
+  /* `width: 15.5em` above is relative to this element's OWN font-size, so the
+     0.85em above shrank the box from 263px to 224px — while switching to mono
+     made the text wider per character. The date then wrapped to three lines.
+     width: auto + min-width keeps the arrows' minimum spread but lets the box
+     grow, and nowrap stops the date breaking mid-value. */
+  width: auto;
+  min-width: 15.5em;
+  white-space: nowrap;
 }

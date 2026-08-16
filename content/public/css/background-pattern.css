@@ -1,0 +1,278 @@
+/* The 10 PRINT maze background and the "sheet" the prose sits on.
+
+   The tile arrives as --maze-mask from js/components/maze-background.js; the
+   colour comes from --pattern-ink here, so theming needs no JavaScript at all.
+
+   The pattern fills the page OUTSIDE the `main` grid column. That is the point
+   of the feature rather than decoration: the grid reserves 3fr of gutter on each
+   side for .wide / .fullwidth / <aside> / the sticky TOC, and those gutters are
+   empty on nearly every page. Making them a patterned field makes the default
+   empty state read as deliberate negative space, and makes breakout content
+   read as sitting IN the margin rather than merely in a wider column. */
+
+/* The page background moves to <html> because negative-z-index descendants of
+   body paint BEFORE body's own background (painting order: root background,
+   then negative z-index, then in-flow block backgrounds). An opaque body
+   background would hide the pattern entirely. */
+html {
+  background-color: var(--theme-background-color);
+}
+
+body {
+  background-color: transparent;
+}
+
+/* REQUIRED, not cosmetic. Without it html is static, so html::before has no
+   positioned ancestor and resolves `inset: 0` against the INITIAL CONTAINING
+   BLOCK — whose height is the VIEWPORT. The document is then left unpatterned
+   below the first screenful (measured during design: a 1050px layer on a 5411px
+   document). Making html positioned resolves inset against its padding box,
+   i.e. the full document height.
+
+   Safe here: the only absolutely-positioned descendant that could have relied on
+   the initial containing block is `article > nav.table-of-contents li::before`,
+   which resolves against its `li` (article.css sets position: relative on it). */
+html.maze-ready {
+  position: relative;
+}
+
+html.maze-ready::before {
+  content: "";
+  /* absolute, NOT fixed: the browser then scrolls the layer with the document.
+     Fixed pins it to the viewport, so content slides over a stationary texture,
+     which reads as broken. */
+  position: absolute;
+  inset: 0;
+  z-index: -2; /* below the sheet at -1, above html's background-color */
+  pointer-events: none;
+
+  background: var(--pattern-ink);
+
+  -webkit-mask-image: var(--maze-mask);
+  mask-image: var(--maze-mask);
+  -webkit-mask-repeat: repeat;
+  mask-repeat: repeat;
+  -webkit-mask-size: var(--maze-tile) var(--maze-tile);
+  mask-size: var(--maze-tile) var(--maze-tile);
+  -webkit-mask-position: 0 0;
+  mask-position: 0 0;
+}
+
+/* The sheet: an opaque centred column over the pattern, holding the prose.
+
+   Gating on .maze-ready is a CORRECTNESS requirement rather than an
+   optimisation. Without it, a visitor with JS disabled gets no pattern but still
+   gets the sheet — a solid band the same colour as the page background,
+   invisible except for its hairline edges, which would render as two
+   unexplained vertical lines down the page.
+
+   Stays `fixed` while the pattern is `absolute`. That asymmetry is deliberate:
+   the sheet is a solid band of uniform colour, so fixed and scrolling are
+   visually indistinguishable, and fixed avoids having to size it to the
+   document. */
+/* The sheet is one absolutely-positioned layer anchored to section.main, not to
+   the viewport, because "the sheet starts under the header" is a DOCUMENT
+   relationship. section.main spans exactly from the header's bottom edge to just
+   above the prev/next nav, which is the region the sheet should cover — so
+   `inset: 0` needs no magic numbers and no knowledge of the header's height,
+   which varies by breakpoint.
+
+   Anchoring it here rather than to the viewport is what lets the pattern show in
+   the strip above the header and in the gaps between the header, prev/next nav
+   and footer, so those read as discrete surfaces on the field.
+
+   It is safe to stop the fill at main's bounds because EVERYTHING that needs an
+   opaque backing is inside main — including the comments section, which the
+   remark42 loader injects into `section.comments` within the article. Body's only
+   other children are the header, the prev/next nav and the footer, each of which
+   carries its own surface. Verified: no prose lives outside section.main.
+
+   Two alternatives were tried and rejected. A viewport-fixed edge offset by the
+   header's height sits at a constant screen position, which only looks right
+   while the header is sticky — below 1200px wide or 850px tall the header
+   scrolls away and the edge would appear to start partway down the screen.
+   Extending the header's own surface upward to cover the strip worked, but
+   inflated the header band by 21px, reading as unwanted top padding. */
+html.maze-ready section.main {
+  position: relative;
+}
+
+html.maze-ready section.main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  width: var(--sheet-width);
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--theme-background-color);
+  /* Without an edge the sheet boundary reads as a lighting shift rather than an
+     edge, because the sheet and the pattern field share a background colour.
+     The shadow lifts it off the field, matching the header, footer and
+     prev/next surfaces. */
+  border-left: 1px solid var(--sheet-edge);
+  border-right: 1px solid var(--sheet-edge);
+  box-shadow: var(--sheet-shadow);
+}
+
+/* --- Index thumbnails on the patterned field -------------------------------- */
+
+/* A mat of background colour plus hairline and shadow, so the thumbnail reads as
+   a print resting on the desk rather than an image floating in a gutter.
+   Applied to the img, not .thumb: .thumb is a grid item with a fixed 128px
+   height at >=1200px, and padding on it would break that. */
+html.maze-ready .post-list ul.posts .post .thumb img {
+  background-color: var(--theme-background-color);
+  border: 1px solid var(--sheet-edge);
+  /* Tight shadow, not --sheet-shadow: a 2.5em diffuse glow is wider than a
+     128px thumbnail and reads as nothing at all. */
+  box-shadow: var(--surface-shadow-sm);
+  box-sizing: border-box;
+}
+
+/* --- Other surfaces on the patterned field ---------------------------------- */
+
+/* Once the sheet exists, every element that used to sit on a flat background is
+   floating on a pattern and looks unfinished. Header, footer and the article
+   prev/next nav get the sheet's vocabulary: opaque background, hairline edge,
+   soft shadow, reusing --sheet-edge and --sheet-shadow so retuning the sheet
+   retunes all of them.
+
+   z-index: 0 is load-bearing. The sheet is body::after at z-index -1. A surface
+   pseudo-element also at -1, on an element with no stacking context of its own,
+   competes in the ROOT stacking context — where body::after comes later in tree
+   order and therefore paints ON TOP, drawing the sheet's hairlines across the
+   surface and slicing it into three segments at the sheet's edges. z-index: 0
+   makes each surface a stacking context above the sheet.
+
+   The header already declared a z-index in header-footer.css, but that was
+   inert: z-index is ignored on static elements, and the header is only
+   positioned when sticky at >=1200px. Preserved below via --z-sticky-header so
+   its stacking is unchanged — and that value is deliberately above the 100 used
+   by index date headers and the post TOC, which would otherwise tie with the
+   header and win on tree order. */
+html.maze-ready body > header,
+html.maze-ready body > footer,
+html.maze-ready .posts-nav {
+  position: relative;
+  z-index: 0;
+}
+
+html.maze-ready body > header {
+  z-index: var(--z-sticky-header);
+  /* Fully opaque, replacing color-mix(bg 90%, transparent): the header is
+     sticky at >=1200px, and letting the maze show through a band that content
+     scrolls under reads as muddy rather than layered. */
+  background-color: var(--theme-background-color);
+}
+
+/* Re-assert the sticky header from header-footer.css. The `position: relative`
+   above is more specific than that file's `body>header` AND comes later in the
+   import order, so without this it silently defeats sticky and the header
+   scrolls away. Relative is only needed where the header is NOT already
+   positioned; sticky satisfies the same requirement (a positioned ancestor for
+   ::after, and a stacking context for z-index). Keep this media query in sync
+   with header-footer.css. */
+@media (min-width: 1200px) and (min-height: 850px) {
+  html.maze-ready body > header {
+    position: sticky;
+    top: 0;
+  }
+}
+
+/* The surface is drawn by a pseudo-element inset NEGATIVELY rather than by
+   borders and padding on the element itself.
+
+   The header's nav is aligned to grid line `full-end`, which lines up with
+   .content-grid below, so a border on the header box lands directly against
+   "colophon". Padding would open the gap but shift the grid and break that
+   alignment. Footer and .posts-nav are .page-container (box-sizing: border-box,
+   zero horizontal padding at >=1400px), so padding there would shrink their
+   content boxes and misalign them the other way instead.
+
+   position: absolute keeps it out of flow — header, footer and .posts-nav are
+   all flex containers, so an in-flow pseudo-element would become a flex item. */
+html.maze-ready body > header::after,
+html.maze-ready body > footer::after,
+html.maze-ready .posts-nav::after {
+  content: "";
+  position: absolute;
+  inset: 0 calc(-1 * var(--surface-bleed));
+  z-index: -1;
+  pointer-events: none;
+  background-color: var(--theme-background-color);
+  box-shadow: var(--sheet-shadow);
+}
+
+
+
+/* Vertical edges only where the element is inset from the viewport; below
+   1200px these are full-bleed and the borders would sit against the window
+   frame. */
+@media (min-width: 1200px) {
+  html.maze-ready body > header::after,
+  html.maze-ready body > footer::after {
+    border-left: 1px solid var(--sheet-edge);
+    border-right: 1px solid var(--sheet-edge);
+  }
+}
+
+/* The prev/next nav is a discrete card, so it gets an edge all the way round. */
+html.maze-ready .posts-nav::after {
+  border: 1px solid var(--sheet-edge);
+}
+
+/* --- Table of contents ------------------------------------------------------ */
+
+/* At >=1400px the TOC is sticky in the left gutter (article.css), so it sits
+   directly on the patterned field with nothing behind it. Below that it is
+   inline in the prose column, where the same box reads as a callout. Either way
+   it gets the sheet's vocabulary.
+
+   No z-index needed: article.css already gives it a stacking context above the
+   pattern. Box-sizing matters because it is a grid item — with content-box the
+   padding would widen it past its column. */
+html.maze-ready article > nav.table-of-contents {
+  background-color: var(--theme-background-color);
+  border: 1px solid var(--sheet-edge);
+  box-shadow: var(--surface-shadow-sm);
+  box-sizing: border-box;
+  padding: 0.9em 1em 1em;
+}
+
+/* article.css indents the list itself at >=1400px; trim the nav's own side
+   padding there so the two do not compound into a wide gutter. */
+@media (min-width: 1400px) {
+  /* The left indent has a hard floor, set by two things that both live in the
+     list's gutter:
+       - the ordered-list numbers, which render outside the li content box
+       - the active-item marker, `li::before { left: -2em }` (article.css),
+         ~31px outside the li on 0.9em text
+     The marker must land inside the box (the same constraint the heading anchor
+     and index thumbnails hit against the sheet's border) AND clear the numbers.
+     Pulling it closer collides with them, so ~34px of total indent is the
+     minimum and horizontal room is not available as a lever on height.
+
+     Height therefore comes out of vertical rhythm instead: a tighter
+     line-height and smaller inter-item margin. */
+  html.maze-ready article > nav.table-of-contents {
+    /* align-self: start is what stops the box being too tall. article.css gives
+       the TOC `grid-row: span 5` with no align-self, so it defaults to stretch
+       and the box was padding out ~76px past its content. Invisible while the
+       TOC had no background; obvious once it has a border.
+       content-grid.css already does this for .right and aside — the TOC just
+       missed it. */
+    align-self: start;
+    padding: 0.9em 0.9em 1em 0.75em;
+  }
+  html.maze-ready article > nav.table-of-contents ol,
+  html.maze-ready article > nav.table-of-contents ul {
+    padding: 0 0 0 1.5em;
+    margin: 0;
+  }
+  html.maze-ready article > nav.table-of-contents li {
+    line-height: 1.3;
+    margin-bottom: 0.25em;
+  }
+}

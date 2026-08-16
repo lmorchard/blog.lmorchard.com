@@ -2,7 +2,7 @@ body>header {
   margin: 0;
   padding: 0.75em var(--layout-padding) 1em;
   background-color: color-mix(in srgb, var(--theme-background-color) 90%, transparent);
-  z-index: 100;
+  z-index: var(--z-sticky-header);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,7 +35,7 @@ body>header {
 @media (min-width: 1400px) {
   body>header {
     max-width: var(--layout-max-width);
-    width: var(--layout-width-lg);
+    width: var(--grid-width);
     margin: 0 auto;
     padding-left: 0;
     padding-right: 0;
@@ -44,7 +44,7 @@ body>header {
 
 @media (min-width: 1600px) {
   body>header {
-    width: var(--layout-width-xl);
+    /* width comes from --grid-width; only the column template changes here. */
     grid-template-columns: var(--layout-grid-columns-xl);
   }
 }
@@ -69,7 +69,7 @@ body>header>div.masthead>div.title {
   flex-direction: column;
   justify-content: center;
   gap: 0.25em;
-  white-space: no-wrap;
+  white-space: nowrap;
   width: 100%;
 }
 
@@ -187,7 +187,7 @@ body>header>nav .main-nav-top .theme-selector {
 
 body>footer {
   margin-top: 2em;
-  margin-bottom: 1em;
+  margin-bottom: var(--footer-margin-bottom);
   padding-top: 3em;
   padding-bottom: 1.5em;
   background-color: var(--theme-background-color-transparent);

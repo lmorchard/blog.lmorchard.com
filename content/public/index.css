@@ -10,30 +10,32 @@
 @import url("./css/article.css");
 @import url("./css/content.css");
 @import url("./css/post-list.css");
+@import url("./css/background-pattern.css");
 
-/* HACK: vars for themes seem to need to live here to work with theme-selector */
+/* Dark theme overrides MUST live in this file, not in an @import'ed one:
+   theme-selector.js walks document.styleSheets looking for
+   prefers-color-scheme rules to rewrite, and only sees top-level rules —
+   @import'ed sheets are separate CSSStyleSheet objects it never reaches.
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --theme-background-color: rgba(238, 238, 238, 1);
-    --theme-background-color-transparent: rgba(238, 238, 238, 0.7);
-    --theme-highlighted-bg-color: #dfdfdf;
-    --theme-dialog-bg-color: rgba(192, 192, 192, 0.8);
-    --theme-text-color: #111;
-    --theme-border-color: #000;
-    --theme-link-color: #383;
-  }
-}
+   There is deliberately no light block here. The light theme is :root in
+   base-vars.css. A light block would be dead code: theme-selector's "light"
+   branch deletes (prefers-color-scheme: light) from the rule's media list and
+   appends the bogus medium "original-prefers-color-scheme", so the block
+   switches OFF exactly when it should switch on. The dark branch appends both
+   mediums instead of deleting, which is why only dark works here. */
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --theme-background-color: rgba(24, 24, 24, 1);
-    --theme-background-color-transparent: rgba(24, 24, 24, 0.7);
-    --theme-highlighted-bg-color: #332f33;
+    --theme-background-color: rgba(26, 24, 22, 1);
+    --theme-background-color-transparent: rgba(26, 24, 22, 0.7);
+    --theme-highlighted-bg-color: #332f2a;
     --theme-dialog-bg-color: rgba(0, 0, 0, 0.8);
-    --theme-text-color: #eee;
-    --theme-border-color: rgba(255, 255, 255, 0.6);
-    --theme-link-color: rgba(164, 164, 255, 0.8);
+    --theme-text-color: #e6e1d8;
+    --theme-border-color: rgba(230, 225, 216, 0.55);
+    --theme-link-color: #7fc3d6;
+    --pattern-ink: color-mix(in srgb, var(--theme-text-color) 9%, transparent);
+    --sheet-shadow: 0 0 2.5em rgba(0, 0, 0, 0.35);
+    --surface-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
   }
   body {
     --pagefind-ui-primary: #034ad8;
