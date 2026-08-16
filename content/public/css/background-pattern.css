@@ -176,6 +176,26 @@ html.maze-ready .posts-nav::after {
   box-shadow: var(--sheet-shadow);
 }
 
+/* The sheet is fixed with `inset: 0`, so it spans the FULL viewport height —
+   including body's own 1.25em margin above the header and below the footer.
+   Its hairline edges therefore appeared in those strips, so the centre column
+   looked like it ran past the top of the header.
+
+   The fix extends the header and footer surfaces across those strips rather
+   than insetting the sheet's top. Insetting the sheet would leave prose sitting
+   directly on the pattern whenever the header is NOT sticky (below 1200px wide
+   or 850px tall) and content scrolls up into the band — the sheet has to keep
+   covering the whole viewport. */
+html.maze-ready body > header::after {
+  top: calc(-1 * var(--body-margin));
+}
+
+/* The footer has its OWN margin-bottom on top of body's, so the surface has to
+   reach across both or the sheet's edges show in the difference. */
+html.maze-ready body > footer::after {
+  bottom: calc(-1 * (var(--body-margin) + var(--footer-margin-bottom)));
+}
+
 /* Vertical edges only where the element is inset from the viewport; below
    1200px these are full-bleed and the borders would sit against the window
    frame. */
