@@ -144,3 +144,24 @@
     max-width: min(70ch, calc(100vw - (var(--layout-padding) * 2)));
   }
 }
+
+/* Metadata in a system mono stack: it recedes, gains texture against the serif
+   body, and suits the C64 motif of the background pattern. System stack, so no
+   new webfont and no added page weight. */
+.post-list ul.posts .post .meta,
+.post-list ul.posts .post .word-count {
+  font-family: var(--theme-font-family-mono);
+  font-size: 0.78em;
+}
+
+.post-list ul.posts .post .meta ul.tags {
+  font-family: var(--theme-font-family-mono);
+}
+
+/* Overrides the 1.3em from the .date-header h2 rule above: mono reads larger at
+   the same nominal size, and the letter-spacing gives the date a terminal feel. */
+.post-list ul.posts .date-header .date {
+  font-family: var(--theme-font-family-mono);
+  font-size: 0.95em;
+  letter-spacing: 0.08em;
+}
