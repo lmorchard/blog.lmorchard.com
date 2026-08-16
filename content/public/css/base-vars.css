@@ -53,3 +53,64 @@
     [wide-end] 1fr
     [full-end];
 }
+
+/* --- Grid width: single source of truth --------------------------------------
+   The width .content-grid occupies at the current breakpoint. page-container,
+   header-footer and content-grid all reference this instead of each repeating
+   the two magic widths.
+
+   These are not prefers-color-scheme queries, so theme-selector.js's media-rule
+   rewriting leaves them alone. */
+:root {
+  --grid-width: var(--layout-max-width);
+}
+@media (min-width: 1400px) {
+  :root { --grid-width: var(--layout-width-lg); }
+}
+@media (min-width: 1600px) {
+  :root { --grid-width: var(--layout-width-xl); }
+}
+
+/* --- Sheet geometry ----------------------------------------------------------
+   The sheet is the opaque column the prose sits on, above the background
+   pattern. It tracks the `main` grid column plus --sheet-padding of breathing
+   room, split evenly either side.
+
+   `main` spans 6 of 12 fr. At the lg grid (6 columns, 5 gaps):
+       main = (W - 5g)/2 + g = W/2 - 1.5g
+   At the xl grid (8 columns, 7 gaps): main = W/2 - 2.5g
+
+   The 1.5 / 2.5 coefficients ENCODE "main spans 6 of 12 fr" and break silently
+   if --layout-grid-columns changes.
+
+   HALF of --sheet-padding must clear anything positioned outside `main`, or that
+   content straddles the sheet's border. The binding constraint is the heading
+   anchor injected by linkable-headings.js at left: -1.25em of a 25.5px heading
+   = 32px. Half of 5em is 42.5px, giving ~10px of clearance. Note --sheet-padding
+   is consumed by body::after, so its em resolves against body's 17px rather than
+   html's 16px: 5em = 85px. */
+:root {
+  --sheet-padding: 5em;
+  --sheet-edge: color-mix(in srgb, var(--theme-border-color) 18%, transparent);
+  --sheet-shadow: 0 0 2.5em rgba(0, 0, 0, 0.07);
+  --surface-bleed: 1.25em;
+
+  /* Below 1200px .content-grid is a flex column with no gutters, so the sheet
+     fills the viewport and the pattern is intentionally not visible. */
+  --sheet-width: min(calc(70ch + var(--sheet-padding)), 100%);
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --sheet-width: calc(
+      var(--grid-width) / 2 - 1.5 * var(--column-gap) + var(--sheet-padding)
+    );
+  }
+}
+@media (min-width: 1600px) {
+  :root {
+    --sheet-width: calc(
+      var(--grid-width) / 2 - 2.5 * var(--column-gap) + var(--sheet-padding)
+    );
+  }
+}
