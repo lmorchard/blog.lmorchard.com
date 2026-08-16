@@ -93,6 +93,11 @@
   --sheet-padding: 5em;
   --sheet-edge: color-mix(in srgb, var(--theme-border-color) 18%, transparent);
   --sheet-shadow: 0 0 2.5em rgba(0, 0, 0, 0.07);
+  /* A tighter, more present drop shadow for SMALL surfaces. --sheet-shadow is a
+     2.5em diffuse glow at 7% — right for a full-height sheet or a full-width
+     header, but effectively invisible on a 128px thumbnail or a narrow TOC box,
+     where the blur radius exceeds the element. */
+  --surface-shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.16);
   --surface-bleed: 1.25em;
 
   /* Below 1200px .content-grid is a flex column with no gutters, so the sheet

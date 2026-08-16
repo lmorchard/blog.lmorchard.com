@@ -80,9 +80,13 @@ html.maze-ready body::after {
   margin-right: auto;
   background-color: var(--theme-background-color);
   /* Without an edge the sheet boundary reads as a lighting shift rather than an
-     edge, because the sheet and the pattern field share a background colour. */
+     edge, because the sheet and the pattern field share a background colour.
+     The shadow lifts the sheet off the field and matches the treatment the
+     header, footer and prev/next surfaces get below — without it the sheet is
+     the only surface sitting flat on the pattern. */
   border-left: 1px solid var(--sheet-edge);
   border-right: 1px solid var(--sheet-edge);
+  box-shadow: var(--sheet-shadow);
 }
 
 /* --- Index thumbnails on the patterned field -------------------------------- */
@@ -94,7 +98,9 @@ html.maze-ready body::after {
 html.maze-ready .post-list ul.posts .post .thumb img {
   background-color: var(--theme-background-color);
   border: 1px solid var(--sheet-edge);
-  box-shadow: var(--sheet-shadow);
+  /* Tight shadow, not --sheet-shadow: a 2.5em diffuse glow is wider than a
+     128px thumbnail and reads as nothing at all. */
+  box-shadow: var(--surface-shadow-sm);
   box-sizing: border-box;
 }
 
@@ -184,4 +190,58 @@ html.maze-ready .posts-nav::after {
 /* The prev/next nav is a discrete card, so it gets an edge all the way round. */
 html.maze-ready .posts-nav::after {
   border: 1px solid var(--sheet-edge);
+}
+
+/* --- Table of contents ------------------------------------------------------ */
+
+/* At >=1400px the TOC is sticky in the left gutter (article.css), so it sits
+   directly on the patterned field with nothing behind it. Below that it is
+   inline in the prose column, where the same box reads as a callout. Either way
+   it gets the sheet's vocabulary.
+
+   No z-index needed: article.css already gives it a stacking context above the
+   pattern. Box-sizing matters because it is a grid item — with content-box the
+   padding would widen it past its column. */
+html.maze-ready article > nav.table-of-contents {
+  background-color: var(--theme-background-color);
+  border: 1px solid var(--sheet-edge);
+  box-shadow: var(--surface-shadow-sm);
+  box-sizing: border-box;
+  padding: 0.9em 1em 1em;
+}
+
+/* article.css indents the list itself at >=1400px; trim the nav's own side
+   padding there so the two do not compound into a wide gutter. */
+@media (min-width: 1400px) {
+  /* The left indent has a hard floor, set by two things that both live in the
+     list's gutter:
+       - the ordered-list numbers, which render outside the li content box
+       - the active-item marker, `li::before { left: -2em }` (article.css),
+         ~31px outside the li on 0.9em text
+     The marker must land inside the box (the same constraint the heading anchor
+     and index thumbnails hit against the sheet's border) AND clear the numbers.
+     Pulling it closer collides with them, so ~34px of total indent is the
+     minimum and horizontal room is not available as a lever on height.
+
+     Height therefore comes out of vertical rhythm instead: a tighter
+     line-height and smaller inter-item margin. */
+  html.maze-ready article > nav.table-of-contents {
+    /* align-self: start is what stops the box being too tall. article.css gives
+       the TOC `grid-row: span 5` with no align-self, so it defaults to stretch
+       and the box was padding out ~76px past its content. Invisible while the
+       TOC had no background; obvious once it has a border.
+       content-grid.css already does this for .right and aside — the TOC just
+       missed it. */
+    align-self: start;
+    padding: 0.9em 0.9em 1em 0.75em;
+  }
+  html.maze-ready article > nav.table-of-contents ol,
+  html.maze-ready article > nav.table-of-contents ul {
+    padding: 0 0 0 1.5em;
+    margin: 0;
+  }
+  html.maze-ready article > nav.table-of-contents li {
+    line-height: 1.3;
+    margin-bottom: 0.25em;
+  }
 }
