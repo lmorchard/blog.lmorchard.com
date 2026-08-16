@@ -105,9 +105,18 @@ media query. **Keep that media query in sync with `header-footer.css`.**
 
 ## Deferred
 
-- **`content/pages/colophon.md`** has a `http://localhost:9980/` URL leaked into
-  published content on the Mermaid diagrams line. One-line fix, unrelated to this
-  work, deliberately not bundled.
+- ~~`content/pages/colophon.md` localhost URL~~ — fixed, along with a second one
+  found in `content/posts/2025/2025-04-25-w17/index.md`. Searching for
+  `localhost:998` specifically (rather than bare `localhost`) is what found the
+  second: dozens of legitimate `localhost` references exist in archive posts as
+  code samples and prose, and one intentional `127.0.0.1:5337` OPML Editor
+  subscribe endpoint in a 2006 post, none of which should be touched.
+
+  The w17 link was broken twice over: the dev-server host, and a date/slug
+  mismatch (`/2006/02/08/links-for-2006-02-09/`, which does not exist). Retargeted
+  to `/2006/02/09/links-for-2006-02-09/` on the strength of the slug — the
+  neighbouring `/2006/02/08/links-for-2006-02-08/` also exists, so if the 08 post
+  was meant, that is the one-word correction.
 - **Build-time tile asset** instead of runtime generation: 10.8KB gzipped, cached
   site-wide, zero JS, works with JS disabled, 0ms main thread. Measurably better
   but adds a generator and an artifact to the build. The tile builder is already a

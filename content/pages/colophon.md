@@ -46,7 +46,7 @@ The site is mostly static HTML with progressive enhancements layered on via vani
 - **Syntax highlighting** via [highlight.js](https://highlightjs.org/)
 - **Image galleries** using [lightGallery](https://www.lightgalleryjs.com/)
 - **Lazy-loaded YouTube embeds** that only load the iframe on interaction
-- **Mermaid diagrams** [rendered client-side](http://localhost:9980/2026/01/28/mermaid-web-component/)
+- **Mermaid diagrams** [rendered client-side](/2026/01/28/mermaid-web-component/)
 
 ## Hosting & Deployment
 
