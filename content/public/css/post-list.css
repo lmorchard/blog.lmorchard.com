@@ -130,7 +130,10 @@
   .post-list ul.posts .post .thumb {
     grid-column-start: wide-start;
     grid-column-end: main-start;
-    grid-row: span 2;
+    /* Explicit start row. With only `span 2`, grid's sparse auto-placement
+       cursor has already passed row 1 (taken by .title) and the thumbnail
+       drops to row 2, hanging below the title in an apparent gap. */
+    grid-row: 1 / span 2;
     text-align: right;
     height: 128px;
   }
