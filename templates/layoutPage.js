@@ -42,29 +42,33 @@ export default ({ site = {}, page = {}, head = "", js = "", contentAfter = "", j
         <script type="module" src="${site.baseurl}/index.js"></script>
 
         <link
-          href="${feedUrl}"
+          href="${site.baseurl}/index.rss"
           rel="alternate"
-          title="${feedTitle}"
+          title="${site.title}"
+          type="application/rss+xml"
+        />
+        <link
+          href="${site.baseurl}/index-excerpts.rss"
+          rel="alternate"
+          title="${site.title} (excerpts)"
           type="application/rss+xml"
         />
 
-        ${page.tag
-          ? html`
-              <link
-                href="${site.baseurl}/tag/${page.tag}.rss"
-                rel="alternate"
-                title="Tag: ${page.tag} - ${site.title}"
-                type="application/rss+xml"
-              />
-            `
-          : html`
-              <link
-                href="${site.baseurl}/index.rss"
-                rel="alternate"
-                title="${site.title}"
-                type="application/rss+xml"
-              />
-            `}
+        ${page.tag && html`
+          <link
+            href="${site.baseurl}/tag/${page.tag}/index.rss"
+            rel="alternate"
+            title="Tag: ${page.tag} - ${site.title}"
+            type="application/rss+xml"
+          />
+          <link
+            href="${site.baseurl}/tag/${page.tag}/index-excerpt.rss"
+            rel="alternate"
+            title="Tag: ${page.tag} - ${site.title} (excerpts)"
+            type="application/rss+xml"
+          />
+        `}
+
         ${head}
         ${renderJsonLd(graph)}
       </head>
