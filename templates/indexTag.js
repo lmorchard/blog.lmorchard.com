@@ -1,5 +1,6 @@
 import { html } from "../lib/html.js";
 import layoutPage from "./layoutPage.js";
+import { indexAlternates, indexFeedAlternates } from "../lib/alternates.js";
 import postList from "./postList.js";
 
 export default ({ site = {}, page = {}, posts = [] }) =>
@@ -7,6 +8,10 @@ export default ({ site = {}, page = {}, posts = [] }) =>
     {
       site,
       page,
+      alternates: [
+        ...indexFeedAlternates(site, page),
+        ...indexAlternates(site, page),
+      ],
     },
     postList(
       { site, posts },

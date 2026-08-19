@@ -1,14 +1,15 @@
 import { html } from "../lib/html.js";
 import { websiteNode, personNode, renderJsonLd } from "../lib/jsonLd.js";
+import { siteFeedAlternates, primaryFeed } from "../lib/alternates.js";
 
-export default ({ site = {}, page = {}, head = "", js = "", contentAfter = "", jsonLd = [] }, content) => {
+export default ({ site = {}, page = {}, head = "", js = "", contentAfter = "", jsonLd = [], alternates = [] }, content) => {
   const graph = [websiteNode(site), personNode(site), ...jsonLd];
-  const feedUrl = page.tag
-    ? `${site.absolute_baseurl}/tag/${page.tag}/index.rss`
-    : `${site.absolute_baseurl}/index.rss`;
-  const feedTitle = page.tag
-    ? `Tag: ${page.tag} - ${site.title}`
-    : `${site.title}`;
+  // The site feeds belong on every page; callers add whatever is specific to
+  // theirs (per-tag feeds, a post's markdown & JSON, an index's JSON)
+  const allAlternates = [...siteFeedAlternates(site), ...alternates];
+  // The nav/footer "feed" link follows the page: a year, month, or tag index
+  // points at its own feed, everything else at the site feed
+  const { href: feedUrl, title: feedTitle } = primaryFeed(site, page);
 
   return html`
     <!DOCTYPE html>
@@ -41,33 +42,16 @@ export default ({ site = {}, page = {}, head = "", js = "", contentAfter = "", j
         />
         <script type="module" src="${site.baseurl}/index.js"></script>
 
-        <link
-          href="${site.baseurl}/index.rss"
-          rel="alternate"
-          title="${site.title}"
-          type="application/rss+xml"
-        />
-        <link
-          href="${site.baseurl}/index-excerpts.rss"
-          rel="alternate"
-          title="${site.title} (excerpts)"
-          type="application/rss+xml"
-        />
-
-        ${page.tag && html`
-          <link
-            href="${site.baseurl}/tag/${page.tag}/index.rss"
-            rel="alternate"
-            title="Tag: ${page.tag} - ${site.title}"
-            type="application/rss+xml"
-          />
-          <link
-            href="${site.baseurl}/tag/${page.tag}/index-excerpt.rss"
-            rel="alternate"
-            title="Tag: ${page.tag} - ${site.title} (excerpts)"
-            type="application/rss+xml"
-          />
-        `}
+        ${allAlternates.map(
+          ({ href, type, title }) => html`
+            <link
+              href="${href}"
+              rel="alternate"
+              title="${title}"
+              type="${type}"
+            />
+          `
+        )}
 
         ${head}
         ${renderJsonLd(graph)}

@@ -1,6 +1,7 @@
 import { html, unescaped } from "../lib/html.js";
 import layoutPage from "./layoutPage.js";
 import { blogPostingNode } from "../lib/jsonLd.js";
+import { postAlternates } from "../lib/alternates.js";
 import moment from "moment";
 
 export default ({ site = {}, page = {} }, content) =>
@@ -9,6 +10,7 @@ export default ({ site = {}, page = {} }, content) =>
       site,
       page,
       jsonLd: [blogPostingNode(site, page)],
+      alternates: postAlternates(site, page),
       head: html`
         ${page.title &&
         html`<meta property="og:title" content="${page.title}" />`}
