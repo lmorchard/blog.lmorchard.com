@@ -1,7 +1,7 @@
 ---
 title: "Cat Parole, Coding Sprints, and a Memorial Tattoo (Catching up: July 11 – July 31)"
 date: 2026-07-31
-thumbnail: "https://cdn.masto.host/mastohackerstown/media_attachments/files/116/939/147/134/063/430/original/19d4c713407fef6c.jpg"
+thumbnail: "87b43a27767a.jpg"
 tags:
   - weeknotes
   - cats

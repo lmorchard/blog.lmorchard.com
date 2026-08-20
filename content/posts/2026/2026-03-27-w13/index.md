@@ -1,7 +1,7 @@
 ---
 title: "The Drifting Art of Coding (Week 13)"
 date: 2026-03-27
-thumbnail: "https://cdn.masto.host/mastohackerstown/media_attachments/files/116/291/834/825/548/264/original/15b58335bf9b6450.png"
+thumbnail: "cba0d2251976.png"
 tags:
   - weeknotes
   - ai

@@ -1,7 +1,7 @@
 ---
 title: "2026 Weeks 7 & 8"
 date: 2026-02-20
-thumbnail: "https://cdn.masto.host/mastohackerstown/media_attachments/files/116/066/612/426/406/917/original/29ccbfdbd37af0e2.jpeg"
+thumbnail: "356993476641.jpeg"
 tags:
   - weeknotes
   - miscellanea

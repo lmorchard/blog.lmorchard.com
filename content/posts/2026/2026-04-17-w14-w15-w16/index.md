@@ -1,7 +1,7 @@
 ---
 title: "Glued to the Artemis II livestream (Weeks 14–16)"
 date: 2026-04-17
-thumbnail: "https://cdn.masto.host/mastohackerstown/media_attachments/files/116/310/574/842/204/509/original/8299ead36a6ef93a.jpeg"
+thumbnail: "d4f352ae742c.jpeg"
 tags:
  - weeknotes
  - cats
@@ -78,7 +78,7 @@ After all this, I've had the idea to build a web app that plays [random NASA rad
 
 *   [Project Code Rush](https://www.youtube.com/watch?v=4Q7FTjhvZ7Y) - a great documentary on the early days of Netscape and Mozilla, of which I was reminded this week. I happen to have this on VHS in my basement!
 
-    <youtube-embed video-id="4Q7FTjhvZ7Y"></youtube-embed>
+    <youtube-embed video-id="4Q7FTjhvZ7Y" thumbnail="e3e3f5fe3ff2.jpg"></youtube-embed>
 
 *   Also, I learned some [Mayonnaise Lore](https://www.youtube.com/watch?v=RdZn86fOHqA). It's a thing.
 
@@ -89,7 +89,7 @@ After all this, I've had the idea to build a web app that plays [random NASA rad
     ![A sticker on a wooden surface featuring the text: "MY CAT DIED AND ALL I GOT WAS THIS DEEP GNAWING SADNESS." Two paw prints are included at the bottom, along with the handle "@poetssquarecats."](d11bbd368c15.jpeg)
 
 *   I would be an annoying astronaut, just [constantly rotating in space](https://masto.hackers.town/@lmorchard/116401683103398543) along various bodily axes:
-    ![A diagram depicting axes of the human body](https://www.researchgate.net/publication/51872929/figure/fig1/AS:196030890024971@1423748814611/Body-planes-and-axis-Frontal-axis-is-defined-along-medio-lateral-direction-sagittal.png)
+    ![A diagram depicting axes of the human body](738c4a4b23df.webp)
 *   A comment I made on TikTok [got removed for a community standards violation](https://masto.hackers.town/@lmorchard/116337477402785744). This was the content of that comment:
 
     ![A bronze sculpture depicting a nude muscular man fighting and throwing several small figures resembling babies, set in a green park with trees and a body of water in the background.](b3fe70fa1783.jpeg)

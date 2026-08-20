@@ -9,7 +9,7 @@ tags:
   - genealogy
   - ai
 layout: post
-thumbnail: "https://cdn.masto.host/mastohackerstown/media_attachments/files/116/518/196/100/626/674/original/623dbf7544c65cfe.png"
+thumbnail: "b9ce3b257828.png"
 ---
 
 TL;DR: A few weeks of catch-up. First tattoo (Catsby in a vine of purple flowers). The backyard pond is done, and the raccoons and crows have already moved in. Built out the rest of the `me-to-markdown` family and an orchestrator that fans them out in one fetch — this post is the first dogfooded weeknote drafted from its output. The AI-coding bookmark pile this period was mostly variations on being tired.

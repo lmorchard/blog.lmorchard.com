@@ -1,7 +1,7 @@
 ---
 title: "2025 Week 52 - 2026 Week 1 (Weeknotes Jumbo Edition)"
 date: 2026-01-05
-thumbnail: "https://cdn.masto.host/mastohackerstown/media_attachments/files/115/804/110/969/576/937/original/a3c60ea0ec621545.png"
+thumbnail: "ab6fa133975f.png"
 tags:
   - weeknotes
   - miscellanea

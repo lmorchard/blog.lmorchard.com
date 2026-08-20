@@ -84,7 +84,7 @@ This felt overdue: after almost 20 years, I [finally switched my blog comments a
 
 The final straw was they turned on [a spammy chumbox](https://www.byrosanna.co.uk/blog/watch-out-for-ads-disqus-comments-have-gone-premium) at the bottom of every comment thread. What's a [chumbox](https://en.wikipedia.org/wiki/Chumbox)? This is a chumbox:
 
-![Chumbox](https://upload.wikimedia.org/wikipedia/commons/f/f1/Example_clickbait_adverts.jpg)
+![Chumbox](8cce25e5532e.jpg)
 
 Complete garbage. I mean, sure, I was freeloading comments off Disqus most of this time. But inserting ads for vitamin supplements and crypto scams and boner pills on my blog is unacceptable. That convinced me to get over the hump of figuring out self-hosting, rather than pony up for a paid plan.
 

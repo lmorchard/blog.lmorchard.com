@@ -12,7 +12,7 @@ tags:
   - webdev
   - data
   - roguelikecelebration
-thumbnail: "https://cdn.masto.host/mastohackerstown/media_attachments/files/115/431/479/012/198/610/original/3f00aa4908287fe4.jpeg"
+thumbnail: "a0d5cebf7af4.jpeg"
 ---
 
 **TL;DR**: It was my birthday this week, which my BBS remembered! Celebrated by dialing into BBSes from an actual Amiga 1200 and C64. Also: evangelized Bazzite Linux for gaming, fell down a Roguelike Celebration rabbit hole of procedural generation and non-euclidean games, shipped a new release of my feed-to-mastodon tool, and bookmarked way too many things about AI hype and data centers using jet engines for power.

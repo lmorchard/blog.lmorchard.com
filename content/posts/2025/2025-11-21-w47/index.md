@@ -1,7 +1,7 @@
 ---
 title: "2025 Week 47"
 date: 2025-11-21
-thumbnail: "https://cdn.masto.host/mastohackerstown/media_attachments/files/115/563/427/768/797/216/original/34144e576b1e9a3c.jpeg"
+thumbnail: "d5a11d548b93.jpeg"
 tags:
   - weeknotes
   - miscellanea

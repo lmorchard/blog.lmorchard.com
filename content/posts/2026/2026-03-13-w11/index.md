@@ -1,7 +1,7 @@
 ---
 title: "2026 Weeks 9, 10, & 11"
 date: 2026-03-13
-thumbnail: "https://cdn.masto.host/mastohackerstown/media_attachments/files/116/151/398/954/747/293/original/dc7cedfeeab78e5c.jpeg"
+thumbnail: "a80ca980f147.jpeg"
 tags:
   - weeknotes
   - miscellanea

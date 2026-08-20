@@ -12,7 +12,7 @@ tags:
   - cats
   - nokings
   - homeassistant
-thumbnail: "https://cdn.masto.host/mastohackerstown/media_attachments/files/115/391/788/382/226/951/original/44c648e60959260a.png"
+thumbnail: "04b33fe59044.png"
 ---
 
 **TL;DR**: Wrestled with my Synology NAS trying to get a Debian VM running, started learning Kubernetes and Argo Workflows, watched Catsby and Miss Biscuits become friends, populated my BBS with text files from textfiles.com. Also: no, I don't need to build a BBS Door that controls Home Assistant lights. (But maybe I do?)

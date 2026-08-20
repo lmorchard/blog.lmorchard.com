@@ -1,7 +1,7 @@
 ---
 title: "Smoky Skies, Raccoon Pool Parties, and Domain Negotiations (Week 32)"
 date: 2026-08-07
-thumbnail: "https://cdn.masto.host/mastohackerstown/media_attachments/files/117/034/769/474/452/586/original/f3b5b63d38857c0a.jpg"
+thumbnail: "728b62e3ea49.jpg"
 tags:
   - weeknotes
   - ai

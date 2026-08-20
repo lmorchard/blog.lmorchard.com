@@ -1,7 +1,7 @@
 ---
 title: "A whole fake season of Star Trek (Week 22)"
 date: 2026-05-29
-thumbnail: "https://cdn.masto.host/mastohackerstown/media_attachments/files/116/627/572/854/887/532/original/daee135b3bb1d8bd.png"
+thumbnail: "daee135b3bb1d8bd.png"
 tags:
   - weeknotes
   - star-trek
@@ -43,9 +43,9 @@ I proved him right too. I [opened with](https://masto.hackers.town/@lmorchard/11
 
 Last week I confessed I was more anxious about the *social* parts of getting a tattoo than the needle. My brain is evidently still gnawing on it, because the only two YouTube videos I bothered to like all week were How to ADHD's ["Social Events Don't Have to be SO Overwhelming!"](https://www.youtube.com/watch?v=2CCwm2WteZI) and a London Web Standards talk, ["The Art of Connection: How to Thrive at Work and Beyond as an Introvert."](https://www.youtube.com/watch?v=ZrgGPx2wt8M)
 
-<youtube-embed video-id="2CCwm2WteZI" title="How to ADHD: Social Events Don't Have to be SO Overwhelming!"></youtube-embed>
+<youtube-embed video-id="2CCwm2WteZI" title="How to ADHD: Social Events Don't Have to be SO Overwhelming!" thumbnail="43c2773f4740.jpg"></youtube-embed>
 
-<youtube-embed video-id="ZrgGPx2wt8M" title="The Art of Connection: How to Thrive at Work and Beyond as an Introvert."></youtube-embed>
+<youtube-embed video-id="ZrgGPx2wt8M" title="The Art of Connection: How to Thrive at Work and Beyond as an Introvert." thumbnail="471988ac6759.jpg"></youtube-embed>
 
 ## On heavy rotation
 

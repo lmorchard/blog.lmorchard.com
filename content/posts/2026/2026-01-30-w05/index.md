@@ -1,7 +1,7 @@
 ---
 title: "2026 Week 5"
 date: 2026-01-30
-thumbnail: "https://cdn.masto.host/mastohackerstown/media_attachments/files/115/941/752/318/781/191/original/a60da7a2b34273f2.jpeg"
+thumbnail: "fcf75b2accee.jpeg"
 tags:
   - weeknotes
   - miscellanea

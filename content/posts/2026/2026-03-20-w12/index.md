@@ -1,7 +1,7 @@
 ---
 title: "2026 Week 12"
 date: 2026-03-20
-thumbnail: "https://cdn.masto.host/mastohackerstown/media_attachments/files/116/222/811/944/719/019/original/659c3547f998caa1.png"
+thumbnail: "cdecc71695a6.png"
 tags:
   - weeknotes
   - ai

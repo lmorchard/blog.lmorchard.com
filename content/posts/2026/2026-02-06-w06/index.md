@@ -1,7 +1,7 @@
 ---
 title: "2026 Week 6"
 date: 2026-02-06
-thumbnail: "https://cdn.masto.host/mastohackerstown/media_attachments/files/115/997/918/136/612/974/original/9476ee0e0b6ca550.jpeg"
+thumbnail: "51463e49af36.jpeg"
 tags:
   - weeknotes
   - miscellanea
@@ -32,13 +32,13 @@ I've been [hiding little printed critters](https://masto.hackers.town/@lmorchard
 
 <image-gallery>
 
-![A decorative mug features black cats on a patterned background, positioned next to a small white cat figurine on a wooden shelf. The backdrop is textured and dark.](https://cdn.masto.host/mastohackerstown/media_attachments/files/115/997/918/136/612/974/original/9476ee0e0b6ca550.jpeg)
+![A decorative mug features black cats on a patterned background, positioned next to a small white cat figurine on a wooden shelf. The backdrop is textured and dark.](51463e49af36.jpeg)
 
-![A small white figurine of a cat sits on a narrow wooden ledge near a wall. A metal conduit runs alongside it. The background is dimly lit.](https://cdn.masto.host/mastohackerstown/media_attachments/files/115/997/918/014/570/499/original/f9983139da031f18.jpeg)
+![A small white figurine of a cat sits on a narrow wooden ledge near a wall. A metal conduit runs alongside it. The background is dimly lit.](3ec099f5f482.jpeg)
 
-![The image features a map displayed on a wall-mounted frame, with a green background. Two small white figurines, one resembling a bear and the other a cat, are positioned on top of the frame.](https://cdn.masto.host/mastohackerstown/media_attachments/files/115/997/918/090/674/978/original/e658a27faef943a0.jpeg)
+![The image features a map displayed on a wall-mounted frame, with a green background. Two small white figurines, one resembling a bear and the other a cat, are positioned on top of the frame.](a8f98af0e674.jpeg)
 
-![A small white cat figurine sits on a shelf next to a round, beige pottery vase. The background is illuminated with a red glow, enhancing the warm ambiance](https://cdn.masto.host/mastohackerstown/media_attachments/files/115/997/918/138/811/242/original/4e852361bfdcc548.jpeg)
+![A small white cat figurine sits on a shelf next to a round, beige pottery vase. The background is illuminated with a red glow, enhancing the warm ambiance](f2dfd1aefb2c.jpeg)
 
 </image-gallery>
 
@@ -48,7 +48,7 @@ It's like leaving tiny surprises for future-me and my-wife-me to discover. Excep
 
 Why did my brain [convince me](https://masto.hackers.town/@lmorchard/116005404670992943) it would be fun to try to get Skyrim running on Linux with [the Dagoth Ur follower mod](https://www.nexusmods.com/skyrimspecialedition/mods/161398) installed? And why did I do this at bedtime? Still, [I did get it working in the end](https://masto.hackers.town/@lmorchard/116005520925353277) and it was kinda worth it?
 
-<youtube-embed video-id="ojkiaFwlFCw"></youtube-embed>
+<youtube-embed video-id="ojkiaFwlFCw" thumbnail="8682c534d147.jpg"></youtube-embed>
 
 I think I've decided that learning a game has mods is a cognitohazard for me. Last time I played Skyrim about 5 years ago, I [installed like 100 mods](https://masto.hackers.town/@lmorchard/116005428850893318), giggled at it, then wandered off entirely. My brain just wants to mod things, not actually *play* them.
 
@@ -64,11 +64,11 @@ Like sure, "just set a reminder alarm for the calendar event" like that's a real
 
 Meanwhile, everyone must [watch this latest Technology Connections video](https://masto.hackers.town/@lmorchard/115987885104758023):
 
-<youtube-embed video-id="KtQ9nt2ZeGM"></youtube-embed>
+<youtube-embed video-id="KtQ9nt2ZeGM" thumbnail="a26e86675d54.jpg"></youtube-embed>
 
 And, here's [a live show by Information Society](https://masto.hackers.town/@lmorchard/116005233379607742) from way back when. It's pretty keen.
 
-<youtube-embed video-id="0HRxyH1rupw"></youtube-embed>
+<youtube-embed video-id="0HRxyH1rupw" thumbnail="5a1c3016f281.jpg"></youtube-embed>
 
 ## Miscellanea
 

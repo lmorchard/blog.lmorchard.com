@@ -1,7 +1,7 @@
 ---
 title: "2026 Week 2"
 date: 2026-01-09
-thumbnail: "https://cdn.masto.host/mastohackerstown/media_attachments/files/115/841/147/131/917/944/original/c36b73024b17481a.jpeg"
+thumbnail: "8d63d487db1e.jpeg"
 tags:
   - weeknotes
   - miscellanea

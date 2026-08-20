@@ -1,7 +1,7 @@
 ---
 title: "2025 Week 50"
 date: 2025-12-13
-thumbnail: "https://cdn.masto.host/mastohackerstown/media_attachments/files/115/682/180/303/716/477/original/0f3046d1ae4f2976.jpeg"
+thumbnail: "3a7d2e4d3cb4.jpeg"
 tags:
   - weeknotes
   - miscellanea

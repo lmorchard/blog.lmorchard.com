@@ -1,7 +1,7 @@
 ---
 title: "2025 Week 51"
 date: 2025-12-19
-thumbnail: "https://cdn.masto.host/mastohackerstown/media_attachments/files/115/744/948/449/690/014/original/e882193067f98463.jpeg"
+thumbnail: "6284bf6a4916.jpeg"
 tags:
   - weeknotes
   - miscellanea

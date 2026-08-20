@@ -1,7 +1,7 @@
 ---
 title: "2025 Week 49"
 date: 2025-12-05
-thumbnail: "https://cdn.masto.host/mastohackerstown/media_attachments/files/115/624/378/103/168/139/original/b736c0085c76a8c2.jpeg"
+thumbnail: "850238fc5347.jpeg"
 tags:
   - weeknotes
   - miscellanea
@@ -84,35 +84,35 @@ Wait... how the hell did they manage to license "Surfin' USA" by the Beach Boys 
 
 I ended up [ponying up](https://masto.hackers.town/@lmorchard/115643291316029460) for the Battle Pass. By Tuesday I had, myself, [become Marty McFly](https://masto.hackers.town/@lmorchard/115654417337750479). I'm not particularly good at the game, but they do a good job at giving you stuff to do while running and hiding.
 
-<youtube-embed video-id="j9rLrRYLu3U" title="Godzilla & Miku Miku Beam During Zero Hour Live Event!"></youtube-embed>
+<youtube-embed video-id="j9rLrRYLu3U" title="Godzilla & Miku Miku Beam During Zero Hour Live Event!" thumbnail="eb92d7d6e90c.jpg"></youtube-embed>
 
 ## Music Stuff
 
 For some reason, I was in a sudden intense mood to binge on [Mother Mother](https://masto.hackers.town/@lmorchard/115646953570536047) albums. Really like them, though they seem like a band that should be problematic, but I just haven't heard why yet. A lot of bands I really like end up that way.
 
-<youtube-embed video-id="3VTImtygBhI" title="Mother Mother - Make Believe (Official Lyric Video)"></youtube-embed>
+<youtube-embed video-id="3VTImtygBhI" title="Mother Mother - Make Believe (Official Lyric Video)" thumbnail="e41ad4bcdd20.jpg"></youtube-embed>
 
 Another weird nostalgia moment: I had a distinct memory this week of [listening to](https://masto.hackers.town/@lmorchard/115647087117828402) Aphex Twin on a really low bit rate RealAudio stream on terrible headphones in a university computer lab around the fall of 1995. Sounded like a transmission from space.
 
-<youtube-embed video-id="lyXgX7OmCuA" title="Aphex Twin - 4"></youtube-embed>
+<youtube-embed video-id="lyXgX7OmCuA" title="Aphex Twin - 4" thumbnail="c9444ae41ebe.jpg"></youtube-embed>
 
 From [a cool TikTok on *Creating Unique '80s-Style Graphics with Fairlight CVI*](https://www.tiktok.com/@seanstle/video/7578659984330804494?_r=1&_t=ZP-91tHE1j9Btu), I got Jean-Michel Jarre's "Zoolookologie" stuck in my head:
 
-<youtube-embed video-id="iIeAt5invw0" title="Jean-Michel Jarre's - Zoolookologie"></youtube-embed>
+<youtube-embed video-id="iIeAt5invw0" title="Jean-Michel Jarre's - Zoolookologie" thumbnail="0e6100f60f8a.jpg"></youtube-embed>
 
 The band [Brighter Than A Thousand Suns](https://linktr.ee/btatsband) is pretty dang keen:
 
-<youtube-embed video-id="Gy52WN9NrGs" title="Brighter Than A Thousand Suns - Break Through the Noise"></youtube-embed>
+<youtube-embed video-id="Gy52WN9NrGs" title="Brighter Than A Thousand Suns - Break Through the Noise" thumbnail="f1a7c50b7f34.jpg"></youtube-embed>
 
 I haven't really bothered paying much attention to Sabrina Carpenter. But I've seen a bunch of TikToks using clips of "Manchild"—to the point that I've been going "heh, oh boy" all day as a lil verbal stim noise.
 
 So I finally [looked up the song](https://masto.hackers.town/@lmorchard/115652684859966256) on YouTube... I think this might be one of the absolute best music videos I've seen in a very long time. I would totally watch a [whole season](https://masto.hackers.town/@lmorchard/115652691714672227) of TV based on this video.
 
-<youtube-embed video-id="aSugSGCC12I" title="Sabrina Carpenter - Manchild (Official Video)"></youtube-embed>
+<youtube-embed video-id="aSugSGCC12I" title="Sabrina Carpenter - Manchild (Official Video)" thumbnail="d51703175abe.jpg"></youtube-embed>
 
 Also saw Goldfrapp's ["Alive"](https://masto.hackers.town/@lmorchard/115654425595656141) for the first time, thanks to [victordancer on Twitch](https://www.twitch.tv/victordancer)—aerobercizing vampires in 80s sparkly spandex? What in the Olivia Newton John is this?
 
-<youtube-embed video-id="8F9xyKUmwk8" title="Goldfrapp - Alive (Official HD Video)"></youtube-embed>
+<youtube-embed video-id="8F9xyKUmwk8" title="Goldfrapp - Alive (Official HD Video)" thumbnail="880f6f9ab0d5.jpg"></youtube-embed>
 
 Speaking of Twitch, I know the year-end "wrapped" things are all passe now, but peeking at my 2025 recap: I pretty much just [watch DJs](https://masto.hackers.town/@lmorchard/115654463017782547) and maybe Tennocon for Warframe. Oh yeah, and [Rifftrax](https://www.twitch.tv/rifftrax). But I watch DJs almost every night?
 
