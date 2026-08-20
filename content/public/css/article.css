@@ -91,7 +91,6 @@ article>nav.table-of-contents li {
   margin: 0 0 0.25em 0;
   line-height: 1.4;
   position: relative;
-  transition: font-weight 200ms ease;
 }
 
 article>nav.table-of-contents li::before {
@@ -102,10 +101,9 @@ article>nav.table-of-contents li::before {
   transition: opacity 200ms ease;
 }
 
-article>nav.table-of-contents li.active {
-  font-weight: bold;
-}
-
+/* The chevron alone marks the active entry. Bolding it too re-measured the
+   text, which pushed longer headings onto an extra line and made the list
+   jump as you scrolled. */
 article>nav.table-of-contents li.active::before {
   opacity: 1;
 }
