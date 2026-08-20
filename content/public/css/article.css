@@ -14,6 +14,19 @@
   border-bottom: 1px solid color-mix(in srgb, var(--theme-border-color) 40%, transparent);
 }
 
+/* The article header is the first thing in section.main on both posts and
+   pages, so at >=1200px — where header-footer.css gives the site header a rule
+   along its bottom — its own top rule lands a couple of pixels below that one
+   and reads as a doubled border. The two are not even the same width: the site
+   header's rule spans its surface, which overhangs the grid by
+   --surface-bleed. Below 1200px the site header has no rule, so this one is
+   the only divider and has to stay. */
+@media (min-width: 1200px) {
+  .main article header {
+    border-top: none;
+  }
+}
+
 article>header>h1 {
   margin: 0;
   font-size: 1.9em;

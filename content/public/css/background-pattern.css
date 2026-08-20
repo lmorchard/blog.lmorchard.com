@@ -221,6 +221,43 @@ html.maze-ready .posts-nav::after {
   border: 1px solid var(--sheet-edge);
 }
 
+/* The horizontal rules that divide the header, footer and prev/next nav from
+   the page belong to the SURFACE, not to the element box. Declared as borders
+   on the element (header-footer.css, article.css) they stop at its border box,
+   which the surface overhangs by --surface-bleed on each side — so the rule
+   visibly falls short of the surface's own left and right edges.
+
+   Redeclare them on the pseudo-element, which is the full surface width. The
+   element keeps a transparent border of the same width so nothing reflows, and
+   so the rule still appears at its original width for a visitor without JS,
+   who gets no .maze-ready and therefore no surface to align to. Colours are
+   repeated from those files rather than shared, so the no-JS fallback and the
+   surface rule stay visibly identical. */
+html.maze-ready body > footer,
+html.maze-ready .posts-nav {
+  border-top-color: transparent;
+}
+
+html.maze-ready body > footer::after {
+  border-top: 1px solid color-mix(in srgb, var(--theme-border-color) 50%, transparent);
+}
+
+/* The card's edge is already drawn above; only its top edge is promoted from a
+   hairline to the rule. */
+html.maze-ready .posts-nav::after {
+  border-top-color: color-mix(in srgb, var(--theme-border-color) 50%, transparent);
+}
+
+/* Matches the breakpoint header-footer.css introduces the header rule at. */
+@media (min-width: 1200px) {
+  html.maze-ready body > header {
+    border-bottom-color: transparent;
+  }
+  html.maze-ready body > header::after {
+    border-bottom: 1px solid color-mix(in srgb, var(--theme-border-color) 40%, transparent);
+  }
+}
+
 /* --- Table of contents ------------------------------------------------------ */
 
 /* At >=1400px the TOC is sticky in the left gutter (article.css), so it sits
