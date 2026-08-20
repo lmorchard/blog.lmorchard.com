@@ -1,7 +1,11 @@
 /* The 10 PRINT maze background and the "sheet" the prose sits on.
 
-   The tile arrives as --maze-mask from js/components/maze-background.js; the
-   colour comes from --pattern-ink here, so theming needs no JavaScript at all.
+   The tile arrives as --maze-image from js/components/maze-background.js with
+   --pattern-ink already baked into its stroke, so that component is also
+   responsible for rebuilding it on a theme change. It used to arrive as a mask
+   that CSS filled with --pattern-ink, which needed no JS for theming but cost
+   Firefox two thirds of every scrolled frame; see the measurements at the top
+   of maze-background.js.
 
    The pattern fills the page OUTSIDE the `main` grid column. That is the point
    of the feature rather than decoration: the grid reserves 3fr of gutter on each
@@ -46,16 +50,10 @@ html.maze-ready::before {
   z-index: -2; /* below the sheet at -1, above html's background-color */
   pointer-events: none;
 
-  background: var(--pattern-ink);
-
-  -webkit-mask-image: var(--maze-mask);
-  mask-image: var(--maze-mask);
-  -webkit-mask-repeat: repeat;
-  mask-repeat: repeat;
-  -webkit-mask-size: var(--maze-tile) var(--maze-tile);
-  mask-size: var(--maze-tile) var(--maze-tile);
-  -webkit-mask-position: 0 0;
-  mask-position: 0 0;
+  background-image: var(--maze-image);
+  background-repeat: repeat;
+  background-size: var(--maze-tile) var(--maze-tile);
+  background-position: 0 0;
 }
 
 /* The sheet: an opaque centred column over the pattern, holding the prose.
