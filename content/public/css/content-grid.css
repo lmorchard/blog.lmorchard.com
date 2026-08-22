@@ -3,7 +3,10 @@
 .content-grid {
   display: flex;
   flex-direction: column;
-  max-width: 70ch;
+  /* Cap against the container too: section.main centres this with align-items,
+     so a wide child (e.g. a long code line) otherwise inflates it to 70ch
+     regardless of how narrow the viewport is. */
+  max-width: min(70ch, 100%);
   padding: 0 var(--layout-padding);
   box-sizing: border-box;
 }
@@ -62,6 +65,23 @@
 .content-grid > pre {
   grid-column: medium;
   font-size: 0.95em;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* highlight.js renders a block-level <code> inside <pre>. Left at width:auto it
+   is sized to the pre and its lines spill out visibly instead of scrolling it,
+   so the pre never becomes a working scroll container. */
+.content-grid > pre > code {
+  display: block;
+  width: max-content;
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+/* .wrapped opts out of scrolling by wrapping instead. */
+.content-grid > pre.wrapped > code {
+  width: auto;
 }
 
 .content-grid>pre.main {
@@ -83,7 +103,7 @@
 
 @media (min-width: 600px) {
   .content-grid {
-    max-width: min(70ch, var(--layout-max-width));
+    max-width: min(70ch, var(--layout-max-width), 100%);
   }
 }
 
