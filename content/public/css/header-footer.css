@@ -1,5 +1,9 @@
 body>header {
   margin: 0;
+  /* Padding must sit inside the width: this is a flex item of body, so with
+     content-box it renders wider than the viewport by 2 * --layout-padding. */
+  box-sizing: border-box;
+  max-width: 100%;
   padding: 0.75em var(--layout-padding) 1em;
   background-color: color-mix(in srgb, var(--theme-background-color) 90%, transparent);
   z-index: var(--z-sticky-header);
@@ -107,6 +111,13 @@ body>header>div.masthead img {
 @media (max-width: 899px) {
   body>header>div.masthead {
     justify-content: center;
+  }
+  /* nowrap is for the wide two-column layout. Below it there is no room for a
+     long tagline on one line, and nowrap makes the masthead unshrinkable. */
+  body>header>div.masthead>div.title,
+  body>header>div.masthead h1,
+  body>header>div.masthead h2 {
+    white-space: normal;
   }
   body>header>div.masthead h2 {
     font-size: 0.65em;

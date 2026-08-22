@@ -9,6 +9,10 @@
   max-width: min(70ch, 100%);
   padding: 0 var(--layout-padding);
   box-sizing: border-box;
+  /* Inherited by all post content. A bare URL is a single unbreakable word and
+     will otherwise stick out past the column. Has no effect inside <pre>,
+     which does not wrap. */
+  overflow-wrap: break-word;
 }
 
 .content-grid>* {
