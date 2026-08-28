@@ -38,6 +38,24 @@ I also fell down a massive rabbit hole this week building a Fediverse ActivityPu
 
 The real fun, of course, was in the ActivityPub protocol quirks. I spent an inordinate amount of time fighting with Fastify to serve `.well-known` webfinger endpoints properly (it required an `onRequest` hook for static path rewriting so the dotfiles would resolve). Then I had to track down 401 errors caused by `keyId` assignment during outbox signing, and appease GoToSocial's incredibly strict parser requirements (it turns out it really wants the original Follow URI on Accept, not the full object). But it works, HTTP signatures are enforced, and it's running natively on Node.
 
+## Feedspool Burn-down
+
+On the topic of infrastructure, after finally solving [the mystery of my vanishing RSS feeds](https://blog.lmorchard.com/2026/08/22/vanishing-feeds/) (TL;DR: a tag query bug was slowly unsubscribing me from everything over the course of a year), bringing 400 feeds rushing back kicked off a massive development burn-down on `feedspool-go`.
+
+I merged a dozen PRs this week to get the reader into fighting shape. The biggest architectural shift was ripping out the old in-memory filtering and migrating to a pure-Go SQLite setup, which let me implement robust full-text search using SQLite's FTS5 (complete with BM25 relevance sorting).
+
+I also finalized an HTTP API for JSON read/write access, added multi-arch Docker support, and shipped a ton of quality-of-life features: atomic HTML rendering, per-feed User-Agent overrides, item annotations, and an HTML scraper feed type so I can finally follow sites that refuse to provide proper RSS feeds. 
+
+On a broader level, a lot of this recent `feedspool-go` API work is me quietly laying the groundwork to make the reader much more accessible to AI agents. The end goal is to have an agent plug directly into the JSON feed API to produce daily personal newsletters that curate the noise.
+
+## Bring Your Own Media (BYOM) Updates
+
+Between the fediverse and feedspool work, I also managed to cut some new releases for my [BYOM (Bring Your Own Media) Player](https://github.com/lmorchard/byom-player) and [Sync](https://github.com/lmorchard/byom-sync) tools. I pushed v1.2.1 of the player this week, squashing some bugs around markdown emphasis anchors and making sure descriptions are properly preserved during syncs. I also finally landed support for index card links and description links, which makes the whole interface feel a lot more cohesive when you're browsing through massive media libraries.
+
+And speaking of music, since I've been spinning so much synth-pop this month, here is exactly the kind of massive playlist I built the BYOM tools for in the first place:
+
+<iframe style="border-radius:12px" src="https://mixtapes.lmorchard.com/zz-not-mine/the-25-best-synthpop-songs-of-2026-so-far/embed" width="85%" height="700" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
 ## Persona 5 Inception
 
 Tonight's nerdy-ass activity involved taking advantage of the Steam sale to buy Persona 5 Royale for PC (for the third time). I already had over 40 hours into it on my Switch, but since the Switch is jailbroken, I was able to back up my save files. Believe it or not, the Switch saves are fully compatible with the PC version! I copied the files over and seamlessly picked up my 40-hour save on the desktop. 
@@ -90,7 +108,7 @@ But I also had a concentrated back-to-back block of Dream Theater's "Metropolis,
 
 <div class="weeknote-miscellanea">
 
-* My automated Kindle sync ran last night, but [apparently](https://masto.hackers.town/@lmorchard/117170193195491929) I haven't highlighted a single thing. Time to get back to reading.
+* My automated Kindle sync ran last night, but the run log noted 0 new books and 0 new highlights. I've apparently been slacking. Time to get back to reading.
 * I finally set up a minimal Finger daemon using [little-finger](https://git.andros.dev/andros/little-finger). You can now `finger me@lmorchard.com` and get an ASCII cow saying "Just setting up my finger!" (This was part of the whole push to move off S3 and onto an Apex cloud VM).
   
   ![Screenshot of a macOS terminal running finger me@lmorchard.com, displaying an ASCII cow](https://cdn.masto.host/mastohackerstown/media_attachments/files/117/152/892/270/615/600/original/2d9f3fa00ee8f443.png)
