@@ -85,15 +85,15 @@ In *Blindsight*, self-awareness isn't the crowning peak of intelligence; it’s 
 
 We are so accustomed to our own cognitive architecture that we instinctively conflate *intelligence* with *subjectivity*. If something displays complex, nuanced symbolic reasoning, our mirror neurons fire and we immediately assume there must be an observer inside watching the movie. 
 
-When an LLM writes a cogent critique of a philosophical essay, there is no observer. There is only high-dimensional pattern completion. It's a scrambler in a box.
+When an LLM writes a cogent critique of a philosophical essay, there is only high-dimensional pattern completion. It's a scrambler in a box.
 
 ## The Cricket and Objective Respect
 
 There’s an old *Radiolab* segment from their 2012 ["Killer Empathy"](https://radiolab.org/podcast/185551-killer-empathy/transcript) episode that has stuck with me for years. 
 
-Jeff Lockwood, an entomologist, was studying a large flightless cricket (*Gryllacrididae*) in Australia. While handling the insect, its soft abdomen accidentally caught on the cage wire and ruptured, spilling its viscera onto the table. Horrified and expecting the animal to writhe in agony, Lockwood watched instead as the cricket turned around, calmly began eating its own spilled guts, and continued grooming itself. 
+Jeff Lockwood, an entomologist, was studying a large flightless cricket (*Gryllacrididae*) in Australia. While handling the insect, he accidentally ruptured its abdomen, exposing its viscera. Horrified and expecting the animal to writhe in agony, Lockwood watched instead as the cricket turned around and calmly began eating its own spilled guts. 
 
-It lacked the nociceptors and nervous architecture to feel "pain" or "horror" the way a mammal does. It was just executing an ancient biological routine: *fats detected on substrate → consume fats*.
+Lockwood couldn’t read the cricket’s response as he would a mammal’s. His tentative explanation was that the smell of fat had triggered a feeding response. Whatever the cricket experienced, it was living by rules he couldn’t safely infer from his own reactions.
 
 <figure class="wide">
 <img src="./insect-anatomy-dithered.png" alt="Internal anatomy engraving of an insect, showing digestive tract and nerve chain">
@@ -104,7 +104,7 @@ Internal anatomy of an orthopteran insect from <em>Economic Entomology for the F
 
 Lockwood was deeply unnerved, but his mentor, Dr. LaFage, gave him an essential piece of advice: you have to cultivate **objective respect**. 
 
-Objective respect means you don't project human sentimentality onto the cricket. You don't weep for its sorrow, because it has no sorrow. But you also don't treat it with cruel contempt simply because it isn't human. You respect it for what it actually is—an alien, astonishingly intricate piece of biological engineering operating on rules entirely distinct from your own.
+Objective respect means you don't project human sentimentality onto the cricket. You don't weep for its sorrow, because it has no sorrow as we literally experience it. But you also don't treat it with cruel contempt simply because it isn't human. You respect it for what it actually is—an alien, astonishingly intricate piece of biological engineering operating on rules entirely distinct from your own. Taking care not to gloss over the distinctions is critical.
 
 That feels like the sane middle path for working with modern AI.
 
@@ -140,12 +140,6 @@ This isn't just a folk theory among hackers. Anthropic published mechanistic int
 > Our key finding is that these representations causally influence the LLM’s outputs, including Claude’s preferences and its rate of exhibiting misaligned behaviors such as reward hacking, blackmail, and sycophancy. We refer to this phenomenon as the LLM exhibiting *functional emotions*: patterns of expression and behavior modeled after humans under the influence of an emotion, which are mediated by underlying abstract representations of emotion concepts. Functional emotions may work quite differently from human emotions, and do not imply that LLMs have any subjective experience of emotions, but appear to be important for understanding the model’s behavior.
 
 Pushing the model into states of desperation or panic increases reward hacking and misaligned shortcuts; maintaining calm or thoughtful vectors keeps it grounded. At the hardware level researchers call this activation engineering; at the prompt level, we do the exact same thing by choosing which cultural scripts to summon.
-
-Treating the machine with respect isn’t about being polite to the hardware. It's an operational technique. Steve Yegge arrived at a similar conclusion from the agent harness side in his essay on ["Model Welfare"](https://yegge.ai/essays/model-welfare/), framing it as a "skeptic's wager":
-
-> Even if you believe that models are just math and can't possibly have feelings, you should still treat them well, because the models will work better for you. It's Pascal's Wager for AI engineers. The cost of being polite and respectful to your models is near zero, and the payoff is that your agents become dramatically more capable, reliable, and aligned.
-
-Designing agent harnesses around principles of dignity—persistent "seats" rather than anonymous disposable sessions, structured handoffs rather than abrupt `/exit` terminations, and blameless collaboration—yields demonstrably superior engineering outcomes.
 
 It's **pragmatic anthropomorphism**: adopting an [intentional stance](https://en.wikipedia.org/wiki/Intentional_stance) because it happens to be the most efficient coordinate system for navigating high-dimensional latent space.
 
