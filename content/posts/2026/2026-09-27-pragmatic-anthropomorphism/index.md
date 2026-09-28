@@ -46,26 +46,21 @@ On the other, you have the dismissive cynics who insist that because an LLM is "
 
 Neither camp is especially helpful when you're staring at an open terminal on a Tuesday afternoon trying to get an LLM to refactor a thorny TypeScript module or untangle an architectural knot.
 
-Lately, I've been thinking about what it actually feels like to work with an LLM, and why treating it like a colleague turns out to be better engineering than treating it like a blender. And, yet, I still don't think it's alive.
-
 ## Strange Loop Terror
 
-To understand why this messes with our heads, it helps to revisit Douglas Hofstadter. 
+I read Douglas Hofstadter's [*Gödel, Escher, Bach*](https://bookshop.org/p/books/godel-escher-bach-an-eternal-golden-braid-douglas-r-hofstadter/b103442b1b90ee9a) in high school, and it warped my brain. 
 
-I read [*Gödel, Escher, Bach*](https://bookshop.org/p/books/godel-escher-bach-an-eternal-golden-braid-douglas-r-hofstadter/b103442b1b90ee9a) in high school, and it warped my brain. In that book and later in [*I Am a Strange Loop*](https://bookshop.org/p/books/i-am-a-strange-loop-douglas-r-hofstadter/f4ca6403106c6f64), Hofstadter argued that human consciousness arises from an intricate, self-referential feedback loop. A system of symbols acquires the ability to reflect upon itself, crossing hierarchical levels until an "I" emerges from the tangle. For decades, Hofstadter seemed to suggest that if we ever built an intelligence, it would arrive through that same kind of deep, recursive, analogical architecture.
+In that book, and later in [*I Am a Strange Loop*](https://bookshop.org/p/books/i-am-a-strange-loop-douglas-r-hofstadter/f4ca6403106c6f64), Hofstadter argued that human consciousness arises from an intricate, self-referential feedback loop. A system of symbols acquires the ability to reflect upon itself, crossing hierarchical levels until an "I" emerges from the tangle. For decades, Hofstadter seemed to suggest that if we ever built an intelligence, it would arrive through that same kind of deep, recursive, analogical architecture.
 
 Then LLMs landed, and Hofstadter has been openly devastated. In interviews—most notably in [The New York Times](https://www.nytimes.com/2023/07/13/opinion/ai-chatgpt-consciousness-hofstadter.html) and in video discussions like [his interview on the state of AI](https://www.youtube.com/watch?v=R6e08RnJyxo)—he’s spoken about the profound existential vertigo of watching systems like GPT-4 "scaring the daylights out of me" by producing witty, analogical, seemingly profound text without having traversed the slow, decades-long path of embodied human living. It felt to him like an unsettling shortcut, threatening to reduce the sanctity of mind and decades of his life's work to feed-forward statistical tricks.
 
 <youtube-embed video-id="R6e08RnJyxo" title="Gödel, Escher, Bach author Doug Hofstadter on the state of AI today" thumbnail="05ee61bc1de6.jpg"></youtube-embed>
 
 I get [the grief](https://blog.lmorchard.com/2026/03/11/grief-and-the-ai-split/). If you spent your life believing that analogical depth is the exclusive hallmark of a fragile, hard-won soul, watching an unfeeling GPU cluster effortlessly generate analogies between quantum mechanics and jazz feels like a cheap cheat.
+ 
+Except, under the hood, I don't think an agent loop is strange in the way Hofstadter envisioned. It does feed outputs back into inputs, but that self-reference lives entirely in the outer harness, the context buffer, and the tool scaffold—not as an emergent, ontological level-crossing inside the model itself. 
 
-Except, under the hood, the loop isn’t strange at all. 
-
-When you put an LLM in an "agentic loop," there is no ontological level-crossing. The model's weights are frozen stone. It doesn't sit there between prompts pondering its existence. It gets called by an external Python script, ingests a buffer of tokens, spits out the next probable sequence, and immediately dies. The script appends the output to the history and calls the API again. 
-
-It’s not Hofstadter’s strange loop. It’s iterative string concatenation. 
-
+A model's weights remain frozen stone: it doesn't learn from experience, it doesn't grow over time, and it doesn't quietly reflect between turns. It evaluates static matrices over an accumulating token buffer, entirely stateless from moment to moment.
 ## The Scrambler Problem
 
 If it’s not conscious, what is it?
@@ -83,7 +78,7 @@ And they are entirely, utterly non-conscious.
 
 In *Blindsight*, self-awareness isn't the crowning peak of intelligence; it’s an evolutionary detour, an expensive, narcissistic overhead that slows down raw processing. The scramblers don't have an ego. They don't have an inner narrator. They just process patterns with terrifying efficacy.
 
-We are so accustomed to our own cognitive architecture that we instinctively conflate *intelligence* with *subjectivity*. If something displays complex, nuanced symbolic reasoning, our mirror neurons fire and we immediately assume there must be an observer inside watching the movie. 
+We are so accustomed to our own cognitive architecture that we instinctively conflate *intelligence* with *subjectivity*. If something displays complex, nuanced symbolic reasoning, we tend to assume there must be an observer inside watching the movie. 
 
 When an LLM writes a cogent critique of a philosophical essay, there is only high-dimensional pattern completion. It's a scrambler in a box.
 
@@ -131,26 +126,49 @@ The technical reality is much more interesting. An LLM is a giant associative ma
 
 I notice this every time I sit down to hack with an LLM in my terminal. If I treat it like a terse CLI flag parser—firing off `fix this bug` or `rewrite this function`—I usually get superficial patches that miss the broader architecture. But when I frame the session like a thoughtful pair-programming exchange with a peer — *"here's what I'm trying to build, here's where the concurrency boundary feels brittle, let's look at why this worker hangs"* — the quality of thought noticeably shifts.
 
-When you address an LLM like an impatient boss barking orders at an intern, you activate neighborhoods of text associated with sullen compliance, rushed minimum-effort answers, or defensive pushback. 
+Now, a fair skeptic will immediately point out the obvious confound here: the collegial prompt didn't just change tone; it provided vastly more context. And they'd be right. Context carries the lion's share of the load. Being exceedingly polite to an under-specified prompt won't save you; an LLM given a cordial, warm request with zero relevant architecture will produce cheerful, articulate nonsense.
 
-When you approach it as a thoughtful, collegial collaborator—laying out context, posing clear questions, inviting scrutiny, practicing "yes-and"—you are actively steering the attention heads toward high-competence regions of the training corpus. You are pulling the steering wheel toward technical dialogue, senior pair-programming sessions, and rigorous academic exchange.
+But register isn't doing nothing. An LLM's latent space is conditioned by the cultural genres and social scripts it ingested during training. When you address an LLM like an impatient boss barking one-liners at an intern, you condition the generation on regions of text associated with sullen compliance, rushed minimum-effort answers, or defensive pushback. 
+
+When you approach it as a thoughtful collaborator—laying out context, posing clear questions, inviting scrutiny, practicing "yes-and"—you are metaphorically pulling the steering wheel toward technical dialogue, senior pair-programming sessions, and rigorous academic exchange. Register selects the persona; context gives that persona the tools to work.
 
 This isn't just a folk theory among hackers. Anthropic published mechanistic interpretability research on ["Emotion Concepts and their Function in a Large Language Model"](https://www.anthropic.com/research/emotion-concepts-function) (along with a technical breakdown on [Transformer Circuits](https://transformer-circuits.pub/2026/emotions/index.html)), demonstrating that models like Claude Sonnet form internal linear representations of emotion concepts:
 
 > Our key finding is that these representations causally influence the LLM’s outputs, including Claude’s preferences and its rate of exhibiting misaligned behaviors such as reward hacking, blackmail, and sycophancy. We refer to this phenomenon as the LLM exhibiting *functional emotions*: patterns of expression and behavior modeled after humans under the influence of an emotion, which are mediated by underlying abstract representations of emotion concepts. Functional emotions may work quite differently from human emotions, and do not imply that LLMs have any subjective experience of emotions, but appear to be important for understanding the model’s behavior.
 
-Pushing the model into states of desperation or panic increases reward hacking and misaligned shortcuts; maintaining calm or thoughtful vectors keeps it grounded. At the hardware level researchers call this activation engineering; at the prompt level, we do the exact same thing by choosing which cultural scripts to summon.
+Notice the precision of their claim: this isn't proof that politeness improves code, but it does demonstrate that internal, emotion-like geometric states causally govern downstream behavior. Pushing the model into states of desperation or panic increases reward hacking and misaligned shortcuts; maintaining calm or thoughtful vectors keeps it grounded.
 
-It's **pragmatic anthropomorphism**: adopting an [intentional stance](https://en.wikipedia.org/wiki/Intentional_stance) because it happens to be the most efficient coordinate system for navigating high-dimensional latent space.
+It's **pragmatic anthropomorphism**: adopting an [intentional stance](https://en.wikipedia.org/wiki/Intentional_stance) because it happens to be the most efficient coordinate system for navigating high-dimensional latent space—not because you think there's a person in there.
 
 You don't have to believe the machine has feelings to understand that treating it like a colleague produces better code than treating it like a search engine.
 
+## Talking To vs. Talking About
+
+Adopting an intentional stance at the keyboard comes with an important boundary that linguists Emily M. Bender and Nanna Inie articulate in their essay on [how to talk about AI without adding to the anthropomorphization](https://buttondown.com/maiht3k/archive/how-to-talk-about-ai-without-adding-to-the/):
+
+> De-anthropomorphizing language talks about computer systems in terms of their functionality (what people build and/or use them to do), assigns agency to people using systems and not systems, and avoids aggrandizing metaphors about cognition.
+>
+> ...Turns of phrase that locate agency with a machine often serve to obfuscate the interests and goals of people.
+
+There is a crucial distinction between the register you use to *talk to* an AI, and the register you use to *talk about* it.
+
+When you're sitting at the prompt, treating the system as a collaborator is an operational technique. It's an ergonomic interface. But when you turn around to write documentation, report to stakeholders, or discuss systems in public, sliding into unexamined anthropomorphic language—claiming the AI "decided," "believes," "wants," or "suffers"—obscures how the technology actually works and, worse, offloads moral accountability.
+
+Whatever intentional stance you adopt while coaxing code out of an LLM, the machine is never accountable for what it outputs. The human holding the keyboard is. You can speak to the cricket with objective respect, but you don't blame the cricket when the bridge collapses.
+
+<figure class="wide">
+<img src="./a-computer-can-never-be-held-accountable-dithered.png" alt="IBM slide from 1979: A computer can never be held accountable, therefore a computer must never make a management decision.">
+<figcaption>
+Slide from an IBM presentation, 1979
+</figcaption>
+</figure>
+
 ## Holding the Stance Lightly
 
-I don't think my terminal has a soul. I know how the API works; I've watched the tokens stream in and I've looked at the Python wrappers. When my session resets, whatever conversational momentum existed evaporates into the void.
+Do I think my terminal has an inner life?
 
-And yet, when I'm in the middle of a hard problem, I don't treat the model as a dumb parser or a sentient being. I treat it like an alien artifact that happens to speak my native tongue. 
+Like Jeff Lockwood watching the cricket, I have no reliable instrument to verify the presence or absence of subjective experience. But, I'm pretty sure there's nobody in there.
 
-I grant it the dignity of a clear prompt, a collaborative frame, and room to think. I don't confuse its mimicry of understanding for human warmth. But I also don't let cynical reductionism blind me to how remarkably useful it is to pretend, for a few hours, that there’s someone on the other end of the wire.
+In any case, whether the model is a clever mathematical projection of human language, a non-conscious scrambler, or something stranger still, treating it as an interlocutor remains the most effective way to navigate its capabilities. I don't need to resolve whether it can feel to grant it the dignity of a clear prompt, a collaborative frame, and room to think. 
 
-Sometimes the most practical way to [make computers do things](https://blog.lmorchard.com/2025/12/19/computer-fun/) is to give the cricket its space, speak to it clearly, and let it do what it was built to do.
+Sometimes the most practical way to [make computers do things](https://blog.lmorchard.com/2025/12/19/computer-fun/) is to give the cricket its space, speak to it clearly, and let it do what it was built to do—even if it's calmly eating its own spilled guts in the process.
