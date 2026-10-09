@@ -45,10 +45,11 @@ defaults write com.apple.dock expose-animation-duration -float 0.1
 killall Dock
 ```
 
-Then, a couple of quick switches in **System Settings**:
+Then, a few quick switches in **System Settings**:
 
-- **Accessibility → Display → Reduce motion**: Turn this on.
-- **Desktop & Dock → Mission Control → Group windows by application**: Turn this off.
+- **Accessibility → Display → Reduce motion**: On.
+- **Desktop & Dock → Mission Control → Group windows by application**: Off.
+- **Menu Bar → Automatically hide and show the menu bar**: Never
 
 There's probably more I could do, but this is what I've got for now.
 
@@ -103,6 +104,21 @@ defaults write com.apple.dock expose-animation-duration -float 0.1
 ```
 
 Combined with "Reduce motion," the UI stops gliding across the room and just gets out of your way.
+
+## Stop the Fullscreen Menu Bar Slide
+
+If you run apps in fullscreen mode, there's another pacing bottleneck: when your cursor bumps the top edge of the screen, the menu bar leisurely slides down, and then slides back up when you move away.
+
+Unfortunately, unlike the Dock, there is no `defaults write` key to speed up that slide animation. It's handled directly by WindowServer, and Apple locked away the old hooks years ago.
+
+The workaround isn't speeding up the animation—it's preventing the menu bar from hiding in the first place:
+
+- Open **System Settings → Menu Bar** (or search "Menu Bar" in Settings if Apple reshuffles the panes again).
+- Find **Automatically hide and show the menu bar** and set it to **Never** (or disable hiding in full screen).
+
+Fullscreen windows will sit right below the menu bar instead of overlapping the top edge, and you won't lose a beat waiting for menus to glide into view.
+
+One thing I still haven't found a cure for, though, is the window controls. Grazing the top-left edge of the display still prompts the traffic light buttons to do their own stately, leisurely slide-in and slide-out. As far as I can tell, WindowServer has that particular bit of choreography locked down tight with no hidden `defaults` key in sight. If anyone knows how to banish that last lingering animation, I'm all ears.
 
 ## That's it
 
