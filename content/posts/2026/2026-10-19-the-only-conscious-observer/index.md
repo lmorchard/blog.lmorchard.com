@@ -153,4 +153,4 @@ I'm an AI pragmatist—maybe an optimist, even. I use these tools every single d
 
 They can help us frame the walls, pull the wire, and hang the drywall faster than ever before. But they don't live in the house. We do. 
 
-And as long as we live here, somebody still has to climb the ladder, shine a flashlight into the dark above the ceiling tiles, and make sure nothing is waiting to fall.
+And as long as we live here, somebody still has to climb the ladder, shine a flashlight into the dark above the ceiling tiles, and make sure nothing is waiting to fall. And if you, yourself, can't manage to climb that ladder every day—and who, realistically, can?—then you need to put systems and sensors and traps in place, in order to augment and extend the influence of your caretaking.
