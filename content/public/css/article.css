@@ -125,6 +125,49 @@ article figure {
   background-color: var(--theme-background-color-transparent);
 }
 
+article figure.code-block,
+article figure.monospace,
+article figure:has(pre) {
+  grid-column: medium;
+  display: block;
+  box-sizing: border-box;
+  max-width: 100%;
+  background-color: var(--theme-highlighted-bg-color);
+  border: 1px solid var(--sheet-edge);
+  border-radius: 6px;
+  padding: 1em;
+  overflow-x: auto;
+}
+
+article figure.code-block pre,
+article figure.monospace pre,
+article figure:has(pre) pre {
+  margin: 0;
+  width: 100%;
+  overflow: visible;
+  font-size: 0.95em;
+}
+
+article figure.code-block pre code,
+article figure.monospace pre code,
+article figure:has(pre) pre code {
+  display: block;
+  width: max-content;
+  min-width: 100%;
+  box-sizing: border-box;
+  font-family: var(--theme-font-family-mono);
+}
+
+article figure.code-block figcaption,
+article figure.monospace figcaption,
+article figure:has(pre) figcaption {
+  margin-top: 0.5em;
+  font-size: 0.85em;
+  text-align: center;
+  color: var(--theme-text-color);
+  opacity: 0.8;
+}
+
 .posts-nav {
   margin-top: 1.5em;
   margin-bottom: 0.75em;
