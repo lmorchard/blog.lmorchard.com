@@ -134,28 +134,29 @@ At this point, pure bafflement took over, and I tumbled headfirst down a researc
 
 I'm in a little over my head with everything I read, but let's see if I can take a stab at writing out my hunches.
 
-### 1. Tokens as computational scratchpads
+### Tokens as computational scratchpads
 
-Autoregressive transformers perform a fixed amount of computation per token. In [Show Your Work: Scratchpads for Intermediate Computation with Language Models](https://arxiv.org/abs/2112.00114), Nye et al. demonstrated that language models perform significantly better on multi-step reasoning tasks when allowed to generate intermediate tokens as an external scratchpad—a finding expanded by Wei et al. on [Chain-of-Thought Prompting](https://arxiv.org/abs/2201.11903).
+In [Show Your Work: Scratchpads for Intermediate Computation with Language Models](https://arxiv.org/abs/2112.00114), Nye et al. demonstrated that language models perform significantly better on multi-step reasoning tasks when allowed to generate intermediate tokens as an external scratchpad—a finding expanded by Wei et al. on [Chain-of-Thought Prompting](https://arxiv.org/abs/2201.11903).
 
-Intermediate reasoning tokens can help models work through multi-step plans, which makes brevity constraints worth investigating here. But these excerpts don't establish that missing grammatical words caused the failure: terse notes can still contain useful reasoning, and fluent prose can still be wrong. 
+This is old hat, basic stuff. Intermediate reasoning tokens can help models work through multi-step plans, which makes brevity constraints worth investigating here. 
 
-This run wasn’t short of generated reasoning tokens, though; it spent roughly 1,500 of them on one stalled turn. Whether the harness affected how productively it used those tokens is a separate question. (Also, I'm really glad this was on my laptop and not charged by the token in the cloud.)
+So, in other words, I suspect that by causing the model to *write* "thinking" like a caveman, it *performed* like a caveman.
 
-In other words, I suspect that by causing the model to *write* "thinking" like a caveman, it *performed* like a caveman.
+This run wasn’t short of generated reasoning tokens; it spent roughly 1,500 of them on one stalled turn. To be fair, whether the harness affected how productively it used those tokens is unproven. But, I think it's a culprit. (Also, I'm really glad this was on my laptop and not charged by the token in the cloud.)
 
-### 2. Prompt density and negative constraints
+### Prompt density and negative constraints
 
 You can see this design philosophy directly in OMP's source code: its core [`system-prompt.md`](https://github.com/can1357/oh-my-pi/blob/main/packages/coding-agent/src/prompts/system/system-prompt.md) on GitHub uses compact wording and many explicit constraints. It defines strict RFC 2119 keywords (`MUST`, `REQUIRED`, `NEVER`) and wraps behavior in dense, inviolable contracts:
+
 *   Forbidding reflection on limits or budgets: `<critical> NEVER narrate/consider session limits, token/tool budgets, effort estimates, or possible completion; start unbounded: execute/delegate. </critical>`
 
 *   Mandating tight tool execution constraints, such as forbidding solo planning turns: `NEVER make a todo-only turn: send todo in the same response as the turn's real call (parallel tool calls)`—which could help explain why Flint insisted on bundling `todo` and `bash` together on every turn of its loop.
 
 Those constraints make prompt design a plausible suspect, particularly the rule coupling todo updates to other tool calls. 
 
-But, I haven’t tested whether relaxing them changes Flint’s behavior. The fuller sentences in OpenCode are an observable difference; whether they helped the model complete the task remains an open question.
+I haven’t tested whether relaxing them changes Flint’s behavior. The fuller sentences in OpenCode are an observable difference; whether they helped the model complete the task remains an open question.
 
-### 3. Repetition and sampling defaults
+### Repetition and sampling defaults
 
 The repeated openings in OMP were a visible sign that the run had stalled. As Holtzman et al. explored in [The Curious Case of Neural Text Degeneration](https://arxiv.org/abs/1904.09751), decoding choices and sampling parameters can easily produce repetitive loops where a model fixates on familiar patterns. 
 
