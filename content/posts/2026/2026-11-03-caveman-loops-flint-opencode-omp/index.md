@@ -37,7 +37,7 @@ At the same time, I’ve been running [Flint](https://recursive.com/updates/intr
 
 The label on the tin says Flint is a sparse Mixture of Experts (MoE) with 40 billion total parameters, but only ~2.5 billion active parameters per token. It uses 4-bit NVFP4 output layer quantization, allowing the full model to fit and execute in unified memory on Apple Silicon via Metal kernels.
 
-In my own runs, actual decode throughput (pure generation speed, excluding prompt prefill and tool execution waits) clocked in around 60–80 tokens per second across sustained agent turns. I'm still wrapping my head around expected performance for local models on this machine, but this seems really good.
+In my own runs, actual decode throughput (pure generation speed, excluding prompt prefill and tool execution waits) clocked in around 15-20 tokens per second across sustained agent turns. I'm still wrapping my head around expected performance for local models on this machine, but this seems decent?
 
 Of course, speed doesn't mean anything if the model is busy spewing garbage the whole time. So, I decided to put Flint through its paces on a real-world task: running an issue triage pass on the [DecafClaw](https://github.com/lmorchard/decafclaw) backlog using [ghflow](https://github.com/lmorchard/ghflow).
 
