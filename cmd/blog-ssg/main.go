@@ -52,7 +52,8 @@ func main() {
 }
 
 func printUsage() {
-	fmt.Println("Usage: blog-ssg <command> [options]")
+	fmt.Println("Easy-Blog Oven v2.0 - Static site generator for blog.lmorchard.com")
+	fmt.Println("Usage: easy-blog-oven <command> [options]")
 	fmt.Println("\nCommands:")
 	fmt.Println("  build               Build posts, pages, indexes, feeds, and assets")
 	fmt.Println("  new                 Scaffold a new blog post with frontmatter and timestamp")

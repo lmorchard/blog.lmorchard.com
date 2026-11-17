@@ -1,13 +1,13 @@
 ---
 name: blog-operations
-description: Operations, development workflows, commands, and publishing guide for blog.lmorchard.com using the Go static site generator (blog-ssg).
+description: Operations, development workflows, commands, and publishing guide for blog.lmorchard.com using Easy-Blog Oven v2.0 (Go).
 ---
 
 # Blog Operations (`blog.lmorchard.com`)
 
 Operational guide and workflows for maintaining, developing, authoring, and deploying [blog.lmorchard.com](https://blog.lmorchard.com).
 
-The site is built with a bespoke, zero-dependency Go static site generator (`blog-ssg`), replacing the legacy Node.js "Easy-Blog Oven" as of November 2026.
+The site is built with **Easy-Blog Oven v2.0**, a bespoke, zero-dependency Go static site generator (`easy-blog-oven`, aliased as `blog-ssg`), replacing the legacy Node.js "Easy-Blog Oven v1" as of November 2026.
 
 ---
 

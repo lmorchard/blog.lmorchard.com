@@ -1,4 +1,4 @@
-BIN := blog-ssg
+BIN := easy-blog-oven
 PORT ?= 9980
 CONTENT_DIR := ./content
 POSTS_DIR := $(CONTENT_DIR)/posts
@@ -14,7 +14,7 @@ COMMON_FLAGS := -posts $(POSTS_DIR) -pages $(PAGES_DIR) -public $(PUBLIC_DIR) -u
 all: build
 
 help:
-	@echo "blog.lmorchard.com - Go Static Site Generator"
+	@echo "blog.lmorchard.com - Easy-Blog Oven v2.0 (Go)"
 	@echo ""
 	@echo "Usage: make [target]"
 	@echo ""
@@ -32,6 +32,7 @@ help:
 
 build-bin:
 	go build -o $(BIN) ./cmd/blog-ssg
+	@ln -sf $(BIN) blog-ssg
 
 build: build-bin
 	./$(BIN) build $(COMMON_FLAGS) -clean -search=true
@@ -72,4 +73,4 @@ test:
 	go test -v ./pkg/...
 
 clean:
-	rm -rf $(BUILD_DIR) $(BIN)
+	rm -rf $(BUILD_DIR) $(BIN) blog-ssg

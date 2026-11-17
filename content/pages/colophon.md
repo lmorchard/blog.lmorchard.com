@@ -10,9 +10,9 @@ title: "Colophon"
 
 ## The Generator
 
-This blog is powered by a custom static site generator (`blog-ssg`) written in Go. 
+This blog is powered by **Easy-Blog Oven v2.0**, a custom static site generator written in Go. 
 
-For years, it ran on a Node.js pipeline I called my [Easy-Blog Oven](/2020/05/24/easy-blog-oven/). In November 2026, I retired the Node implementation and rebuilt it from scratch in Go. The goal was simple: eliminate the perennial churn of `node_modules`, shed dozens of transitive build dependencies, and build the entire 24-year archive—over 1,400 posts spanning 2002 to the present—in just 2 to 3 seconds.
+For years, it ran on a Node.js pipeline I called my [Easy-Blog Oven](/2020/05/24/easy-blog-oven/) (now Easy-Blog Oven v1). In November 2026, I retired the Node implementation and rebuilt it from scratch in Go as v2.0. The goal was simple: eliminate the perennial churn of `node_modules`, shed dozens of transitive build dependencies, and build the entire 24-year archive—over 1,400 posts spanning 2002 to the present—in just 2 to 3 seconds.
 
 Like its predecessor, it's not an off-the-shelf framework. It is a single, zero-dependency compiled binary that converts Markdown files with YAML frontmatter (a format [inspired by Jekyll](https://jekyllrb.com/docs/posts/)) into HTML pages, chronological drilldowns, redesigned tag capsule archives, full-text and excerpt RSS feeds, XML sitemaps, and schema.org JSON-LD structured data graphs.
 

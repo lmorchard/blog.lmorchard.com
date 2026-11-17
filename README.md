@@ -1,6 +1,6 @@
 # blog.lmorchard.com
 
-Source code, content, templates, and static assets for [blog.lmorchard.com](https://blog.lmorchard.com) — powered by a standalone, pure-Go static site generator (`blog-ssg`).
+Source code, content, templates, and static assets for [blog.lmorchard.com](https://blog.lmorchard.com) — powered by **Easy-Blog Oven v2.0**, a standalone, pure-Go static site generator (`easy-blog-oven`).
 
 ---
 
@@ -46,14 +46,14 @@ The dev server runs on **http://localhost:9980** with live reload. Saving change
 
 ## Architecture & Features
 
-- **Engine:** Pure Go binary (`blog-ssg`) compiled with zero runtime dependencies. Eliminates `node_modules` churn and build dependencies.
+- **Engine:** Pure Go binary (`easy-blog-oven`, aliased as `blog-ssg`) compiled with zero runtime dependencies. Eliminates `node_modules` churn and build dependencies.
 - **Markdown & HTML:** CommonMark parsed via `goldmark` with GitHub Flavored Markdown (GFM) extensions, DOM manipulation via `goquery`.
 - **Templates:** Go standard library `html/template` with defaults embedded via `//go:embed` and disk overrides in `./templates/`.
-- **Dev Server & Live Reload:** Integrated HTTP server (`blog-ssg serve -w`) featuring an SSE hub on `/__reload` and middleware that injects the reload listener into HTML responses in-memory, keeping disk builds clean.
+- **Dev Server & Live Reload:** Integrated HTTP server (`easy-blog-oven serve -w`) featuring an SSE hub on `/__reload` and middleware that injects the reload listener into HTML responses in-memory, keeping disk builds clean.
 - **Search:** Client-side [Pagefind](https://pagefind.app/) search indexing integrated directly into production builds.
 - **Feeds & Structured Data:** Full-text RSS (`index.rss`), excerpt RSS (`index-excerpts.rss`), per-tag feeds, unified XML sitemap (`sitemap.xml`), and schema.org JSON-LD structured data graph (`WebSite`, `Person`, `BlogPosting`).
-- **Retro Dithering:** Pure-Go Floyd-Steinberg dithering and image optimization built into the CLI (`blog-ssg dither`).
-- **Draft Management:** CLI helper to detect and purge placeholder draft posts (`blog-ssg clean-empty-drafts`).
+- **Retro Dithering:** Pure-Go Floyd-Steinberg dithering and image optimization built into the CLI (`easy-blog-oven dither`).
+- **Draft Management:** CLI helper to detect and purge placeholder draft posts (`easy-blog-oven clean-empty-drafts`).
 
 ---
 
