@@ -107,7 +107,14 @@ directly using relative paths (e.g. `./hero-dithered.png`).
 - **`**TL;DR**:`**: Summary paragraph placed before the fold.
 - **`<!--more-->` Fold**: Required delimiter separating the excerpt from the full article body.
 - **Image Co-location**: Co-locate hero images, diagrams, and attachments inside the post directory bundle.
-- **Retro Dithering**: Apply Floyd-Steinberg dithering to photos using `./blog-ssg dither -input <path> -output <path>`.
+- **Retro Dithering**: Apply Floyd-Steinberg dithering to photos using `./easy-blog-oven dither -input <path> -output <path>`.
+- **Archive Research & Cross-Linking**: When drafting, revising, or researching prior posts, run:
+  ```bash
+  make search-test QUERY="keywords"
+  # or directly:
+  ./easy-blog-oven search-test "keywords"
+  ```
+  This queries the Pagefind search index directly from the CLI and returns titles, clean URLs, and snippets from 24 years of archives to cite and cross-link.
 
 ---
 

@@ -31,7 +31,7 @@ Help Les turn his own notes, experiences, and opinions into blog posts that soun
 ## Drafting and editing checks
 
 - Keep the specific nouns and the author's actual stakes. Replace abstract summary with the revealing example when possible.
-- Preserve links to influences, prior posts, projects, and primary material when available. Verify facts and links for a publishable draft; flag anything that still needs checking.
+- Preserve links to influences, prior posts, projects, and primary material when available. Use the blog's built-in archive search (e.g. `make search-test QUERY="keywords"`) to discover relevant past entries, dates, and exact URLs across the 24-year archive. Verify facts and links for a publishable draft; flag anything that still needs checking.
 - Use headings to mark genuine turns in a longer piece. A TL;DR, `<!--more-->`, table of contents, images, captions, and code blocks are common in published posts, but follow the format of the target post and the user's request rather than adding every element by habit.
 - On revision, first protect the point of view and factual detail. Then cut repetition, generic connective prose, overexplained jokes, and endings that merely repeat the introduction. Keep an eccentric turn of phrase when it earns its place.
 - When providing a draft, distinguish text ready for Les to edit from editorial notes, questions, or placeholders. Never silently publish or represent an unreviewed draft as his final view.

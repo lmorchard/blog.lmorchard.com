@@ -19,13 +19,13 @@ tags:
 
 ## The Six-Year Itch
 
-Back in [May 2020](/2020/05/24/easy-blog-oven/), I cobbled together a custom static site generator in Node.js and called it my [Easy-Blog Oven](/2020/05/25/diy-easy-blog-oven/). It wasn't an off-the-shelf framework like Hugo or 11ty; it was just a few hundred lines of JavaScript gluing together `marked`, `cheerio`, and ES6 template literals. 
+I have a bit of a history with custom blogging setups. I started this blog back in [May 2002 on Blosxom](/2002/05/07/oooado/), migrated to [Jekyll in June 2011](/2011/06/08/moved-to-jekyll/), and then in [May 2020](/2020/05/24/easy-blog-oven/) cobbled together my own Node.js static site generator called the [Easy-Blog Oven](/2020/05/25/diy-easy-blog-oven/). It wasn't an off-the-shelf framework; it was just a few hundred lines of JavaScript gluing together `marked`, `cheerio`, and ES6 template literals. 
 
 It worked. It carried my blog for six years, through hundreds of posts, redesigns, and format experiments. But over time, the friction accumulated. 
 
 Every time I wanted to tweak a template or run a build on a new machine, I was greeted by the familiar modern JavaScript tax: dozens of transitive packages in `node_modules`, deprecation warnings, and an endless barrage of Dependabot security alerts (88 vulnerabilities at last count!). Furthermore, churning through twenty-four years of archive—over 1,400 posts dating back to February 2002—took around 7 to 8 seconds. That's not terrible, but it's just slow enough that local watch mode felt slightly sluggish.
 
-I've been threatenening to rewrite it for years. Back in [October 2025](/2025/10/25/links-oct-25-2025/), while hacking on Go utilities like [feedspool-go](https://github.com/lmorchard/feedspool-go), I dropped an ominous note:
+I've been brooding over rewriting it for a while. Back in [October 2022](/2022/10/28/twitter/), I joked about whether I felt like rewriting my build system yet again. Then in [October 2025](/2025/10/25/links-oct-25-2025/), while hacking on Go utilities like [feedspool-go](https://github.com/lmorchard/feedspool-go), I dropped an ominous note:
 
 > *I'm also really appreciating the built-in stuff like text/template, to the point that I'm now even eyeing up my Easy-Blog Oven and considering rewriting my blog's static site generator, currently implemented in node.js. (uh oh)*
 
@@ -73,14 +73,15 @@ Slapping `data-pagefind-ignore` onto the masthead title and explicitly tagging p
 
 The most interesting part of this project wasn't just the code—it was *how* it got built.
 
-I built the entire v2.0 system from scratch in a single afternoon pairing with **DecafClaw**, my personal AI agent project. DecafClaw isn't a chatbot sitting in a browser tab where you copy-paste snippets back and forth. It's an agent wired directly into my local workspace and shell, with tools to read, edit, test, benchmark, and deploy.
+I built the entire v2.0 system from scratch in a single afternoon pairing with **DecafClaw**, my personal AI agent project. Over the last year and a half—from [baby steps into semi-automatic coding](/2025/06/07/semi-automatic-coding/) in mid-2025 to [thinking about caretakers versus operators](/2026/10/19/the-only-conscious-observer/) this fall—my daily coding ergonomics have shifted toward working with an agent as a full teammate.
+
+DecafClaw isn't a chatbot sitting in a browser tab where you copy-paste snippets back and forth. It's an agent wired directly into my local workspace and shell, with tools to read, edit, test, benchmark, and deploy.
 
 What made this session feel like genuine flow was the division of labor:
 
 - **High-level steering & instincts:** I made the architecture calls—Go over Rust, standard library `html/template` over custom template engines, keeping the eject pattern, choosing to retire old archive pages in favor of Pagefind search, and branding it as Easy-Blog Oven v2.0.
 - **Plumbing & muscle work:** DecafClaw handled the tedious legwork. It parsed legacy edge cases across 24 years of posts (Disqus comment dumps, multipart cut-line delimiters, Obsidian image embeds), set up concurrent worker pools, scaffolded unit tests, verified build parity against the old generator, updated GitHub Actions workflows, and cleaned up phantom draft files.
-
-When I noticed the search results looked weird, I didn't have to spend an hour diving through Pagefind's minified source; I shared a screenshot, we inspected the DOM, diagnosed the runaway `<h1>` heuristic, patched the templates, rebuilt, and saw the fix live in seconds.
+- **Immediate tooling:** When we found ourselves writing one-off Node scripts to verify Pagefind search results or checking frontmatter with Python, DecafClaw baked those directly into the CLI as first-class subcommands (`easy-blog-oven search-test`, `doctor`, and `info`).
 
 Having a tireless teammate who understands the repo context, doesn't mind writing boilerplate, and can verify its own edits with test runs makes software tinkering feel fun again. You stay in the creative problem-solving zone instead of drowning in setup ceremony.
 
@@ -88,6 +89,6 @@ Having a tireless teammate who understands the repo context, doesn't mind writin
 
 With Easy-Blog Oven v2.0 running live in production (deployed to S3 and CloudFront via GitHub Actions), the publishing core is faster and simpler than it has been in a decade.
 
-Next on the docket: I've turned off the crusty cron job that used to sync draft notes from my Obsidian vault into the blog repo. We need to rethink that publishing pipeline—probably moving toward explicit, agent-mediated staging or opt-in tags so half-baked thoughts don't accidentally leak into git history.
+Next on the docket: I've finally disabled the crusty cron job that used to automatically sync draft notes from my Obsidian vault into the blog repo. That was part of [the Rube Goldberg blogging machine](/2025/06/02/obsidian-rube-goldberg/) I rigged up [back in May 2025](/2025/05/09/new-blog-a-lot-like-the-old/). It worked well enough at the time, but it had an annoying habit of committing placeholder draft notes into git history if I wasn't careful. We'll rethink that pipeline with an intentional, agent-mediated import command so half-baked thoughts stay in the notebook until they're ready for the oven.
 
 Until then, the oven is preheated, the build is fast, and it feels good to have a simple, dependable tool back at the heart of the site.
