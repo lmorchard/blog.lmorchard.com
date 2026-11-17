@@ -17,13 +17,23 @@ tags:
 
 <nav role="navigation" class="table-of-contents"></nav>
 
-## The Six-Year Itch
+## The Six-Year Itch (and the Twenty-Four-Year Continuum)
 
-I have a bit of a history with custom blogging setups. I started this blog back in [May 2002 on Blosxom](/2002/05/07/oooado/), migrated to [Jekyll in June 2011](/2011/06/08/moved-to-jekyll/), and then in [May 2020](/2020/05/24/easy-blog-oven/) cobbled together my own Node.js static site generator called the [Easy-Blog Oven](/2020/05/25/diy-easy-blog-oven/). It wasn't an off-the-shelf framework; it was just a few hundred lines of JavaScript gluing together `marked`, `cheerio`, and ES6 template literals. 
+I have a bit of a history with custom blogging setups. 
+
+I didn't actually start this blog on a static generator. I launched `0xDECAFBAD` in [February 2002 on Movable Type](/2002/02/14/ooooac/). If you poke around my earliest archive entries today, you'll still see strange, cryptic slugs like [`ooooac`](/2002/02/14/ooooac/), [`ooooba`](/2002/02/18/ooooba/), and [`oooado`](/2002/05/07/oooado/). Those are digital scars: when I got tired of MT moving like a battleship and [rebooted onto Blosxom in 2003](/2005/09/27/colophon/), I wrote a hack to encode Movable Type's numeric database entry IDs into fixed-width base-26 slugs so I wouldn't break my permalinks. 
+
+From Blosxom, the posts eventually traveled into WordPress in 2005. But running a full dynamic database-backed CMS for personal writing never sat right with me. So in [June 2011, I moved to Jekyll](/2011/06/08/moved-to-jekyll/). At the time, I wrote something that turned out to be oddly prescient:
+
+> *My writing here is now all stored in individual text files, formatted with Markdown, annotated with YAML metadata, and subject to revision control under git. This combination feels like it has a lot of longevity and potential for survival even beyond this current experiment with Jekyll.*
+
+Fifteen years later, that bet on plain Markdown files in git is still paying off. 
+
+In [May 2020](/2020/05/24/easy-blog-oven/), after outgrowing Jekyll, I cobbled together my own Node.js static site generator called the [Easy-Blog Oven](/2020/05/25/diy-easy-blog-oven/). It wasn't an off-the-shelf framework; it was just a few hundred lines of JavaScript gluing together `marked`, `cheerio`, and ES6 template literals. 
 
 It worked. It carried my blog for six years, through hundreds of posts, redesigns, and format experiments. But over time, the friction accumulated. 
 
-Every time I wanted to tweak a template or run a build on a new machine, I was greeted by the familiar modern JavaScript tax: dozens of transitive packages in `node_modules`, deprecation warnings, and an endless barrage of Dependabot security alerts (88 vulnerabilities at last count!). Furthermore, churning through twenty-four years of archive—over 1,400 posts dating back to February 2002—took around 7 to 8 seconds. That's not terrible, but it's just slow enough that local watch mode felt slightly sluggish.
+Every time I wanted to tweak a template or run a build on a new machine, I was greeted by the familiar modern JavaScript tax: dozens of transitive packages in `node_modules`, deprecation warnings, and an endless barrage of Dependabot security alerts (88 vulnerabilities at last count!). Furthermore, churning through twenty-four years of archive—over 1,400 posts dating back to that first February 2002 Movable Type post—took around 7 to 8 seconds. That's not terrible, but it's just slow enough that local watch mode felt slightly sluggish.
 
 I've been brooding over rewriting it for a while. Back in [October 2022](/2022/10/28/twitter/), I joked about whether I felt like rewriting my build system yet again. Then in [October 2025](/2025/10/25/links-oct-25-2025/), while hacking on Go utilities like [feedspool-go](https://github.com/lmorchard/feedspool-go), I dropped an ominous note:
 
