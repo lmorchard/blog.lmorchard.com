@@ -60,6 +60,12 @@ But running a full dynamic database-backed CMS for personal writing never sat ri
 
 Fifteen years later, that bet on plain Markdown files in git is still paying off. 
 
+Around this time, another identity shift happened. In [June 2012, I posted a farewell to decafbad.com titled "303 See Other"](/2012/06/15/303-see-other/) and moved my active blogging over to `blog.lmorchard.com`:
+
+> *`0xDECAFBAD` is not my name. It's a pun I thought was neat, about 12 years ago. I'm not giving up the domain, but I think maybe I should start doing more things with a domain that's closer to what I call myself online and off... it turns out that there's more than one person in the `decafbad` namespace, so I thought I might start drifting closer to the one my Mom gave me. I've grown to like it, despite some misgivings earlier in life.*
+
+I'm still not entirely sure whether giving up the cool hacker handle domain for my actual name was the "right" move, but here we are fourteen years later. Eventually, I reunited the old `decafbad.com` archives with the newer `blog.lmorchard.com` posts so all twenty-four years could live together in one continuous timeline (with redirects preserving the old permalinks, naturally).
+
 In [May 2020](/2020/05/24/easy-blog-oven/), after outgrowing Jekyll, I cobbled together my own Node.js static site generator called the [Easy-Blog Oven](/2020/05/25/diy-easy-blog-oven/). It wasn't an off-the-shelf framework; it was just a few hundred lines of JavaScript gluing together `marked`, `cheerio`, and ES6 template literals. 
 
 It worked. It carried my blog for six years, through hundreds of posts, redesigns, and format experiments. But over time, the friction accumulated. 
