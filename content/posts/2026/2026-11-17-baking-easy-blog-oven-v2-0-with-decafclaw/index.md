@@ -28,7 +28,7 @@ I didn't start this blog on a static generator. I launched `0xDECAFBAD` in [Febr
   <figcaption>0xDECAFBAD in May 2002, running on Movable Type (via the Wayback Machine).</figcaption>
 </figure>
 
-From the start, I wanted more than just a blog. I had this dream of a unified "WikiLog"—pairing the ephemeral chronological stream with an evergreen garden of ideas. In 2002, that meant running Movable Type side-by-side with TWiki, complete with [over-engineered plugins](/2002/08/19/ooobdd/) that filtered blog posts through XML-RPC to auto-link `WikiWords` to live wiki pages. It was ambitious, but running an open wiki server on the wild web eventually collapsed under spambots and maintenance friction. (The punchline, of course, is that twenty years later, that personal wiki dream won out completely—I now do all my thinking in an Obsidian vault of Markdown files. I just decoupled it: the wiki stays local and quiet, and the blog oven bakes the public stream.)
+I also briefly tried pairing the blog with TWiki into an over-engineered "WikiLog" (even [writing custom XML-RPC plugins](/2002/08/19/ooobdd/) to auto-link `WikiWords` in posts), but running an open wiki on the early web quickly succumbed to spambots and maintenance friction.
 
 If you poke around my earliest archive entries today, you'll still see cryptic slugs like [`ooooac`](/2002/02/14/ooooac/), [`ooooba`](/2002/02/18/ooooba/), and [`oooado`](/2002/05/07/oooado/). Those are digital scars: when I got tired of MT moving like a battleship, I rebooted onto Blosxom in March 2003 and declared "[Welcome to 0xDECAFBAD v2.0](/2003/03/01/oooooa/)".
 
