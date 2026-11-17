@@ -35,6 +35,7 @@ var (
 	reNonAlnum = regexp.MustCompile(`[^a-z0-9\s]`)
 	reSpaces   = regexp.MustCompile(`\s+`)
 	reTabs     = regexp.MustCompile(`(?m)^(\t+)`)
+	reMultipart = regexp.MustCompile(`(?m)^8<---`)
 )
 
 var mdRenderer = goldmark.New(
@@ -60,7 +61,7 @@ func ParsePostFile(filePath string, baseurl string) ([]*Post, error) {
 	}
 	contentStr := string(data)
 
-	if strings.Contains(contentStr, PostMultipartSeparator) {
+	if reMultipart.MatchString(contentStr) {
 		return parseMultipartFile(contentStr, filePath, baseurl)
 	}
 
@@ -80,7 +81,7 @@ type multipartPart struct {
 }
 
 func parseMultipartFile(data string, filePath string, baseurl string) ([]*Post, error) {
-	rawParts := strings.Split(data, PostMultipartSeparator)
+	rawParts := reMultipart.Split(data, -1)
 	var posts []*Post
 
 	for _, part := range rawParts {

@@ -40,6 +40,15 @@ make build
 # Run unit tests across all Go packages
 make test
 
+# Inspect metadata, slug, and word count for a post or bundle
+make info POST="content/posts/2026/2026-11-17-my-title"
+
+# Diagnose post frontmatter, broken assets, and draft hygiene
+make doctor
+
+# Query Pagefind search index directly from the CLI
+make search-test QUERY="tempest"
+
 # Search for empty placeholder drafts (dry-run)
 make clean-empty-drafts
 

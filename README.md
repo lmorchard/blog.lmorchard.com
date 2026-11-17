@@ -36,7 +36,10 @@ The dev server runs on **http://localhost:9980** with live reload. Saving change
 | `make build-dev` | Fast development build (includes drafts, skips search indexer) |
 | `make serve` | Preview built static files without file watching |
 | `make new TITLE="..."` | Scaffold a new post bundle with frontmatter, slug, and timestamp |
+| `make info POST="..."` | Display parsed metadata and word count for a post or bundle |
+| `make doctor` | Run diagnostics on post metadata, missing assets, and draft hygiene |
 | `make search` | Run Pagefind search indexing on existing build |
+| `make search-test QUERY="..."` | Query Pagefind search index directly from CLI |
 | `make test` | Run all Go unit tests across `pkg/...` |
 | `make clean-empty-drafts` | Scan for empty placeholder draft posts (dry-run) |
 | `make clean-empty-drafts-force` | Permanently delete empty placeholder draft posts |

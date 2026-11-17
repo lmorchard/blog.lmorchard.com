@@ -82,6 +82,31 @@ This is the second part of the day.
 	}
 }
 
+func TestMultipartOnlyAtLineStart(t *testing.T) {
+	tmpDir := t.TempDir()
+	postFile := filepath.Join(tmpDir, "2024-06-02.md")
+	content := `---
+title: "Mentioning Cutlines"
+---
+In this article I mention the cutline 8<--- right in the middle of a sentence.
+It should not be split into multiple posts!
+`
+	if err := os.WriteFile(postFile, []byte(content), 0644); err != nil {
+		t.Fatalf("failed to write test file: %v", err)
+	}
+
+	posts, err := ParsePostFile(postFile, "https://example.com")
+	if err != nil {
+		t.Fatalf("ParsePostFile failed: %v", err)
+	}
+	if len(posts) != 1 {
+		t.Fatalf("expected 1 post, got %d", len(posts))
+	}
+	if posts[0].Title != "Mentioning Cutlines" {
+		t.Errorf("expected title 'Mentioning Cutlines', got %q", posts[0].Title)
+	}
+}
+
 func TestPostLinking(t *testing.T) {
 	p1 := &Post{Title: "Oldest", Date: time.Date(2024, 1, 1, 12, 0, 0, 0, time.UTC), Path: "2024/01/01/oldest"}
 	p2 := &Post{Title: "Middle", Date: time.Date(2024, 1, 2, 12, 0, 0, 0, time.UTC), Path: "2024/01/02/middle"}

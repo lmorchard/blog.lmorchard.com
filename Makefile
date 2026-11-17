@@ -9,7 +9,7 @@ BUILD_DIR ?= ./build
 
 COMMON_FLAGS := -posts $(POSTS_DIR) -pages $(PAGES_DIR) -public $(PUBLIC_DIR) -uploads $(UPLOADS_DIR) -build $(BUILD_DIR)
 
-.PHONY: all build-bin build build-dev dev start serve search new clean-empty-drafts clean-empty-drafts-force test clean help
+.PHONY: all build-bin build build-dev dev start serve search search-test info doctor new clean-empty-drafts clean-empty-drafts-force test clean help
 
 all: build
 
@@ -25,6 +25,9 @@ help:
 	@echo "  make serve                     Static preview server without watcher"
 	@echo "  make new TITLE=\"Post Title\"    Scaffold a new post bundle"
 	@echo "  make search                    Run Pagefind search indexer on build directory"
+	@echo "  make search-test QUERY=\"term\"  Query Pagefind search index directly from CLI"
+	@echo "  make info POST=\"path\"          Display metadata and word count for a post"
+	@echo "  make doctor                    Diagnose metadata, broken assets, and draft hygiene"
 	@echo "  make test                      Run all Go unit tests"
 	@echo "  make clean-empty-drafts        Find empty placeholder drafts (dry-run)"
 	@echo "  make clean-empty-drafts-force  Permanently remove empty placeholder drafts"
@@ -62,6 +65,23 @@ new: build-bin
 		exit 1; \
 	fi
 	./$(BIN) new -posts $(POSTS_DIR) $(if $(TAGS),-tags "$(TAGS)") "$(TITLE)"
+
+search-test: build-bin
+	@if [ -z "$(QUERY)" ]; then \
+		echo "Usage: make search-test QUERY=\"search term\""; \
+		exit 1; \
+	fi
+	./$(BIN) search-test -build $(BUILD_DIR) "$(QUERY)"
+
+info: build-bin
+	@if [ -z "$(POST)" ]; then \
+		echo "Usage: make info POST=\"path/to/post/or/bundle\""; \
+		exit 1; \
+	fi
+	./$(BIN) info "$(POST)"
+
+doctor lint: build-bin
+	./$(BIN) doctor -posts $(POSTS_DIR)
 
 clean-empty-drafts: build-bin
 	./$(BIN) clean-empty-drafts -posts $(POSTS_DIR)

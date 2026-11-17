@@ -13,6 +13,7 @@ import (
 	"blog-ssg/pkg/build"
 	"blog-ssg/pkg/imageutil"
 	"blog-ssg/pkg/post"
+	"blog-ssg/pkg/search"
 	"blog-ssg/pkg/template"
 	"blog-ssg/pkg/watch"
 )
@@ -42,6 +43,12 @@ func main() {
 		runOptimizeImages(os.Args[2:])
 	case "clean-empty-drafts":
 		runCleanEmptyDrafts(os.Args[2:])
+	case "info":
+		runInfo(os.Args[2:])
+	case "doctor", "lint":
+		runDoctor(os.Args[2:])
+	case "search-test":
+		runSearchTest(os.Args[2:])
 	case "help", "-h", "--help":
 		printUsage()
 	default:
@@ -57,6 +64,9 @@ func printUsage() {
 	fmt.Println("\nCommands:")
 	fmt.Println("  build               Build posts, pages, indexes, feeds, and assets")
 	fmt.Println("  new                 Scaffold a new blog post with frontmatter and timestamp")
+	fmt.Println("  info                Display detailed metadata and word count for a post file or bundle")
+	fmt.Println("  doctor              Diagnose post frontmatter, missing assets, and draft hygiene")
+	fmt.Println("  search-test         Query the Pagefind search index directly from the CLI")
 	fmt.Println("  watch               Watch directories and rebuild automatically on change")
 	fmt.Println("  serve               Start a local static web server to preview the build (supports -w)")
 	fmt.Println("  eject               Extract embedded default templates to disk for customization")
@@ -523,5 +533,90 @@ func defaultSiteConfig(baseURL, absBaseURL string) template.SiteConfig {
 				"https://www.youtube.com/@LesOrchard",
 			},
 		},
+	}
+}
+
+func runInfo(args []string) {
+	if len(args) < 1 {
+		fmt.Println("Usage: easy-blog-oven info <path-to-post-or-bundle>")
+		os.Exit(1)
+	}
+	targetPath := args[0]
+	infos, err := post.InspectPost(targetPath, "https://blog.lmorchard.com")
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error inspecting post: %v\n", err)
+		os.Exit(1)
+	}
+	for _, info := range infos {
+		fmt.Println(post.FormatPostInfo(info))
+	}
+}
+
+func runDoctor(args []string) {
+	fs := flag.NewFlagSet("doctor", flag.ExitOnError)
+	postsDir := fs.String("posts", "content/posts", "Path to posts directory")
+	fs.Parse(args)
+
+	fmt.Printf("Diagnosing posts in %s...\n", *postsDir)
+	report, err := post.RunDoctor(*postsDir, "https://blog.lmorchard.com")
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Doctor failed: %v\n", err)
+		os.Exit(1)
+	}
+
+	fmt.Printf("Scanned %d file(s) (%d post(s), %d draft(s))\n", report.TotalFiles, report.TotalPosts, report.TotalDrafts)
+	if len(report.Issues) == 0 {
+		fmt.Println("✓ No issues found. Site content is healthy!")
+		return
+	}
+
+	fmt.Printf("\nFound %d issue(s):\n", len(report.Issues))
+	for _, issue := range report.Issues {
+		var icon string
+		switch issue.Severity {
+		case post.SeverityError:
+			icon = "❌ ERROR"
+		case post.SeverityWarn:
+			icon = "⚠️  WARN "
+		case post.SeverityInfo:
+			icon = "ℹ️  INFO "
+		}
+		fmt.Printf("  %s [%s]: %s\n", icon, issue.FilePath, issue.Message)
+	}
+}
+
+func runSearchTest(args []string) {
+	fs := flag.NewFlagSet("search-test", flag.ExitOnError)
+	buildDir := fs.String("build", "build", "Path to build output directory")
+	maxResults := fs.Int("max", 10, "Maximum number of results to display")
+	fs.Parse(args)
+
+	queryArgs := fs.Args()
+	if len(queryArgs) == 0 {
+		fmt.Println("Usage: easy-blog-oven search-test [options] <query>")
+		os.Exit(1)
+	}
+	query := strings.Join(queryArgs, " ")
+
+	fmt.Printf("Searching Pagefind index in %s for %q...\n\n", *buildDir, query)
+	results, err := search.QueryIndex(*buildDir, query, *maxResults)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Search failed: %v\n", err)
+		os.Exit(1)
+	}
+
+	if len(results) == 0 {
+		fmt.Printf("No results found for %q.\n", query)
+		return
+	}
+
+	fmt.Printf("Found %d result(s):\n\n", len(results))
+	for _, r := range results {
+		fmt.Printf("  %d. %s\n", r.Index, r.Title)
+		fmt.Printf("     URL:  %s\n", r.URL)
+		if r.Excerpt != "" {
+			fmt.Printf("     Text: \"%s\"\n", r.Excerpt)
+		}
+		fmt.Println()
 	}
 }
