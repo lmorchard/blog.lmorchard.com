@@ -28,6 +28,26 @@ I didn't start this blog on a static generator. I launched `0xDECAFBAD` in [Febr
   <figcaption>0xDECAFBAD in May 2002, running on Movable Type (via the Wayback Machine).</figcaption>
 </figure>
 
+From the very beginning, I wasn't just interested in a blog. I wanted to pair the ephemeral chronological stream with an evergreen, evolving garden: I launched Movable Type side-by-side with [TWiki](https://twiki.org/). 
+
+I had this grand vision of a unified "WikiLog." The idea was that daily brain dumps would flow through the blog, but any persistent concept or project would live as a living wiki page. Manually linking them was tedious, though. In [August 2002](/2002/08/15/ooobce/), after reading Mark Pilgrim musing about regular expressions, I wrote:
+
+> *I need to hack together some MT macros or a plugin that finds & links wiki-words in blog entries to my wiki, and I need to start writing in the wiki again.*
+
+Mark actually showed up in my comments to egg me on:
+
+> *Better! Make Movable Type understand wiki-style syntax. Like complete wiki style. Structured text. \* for lists. === for headers. [] for links. Auto-paragraphs that actually work... I wish I knew Perl.*
+
+A few days later, I went full mad scientist and published [Movable Type plugin for Wiki Formatting and XML-RPC Filtering Pipelines](/2002/08/19/ooobdd/). It featured two plugins: `MTWikiFormatPlugin` (using CPAN's `Text::WikiFormat`), and an over-engineered marvel called `MTXmlRpcFilterPlugin`. The filter plugin actually transmitted the raw blog post over an XML-RPC connection to my TWiki server, which cross-referenced the text against its database of existing topics, resolved `WikiWords` and `[[DoubleBracket]]` links against real pages, and returned the wikified HTML back to Movable Type to be baked into static files!
+
+Over the next few years, I bounced through a parade of wiki engines—eyeing MoinMoin, eventually [migrating to Brian Ingerson's Kwiki](/2004/09/18/moving-toward-kwiki-away-from-twiki/) in 2004, and even writing a [Kwiki Markdown plugin](/2004/09/18/markdown-formatting-for-kwiki/). 
+
+Eventually, the public wiki dream ran out of steam. In [early 2005](/2005/01/07/belated-happy-new-year/), as the site turned three, I had an honest realization:
+
+> *Although I love the idea of wiki, my use of wiki here is more or less as a glorified low-friction micro-CMS for my ideas. I do welcome comments and contributions, but I don't particularly care for or go out of my way to encourage full-on wiki collaboration here. So, I've been wondering if maybe what I really want is not a wiki, but a web of published Tinderbox notes...*
+
+Between automated spambots ravaging open wikis, my own notes moving into desktop tools like Eastgate Tinderbox, and WordPress gaining static pages and tagging, maintaining a separate Perl CGI wiki on the server no longer made sense. (The funny punchline, of course, is that twenty years later, that personal wiki model completely won out—I now do all my thinking in Obsidian and DecafClaw's Markdown vault. We just decoupled it: the wiki stays local and quiet, and the blog oven bakes the public stream.)
+
 If you poke around my earliest archive entries today, you'll still see cryptic slugs like [`ooooac`](/2002/02/14/ooooac/), [`ooooba`](/2002/02/18/ooooba/), and [`oooado`](/2002/05/07/oooado/). Those are digital scars: when I got tired of MT moving like a battleship, I rebooted onto Blosxom in March 2003 and declared "[Welcome to 0xDECAFBAD v2.0](/2003/03/01/oooooa/)".
 
 <figure>
@@ -66,7 +86,24 @@ Around this time, another identity shift happened. In [June 2012, I posted a far
 
 I'm still not entirely sure whether giving up the cool hacker handle domain for my actual name was the "right" move, but here we are fourteen years later. Eventually, I reunited the old `decafbad.com` archives with the newer `blog.lmorchard.com` posts so all twenty-four years could live together in one continuous timeline (with redirects preserving the old permalinks, naturally).
 
-In [May 2020](/2020/05/24/easy-blog-oven/), after outgrowing Jekyll, I cobbled together my own Node.js static site generator called the [Easy-Blog Oven](/2020/05/25/diy-easy-blog-oven/). It wasn't an off-the-shelf framework; it was just a few hundred lines of JavaScript gluing together `marked`, `cheerio`, and ES6 template literals. 
+<figure>
+  <img src="./2012-blog-lmorchard-wp.png" alt="blog.lmorchard.com in October 2012 on WordPress">
+  <figcaption>blog.lmorchard.com in October 2012, running WordPress with the tagline "write like no one's reading."</figcaption>
+</figure>
+
+Over the following decade, the visual presentation shifted across several redesigns:
+
+<figure>
+  <img src="./2016-blog-lmorchard-static.png" alt="blog.lmorchard.com in July 2016">
+  <figcaption>blog.lmorchard.com in July 2016, during the Gulp-powered static site era.</figcaption>
+</figure>
+
+In [May 2020](/2020/05/24/easy-blog-oven/), after outgrowing Jekyll and Gulp, I cobbled together my own Node.js static site generator called the [Easy-Blog Oven](/2020/05/25/diy-easy-blog-oven/). It wasn't an off-the-shelf framework; it was just a few hundred lines of JavaScript gluing together `marked`, `cheerio`, and ES6 template literals. 
+
+<figure>
+  <img src="./2020-blog-lmorchard-oven-v1.png" alt="blog.lmorchard.com in June 2020 with Easy-Blog Oven v1">
+  <figcaption>blog.lmorchard.com in June 2020, debuting Easy-Blog Oven v1 and the canvas maze background.</figcaption>
+</figure> 
 
 It worked. It carried my blog for six years, through hundreds of posts, redesigns, and format experiments. But over time, the friction accumulated. 
 
