@@ -19,17 +19,44 @@ tags:
 
 ## The Six-Year Itch (and the Twenty-Four-Year Continuum)
 
-I have a bit of a history with custom blogging setups. A lot of webdevs do—but I'm a rather old webdev, so I might have more history than most.
+I have a bit of a history with custom blogging setups. Webdevs generally do, it's a hazard of the profession. But, I'm a rather old webdev, so I might have more history than most.
 
 I didn't start this blog on a static generator. I launched `0xDECAFBAD` in [February 2002 on Movable Type](/2002/02/14/ooooac/). Just 3 months shy of 25 years ago, which makes me a bit dizzy to think about. That's literally half my life ago.
 
-If you poke around my earliest archive entries today, you'll still see cryptic slugs like [`ooooac`](/2002/02/14/ooooac/), [`ooooba`](/2002/02/18/ooooba/), and [`oooado`](/2002/05/07/oooado/). Those are digital scars: when I got tired of MT moving like a battleship and rebooted onto Blosxom in March 2003 (declaring [Welcome to 0xDECAFBAD v2.0](/2003/03/01/oooooa/) before [heading through some turbulence](/2003/03/04/some-turbluence/)), I wrote a hack to encode Movable Type's numeric database entry IDs into fixed-width base-26 slugs paired with an Apache redirect config so I wouldn't break my permalinks. [Cool URIs don't change](https://www.w3.org/Provider/Style/URI), and all that.
+<figure>
+  <img src="./2002-movable-type.png" alt="0xDECAFBAD in May 2002 running on Movable Type">
+  <figcaption>0xDECAFBAD in May 2002, running on Movable Type (via the Wayback Machine).</figcaption>
+</figure>
 
-I can't remember why I thought this in particular was a good idea. Maybe I thought the numbers were ugly? Maybe they clashed with Blosxom somehow? 
+If you poke around my earliest archive entries today, you'll still see cryptic slugs like [`ooooac`](/2002/02/14/ooooac/), [`ooooba`](/2002/02/18/ooooba/), and [`oooado`](/2002/05/07/oooado/). Those are digital scars: when I got tired of MT moving like a battleship, I rebooted onto Blosxom in March 2003 and declared "[Welcome to 0xDECAFBAD v2.0](/2003/03/01/oooooa/)".
 
-From Blosxom, the posts eventually traveled into WordPress in 2005 (as I recounted in my [September 2005 Colophon](/2005/09/27/colophon/)). But running a full dynamic database-backed CMS for personal writing never sat right with me. So in [June 2011, I moved to Jekyll](/2011/06/08/moved-to-jekyll/). At the time, I wrote something that turned out to be oddly prescient:
+<figure>
+  <img src="./2003-blosxom.png" alt="0xDECAFBAD in June 2003 running on Blosxom">
+  <figcaption>0xDECAFBAD in June 2003, running on Blosxom with base-26 slugs and Agent Frank.</figcaption>
+</figure>
+
+I wrote a hack to encode Movable Type's numeric database entry IDs into fixed-width base-26 slugs paired with an Apache redirect config so I wouldn't break my permalinks. [Cool URIs don't change](https://www.w3.org/Provider/Style/URI), and all that. I can't remember why I thought this in particular was a good idea. Maybe I thought the numbers were ugly? Maybe they clashed with Blosxom somehow? 
+
+<figure>
+  <img src="./2004-accessible.png" alt="0xDECAFBAD in June 2004 with accessibility redesign">
+  <figcaption>0xDECAFBAD in June 2004, featuring the Dive Into Accessibility inspired layout.</figcaption>
+</figure>
+
+Anyway, from Blosxom, the posts eventually traveled into WordPress in 2005 (as I recounted in my [September 2005 Colophon](/2005/09/27/colophon/)). 
+
+<figure>
+  <img src="./2005-wordpress.png" alt="0xDECAFBAD in September 2005 on WordPress">
+  <figcaption>0xDECAFBAD in September 2005, running on WordPress with PHP Markdown and Ultimate Tag Warrior.</figcaption>
+</figure>
+
+But running a full dynamic database-backed CMS for personal writing never sat right with me. So in [June 2011, I moved to Jekyll](/2011/06/08/moved-to-jekyll/). At the time, I wrote something that turned out to be oddly prescient:
 
 > *My writing here is now all stored in individual text files, formatted with Markdown, annotated with YAML metadata, and subject to revision control under git. This combination feels like it has a lot of longevity and potential for survival even beyond this current experiment with Jekyll.*
+
+<figure>
+  <img src="./2011-jekyll.png" alt="0xDECAFBAD in June 2011 on Jekyll">
+  <figcaption>0xDECAFBAD in June 2011, making the jump to Jekyll, GitHub, and a pile of Markdown files.</figcaption>
+</figure>
 
 Fifteen years later, that bet on plain Markdown files in git is still paying off. 
 
