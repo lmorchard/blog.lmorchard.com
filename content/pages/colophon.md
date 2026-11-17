@@ -10,11 +10,15 @@ title: "Colophon"
 
 ## The Generator
 
-This blog is powered by a custom static site generator I built in Node.js — I call it my [Easy-Blog Oven](/2020/05/24/easy-blog-oven/). No off-the-shelf framework — just a bespoke pile of scripts that converts Markdown files with YAML frontmatter (a format [inspired by Jekyll](https://jekyllrb.com/docs/posts/)) into HTML pages, indexes, tag archives, and RSS feeds. It's been through several iterations over the years and I keep tinkering with it.
+This blog is powered by a custom static site generator (`blog-ssg`) written in Go. 
 
-Posts are written in Markdown, usually in Obsidian these days, and the build pipeline handles the rest: rendering content, generating indexes, optimizing images with [sharp](https://sharp.pixelplumbing.com/), and bundling client-side assets with [esbuild](https://esbuild.github.io/).
+For years, it ran on a Node.js pipeline I called my [Easy-Blog Oven](/2020/05/24/easy-blog-oven/). In November 2026, I retired the Node implementation and rebuilt it from scratch in Go. The goal was simple: eliminate the perennial churn of `node_modules`, shed dozens of transitive build dependencies, and build the entire 24-year archive—over 1,400 posts spanning 2002 to the present—in just 2 to 3 seconds.
 
-The source is [on GitHub](https://github.com/lmorchard/blog.lmorchard.com) if you're curious.
+Like its predecessor, it's not an off-the-shelf framework. It is a single, zero-dependency compiled binary that converts Markdown files with YAML frontmatter (a format [inspired by Jekyll](https://jekyllrb.com/docs/posts/)) into HTML pages, chronological drilldowns, redesigned tag capsule archives, full-text and excerpt RSS feeds, XML sitemaps, and schema.org JSON-LD structured data graphs.
+
+The Go engine uses [goldmark](https://github.com/yuin/goldmark) for CommonMark rendering, [goquery](https://github.com/PuerkitoBio/goquery) for post-processing and DOM manipulation, standard library `html/template` (with defaults embedded via `//go:embed` and local override support), pure-Go Floyd-Steinberg retro dithering without cgo, and client-side search indexing powered by [Pagefind](https://pagefind.app/). During local editing, an integrated dev server watches files and pushes instantaneous updates to the browser over Server-Sent Events (SSE).
+
+Posts are written in Markdown, usually in Obsidian these days. The source code is [on GitHub](https://github.com/lmorchard/blog.lmorchard.com) if you're curious.
 
 ## Typography & Design
 
