@@ -28,25 +28,7 @@ I didn't start this blog on a static generator. I launched `0xDECAFBAD` in [Febr
   <figcaption>0xDECAFBAD in May 2002, running on Movable Type (via the Wayback Machine).</figcaption>
 </figure>
 
-From the very beginning, I wasn't just interested in a blog. I wanted to pair the ephemeral chronological stream with an evergreen, evolving garden: I launched Movable Type side-by-side with [TWiki](https://twiki.org/). 
-
-I had this grand vision of a unified "WikiLog." The idea was that daily brain dumps would flow through the blog, but any persistent concept or project would live as a living wiki page. Manually linking them was tedious, though. In [August 2002](/2002/08/15/ooobce/), after reading Mark Pilgrim musing about regular expressions, I wrote:
-
-> *I need to hack together some MT macros or a plugin that finds & links wiki-words in blog entries to my wiki, and I need to start writing in the wiki again.*
-
-Mark actually showed up in my comments to egg me on:
-
-> *Better! Make Movable Type understand wiki-style syntax. Like complete wiki style. Structured text. \* for lists. === for headers. [] for links. Auto-paragraphs that actually work... I wish I knew Perl.*
-
-A few days later, I went full mad scientist and published [Movable Type plugin for Wiki Formatting and XML-RPC Filtering Pipelines](/2002/08/19/ooobdd/). It featured two plugins: `MTWikiFormatPlugin` (using CPAN's `Text::WikiFormat`), and an over-engineered marvel called `MTXmlRpcFilterPlugin`. The filter plugin actually transmitted the raw blog post over an XML-RPC connection to my TWiki server, which cross-referenced the text against its database of existing topics, resolved `WikiWords` and `[[DoubleBracket]]` links against real pages, and returned the wikified HTML back to Movable Type to be baked into static files!
-
-Over the next few years, I bounced through a parade of wiki engines—eyeing MoinMoin, eventually [migrating to Brian Ingerson's Kwiki](/2004/09/18/moving-toward-kwiki-away-from-twiki/) in 2004, and even writing a [Kwiki Markdown plugin](/2004/09/18/markdown-formatting-for-kwiki/). 
-
-Eventually, the public wiki dream ran out of steam. In [early 2005](/2005/01/07/belated-happy-new-year/), as the site turned three, I had an honest realization:
-
-> *Although I love the idea of wiki, my use of wiki here is more or less as a glorified low-friction micro-CMS for my ideas. I do welcome comments and contributions, but I don't particularly care for or go out of my way to encourage full-on wiki collaboration here. So, I've been wondering if maybe what I really want is not a wiki, but a web of published Tinderbox notes...*
-
-Between automated spambots ravaging open wikis, my own notes moving into desktop tools like Eastgate Tinderbox, and WordPress gaining static pages and tagging, maintaining a separate Perl CGI wiki on the server no longer made sense. (The funny punchline, of course, is that twenty years later, that personal wiki model completely won out—I now do all my thinking in Obsidian and DecafClaw's Markdown vault. We just decoupled it: the wiki stays local and quiet, and the blog oven bakes the public stream.)
+From the start, I wanted more than just a blog. I had this dream of a unified "WikiLog"—pairing the ephemeral chronological stream with an evergreen garden of ideas. In 2002, that meant running Movable Type side-by-side with TWiki, complete with [over-engineered plugins](/2002/08/19/ooobdd/) that filtered blog posts through XML-RPC to auto-link `WikiWords` to live wiki pages. It was ambitious, but running an open wiki server on the wild web eventually collapsed under spambots and maintenance friction. (The punchline, of course, is that twenty years later, that personal wiki dream won out completely—I now do all my thinking in an Obsidian vault of Markdown files. I just decoupled it: the wiki stays local and quiet, and the blog oven bakes the public stream.)
 
 If you poke around my earliest archive entries today, you'll still see cryptic slugs like [`ooooac`](/2002/02/14/ooooac/), [`ooooba`](/2002/02/18/ooooba/), and [`oooado`](/2002/05/07/oooado/). Those are digital scars: when I got tired of MT moving like a battleship, I rebooted onto Blosxom in March 2003 and declared "[Welcome to 0xDECAFBAD v2.0](/2003/03/01/oooooa/)".
 
