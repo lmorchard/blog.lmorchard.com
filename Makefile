@@ -69,7 +69,7 @@ clean-empty-drafts-force: build-bin
 	./$(BIN) clean-empty-drafts -posts $(POSTS_DIR) -delete
 
 test:
-	go test -v ./...
+	go test -v ./pkg/...
 
 clean:
 	rm -rf $(BUILD_DIR) $(BIN)
