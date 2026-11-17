@@ -1,0 +1,41 @@
+{{define "content"}}
+<section class="content-grid">
+  <section class="archive">
+    <h2>Archives</h2>
+    <p>Explore posts by topic or browse the complete timeline of entries from 2002 to present.</p>
+
+    <h3>Top Topics</h3>
+    <div class="tag-cloud">
+      {{range .ArchiveData.TopTags}}
+      <a href="{{$.Site.BaseURL}}/tag/{{.Name}}/" class="tag-pill">
+        <span class="name">{{.Name}}</span>
+        <span class="count">({{.Count}})</span>
+      </a>
+      {{end}}
+    </div>
+
+    <h3>Timeline Archive</h3>
+    <div class="timeline-grid">
+      {{range .ArchiveData.Years}}
+      {{$year := .Year}}
+      <section class="year-card">
+        <h3>
+          <a href="{{$.Site.BaseURL}}/{{$year}}/">{{$year}}</a>
+          <small>{{.TotalPosts}} posts</small>
+        </h3>
+        <ul class="month-list">
+          {{range .Months}}
+          {{if .Count}}
+          <li>
+            <a href="{{$.Site.BaseURL}}/{{$year}}/{{.Month}}/">{{.Name}}</a>
+            <span class="month-count">({{.Count}})</span>
+          </li>
+          {{end}}
+          {{end}}
+        </ul>
+      </section>
+      {{end}}
+    </div>
+  </section>
+</section>
+{{end}}

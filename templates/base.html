@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{if .Page.Title}}{{.Page.Title}} - {{end}}{{.Site.Title}}</title>
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="{{.Site.Title}}" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="{{.Site.Author.FullName}}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+
+    {{if .Site.Domain}}
+    <link rel="webmention" href="https://webmention.io/{{.Site.Domain}}/webmention" />
+    <link rel="pingback" href="https://webmention.io/{{.Site.Domain}}/xmlrpc" />
+    {{end}}
+
+    {{if .Site.Author.Email}}
+    <link href="mailto:{{.Site.Author.Email}}" rel="me authn" />
+    {{end}}
+
+    <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=16" />
+    <link rel="stylesheet" type="text/css" href="{{.Site.BaseURL}}/index.css" />
+    <script type="module" src="{{.Site.BaseURL}}/index.js"></script>
+
+    <!-- Site Feeds -->
+    <link href="{{.Site.BaseURL}}/index.rss" rel="alternate" title="{{.Site.Title}} (Full Text RSS)" type="application/rss+xml" />
+    <link href="{{.Site.BaseURL}}/index-excerpts.rss" rel="alternate" title="{{.Site.Title}} (Excerpts RSS)" type="application/rss+xml" />
+    {{if .Page.FeedURL}}
+    <link href="{{.Page.FeedURL}}" rel="alternate" title="{{.Page.FeedTitle}}" type="application/rss+xml" />
+    {{end}}
+
+    {{if .JSONLD}}{{.JSONLD}}{{end}}
+
+    {{block "head" .}}{{end}}
+  </head>
+  <body>
+    <maze-background></maze-background>
+    <header>
+      <div class="masthead">
+        <img src="{{.Site.Avatar}}" alt="{{.Site.Author.FullName}}" />
+        <div class="title">
+          <h1>
+            <a href="{{.Site.BaseURL}}/" title="{{.Site.Title}}">{{.Site.Title}}</a>
+          </h1>
+          <h2>
+            <rotating-tagline random initial="1" period="7000" src="{{.Site.BaseURL}}/taglines.json">
+              <a href="{{.Site.BaseURL}}/" title="{{.Site.Subtitle}}">
+                <span class="tagline">{{.Site.Subtitle}}</span>
+              </a>
+            </rotating-tagline>
+          </h2>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <div class="main-nav-top">
+          <div id="search"></div>
+          <div class="theme-selector">
+            <theme-selector title="Enable dark theme">
+              <label>
+                <input type="checkbox" />
+                <span class="slider"></span>
+              </label>
+            </theme-selector>
+          </div>
+        </div>
+        <ul>
+          <li>
+            <a href="http://lmorchard.com/"><span class="fa fa-info-circle"></span> about me</a>
+          </li>
+          <li>
+            <a href="{{.Site.BaseURL}}/archives.html"><span class="fa fa-archive"></span> archives</a>
+          </li>
+          <li>
+            <a href="{{if .Page.FeedURL}}{{.Page.FeedURL}}{{else}}{{.Site.BaseURL}}/index.rss{{end}}" title="Feed"><span class="fa fa-rss"></span> feed</a>
+          </li>
+          {{range .Site.NavPages}}
+          <li>
+            <a href="{{$.Site.BaseURL}}/{{.Path}}/"><span class="fa fa-file-text-o"></span> {{.Title}}</a>
+          </li>
+          {{end}}
+        </ul>
+      </nav>
+    </header>
+
+    <section class="main">
+      {{block "content" .}}{{end}}
+    </section>
+
+    {{block "contentAfter" .}}{{end}}
+
+    <footer class="page-container">
+      <div class="left">
+        © 2002 - 2026 Les Orchard<br />
+        &lt;<a href="mailto:{{.Site.Author.Email}}">{{.Site.Author.Email}}</a>&gt;
+      </div>
+      <img id="growup" src="{{.Site.BaseURL}}/uploads/growup.jpg" alt="Grow up" />
+      <nav class="right">
+        <ul>
+          <li>
+            <a href="http://lmorchard.com/"><span class="fa fa-info-circle"></span> about me</a>
+          </li>
+          <li>
+            <a href="{{.Site.BaseURL}}/archives.html"><span class="fa fa-archive"></span> archives</a>
+          </li>
+          <li>
+            <a href="{{if .Page.FeedURL}}{{.Page.FeedURL}}{{else}}{{.Site.BaseURL}}/index.rss{{end}}" title="Feed"><span class="fa fa-rss"></span> feed</a>
+          </li>
+          {{range .Site.NavPages}}
+          <li>
+            <a href="{{$.Site.BaseURL}}/{{.Path}}/"><span class="fa fa-file-text-o"></span> {{.Title}}</a>
+          </li>
+          {{end}}
+        </ul>
+      </nav>
+    </footer>
+  </body>
+</html>

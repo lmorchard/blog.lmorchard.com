@@ -1,0 +1,60 @@
+{{define "postList"}}
+<section class="post-list">
+  <ul class="posts">
+    {{range $index, $post := .Posts}}
+      {{if shouldShowDateHeader $.Posts $index}}
+      <li class="content-grid date-header">
+        <h2 class="date">{{formatDate $post.Date "2006 January 02"}}</h2>
+      </li>
+      {{end}}
+
+      <li class="content-grid post post-type-{{$post.Type}}{{if $post.Thumbnail}} has-thumb{{end}}{{range $post.Tags}} tag-{{.}}{{end}}">
+        {{if eq $post.Type "aside"}}
+          {{if $post.Title}}
+          <h2 class="title">
+            <a href="{{$.Site.BaseURL}}/{{$post.Path}}/">{{$post.Title}}</a>
+          </h2>
+          {{end}}
+          <div class="content">
+            {{safeHTML $post.HTML}}
+          </div>
+        {{else if eq $post.Type "miscellanea"}}
+          <div class="content miscellanea">
+            {{safeHTML $post.HTML}}
+          </div>
+        {{else}}
+          {{/* standard entry */}}
+          {{if $post.Title}}
+          <h2 class="title">
+            <a href="{{$.Site.BaseURL}}/{{$post.Path}}/">{{$post.Title}}</a>
+          </h2>
+          {{end}}
+          {{if $post.Thumbnail}}
+          <div class="thumb">
+            <img src="{{$post.Thumbnail}}" alt="Thumbnail" />
+          </div>
+          {{end}}
+          <p class="summary">
+            {{if $post.Summary}}{{safeHTML $post.Summary}}{{else}}{{wordCount $post.Body}} words{{end}}
+            <span class="word-count">[&nbsp;...&nbsp;<a class="link" href="{{$.Site.BaseURL}}/{{$post.Path}}/">{{wordCount $post.Body}}&nbsp;words</a>&nbsp;...&nbsp;]</span>
+          </p>
+        {{end}}
+
+        <div class="meta">
+          <a class="permalink" href="{{$.Site.BaseURL}}/{{$post.Path}}/">#</a>
+          <a class="time" href="{{$.Site.BaseURL}}/{{$post.Path}}/">{{formatDate $post.Date "3:04 pm"}}</a>
+          {{if $post.Tags}}
+          <ul class="tags">
+            {{range $post.Tags}}
+            <li class="tag">
+              <a href="{{$.Site.BaseURL}}/tag/{{.}}/">{{.}}</a>
+            </li>
+            {{end}}
+          </ul>
+          {{end}}
+        </div>
+      </li>
+    {{end}}
+  </ul>
+</section>
+{{end}}

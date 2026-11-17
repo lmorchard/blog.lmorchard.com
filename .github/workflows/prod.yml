@@ -13,18 +13,26 @@ jobs:
       AWS_REGION: "us-east-1"
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Use Node.js
-        uses: actions/setup-node@v3
+      - name: Set up Go
+        uses: actions/setup-go@v5
         with:
-          node-version: 20
+          go-version: '1.24'
+          cache: true
 
-      - name: npm install
-        run: npm install
+      - name: Install Pagefind
+        run: |
+          curl -L https://github.com/CloudCannon/pagefind/releases/download/v1.4.0/pagefind-v1.4.0-x86_64-unknown-linux-musl.tar.gz -o pagefind.tar.gz
+          tar -xzf pagefind.tar.gz
+          sudo mv pagefind /usr/local/bin/
+          pagefind --version
+
+      - name: Run Go tests
+        run: make test
 
       - name: Build for production
-        run: npm run build
+        run: make build
 
       - name: Install rclone
         run: |

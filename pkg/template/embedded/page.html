@@ -1,0 +1,18 @@
+{{define "head"}}
+  {{if .Page.Title}}<meta property="og:title" content="{{.Page.Title}}" />{{end}}
+  <meta property="og:url" content="{{.Site.AbsoluteBaseURL}}/{{.Page.Path}}/" />
+{{end}}
+
+{{define "content"}}
+<article data-pagefind-body class="content content-grid page">
+  <header>
+    {{if .Page.Title}}
+    <h1 class="title"><a href="{{.Site.BaseURL}}/{{.Page.Path}}/">{{.Page.Title}}</a></h1>
+    {{end}}
+  </header>
+
+  <div class="body">
+    {{safeHTML .Page.HTML}}
+  </div>
+</article>
+{{end}}

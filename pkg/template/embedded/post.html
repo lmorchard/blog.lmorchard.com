@@ -1,0 +1,76 @@
+{{define "head"}}
+  {{if .Post.Title}}<meta property="og:title" content="{{.Post.Title}}" />{{end}}
+  <meta property="og:url" content="{{.Site.AbsoluteBaseURL}}/{{.Post.Path}}/" />
+  {{if .Post.Thumbnail}}<meta property="og:image" content="{{if hasPrefix .Post.Thumbnail "/"}}{{$.Site.AbsoluteBaseURL}}{{end}}{{.Post.Thumbnail}}" />{{end}}
+  {{if .Post.Summary}}<meta property="og:description" content="{{.Post.Summary}}" />{{end}}
+  <link rel="canonical" href="{{.Site.AbsoluteBaseURL}}/{{.Post.Path}}/" />
+  <link rel="alternate" type="text/markdown" href="{{.Site.BaseURL}}/{{.Post.Path}}/index.md" />
+  <link rel="alternate" type="application/json" href="{{.Site.BaseURL}}/{{.Post.Path}}/index.json" />
+{{end}}
+
+{{define "content"}}
+<article data-pagefind-body class="content content-grid post post-type-{{.Post.Type}}{{range .Post.Tags}} tag-{{.}}{{end}}">
+  <header>
+    <time title="{{formatDate .Post.Date "2006-01-02T15:04:05Z07:00"}}" pubdate="{{formatDate .Post.Date "2006-01-02T15:04:05Z07:00"}}">
+      <span class="prevpost">
+        {{if .Post.PrevPostPath}}
+        <a title="{{.Post.PrevPostTitle}}" href="{{$.Site.BaseURL}}/{{.Post.PrevPostPath}}/">&nbsp;<span class="fa fa-long-arrow-left"></span>&nbsp;</a>
+        {{end}}
+      </span>
+      <span class="postdate">
+        <a href="{{.Site.BaseURL}}/{{.Post.Year}}/">{{.Post.Year}}</a>
+        &#8226;
+        <a href="{{.Site.BaseURL}}/{{.Post.Year}}/{{.Post.Month}}/">{{formatDate .Post.Date "January"}}</a>
+        &#8226;
+        <span>{{.Post.Day}}</span>
+      </span>
+      <span class="nextpost">
+        {{if .Post.NextPostPath}}
+        <a title="{{.Post.NextPostTitle}}" href="{{$.Site.BaseURL}}/{{.Post.NextPostPath}}/">&nbsp;<span class="fa fa-long-arrow-right"></span>&nbsp;</a>
+        {{end}}
+      </span>
+    </time>
+    {{if .Post.Title}}
+    <h1 class="title">{{.Post.Title}}</h1>
+    {{end}}
+    {{if .Post.Tags}}
+    <ul class="tags">
+      {{range .Post.Tags}}
+      <li><a href="{{$.Site.BaseURL}}/tag/{{.}}/">{{.}}</a></li>
+      {{end}}
+    </ul>
+    {{end}}
+  </header>
+
+  {{if eq .Post.Type "miscellanea"}}
+  <div class="miscellanea">
+    {{safeHTML .Post.HTML}}
+  </div>
+  {{else}}
+    {{safeHTML .Post.HTML}}
+  {{end}}
+
+  {{if and (not .Post.CommentsArchived) (not .Post.Draft)}}
+  <section class="comments" id="comments">
+    <div id="remark42">Comments loading...</div>
+  </section>
+  {{end}}
+</article>
+{{end}}
+
+{{define "contentAfter"}}
+<section class="posts-nav page-container">
+  {{if .Post.PrevPostPath}}
+  <span class="prev-post">
+    <span><a href="{{.Site.BaseURL}}/{{.Post.PrevPostPath}}/">{{.Post.PrevPostTitle}}</a></span>
+    <span><span class="fa fa-long-arrow-left"></span>&nbsp;Previous</span>
+  </span>
+  {{end}}
+  {{if .Post.NextPostPath}}
+  <span class="next-post">
+    <span><a href="{{.Site.BaseURL}}/{{.Post.NextPostPath}}/">{{.Post.NextPostTitle}}</a></span>
+    <span>Next&nbsp;<span class="fa fa-long-arrow-right"></span></span>
+  </span>
+  {{end}}
+</section>
+{{end}}
