@@ -6,29 +6,28 @@ section.main {
 }
 
 section.main section.archive {
-  grid-column-start: medium-start;
-  grid-column-end: medium-end;
+  grid-column: main;
 }
 
 section.main section.archive h2 {
   clear: both;
-  font-family: monospace;
-  font-size: 1.5em;
+  font-family: var(--theme-font-family-headings);
+  font-size: 1.75em;
   font-weight: bold;
   padding: 0;
-  margin: 0.25em 0 0.125em 0;
+  margin: 0.5em 0 0.25em 0;
 }
 
 section.main section.archive h3 {
-  font-family: monospace;
-  font-size: 1.25em;
+  font-family: var(--theme-font-family-headings);
+  font-size: 1.35em;
   font-weight: bold;
   padding: 0;
-  margin: 0.25em 0 0.125em 0;
+  margin: 1.5em 0 0.5em 0;
 }
 
 section.main section.archive p {
-  font-family: monospace;
+  margin: 0.5em 0 1em 0;
 }
 
 section.main section.archive p a {
@@ -171,102 +170,122 @@ a.emAnchor {
   content: "\f11b";
 }
 
-section.archive ul.tags {
-  list-style-type: none;
-  margin: 1em 0;
-  padding: 0;
+/* --- Modern Archive Styles (Timeline Grid & Tag Cloud) --- */
+.tag-cloud {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: stretch;
+  gap: 0.5rem;
+  margin: 1rem 0 2.5rem 0;
 }
 
-section.archive ul.tags li.tag {
-  display: block;
-  float: left;
-  min-width: 10em;
-  margin: 0.25em;
-  padding: 0.5em;
-  border: 1px solid #999;
+.tag-pill {
+  font-family: var(--theme-font-family-mono);
+  font-size: 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--theme-border-color) 45%, transparent);
+  background: var(--theme-background-color-transparent);
+  padding: 0.25rem 0.65rem;
   border-radius: 4px;
-  background-color: #ddd;
-  color: #111;
-}
-
-section.archive ul.tags li.tag a {
-  color: #111;
-  display: block;
-  width: 100%;
-  height: 100%;
   text-decoration: none;
+  color: var(--theme-text-color);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.15s ease;
 }
 
-section.archive ul.tags li.tag .count {
-  font-size: 0.75em;
+.tag-pill::before {
+  content: "";
+  font-family: FontAwesome;
+  font-size: 0.85em;
+  opacity: 0.7;
 }
 
-section.archive ul.years {
-  color: #fff;
-  list-style-type: none;
+.tag-pill:hover {
+  background: var(--theme-highlighted-bg-color);
+  border-color: var(--theme-link-color);
+  color: var(--theme-link-color);
+}
+
+.tag-pill:hover::before {
+  opacity: 1;
+}
+
+.tag-pill .count {
+  font-size: 0.78em;
+  opacity: 0.65;
+}
+
+.timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+section.main section.archive .year-card {
+  border: 1px solid var(--theme-border-color);
+  border-radius: 6px;
+  padding: 0.85rem 1.15rem;
+  background: var(--theme-background-color-transparent);
+}
+
+section.main section.archive .year-card h3 {
+  margin: 0 0 0.6rem 0;
   padding: 0;
-  margin: 1.5em 0 1.5em 0;
+  font-family: var(--theme-font-family-headings);
+  font-size: 1.25rem;
+  line-height: 1.2;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
-section.archive ul.years li.year {
-  clear: both;
-  padding: 0 0 1.125em 0;
-}
-
-section.archive ul.years li.year>a {
-  color: #111;
-  background-color: #eee;
-  border-radius: 4px;
-  display: block;
-  float: left;
-  margin: 0 0.5em 0 0;
-  padding: 0.5em;
-  text-align: right;
-  width: 5em;
+section.main section.archive .year-card h3 a {
+  color: var(--theme-text-color);
   text-decoration: none;
+  font-weight: bold;
 }
 
-section.archive ul.years li.year ul.months {
-  list-style-type: none;
+section.main section.archive .year-card h3 a:hover {
+  color: var(--theme-link-color);
+  text-decoration: underline;
+}
+
+section.main section.archive .year-card h3 small {
+  font-size: 0.8rem;
+  font-weight: normal;
+  opacity: 0.7;
+}
+
+.month-list {
+  list-style: none;
   padding: 0;
-  margin: 0 0 0.75em 6.5em;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem 0.75rem;
 }
 
-section.archive ul.years li.year ul.months li.month {
-  float: left;
-  color: #111;
-  width: 16%;
+.month-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.88rem;
 }
 
-section.archive ul.years li.year ul.months li.month .month-container {
-  color: #fff;
-  text-decoration: none;
-  background-color: #666;
-  border-radius: 4px;
-  display: block;
-  margin: 0em 0.25em 0.5em 0.25em;
-  padding: 0.5em;
-  text-align: center;
+.month-list a {
+  color: var(--theme-link-color);
   text-decoration: none;
 }
 
-section.archive ul.years li.year ul.months li.month .month-label {
-  font-size: 1em;
+.month-list a:hover {
+  text-decoration: underline;
 }
 
-section.archive ul.years li.year ul.months li.month .month-count {
-  font-size: 0.8em;
-  color: #ccc;
-}
-
-section.archive ul.years li.year ul.months li.month.no-posts .month-container,
-section.archive ul.years li.year ul.months li.month.no-posts .month-container .month-count {
-  color: #777;
+.month-count {
+  font-size: 0.75rem;
+  opacity: 0.7;
 }
 
 article .video-container {

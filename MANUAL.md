@@ -164,3 +164,12 @@ Alternatively, with `npm`:
 ```bash
 npm start
 ```
+
+## JavaScript, Web Components, and Vendor Dependencies
+
+The blog follows an HTML-first, native ES module architecture with no client-side framework:
+
+1. **First-party Web Components:** All interactive components (`theme-selector.js`, `maze-background.js`, `rotating-tagline.js`, `mermaid-diagram.js`, etc.) live in `content/public/js/components/` as standard native Web Components. Browsers execute them natively via `<script type="module" src="/index.js">` without any bundling or build step.
+2. **Vendor Dependency Pattern:** For any third-party npm package required by a component (e.g. `beautiful-mermaid`), the intended pattern is to compile the library once into a self-contained browser ESM bundle and **commit the bundle directly to the repository** in `content/public/js/vendor/bundles/`.
+3. **Zero `node_modules` at Build Time:** Normal site builds simply copy `content/public/` into `build/`. No `npm install`, Node.js runtime, or `node_modules` directory is required during day-to-day site generation or CI.
+4. **Updating Bundles:** See `content/public/js/vendor/bundles/README.md` for instructions on compiling standalone vendor bundles using `esbuild`.
