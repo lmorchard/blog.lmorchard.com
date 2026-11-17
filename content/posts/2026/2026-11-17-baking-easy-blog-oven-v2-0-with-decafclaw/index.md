@@ -19,11 +19,15 @@ tags:
 
 ## The Six-Year Itch (and the Twenty-Four-Year Continuum)
 
-I have a bit of a history with custom blogging setups. 
+I have a bit of a history with custom blogging setups. A lot of webdevs do—but I'm a rather old webdev, so I might have more history than most.
 
-I didn't actually start this blog on a static generator. I launched `0xDECAFBAD` in [February 2002 on Movable Type](/2002/02/14/ooooac/). If you poke around my earliest archive entries today, you'll still see strange, cryptic slugs like [`ooooac`](/2002/02/14/ooooac/), [`ooooba`](/2002/02/18/ooooba/), and [`oooado`](/2002/05/07/oooado/). Those are digital scars: when I got tired of MT moving like a battleship and [rebooted onto Blosxom in 2003](/2005/09/27/colophon/), I wrote a hack to encode Movable Type's numeric database entry IDs into fixed-width base-26 slugs so I wouldn't break my permalinks. 
+I didn't start this blog on a static generator. I launched `0xDECAFBAD` in [February 2002 on Movable Type](/2002/02/14/ooooac/). Just 3 months shy of 25 years ago, which makes me a bit dizzy to think about. That's literally half my life ago.
 
-From Blosxom, the posts eventually traveled into WordPress in 2005. But running a full dynamic database-backed CMS for personal writing never sat right with me. So in [June 2011, I moved to Jekyll](/2011/06/08/moved-to-jekyll/). At the time, I wrote something that turned out to be oddly prescient:
+If you poke around my earliest archive entries today, you'll still see cryptic slugs like [`ooooac`](/2002/02/14/ooooac/), [`ooooba`](/2002/02/18/ooooba/), and [`oooado`](/2002/05/07/oooado/). Those are digital scars: when I got tired of MT moving like a battleship and rebooted onto Blosxom in March 2003 (declaring [Welcome to 0xDECAFBAD v2.0](/2003/03/01/oooooa/) before [heading through some turbulence](/2003/03/04/some-turbluence/)), I wrote a hack to encode Movable Type's numeric database entry IDs into fixed-width base-26 slugs paired with an Apache redirect config so I wouldn't break my permalinks. [Cool URIs don't change](https://www.w3.org/Provider/Style/URI), and all that.
+
+I can't remember why I thought this in particular was a good idea. Maybe I thought the numbers were ugly? Maybe they clashed with Blosxom somehow? 
+
+From Blosxom, the posts eventually traveled into WordPress in 2005 (as I recounted in my [September 2005 Colophon](/2005/09/27/colophon/)). But running a full dynamic database-backed CMS for personal writing never sat right with me. So in [June 2011, I moved to Jekyll](/2011/06/08/moved-to-jekyll/). At the time, I wrote something that turned out to be oddly prescient:
 
 > *My writing here is now all stored in individual text files, formatted with Markdown, annotated with YAML metadata, and subject to revision control under git. This combination feels like it has a lot of longevity and potential for survival even beyond this current experiment with Jekyll.*
 
