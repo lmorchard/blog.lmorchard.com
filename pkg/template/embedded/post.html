@@ -31,7 +31,9 @@
       </span>
     </time>
     {{if .Post.Title}}
-    <h1 class="title">{{.Post.Title}}</h1>
+    <h1 class="title" data-pagefind-meta="title">{{.Post.Title}}</h1>
+    {{else}}
+    <h1 class="title" data-pagefind-meta="title">{{.Page.Title}}</h1>
     {{end}}
     {{if .Post.Tags}}
     <ul class="tags">
