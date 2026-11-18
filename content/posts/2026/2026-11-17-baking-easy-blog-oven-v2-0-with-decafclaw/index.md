@@ -1,6 +1,6 @@
 ---
 title: "Baking Easy-Blog Oven v2.0 with DecafClaw"
-date: 2026-11-17 14:25:00 -0800
+date: 2026-11-17 14:30:00 -0800
 draft: true
 type: entry
 tags:
@@ -9,6 +9,7 @@ tags:
   - decafclaw
   - projects
   - webdev
+  - easy-blog-oven
 ---
 
 **TL;DR**: After six years of brooding and Dependabot alert fatigue, I finally rebuilt my blog's static site generator in Go. Easy-Blog Oven v2.0 renders twenty-four years of Markdown into HTML in under three seconds, ditches `node_modules` entirely, and was built in an afternoon of flow pair-programming with DecafClaw, my homemade agent project.
@@ -17,79 +18,15 @@ tags:
 
 <nav role="navigation" class="table-of-contents"></nav>
 
-## The Six-Year Itch (and the Twenty-Four-Year Continuum)
+*This is Part 2 of a two-part retrospective. In [Part 1: Twenty-Four Years of Blog Engines](/2026/11/17/twenty-four-years-of-blog-engines/), I took a visual tour of nearly a quarter-century of personal publishing across Movable Type, Blosxom, WordPress, and Jekyll.*
 
-I have a bit of a history with custom blogging setups. Webdevs generally do, it's a hazard of the profession. But, I'm a rather old webdev, so I might have more history than most.
+## The Six-Year Itch
 
-<figure>
-  <img src="./2002-movable-type.png" alt="0xDECAFBAD in May 2002 running on Movable Type">
-  <figcaption>0xDECAFBAD in May 2002, running on Movable Type (via the Wayback Machine).</figcaption>
-</figure>
+In [May 2020](/2020/05/24/easy-blog-oven/), I cobbled together my own custom Node.js static site generator called the [Easy-Blog Oven](/2020/05/25/diy-easy-blog-oven/). It wasn't an off-the-shelf framework like Hugo or 11ty; it was just a few hundred lines of JavaScript gluing together `marked`, `cheerio`, and ES6 template literals. 
 
-I didn't start this blog on a static generator. I launched `0xDECAFBAD` in [February 2002 on Movable Type](/2002/02/14/ooooac/). Just 3 months shy of 25 years ago, which makes me a bit dizzy to think about. That's literally half my life ago.
+It worked. It carried my blog for six years, through hundreds of posts, redesigns, and format experiments. But over time, the JavaScript ecosystem tax accumulated.
 
-I also briefly tried pairing the blog with TWiki into an over-engineered "WikiLog" (even [writing custom XML-RPC plugins](/2002/08/19/ooobdd/) to auto-link `WikiWords` in posts), but running an open wiki on the early web quickly succumbed to spambots and maintenance friction.
-
-<figure>
-  <img src="./2003-blosxom.png" alt="0xDECAFBAD in June 2003 running on Blosxom">
-  <figcaption>0xDECAFBAD in June 2003, running on Blosxom with base-26 slugs and Agent Frank.</figcaption>
-</figure>
-
-If you poke around my earliest archive entries today, you'll still see cryptic slugs like [`ooooac`](/2002/02/14/ooooac/), [`ooooba`](/2002/02/18/ooooba/), and [`oooado`](/2002/05/07/oooado/). Those are digital scars: when I got tired of MT moving like a battleship, I rebooted onto Blosxom in March 2003 and declared "[Welcome to 0xDECAFBAD v2.0](/2003/03/01/oooooa/)".
-
-I wrote a hack to encode Movable Type's numeric database entry IDs into fixed-width base-26 slugs paired with an Apache redirect config so I wouldn't break my permalinks. [Cool URIs don't change](https://www.w3.org/Provider/Style/URI), and all that. I can't remember why I thought this in particular was a good idea. Maybe I thought the numbers were ugly? Maybe they clashed with Blosxom somehow? 
-
-<figure>
-  <img src="./2004-accessible.png" alt="0xDECAFBAD in June 2004 with accessibility redesign">
-  <figcaption>0xDECAFBAD in June 2004, featuring the Dive Into Accessibility inspired layout.</figcaption>
-</figure>
-
-Anyway, from Blosxom, the posts eventually traveled into WordPress in 2005 (as I recounted in my [September 2005 Colophon](/2005/09/27/colophon/)). 
-
-<figure>
-  <img src="./2005-wordpress.png" alt="0xDECAFBAD in September 2005 on WordPress">
-  <figcaption>0xDECAFBAD in September 2005, running on WordPress with PHP Markdown and Ultimate Tag Warrior.</figcaption>
-</figure>
-
-But running a full dynamic database-backed CMS for personal writing never sat right with me. So in [June 2011, I moved to Jekyll](/2011/06/08/moved-to-jekyll/). At the time, I wrote something that turned out to be oddly prescient:
-
-> *My writing here is now all stored in individual text files, formatted with Markdown, annotated with YAML metadata, and subject to revision control under git. This combination feels like it has a lot of longevity and potential for survival even beyond this current experiment with Jekyll.*
-
-<figure>
-  <img src="./2011-jekyll.png" alt="0xDECAFBAD in June 2011 on Jekyll">
-  <figcaption>0xDECAFBAD in June 2011, making the jump to Jekyll, GitHub, and a pile of Markdown files.</figcaption>
-</figure>
-
-Fifteen years later, that bet on plain Markdown files in git is still paying off. 
-
-Around this time, another identity shift happened. In [June 2012, I posted a farewell to decafbad.com titled "303 See Other"](/2012/06/15/303-see-other/) and moved my active blogging over to `blog.lmorchard.com`:
-
-> *`0xDECAFBAD` is not my name. It's a pun I thought was neat, about 12 years ago. I'm not giving up the domain, but I think maybe I should start doing more things with a domain that's closer to what I call myself online and off... it turns out that there's more than one person in the `decafbad` namespace, so I thought I might start drifting closer to the one my Mom gave me. I've grown to like it, despite some misgivings earlier in life.*
-
-I'm still not entirely sure whether giving up the cool hacker handle domain for my actual name was the "right" move, but here we are fourteen years later. Eventually, I reunited the old `decafbad.com` archives with the newer `blog.lmorchard.com` posts so all twenty-four years could live together in one continuous timeline (with redirects preserving the old permalinks, naturally).
-
-<figure>
-  <img src="./2012-blog-lmorchard-wp.png" alt="blog.lmorchard.com in October 2012 on WordPress">
-  <figcaption>blog.lmorchard.com in October 2012, running WordPress with the tagline "write like no one's reading."</figcaption>
-</figure>
-
-Over the following decade, the visual presentation shifted across several redesigns:
-
-<figure>
-  <img src="./2016-blog-lmorchard-static.png" alt="blog.lmorchard.com in July 2016">
-  <figcaption>blog.lmorchard.com in July 2016, during the Gulp-powered static site era.</figcaption>
-</figure>
-
-In [May 2020](/2020/05/24/easy-blog-oven/), after outgrowing Jekyll and Gulp, I cobbled together my own Node.js static site generator called the [Easy-Blog Oven](/2020/05/25/diy-easy-blog-oven/). It wasn't an off-the-shelf framework; it was just a few hundred lines of JavaScript gluing together `marked`, `cheerio`, and ES6 template literals. 
-
-<figure>
-  <img src="./2020-blog-lmorchard-oven-v1.png" alt="blog.lmorchard.com in June 2020 with Easy-Blog Oven v1">
-  <figcaption>blog.lmorchard.com in June 2020, debuting Easy-Blog Oven v1 and the canvas maze background.</figcaption>
-</figure> 
-
-It worked. It carried my blog for six years, through hundreds of posts, redesigns, and format experiments. But over time, the friction accumulated. 
-
-Every time I wanted to tweak a template or run a build on a new machine, I was greeted by the familiar modern JavaScript tax: dozens of transitive packages in `node_modules`, deprecation warnings, and an endless barrage of Dependabot security alerts (88 vulnerabilities at last count!). Furthermore, churning through twenty-four years of archive—over 1,400 posts dating back to that first February 2002 Movable Type post—took around 7 to 8 seconds. That's not terrible, but it's just slow enough that local watch mode felt slightly sluggish.
+Every time I wanted to tweak a template or run a build on a new machine, I was greeted by the familiar modern npm friction: dozens of transitive packages in `node_modules`, deprecation warnings, and an endless barrage of Dependabot security alerts (88 vulnerabilities at last count!). Furthermore, churning through twenty-four years of archive—over 1,400 posts dating back to February 2002—took around 7 to 8 seconds. That's not terrible, but it's just slow enough that local watch mode felt slightly sluggish.
 
 I've been brooding over rewriting it for a while. Back in [October 2022](/2022/10/28/twitter/), I joked about whether I felt like rewriting my build system yet again. Then in [October 2025](/2025/10/25/links-oct-25-2025/), while hacking on Go utilities like [feedspool-go](https://github.com/lmorchard/feedspool-go), I dropped an ominous note:
 
@@ -132,7 +69,7 @@ What made this session feel like genuine flow was the division of labor:
 - **Plumbing & muscle work:** DecafClaw handled the tedious legwork. It parsed legacy edge cases across 24 years of posts (Disqus comment dumps, multipart cut-line delimiters, Obsidian image embeds), set up concurrent worker pools, scaffolded unit tests, verified build parity against the old generator, updated GitHub Actions workflows, and cleaned up phantom draft files.
 - **Immediate tooling:** When I found myself writing one-off Node scripts to verify Pagefind search results or checking frontmatter with Python, DecafClaw baked those directly into the CLI as first-class subcommands (`easy-blog-oven search-test`, `doctor`, and `info`).
 
-Having a tireless teammate who understands the repo context, doesn't mind writing boilerplate, and can verify its own edits with test runs makes software tinkering feel fun again. You stay in the creative problem-solving zone instead of drowning in setup ceremony.
+Having a tireless [helper gnome](https://github.com/mokagnome) who understands the repo context, doesn't mind writing boilerplate, and can verify its own edits with test runs makes software tinkering feel fun again. You stay in the creative problem-solving zone instead of drowning in setup ceremony.
 
 ## What's Next?
 
