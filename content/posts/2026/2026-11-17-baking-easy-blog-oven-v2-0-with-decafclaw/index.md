@@ -16,6 +16,14 @@ tags:
 
 <!--more-->
 
+<figure class="wide">
+
+![Bread baking inside a glowing wood-fired stone oven](./yasin-onus-w-Ep34orfoA-unsplash-dithered.png)
+
+<figcaption>Photo by <a href="https://unsplash.com/@yasinonus?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Yasin Onuş</a> on <a href="https://unsplash.com/photos/bread-baking-in-a-stone-oven-w-Ep34orfoA?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></figcaption>
+
+</figure>
+
 <nav role="navigation" class="table-of-contents"></nav>
 
 *This is Part 2 of a two-part retrospective. In [Part 1: Twenty-Four Years of Blog Engines](/2026/11/17/twenty-four-years-of-blog-engines/), I took a visual tour of nearly a quarter-century of personal publishing across Movable Type, Blosxom, WordPress, and Jekyll.*
@@ -88,6 +96,8 @@ Having a tireless [helper gnome](https://github.com/mokagnome) who understands t
 
 With Easy-Blog Oven v2.0 running live in production (deployed to S3 and CloudFront via GitHub Actions), the publishing core is faster and simpler than it has been in a decade.
 
-Next on the docket: I've finally disabled the crusty cron job that used to automatically sync draft notes from my Obsidian vault into the blog repo. That was part of [the Rube Goldberg blogging machine](/2025/06/02/obsidian-rube-goldberg/) I rigged up [back in May 2025](/2025/05/09/new-blog-a-lot-like-the-old/). It worked well enough at the time, but it had an annoying habit of committing placeholder draft notes into git history if I wasn't careful. I'll rethink that pipeline with an intentional, agent-mediated import command so half-baked thoughts stay in the notebook until they're ready for the oven.
+Next on the docket: I've finally disabled the crusty cron job that used to automatically sync draft notes from my Obsidian vault into the blog repo. That was part of [the Rube Goldberg blogging machine](/2025/06/02/obsidian-rube-goldberg/) I rigged up [back in May 2025](/2025/05/09/new-blog-a-lot-like-the-old/). 
+
+It worked well enough at the time, but it had an annoying habit of committing placeholder draft notes into git history if I wasn't careful. I'll rethink that pipeline with an intentional, agent-mediated import command so half-baked thoughts stay in the notebook until they're ready for the oven.
 
 Until then, the oven is preheated, the build is fast, and it feels good to have a simple, dependable tool back at the heart of the site.
