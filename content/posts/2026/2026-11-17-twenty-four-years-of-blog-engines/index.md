@@ -12,7 +12,7 @@ tags:
   - easy-blog-oven
 ---
 
-**TL;DR**: A visual tour of nearly twenty-five years of personal web publishing across Movable Type, Blosxom, WordPress, Jekyll, and custom static generators—and how a simple bet on plain Markdown files in git outlived every platform.
+**TL;DR**: A self-indulgent visual tour of nearly twenty-five years of my blog across Movable Type, Blosxom, WordPress, Jekyll, and custom static generators. And how a simple bet on plain Markdown files in git outlived every platform.
 
 <!--more-->
 
@@ -31,7 +31,9 @@ I didn't start this blog on a static generator. I launched `0xDECAFBAD` in [Febr
   <figcaption>0xDECAFBAD in May 2002, running on Movable Type (via the Wayback Machine).</figcaption>
 </figure>
 
-From the start, I wanted more than just a blog. I had this dream of a unified "WikiLog"—pairing the ephemeral chronological stream with an evergreen garden of ideas. In 2002, that meant running Movable Type side-by-side with TWiki, complete with [over-engineered plugins](/2002/08/19/ooobdd/) that filtered blog posts through XML-RPC to auto-link `WikiWords` to live wiki pages. It was ambitious, but running an open wiki server on the wild web eventually collapsed under spambots and maintenance friction. (The punchline, of course, is that twenty years later, that personal wiki dream won out completely—I now do all my thinking in an Obsidian vault of Markdown files. I just decoupled it: the wiki stays local and quiet, and the blog oven bakes the public stream.)
+From the start, I wanted more than just a blog. I had this dream of a unified "WikiLog"—pairing the ephemeral chronological stream with an evergreen garden of ideas. In 2002, that meant running Movable Type side-by-side with TWiki, complete with [over-engineered plugins](/2002/08/19/ooobdd/) that filtered blog posts through XML-RPC to auto-link `WikiWords` to live wiki pages. 
+
+It was ambitious, but running an open wiki server on the wild web eventually collapsed under spambots and maintenance friction. The punchline, of course, is that twenty years later, that personal wiki dream won out completely—I now do all my thinking in an Obsidian vault of Markdown files. I just decoupled it: the wiki stays local and quiet, and the blog oven bakes the public stream.
 
 ## The Blosxom Cutover and the Cryptic Slugs (2003)
 
@@ -79,18 +81,11 @@ Around this time, another identity shift happened. In [June 2012, I posted a far
 
 > *`0xDECAFBAD` is not my name. It's a pun I thought was neat, about 12 years ago. I'm not giving up the domain, but I think maybe I should start doing more things with a domain that's closer to what I call myself online and off... it turns out that there's more than one person in the `decafbad` namespace, so I thought I might start drifting closer to the one my Mom gave me. I've grown to like it, despite some misgivings earlier in life.*
 
-I'm still not entirely sure whether giving up the cool hacker handle domain for my actual name was the "right" move, but here we are fourteen years later. Eventually, I reunited the old `decafbad.com` archives with the newer `blog.lmorchard.com` posts so all twenty-four years could live together in one continuous timeline (with redirects preserving the old permalinks, naturally).
+I'm still not entirely sure whether setting aside the cool hacker handle domain for my actual name was the "right" move, but here we are fourteen years later. Eventually, I reunited the old `decafbad.com` archives with the newer `blog.lmorchard.com` posts so all twenty-four years could live together in one continuous timeline (with redirects preserving the old permalinks, naturally).
 
 <figure>
   <img src="./2012-blog-lmorchard-wp.png" alt="blog.lmorchard.com in October 2012 on WordPress">
   <figcaption>blog.lmorchard.com in October 2012, running WordPress with the tagline "write like no one's reading."</figcaption>
-</figure>
-
-Over the following decade, the visual presentation shifted across several redesigns:
-
-<figure>
-  <img src="./2016-blog-lmorchard-static.png" alt="blog.lmorchard.com in July 2016">
-  <figcaption>blog.lmorchard.com in July 2016, during the Gulp-powered static site era.</figcaption>
 </figure>
 
 ## The Easy-Blog Oven v1 (2020)
@@ -104,7 +99,7 @@ In [May 2020](/2020/05/24/easy-blog-oven/), after outgrowing Jekyll and Gulp, I 
 
 It worked. It carried my blog for six years, through hundreds of posts, redesigns, and format experiments. But over time, the JavaScript ecosystem tax accumulated: dozens of transitive packages in `node_modules`, deprecation warnings, and an endless barrage of Dependabot alerts. Furthermore, churning through twenty-four years of archive—over 1,400 posts dating back to February 2002—took around 7 to 8 seconds.
 
-It was time for a rewrite.
+It was time for a rewrite. Again. Because, of course it was.
 
 ---
 
