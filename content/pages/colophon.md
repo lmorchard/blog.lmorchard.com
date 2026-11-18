@@ -1,5 +1,5 @@
 ---
-title: "Colophon"
+title: "colophon"
 ---
 
 **TL;DR**: How this site is built and what it's made of.
@@ -10,7 +10,7 @@ title: "Colophon"
 
 ## The Generator
 
-This blog is powered by **Easy-Blog Oven v2.0**, a custom static site generator written in Go. 
+This blog is powered by [**Easy-Blog Oven v2.0**](https://blog.lmorchard.com/2026/11/17/baking-easy-blog-oven-v2-0-with-decafclaw/), a custom static site generator written in Go and maintained alongside my posts in [my blog.lmorchard.com git repository](https://github.com/lmorchard/blog.lmorchard.com). 
 
 For years, it ran on a Node.js pipeline I called my [Easy-Blog Oven](/2020/05/24/easy-blog-oven/) (now Easy-Blog Oven v1). In November 2026, I retired the Node implementation and rebuilt it from scratch in Go as v2.0. The goal was simple: eliminate the perennial churn of `node_modules`, shed dozens of transitive build dependencies, and build the entire 24-year archive—over 1,400 posts spanning 2002 to the present—in just 2 to 3 seconds.
 
