@@ -99,9 +99,9 @@ Today, I finally pulled the trigger. Meet **Easy-Blog Oven v2.0**.
 
 ## Why Go? (And Why Not Rust?)
 
-Whenever I get the urge to rewrite a text-processing pipeline, the siren song of Rust calls out. But personal blogging has very low stakes, and I wanted something productive and fun, not an exercise in satisfying the borrow checker over AST mutations.
+The immediate spark for this rewrite came on a whim while watching a YouTube video: ["Why Everyone's Rewriting Everything in Rust"](https://www.youtube.com/watch?v=iu_ALBDtoHo). Every programmer knows the itch—you watch twenty minutes of praise for memory safety and zero-cost abstractions, glance over at your aging Node.js build scripts, and think: *I should rewrite this in Rust tonight.*
 
-Go turned out to be an ideal fit for a few very specific reasons:
+I actually pitched the Rust rewrite to DecafClaw at the start of our session. But DecafClaw pushed back and talked me down from the ledge. Personal blogging has very low stakes, and our goal was something productive, fast, and fun—not an exercise in satisfying the borrow checker over loose legacy HTML mutations. DecafClaw steered me toward Go instead, and it turned out to be the exact right call:
 
 1. **`goquery` is basically `cheerio` for Go:** A massive chunk of my blog's post-processing involves parsing rendered Markdown, manipulating HTML nodes (extracting first headings, rewriting internal `#hashtag` links, adjusting image attributes, and styling code blocks). In Rust, mutating DOM trees across arbitrary node references is notoriously awkward. In Go, `goquery` let me port my existing DOM transforms almost 1:1.
 2. **Instant compilation:** `go build` runs in the blink of an eye. There's zero compilation drag during development.
