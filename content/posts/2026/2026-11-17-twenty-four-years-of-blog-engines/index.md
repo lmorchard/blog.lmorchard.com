@@ -1,7 +1,7 @@
 ---
 title: "Twenty-Four Years of Blog Engines"
 date: 2026-11-17 14:00:00 -0800
-draft: true
+draft: false
 type: entry
 tags:
   - blogging

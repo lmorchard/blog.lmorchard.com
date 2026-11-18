@@ -1,7 +1,7 @@
 ---
 title: "Baking Easy-Blog Oven v2.0 with DecafClaw"
 date: 2026-11-17 14:30:00 -0800
-draft: true
+draft: false
 type: entry
 tags:
   - blogging
