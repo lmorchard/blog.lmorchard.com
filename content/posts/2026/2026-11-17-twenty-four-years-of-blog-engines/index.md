@@ -22,7 +22,7 @@ tags:
 
 ## An Occupational Hazard
 
-Web developers writing their own blogging tools is an old occupational hazard. But I’ve been at it for almost twenty-five years, so I have more scar tissue than most.
+Web developers writing their own blogging tools is an old occupational hazard. But I’ve been at it for almost twenty-five years, so I have more (self-inflicted) scar tissue than most.
 
 I didn't start this blog on a static generator. I launched `0xDECAFBAD` in [February 2002 on Movable Type](/2002/02/14/ooooac/)—just three months shy of a quarter century ago, which is literally half my life.
 

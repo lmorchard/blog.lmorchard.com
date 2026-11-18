@@ -30,7 +30,7 @@ var DefaultDitherOptions = DitherOptions{
 	MaxWidth:  1024,
 	Downscale: 0.33,
 	Upscale:   3.0,
-	NumColors: 32,
+	NumColors: 256,
 	LoFi:      false,
 }
 
@@ -207,23 +207,54 @@ func copyRawFile(r io.Reader, destPath string) error {
 }
 
 // generatePalette generates a color palette of the requested size.
+// For full palettes (>= 216), it returns standard retro palettes (Plan9 or WebSafe).
+// For smaller custom sizes, it constructs a balanced RGB color cube to prevent color fringing.
 func generatePalette(numColors int) color.Palette {
 	if numColors >= 256 {
 		return palette.Plan9
 	}
+	if numColors >= 216 {
+		return palette.WebSafe
+	}
 	if numColors <= 16 {
-		return palette.Plan9[:16]
+		// Standard 16-color ANSI/EGA palette: 8 corners + 8 grays/accents
+		var pal color.Palette
+		for r := 0; r <= 1; r++ {
+			for g := 0; g <= 1; g++ {
+				for b := 0; b <= 1; b++ {
+					pal = append(pal, color.RGBA{uint8(r * 255), uint8(g * 255), uint8(b * 255), 255})
+				}
+			}
+		}
+		for i := 1; i < 9; i++ {
+			v := uint8(i * 28)
+			pal = append(pal, color.RGBA{v, v, v, 255})
+		}
+		return pal
 	}
 
-	// Sample evenly from Plan9 retro palette
-	step := float64(len(palette.Plan9)) / float64(numColors)
+	// Build a uniform RGB color cube with grayscale ramp to ensure
+	// balanced chromatic distribution without color fringing in warm or cool tones.
+	levels := 4 // 4x4x4 = 64
+	if numColors < 64 {
+		levels = 3 // 3x3x3 = 27
+	}
 	var pal color.Palette
-	for i := 0; i < numColors; i++ {
-		idx := int(float64(i) * step)
-		if idx >= len(palette.Plan9) {
-			idx = len(palette.Plan9) - 1
+	step := 255 / (levels - 1)
+	for r := 0; r < levels; r++ {
+		for g := 0; g < levels; g++ {
+			for b := 0; b < levels; b++ {
+				pal = append(pal, color.RGBA{uint8(r * step), uint8(g * step), uint8(b * step), 255})
+			}
 		}
-		pal = append(pal, palette.Plan9[idx])
+	}
+	remaining := numColors - len(pal)
+	if remaining > 0 {
+		grayStep := 255 / (remaining + 1)
+		for i := 1; i <= remaining; i++ {
+			v := uint8(i * grayStep)
+			pal = append(pal, color.RGBA{v, v, v, 255})
+		}
 	}
 	return pal
 }

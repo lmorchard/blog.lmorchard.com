@@ -361,7 +361,7 @@ func runDither(args []string) {
 	maxWidth := fs.Int("max-width", 1024, "Maximum width before downscaling")
 	downscale := fs.Float64("downscale", 0.33, "Downscale factor")
 	upscale := fs.Float64("upscale", 3.0, "Upscale factor")
-	colors := fs.Int("colors", 32, "Number of colors for palette quantization")
+	colors := fs.Int("colors", 256, "Number of colors for palette quantization (default 256)")
 	lofi := fs.Bool("lofi", false, "Extra coarse lo-fi retro effect")
 	_ = fs.Parse(args)
 
