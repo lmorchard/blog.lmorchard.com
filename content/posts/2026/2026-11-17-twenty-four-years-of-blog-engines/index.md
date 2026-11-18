@@ -37,7 +37,7 @@ It was ambitious, but running an open wiki server on the wild web eventually col
 
 ## The Blosxom Cutover and the Cryptic Slugs (2003)
 
-If you poke around my earliest archive entries today, you'll still see cryptic slugs like [`ooooac`](/2002/02/14/ooooac/), [`ooooba`](/2002/02/18/ooooba/), and [`oooado`](/2002/05/07/oooado/). Those are digital scars: when I got tired of MT moving like a battleship, I rebooted onto Blosxom in March 2003 and declared "[Welcome to 0xDECAFBAD v2.0](/2003/03/01/oooooa/)".
+If you poke around my earliest archive entries today, you'll still see cryptic slugs like [`ooooac`](/2002/02/14/ooooac/), [`ooooba`](/2002/02/18/ooooba/), and [`oooado`](/2002/05/07/oooado/). Those are digital scars: when I got tired of MT moving like a battleship, I rebooted onto [Blosxom](https://www.blosxom.com/) in March 2003 and declared "[Welcome to 0xDECAFBAD v2.0](/2003/03/01/oooooa/)".
 
 <figure>
   <img src="./2003-blosxom.png" alt="0xDECAFBAD in June 2003 running on Blosxom">
