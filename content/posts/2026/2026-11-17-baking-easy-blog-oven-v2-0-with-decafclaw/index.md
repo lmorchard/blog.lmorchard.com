@@ -21,21 +21,21 @@ tags:
 
 I have a bit of a history with custom blogging setups. Webdevs generally do, it's a hazard of the profession. But, I'm a rather old webdev, so I might have more history than most.
 
-I didn't start this blog on a static generator. I launched `0xDECAFBAD` in [February 2002 on Movable Type](/2002/02/14/ooooac/). Just 3 months shy of 25 years ago, which makes me a bit dizzy to think about. That's literally half my life ago.
-
 <figure>
   <img src="./2002-movable-type.png" alt="0xDECAFBAD in May 2002 running on Movable Type">
   <figcaption>0xDECAFBAD in May 2002, running on Movable Type (via the Wayback Machine).</figcaption>
 </figure>
 
-I also briefly tried pairing the blog with TWiki into an over-engineered "WikiLog" (even [writing custom XML-RPC plugins](/2002/08/19/ooobdd/) to auto-link `WikiWords` in posts), but running an open wiki on the early web quickly succumbed to spambots and maintenance friction.
+I didn't start this blog on a static generator. I launched `0xDECAFBAD` in [February 2002 on Movable Type](/2002/02/14/ooooac/). Just 3 months shy of 25 years ago, which makes me a bit dizzy to think about. That's literally half my life ago.
 
-If you poke around my earliest archive entries today, you'll still see cryptic slugs like [`ooooac`](/2002/02/14/ooooac/), [`ooooba`](/2002/02/18/ooooba/), and [`oooado`](/2002/05/07/oooado/). Those are digital scars: when I got tired of MT moving like a battleship, I rebooted onto Blosxom in March 2003 and declared "[Welcome to 0xDECAFBAD v2.0](/2003/03/01/oooooa/)".
+I also briefly tried pairing the blog with TWiki into an over-engineered "WikiLog" (even [writing custom XML-RPC plugins](/2002/08/19/ooobdd/) to auto-link `WikiWords` in posts), but running an open wiki on the early web quickly succumbed to spambots and maintenance friction.
 
 <figure>
   <img src="./2003-blosxom.png" alt="0xDECAFBAD in June 2003 running on Blosxom">
   <figcaption>0xDECAFBAD in June 2003, running on Blosxom with base-26 slugs and Agent Frank.</figcaption>
 </figure>
+
+If you poke around my earliest archive entries today, you'll still see cryptic slugs like [`ooooac`](/2002/02/14/ooooac/), [`ooooba`](/2002/02/18/ooooba/), and [`oooado`](/2002/05/07/oooado/). Those are digital scars: when I got tired of MT moving like a battleship, I rebooted onto Blosxom in March 2003 and declared "[Welcome to 0xDECAFBAD v2.0](/2003/03/01/oooooa/)".
 
 I wrote a hack to encode Movable Type's numeric database entry IDs into fixed-width base-26 slugs paired with an Apache redirect config so I wouldn't break my permalinks. [Cool URIs don't change](https://www.w3.org/Provider/Style/URI), and all that. I can't remember why I thought this in particular was a good idea. Maybe I thought the numbers were ugly? Maybe they clashed with Blosxom somehow? 
 
@@ -116,32 +116,15 @@ The results of the rewrite were immediately gratifying:
 - **Zero `node_modules` churn:** I deleted `package.json`, `package-lock.json`, and `node_modules/` in one clean commit. 88 Dependabot alerts evaporated instantly.
 - **In-memory live reload:** For local writing, `make dev` starts a dev server on port 9980 with file watching via `fsnotify`. When a post or CSS file changes, it rebuilds in memory and broadcasts an event over Server-Sent Events (SSE). Middleware injects the tiny client reload script into HTML responses on the fly, so disk build artifacts never get polluted with dev code.
 - **Built-in retro dithering:** I ported my Floyd-Steinberg image dithering and pixel-downscaling pipeline directly into pure Go (`pkg/imageutil`). No ImageMagick CLI invocations needed.
-
-### Squelching a Long-Standing Search Bug
-
-While we were in the engine room, we finally tracked down and squashed a bug that had annoyed me for months: in my client-side [Pagefind](https://pagefind.app/) search, every single search result was showing up with the title `"blog.lmorchard.com"` instead of the actual post title!
-
-It turned out to be a classic metadata heuristic trap. Pagefind extracts page titles by looking for the *first* `<h1>` tag in the document before checking `<title>`. And right at the top of every page, in the masthead navigation, was:
-
-```html
-<header>
-  <div class="masthead">
-    <div class="title">
-      <h1><a href="/">blog.lmorchard.com</a></h1>
-    </div>
-```
-
-Pagefind saw that `<h1>` on every page and happily assumed every article on the site was titled "blog.lmorchard.com". 
-
-Slapping `data-pagefind-ignore` onto the masthead title and explicitly tagging post headings with `data-pagefind-meta="title"` fixed it immediately. While we were at it, we also widened the search results drawer from a cramped column to a comfortable reading width and replaced its semi-transparent background with a solid theme surface so underlying text stops bleeding through.
+- **Fixed client-side search:** We squashed a stubborn [Pagefind](https://pagefind.app/) bug where every search result title was showing up as `"blog.lmorchard.com"` (Pagefind was greedily grabbing the masthead `<h1>` before checking the post title) and gave the search drawer an opaque background and wider reading column.
 
 ## The DecafClaw Flow
 
 The most interesting part of this project wasn't just the code—it was *how* it got built.
 
-I built the entire v2.0 system from scratch in a single afternoon pairing with **DecafClaw**, my personal AI agent project. Over the last year and a half—from [baby steps into semi-automatic coding](/2025/06/07/semi-automatic-coding/) in mid-2025 to [thinking about caretakers versus operators](/2026/10/19/the-only-conscious-observer/) this fall—my daily coding ergonomics have shifted toward working with an agent as a full teammate.
+I built the entire v2.0 system from scratch in a single afternoon pairing with **DecafClaw**, my personal AI agent project. DecafClaw isn't very old—I only started it [back in March](/2026/03/20/decafclaw/) as an afternoon experiment to learn how tool calling and agent loops work. But eight months of hyperfocused tinkering have turned it from a 50-line Python loop into my daily pair programmer.
 
-DecafClaw isn't a chatbot sitting in a browser tab where you copy-paste snippets back and forth. It's an agent wired directly into my local workspace and shell, with tools to read, edit, test, benchmark, and deploy.
+DecafClaw isn't a chatbot sitting in a browser tab where you copy-paste snippets back and forth. It's an agent wired directly into my local workspace and shell, with tools to read, edit, test, benchmark, and deploy. Over the last year—from [baby steps into semi-automatic coding](/2025/06/07/semi-automatic-coding/) to [thinking about caretakers versus operators](/2026/10/19/the-only-conscious-observer/)—my daily coding ergonomics have shifted toward working with an agent as a full teammate.
 
 What made this session feel like genuine flow was the division of labor:
 
