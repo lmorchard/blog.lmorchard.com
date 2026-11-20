@@ -27,7 +27,7 @@ type Watcher struct {
 // NewWatcher creates a recursive directory watcher with debounced change notifications.
 func NewWatcher(roots []string, debounce time.Duration, onChange func(changedFiles []string)) (*Watcher, error) {
 	if debounce <= 0 {
-		debounce = 400 * time.Millisecond
+		debounce = 2 * time.Second
 	}
 
 	fsw, err := fsnotify.NewWatcher()

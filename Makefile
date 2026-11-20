@@ -1,5 +1,6 @@
 BIN := easy-blog-oven
 PORT ?= 9980
+DEBOUNCE ?= 2s
 CONTENT_DIR := ./content
 POSTS_DIR := $(CONTENT_DIR)/posts
 PAGES_DIR := $(CONTENT_DIR)/pages
@@ -44,7 +45,7 @@ build-dev: build-bin
 	./$(BIN) build $(COMMON_FLAGS) -drafts -search=false
 
 dev start: build-bin
-	./$(BIN) serve -w $(COMMON_FLAGS) -drafts -port $(PORT)
+	./$(BIN) serve -w $(COMMON_FLAGS) -drafts -port $(PORT) -debounce $(DEBOUNCE)
 
 serve: build-bin
 	./$(BIN) serve -build $(BUILD_DIR) -port $(PORT)

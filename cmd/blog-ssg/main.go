@@ -185,6 +185,7 @@ func runWatch(args []string) {
 	baseURL := fs.String("baseurl", "", "Site base URL path prefix (e.g. /blog)")
 	absBaseURL := fs.String("abs-baseurl", "https://blog.lmorchard.com", "Site absolute base URL")
 	showDrafts := fs.Bool("drafts", true, "Include draft posts in watch mode")
+	debounce := fs.Duration("debounce", 2*time.Second, "Debounce delay before rebuilding on file changes")
 	_ = fs.Parse(args)
 
 	cfg := build.Config{
@@ -198,10 +199,10 @@ func runWatch(args []string) {
 		Site:          defaultSiteConfig(*baseURL, *absBaseURL),
 	}
 
-	startWatchLoop(cfg, false, nil)
+	startWatchLoop(cfg, *debounce, false, nil)
 }
 
-func startWatchLoop(cfg build.Config, runSearch bool, hub *watch.LiveReloadHub) *watch.Watcher {
+func startWatchLoop(cfg build.Config, debounce time.Duration, runSearch bool, hub *watch.LiveReloadHub) *watch.Watcher {
 	// 1. Initial build
 	buildSite(cfg, runSearch)
 
@@ -214,7 +215,7 @@ func startWatchLoop(cfg build.Config, runSearch bool, hub *watch.LiveReloadHub) 
 		watchDirs = append(watchDirs, cfg.TemplatesPath)
 	}
 
-	watcher, err := watch.NewWatcher(watchDirs, 400*time.Millisecond, func(changed []string) {
+	watcher, err := watch.NewWatcher(watchDirs, debounce, func(changed []string) {
 		fmt.Printf("\n[watch] File change detected (%d file(s)), rebuilding...\n", len(changed))
 		for _, f := range changed {
 			fmt.Printf("  • %s\n", filepath.Base(f))
@@ -250,6 +251,7 @@ func runServe(args []string) {
 	showDrafts := fs.Bool("drafts", true, "Include draft posts")
 	doWatch := fs.Bool("watch", false, "Watch for changes and rebuild automatically")
 	fs.BoolVar(doWatch, "w", false, "Alias for -watch")
+	debounce := fs.Duration("debounce", 2*time.Second, "Debounce delay before rebuilding on file changes in watch mode")
 	_ = fs.Parse(args)
 
 	cfg := build.Config{
@@ -267,7 +269,7 @@ func runServe(args []string) {
 
 	if *doWatch {
 		hub := watch.NewLiveReloadHub()
-		w := startWatchLoop(cfg, false, hub)
+		w := startWatchLoop(cfg, *debounce, false, hub)
 		if w != nil {
 			defer w.Close()
 		}
